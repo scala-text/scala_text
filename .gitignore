@@ -1,0 +1,27 @@
+jenkins/
+src_private/
+
+*.png.bak
+*.asta.bak
+*~
+.DS_Store
+
+### gitbook ###
+gitbook
+
+### npm ###
+node_modules
+npm-debug.log
+
+### sbt ###
+target/
+lib_managed/
+src_managed/
+project/boot/
+.history
+.cache
+
+### IntelliJ ###
+*.iml
+.idea/
+

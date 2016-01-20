@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "prh": {
+      "rulePaths": [
+        "prh.yml"
+      ]
+    },
+    "max-ten": {
+      "max": 5
+    },
+    "incremental-headers": true,
+    "spellcheck-tech-word": true,
+    "no-mix-dearu-desumasu": true,
+    "no-start-duplicated-conjunction": {
+      "interval": 2
+    },
+    "preset-jtf-style": {
+      "2.1.2.漢字": false,
+      "2.1.5.カタカナ": false,
+      "2.1.6.カタカナの長音": false,
+      "4.2.2.疑問符(？)": false,
+      "4.3.1.丸かっこ（）": false
+    }
+  }
+}
