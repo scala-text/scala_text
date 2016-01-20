@@ -1,0 +1,578 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>クラス | Scala研修テキスト</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./object.html" />
+    
+    
+    <link rel="prev" href="./control-syntax.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="6" data-chapter-title="クラス" data-filepath="class.md" data-basepath="." data-revision="Fri Jan 29 2016 18:43:29 GMT+0900 (JST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="introduction-to-scala.html">
+            
+                
+                    <a href="./introduction-to-scala.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Scalaとは
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sbt-install.html">
+            
+                
+                    <a href="./sbt-install.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        sbtをインストールする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="basic.html">
+            
+                
+                    <a href="./basic.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Scalaの基本
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sbt-compile-execute.html">
+            
+                
+                    <a href="./sbt-compile-execute.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        sbtでプログラムをコンパイル・実行する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="control-syntax.html">
+            
+                
+                    <a href="./control-syntax.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Scalaの制御構文
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6" data-path="class.html">
+            
+                
+                    <a href="./class.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        クラス
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="object.html">
+            
+                
+                    <a href="./object.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        オブジェクト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="trait.html">
+            
+                
+                    <a href="./trait.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        トレイト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="type-parameter.html">
+            
+                
+                    <a href="./type-parameter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        型パラメータと変位指定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="function.html">
+            
+                
+                    <a href="./function.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        関数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="collection.html">
+            
+                
+                    <a href="./collection.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Scalaのコレクションライブラリ
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="case-class-and-pattern-matching.html">
+            
+                
+                    <a href="./case-class-and-pattern-matching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        ケースクラスとパターンマッチング
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="implicit.html">
+            
+                
+                    <a href="./implicit.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Implicit
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="error-handling.html">
+            
+                
+                    <a href="./error-handling.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        エラー処理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="future-and-promise.html">
+            
+                
+                    <a href="./future-and-promise.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        FutureとPromise
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="test.html">
+            
+                
+                    <a href="./test.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        テスト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="java-interop.html">
+            
+                
+                    <a href="./java-interop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        javaとの相互運用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="answer.html">
+            
+                
+                    <a href="./answer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        演習問題の解答
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="advanced-trait-di.html">
+            
+                
+                    <a href="./advanced-trait-di.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        トレイトの応用編：依存性の注入によるリファクタリング
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Scala研修テキスト</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x30AF;&#x30E9;&#x30B9;">&#x30AF;&#x30E9;&#x30B9;</h1>
+<p>&#x3053;&#x308C;&#x304B;&#x3089;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x306F;&#x4F55;&#x304B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x95A2;&#x3057;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x307E;&#x3059;&#x3002;&#x6700;&#x4F4E;&#x9650;&#x3001;Java&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x308F;&#x304B;&#x3063;&#x3066;&#x3044;&#x308B;&#x4E8B;&#x3092;&#x524D;&#x63D0;&#x306B;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x3054;&#x4E86;&#x627F;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h2 id="&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p>Scala&#x306B;&#x304A;&#x3051;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x306F;&#x3001;&#x8A18;&#x6CD5;&#x3092;&#x9664;&#x3051;&#x3070;Java&#x8A00;&#x8A9E;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x5927;&#x3057;&#x3066;&#x5909;&#x308F;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;Scala&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#x306F;&#x304A;&#x304A;&#x307E;&#x304B;&#x306B;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x3092;&#x53D6;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">&#x30AF;&#x30E9;&#x30B9;&#x540D;</span>(</span>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;<span class="hljs-number">1</span> :&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;<span class="hljs-number">1</span>&#x306E;&#x578B;, &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;<span class="hljs-number">2</span> :&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;<span class="hljs-number">2</span>&#x306E;&#x578B;, ...) {
+  <span class="hljs-number">0</span>&#x500B;&#x4EE5;&#x4E0A;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x5B9A;&#x7FA9;&#x307E;&#x305F;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;
+}
+</code></pre>
+<p>&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x70B9;&#x3092;&#x8868;&#x3059;&#x30AF;&#x30E9;&#x30B9;<code>Point</code>&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;<code>Point</code>&#x306F;x&#x5EA7;&#x6A19;&#x3092;&#x8868;&#x3059;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;<code>x</code>&#xFF08;<code>Int</code>&#x578B;&#xFF09;&#x3068;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;<code>y</code>&#xFF08;<code>Int</code>&#x578B;&#xFF09;&#x304B;&#x3089;&#x306A;&#x308B;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30AF;&#x30E9;&#x30B9;<code>Point</code>&#x3092;Scala&#x3067;&#x66F8;&#x304F;&#x3068;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(</span>_x: <span class="hljs-type">Int</span>, _y: <span class="hljs-type">Int</span>) {
+  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> _x
+  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">y</span> =</span> _y
+}
+</code></pre>
+<p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#x3092;&#x305D;&#x306E;&#x307E;&#x307E;&#x516C;&#x958B;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x77ED;&#x304F;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(</span><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span>:</span> <span class="hljs-type">Int</span>, <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">y</span>:</span> <span class="hljs-type">Int</span>)
+</code></pre>
+<ul>
+<li>&#x30AF;&#x30E9;&#x30B9;&#x540D;&#x306E;&#x76F4;&#x5F8C;&#x306B;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5B9A;&#x7FA9;&#x304C;&#x3042;&#x308B;</li>
+<li>val/var&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;&#x3092;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3068;&#x3057;&#x3066;&#x516C;&#x958B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;</li>
+</ul>
+<p>&#x70B9;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x307E;&#x305A;&#x3001;&#x6700;&#x521D;&#x306E;&#x70B9;&#x3067;&#x3059;&#x304C;&#x3001;Scala&#x3067;&#x306F;1&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x4ED8;&#x304D;&#x3001;&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;1&#x3064;&#x306E;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x3057;&#x304B;&#x4F7F;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x6587;&#x6CD5;&#x4E0A;&#x306F;&#x8907;&#x6570;&#x306E;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x3092;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x306F;&#x307E;&#x305A;&#x306A;&#x3044;&#x306E;&#x3067;&#x899A;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4E00;&#x5FDC;&#x3001;Scala&#x3067;&#x306F;&#x8907;&#x6570;&#x306E;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x304C;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;&#x6700;&#x521D;&#x306E;1&#x3064;&#x306E;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x3092;<em>&#x30D7;&#x30E9;&#x30A4;&#x30DE;&#x30EA;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</em>&#x3068;&#x3057;&#x3066;&#x7279;&#x5225;&#x306B;&#x6271;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30D7;&#x30E9;&#x30A4;&#x30DE;&#x30EA;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#x306B;val/var&#x3092;&#x3064;&#x3051;&#x308B;&#x3068;&#x305D;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306F;&#x516C;&#x958B;&#x3055;&#x308C;&#x3001;&#x5916;&#x90E8;&#x304B;&#x3089;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;&#x306E;&#x30B9;&#x30B3;&#x30FC;&#x30D7;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#x5168;&#x4F53;&#x306B;&#x304A;&#x3088;&#x3073;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;</p>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(</span><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span>:</span> <span class="hljs-type">Int</span>, <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">y</span>:</span> <span class="hljs-type">Int</span>) {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span>(</span>p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
+    <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x + p.x, y + p.y)
+  }
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span>(</span>): <span class="hljs-type">String</span> = <span class="hljs-string">&quot;(&quot;</span> + x + <span class="hljs-string">&quot;, &quot;</span> + y + <span class="hljs-string">&quot;)&quot;</span>
+}
+</code></pre>
+<p>&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x76F4;&#x63A5;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x5F15;&#x6570;&#x3092;&#x53C2;&#x7167;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p>&#x5148;&#x307B;&#x3069;&#x65E2;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x4F8B;&#x3068;&#x3057;&#x3066;<code>+</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9A;&#x7FA9;&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B;&#x306F;&#x3001;</p>
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>]/<span class="hljs-keyword">protected</span>[<span class="hljs-keyword">package</span>&#x540D;]) <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x540D;</span>(</span>&#x5F15;&#x6570;&#x540D;<span class="hljs-number">1</span>: &#x5F15;&#x6570;<span class="hljs-number">1</span>&#x306E;&#x578B;, &#x5F15;&#x6570;&#x540D;<span class="hljs-number">2</span>: &#x5F15;&#x6570;<span class="hljs-number">2</span>&#x306E;&#x578B;, ...): &#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B; = {
+  &#x672C;&#x4F53;&#x306E;&#x30B3;&#x30FC;&#x30C9;
+}
+</code></pre>
+<p>&#x3068;&#x3044;&#x3046;&#x5F62;&#x3092;&#x3068;&#x308A;&#x307E;&#x3059;&#x3002;&#x3061;&#x306A;&#x307F;&#x306B;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x672C;&#x4F53;&#x304C;1&#x3064;&#x306E;&#x5F0F;&#x3060;&#x3051;&#x304B;&#x3089;&#x306A;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;</p>
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>]/<span class="hljs-keyword">protected</span>[<span class="hljs-keyword">package</span>&#x540D;]) <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x540D;</span>(</span>&#x5F15;&#x6570;&#x540D;<span class="hljs-number">1</span>: &#x5F15;&#x6570;<span class="hljs-number">1</span>&#x306E;&#x578B;, &#x5F15;&#x6570;&#x540D;<span class="hljs-number">2</span>: &#x5F15;&#x6570;<span class="hljs-number">2</span>&#x306E;&#x578B;, ...): &#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B; = &#x672C;&#x4F53;&#x306E;&#x30B3;&#x30FC;&#x30C9;
+</code></pre>
+<p>&#x3068;&#x66F8;&#x3051;&#x307E;&#x3059;&#xFF08;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3001;&#x3053;&#x3061;&#x3089;&#x306E;&#x65B9;&#x304C;&#x57FA;&#x672C;&#x5F62;&#x3067;&#x3001;<code>= {}</code>&#x3092;&#x4F7F;&#x3063;&#x305F;&#x30B9;&#x30BF;&#x30A4;&#x30EB;&#x306E;&#x65B9;&#x304C;<code>{}</code>&#x5185;&#x306B;&#x8907;&#x6570;&#x306E;&#x5F0F;&#x3092;&#x4E26;&#x3079;&#x3066;&#x66F8;&#x3051;&#x308B;&#x3053;&#x3068;&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x6D3E;&#x751F;&#x5F62;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x524D;&#x8005;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF09;&#x3002;</p>
+<p>&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x306F;&#x7701;&#x7565;&#x3057;&#x3066;&#x3082;&#x7279;&#x5225;&#x306A;&#x5834;&#x5408;&#x4EE5;&#x5916;&#x578B;&#x63A8;&#x8AD6;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x8AAD;&#x307F;&#x3084;&#x3059;&#x3055;&#x306E;&#x305F;&#x3081;&#x306B;&#x3001;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x306F;&#x660E;&#x8A18;&#x3059;&#x308B;&#x7FD2;&#x6163;&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305F;&#x3001;<code>private</code>&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x5185;&#x3060;&#x3051;&#x304B;&#x3089;&#x3001;<code>protected</code>&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x6D3E;&#x751F;&#x30AF;&#x30E9;&#x30B9;&#x304B;&#x3089;&#x306E;&#x307F;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3055;&#x3089;&#x306B;&#x3001; <code>private[this]</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x3068;&#x3001;&#x540C;&#x3058;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x304B;&#x3089;&#x306E;&#x307F;&#x3001; <code>protected[&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;]</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x3068;&#x3001;&#x8FFD;&#x52A0;&#x3067;&#x540C;&#x3058;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x6240;&#x5C5E;&#x3057;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x5168;&#x3066;&#x304B;&#x3089;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>private</code>&#x3082;<code>protected</code>&#x3082;&#x4ED8;&#x3051;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306F;public&#x3068;&#x307F;&#x306A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x5148;&#x307B;&#x3069;&#x5B9A;&#x7FA9;&#x3057;&#x305F;<code>Point</code>&#x30AF;&#x30E9;&#x30B9;&#x3092;REPL&#x304B;&#x3089;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(</span><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span>:</span> <span class="hljs-type">Int</span>, <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">y</span>:</span> <span class="hljs-type">Int</span>) {
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span>(</span>p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
+     |     <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x + p.x, y + p.y)
+     |   }
+     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span>(</span>): <span class="hljs-type">String</span> = <span class="hljs-string">&quot;(&quot;</span> + x + <span class="hljs-string">&quot;, &quot;</span> + y + <span class="hljs-string">&quot;)&quot;</span>
+     | }
+defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>
+</span>
+scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">p1</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+p1: <span class="hljs-type">Point</span> = (<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+
+scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">p2</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+p2: <span class="hljs-type">Point</span> = (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+
+scala&gt; p1 + p2
+res0: <span class="hljs-type">Point</span> = (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)
+</code></pre>
+<h3 id="&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h3>
+<p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;</p>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x540D;</span>(</span>&#x5F15;&#x6570;&#x540D;<span class="hljs-number">1</span>: &#x578B;&#x540D;<span class="hljs-number">1</span>, &#x5F15;&#x6570;&#x540D;<span class="hljs-number">2</span>: &#x578B;&#x540D;<span class="hljs-number">2</span>, ...)(&#x5F15;&#x6570;&#x540D;<span class="hljs-type">N</span>: &#x578B;&#x540D;<span class="hljs-type">N</span>, ..., &#x5F15;&#x6570;<span class="hljs-type">M</span>: <span class="hljs-type">N</span>): &#x8FD4;&#x308A;&#x5024;&#x578B; = &#x672C;&#x4F53;
+</code></pre>
+<p>&#x306E;&#x3088;&#x3046;&#x306B;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3068;&#x304D;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306F;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x8A00;&#x3044;&#x307E;&#x3059;&#x3002;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x306F;&#x666E;&#x901A;&#x306E;&#x95A2;&#x6570;&#x578B;&#x8A00;&#x8A9E;&#x3067;&#x306F;&#x91CD;&#x8981;&#x306A;&#x30C6;&#x30AF;&#x30CB;&#x30C3;&#x30AF;&#x3067;&#x3059;&#x304C;&#x3001;Scala&#x3067;&#x306E;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x306F;&#x610F;&#x5473;&#x5408;&#x3044;&#x304C;&#x3044;&#x3055;&#x3055;&#x304B;&#x3053;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x5F8C;&#x8FF0;&#x3059;&#x308B;implicit parameter&#x306A;&#x3069;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x3001;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x4F5C;&#x3089;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x305F;&#x3081;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;&#x4F55;&#x306F;&#x3068;&#x3082;&#x3042;&#x308C;&#x3001;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x3055;&#x308C;&#x305F;&#x52A0;&#x7B97;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span> {</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span>(</span>x: <span class="hljs-type">Int</span>)(y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y
+     | }
+defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span>
+</span>
+scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">adder</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
+adder: <span class="hljs-type">Adder</span> = <span class="hljs-type">Adder</span>@<span class="hljs-number">6</span>aeab77
+
+scala&gt; adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
+res1: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
+
+scala&gt; adder.add(<span class="hljs-number">2</span>) _
+res2: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = &lt;function1&gt;
+</code></pre>
+<p>&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x3055;&#x308C;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;<code>obj.m(x, y)</code>&#x306E;&#x5F62;&#x5F0F;&#x3067;&#x306A;&#x304F;<code>obj.m(x)(y)</code>&#x306E;&#x5F62;&#x5F0F;&#x3067;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x4E00;&#x756A;&#x4E0B;&#x306E;&#x4F8B;&#x306E;&#x3088;&#x3046;&#x306B;&#x6700;&#x521D;&#x306E;&#x5F15;&#x6570;&#x3060;&#x3051;&#x3092;&#x9069;&#x7528;&#x3057;&#x3066;&#x65B0;&#x3057;&#x3044;&#x95A2;&#x6570;&#x3092;&#x4F5C;&#x308B;&#xFF08;&#x90E8;&#x5206;&#x9069;&#x7528;&#xFF09;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#x306F;</p>
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>/<span class="hljs-keyword">protected</span>) (<span class="hljs-function"><span class="hljs-keyword">val</span><span class="hljs-title">/var</span>) <span class="hljs-title">&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x540D;</span>:</span> &#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x578B; = &#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306B;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x308B;&#x5024;&#x306E;&#x5F0F;
+</code></pre>
+<p>&#x3068;&#x3044;&#x3046;&#x5F62;&#x3092;&#x53D6;&#x308A;&#x307E;&#x3059;&#x3002;<code>val</code>&#x306E;&#x5834;&#x5408;&#x306F;&#x5909;&#x66F4;&#x4E0D;&#x80FD;&#x3001;<code>var</code>&#x306E;&#x5834;&#x5408;&#x306F;&#x5909;&#x66F4;&#x53EF;&#x80FD;&#x306A;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;<code>private</code>&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x5185;&#x3060;&#x3051;&#x304B;&#x3089;&#x3001;<code>protected</code>&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x6D3E;&#x751F;&#x30AF;&#x30E9;&#x30B9;&#x304B;&#x3089;&#x306E;&#x307F;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>private</code>
+&#x3082;<code>protected</code>&#x3082;&#x4ED8;&#x3051;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306F;public&#x3068;&#x307F;&#x306A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x7D99;&#x627F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">&#x7D99;&#x627F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p>&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x3082;&#x3046;1&#x3064;&#x306E;&#x6A5F;&#x80FD;&#x306F;&#x3001;&#x7D99;&#x627F;&#x3067;&#x3059;&#x3002;&#x7D99;&#x627F;&#x306B;&#x306F;2&#x3064;&#x306E;&#x76EE;&#x7684;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+1&#x3064;&#x306F;&#x7D99;&#x627F;&#x306B;&#x3088;&#x308A;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3082;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3092;&#x518D;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3082;&#x3046;1&#x3064;&#x306F;&#x8907;&#x6570;&#x306E;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x5171;&#x901A;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x51E6;&#x7406;&#x3092;&#x5171;&#x901A;&#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;</p>
+<p>&#x5B9F;&#x88C5;&#x306E;&#x7D99;&#x627F;&#x306B;&#x306F;&#x8907;&#x6570;&#x306E;&#x7D99;&#x627F;&#x306B;&#x3088;&#x308A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x540D;&#x524D;&#x304C;&#x885D;&#x7A81;&#x3059;&#x308B;&#x5834;&#x5408;&#x306E;&#x632F;&#x821E;&#x3044;&#x306A;&#x3069;&#x306B;&#x554F;&#x984C;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x77E5;&#x3089;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;Java&#x3067;&#x306F;&#x5B9F;&#x88C5;&#x7D99;&#x627F;&#x304C;1&#x3064;&#x3060;&#x3051;&#x306B;&#x9650;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+Java 8&#x3067;&#x306F;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x306B;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x6301;&#x305F;&#x305B;&#x3089;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5909;&#x6570;&#x306F;&#x6301;&#x305F;&#x305B;&#x3089;&#x308C;&#x306A;&#x3044;&#x306A;&#x3069;&#x306E;&#x5236;&#x7D04;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+Scala&#x3067;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3068;&#x3044;&#x3046;&#x4ED5;&#x7D44;&#x307F;&#x3067;&#x8907;&#x6570;&#x306E;&#x5B9F;&#x88C5;&#x306E;&#x7D99;&#x627F;&#x3092;&#x5B9F;&#x73FE;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x5225;&#x306E;&#x7BC0;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x901A;&#x5E38;&#x306E;Scala&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x7D99;&#x627F;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;
+Scala&#x3067;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x7D99;&#x627F;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x69CB;&#x6587;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> (</span>....) <span class="hljs-keyword">extends</span> &#x7D99;&#x627F;&#x5143;&#x30AF;&#x30E9;&#x30B9; {
+  ....
+}
+</code></pre>
+<p>&#x57FA;&#x672C;&#x7684;&#x306B;&#x3001;&#x7D99;&#x627F;&#x306E;&#x306F;&#x305F;&#x3089;&#x304D;&#x306F;Java&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x304C;&#x3001;&#x65E2;&#x5B58;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3059;&#x308B;&#x3068;&#x304D;&#x306F;<code>override</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x70B9;&#x304C;&#x7570;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span>(</span>) {
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span>(</span>): <span class="hljs-type">Unit</span> = {
+     |     println(<span class="hljs-string">&quot;A&quot;</span>)
+     |   }
+     | }
+defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span>
+</span>
+scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">APrinter</span> {
+     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span>(</span>): <span class="hljs-type">Unit</span> = {
+     |     println(<span class="hljs-string">&quot;B&quot;</span>)
+     |   }
+     | }
+defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>
+</span>
+scala&gt; <span class="hljs-keyword">new</span> <span class="hljs-type">APrinter</span>().print
+<span class="hljs-type">A</span>
+
+scala&gt; <span class="hljs-keyword">new</span> <span class="hljs-type">BPrinter</span>().print
+<span class="hljs-type">B</span>
+</code></pre>
+<p>&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;<code>override</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x306F;&#x305A;&#x3059;&#x3068;&#x3001;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">APrinter</span> {
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span>(</span>): <span class="hljs-type">Unit</span> = {
+     |     println(<span class="hljs-string">&quot;B&quot;</span>)
+     |   }
+     | }
+&lt;console&gt;:<span class="hljs-number">13</span>: error: overriding method print in <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span>;
+ method print needs `<span class="hljs-keyword">override</span>&apos; modifier
+         <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span>(</span>): <span class="hljs-type">Unit</span> = {
+             ^
+</code></pre>
+<p>&#x306E;&#x3088;&#x3046;&#x306B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x3001;<strong>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;</strong>&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;Java&#x3067;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;&#x3001;&#x6C17;&#x4ED8;&#x304B;&#x305A;&#x306B;&#x65E2;&#x5B58;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3059;&#x308B;&#x3064;&#x3082;&#x308A;&#x3067;&#x65B0;&#x3057;&#x3044;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x3044;&#x3046;&#x30DF;&#x30B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;Scala&#x3067;&#x306F;<code>override</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x8A00;&#x8A9E;&#x30EC;&#x30D9;&#x30EB;&#x3067;&#x3053;&#x306E;&#x554F;&#x984C;&#x306B;&#x5BFE;&#x51E6;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<blockquote id="fn_1">
+<sup>1</sup>. &#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D99;&#x627F;&#x306A;&#x3069;&#x306B;&#x3088;&#x308A;&#x578B;&#x306B;&#x89AA;&#x5B50;&#x95A2;&#x4FC2;&#x3092;&#x4F5C;&#x308A;&#x3001;&#x8907;&#x6570;&#x306E;&#x578B;&#x306B;&#x5171;&#x901A;&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3092;&#x6301;&#x305F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3092;&#x30B5;&#x30D6;&#x30BF;&#x30A4;&#x30D4;&#x30F3;&#x30B0;&#x30FB;&#x30DD;&#x30EA;&#x30E2;&#x30FC;&#x30D5;&#x30A3;&#x30BA;&#x30E0;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x306F;&#x4ED6;&#x306B;&#x3082;&#x69CB;&#x9020;&#x7684;&#x90E8;&#x5206;&#x578B;&#x3068;&#x3044;&#x3046;&#x30B5;&#x30D6;&#x30BF;&#x30A4;&#x30D4;&#x30F3;&#x30B0;&#x30FB;&#x30DD;&#x30EA;&#x30E2;&#x30FC;&#x30D5;&#x30A3;&#x30BA;&#x30E0;&#x306E;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x5C11;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x3053;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3067;&#x306F;&#x8AAC;&#x660E;&#x3092;&#x7701;&#x7565;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+</blockquote>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./control-syntax.html" class="navigation navigation-prev " aria-label="Previous page: Scalaの制御構文"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./object.html" class="navigation navigation-next " aria-label="Next page: オブジェクト"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Scalaの制御構文 | Scala研修テキスト</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./class.html" />
+    
+    
+    <link rel="prev" href="./sbt-compile-execute.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="5" data-chapter-title="Scalaの制御構文" data-filepath="control-syntax.md" data-basepath="." data-revision="Fri Jan 29 2016 18:43:29 GMT+0900 (JST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="introduction-to-scala.html">
+            
+                
+                    <a href="./introduction-to-scala.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Scalaとは
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sbt-install.html">
+            
+                
+                    <a href="./sbt-install.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        sbtをインストールする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="basic.html">
+            
+                
+                    <a href="./basic.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Scalaの基本
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sbt-compile-execute.html">
+            
+                
+                    <a href="./sbt-compile-execute.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        sbtでプログラムをコンパイル・実行する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5" data-path="control-syntax.html">
+            
+                
+                    <a href="./control-syntax.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Scalaの制御構文
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="class.html">
+            
+                
+                    <a href="./class.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        クラス
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="object.html">
+            
+                
+                    <a href="./object.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        オブジェクト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="trait.html">
+            
+                
+                    <a href="./trait.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        トレイト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="type-parameter.html">
+            
+                
+                    <a href="./type-parameter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        型パラメータと変位指定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="function.html">
+            
+                
+                    <a href="./function.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        関数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="collection.html">
+            
+                
+                    <a href="./collection.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Scalaのコレクションライブラリ
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="case-class-and-pattern-matching.html">
+            
+                
+                    <a href="./case-class-and-pattern-matching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        ケースクラスとパターンマッチング
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="implicit.html">
+            
+                
+                    <a href="./implicit.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Implicit
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="error-handling.html">
+            
+                
+                    <a href="./error-handling.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        エラー処理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="future-and-promise.html">
+            
+                
+                    <a href="./future-and-promise.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        FutureとPromise
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="test.html">
+            
+                
+                    <a href="./test.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        テスト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="java-interop.html">
+            
+                
+                    <a href="./java-interop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        javaとの相互運用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="answer.html">
+            
+                
+                    <a href="./answer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        演習問題の解答
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="advanced-trait-di.html">
+            
+                
+                    <a href="./advanced-trait-di.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        トレイトの応用編：依存性の注入によるリファクタリング
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Scala研修テキスト</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x5236;&#x5FA1;&#x69CB;&#x6587;">&#x5236;&#x5FA1;&#x69CB;&#x6587;</h1>
+<p>&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x3001;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3073;&#x307E;&#x3059;&#x3002;&#x901A;&#x5E38;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x3068;&#x304F;&#x3089;&#x3079;&#x3066;&#x305D;&#x308C;&#x307B;&#x3069;&#x7A81;&#x98DB;&#x306A;&#x3082;&#x306E;&#x304C;&#x51FA;&#x3066;&#x304F;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x3044;&#x306E;&#x3067;&#x5FC3;&#x914D;&#x306F;&#x8981;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<h2 id="&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;">&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;</h2>
+<p>&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x304C;&#x5165;&#x308A;&#x4E71;&#x308C;&#x3066;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x5C11;&#x3005;&#x308F;&#x304B;&#x308A;&#x3065;&#x3089;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x5148;&#x306B;&#x3053;&#x306E;3&#x3064;&#x306E;&#x7528;&#x8A9E;&#x306E;&#x89E3;&#x8AAC;&#x3092;&#x3057;&#x305F;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305A;&#x300C;&#x69CB;&#x6587;&#xFF08;Syntax&#xFF09;&#x300D;&#x306F;&#x3001;&#x305D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x5185;&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x69CB;&#x9020;&#x3092;&#x6301;&#x3064;&#x305F;&#x3081;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x3067;&#x3059;&#x3002;&#x591A;&#x304F;&#x306E;&#x5834;&#x5408;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x5185;&#x3067;&#x7279;&#x5225;&#x6271;&#x3044;&#x3055;&#x308C;&#x308B;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070;<code>class</code>&#x3084;<code>val</code>&#x3001;<code>if</code>&#x306A;&#x3069;&#x304C;&#x542B;&#x307E;&#x308C;&#x3001;&#x305D;&#x3057;&#x3066;&#x6B63;&#x3057;&#x3044;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;<code>class</code>&#x306E;&#x5F8C;&#x306B;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x540D;&#x304C;&#x7D9A;&#x304D;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x4E2D;&#x8EAB;&#x306F;<code>{</code>&#x3068;<code>}</code>&#x3067;&#x62EC;&#x3089;&#x308C;&#x308B;&#x3001;&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x7BC0;&#x306F;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3092;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x51E6;&#x7406;&#x306E;&#x6D41;&#x308C;&#x3092;&#x5236;&#x5FA1;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x4F5C;&#x308B;&#x305F;&#x3081;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x6B21;&#x306B;&#x300C;&#x5F0F;&#xFF08;Expression&#xFF09;&#x300D;&#x306F;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x90E8;&#x5206;&#x306E;&#x3046;&#x3061;&#x3001;&#x8A55;&#x4FA1;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5024;&#x306B;&#x306A;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;<code>1</code>&#x3084;<code>1 + 2</code>&#x3001;<code>&quot;hoge&quot;</code>&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306F;&#x8A55;&#x4FA1;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x6570;&#x5024;&#x3084;&#x6587;&#x5B57;&#x5217;&#x306E;&#x5024;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6700;&#x5F8C;&#x306B;&#x300C;&#x6587;&#xFF08;Statement&#xFF09;&#x300D;&#x3067;&#x3059;&#x304C;&#x3001;&#x5F0F;&#x3068;&#x306F;&#x5BFE;&#x7167;&#x7684;&#x306B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x90E8;&#x5206;&#x306E;&#x3046;&#x3061;&#x3001;&#x8A55;&#x4FA1;&#x3057;&#x3066;&#x3082;&#x5024;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x5909;&#x6570;&#x306E;&#x5B9A;&#x7FA9;&#x3067;&#x3042;&#x308B;<code>val i = 1</code>&#x306F;&#x8A55;&#x4FA1;&#x3057;&#x3066;&#x3082;&#x5909;&#x6570;<code>i</code>&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3001;<code>i</code>&#x306E;&#x5024;&#x304C;<code>1</code>&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x5B9A;&#x7FA9;&#x5168;&#x4F53;&#x3068;&#x3057;&#x3066;&#x306F;&#x5024;&#x3092;&#x6301;&#x3061;&#x307E;&#x305B;&#x3093;&#x3002;&#x3088;&#x3063;&#x3066;&#x3001;&#x3053;&#x308C;&#x306F;&#x6587;&#x3067;&#x3059;&#x3002;</p>
+<p>Scala&#x306F;&#x4ED6;&#x306E;C&#x3084;Java&#x306A;&#x3069;&#x306E;&#x624B;&#x7D9A;&#x304D;&#x578B;&#x306E;&#x8A00;&#x8A9E;&#x306B;&#x6BD4;&#x3079;&#x3066;&#x3001;&#x6587;&#x3088;&#x308A;&#x3082;&#x5F0F;&#x306B;&#x306A;&#x308B;&#x69CB;&#x6587;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x3002;
+Scala&#x3067;&#x306F;&#x6587;&#x3088;&#x308A;&#x3082;&#x5F0F;&#x3092;&#x591A;&#x304F;&#x5229;&#x7528;&#x3059;&#x308B;&#x69CB;&#x6587;&#x304C;&#x63A1;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x5909;&#x6570;&#x306A;&#x3069;&#x306E;&#x72B6;&#x614B;&#x3092;&#x51FA;&#x6765;&#x308B;&#x3060;&#x3051;&#x6392;&#x9664;&#x3057;&#x305F;&#x5206;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x66F8;&#x304D;&#x3084;&#x3059;&#x304F;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x8A00;&#x8449;&#x306E;&#x4F7F;&#x308F;&#x308C;&#x65B9;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x8AAC;&#x660E;&#x3092;&#x8AAD;&#x3093;&#x3067;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h2 id="&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><code>{}</code>&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p>Scala&#x3067;&#x306F;<code>{}</code>&#x3082;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3067;&#x3059;&#x306E;&#x3067;&#x8A00;&#x53CA;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3059;&#x3002;<code>{}</code>&#x69CB;&#x6587;&#x306E;&#x4E00;&#x822C;&#x5F62;&#x306F;</p>
+<pre><code class="lang-scala">{ exp1; exp2; ... expN; }
+</code></pre>
+<p>&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>exp1</code>&#x304B;&#x3089;<code>expN</code>&#x306F;&#x5F0F;&#x3067;&#x3059;&#x3002;&#x5F0F;&#x304C;&#x6539;&#x884C;&#x3067;&#x533A;&#x5207;&#x3089;&#x308C;&#x3066;&#x3044;&#x308C;&#x3070;&#x30BB;&#x30DF;&#x30B3;&#x30ED;&#x30F3;&#x306F;&#x7701;&#x7565;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>{}</code>&#x5F0F;&#x306F;<code>exp1</code>&#x304B;&#x3089;<code>expN</code>&#x3092;&#x9806;&#x756A;&#x306B;&#x8A55;&#x4FA1;&#x3057;&#x3001;<code>expN</code>&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6B21;&#x306E;&#x5F0F;&#x3067;&#x306F;</p>
+<pre><code class="lang-scala">scala&gt; { println(<span class="hljs-string">&quot;A&quot;</span>); println(<span class="hljs-string">&quot;B&quot;</span>); <span class="hljs-number">1</span> + <span class="hljs-number">2</span> }
+<span class="hljs-type">A</span>
+<span class="hljs-type">B</span>
+res0: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span>
+</code></pre>
+<p>A&#x3068;B&#x304C;&#x51FA;&#x529B;&#x3055;&#x308C;&#x3001;&#x6700;&#x5F8C;&#x306E;&#x5F0F;&#x3067;&#x3042;&#x308B;<code>1 + 2</code>&#x306E;&#x7D50;&#x679C;&#x3067;&#x3042;&#x308B;<code>3</code>&#x304C;<code>{}</code>&#x5F0F;&#x306E;&#x5024;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x3053;&#x3068;&#x306F;&#x3001;&#x5F8C;&#x307B;&#x3069;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306A;&#x3069;&#x306B;&#x304A;&#x3044;&#x3066;&#x91CD;&#x8981;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x306F;&#x3001;</p>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span>(</span>): <span class="hljs-type">String</span> = {
+  <span class="hljs-string">&quot;foo&quot;</span> + <span class="hljs-string">&quot;foo&quot;</span>
+}
+</code></pre>
+<p>&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x3067;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x4E00;&#x822C;&#x7684;&#x3067;&#x3059;&#x304C;&#xFF08;&#x5F8C;&#x8FF0;&#x3057;&#x307E;&#x3059;&#xFF09;&#x3001;&#x3053;&#x3053;&#x3067;<code>{}</code>&#x306F;&#x5358;&#x306B;<code>{}</code>&#x5F0F;&#x3067;&#x3042;&#x3063;&#x3066;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x69CB;&#x6587;&#x306B;&#x7279;&#x5225;&#x306B;<code>{}</code>&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#x69CB;&#x6587;&#x306A;&#x3069;&#x306B;&#x304A;&#x3051;&#x308B;<code>{}</code>&#x306F;&#x5225;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="if&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">if&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p><code>if</code>&#x5F0F;&#x306F;Java&#x306E;<code>if</code>&#x6587;&#x3068;&#x307B;&#x3068;&#x3093;&#x3069;&#x540C;&#x3058;&#x4F7F;&#x3044;&#x65B9;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;<code>if</code>&#x5F0F;&#x306E;&#x69CB;&#x6587;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &#xFF08;&#x6761;&#x4EF6;&#x5F0F;&#xFF09; <span class="hljs-type">A</span> [<span class="hljs-keyword">else</span> <span class="hljs-type">B</span>]
+</code></pre>
+<p>&#x6761;&#x4EF6;&#x5F0F;&#x306F;<code>Boolean</code>&#x578B;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<code>else B</code>&#x306F;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>A</code>&#x306F;&#x6761;&#x4EF6;&#x5F0F;&#x304C;<code>true</code>&#x306E;&#x3068;&#x304D;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x5F0F;&#x3067;&#x3001;<code>B</code>&#x306F;&#x6761;&#x4EF6;&#x5F0F;&#x304C;<code>false</code>&#x306E;&#x3068;&#x304D;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x5F0F;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x65E9;&#x901F;<code>if</code>&#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">var</span> age = <span class="hljs-number">17</span>
+age: <span class="hljs-type">Int</span> = <span class="hljs-number">17</span>
+
+scala&gt; <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
+     |   <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
+     | } <span class="hljs-keyword">else</span> {
+     |   <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
+     | }
+res1: <span class="hljs-type">String</span> = <span class="hljs-number">18</span>&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;
+
+scala&gt; age = <span class="hljs-number">18</span>
+age: <span class="hljs-type">Int</span> = <span class="hljs-number">18</span>
+
+scala&gt; <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
+     |   <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
+     | } <span class="hljs-keyword">else</span> {
+     |   <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
+     | }
+res2: <span class="hljs-type">String</span> = <span class="hljs-number">18</span>&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;
+</code></pre>
+<p>&#x5909;&#x66F4;&#x53EF;&#x80FD;&#x306A;&#x5909;&#x6570;<code>age</code>&#x304C;18&#x3088;&#x308A;&#x5C0F;&#x3055;&#x3044;&#x304B;&#x3069;&#x3046;&#x304B;&#x3067;&#x5225;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;<em>&#x8FD4;&#x3059;</em>&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><code>if</code>&#x5F0F;&#x306B;&#x9650;&#x3089;&#x305A;&#x3001;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x306F;&#x5168;&#x3066;&#x5F0F;&#x3067;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x5FC5;&#x305A;&#x4F55;&#x3089;&#x304B;&#x306E;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;Java&#x306A;&#x3069;&#x306E;&#x8A00;&#x8A9E;&#x3067;&#x4E09;&#x9805;&#x6F14;&#x7B97;&#x5B50;<code>?:</code>&#x3092;&#x898B;&#x305F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x5024;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x9762;&#x3067;<code>if</code>&#x5F0F;&#x3082;&#x4F7F;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x306A;&#x304A;&#x3001;<code>else</code>&#x304C;&#x7701;&#x7565;&#x53EF;&#x80FD;&#x3060;&#x3068;&#x66F8;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x305D;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span>&#xFF08;&#x6761;&#x4EF6;&#x5F0F;&#xFF09; <span class="hljs-type">A</span> <span class="hljs-keyword">else</span> ()
+</code></pre>
+<p>&#x3068;<code>Unit</code>&#x578B;&#x306E;&#x5024;&#x304C;&#x88DC;&#x308F;&#x308C;&#x305F;&#x306E;&#x3068;&#x540C;&#x3058;&#x5024;&#x304C;&#x8FD4;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;">&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
+<p><code>var age: Int = 5</code>&#x3068;&#x3044;&#x3046;&#x5E74;&#x9F62;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5909;&#x6570;&#x3068;<code>var isSchoolStarted: Boolean = false</code>&#x3068;&#x3044;&#x3046;&#x5C31;&#x5B66;&#x3092;&#x958B;&#x59CB;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x5909;&#x6570;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
+1&#x6B73;&#x304B;&#x3089;6&#x6B73;&#x307E;&#x3067;&#x306E;&#x5C31;&#x5B66;&#x4EE5;&#x524D;&#x306E;&#x5B50;&#x3069;&#x3082;&#x306E;&#x5834;&#x5408;&#x306B;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x3059;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3057;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x5408;&#x306F;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3059;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h2 id="while&#x5F0F;&#xFF08;&#x2605;&#x2605;&#xFF09;">while&#x5F0F;&#xFF08;&#x2605;&#x2605;&#xFF09;</h2>
+<p><code>while</code>&#x5F0F;&#x306E;&#x69CB;&#x6587;&#x306F;Java&#x306E;&#x3082;&#x306E;&#x3068;&#x307B;&#x307C;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">while</span> &#xFF08;&#x6761;&#x4EF6;&#x5F0F;&#xFF09; <span class="hljs-type">A</span>
+</code></pre>
+<p>&#x6761;&#x4EF6;&#x5F0F;&#x306F;<code>Boolean</code>&#x578B;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<code>while</code>&#x5F0F;&#x306F;&#x3001;&#x6761;&#x4EF6;&#x5F0F;&#x304C;<code>true</code>&#x306E;&#x9593;&#x3001;A&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>while</code>&#x5F0F;&#x3082;&#x5F0F;&#x306A;&#x306E;&#x3067;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;<code>while</code>&#x5F0F;&#x306B;&#x306F;&#x9069;&#x5207;&#x306A;&#x8FD4;&#x3059;&#x3079;&#x304D;&#x5024;&#x304C;&#x306A;&#x3044;&#x306E;&#x3067;<code>Unit</code>&#x578B;&#x306E;&#x5024;<code>()</code>&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><code>Unit</code>&#x578B;&#x306F;Java&#x3067;&#x306F;<code>void</code>&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;&#x8FD4;&#x3059;&#x3079;&#x304D;&#x5024;&#x304C;&#x306A;&#x3044;&#x3068;&#x304D;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3001;&#x552F;&#x4E00;&#x306E;&#x5024;<code>()</code>&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3055;&#x3066;&#x3001;while&#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;1&#x304B;&#x3089;10&#x307E;&#x3067;&#x306E;&#x5024;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>
+i: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+
+scala&gt; <span class="hljs-keyword">while</span>(i &lt;= <span class="hljs-number">10</span>) {
+     |   println(<span class="hljs-string">&quot;i = &quot;</span> + i)
+     |   i = i + <span class="hljs-number">1</span>
+     | }
+i = <span class="hljs-number">1</span>
+i = <span class="hljs-number">2</span>
+i = <span class="hljs-number">3</span>
+i = <span class="hljs-number">4</span>
+i = <span class="hljs-number">5</span>
+i = <span class="hljs-number">6</span>
+i = <span class="hljs-number">7</span>
+i = <span class="hljs-number">8</span>
+i = <span class="hljs-number">9</span>
+i = <span class="hljs-number">10</span>
+</code></pre>
+<p>Java&#x3067;<code>while</code>&#x6587;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3068;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002;<code>do while</code>&#x6587;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x307B;&#x307C;Java&#x3068;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;&#x8AAC;&#x660E;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;">&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
+<p><code>do while</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;0&#x304B;&#x3089;&#x6570;&#x3048;&#x4E0A;&#x3052;&#x3066;9&#x307E;&#x3067;&#x51FA;&#x529B;&#x3057;&#x3066;10&#x306B;&#x306A;&#x3063;&#x305F;&#x3089;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x7D42;&#x4E86;&#x3059;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h2 id="for&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">for&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p>Scala&#x306B;&#x306F;for&#x5F0F;&#x3068;&#x3044;&#x3046;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;Java&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3068;&#x4F3C;&#x305F;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x306E;&#x3001;&#x5168;&#x304F;&#x7570;&#x306A;&#x308B;&#x69CB;&#x6587;&#x3067;&#x3059;&#x3002;for&#x5F0F;&#x306E;&#x672C;&#x5F53;&#x306E;&#x529B;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;<code>flatMap</code>, <code>map</code>, <code>withFilter</code>, <code>foreach</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306A;<code>for</code>&#x5F0F;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x306E;&#x307F;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><code>for</code>&#x5F0F;&#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x69CB;&#x6587;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>for(&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;1;  &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;; ... &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;n) A
+# &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;1 = a1 &lt;- exp1; &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;2 = a2 &lt;- exp2; ... &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;n = an &lt;- expn
+</code></pre><p>&#x5909;&#x6570;<code>a1</code>&#x301C;<code>an</code>&#x307E;&#x3067;&#x306F;&#x597D;&#x304D;&#x306A;&#x540D;&#x524D;&#x306E;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>exp1</code>&#x304B;&#x3089;<code>expn</code>&#x307E;&#x3067;&#x306B;&#x304B;&#x3051;&#x308B;&#x5F0F;&#x306F;&#x4E00;&#x822C;&#x5F62;&#x3092;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x3068;&#x3084;&#x3063;&#x304B;&#x3044;&#x306A;&#x306E;&#x3067;&#x3001;&#x3055;&#x3057;&#x3042;&#x305F;&#x3063;&#x3066;&#x3001;&#x3042;&#x308B;&#x6570;&#x306E;&#x7BC4;&#x56F2;&#x3092;&#x8868;&#x3059;&#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x308B;&#x3068;&#x899A;&#x3048;&#x3066;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;<code>1 to 10</code>&#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x3080;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3001;<code>1 until 10</code>&#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x307E;&#x306A;&#x3044;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x65E9;&#x901F;<code>for</code>&#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span>){
+     |   println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
+     | }
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">4</span>
+</code></pre>
+<p><code>x</code>&#x3092;1&#x304B;&#x3089;5&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;&#x3001;<code>y</code>&#x3092;1&#x304B;&#x3089;4&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;<code>x</code>, <code>y</code>&#x306E;&#x5024;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&#x3092;2&#x3064;&#x3060;&#x3051;&#x306B;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x6570;&#x3092;&#x5897;&#x3084;&#x305B;&#x3070;&#x4F55;&#x91CD;&#x306B;&#x3082;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><code>for</code>&#x5F0F;&#x306E;&#x529B;&#x306F;&#x3053;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x6761;&#x4EF6;&#x306B;&#x3042;&#x3063;&#x305F;&#x3082;&#x306E;&#x3060;&#x3051;&#x3092;&#x7D5E;&#x308A;&#x8FBC;&#x3080;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>until</code>&#x306E;&#x5F8C;&#x3067;<code>if x != y</code>&#x3068;&#x66F8;&#x3044;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;&#x3001;<code>x</code>&#x3068;<code>y</code>&#x304C;&#x7570;&#x306A;&#x308B;&#x5024;&#x306E;&#x5834;&#x5408;&#x306E;&#x307F;&#x3092;&#x62BD;&#x51FA;&#x3057;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span> <span class="hljs-keyword">if</span> x != y){
+     |   println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
+     | }
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">1</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">2</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">3</span> y = <span class="hljs-number">4</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">4</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">1</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">2</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">5</span> y = <span class="hljs-number">4</span>
+</code></pre>
+<p><code>for</code>&#x5F0F;&#x306F;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x3092;1&#x3064;1&#x3064;&#x305F;&#x3069;&#x3063;&#x3066;&#x4F55;&#x304B;&#x306E;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x306B;&#x3082;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
+<code>&quot;D&quot;</code>, <code>&quot;E&quot;</code>&#x306E;5&#x3064;&#x306E;&#x8981;&#x7D20;&#x304B;&#x3089;&#x306A;&#x308B;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x305F;&#x3069;&#x3063;&#x3066;&#x5168;&#x3066;&#x3092;&#x51FA;&#x529B;&#x3059;&#x308B;&#x51E6;&#x7406;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) println(e)
+<span class="hljs-type">A</span>
+<span class="hljs-type">B</span>
+<span class="hljs-type">C</span>
+<span class="hljs-type">D</span>
+<span class="hljs-type">E</span>
+</code></pre>
+<p>&#x3055;&#x3089;&#x306B;&#x3001;<code>for</code>&#x5F0F;&#x306F;&#x305F;&#x3069;&#x3063;&#x305F;&#x8981;&#x7D20;&#x3092;&#x52A0;&#x5DE5;&#x3057;&#x3066;&#x65B0;&#x3057;&#x3044;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x8981;&#x7D20;&#x5168;&#x3066;&#x306B;<code>Pre</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x3092;&#x4ED8;&#x52A0;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) <span class="hljs-keyword">yield</span> {
+     |   <span class="hljs-string">&quot;Pre&quot;</span> + e
+     | }
+res7: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">PreA</span>, <span class="hljs-type">PreB</span>, <span class="hljs-type">PreC</span>, <span class="hljs-type">PreD</span>, <span class="hljs-type">PreE</span>)
+</code></pre>
+<p>&#x3053;&#x3053;&#x3067;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3068;&#x306A;&#x308B;&#x306E;&#x306F;&#x3001;<code>yield</code>&#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3067;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;<code>for</code>&#x69CB;&#x6587;&#x306F;<code>yield</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x3092;&#x52A0;&#x5DE5;&#x3057;&#x3066;&#x8FD4;&#x3059;&#x3068;&#x3044;&#x3046;&#x5168;&#x304F;&#x7570;&#x306A;&#x308B;&#x7528;&#x9014;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x7279;&#x306B;<code>yield</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;<code>for</code>&#x5F0F;&#x3092;&#x7279;&#x5225;&#x306B;
+for-comprehension&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;">&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
+<p>1&#x304B;&#x3089;1000&#x307E;&#x3067;&#x306E;3&#x3064;&#x306E;&#x6574;&#x6570;a, b, c&#x304C;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306B;&#x306A;&#x308B;&#x3088;&#x3046;&#x306A;<code>a</code>, <code>b</code>, <code>c</code>&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3092;&#x5168;&#x3066;&#x51FA;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306E;&#x6761;&#x4EF6;&#x306B;&#x306F;&#x30D4;&#x30BF;&#x30B4;&#x30E9;&#x30B9;&#x306E;&#x5B9A;&#x7406;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x30D4;&#x30BF;&#x30B4;&#x30E9;&#x30B9;&#x306E;&#x5B9A;&#x7406;&#x3068;&#x306F;&#x4E09;&#x5E73;&#x65B9;&#x306E;&#x5B9A;&#x7406;&#x3068;&#x3082;&#x547C;&#x3070;&#x308C;&#x3001;<code>a ^ 2 == b ^ 2 + c ^ 2</code>&#x3092;&#x6E80;&#x305F;&#x3059;&#x3001;<code>a</code>, <code>b</code>, <code>c</code> &#x306E;&#x9577;&#x3055;&#x306E;&#x4E09;&#x8FBA;&#x3092;&#x6301;&#x3064;&#x4E09;&#x89D2;&#x5F62;&#x306F;&#x3001;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306B;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="match&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">match&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<p><code>match</code>&#x5F0F;&#x306F;&#x4F7F;&#x3044;&#x65B9;&#x306B;&#x3088;&#x3063;&#x3066;&#x975E;&#x5E38;&#x306B;&#x5E45;&#x306E;&#x3042;&#x308B;&#x5236;&#x5FA1;&#x69CB;&#x9020;&#x3067;&#x3059;&#x3002;<code>match</code>&#x5F0F;&#x306E;&#x57FA;&#x672C;&#x69CB;&#x6587;&#x306F;</p>
+<pre><code>&#x30DE;&#x30C3;&#x30C1;&#x5BFE;&#x8C61;&#x306E;&#x5F0F; match {
+  case &#x30D1;&#x30BF;&#x30FC;&#x30F3;1 [if &#x30AC;&#x30FC;&#x30C9;1] =&gt; &#x5F0F;1
+  case &#x30D1;&#x30BF;&#x30FC;&#x30F3;2 [if &#x30AC;&#x30FC;&#x30C9;2] =&gt; &#x5F0F;2
+  case &#x30D1;&#x30BF;&#x30FC;&#x30F3;3 [if &#x30AC;&#x30FC;&#x30C9;3] =&gt; &#x5F0F;3
+  case ...
+  case &#x30D1;&#x30BF;&#x30FC;&#x30F3;N =&gt; &#x5F0F;N
+}
+</code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x300C;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x300D;&#x306B;&#x66F8;&#x3051;&#x308B;&#x5185;&#x5BB9;&#x304C;&#x975E;&#x5E38;&#x306B;&#x591A;&#x5C90;&#x306B;&#x6E21;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x307E;&#x305A;&#x3001;Java&#x306E;switch-case&#x306E;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3092;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">taro</span> =</span> <span class="hljs-string">&quot;Taro&quot;</span>
+taro: <span class="hljs-type">String</span> = <span class="hljs-type">Taro</span>
+
+scala&gt; taro <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Taro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
+     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Jiro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
+     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Hanako&quot;</span> =&gt; <span class="hljs-string">&quot;Female&quot;</span>
+     | }
+res8: <span class="hljs-type">String</span> = <span class="hljs-type">Male</span>
+</code></pre>
+<p>&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3001;<code>taro</code>&#x306B;&#x306F;&#x6587;&#x5B57;&#x5217;<code>&quot;Taro&quot;</code>&#x304C;&#x5165;&#x3063;&#x3066;&#x304A;&#x308A;&#x3001;&#x3053;&#x308C;&#x306F;<code>case &quot;Taro&quot;</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x305F;&#x3081;&#x3001;<code>&quot;Male&quot;</code>&#x304C;&#x8FD4;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;&#x3053;&#x3053;&#x3067;&#x6C17;&#x3065;&#x3044;&#x305F;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;<code>match</code>&#x5F0F;&#x3082;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;<code>match</code>&#x5F0F;&#x306E;&#x5024;&#x306F;&#x3001;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;<code>=&gt;</code>&#x306E;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x6587;&#x5B57;&#x5217;&#x3060;&#x3051;&#x3067;&#x306A;&#x304F;&#x6570;&#x5024;&#x306A;&#x3069;&#x4EFB;&#x610F;&#x306E;&#x5024;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF1A;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">one</span> =</span> <span class="hljs-number">1</span>
+one: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+
+scala&gt; one <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">&quot;one&quot;</span>
+     |   <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">&quot;two&quot;</span>
+     |   <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">&quot;other&quot;</span>
+     | }
+res9: <span class="hljs-type">String</span> = one
+</code></pre>
+<p>&#x3053;&#x3053;&#x3067;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x7B87;&#x6240;&#x306B;<code>_</code>&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;switch-case&#x306E;default&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x3082;&#x306E;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;
+match&#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306F;&#x3001;&#x6F0F;&#x308C;&#x304C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;">&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;</h3>
+<p>Java&#x3084;C&#x306A;&#x3069;&#x306E;&#x8A00;&#x8A9E;&#x3067;switch-case&#x6587;&#x3092;&#x5B66;&#x3093;&#x3060;&#x65B9;&#x306B;&#x306F;&#x3001;Scala&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x3044;&#x308F;&#x3086;&#x308B;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#xFF08;fall through&#xFF09;&#x306E;&#x52D5;&#x4F5C;&#x3092;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x9055;&#x548C;&#x611F;&#x304C;&#x3042;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> =&gt; println(<span class="hljs-string">&quot;first&quot;</span>)   <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x51E6;&#x7406;&#x304C;&#x7D42;&#x4E86;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;def&quot;</span> =&gt; println(<span class="hljs-string">&quot;second&quot;</span>) <span class="hljs-comment">// &#x3053;&#x3063;&#x3061;&#x306F;&#x8868;&#x793A;&#x3055;&#x308C;&#x306A;&#x3044;</span>
+}
+</code></pre>
+<p>C&#x8A00;&#x8A9E;&#x306E;switch-case&#x6587;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#x52D5;&#x4F5C;&#x306F;&#x5229;&#x70B9;&#x3088;&#x308A;&#x30D0;&#x30B0;&#x3092;&#x751F;&#x307F;&#x51FA;&#x3059;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x6709;&#x540D;&#x306A;&#x3082;&#x306E;&#x3067;&#x3057;&#x305F;&#x3002;
+Java&#x304C;C&#x8A00;&#x8A9E;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#x52D5;&#x4F5C;&#x3092;&#x5F15;&#x304D;&#x7D99;&#x3044;&#x3060;&#x3053;&#x3068;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;&#x975E;&#x96E3;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3067;Scala&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x306F;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#x52D5;&#x4F5C;&#x304C;&#x306A;&#x3044;&#x308F;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;&#x8907;&#x6570;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x3044;&#x3068;&#x304D;&#x306E;&#x305F;&#x3081;&#x306B;<code>|</code>&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;</p>
+<pre><code class="lang-scala"><span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> | <span class="hljs-string">&quot;def&quot;</span> =&gt;
+    println(<span class="hljs-string">&quot;first&quot;</span>)
+    println(<span class="hljs-string">&quot;second&quot;</span>)
+}
+</code></pre>
+<h3 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;">&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;</h3>
+<p>switch-case&#x4EE5;&#x5916;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x306E;&#x4E00;&#x90E8;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x6B21;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">lst</span> =</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)
+lst: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>, <span class="hljs-type">D</span>, <span class="hljs-type">E</span>)
+
+scala&gt; lst <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c, d, e) =&gt;
+     |     println(<span class="hljs-string">&quot;b = &quot;</span> + b)
+     |     println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+     |     println(<span class="hljs-string">&quot;d = &quot;</span> + d)
+     |     println(<span class="hljs-string">&quot;e = &quot;</span> + e)
+     |   <span class="hljs-keyword">case</span> _ =&gt;
+     |     println(<span class="hljs-string">&quot;nothing&quot;</span>)
+     | }
+b = <span class="hljs-type">B</span>
+c = <span class="hljs-type">C</span>
+d = <span class="hljs-type">D</span>
+e = <span class="hljs-type">E</span>
+</code></pre>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;<code>List</code>&#x306E;&#x5148;&#x982D;&#x8981;&#x7D20;&#x304C;<code>&quot;A&quot;</code>&#x3067;5&#x8981;&#x7D20;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x3068;&#x3001;&#x6B8B;&#x308A;&#x306E;<code>b</code>, <code>c</code>, <code>d</code>, <code>e</code>&#x306B;<code>List</code>&#x306E;2&#x756A;&#x76EE;&#x4EE5;&#x964D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x675F;&#x7E1B;&#x3055;&#x308C;&#x3066;&#x3001;<code>=&gt;</code>&#x306E;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;match&#x5F0F;&#x3067;&#x306F;&#x3001;&#x7279;&#x306B;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x983B;&#x51FA;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x306F;&#x30AC;&#x30FC;&#x30C9;&#x5F0F;&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x3001;&#x304B;&#x3064;&#x3001;&#x30AC;&#x30FC;&#x30C9;&#x5F0F;&#xFF08;<code>Boolean</code>&#x578B;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#xFF09;&#x306B;&#x3082;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">lst</span> =</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)
+lst: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>, <span class="hljs-type">D</span>, <span class="hljs-type">E</span>)
+
+scala&gt; lst <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c, d, e) <span class="hljs-keyword">if</span> b != <span class="hljs-string">&quot;B&quot;</span> =&gt;
+     |     println(<span class="hljs-string">&quot;b = &quot;</span> + b)
+     |     println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+     |     println(<span class="hljs-string">&quot;d = &quot;</span> + d)
+     |     println(<span class="hljs-string">&quot;e = &quot;</span> + e)
+     |   <span class="hljs-keyword">case</span> _ =&gt;
+     |     println(<span class="hljs-string">&quot;nothing&quot;</span>)
+     | }
+nothing
+</code></pre>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x30AC;&#x30FC;&#x30C9;&#x6761;&#x4EF6;&#x306B;&#x3001;<code>List</code>&#x306E;2&#x756A;&#x76EE;&#x306E;&#x8981;&#x7D20;&#x304C;<code>&quot;B&quot;</code>&#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x3001;&#x3068;&#x3044;&#x3046;&#x6761;&#x4EF6;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x305F;&#x3081;&#x3001;&#x6700;&#x521D;&#x306E;&#x6761;&#x4EF6;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x305B;&#x305A;
+<code>_</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x30CD;&#x30B9;&#x30C8;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5C11;&#x3057;&#x6539;&#x5909;&#x3057;&#x3066;&#x3001;&#x5148;&#x982D;&#x304C;<code>List(&quot;A&quot;)</code>&#x3067;&#x3042;&#x308B;&#x3088;&#x3046;&#x306A;<code>List</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">lst</span> =</span> <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>), <span class="hljs-type">List</span>(<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>))
+lst: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-type">String</span>]] = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-type">A</span>), <span class="hljs-type">List</span>(<span class="hljs-type">B</span>, <span class="hljs-type">C</span>, <span class="hljs-type">D</span>, <span class="hljs-type">E</span>))
+
+scala&gt; lst <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a<span class="hljs-annotation">@List</span>(<span class="hljs-string">&quot;A&quot;</span>), x) =&gt;
+     |   println(a)
+     |   println(x)
+     |   <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">&quot;nothing&quot;</span>)
+     | }
+<span class="hljs-type">List</span>(<span class="hljs-type">A</span>)
+<span class="hljs-type">List</span>(<span class="hljs-type">B</span>, <span class="hljs-type">C</span>, <span class="hljs-type">D</span>, <span class="hljs-type">E</span>)
+</code></pre>
+<p><code>lst</code>&#x306F;<code>List(&quot;A&quot;)</code>&#x3068;<code>List(&quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;)</code>&#x306E;2&#x8981;&#x7D20;&#x304B;&#x3089;&#x306A;&#x308B;<code>List</code>&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3001;match&#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x5148;&#x982D;&#x304C;<code>List(&quot;A&quot;)</code>&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x8A18;&#x8FF0;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x524D;&#x306B;<code>@</code>&#x304C;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;as&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;<code>@</code>&#x306E;&#x5F8C;&#x306B;&#x7D9A;&#x304F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x5F0F;&#x3092;<code>@</code>&#x306E;&#x524D;&#x306E;&#x5909;&#x6570;&#xFF08;&#x3053;&#x3053;&#x3067;&#x306F;<code>a</code>&#xFF09;&#x306B;&#x675F;&#x7E1B;&#x3057;&#x307E;&#x3059;&#x3002;<code>as</code>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x304C;&#x8907;&#x96D1;&#x306A;&#x3068;&#x304D;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x4E00;&#x90E8;&#x3060;&#x3051;&#x3092;&#x5207;&#x308A;&#x53D6;&#x308A;&#x305F;&#x3044;&#x6642;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;">&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;</h3>
+<p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x3057;&#x3066;&#x306F;&#x5024;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x578B;&#x306B;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3082;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5024;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x578B;&#x306B;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x3001;<code>&#x540D;&#x524D;:&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x578B;</code>&#x306E;&#x5F62;&#x3067;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>AnyRef</code>&#x578B;&#x306F;&#x3001;Java&#x306E;<code>Object</code>&#x578B;&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x578B;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x53C2;&#x7167;&#x578B;&#x306E;&#x5024;&#x3092;<code>AnyRef</code>&#x578B;&#x306E;&#x5909;&#x6570;&#x306B;&#x683C;&#x7D0D;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
+<span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
+
+scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">obj</span>:</span> <span class="hljs-type">AnyRef</span> = <span class="hljs-string">&quot;String Literal&quot;</span>
+obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-type">String</span> <span class="hljs-type">Literal</span>
+
+scala&gt; obj <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> v:java.lang.<span class="hljs-type">Integer</span> =&gt;
+     |     println(<span class="hljs-string">&quot;Integer!&quot;</span>)
+     |   <span class="hljs-keyword">case</span> v:<span class="hljs-type">String</span> =&gt;
+     |     println(v.toUpperCase(<span class="hljs-type">Locale</span>.<span class="hljs-type">ENGLISH</span>))
+     | }
+<span class="hljs-type">STRING</span> <span class="hljs-type">LITERAL</span>
+</code></pre>
+<p><code>java.lang.Integer</code>&#x306B;&#x306F;&#x30DE;&#x30C3;&#x30C1;&#x305B;&#x305A;&#x3001;<code>String</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x3084;<code>equals</code>&#x306E;&#x5B9A;&#x7FA9;&#x306A;&#x3069;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x578B;&#x3067;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x5024;&#x306F;&#x3001;&#x305D;&#x306E;&#x578B;&#x306B;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x306E;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x5F0F;&#x3067;<code>String</code>&#x578B;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;<code>v</code>&#x306F;<code>String</code>&#x578B;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;<code>toUpperCase</code>&#x3092;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3057;&#x3070;&#x3057;&#x3070;Scala&#x3067;&#x306F;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x306E;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x306E;&#x3067;&#x899A;&#x3048;&#x3066;&#x304A;&#x304F;&#x3068;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h3 id="jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;">JVM&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;</h3>
+<p>&#x305F;&#x3060;&#x3057;&#x3001;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x6CE8;&#x610F;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;1&#x3064;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+Scala&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;JVM&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308A;&#x3001;&#x578B;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;&#x6B63;&#x3057;&#x304F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x69D8;&#x306A;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;REPL&#x3067;&#x5B9F;&#x884C;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;&#x8B66;&#x544A;&#x304C;&#x51FA;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">obj</span>:</span> <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>)
+obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(a)
+
+scala&gt; obj <span class="hljs-keyword">match</span> {
+     |   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
+     |   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
+     | }
+&lt;console&gt;:<span class="hljs-number">15</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">Int</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[</span><span class="hljs-type">Int</span>] (the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]) is unchecked since it is eliminated by erasure
+         <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
+                 ^
+&lt;console&gt;:<span class="hljs-number">16</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">String</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[</span><span class="hljs-type">String</span>] (the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">String</span>]) is unchecked since it is eliminated by erasure
+         <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
+                 ^
+&lt;console&gt;:<span class="hljs-number">16</span>: warning: unreachable code
+         <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
+                                        ^
+<span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]
+</code></pre>
+<p>&#x578B;&#x3068;&#x3057;&#x3066;&#x306F;<code>List[Int]</code>&#x3068;<code>List[String]</code>&#x306F;&#x9055;&#x3046;&#x578B;&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x306F;&#x3053;&#x308C;&#x3092;&#x533A;&#x5225;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x6700;&#x521D;&#x306E;2&#x3064;&#x306E;&#x8B66;&#x544A;&#x306E;&#x610F;&#x5473;&#x306F;Scala&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x300C;&#x578B;&#x6D88;&#x53BB;&#x300D;&#x3068;&#x3044;&#x3046;&#x52D5;&#x4F5C;&#x306B;&#x3088;&#x308A;<code>List[Int]</code>&#x306E;<code>Int</code>&#x306E;&#x90E8;&#x5206;&#x304C;&#x6D88;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x7D50;&#x679C;&#x7684;&#x306B;2&#x3064;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x533A;&#x5225;&#x3067;&#x304D;&#x306A;&#x3044;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306F;&#x4E0A;&#x304B;&#x3089;&#x9806;&#x756A;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;&#x3044;&#x304F;&#x306E;&#x3067;&#x3001;2&#x756A;&#x76EE;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x5230;&#x9054;&#x3057;&#x306A;&#x3044;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+3&#x756A;&#x76EE;&#x306E;&#x8B66;&#x544A;&#x306F;&#x3053;&#x308C;&#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x578B;&#x5909;&#x6570;&#x3092;&#x542B;&#x3080;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306F;&#x3001;</p>
+<pre><code class="lang-scala">obj <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[_] =&gt; println(<span class="hljs-string">&quot;List[_]&quot;</span>)
+}
+</code></pre>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;">&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
+<pre><code class="lang-scala"><span class="hljs-keyword">new</span> scala.util.<span class="hljs-type">Random</span>(<span class="hljs-keyword">new</span> java.security.<span class="hljs-type">SecureRandom</span>()).alphanumeric.take(<span class="hljs-number">5</span>).toList
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001; &#x6700;&#x521D;&#x3068;&#x6700;&#x5F8C;&#x306E;&#x6587;&#x5B57;&#x304C;&#x540C;&#x3058;&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x3067;&#x3042;&#x308B;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;5&#x6587;&#x5B57;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;1000&#x56DE;&#x51FA;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
+<code>new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList</code>&#x3068;&#x3044;&#x3046;&#x5024;&#x306F;&#x3001;&#x547C;&#x3073;&#x3060;&#x3059;&#x5EA6;&#x306B;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;5&#x500B;&#x306E;&#x6587;&#x5B57;&#xFF08;<code>Char</code>&#x578B;&#xFF09;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x4E0E;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x3053;&#x307E;&#x3067;&#x66F8;&#x3044;&#x305F;&#x3060;&#x3051;&#x3067;&#x3082;&#x3001;<code>match</code>&#x5F0F;&#x306F;switch-case&#x306B;&#x6BD4;&#x3079;&#x3066;&#x304B;&#x306A;&#x308A;&#x5F37;&#x529B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x3067;&#x3059;&#x304C;&#x3001;<code>match</code>&#x5F0F;&#x306E;&#x529B;&#x306F;&#x305D;&#x308C;&#x306B;&#x3068;&#x3069;&#x307E;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x5F8C;&#x8FF0;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x306F;&#x81EA;&#x5206;&#x3067;&#x4F5C;&#x3063;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#xFF08;&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3055;&#x3089;&#x306B;&#x5F37;&#x529B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./sbt-compile-execute.html" class="navigation navigation-prev " aria-label="Previous page: sbtでプログラムをコンパイル・実行する"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./class.html" class="navigation navigation-next " aria-label="Next page: クラス"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
