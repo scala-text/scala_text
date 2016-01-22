@@ -17,11 +17,11 @@
 今回は今までより実践的なプログラムを考えてみましょう。
 ユーザーの登録と認証を管理する`UserService`というクラスです。
 
-[include](../example_projects/trait-example/build.sbt)
+[include](./example_projects/trait-example/build.sbt)
 
-[include](../example_projects/trait-example/src/main/scala/domain/User.scala)
+[include](./example_projects/trait-example/src/main/scala/domain/User.scala)
 
-[include](../example_projects/trait-example/src/main/scala/domain/UserService.scala)
+[include](./example_projects/trait-example/src/main/scala/domain/UserService.scala)
 
 `UserService`は以下のような機能があります。
 
@@ -134,7 +134,7 @@ Javaのインタフェースと同じような使い方ですね。
 このような場合、1つのモジュールを複数のモジュールに分割することが考えられます。
 あたらしくパスワード機能だけを持つ`PasswordService`と`PasswordServiceImpl`を作ってみます。
 
-[include](../example_projects/trait-refactored-example/src/main/scala/domain/PasswordService.scala)
+[include](./example_projects/trait-refactored-example/src/main/scala/domain/PasswordService.scala)
 
 そして、先ほど作った`UserServiceImpl`に`PasswordServiceImpl`を継承して使うようにします。
 
@@ -164,7 +164,7 @@ class UserServiceImpl extends UserService with PasswordServiceImpl {
 
 同じようにストレージ機能も`UserRepository`として分離してみます。
 
-[include](../example_projects/trait-refactored-example/src/main/scala/domain/UserRepository.scala)
+[include](./example_projects/trait-refactored-example/src/main/scala/domain/UserRepository.scala)
 
 すると、UserServiceImplは以下のようになります。
 
@@ -430,7 +430,7 @@ UserServiceImpl --|> UserService
 
 テストには引き続き、ScalaTestを使います。
 
-[include](../example_projects/trait-refactored-example/src/test/scala/domain/UserServiceSpec.scala)
+[include](./example_projects/trait-refactored-example/src/test/scala/domain/UserServiceSpec.scala)
 
 `sut`はテスト対象となる`UserService`のインスタンスです。
 `PasswordServiceImpl`は外部のシステムを使わないので、そのまま使っています。

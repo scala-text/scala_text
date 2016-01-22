@@ -25,7 +25,7 @@ object build extends Build with NpmCliBase {
       // tutはビルドプロセスで自動的に実行される
       textBuildAllWithCheck := Def.sequential(textLintAll, textTestAll, GitBook.textBuildAll).value
     ).aggregate(
-      RootProject(file("./example_projects/trait-example")),
-      RootProject(file("./example_projects/trait-refactored-example"))
+      RootProject(file("src/example_projects/trait-example")),
+      RootProject(file("src/example_projects/trait-refactored-example"))
     )
 }
