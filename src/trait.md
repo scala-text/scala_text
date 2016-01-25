@@ -214,7 +214,7 @@ class ClassA extends TraitB with TraitC {
 
 Scalaのトレイトにはこの問題を解決するために「線形化（linearization）」という機能があります。
 
-### 線形化(linearization)（★）
+### 線形化（linearization）（★）
 
 Scalaのトレイトの線形化機能とは、トレイトがミックスインされた順番をトレイトの継承順番と見做すことです。
 

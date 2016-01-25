@@ -214,7 +214,7 @@ class UserServiceImpl extends UserService with PasswordServiceImpl with UserRepo
 とあります。さらにDIには以下の4つの役割が登場するとあります。
 
 - 使われる対象の「サービス」
-- サービスを使う(依存する)「クライアント」
+- サービスを使う（依存する）「クライアント」
 - クライアントがどうサービスを使うかを定めた「インタフェース」
 - サービスを構築し、クライアントに渡す「インジェクタ」
 
@@ -257,7 +257,7 @@ UserServiceImpl --|> UserRepositoryImpl
 
 DIを使わない状態では`UserRepository`というインタフェースが定義されているのにもかかわらず、`UserServiceImpl`は`UserRepositoryImpl`を継承することで実装も参照していました。
 これではせっかくインタフェースを分離した意味がありません。
-`UserServiceImpl`が`UserRepository`インタフェースだけを参照(依存)するようにすれば、具体的な実装である`UserRepositoryImpl`の変更に影響されることはありません。
+`UserServiceImpl`が`UserRepository`インタフェースだけを参照（依存）するようにすれば、具体的な実装である`UserRepositoryImpl`の変更に影響されることはありません。
 この問題を解決するのがDIの目的です。
 
 それではDIのインジェクタを加えて、上記のクラス図を修正しましょう。
@@ -290,7 +290,7 @@ Injector ..> UserServiceImpl
 -->
 
 謎のインジェクタの登場により`UserServiceImpl`から`UserRepositoryImpl`への参照がなくなりました。
-おそらくインジェクタは何らかの手段でサービスである`UserRepositoryImpl`(Dependency)をクライアントである`UserServiceImpl`に渡しています(Injection)。
+おそらくインジェクタは何らかの手段でサービスである`UserRepositoryImpl`（Dependency）をクライアントである`UserServiceImpl`に渡しています（Injection）。
 このインジェクタの動作を指して「Dependency Injection」と呼ぶわけです。
 そして、このインジェクタをどうやって実現するか、それがDI技術の核心に当たります。
 
@@ -329,7 +329,7 @@ WebアプリケーションはMySQLやRedisなどのストレージを使い、T
 DIを使えば外部システムの実装を分離できるので、モックに置き換えて、楽にテストできるようになります。
 
 以上、DIの利点を見てきました。
-実装オブジェクト(Dependency)を取得し、サービスに渡す(Injection)という役割をするだけのインジェクタの登場により様々なメリットが生まれることが理解できたと思います。
+実装オブジェクト（Dependency）を取得し、サービスに渡す（Injection）という役割をするだけのインジェクタの登場により様々なメリットが生まれることが理解できたと思います。
 DIは特に大規模システムの構築に欠かせない技術であると言っても過言ではないと思います。
 
 ### トレイトの自分型を使った依存性の注入の実現

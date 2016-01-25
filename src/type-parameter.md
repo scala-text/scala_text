@@ -141,7 +141,7 @@ Object[] objects = new String[1];
 objects[0] = 100;
 ```
 
-このコード断片はJavaのコードとしてはコンパイルを通ります。ぱっと見でも、`Object`の配列を表す変数に`String`の配列を渡すことができるのは理にかなっているように思えます。しかし、このコードを実行すると例外 [`java.lang.ArrayStoreException`](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/ArrayStoreException.html) が発生します。これは、`objects`に入っているのが実際には`String`の配列（`String`のみを要素として持つ)なのに、2行目で`int`型 (ボクシング変換されて`Integer`型) の値である`100`を渡そうとしていることによります。
+このコード断片はJavaのコードとしてはコンパイルを通ります。ぱっと見でも、`Object`の配列を表す変数に`String`の配列を渡すことができるのは理にかなっているように思えます。しかし、このコードを実行すると例外 [`java.lang.ArrayStoreException`](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/ArrayStoreException.html) が発生します。これは、`objects`に入っているのが実際には`String`の配列（`String`のみを要素として持つ）なのに、2行目で`int`型（ボクシング変換されて`Integer`型）の値である`100`を渡そうとしていることによります。
 
 一方、Scalaでは同様のコードの一行目に相当するコードをコンパイルしようとした時点で、次のようなコンパイルエラーが出ます（`Any`は全ての型のスーパークラスで、`AnyRef`に加え、`AnyVal`（値型）の値も格納できます）。
 

@@ -67,7 +67,7 @@ list.add("World")
 #### staticメソッドの呼び出し
 
 staticメソッドの呼び出しもJavaの場合とほとんど同様にできますが、1つ注意点があります。それは、Scalaではstaticメソッドは継承されない
-（というよりstaticメソッドという概念がない)ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに
+（というよりstaticメソッドという概念がない）ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに
 対してB.foo()とすることはできず、A.foo()としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。
 
 現在時刻をミリ秒単位で取得する[`System.currentTimeMillis()`](http://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--)をScalaから呼び出してみましょう。
@@ -172,7 +172,7 @@ Javaのすべてのプリミティブ型に対応するScalaの型が用意さ�
 言う`int[]`は`Array[Int]`と書きますが、これは`AnyRef`のサブクラスです。ということは、Scala
 で`AnyRef`と書くことで`Array[Int]`を`AnyRef`型の変数に代入可能です。ユーザが定義した
 クラスも同様で、基本的に`AnyRef`を継承していることになっています。
-(ただし、value classというものがあり、それを使った場合は少し事情が異なりますがここでは詳細には触れません)
+（ただし、value classというものがあり、それを使った場合は少し事情が異なりますがここでは詳細には触れません）
 
 #### nullとOption
 
