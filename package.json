@@ -27,11 +27,8 @@
     "svgexport": "^0.2.8",
     "textlint": "^5.2.0",
     "textlint-rule-incremental-headers": "^0.2.0",
-    "textlint-rule-max-ten": "^2.0.0",
-    "textlint-rule-no-mix-dearu-desumasu": "^1.4.0",
-    "textlint-rule-no-start-duplicated-conjunction": "^1.0.7",
+    "textlint-rule-preset-japanese": "^1.0.2",
     "textlint-rule-preset-jtf-style": "^2.0.0",
-    "textlint-rule-prh": "^2.2.1",
-    "textlint-rule-spellcheck-tech-word": "^4.1.2"
+    "textlint-rule-prh": "^2.2.1"
   }
 }
