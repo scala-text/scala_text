@@ -123,8 +123,8 @@ libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.5" % "test"
 その後、`scalatest_study`フォルダ内で、`sbt compile`を実行してみましょう。
 
 ```
-[info] Set current project to scalatest_study (in build file:/Users/soichiro_yoshimura/workspace/scalatest_study/scalatest_study/)
-[info] Updating {file:/Users/soichiro_yoshimura/workspace/scalatest_study/scalatest_study/}scalatest_study...
+[info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
+[info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
 [info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.1/scalatest_2.11-2.2.1.jar ...
 [info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.11;2.2.1!scalatest_2.11.jar(bundle) (10199ms)
@@ -240,10 +240,10 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 以下のような実行結果が表示されます。
 
 ```
-[info] Loading project definition from /Users/yuki_nakayama/workspace/scalatest_study/project
-[info] Set current project to scalatest_study (in build file:/Users/yuki_nakayama/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/yuki_nakayama/workspace/scalatest_study/target/scala-2.11/classes...
-[info] Compiling 1 Scala source to /Users/yuki_nakayama/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
+[info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -260,9 +260,9 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 なお、わざと失敗した場合にはどのように表示されるのか確認してみましょう。
 
 ```
-[info] Loading project definition from /Users/yuki_nakayama/workspace/scalatest_study/project
-[info] Set current project to scalatest_study (in build file:/Users/yuki_nakayama/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/yuki_nakayama/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
+[info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -351,9 +351,9 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts {
 最終的に全てのテストをまとめて`sbt test`で実行すると以下の様な出力が得られます。
 
 ```
-[info] Loading project definition from /Users/yuki_nakayama/workspace/scalatest_study/project
-[info] Set current project to scalatest_study (in build file:/Users/yuki_nakayama/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/yuki_nakayama/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
+[info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -470,16 +470,16 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 実行すると、
 
 ```
-[info] Loading project definition from /Users/soichiro_yoshimura/workspace/scalatest_study/project
-[info] Set current project to scalatest_study (in build file:/Users/soichiro_yoshimura/workspace/scalatest_study/)
-[info] scalastyle using config /Users/soichiro_yoshimura/workspace/scalatest_study/scalastyle-config.xml
-[warn] /Users/soichiro_yoshimura/workspace/scalatest_study/src/main/scala/Calc.scala:1: Header does not match expected text
+[info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
+[info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
+[info] scalastyle using config /Users/dwango/workspace/scalatest_study/scalastyle-config.xml
+[warn] /Users/dwango/workspace/scalatest_study/src/main/scala/Calc.scala:1: Header does not match expected text
 [info] Processed 1 file(s)
 [info] Found 0 errors
 [info] Found 1 warnings
 [info] Found 0 infos
 [info] Finished in 12 ms
-[success] created output: /Users/soichiro_yoshimura/workspace/scalatest_study/target
+[success] created output: /Users/dwango/workspace/scalatest_study/target
 [success] Total time: 1 s, completed 2015/04/09 22:17:40
 ```
 
