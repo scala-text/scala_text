@@ -8,7 +8,7 @@
         <title>トレイトの応用編：依存性の注入によるリファクタリング | Scala研修テキスト</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.4">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -46,7 +46,13 @@
     <body>
         
         
-    <div class="book" data-level="19" data-chapter-title="トレイトの応用編：依存性の注入によるリファクタリング" data-filepath="advanced-trait-di.md" data-basepath="." data-revision="Fri Jan 29 2016 18:43:29 GMT+0900 (JST)">
+    <div class="book"
+        data-level="19"
+        data-chapter-title="トレイトの応用編：依存性の注入によるリファクタリング"
+        data-filepath="advanced-trait-di.md"
+        data-basepath="."
+        data-revision="Sat Jan 30 2016 01:23:37 GMT+0900 (JST)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -396,8 +402,8 @@
 <p>&#x3053;&#x3053;&#x3067;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5FDC;&#x7528;&#x7DE8;&#x3068;&#x3057;&#x3066;&#x3001;&#x5927;&#x304D;&#x306A;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x904E;&#x7A0B;&#x3092;&#x901A;&#x3057;&#x3066;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x5B9F;&#x969B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x304F;&#x304B;&#x3092;&#x5B66;&#x3093;&#x3067;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3055;&#x3089;&#x306B;&#x5927;&#x898F;&#x6A21;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x958B;&#x767A;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x3044;&#x3046;&#x6280;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</h2>
 <p>&#x4ECA;&#x56DE;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x5834;&#x6240;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x52D5;&#x304B;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x500B;&#x3005;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x5165;&#x308A;&#x3001;sbt&#x3092;&#x8D77;&#x52D5;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p><a href="https://github.com/dwango/scala_text/tree/master/example_projects/trait-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
-<p><a href="https://github.com/dwango/scala_text/tree/master/example_projects/trait-refactored-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x5F8C;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
+<p><a href="https://github.com/dwango/scala_text/tree/master/src/example_projects/trait-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
+<p><a href="https://github.com/dwango/scala_text/tree/master/src/example_projects/trait-refactored-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x5F8C;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
 <h2 id="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;</h2>
 <p>&#x4ECA;&#x56DE;&#x306F;&#x4ECA;&#x307E;&#x3067;&#x3088;&#x308A;&#x5B9F;&#x8DF5;&#x7684;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x767B;&#x9332;&#x3068;&#x8A8D;&#x8A3C;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;<code>UserService</code>&#x3068;&#x3044;&#x3046;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;</p>
 <blockquote>
@@ -920,7 +926,7 @@ UserServiceImpl --|> UserService
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
