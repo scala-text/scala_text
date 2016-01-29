@@ -1,0 +1,238 @@
+# Javaとの相互運用（★★★）
+
+## ScalaとJava
+
+ScalaはJVM(Java Virtual Machine)の上で動作するため、JavaのライブラリのほとんどをそのままScalaから呼びだすことが
+できます。また、現状では、Scalaの標準ライブラリだけでは、どうしても必要な機能が足りず、Javaの機能を利用せざるを
+得ないことがあります。ただし、Javaの機能と言っても、Scalaのそれとほとんど同じように利用することができます。
+
+### import
+Javaのライブラリをimportするためには、Scalaでほとんど同様のことを記述すればOKです。
+
+```java
+import java.util.*;
+import java.util.ArrayList;
+```
+は 
+
+```tut:silent
+import java.util._
+import java.util.ArrayList
+```
+
+と同じ意味になります。注意するべきは、Javaでのワイルドカードインポートが、`*`ではなく`_`になった程度です。
+
+### インスタンスの生成
+
+インスタンスの生成もJavaと同様にできます。Javaでの
+
+```java
+ArrayList<String> list = new ArrayList<>();
+```
+
+というコードはScalaでは
+
+```tut
+val list = new ArrayList[String]()
+```
+
+と記述することができます。
+
+#### 練習問題
+
+`java.util.HashSet`クラスのインスタンスを`new`を使って生成してみましょう。
+
+### インスタンスメソッドの呼び出し
+
+インスタンスメソッドの呼び出しも同様です。
+
+```java
+list.add("Hello");
+list.add("World");
+```
+
+は
+
+```tut
+list.add("Hello")
+list.add("World")
+```
+
+と同じです。
+
+#### 練習問題
+
+```java.lang.System``` クラスのフィールド `out` のインスタンスメソッド `println` を引数 `"Hello, World!` として呼びだしてみましょう。
+
+#### staticメソッドの呼び出し
+
+staticメソッドの呼び出しもJavaの場合とほとんど同様にできますが、1つ注意点があります。それは、Scalaではstaticメソッドは継承されない
+（というよりstaticメソッドという概念がない）ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに
+対してB.foo()とすることはできず、A.foo()としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。
+
+現在時刻をミリ秒単位で取得する[`System.currentTimeMillis()`](http://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--)をScalaから呼び出してみましょう。
+
+```
+scala> System.currentTimeMillis()
+res0: Long = 1416357548906
+```
+
+表示される値はみなさんのマシンにおける時刻に合わせて変わりますが、問題なく呼び出せているはずです。
+
+##### 練習問題
+
+`java.lang.System`クラスのstaticメソッド`exit()`を引数 `0`  として呼びだしてみましょう。どのような結果になるでしょうか。
+
+#### staticフィールドの参照
+
+staticフィールドの参照もJavaの場合と基本的に同じですが、staticメソッドの場合と同じ注意点が当てはまります。つまり、staticフィールドは
+継承されない、ということです。たとえば、Javaでは [`JFrame.EXIT_ON_CLOSE`](https://docs.oracle.com/javase/jp/8/docs/api/javax/swing/JFrame.html#EXIT_ON_CLOSE) が継承されることを利用して、
+
+```java
+import javax.swing.JFrame;
+
+public class MyFrame extends JFrame {
+  public MyFrame() {
+    setDefaultCloseOperation(EXIT_ON_CLOSE); //JFrameを継承しているので、EXIT_ON_CLOSEだけでOK
+  }
+}
+```
+
+のようなコードを書くことができますが、Scalaでは同じように書くことができず、
+
+```scala
+scala> import javax.swing.JFrame
+
+class MyFrame extends JFrame {
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) //JFrame.を明示しなければならない
+}
+```
+
+のように書く必要があります。
+
+現実のプログラミングでは、Scalaの標準ライブラリだけでは必要なライブラリが不足している場面に多々遭遇しますが、そういう場合は既にある
+サードパーティのScalaライブラリかJavaライブラリを直接呼びだすのが基本になります。
+
+##### 練習問題
+
+ScalaでJavaのstaticフィールドを参照しなければならない局面を1つ以上挙げてみましょう。
+
+#### Scalaの型とJavaの型のマッピング
+
+Javaの型は適切にScalaにマッピングされます。たとえば、`System.currentTimeMillis()`が返す型はlong型ですが、Scalaの標準の型
+である`scala.Long`にマッピングされます。Scalaの型とJavaの型のマッピングは次のようになります。
+
+<table class="table table-bordered">
+<caption>Javaのプリミティブ型とScalaの型のマッピング</caption>
+<thead>
+  <tr>
+    <td>Javaの型</td> <td>Scalaの型</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>void (厳密にはJavaでvoidは<strong>型ではなく</strong>ただのキーワードとして扱われていますが、ここでは便宜上型としています)</td> <td>scala.Unit</td>
+  </tr>
+  <tr>
+    <td>boolean </td> <td>scala.Boolean</td>
+  </tr>
+  <tr>
+    <td>byte </td> <td>scala.Byte</td>
+  </tr>
+  <tr>
+    <td>short</td> <td>scala.Short</td>
+  </tr>
+  <tr>
+    <td>int</td> <td>scala.Int</td>
+  </tr>
+  <tr>
+    <td>long</td> <td>scala.Long</td>
+  </tr>
+  <tr>
+    <td>char</td> <td>scala.Char</td>
+  </tr>
+  <tr>
+    <td>float</td> <td>scala.Float</td>
+  </tr>
+  <tr>
+    <td>double</td> <td>scala.Double</td>
+  </tr>
+  <tr>
+    <td>java.lang.Object（プリミティブ型ではありませんが特別な型なので載せました）</td> <td>scala.AnyRef</td>
+  </tr>
+  <tr>
+    <td>java.lang.String</td> <td>java.lang.String</td>
+  </tr>
+</tbody>
+</table>
+
+Javaのすべてのプリミティブ型に対応するScalaの型が用意されていることがわかりますね！　また、`java.lang`パッケージにあるクラスは全てScalaからimport無しに使えます。
+
+また、参照型についてもJava同様にクラス階層の中に組み込まれています。たとえば、Javaで
+言う`int[]`は`Array[Int]`と書きますが、これは`AnyRef`のサブクラスです。ということは、Scala
+で`AnyRef`と書くことで`Array[Int]`を`AnyRef`型の変数に代入可能です。ユーザが定義した
+クラスも同様で、基本的に`AnyRef`を継承していることになっています。
+（ただし、value classというものがあり、それを使った場合は少し事情が異なりますがここでは詳細には触れません）
+
+#### nullとOption
+
+Scalaの世界ではnullを使うことはなく、代わりにOption型を使います。一方で、Javaのメソッドを呼び出したりすると、
+返り値としてnullが返ってくることがあります。Scalaの世界ではできるだけnullを取り扱いたくないのでこれは少し困ったこと
+です。幸いにも、Scalaでは`Option(value)`とすることで、`value`がnullのときは`None`が、nullでないときは`Some(value)`
+を返すようにできます。
+
+java.util.Mapを使って確かめてみましょう。
+
+```tut
+val map = new java.util.HashMap[String, Int]()
+
+map.put("A", 1)
+
+map.put("B", 2)
+
+map.put("C", 3)
+
+Option(map.get("A"))
+
+Option(map.get("B"))
+
+Option(map.get("C"))
+
+Option(map.get("D"))
+```
+
+ちゃんとnullがOptionにラップされていることがわかります。Scalaの世界からJavaのメソッドを呼びだすときは、返り値をできるだけ
+Option()でくるむように意識しましょう。
+
+#### JavaConverters 
+
+JavaのコレクションとScalaのコレクションはインタフェースに互換性がありません。これでは、ScalaのコレクションをJavaのコレクション
+に渡したり、逆に返ってきたJavaのコレクションをScalaのコレクションに変換したい場合に不便です。そのような場合に便利なのがJavaConverters
+です。使い方はいたって簡単で、
+
+```tut:silent
+import scala.collection.JavaConverters._
+```
+
+とするだけです。これで、JavaとScalaのコレクションのそれぞれにasJava()やasScala()といったメソッドが追加されるのでそのメソッドを以下のように
+呼び出せば良いです。
+
+```tut
+import scala.collection.JavaConverters._
+import java.util.ArrayList
+
+val list = new ArrayList[String]()
+
+list.add("A")
+
+list.add("B")
+
+val scalaList = list.asScala
+```
+
+BufferはScalaの変更可能なリストのスーパークラスですが、ともあれ、asScalaメソッドによってJavaのコレクションをScalaのそれに変換することができている
+ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](http://www.scala-lang.org/api/current/index.html#scala.collection.JavaConverters$)を参照してください。
+
+##### 練習問題
+
+[`scala.collection.mutable.ArrayBuffer`](http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.ArrayBuffer)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。

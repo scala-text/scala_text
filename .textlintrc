@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "prh": {
+      "rulePaths": [
+        "prh.yml"
+      ]
+    },
+    "preset-japanese": {
+      "max-ten": {
+        "max": 5
+      },
+      "no-double-negative-ja": true,
+      "no-doubled-joshi": false,
+      "sentence-length": {
+        "max": 200
+      },
+      "no-start-duplicated-conjunction": {
+        "interval": 2
+      },
+      "spellcheck-tech-word": true,
+      "no-mix-dearu-desumasu": true
+    },
+    "incremental-headers": true,
+    "preset-jtf-style": true
+  }
+}
