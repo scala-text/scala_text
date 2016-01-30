@@ -12,9 +12,9 @@ git fetch origin gh-pages:gh-pages &&
 git clean -fdx &&
 git checkout gh-pages &&
 rm -rf ./* &&
+echo -e "*class\ntarget" > .gitignore &&
 cp -r ../_book/* ./ &&
 git add . &&
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT" &&
-tree ./ &&
 if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" == "false" ]];
 then git push git@github.com:dwango/scala_text.git gh-pages:gh-pages ; fi
