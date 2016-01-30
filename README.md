@@ -121,7 +121,7 @@ ln -s ~/Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-conve
 # svgexportにPATHが通っている必要がある(PATHを変更したくない場合はnpm install -g svgexportでも可)
 PATH=node_modules/.bin:$PATH
 sbt textBuildEpub
-sbt textBuildPdf # 現在pdfはjenkins上でのビルドに問題があるので無効化しています。
+sbt textBuildPdf
 ```
 
 ## ライセンス

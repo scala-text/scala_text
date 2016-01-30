@@ -202,9 +202,7 @@ function relativePathFromTestDir(file) {
 function isBlackListedHost(url) {
   const BLACK_LIST = [
     "localhost",
-    "127.0.0.1",
-    "go/scala_text",
-    "172.29.100.27:8080/job/scala-text-pr/ここにJenkins上でのビルド番号"
+    "127.0.0.1"
   ];
   let replaced = deleteProtocolFromUrl(url);
   return BLACK_LIST.map((b) => replaced.startsWith(b)).any(identity);
