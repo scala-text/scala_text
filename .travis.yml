@@ -3,7 +3,7 @@ language: scala
 jdk:
 - oraclejdk8
 before_install:
-- npm install
+- nvm install 4.2.6 && nvm use 4.2.6 && npm install
 - wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/77904f0859e36d/setup/linux-installer.py
   | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n');
   exec(sys.stdin.read()); main('~/calibre-bin', True)"
