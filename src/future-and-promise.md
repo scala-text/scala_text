@@ -384,12 +384,10 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 そして、最後にPromiseの配列から作り出した全てのFutureに対して、コンソールに出力をさせる処理を定義します。
 基本的なFutureとPromiseを使った処理で表現されていますが、ひとつ気をつけなくてはいけないのはAtomicIntegerの部分です。
 これはFutureに渡した関数の中では、同じスレッドが利用されているとは限らないために必要となる部分です。
-別なスレッドから変更される値に関しては、同期がされる処理で更新されなくては活性エラーが起こってしまします。
-その処理を隠蔽してより効率的なgetAndIncrementなどを提供してくれている便利なクラスを提供しているのが、
+別なスレッドから変更される値に関しては、値を原子的に更新するようにコードを書かなければなりません。
+プリミティブな値に関して原子的な操作を提供するのが
 [AtomicInteger](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html)というJavaのクラスとなります。
-なお、変数にvolatileという修飾子をつければいいと考える方もいるかもしれませんが、
-volatileは同一のスレッドからしか更新されない場合でしか利用することができず、
-今回の用途では利用できないものとなっています。以上が解答例でした。
+以上が解答例でした。
 
 ちなみに、このような複雑なイベント処理は既にJavaの[concurrentパッケージ](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html)に
 いくつか実装があるので実際の利用ではそれらを用いることもできます。
