@@ -27,6 +27,7 @@ Markdownで記述し、GitBookで静的サイトにしてGitHub Pages上に公�
 
 ```sh
 git clone https://github.com/dwango/scala_text
+cd scala_text
 npm install
 ```
 
