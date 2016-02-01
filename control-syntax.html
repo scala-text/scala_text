@@ -53,7 +53,7 @@
         data-chapter-title="Scalaの制御構文"
         data-filepath="control-syntax.md"
         data-basepath="."
-        data-revision="Mon Feb 01 2016 05:13:50 GMT+0000 (UTC)"
+        data-revision="Mon Feb 01 2016 05:18:30 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -494,7 +494,7 @@ i = <span class="hljs-number">10</span>
 <h2 id="for&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;">for&#x5F0F;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
 <p>Scala&#x306B;&#x306F;for&#x5F0F;&#x3068;&#x3044;&#x3046;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;Java&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3068;&#x4F3C;&#x305F;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x306E;&#x3001;&#x5168;&#x304F;&#x7570;&#x306A;&#x308B;&#x69CB;&#x6587;&#x3067;&#x3059;&#x3002;for&#x5F0F;&#x306E;&#x672C;&#x5F53;&#x306E;&#x529B;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;<code>flatMap</code>, <code>map</code>, <code>withFilter</code>, <code>foreach</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306A;<code>for</code>&#x5F0F;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x306E;&#x307F;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p><code>for</code>&#x5F0F;&#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x69CB;&#x6587;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>for(&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;1;  &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;; ... &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;n) A
+<pre><code>for(&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;1;  &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;2; ... &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;n) A
 # &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;1 = a1 &lt;- exp1; &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;2 = a2 &lt;- exp2; ... &#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;n = an &lt;- expn
 </code></pre><p>&#x5909;&#x6570;<code>a1</code>&#x301C;<code>an</code>&#x307E;&#x3067;&#x306F;&#x597D;&#x304D;&#x306A;&#x540D;&#x524D;&#x306E;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>exp1</code>&#x304B;&#x3089;<code>expn</code>&#x307E;&#x3067;&#x306B;&#x304B;&#x3051;&#x308B;&#x5F0F;&#x306F;&#x4E00;&#x822C;&#x5F62;&#x3092;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x3068;&#x3084;&#x3063;&#x304B;&#x3044;&#x306A;&#x306E;&#x3067;&#x3001;&#x3055;&#x3057;&#x3042;&#x305F;&#x3063;&#x3066;&#x3001;&#x3042;&#x308B;&#x6570;&#x306E;&#x7BC4;&#x56F2;&#x3092;&#x8868;&#x3059;&#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x308B;&#x3068;&#x899A;&#x3048;&#x3066;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;<code>1 to 10</code>&#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x3080;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3001;<code>1 until 10</code>&#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x307E;&#x306A;&#x3044;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x65E9;&#x901F;<code>for</code>&#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
