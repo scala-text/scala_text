@@ -22,7 +22,7 @@ addons:
     - gcc-4.8
     - g++-4.8
 script:
-- sbt textLintAll textTestAll textBuildHtml textBuildEpub
+- sbt test textLintAll textTestAll textBuildHtml textBuildEpub
 after_success:
 - "./deploy.sh"
 after_script:
