@@ -386,7 +386,7 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 これはFutureに渡した関数の中では、同じスレッドが利用されているとは限らないために必要となる部分です。
 別なスレッドから変更される値に関しては、値を原子的に更新するようにコードを書かなければなりません。
 プリミティブな値に関して原子的な操作を提供するのが
-[AtomicInteger](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html)というJavaのクラスとなります。
+[AtomicInteger](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html)というJavaのクラスとなります。[^concurrent]
 以上が解答例でした。
 
 ちなみに、このような複雑なイベント処理は既にJavaの[concurrentパッケージ](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html)に
@@ -399,3 +399,4 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 
 まだ実装時間に余裕がある場合は、[Semaphore](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/Semaphore.html)（セマフォ）という常に特定個数ずつしか実行されない処理を実装してみましょう。
 
+[^concurrent]: 値の原始的な更新や同期の必要性などの並行処理に関する様々な話題の詳細な解説は本書の範囲をこえてしまうため割愛します。「Java Concurrency in Practice」ないしその和訳「Java並行処理プログラミング ー その「基盤」と「最新API」を究める」や「Effective Java」といった本でこれらの話題について学ぶことが出来ます。
