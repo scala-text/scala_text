@@ -4,10 +4,6 @@ jdk:
 - oraclejdk8
 before_install:
 - nvm install 4.2.6 && nvm use 4.2.6 && npm install
-- wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/77904f0859e36d/setup/linux-installer.py
-  | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n');
-  exec(sys.stdin.read()); main('~/calibre-bin', True)"
-- export PATH="~/calibre-bin/calibre/:/home/travis/calibre-bin/calibre/:$PATH"
 cache:
   directories:
   - "$HOME/.ivy2/cache"
@@ -22,7 +18,12 @@ addons:
     - gcc-4.8
     - g++-4.8
 script:
-- sbt test textLintAll textTestAll textBuildHtml textBuildEpub
+- sbt textLintAll textTestAll textBuildHtml test &&
+  wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/77904f0859e36d/setup/linux-installer.py
+  | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n');
+  exec(sys.stdin.read()); main('~/calibre-bin', True)" &&
+  export PATH="~/calibre-bin/calibre/:/home/travis/calibre-bin/calibre/:$PATH" &&
+  sbt textBuildEpub
 after_success:
 - "./deploy.sh"
 after_script:
