@@ -52,6 +52,13 @@ sbt textLinkTest
 sbt textBuildAllWithCheck
 ```
 
+### tut
+
+[tut](https://github.com/tpolecat/tut)という、Scalaコードを書くと、そのコードのチェックや
+元のソースとなるmarkdownファイルから、実行後の出力を付け加えたmarkdownに変換してくれるツールを使用している。
+Scalaのコード例をテキスト中に書く場合は、使用可能な箇所では出来る限りtutを使うこと。
+tut自体の具体的な使用方法は、tutのREADMEなどを参照すること。
+
 ### gitbookで特別視されるファイルについて
 
 book.jsonで記述されているreadme, summaryはgitbookのビルド時に特別視される。
