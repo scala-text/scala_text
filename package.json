@@ -29,6 +29,7 @@
     "textlint-rule-incremental-headers": "^0.2.0",
     "textlint-rule-preset-japanese": "^1.0.2",
     "textlint-rule-preset-jtf-style": "^2.0.0",
-    "textlint-rule-prh": "^2.2.1"
+    "textlint-rule-prh": "^2.2.1",
+    "gitbook-plugin-anchors": "~0.5.0"
   }
 }
