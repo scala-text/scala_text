@@ -1,4 +1,5 @@
 import sbt._
+import sbt.IO
 import tut.Plugin._
 
 object GitBook extends NpmCliBase {
@@ -14,6 +15,14 @@ object GitBook extends NpmCliBase {
   def buildBook(format: Format) = Def.inputTask[Unit] {
     val options = rawStringArg("<gitbook command>").parsed
     printRun(Process(s"$gitbookBin  ${format.command} $bookBuildDir $options"))
+
+    if(format == Format.Html) {
+      println("chrome48でcssの`text-rendering:optimizeLegibility`のレンダリングが高コストであるため該当cssを削除します")
+      val cssPath = s"$bookBuildDir/_book/gitbook/style.css"
+      val orig = IO.read(file(cssPath), IO.utf8)
+      val modified = orig.replace("text-rendering:optimizeLegibility;", "")
+      IO.write(file(cssPath), modified, IO.utf8)
+    }
   }
 
   lazy val textPluginInstall = taskKey[Unit]("install GitBook plugin")
