@@ -49,7 +49,7 @@
         data-chapter-title="Implicit"
         data-filepath="implicit.md"
         data-basepath="."
-        data-revision="Wed Feb 03 2016 01:58:02 GMT+0000 (UTC)"
+        data-revision="Wed Feb 03 2016 01:57:39 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -476,12 +476,11 @@ def useDatabase3(...., conn: Connection)
 <p>implicit parameter&#x306E;&#x3082;&#x3046;1&#x3064;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x306F;&#x3001;&#x5C11;&#x3005;&#x5909;&#x308F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x307E;&#x305A;&#x3001;<code>List</code>&#x306E;&#x5168;&#x3066;&#x306E;&#x8981;&#x7D20;&#x306E;&#x5024;&#x3092;&#x52A0;&#x7B97;&#x3057;&#x305F;&#x7D50;&#x679C;&#x3092;&#x8FD4;&#x3059;<code>sum</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x5B9A;&#x7FA9;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;&#x3001;&#x300C;&#x4F55;&#x306E;&#x300D;<code>List</code>&#x304B;&#x5168;&#x304F;&#x308F;&#x304B;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x3053;&#x3068;&#x3067;&#x3001;&#x6574;&#x6570;&#x306E;<code>+</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x305D;&#x306E;&#x307E;&#x307E;&#x4F7F;&#x3063;&#x305F;&#x308A;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x3067;&#x306F;&#x3067;&#x304D;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x3001;2&#x3064;&#x306E;&#x624B;&#x9806;&#x3092;&#x8E0F;&#x307F;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x307E;&#x305A;&#x3001;2&#x3064;&#x306E;&#x540C;&#x3058;&#x578B;&#x3092;&#x8DB3;&#x3059;&#xFF08;0&#x306E;&#x5834;&#x5408;&#x306F;&#x305D;&#x308C;&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x5024;&#x3092;&#x8FD4;&#x3059;&#xFF09;&#x65B9;&#x6CD5;&#x3092;&#x77E5;&#x3063;&#x3066;&#x3044;&#x308B;&#x578B;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x305D;&#x306E;&#x578B;&#x3092;<code>Monoid</code>&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;
 <code>Monoid</code>&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#xFF1A;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">A</span>] {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">A</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>
-</span></code></pre>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">A</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">A</span>
+}
+</code></pre>
 <p>&#x3053;&#x3053;&#x3067;&#x3001;<code>Monoid</code>&#x306E;&#x578B;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;<code>A</code>&#x306F;&#x52A0;&#x7B97;&#x3055;&#x308C;&#x308B;<code>List</code>&#x306E;&#x8981;&#x7D20;&#x306E;&#x578B;&#x3092;&#x8868;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;</p>
 <ul>
 <li><code>mzero</code>: &#x578B;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;A&#x306E;<strong>0</strong>&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x5024;&#x3092;&#x8FD4;&#x3059;</li>
@@ -489,50 +488,43 @@ defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span c
 </ul>
 <p>&#x3067;&#x3059;&#x3002;</p>
 <p>&#x6B21;&#x306B;&#x3001;&#x3053;&#x306E;<code>Monoid</code>&#x578B;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;<code>List</code>&#x306E;&#x5168;&#x3066;&#x306E;&#x8981;&#x7D20;&#x3092;&#x5408;&#x8A08;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span>[</span><span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.mzero)((x, y) =&gt; m.mplus(x, y))
-sum: [<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>])<span class="hljs-type">A</span>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span>[</span><span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.mzero)((x, y) =&gt; m.mplus(x, y))
 </code></pre>
 <p>&#x5F8C;&#x306F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x578B;&#x306B;&#x5FDC;&#x3058;&#x305F;&#x52A0;&#x7B97;&#x3068;0&#x306E;&#x5B9A;&#x7FA9;&#x3092;&#x6301;&#x3063;&#x305F;object&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;<code>String</code>&#x3068;<code>Int</code>&#x306B;&#x3064;&#x3044;&#x3066;&#x5B9A;&#x7FA9;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">String</span>] {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringMonoid</span>
-</span>
-scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">Int</span>] {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntMonoid</span>
-</span></code></pre>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">String</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
+}
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">Int</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
+}
+</code></pre>
 <p>&#x307E;&#x3068;&#x3081;&#x308B;&#x3068;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">A</span>] {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">A</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>
-</span>
-scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">String</span>] {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringMonoid</span>
-</span>
-scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">Int</span>] {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntMonoid</span>
-</span>
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span>[</span><span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.mzero)((x, y) =&gt; m.mplus(x, y))
-sum: [<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>])<span class="hljs-type">A</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">A</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">A</span>
+}
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">String</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
+}
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntMonoid</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Monoid</span>[</span><span class="hljs-type">Int</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mplus</span>(</span>a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mzero</span>:</span> <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span>[</span><span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.mzero)((x, y) =&gt; m.mplus(x, y))
 </code></pre>
 <p>&#x3053;&#x308C;&#x3067;&#x3001;<code>Int</code>&#x578B;&#x306E;<code>List</code>&#x3082;<code>String</code>&#x578B;&#x306E;<code>List</code>&#x306E;&#x3069;&#x3061;&#x3089;&#x306E;&#x8981;&#x7D20;&#x306E;&#x5408;&#x8A08;&#x3082;&#x8A08;&#x7B97;&#x3067;&#x304D;&#x308B;&#x6C4E;&#x7528;&#x7684;&#x306A;<code>sum</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;</p>
 <pre><code class="lang-scala">scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))(<span class="hljs-type">IntMonoid</span>)
-res1: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
+res5: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
 
 scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))(<span class="hljs-type">StringMonoid</span>)
-res2: <span class="hljs-type">String</span> = <span class="hljs-type">ABC</span>
+res6: <span class="hljs-type">String</span> = <span class="hljs-type">ABC</span>
 </code></pre>
 <p>&#x3068;&#x3059;&#x308C;&#x3070;&#x826F;&#x3044;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x3055;&#x3066;&#x3001;&#x3053;&#x308C;&#x3067;&#x76EE;&#x7684;&#x306F;&#x679C;&#x305F;&#x3059;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x4F55;&#x306E;<code>List</code>&#x306E;&#x8981;&#x7D20;&#x3092;&#x5408;&#x8A08;&#x3059;&#x308B;&#x304B;&#x306F;&#x578B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x6642;&#x70B9;&#x3067;&#x306F;&#x308F;&#x304B;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3060;&#x304B;&#x3089;&#x3044;&#x3061;&#x3044;&#x3061;<code>IntMonoid</code>, <code>StringMonoid</code>&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x6E21;&#x3055;&#x305A;&#x3068;&#x3082;&#x8CE2;&#x304F;&#x63A8;&#x8AD6;&#x3057;&#x3066;&#x307B;&#x3057;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x307E;&#x3055;&#x306B;&#x305D;&#x308C;&#x3092;implicit
 parameter&#x3067;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x65B9;&#x6CD5;&#x306F;&#x7C21;&#x5358;&#x3067;&#x3001;<code>StringMonoid</code>&#x3068;<code>IntMonoid</code>&#x306E;&#x5B9A;&#x7FA9;&#x306E;&#x524D;&#x306B;implicit&#x3068;&#x4ED8;&#x3051;&#x308B;&#x3053;&#x3068;&#x3068;&#x3001;<code>sum</code>&#x306E;&#x6700;&#x5F8C;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x306E;<code>m</code>&#x306B;implicit&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;implicit parameter&#x3092;&#x4F7F;&#x3063;&#x305F;&#x6700;&#x7D42;&#x5F62;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
@@ -558,21 +550,21 @@ scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <spa
 sum: [<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Monoid</span>[<span class="hljs-type">A</span>])<span class="hljs-type">A</span>
 
 scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
-res3: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
+res7: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
 
 scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
-res4: <span class="hljs-type">String</span> = <span class="hljs-type">ABC</span>
+res8: <span class="hljs-type">String</span> = <span class="hljs-type">ABC</span>
 </code></pre>
 <p>&#x4EFB;&#x610F;&#x306E;List&#x306E;&#x8981;&#x7D20;&#x306E;&#x5408;&#x8A08;&#x5024;&#x3092;&#x6C42;&#x3081;&#x308B;sum&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x81EA;&#x7136;&#x306A;&#x5F62;&#xFF08;<code>sum(List(1, 2, 3))</code>&#xFF09;&#x3067;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;implicit parameter&#x306E;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x306F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;Haskell&#x304B;&#x3089;&#x501F;&#x308A;&#x3066;&#x304D;&#x305F;&#x3082;&#x306E;&#x3067;&#x3001;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#xFF08;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x8A08;&#x7B97;&#xFF09;&#x3068;&#x8A00;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;Haskell&#x306E;&#x7528;&#x8A9E;&#x3060;&#x3068;&#x3001;<code>Monoid</code>&#x3092;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x3001;<code>StringMonoid</code>&#x3068;<code>IntMonoid</code>&#x3092;<code>Monoid</code>&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;implicit parameter&#x306E;&#x7528;&#x6CD5;&#x306F;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x3082;&#x3042;&#x3063;&#x3066;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]().sum
-res5: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
+res9: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
 
 scala&gt; <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>).sum
-res6: <span class="hljs-type">Int</span> = <span class="hljs-number">10</span>
+res10: <span class="hljs-type">Int</span> = <span class="hljs-number">10</span>
 
 scala&gt; <span class="hljs-type">List</span>(<span class="hljs-number">1.1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">1.4</span>).sum
-res7: <span class="hljs-type">Double</span> = <span class="hljs-number">5.0</span>
+res11: <span class="hljs-type">Double</span> = <span class="hljs-number">5.0</span>
 </code></pre>
 <p>&#x306E;&#x3088;&#x3046;&#x306B;&#x6574;&#x6570;&#x3084;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306E;&#x5408;&#x8A08;&#x5024;&#x3092;&#x7279;&#x306B;&#x6C17;&#x306B;&#x3068;&#x3081;&#x308B;&#x3053;&#x3068;&#x306A;&#x304F;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;Scala&#x306B;&#x304A;&#x3044;&#x3066;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x30FB;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x899A;&#x3048;&#x308B;&#x3068;&#x3001;&#x8A2D;&#x8A08;&#x306E;&#x5E45;&#x304C;&#x30B0;&#x30F3;&#x3068;&#x5E83;&#x304C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;">&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
