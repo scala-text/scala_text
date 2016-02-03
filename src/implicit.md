@@ -141,7 +141,7 @@ implicit parameterのもう1つの使い方は、少々変わっています。�
 まず、2つの同じ型を足す（0の場合はそれに相当する値を返す）方法を知っている型を定義します。ここではその型を`Monoid`とします。
 `Monoid`の定義は次のようになります：
 
-```tut
+```tut:silent
 trait Monoid[A] {
   def mplus(a: A, b: A): A
   def mzero: A
@@ -157,13 +157,13 @@ trait Monoid[A] {
 
 次に、この`Monoid`型を使って、`List`の全ての要素を合計するメソッドを定義します：
 
-```tut
+```tut:silent
 def sum[A](lst: List[A])(m: Monoid[A]) = lst.foldLeft(m.mzero)((x, y) => m.mplus(x, y))
 ```
 
 後は、それぞれの型に応じた加算と0の定義を持ったobjectを定義します。ここでは`String`と`Int`について定義をします。
 
-```tut
+```tut:silent
 object StringMonoid extends Monoid[String] {
   def mplus(a: String, b: String): String = a + b
   def mzero: String = ""
@@ -177,7 +177,7 @@ object IntMonoid extends Monoid[Int] {
 
 まとめると次のようになります。
 
-```tut
+```tut:silent
 trait Monoid[A] {
   def mplus(a: A, b: A): A
   def mzero: A
