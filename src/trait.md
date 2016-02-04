@@ -284,7 +284,7 @@ class ClassA extends TraitB with TraitC
 class ClassB extends TraitC with TraitB
 ```
 
-この`great`メソッドの結果もまた継承された順番で変わります。
+この`greet`メソッドの結果もまた継承された順番で変わります。
 
 ```tut
 (new ClassA).greet()
