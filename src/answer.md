@@ -339,42 +339,42 @@ object Taps {
 
 ## 練習問題
 
-`m: Monoid[T]`と値`t1: T, t2: T, t3: T`は、次の条件（モノイド則）を満たす必要があります。
+`m: Additive[T]`と値`t1: T, t2: T, t3: T`は、次の条件を満たす必要があります。
 
 ```scala
-m.mplus(m.mzero, t1) == t1  // 単位元
-m.mplus(t1, m.mzero) == t1  // 単位元
-m.mplus(t1, m.mplus(t2, t3)) == m.mplus(m.mplus(t1, t2), t3) // 結合則
+m.plus(m.zero, t1) == t1  // 単位元
+m.plus(t1, m.zero) == t1  // 単位元
+m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) // 結合則
 ```
-このような条件を満たす型`T`と単位元`mzero`、演算`mplus`を探し出し、`Monoid[T]`を定義してみましょう。この際、モノイド則が満たされていることをいくつかの入力に対して確認してみましょう。また、定義した`Monoid[T]`を`implicit`にして、`T`の合計値を先ほどの`sum`で計算できることを確かめてみましょう。
+このような条件を満たす型`T`と単位元`zero`、演算`plus`を探し出し、`Additive[T]`を定義してみましょう。この際、条件が満たされていることをいくつかの入力に対して確認してみましょう。また、定義した`Additive[T]`を`implicit`にして、`T`の合計値を先ほどの`sum`で計算できることを確かめてみましょう。
 
 ## 解答（一例です。他にも答えは無数にあります）
 
 ```tut:silent
-object Monoids {
-  trait Monoid[A] {
-    def mplus(a: A, b: A): A
-    def mzero: A
+object Additives {
+  trait Additive[A] {
+    def plus(a: A, b: A): A
+    def zero: A
   }
 
-  implicit object StringMonoid extends Monoid[String] {
-    def mplus(a: String, b: String): String = a + b
-    def mzero: String = ""
+  implicit object StringAdditive extends Additive[String] {
+    def plus(a: String, b: String): String = a + b
+    def zero: String = ""
   }
 
-  implicit object IntMonoid extends Monoid[Int] {
-    def mplus(a: Int, b: Int): Int = a + b
-    def mzero: Int = 0
+  implicit object IntAdditive extends Additive[Int] {
+    def plus(a: Int, b: Int): Int = a + b
+    def zero: Int = 0
   }
 
   case class Point(x: Int, y: Int)
 
-  implicit object PointMonoid extends Monoid[Point] {
-    def mplus(a: Point, b: Point): Point = Point(a.x + b.x, a.y + b.y)
-    def mzero: Point = Point(0, 0)
+  implicit object PointAdditive extends Additive[Point] {
+    def plus(a: Point, b: Point): Point = Point(a.x + b.x, a.y + b.y)
+    def zero: Point = Point(0, 0)
   }
 
-  def sum[A](lst: List[A])(implicit m: Monoid[A]) = lst.foldLeft(m.mzero)((x, y) => m.mplus(x, y))
+  def sum[A](lst: List[A])(implicit m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
 
   def main(args: Array[String]): Unit = {
     println(sum(List(Point(1, 1), Point(2, 2), Point(3, 3)))) // Point(6, 6)
