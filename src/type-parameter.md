@@ -171,9 +171,9 @@ val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
 
 ```tut:silent
 trait Stack[+T] {
- def pop(): (T, Stack[T])
- def push[E >: T](e: E): Stack[E]
- def isEmpty(): Boolean
+  def pop(): (T, Stack[T])
+  def push[E >: T](e: E): Stack[E]
+  def isEmpty(): Boolean
 }
 
 class NonEmptyStack[+T](private val top: T, private val rest: Stack[T]) extends Stack[T] {
