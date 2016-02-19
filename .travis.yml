@@ -21,7 +21,7 @@ script:
 - sbt textLintAll textTestAll textBuildHtml test &&
   wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/77904f0859e36d/setup/linux-installer.py
   | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n');
-  exec(sys.stdin.read()); main('~/calibre-bin', True)" &&
+  exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null &&
   export PATH="~/calibre-bin/calibre/:/home/travis/calibre-bin/calibre/:$PATH" &&
   sbt textBuildEpub
 after_success:
