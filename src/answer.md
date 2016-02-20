@@ -140,7 +140,7 @@ def mkString[T](list: List[T])(sep: String): String = list match {
 
 ## 解答
 
-```scala
+```tut:silent
 def map[T, U](list: List[T])(f: T => U): List[U] = {
   list.foldLeft(Nil:List[U]){(x, y) => f(y) :: x}.reverse
 }
@@ -178,7 +178,7 @@ def count(list: List[Int])(f: Int => Boolean): Int  = {
 
 二分木（子の数が最大で2つであるような木構造）を表す型`Tree`と`Branch`, `Empty`を考えます：
 
-```scala
+```tut:silent
 sealed abstract class Tree
 case class Branch(value: Int, left: Tree, right: Tree) extends Tree
 case object Empty extends Tree
@@ -186,32 +186,28 @@ case object Empty extends Tree
 
 子が2つで左の子の値が`2`、右の子の値が`3`、自分自身の値が`1`の木構造はたとえば次のようにして定義することができます。
 
-```scala
-scala> val tree: Tree = Branch(1, Branch(2, Empty, Empty), Branch(3, Empty, Empty))
-tree: Tree = Branch(1,Branch(2,Empty,Empty),Branch(3,Empty,Empty))
+```tut
+val tree: Tree = Branch(1, Branch(2, Empty, Empty), Branch(3, Empty, Empty))
 ```
 
 このような木構造に対して、
 
 * 最大値を求める`max`メソッド：
 
-```scala
-scala> def max(tree: Tree): Int = ???
-max: (tree: Tree)Int
+```tut
+def max(tree: Tree): Int = ???
 ```
 
 * 最小値を求める`min`メソッド：
 
-```scala
-scala> def min(tree: Tree): Int = ???
-min: (tree: Tree)Int
+```tut
+def min(tree: Tree): Int = ???
 ```
 
 * 深さを求める`depth`メソッド：
 
-```scala
-scala> def depth(tree: Tree): Int = ???
-depth: (tree: Tree)Int
+```tut
+def depth(tree: Tree): Int = ???
 ```
 
 をそれぞれ定義してみましょう。なお、
@@ -231,9 +227,8 @@ depth(Branch(10, Empty, Empty)) = 1
 
 となるような木構造に変換する`sort`メソッド：
 
-```scala
-scala> def sort(tree: Tree): Tree = ???
-sort: (tree: Tree)Tree
+```tut
+def sort(tree: Tree): Tree = ???
 ```
 
 を定義してみましょう。
