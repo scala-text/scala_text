@@ -94,6 +94,27 @@ object Person {
 はOKです。なお、コンパニオンオブジェクトでも、`private[this]`（そのオブジェクト内からのみアクセス可能）なクラスの
 メンバーに対してはアクセスできません。単に`private`とした場合、コンパニオンオブジェクトからアクセスできるようになります。
 
+上記のような、コンパニオンオブジェクトを使ったコードをREPLで試す場合は、REPLの`:paste`コマンドを使って、クラスとコンパニオン
+オブジェクトを一緒にペーストするようにしてください。クラスとコンパニオンオブジェクトは同一ファイル中に置かれていなければ
+ならないのですが、REPLで両者を別々に入力した場合、コンパニオン関係をREPLが正しく認識できないのです。
+
+```scala
+scala> :paste
+// Entering paste mode (ctrl-D to finish)
+
+class Person(name: String, age: Int, private val weight: Int)
+
+object Person {
+  val taro = new Person("Taro", 20, 70)
+  println(taro.weight)
+}
+
+// Exiting paste mode, now interpreting.
+
+defined class Person
+defined object Person
+```
+
 ### 練習問題
 
 クラスを定義して、そのクラスのコンパニオンオブジェクトを定義してみましょう。コンパニオンオブジェクトが同名のクラスに対する
