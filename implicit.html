@@ -53,7 +53,7 @@
         data-chapter-title="Implicit"
         data-filepath="implicit.md"
         data-basepath="."
-        data-revision="Sat Feb 20 2016 09:15:57 GMT+0000 (UTC)"
+        data-revision="Tue Feb 23 2016 06:48:33 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -427,7 +427,7 @@ Scala&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x4E2D;&#x
 implicit conversion&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x8A66;&#x3057;&#x306B;&#x3001;<code>String</code>&#x306E;&#x672B;&#x5C3E;&#x306B;<code>&quot;:-)&quot;</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x8FD4;&#x3059;implicit conversion&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(</span><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">src</span>:</span> <span class="hljs-type">String</span>) {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span>(</span>): <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span>:</span> <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
      | }
 defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>
 </span>
@@ -435,7 +435,7 @@ scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-function"
 warning: there was one feature warning; re-run <span class="hljs-keyword">with</span> -feature <span class="hljs-keyword">for</span> details
 enrichString: (arg: <span class="hljs-type">String</span>)<span class="hljs-type">RichString</span>
 
-scala&gt; <span class="hljs-string">&quot;Hi, &quot;</span>.smile()
+scala&gt; <span class="hljs-string">&quot;Hi, &quot;</span>.smile
 res1: <span class="hljs-type">String</span> = <span class="hljs-type">Hi</span>, :-)
 </code></pre>
 <p>&#x3061;&#x3083;&#x3093;&#x3068;&#x6587;&#x5B57;&#x5217;&#x306E;&#x672B;&#x5C3E;&#x306B;<code>&quot;:-)&quot;</code>&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;<code>smile</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3055;&#x3066;&#x3001;&#x3053;&#x3053;&#x3067;&#x3072;&#x3087;&#x3063;&#x3068;&#x3057;&#x305F;&#x3089;&#x6C17;&#x304C;&#x3064;&#x3044;&#x305F;&#x65B9;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;implicit conversion&#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x3067;&#x306F;&#x3001;&#x65E2;&#x5B58;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3078;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x8FFD;&#x52A0;&#x306E;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306B;&#x306F;&#x5197;&#x9577;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;Scala 2.10&#x304B;&#x3089;&#x306F;&#x3001;class&#x306B;implicit
@@ -443,11 +443,11 @@ res1: <span class="hljs-type">String</span> = <span class="hljs-type">Hi</span>,
 <h3 id="implicit-class"><a name="implicit-class" class="plugin-anchor" href="#implicit-class"><span class="fa fa-link"></span></a>Implicit Class</h3>
 <p>&#x4E0A;&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x3001;Scala 2.10&#x4EE5;&#x964D;&#x3067;&#x306F;&#x3001;</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(</span><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">src</span>:</span> <span class="hljs-type">String</span>) {
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span>(</span>): <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span>:</span> <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
      | }
 defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>
 </span>
-scala&gt; <span class="hljs-string">&quot;Hi, &quot;</span>.smile()
+scala&gt; <span class="hljs-string">&quot;Hi, &quot;</span>.smile
 res0: <span class="hljs-type">String</span> = <span class="hljs-type">Hi</span>, :-)
 </code></pre>
 <p>&#x3068;&#x3044;&#x3046;&#x5F62;&#x3067;&#x66F8;&#x304D;&#x306A;&#x304A;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
