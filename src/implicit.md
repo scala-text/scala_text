@@ -46,12 +46,12 @@ implicit conversionを利用することができます。
 
 ```tut
 class RichString(val src: String) {
-  def smile(): String = src + ":-)"
+  def smile: String = src + ":-)"
 }
 
 implicit def enrichString(arg: String): RichString = new RichString(arg)
 
-"Hi, ".smile()
+"Hi, ".smile
 ```
 
 ちゃんと文字列の末尾に`":-)"`を追加する`smile`メソッドが定義できています。さて、ここでひょっとしたら気がついた方もいるかもしれませんが、implicit conversionはそのままでは、既存のクラスへのメソッド追加のために使用するには冗長であるということです。Scala 2.10からは、classにimplicit
@@ -63,10 +63,10 @@ implicit def enrichString(arg: String): RichString = new RichString(arg)
 
 ```tut:reset
 implicit class RichString(val src: String) {
-  def smile(): String = src + ":-)"
+  def smile: String = src + ":-)"
 }
 
-"Hi, ".smile()
+"Hi, ".smile
 ```
 
 という形で書きなおすことができます。
