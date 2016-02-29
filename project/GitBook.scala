@@ -31,7 +31,6 @@ object GitBook extends NpmCliBase {
   lazy val textBuildHtml = inputKey[Unit]("build GitBook to html")
   lazy val textBuildEpub = inputKey[Unit]("build GitBook to epub")
   lazy val textBuildPdf = inputKey[Unit]("build GitBook to pdf")
-  lazy val textBuildAll = taskKey[Unit]("build GitBook to all format")
 
   val settings = Seq(
     textPluginInstall := printRun(Process(s"$gitbookBin install")),
@@ -49,9 +48,6 @@ object GitBook extends NpmCliBase {
     */
     textBuildOnly := buildBook(Format.Html).evaluated,
     textBuildEpub := buildBook(Format.Epub).dependsOn(tut).evaluated,
-    textBuildPdf := sys.error("pdf-convertで利用するcalibreがcentOS6で上手く動かないので停止中"),
-    // 全部パラレルにやっていいのか不明なので逐次実行
-    // pdfはエラーになるので実行していない
-    textBuildAll <<= textBuildEpub.toTask("") dependsOn textBuildHtml.toTask("")
+    textBuildPdf := sys.error("pdf-convertで利用するcalibreがcentOS6で上手く動かないので停止中")
   )
 }

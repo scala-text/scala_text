@@ -19,12 +19,12 @@ addons:
     - gcc-4.8
     - g++-4.8
 script:
-- sbt textLintAll textTestAll textBuildHtml test &&
+- sbt textLintAll textTestAll "textBuildHtml --gitbook=2.6.7" test &&
   wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/77904f0859e36d/setup/linux-installer.py
   | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n');
   exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null &&
   export PATH="~/calibre-bin/calibre/:/home/travis/calibre-bin/calibre/:$PATH" &&
-  sbt textBuildEpub
+  sbt "textBuildEpub --gitbook=2.6.7"
 after_success:
 - "./deploy.sh"
 after_script:
