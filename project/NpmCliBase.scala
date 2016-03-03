@@ -1,5 +1,6 @@
 import sbt._
 import sbt.complete.Parser
+import scala.util.Properties
 
 trait NpmCliBase {
   val nodeBin = file("node_modules/.bin/")
@@ -24,4 +25,7 @@ trait NpmCliBase {
   def printRun(p: ProcessBuilder) : Unit = {
     p.lines foreach println
   }
+
+  def cmd(name: String) =
+    if(Properties.isWin) s"${name}.cmd" else name
 }
