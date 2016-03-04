@@ -3,7 +3,7 @@ import sbt._
 import scala.util.control.NonFatal
 
 object TextLint extends NpmCliBase {
-  val textlintBin = nodeBin / "textlint"
+  val textlintBin = nodeBin / cmd("textlint")
 
   lazy val textLint = inputKey[Unit]("lint text")
 

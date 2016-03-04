@@ -3,7 +3,7 @@ import sbt.IO
 import tut.Plugin._
 
 object GitBook extends NpmCliBase {
-  val gitbookBin = nodeBin / "gitbook"
+  val gitbookBin = nodeBin / cmd("gitbook")
 
   sealed trait Format {def command: String}
   object Format {
