@@ -9,7 +9,7 @@ object build extends Build with NpmCliBase {
   lazy val root = (project in file(".")).
     settings(
       name := "textbook",
-      scalaVersion := "2.11.7",
+      scalaVersion := "2.11.8",
       tutSettings,
       tutSourceDirectory := srcDir,
       tutTargetDirectory := compiledSrcDir,
