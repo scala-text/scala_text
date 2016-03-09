@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>IDE(Intellij IDEA) | Scala研修テキスト</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./control-syntax.html" />
+    
+    
+    <link rel="prev" href="./sbt-compile-execute.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="5"
+        data-chapter-title="IDE(Intellij IDEA)"
+        data-filepath="IDE.md"
+        data-basepath="."
+        data-revision="Wed Mar 09 2016 15:17:44 GMT+0000 (UTC)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="introduction-to-scala.html">
+            
+                
+                    <a href="./introduction-to-scala.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Scalaとは
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sbt-install.html">
+            
+                
+                    <a href="./sbt-install.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        sbtをインストールする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="basic.html">
+            
+                
+                    <a href="./basic.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Scalaの基本
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="sbt-compile-execute.html">
+            
+                
+                    <a href="./sbt-compile-execute.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        sbtでプログラムをコンパイル・実行する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5" data-path="IDE.html">
+            
+                
+                    <a href="./IDE.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        IDE(Intellij IDEA)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="control-syntax.html">
+            
+                
+                    <a href="./control-syntax.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Scalaの制御構文
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="class.html">
+            
+                
+                    <a href="./class.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        クラス
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="object.html">
+            
+                
+                    <a href="./object.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        オブジェクト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="trait.html">
+            
+                
+                    <a href="./trait.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        トレイト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="type-parameter.html">
+            
+                
+                    <a href="./type-parameter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        型パラメータと変位指定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="function.html">
+            
+                
+                    <a href="./function.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        関数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="collection.html">
+            
+                
+                    <a href="./collection.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        Scalaのコレクションライブラリ
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="case-class-and-pattern-matching.html">
+            
+                
+                    <a href="./case-class-and-pattern-matching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        ケースクラスとパターンマッチング
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="implicit.html">
+            
+                
+                    <a href="./implicit.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        Implicit
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="error-handling.html">
+            
+                
+                    <a href="./error-handling.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        エラー処理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="future-and-promise.html">
+            
+                
+                    <a href="./future-and-promise.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        FutureとPromise
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="test.html">
+            
+                
+                    <a href="./test.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        テスト
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="java-interop.html">
+            
+                
+                    <a href="./java-interop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        javaとの相互運用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="answer.html">
+            
+                
+                    <a href="./answer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        演習問題の解答
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="advanced-trait-di.html">
+            
+                
+                    <a href="./advanced-trait-di.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                        トレイトの応用編：依存性の注入によるリファクタリング
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Scala研修テキスト</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="ide-integrated-development-environment"><a name="ide-integrated-development-environment" class="plugin-anchor" href="#ide-integrated-development-environment"><span class="fa fa-link"></span></a>IDE (Integrated Development Environment)</h1>
+<p>Scala&#x3067;&#x672C;&#x683C;&#x7684;&#x306B;&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x969B;&#x306F;&#x3001;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#xFF08;Emacs, Vim, Sublime Text&#xFF09;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3082;&#x69CB;&#x3044;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;
+IDE&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3088;&#x308A;&#x958B;&#x767A;&#x304C;&#x697D;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x958B;&#x767A;&#x3059;&#x308B;&#x969B;&#x306E;IDE&#x3068;&#x3057;&#x3066;&#x306F;IntelliJ IDEA + Scala Plugin&#x3068;
+Scala IDE for Eclipse&#x306E;2&#x7A2E;&#x985E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;IntelliJ IDEA&#x306E;&#x65B9;&#x304C;IDE&#x3068;&#x3057;&#x3066;&#x9AD8;&#x6A5F;&#x80FD;&#x3067;&#x3042;&#x308A;&#x3001;&#x5B89;&#x5B9A;&#x6027;&#x3082;&#x9AD8;&#x3044;&#x305F;&#x3081;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;IntelliJ IDEA + Scala Plugin&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x65B9;&#x6CD5;&#x3068;&#x57FA;&#x672C;&#x7684;&#x306A;&#x64CD;&#x4F5C;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x88DC;&#x8DB3;&#xFF1A;&#x306A;&#x304A;&#x3001;&#x672C;&#x7BC0;&#x3067;IDE&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x5F8C;&#x3082;&#x8AAC;&#x660E;&#x306F;<strong>REPL&#x3092;&#x4F7F;&#x3063;&#x3066;&#x884C;&#x3044;&#x307E;&#x3059;</strong>&#x304C;&#x3001;IDE&#x30D9;&#x30FC;&#x30B9;&#x3067;&#x5B66;&#x7FD2;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x9069;&#x5B9C;&#x30B3;&#x30FC;&#x30C9;&#x3092;IDE&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x306B;&#x8CBC;&#x308A;&#x4ED8;&#x3051;&#x3066;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x306A;&#x3069;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>IntelliJ IDEA&#x306F;<a href="https://www.jetbrains.com/" target="_blank">JetBrains&#x793E;</a>&#x304C;&#x958B;&#x767A;&#x3057;&#x3066;&#x3044;&#x308B;IDE&#x3067;&#x3001;Java&#x7528;
+IDE&#x3068;&#x3057;&#x3066;&#x6839;&#x5F37;&#x3044;&#x4EBA;&#x6C17;&#x3092;&#x8A87;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x6709;&#x6599;&#x3060;&#x304C;&#x591A;&#x6A5F;&#x80FD;&#x306E;Ultimate Edition&#x3084;&#x30AA;&#x30FC;&#x30D7;&#x30F3;&#x30BD;&#x30FC;&#x30B9;&#x3067;&#x7121;&#x6599;&#x306E;Community Edition&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;Community Edition&#x3067;&#x3082;&#x3001;Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;Scala&#x958B;&#x767A;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3001;&#x672C;&#x7A3F;&#x3067;&#x306F;Community Edition&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3082;&#x3089;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305A;&#x3001;IntelliJ IDEA&#x306E;<a href="https://www.jetbrains.com/idea/download/" target="_blank">Download&#x30DA;&#x30FC;&#x30B8;</a>&#x306B;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;Windows, Mac OS X, Linux&#x306E;3&#x3064;&#x306E;&#x30BF;&#x30D6;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;OS&#x306B;&#x5FDC;&#x3058;&#x305F;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x3001;&#x300C;Download Community&#x300D;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x4EE5;&#x964D;&#x3001;IDEA&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x304C;&#x3067;&#x3066;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x90FD;&#x5408;&#x4E0A;&#x3001;Mac OS X&#x4E0A;&#x3067;&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x3054;&#x627F;&#x77E5;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Download.png" alt="IntelliJ IDEA&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x30DA;&#x30FC;&#x30B8;"></p>
+<p>&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x3068;&#x3001;<code>ideaIC-${version}.dmg</code>(<code>${version}&#x306F;&#x305D;&#x306E;&#x6642;&#x70B9;&#x3067;&#x306E;IDEA&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;</code>)
+&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x59CB;&#x307E;&#x308B;&#x306E;&#x3067;&#xFF08;Windows&#x306E;&#x5834;&#x5408;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x306E;exe&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#xFF09;&#x3001;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x7D42;&#x308F;&#x308B;&#x306E;&#x3092;&#x5F85;&#x3061;&#x307E;&#x3059;&#x3002;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x7D42;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;&#x6307;&#x793A;&#x306B;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Install.png" alt="IntelliJ IDEA&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;"></p>
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x304C;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;&#x30B9;&#x30D7;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x304C;&#x73FE;&#x308C;&#x3066;&#x3057;&#x3070;&#x3089;&#x304F;&#x5F85;&#x3064;&#x3068;&#x3001;</p>
+<p><img src="img/IntelliJ_IDEA_Startup.png" alt="IntelliJ IDEA&#x306E;&#x8D77;&#x52D5;&#x753B;&#x9762;"></p>
+<p>&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x307E;&#x3067;&#x3067;&#x3001;IDEA&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306F;&#x5B8C;&#x4E86;&#x3067;&#x3059;&#x3002;&#x6B21;&#x306B;&#x3001;IDEA&#x306E;
+Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x306E;<code>Configure-&gt;Plugins</code>&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Startup_Configure.png" alt="IntelliJ IDEA&#x306E;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x306E;Configure"></p>
+<p>&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x4E2D;&#x306E;&#x300C;Browse repositories&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Plugins.png" alt="IntelliJ IDEA&#x306E;Plugins&#x306E;&#x753B;&#x9762;"></p>
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x53EF;&#x80FD;&#x306A;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x306E;&#x4E00;&#x89A7;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x691C;&#x7D22;&#x7A93;&#x304B;&#x3089;<code>scala</code>&#x3067;&#x7D5E;&#x308A;&#x8FBC;&#x307F;&#x3092;&#x304B;&#x3051;&#x3066;&#x3001;&#x300C;Install&#x300D;&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#xFF08;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x53C2;&#x7167;&#xFF09;</p>
+<p><img src="img/IntelliJ_IDEA_Browse_Repositories.png" alt="IntelliJ IDEA&#x306E;Browse Repositories&#x306E;&#x753B;&#x9762;"></p>
+<p>Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x30FB;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x306F;&#x82E5;&#x5E72;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x308B;&#x306E;&#x3067;&#x3057;&#x3070;&#x3089;&#x304F;&#x5F85;&#x3061;&#x307E;&#x3059;&#x3002;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x30FB;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x300C;Restart IntelliJ IDEA&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Plugins_Changed.png" alt="IntelliJ IDEA&#x306E;&#x518D;&#x8D77;&#x52D5;"></p>
+<p>&#x518D;&#x8D77;&#x52D5;&#x5F8C;&#x3001;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x3067;&#x300C;Create New Project&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3001;&#x6B21;&#x306E;&#x753B;&#x9762;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308C;&#x3070;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306F;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_New_Project.png" alt="IntelliJ IDEA&#x306E;Create New Project"></p>
+<h2 id="sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;"><a name="sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;" class="plugin-anchor" href="#sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;"><span class="fa fa-link"></span></a>sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;</h2>
+<p>&#x6B21;&#x306B;&#x3001;&#x5358;&#x7D14;&#x306A;sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;IntelliJ IDEA&#x306B;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;&#x4ECA;&#x56DE;&#x306F;&#x3001;&#x3042;&#x3089;&#x304B;&#x3058;&#x3081;&#x7528;&#x610F;&#x3057;&#x3066;&#x304A;&#x3044;&#x305F;<code>scala-sandbox</code>&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;<code>scala-sandbox</code>&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;
+<a href="https://github.com/dwango/scala-sandbox" target="_blank">&#x3053;&#x3053;</a>&#x304B;&#x3089;<code>git clone</code>&#x3067;clone&#x3057;&#x307E;&#x3059;&#x3002;
+<code>scala-sandbox</code>&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x69CB;&#x6210;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;</p>
+<pre><code>scala-sandbox
+&#x251C;&#x2500;&#x2500; build.sbt
+&#x251C;&#x2500;&#x2500; src/main/scala/HelloWorld.scala
+&#x251C;&#x2500;&#x2500; project/build.properties
+&#x2514;&#x2500;&#x2500; build.sbt
+</code></pre><p>&#x3053;&#x306E;<code>scala-sandbox</code>&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x3057;&#x3066;IntelliJ IDEA&#x306B;&#x53D6;&#x308A;&#x8FBC;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305A;&#x3001;IntelliJ IDEA&#x306E;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x304B;&#x3089;&#x3001;&#x300C;Import Project&#x300D;&#x3092;&#x9078;&#x629E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Import_Project.png" alt="Import Project"></p>
+<p>&#x6B21;&#x306B;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;build.sbt&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;OK&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Select_File_Or_Directory_To_Import.png" alt="Select File or Directory to Import"></p>
+<p>&#x3059;&#x308B;&#x3068;&#x3001;&#x3055;&#x3089;&#x306B;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x8D64;&#x67A0;&#x3067;&#x56F2;&#x3063;&#x305F;&#x7B87;&#x6240;&#x5168;&#x3066;&#x306B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x5165;&#x308C;&#x307E;&#x3059;&#x3002;&#x300C;Project SDK&#x300D;&#x304C;&#x7A7A;&#x306E;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x300C;New&#x300D;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x81EA;&#x5206;&#x3067;&#x3001;JDK&#x306E;&#x30DB;&#x30FC;&#x30E0;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x3042;&#x308B;JDK&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Import_Project_From_SBT.png" alt="Import Project From SBT.png"></p>
+<p>&#x6700;&#x5F8C;&#x306B;&#x3001;OK&#x3057;&#x307E;&#x3059;&#x3002;&#x6700;&#x521D;&#x306F;&#x3001;sbt&#x81EA;&#x4F53;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x53D6;&#x5F97;&#x306A;&#x3069;&#x3059;&#x308B;&#x305F;&#x3081;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3057;&#x3070;&#x3089;&#x304F;&#x5F85;&#x3064;&#x3068;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x753B;&#x9762;&#x304C;&#x958B;&#x304D;&#x307E;&#x3059;&#x3002;&#x305D;&#x3053;&#x304B;&#x3089;&#x3001;<em>HelloWorld.scala</em>&#x3092;&#x9078;&#x3093;&#x3067;&#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x308C;&#x3070;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Editor_Hello_World.png" alt="Hello World.png)"></p>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;IntelliJ IDEA&#x3067;&#x306F;&#x3001;sbt&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;IDE&#x5185;&#x3067;&#x7DE8;&#x96C6;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;IntelliJ IDEA&#x306E;&#x4EE5;&#x524D;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3067;&#x306F;sbt-idea&#x3068;&#x3044;&#x3046;sbt&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;IDEA&#x306E;&#x8A2D;&#x5B9A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x81EA;&#x52D5;&#x751F;&#x6210;&#x3057;&#x3066;&#x958B;&#x304F;&#x306E;&#x304C;&#x666E;&#x901A;&#x3067;&#x3057;&#x305F;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3053;&#x306E;&#x65B9;&#x6CD5;&#x306F;
+IntelliJ IDEA 14&#x4EE5;&#x964D;&#x975E;&#x63A8;&#x5968;&#x306B;&#x306A;&#x3063;&#x305F;&#x306E;&#x3067;&#x3001;&#x672C;&#x7A3F;&#x3067;&#x306F;sbt&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x53D6;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<h2 id="&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;"><a name="&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;" class="plugin-anchor" href="#&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;"><span class="fa fa-link"></span></a>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;</h2>
+<p>&#x6700;&#x5F8C;&#x306B;&#x3001;&#x3053;&#x306E;HelloWorld&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;<em>HelloWorld.scala</em>&#x3092;IDE&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3067;&#x958B;&#x3044;&#x305F;&#x72B6;&#x614B;&#x3067;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x304B;&#x3089;<code>Run -&gt; Run</code>&#x3068;&#x9078;&#x629E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Run_Menu.png" alt="Run Menu"></p>
+<p>&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;<strong>Hello World</strong>&#x3092;&#x9078;&#x629E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Edit_Configuration_Hello_World.png" alt="Select Hello World"></p>
+<p>&#x3059;&#x308B;&#x3068;&#x3001;Hello World&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x6700;&#x521D;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x304C;&#x59CB;&#x307E;&#x308B;&#x306E;&#x3067;&#x5C11;&#x3057;&#x5F85;&#x3061;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x5F8C;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x3089;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
+<p><img src="img/IntelliJ_IDEA_Run_Hello_World.png" alt="Run Hello World"></p>
+<p>&#x306A;&#x304A;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;IntelliJ IDEA&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x65B9;&#x6CD5;&#x306E;&#x307F;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x6700;&#x8FD1;&#x5B89;&#x5B9A;&#x6027;&#x3068;&#x6A5F;&#x80FD;&#x304C;&#x5411;&#x4E0A;&#x3057;&#x305F;<a href="http://scala-ide.org/" target="_blank">Scala IDE for Eclipse</a>
+&#x3092;&#x8A66;&#x3057;&#x3066;&#x307F;&#x3066;&#x3082;&#x826F;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./sbt-compile-execute.html" class="navigation navigation-prev " aria-label="Previous page: sbtでプログラムをコンパイル・実行する"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./control-syntax.html" class="navigation navigation-next " aria-label="Next page: Scalaの制御構文"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
