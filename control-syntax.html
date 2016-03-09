@@ -53,7 +53,7 @@
         data-chapter-title="Scalaの制御構文"
         data-filepath="control-syntax.md"
         data-basepath="."
-        data-revision="Fri Mar 04 2016 04:28:11 GMT+0000 (UTC)"
+        data-revision="Wed Mar 09 2016 09:00:26 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -691,13 +691,13 @@ scala&gt; obj <span class="hljs-keyword">match</span> {
      |   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
      |   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
      | }
-&lt;console&gt;:<span class="hljs-number">15</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">Int</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[</span><span class="hljs-type">Int</span>] (the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]) is unchecked since it is eliminated by erasure
+&lt;console&gt;:<span class="hljs-number">16</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">Int</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[</span><span class="hljs-type">Int</span>] (the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]) is unchecked since it is eliminated by erasure
          <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
                  ^
-&lt;console&gt;:<span class="hljs-number">16</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">String</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[</span><span class="hljs-type">String</span>] (the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">String</span>]) is unchecked since it is eliminated by erasure
+&lt;console&gt;:<span class="hljs-number">17</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">String</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[</span><span class="hljs-type">String</span>] (the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">String</span>]) is unchecked since it is eliminated by erasure
          <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
                  ^
-&lt;console&gt;:<span class="hljs-number">16</span>: warning: unreachable code
+&lt;console&gt;:<span class="hljs-number">17</span>: warning: unreachable code
          <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
                                         ^
 <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]
