@@ -76,7 +76,7 @@ scala> :quit
 _build.sbt_というファイルを作成し、
 
 ```
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 ```
 
 としてやると良いです。この_*.sbt_がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう
