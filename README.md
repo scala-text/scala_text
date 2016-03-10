@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/dwango/scala_text.svg?branch=master)](https://travis-ci.org/dwango/scala_text)
 
-このテキストはドワンゴの新入社員Scala研修のために作成されたものである。
+このテキストでドワンゴの新入社員はScala研修に力を入れることができる。
 
-## 目的
+### 目的
 
-新入社員研修でScalaを習得してもらうために使用する。
+社員研修でScalaを習得してもらうために使用する。
 
 ## ターゲット
 
