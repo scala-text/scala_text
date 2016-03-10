@@ -2,6 +2,7 @@
 - [sbtをインストールする](sbt-install.md)
 - [Scalaの基本](basic.md)
 - [sbtでプログラムをコンパイル・実行する](sbt-compile-execute.md)
+- [IDE(Intellij IDEA)](IDE.md)
 - [Scalaの制御構文](control-syntax.md)
 - [クラス](class.md)
 - [オブジェクト](object.md)
