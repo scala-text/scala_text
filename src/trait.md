@@ -359,8 +359,6 @@ class ClassA extends TraitC
 class ClassB extends TraitB with TraitC
 ```
 
-つまり`abstract override`は`super`の束縛を具象クラスを作るまで遅延させる機能と言えるでしょう。
-
 ### 自分型（★★）
 
 Scalaにはクラスやトレイトの中で自分自身の型にアノテーションを記述することができる機能があります。
