@@ -53,7 +53,7 @@
         data-chapter-title="演習問題の解答"
         data-filepath="answer.md"
         data-basepath="."
-        data-revision="Mon Mar 14 2016 08:34:56 GMT+0000 (UTC)"
+        data-revision="Wed Mar 16 2016 11:50:13 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -416,52 +416,6 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;"><a name="&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;" class="plugin-anchor" href="#&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;"><span class="fa fa-link"></span></a>&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;</h1>
-<h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
-<p>&#x914D;&#x5217;&#x306E;<code>i</code>&#x756A;&#x76EE;&#x306E;&#x8981;&#x7D20;&#x3068;<code>j</code>&#x756A;&#x76EE;&#x306E;&#x8981;&#x7D20;&#x3092;&#x5165;&#x308C;&#x66FF;&#x3048;&#x308B;<code>swapArray</code>&#x95A2;&#x6570;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>swapArray</code>&#x95A2;&#x6570;&#x306E;&#x5BA3;&#x8A00;&#x306F;</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">swapArray</span>[</span><span class="hljs-type">T</span>](arr: <span class="hljs-type">Array</span>[<span class="hljs-type">T</span>])(i: <span class="hljs-type">Int</span>, j: <span class="hljs-type">Int</span>): <span class="hljs-type">Unit</span>
-</code></pre>
-<p>&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30D2;&#x30F3;&#x30C8;&#xFF1A;<code>swapArray</code>&#x306E;&#x7D50;&#x679C;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3051;&#x307E;&#x305B;&#x3093;&#x3002;&#x307E;&#x305F;&#x3001;<code>i</code>&#x3068;<code>j</code>&#x304C;&#x914D;&#x5217;&#x306E;&#x7BC4;&#x56F2;&#x5916;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x7279;&#x306B;&#x8003;&#x616E;&#x3057;&#x306A;&#x304F;&#x3066;&#x826F;&#x3044;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">arr</span> =</span> <span class="hljs-type">Array</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
-arr: <span class="hljs-type">Array</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Array</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
-
-scala&gt; swapArray(arr)(<span class="hljs-number">0</span>, <span class="hljs-number">4</span>)
-
-scala&gt; arr
-res1: <span class="hljs-type">Array</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Array</span>(<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>)
-
-scala&gt; swapArray(arr)(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
-
-scala&gt; arr
-res3: <span class="hljs-type">Array</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Array</span>(<span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
-</code></pre>
-<h2 id="&#x89E3;&#x7B54;"><a name="&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x89E3;&#x7B54;"><span class="fa fa-link"></span></a>&#x89E3;&#x7B54;</h2>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">swapArray</span>[</span><span class="hljs-type">T</span>](arr: <span class="hljs-type">Array</span>[<span class="hljs-type">T</span>])(i: <span class="hljs-type">Int</span>, j: <span class="hljs-type">Int</span>): <span class="hljs-type">Unit</span> = {
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">tmp</span> =</span> arr(i)
-  arr(i) = arr(j)
-  arr(j) = tmp
-}
-</code></pre>
-<hr>
-
-<h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
-<p><code>mkString</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;</p>
-<pre><code>1,2,3,4,5,6,7,8,9,10
-</code></pre><p>&#x3068;&#x306A;&#x308B;&#x3088;&#x3046;&#x306A;&#x6587;&#x5B57;&#x5217;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF08;&#x30D2;&#x30F3;&#x30C8;&#xFF1A;<code>Range</code> &#x306B;&#x3082;<code>mkString</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#xFF09;</p>
-<h2 id="&#x89E3;&#x7B54;"><a name="&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x89E3;&#x7B54;"><span class="fa fa-link"></span></a>&#x89E3;&#x7B54;</h2>
-<pre><code class="lang-scala">scala&gt; (<span class="hljs-number">1</span> to <span class="hljs-number">10</span>).mkString(<span class="hljs-string">&quot;,&quot;</span>)
-res0: <span class="hljs-type">String</span> = <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>
-</code></pre>
-<hr>
-
-<h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
-<p><code>foldLeft</code>&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;<code>List</code>&#x306E;&#x8981;&#x7D20;&#x3092;&#x53CD;&#x8EE2;&#x3055;&#x305B;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;<code>reverse</code>&#x3092;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>reverse</code>&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3051;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre><code>scala&gt; reverse(List(1, 2, 3, 4, 5))
-res0: List[Int] = List(5, 4, 3, 2, 1)
-</code></pre><h2 id="&#x89E3;&#x7B54;"><a name="&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x89E3;&#x7B54;"><span class="fa fa-link"></span></a>&#x89E3;&#x7B54;</h2>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse</span>[</span><span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">List</span>[<span class="hljs-type">A</span>] = lst.foldLeft(<span class="hljs-type">Nil</span>:<span class="hljs-type">List</span>[<span class="hljs-type">A</span>]){(a, b) =&gt; b::a}
-</code></pre>
-<hr>
-
 <h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
 <p><code>List</code>&#x306E;&#x5168;&#x3066;&#x306E;&#x8981;&#x7D20;&#x3092;&#x8DB3;&#x3057;&#x5408;&#x308F;&#x305B;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;<code>sum</code>&#x3092;<code>foldRight</code>&#x3092;&#x7528;&#x3044;&#x3066;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>sum</code>&#x306E;&#x5BA3;&#x8A00;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>List</code>&#x304C;&#x7A7A;&#x306E;&#x3068;&#x304D;&#x306F;0&#x3092;&#x8FD4;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span>(</span>list: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]): <span class="hljs-type">Int</span>
