@@ -233,7 +233,7 @@ List(1, 2, 3, 4, 5).mkString("[", ",", "]")
 start,...,end
 ```
 
-となるような文字列を返すメソッド`joinByComma`を定義してみましょう（ヒント：`Range` にも`mkString`メソッドはあります）
+となるような文字列を返すメソッド`joinByComma`を定義してみましょう（ヒント：`Range` にも`mkString`メソッドはあります）。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/collection.md#練習問題-1)から。
 
 ```tut:silent
 def joinByComma(start: Int, end: Int): String = {
