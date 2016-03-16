@@ -70,7 +70,7 @@ arr.length
 def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = ???
 ```
 
-となります。ヒント：`swapArray`の結果は次のようになっていなければいけません。また、`i`と`j`が配列の範囲外である場合は特に考慮しなくて良いです。
+となります。ヒント：`swapArray`の結果は次のようになっていなければいけません。また、`i`と`j`が配列の範囲外である場合は特に考慮しなくて良いです。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/collection.md#練習問題)から。
 
 ```tut:invisible
 def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = {
@@ -227,13 +227,29 @@ List(1, 2, 3, 4, 5).mkString("[", ",", "]")
 
 #### 練習問題
 
-`mkString`を使って、
+`mkString`を使って、最初の数`start`と最後の数`end`を受け取って、
 
 ```
-1,2,3,4,5,6,7,8,9,10
+start,...,end
 ```
 
-となるような文字列を出力してみましょう（ヒント：`Range` にも`mkString`メソッドを使うことができる）
+となるような文字列を返すメソッド`joinByComma`を定義してみましょう（ヒント：`Range` にも`mkString`メソッドはあります）
+
+```tut:silent
+def joinByComma(start: Int, end: Int): String = {
+  ???
+}
+```
+
+```tut:invisible
+def joinByComma(start: Int, end: Int): String = {
+  (start to end).mkString(",")
+}
+```
+
+```tut
+joinByComma(1, 10)
+```
 
 ### foldLeft：左からの畳み込み（★★★）
 
@@ -282,8 +298,7 @@ List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 
 #### 練習問題
 
-`foldLeft`を用いて、`List`の要素を反転させるメソッド`reverse`を実装してみましょう。`reverse`は次のようにして呼びだすことが
-できるものでなければいけません。
+`foldLeft`を用いて、`List`の要素を反転させるメソッド`reverse`を実装してみましょう。`reverse`は次のようにして呼びだすことができるものでなければいけません。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/collection.md#練習問題-2)から。
 
 ```tut:invisible
 def reverse[A](list: List[A]) = list.reverse
