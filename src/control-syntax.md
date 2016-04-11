@@ -95,7 +95,7 @@ if（条件式） A else ()
 と`Unit`型の値が補われたのと同じ値が返ってきます。
 
 
-### 練習問題
+### 練習問題 {#control_syntax_ex1}
 
 `var age: Int = 5`という年齢を定義する変数と`var isSchoolStarted: Boolean = false`という就学を開始しているかどうかという変数を利用して、
 1歳から6歳までの就学以前の子どもの場合に“幼児です”と出力し、それ以外の場合は“幼児ではありません”と出力するコードを書いてみましょう。
@@ -126,7 +126,7 @@ while(i <= 10) {
 
 Javaで`while`文を使った場合と同様です。`do while`文もありますが、ほぼJavaと同じなので説明は省略します。
 
-### 練習問題
+### 練習問題 {#control_syntax_ex2}
 
 `do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`print0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/control-syntax.md#練習問題-1)から。
 
@@ -204,7 +204,7 @@ for(e <- List("A", "B", "C", "D", "E")) yield {
 要素を加工して返すという全く異なる用途に使うことができます。特に`yield`キーワードを使った`for`式を特別に
 for-comprehensionと呼ぶことがあります。
 
-### 練習問題
+### 練習問題 {#control_syntax_ex3}
 
 1から1000までの3つの整数a, b, cが直角三角形になるような`a`, `b`, `c`の組み合わせを全て出力してください。
 直角三角形の条件にはピタゴラスの定理を利用してください。
@@ -396,7 +396,7 @@ obj match {
 
 このようにワイルドカードパターンを使うとよいでしょう。
 
-### 練習問題
+### 練習問題 {#control_syntax_ex4}
 
 ```tut:silent
 new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList
