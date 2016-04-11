@@ -53,7 +53,7 @@
         data-chapter-title="FutureとPromise"
         data-filepath="future-and-promise.md"
         data-basepath="."
-        data-revision="Mon Apr 11 2016 07:20:59 GMT+0000 (UTC)"
+        data-revision="Mon Apr 11 2016 14:43:34 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -728,7 +728,7 @@ Promise&#x306E;&#x914D;&#x5217;&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x306B;&
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
