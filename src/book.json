@@ -8,7 +8,16 @@
     "include-codeblock",
     "japanese-support",
     "footnote-string-to-number",
-    "anchors"
+    "anchors",
+    "regexplace"
   ],
+  "pluginsConfig": {
+    "regexplace": {
+      "substitutes": [
+        {"pattern": "<!-- section id=\"(.*)\" style=\"(.*)\" -->", "flags": "g", "substitute": "<div id=\"$1\" style=\"$2\">"},
+        {"pattern": "<!-- endsection -->", "flags": "g", "substitute": "</div>"}
+      ]
+    }
+  },
   "title": "Scala研修テキスト"
 }
