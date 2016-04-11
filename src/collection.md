@@ -72,10 +72,7 @@ def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = ???
 
 となります。ヒント：`swapArray`の結果は次のようになっていなければいけません。また、`i`と`j`が配列の範囲外である場合は特に考慮しなくて良いです。
 
-<button type="button" onclick="document.getElementById('sectionex1').style.display='block';">解答例を表示する</button>
-<button type="button" onclick="document.getElementById('sectionex1').style.display='none';">解答例を隠す</button>
-
-<!-- section id="sectionex1" style="display:none" -->
+<!-- begin answer id="sectionex1" style="display:none" -->
 
 ```tut
 def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = {
@@ -97,7 +94,7 @@ swapArray(arr)(1, 3)
 arr
 ```
 
-<!-- endsection -->
+<!-- end answer -->
 
 ### [Range](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/Range.scala)（★★）
 

@@ -14,8 +14,8 @@
   "pluginsConfig": {
     "regexplace": {
       "substitutes": [
-        {"pattern": "<!-- section id=\"(.*)\" style=\"(.*)\" -->", "flags": "g", "substitute": "<div id=\"$1\" style=\"$2\">"},
-        {"pattern": "<!-- endsection -->", "flags": "g", "substitute": "</div>"}
+        {"pattern": "<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->", "flags": "g", "substitute": "<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},
+        {"pattern": "<!-- end answer -->", "flags": "g", "substitute": "</div>"}
       ]
     }
   },
