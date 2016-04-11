@@ -8,7 +8,16 @@
     "include-codeblock",
     "japanese-support",
     "footnote-string-to-number",
-    "anchors"
+    "anchors",
+    "regexplace"
   ],
+  "pluginsConfig": {
+    "regexplace": {
+      "substitutes": [
+        {"pattern": "<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->", "flags": "g", "substitute": "<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},
+        {"pattern": "<!-- end answer -->", "flags": "g", "substitute": "</div>"}
+      ]
+    }
+  },
   "title": "Scala研修テキスト"
 }

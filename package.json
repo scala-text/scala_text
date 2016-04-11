@@ -17,6 +17,7 @@
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
     "gitbook-plugin-include-codeblock": "1.6.1",
     "gitbook-plugin-japanese-support": "0.0.1",
+    "gitbook-plugin-regexplace":"1.0.6",
     "kramed": "0.5.5",
     "mocha": "2.4.5",
     "npm-check-updates": "2.5.8",
