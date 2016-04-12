@@ -70,11 +70,11 @@ arr.length
 def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = ???
 ```
 
-となります。ヒント：`swapArray`の結果は次のようになっていなければいけません。また、`i`と`j`が配列の範囲外である場合は特に考慮しなくて良いです。
+となります。`i`と`j`が配列の範囲外である場合は特に考慮しなくて良いです。
 
-<!-- begin answer id="sectionex1" style="display:none" -->
+<!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut
+```tut:silent
 def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = {
   val tmp = arr(i)
   arr(i) = arr(j)
@@ -237,7 +237,7 @@ List(1, 2, 3, 4, 5).mkString("[", ",", "]")
 start,...,end
 ```
 
-となるような文字列を返すメソッド`joinByComma`を定義してみましょう（ヒント：`Range` にも`mkString`メソッドはあります）。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/collection.md#練習問題-1)から。
+となるような文字列を返すメソッド`joinByComma`を定義してみましょう（ヒント：`Range` にも`mkString`メソッドはあります）。
 
 ```tut:silent
 def joinByComma(start: Int, end: Int): String = {
@@ -245,7 +245,9 @@ def joinByComma(start: Int, end: Int): String = {
 }
 ```
 
-```tut:invisible
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```tut:silent
 def joinByComma(start: Int, end: Int): String = {
   (start to end).mkString(",")
 }
@@ -254,6 +256,8 @@ def joinByComma(start: Int, end: Int): String = {
 ```tut
 joinByComma(1, 10)
 ```
+
+<!-- end answer -->
 
 ### foldLeft：左からの畳み込み（★★★）
 
@@ -302,15 +306,19 @@ List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 
 #### 練習問題
 
-`foldLeft`を用いて、`List`の要素を反転させるメソッド`reverse`を実装してみましょう。`reverse`は次のようにして呼びだすことができるものでなければいけません。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/collection.md#練習問題-2)から。
+`foldLeft`を用いて、`List`の要素を反転させるメソッド`reverse`を実装してみましょう。
 
-```tut:invisible
-def reverse[A](list: List[A]) = list.reverse
+<!-- begin answer id="answer_ex3" style="display:none" -->
+
+```tut:silent
+def reverse[A](list: List[A]): List[A] = list.reverse
 ```
 
 ```tut
 reverse(List(1, 2, 3, 4, 5))
 ```
+
+<!-- end answer -->
 
 ### foldRight：右からの畳み込み（★★）
 
@@ -342,9 +350,21 @@ def foldRight[B](z: B)(op: (A, B) ⇒ B): B
 `List`の全ての要素を足し合わせるメソッド`sum`を`foldRight`を用いて実装してみましょう。`sum`の宣言は次のようになります。
 なお、`List`が空のときは0を返してみましょう。
 
-```tut
+```tut:silent
 def sum(list: List[Int]): Int = ???
 ```
+
+<!-- begin answer id="answer_ex4" style="display:none" -->
+
+```tut:silent
+def sum(list: List[Int]): Int = list.foldRight(0){(x, y) => x + y}
+```
+
+```tut
+sum(List(1, 2, 3, 4, 5))
+```
+
+<!-- end answer -->
 
 #### 練習問題
 
@@ -354,6 +374,18 @@ def sum(list: List[Int]): Int = ???
 ```tut
 def mul(list: List[Int]): Int = ???
 ```
+
+<!-- begin answer id="answer_ex5" style="display:none" -->
+
+```tut:silent
+def mul(list: List[Int]): Int = list.foldRight(1){(x, y) => x * y}
+```
+
+```tut
+mul(List(1, 2, 3, 4, 5))
+```
+
+<!-- end answer -->
 
 #### 練習問題
 
@@ -366,6 +398,17 @@ def mkString[T](list: List[T])(sep: String): String = ???
 ```
 
 となります。残りの2つのバージョンの`mkString`は実装しなくても構いません。
+
+<!-- begin answer id="answer_ex6" style="display:none" -->
+
+```tut:silent
+def mkString[T](list: List[T])(sep: String): String = list match {
+  case Nil => ""
+  case x::xs => xs.foldLeft(x.toString){ case (x, y) => x + sep + y }
+}
+```
+
+<!-- end answer -->
 
 ### map：各要素を加工した新しい`List`を返す（★★★）
 
@@ -383,6 +426,16 @@ Scalaのコレクションのメソッドの中でも非常によく使われる
 
 `map`メソッドを`foldLeft`と`reverse`を使って実装してみましょう。
 
+<!-- begin answer id="answer_ex7" style="display:none" -->
+
+```tut:silent
+def map[T, U](list: List[T])(f: T => U): List[U] = {
+  list.foldLeft(Nil:List[U]){(x, y) => f(y) :: x}.reverse
+}
+```
+
+<!-- end answer -->
+
 ### filter：条件に合った要素だけを抽出した新しい`List`を返す（★★★）
 
 `filter`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、各要素に関数を適用し、`true`になった要素のみを抽出した
@@ -395,6 +448,16 @@ List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 #### 練習問題
 
 `filter`メソッドを`foldLeft`と`reverse`を使って実装してみましょう。
+
+<!-- begin answer id="answer_ex8" style="display:none" -->
+
+```tut:silent
+def filter[T](list: List[T])(f: T => Boolean): List[T] = {
+  list.foldLeft(Nil:List[T]){(x, y) => if(f(y)) y::x else x}.reverse
+}
+ ```
+
+<!-- end answer -->
 
 ### find：条件に合った最初の要素を返す（★★★）
 
@@ -427,6 +490,16 @@ List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 #### 練習問題
 
 `count`メソッドを`foldLeft`を使って実装してみましょう。
+
+<!-- begin answer id="answer_ex9" style="display:none" -->
+
+```tut:silent
+def count(list: List[Int])(f: Int => Boolean): Int  = {
+  list.foldLeft(0){(x, y) => if(f(y)) x + 1 else x}
+}
+```
+
+<!-- end answer -->
 
 ### flatMap：`List`をたいらにする（★★★）
 
