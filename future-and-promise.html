@@ -53,7 +53,7 @@
         data-chapter-title="FutureとPromise"
         data-filepath="future-and-promise.md"
         data-basepath="."
-        data-revision="Wed Apr 13 2016 06:33:48 GMT+0000 (UTC)"
+        data-revision="Wed Apr 13 2016 07:16:41 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -457,14 +457,14 @@ flatMap&#x3084;filter&#x3001;for&#x5F0F;&#x306E;&#x9069;&#x7528;&#x3068;&#x3044;
   }
 
   f.onSuccess { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
-    <span class="hljs-type">Console</span>.println(s)
+    println(s)
   }
 
-  <span class="hljs-type">Console</span>.println(f.isCompleted) <span class="hljs-comment">// false</span>
+  println(f.isCompleted) <span class="hljs-comment">// false</span>
 
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// Hello future!</span>
 
-  <span class="hljs-type">Console</span>.println(f.isCompleted) <span class="hljs-comment">// true</span>
+  println(f.isCompleted) <span class="hljs-comment">// true</span>
 }
 </code></pre>
 <p>&#x51FA;&#x529B;&#x7D50;&#x679C;&#x306F;&#x3001;</p>
@@ -493,22 +493,22 @@ Future&#x304C;&#x7D42;&#x308F;&#x308B;&#x307E;&#x3067;&#x6700;&#x5927;5000&#x30D
   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">s</span> =</span> <span class="hljs-string">&quot;Hello&quot;</span>
   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">f</span>:</span> <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
     <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
-    <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;[ThreadName] In Future: ${Thread.currentThread.getName}&quot;</span>)
+    println(s<span class="hljs-string">&quot;[ThreadName] In Future: ${Thread.currentThread.getName}&quot;</span>)
     s + <span class="hljs-string">&quot; future!&quot;</span>
 
   }
 
   f.onSuccess { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
-    <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;[ThreadName] In onSuccess: ${Thread.currentThread.getName}&quot;</span>)
-    <span class="hljs-type">Console</span>.println(s)
+    println(s<span class="hljs-string">&quot;[ThreadName] In onSuccess: ${Thread.currentThread.getName}&quot;</span>)
+    println(s)
   }
 
-  <span class="hljs-type">Console</span>.println(f.isCompleted) <span class="hljs-comment">// false</span>
+  println(f.isCompleted) <span class="hljs-comment">// false</span>
 
   <span class="hljs-type">Await</span>.ready(f, <span class="hljs-number">5000</span> millisecond) <span class="hljs-comment">// Hello future!</span>
 
-  <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;[ThreadName] In App: ${Thread.currentThread.getName}&quot;</span>)
-  <span class="hljs-type">Console</span>.println(f.isCompleted) <span class="hljs-comment">// true</span>
+  println(s<span class="hljs-string">&quot;[ThreadName] In App: ${Thread.currentThread.getName}&quot;</span>)
+  println(f.isCompleted) <span class="hljs-comment">// true</span>
 }
 </code></pre>
 <p>&#x3053;&#x306E;&#x5B9F;&#x884C;&#x7D50;&#x679C;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;</p>
@@ -542,8 +542,8 @@ Hello future!
   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">futureSec</span>:</span> <span class="hljs-type">Future</span>[<span class="hljs-type">Double</span>] = futureMilliSec.map(i =&gt; i.toDouble / <span class="hljs-number">1000</span>)
 
   futureSec onComplete {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(waitSec) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Success! ${waitSec} sec&quot;</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Failure: ${t.getMessage}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(waitSec) =&gt; println(s<span class="hljs-string">&quot;Success! ${waitSec} sec&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(s<span class="hljs-string">&quot;Failure: ${t.getMessage}&quot;</span>)
   }
 
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">3000</span>)
@@ -586,8 +586,8 @@ Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#
   } <span class="hljs-keyword">yield</span> (first, second)
 
   compositeFuture onComplete  {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>((first, second)) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Success! first:${first} second:${second}&quot;</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Failure: ${t.getMessage}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>((first, second)) =&gt; println(s<span class="hljs-string">&quot;Success! first:${first} second:${second}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(s<span class="hljs-string">&quot;Failure: ${t.getMessage}&quot;</span>)
   }
 
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
@@ -611,8 +611,8 @@ Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#
   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">futureGetInt</span>:</span> <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = promiseGetInt.success(<span class="hljs-number">1</span>).future
 
   futureGetInt.onComplete {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(i) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Success! i: ${i}&quot;</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Failure! t: ${t.getMessage}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(i) =&gt; println(s<span class="hljs-string">&quot;Success! i: ${i}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(s<span class="hljs-string">&quot;Failure! t: ${t.getMessage}&quot;</span>)
   }
 
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
@@ -646,8 +646,8 @@ success&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x8907;&#x6570;&#x56DE;&#x6210;&
   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">futureGetInt</span>:</span> <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = promiseGetInt.future
 
   futureGetInt.onComplete {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(i) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Success! i: ${i}&quot;</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; <span class="hljs-type">Console</span>.println(s<span class="hljs-string">&quot;Failure! t: ${t.getMessage}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(i) =&gt; println(s<span class="hljs-string">&quot;Success! i: ${i}&quot;</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(s<span class="hljs-string">&quot;Failure! t: ${t.getMessage}&quot;</span>)
   }
 
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
@@ -682,7 +682,7 @@ Future&#x3084;Promise&#x306E;&#x4FBF;&#x5229;&#x306A;&#x7279;&#x6027;&#x3092;&#x
       promises(index).success(waitMilliSec)
     }
   }}
-  promises.foreach { p =&gt; p.future.onSuccess{ <span class="hljs-keyword">case</span> waitMilliSec =&gt; <span class="hljs-type">Console</span>.println(waitMilliSec)}}
+  promises.foreach { p =&gt; p.future.onSuccess{ <span class="hljs-keyword">case</span> waitMilliSec =&gt; println(waitMilliSec)}}
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
 }
 </code></pre>
