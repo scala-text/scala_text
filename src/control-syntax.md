@@ -100,6 +100,19 @@ if（条件式） A else ()
 `var age: Int = 5`という年齢を定義する変数と`var isSchoolStarted: Boolean = false`という就学を開始しているかどうかという変数を利用して、
 1歳から6歳までの就学以前の子どもの場合に“幼児です”と出力し、それ以外の場合は“幼児ではありません”と出力するコードを書いてみましょう。
 
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut
+var age: Int = 5
+var isSchoolStarted: Boolean = false
+if(1 <= age && age <= 6 && !isSchoolStarted) {
+  println("幼児です")
+} else {
+  println("幼児ではありません")
+}
+```
+
+<!-- end answer -->
 
 ## while式（★★）
 
@@ -128,7 +141,7 @@ Javaで`while`文を使った場合と同様です。`do while`文もありま�
 
 ### 練習問題 {#control_syntax_ex2}
 
-`do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`print0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。解答例は[こちら](https://github.com/dwango/scala_text/blob/master/src/control-syntax.md#練習問題-1)から。
+`do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`print0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。
 
 ```tut:silent
 def loop0To9(): Unit = {
@@ -138,7 +151,9 @@ def loop0To9(): Unit = {
 }
 ```
 
-```tut:invisible
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```tut:silent
 def loop0To9(): Unit = {
   var i = 0
   do {
@@ -151,6 +166,8 @@ def loop0To9(): Unit = {
 ```tut
 loop0To9()
 ```
+
+<!-- end answer -->
 
 ## for式（★★★）
 
@@ -210,6 +227,16 @@ for-comprehensionと呼ぶことがあります。
 直角三角形の条件にはピタゴラスの定理を利用してください。
 ピタゴラスの定理とは三平方の定理とも呼ばれ、`a ^ 2 == b ^ 2 + c ^ 2`を満たす、`a`, `b`, `c` の長さの三辺を持つ
 三角形は、直角三角形になるというものです。
+
+<!-- begin answer id="answer_ex3" -->
+
+```tut:silent
+for(a <- 1 to 1000; b <- 1 to 1000; c <- 1 to 1000) {
+  if(a * a == b * b + c * c) println((a, b, c))
+}
+```
+
+<!-- end -->
 
 ## match式（★★★）
 
