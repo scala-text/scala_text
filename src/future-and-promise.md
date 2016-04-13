@@ -59,14 +59,14 @@ object FutureSample extends App {
   }
 
   f.onSuccess { case s: String =>
-    Console.println(s)
+    println(s)
   }
 
-  Console.println(f.isCompleted) // false
+  println(f.isCompleted) // false
 
   Thread.sleep(5000) // Hello future!
 
-  Console.println(f.isCompleted) // true
+  println(f.isCompleted) // true
 }
 ```
 
@@ -113,22 +113,22 @@ object FutureSample extends App {
   val s = "Hello"
   val f: Future[String] = Future {
     Thread.sleep(1000)
-    Console.println(s"[ThreadName] In Future: ${Thread.currentThread.getName}")
+    println(s"[ThreadName] In Future: ${Thread.currentThread.getName}")
     s + " future!"
 
   }
 
   f.onSuccess { case s: String =>
-    Console.println(s"[ThreadName] In onSuccess: ${Thread.currentThread.getName}")
-    Console.println(s)
+    println(s"[ThreadName] In onSuccess: ${Thread.currentThread.getName}")
+    println(s)
   }
 
-  Console.println(f.isCompleted) // false
+  println(f.isCompleted) // false
 
   Await.ready(f, 5000 millisecond) // Hello future!
 
-  Console.println(s"[ThreadName] In App: ${Thread.currentThread.getName}")
-  Console.println(f.isCompleted) // true
+  println(s"[ThreadName] In App: ${Thread.currentThread.getName}")
+  println(f.isCompleted) // true
 }
 ```
 
@@ -176,8 +176,8 @@ object FutureOptionUsageSample extends App {
   val futureSec: Future[Double] = futureMilliSec.map(i => i.toDouble / 1000)
 
   futureSec onComplete {
-    case Success(waitSec) => Console.println(s"Success! ${waitSec} sec")
-    case Failure(t) => Console.println(s"Failure: ${t.getMessage}")
+    case Success(waitSec) => println(s"Success! ${waitSec} sec")
+    case Failure(t) => println(s"Failure: ${t.getMessage}")
   }
 
   Thread.sleep(3000)
@@ -243,8 +243,8 @@ object CompositeFutureSample extends App {
   } yield (first, second)
 
   compositeFuture onComplete  {
-    case Success((first, second)) => Console.println(s"Success! first:${first} second:${second}")
-    case Failure(t) => Console.println(s"Failure: ${t.getMessage}")
+    case Success((first, second)) => println(s"Success! first:${first} second:${second}")
+    case Failure(t) => println(s"Failure: ${t.getMessage}")
   }
 
   Thread.sleep(5000)
@@ -282,8 +282,8 @@ object PromiseSample extends App {
   val futureGetInt: Future[Int] = promiseGetInt.success(1).future
 
   futureGetInt.onComplete {
-    case Success(i) => Console.println(s"Success! i: ${i}")
-    case Failure(t) => Console.println(s"Failure! t: ${t.getMessage}")
+    case Success(i) => println(s"Success! i: ${i}")
+    case Failure(t) => println(s"Failure! t: ${t.getMessage}")
   }
 
   Thread.sleep(1000)
@@ -324,8 +324,8 @@ object PromiseFutureCompositionSample extends App {
   val futureGetInt: Future[Int] = promiseGetInt.future
 
   futureGetInt.onComplete {
-    case Success(i) => Console.println(s"Success! i: ${i}")
-    case Failure(t) => Console.println(s"Failure! t: ${t.getMessage}")
+    case Success(i) => println(s"Success! i: ${i}")
+    case Failure(t) => println(s"Failure! t: ${t.getMessage}")
   }
 
   Thread.sleep(1000)
@@ -373,7 +373,7 @@ object CountDownLatchSample extends App {
       promises(index).success(waitMilliSec)
     }
   }}
-  promises.foreach { p => p.future.onSuccess{ case waitMilliSec => Console.println(waitMilliSec)}}
+  promises.foreach { p => p.future.onSuccess{ case waitMilliSec => println(waitMilliSec)}}
   Thread.sleep(5000)
 }
 ```
