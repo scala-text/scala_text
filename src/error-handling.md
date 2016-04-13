@@ -743,10 +743,10 @@ object MainBefore {
   }
 
   def main(args: Array[String]): Unit = {
-    Console.println(getPostalCodeResult(1)) // Success(150-0002)
-    Console.println(getPostalCodeResult(2)) // AddressNotHasPostalCode()
-    Console.println(getPostalCodeResult(3)) // UserNotHasAddress()
-    Console.println(getPostalCodeResult(4)) // UserNotFound()
+    println(getPostalCodeResult(1)) // Success(150-0002)
+    println(getPostalCodeResult(2)) // AddressNotHasPostalCode()
+    println(getPostalCodeResult(3)) // UserNotHasAddress()
+    println(getPostalCodeResult(4)) // UserNotFound()
   }
 }
 ```
@@ -810,10 +810,10 @@ object MainRefactored {
   }
 
   def main(args: Array[String]): Unit = {
-    Console.println(getPostalCodeResult(1)) // Success(150-0002)
-    Console.println(getPostalCodeResult(2)) // AddressNotHasPostalCode()
-    Console.println(getPostalCodeResult(3)) // UserNotHasAddress()
-    Console.println(getPostalCodeResult(4)) // UserNotFound()
+    println(getPostalCodeResult(1)) // Success(150-0002)
+    println(getPostalCodeResult(2)) // AddressNotHasPostalCode()
+    println(getPostalCodeResult(3)) // UserNotHasAddress()
+    println(getPostalCodeResult(4)) // UserNotFound()
   }
 }
 
