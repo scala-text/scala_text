@@ -263,7 +263,7 @@ m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) // 結合則
 
 ### implicitの探索範囲
 
-implicit defやimplicit parameterの値が解決される範囲には、
+implicit defやimplicit parameterの値が探索される範囲には、
 
 - ローカルで定義されたもの
 - importで指定されたもの
