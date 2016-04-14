@@ -371,7 +371,7 @@ object Rational {
 }
 ```
 
-すると、importをしていないのに、このAdditive型クラスインスタンスを使うことができます。
+すると、importをしていないのに、このAdditive型クラスのインスタンスを使うことができます。
 
 ```scala
 scala> sum(List(Rational(1, 1), Rational(2, 2)))
