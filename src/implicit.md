@@ -74,17 +74,43 @@ implicit classはpimp my libraryパターン専用の機能であり、implicit 
 サードパーティのライブラリや標準ライブラリでも前者の形式になっていることがあるので、そのようなコードも読めるようにして
 おきましょう。
 
-### 練習問題
+### 練習問題 {#implicit_ex1}
 
 `Int`から`Boolean`へのimplicit conversionのように利用者を混乱させるようなものを考えて、定義してみてください。また、そのimplicit
 conversionにはどのような危険があるかを考えてください。
 
-### 練習問題
+### 練習問題 {#implicit_ex2}
 
 pimp my libraryパターンで、既存のクラスの利用を便利にするようなimplicit conversionを1つ定義してみてください。それはどのような
 場面で役に立つでしょうか？
 
-#### 練習問題
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut:silent
+object Taps {
+  implicit class Tap[T](self: T) {
+    def tap[U](block: T => U): T = {
+      block(self) //値は捨てる
+      self
+    }
+  }
+
+  def main(args: Array[String]): Unit = {
+    "Hello, World".tap{s => println(s)}.reverse.tap{s => println(s)}
+  }
+}
+```
+
+```tut
+import Taps._
+Taps.main(Array())
+```
+
+メソッドチェインの中でデバッグプリントをはさみたいときに役に立ちます。
+
+<!-- end answer -->
+
+#### 練習問題 {#implicit_ex3}
 
 [Scala標準ライブラリ](http://www.scala-lang.org/api/current/index.html)の中からpimp my libraryが使われている例を（先ほど挙げた
 ものを除いて）1つ以上見つけてください。
@@ -241,7 +267,7 @@ List(1.1, 1.2, 1.3, 1.4).sum
 のように整数や浮動小数点数の合計値を特に気にとめることなく計算することができています。Scalaにおいて型クラスを定義・
 使用する方法を覚えると、設計の幅がグンと広がります。
 
-### 練習問題
+### 練習問題 {#implicit_ex4}
 
 `m: Additive[T]`と値`t1: T, t2: T, t3: T`は、次の条件を満たす必要があります。
 
@@ -254,12 +280,63 @@ m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) // 結合則
 
 ヒント：このような条件を満たすものは無数にありますが、思いつかない人はたとえば`x`座標と`y`座標からなる点を表すクラス`Point`を考えてみると良いでしょう。
 
-### 練習問題
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```tut:silent
+
+object Additives {
+  trait Additive[A] {
+    def plus(a: A, b: A): A
+    def zero: A
+  }
+
+  implicit object StringAdditive extends Additive[String] {
+    def plus(a: String, b: String): String = a + b
+    def zero: String = ""
+  }
+
+  implicit object IntAdditive extends Additive[Int] {
+    def plus(a: Int, b: Int): Int = a + b
+    def zero: Int = 0
+  }
+
+  case class Point(x: Int, y: Int)
+
+  implicit object PointAdditive extends Additive[Point] {
+    def plus(a: Point, b: Point): Point = Point(a.x + b.x, a.y + b.y)
+    def zero: Point = Point(0, 0)
+  }
+
+  def sum[A](lst: List[A])(implicit m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
+}
+```
+
+```tut
+import Additives._
+println(sum(List(Point(1, 1), Point(2, 2), Point(3, 3)))) // Point(6, 6)
+println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
+```
+
+<!-- end answer -->
+
+### 練習問題 {#implicit_ex5}
 
 `List[Int]` と `List[Double]` のsumを行うために、標準ライブラリでは何という型クラス（1つ）と型クラスのインスタンス
 （2つ）を定義しているかを、[Scala標準ライブラリ](http://www.scala-lang.org/api/current/index.html#package)から
 探して挙げなさい。
 
+<!-- begin answer id="answer_ex3" style="display:none" -->
+
+型クラス：
+
+* [Numeric[T]](http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Numeric)
+
+型クラスのインスタンス：
+
+* [IntIsIntegral](http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Numeric$$IntIsIntegral$)
+* [DoubleAsIfIntegral](http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Numeric$$DoubleAsIfIntegral$)
+
+<!-- end answer -->
 
 ### implicitの探索範囲
 
