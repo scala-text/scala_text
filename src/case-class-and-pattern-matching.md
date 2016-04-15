@@ -146,6 +146,28 @@ def nextDayOfWeek(d: DayOfWeek): DayOfWeek = ???
 
 をパターンマッチを用いて定義してみましょう。
 
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut:silent
+def nextDayOfWeek(d: DayOfWeek): DayOfWeek = d match {
+  case Sunday => Monday
+  case Monday => Tuesday
+  case Tuesday => Wednesday
+  case Wednesday => Thursday
+  case Thursday => Friday
+  case Friday => Saturday
+  case Saturday => Sunday
+}
+```
+
+```tut
+nextDayOfWeek(Sunday)
+nextDayOfWeek(Monday)
+nextDayOfWeek(Saturday)
+```
+
+<!-- end answer -->
+
 ## 練習問題
 
 二分木（子の数が最大で2つであるような木構造）を表す型`Tree`と`Branch`, `Empty`を考えます：
@@ -196,3 +218,79 @@ def sort(tree: Tree): Tree = ???
 ```
 
 を定義してみましょう。なお、`sort`メソッドは、葉ノードでないノードの個数と値が同じであれば元の構造と同じでなくても良いものとします。
+
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```tut:silent
+object BinaryTree {
+  sealed abstract class Tree
+  case class Branch(value: Int, left: Tree, right: Tree) extends Tree
+  case object Empty extends Tree
+
+  def max(t: Tree): Int = t match {
+    case Branch(v1, Branch(v2, Empty, Empty), Branch(v3, Empty, Empty)) =>
+      val m = if(v1 <= v2) v2 else v1
+      if(m <= v3) v3 else m
+    case Branch(v1, Branch(v2, Empty, Empty), Empty) => if(v1 <= v2) v2 else v1
+    case Branch(v1, Empty, Branch(v2, Empty, Empty)) => if(v1 <= v2) v2 else v1
+    case Branch(v, l, r) => 
+      val m1 = max(l)
+      val m2 = max(r)
+      val m3 = if(m1 <= m2) m2 else m1
+      if(v <= m3) m3 else v
+    case Empty => throw new RuntimeException
+  }
+
+
+  def min(t: Tree): Int = t match {
+    case Branch(v1, Branch(v2, Empty, Empty), Branch(v3, Empty, Empty)) =>
+      val m = if(v1 >= v2) v2 else v1
+      if(m >= v3) v3 else m
+    case Branch(v1, Branch(v2, Empty, Empty), Empty) => if(v1 >= v2) v2 else v1
+    case Branch(v1, Empty, Branch(v2, Empty, Empty)) => if(v1 >= v2) v2 else v1
+    case Branch(v, l, r) => 
+      val m1 = min(l)
+      val m2 = min(r)
+      val m3 = if(m1 > m2) m2 else m1
+      if(v >= m3) m3 else v
+    case Empty => throw new RuntimeException
+  }
+
+  def depth(t: Tree): Int = t match {
+    case Empty => 0
+    case Branch(_, l, r) =>
+      val ldepth = depth(l) 
+      val rdepth = depth(r)
+      (if(ldepth < rdepth) rdepth else ldepth) + 1
+  }
+
+  def sort(t: Tree): Tree = {
+    def fromList(list: List[Int]): Tree = {
+      def insert(value: Int, t: Tree): Tree = t match {
+        case Empty => Branch(value, Empty, Empty)
+        case Branch(v, l, r) =>
+          if(value <= v) Branch(v, insert(value, l), r)
+          else Branch(v, l, insert(value, r))
+      }
+      list.foldLeft(Empty:Tree){ case (t, v) => insert(v, t) }
+    }
+    def toList(tree: Tree): List[Int] = tree match {
+      case Empty => Nil
+      case Branch(v, l, r) => toList(l) ++ List(v) ++ toList(r)
+    }
+    fromList(toList(t))
+  }
+
+  def find(t: Tree, target: Int): Boolean = t match {
+    case Branch(v, l, r) => if(v == target) true else (find(l, target) || find(r, target))
+    case Empty => false
+  }
+
+  def findBinaryTree(t: Tree, target: Int): Boolean = t match {
+    case Branch(v, l, r) => if(v == target) true else (if(target <= v) findBinaryTree(l, target) else findBinaryTree(r, target))
+    case Empty => false
+  }
+}
+```
+
+<!-- end answer -->
