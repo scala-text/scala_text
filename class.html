@@ -53,7 +53,7 @@
         data-chapter-title="クラス"
         data-filepath="class.md"
         data-basepath="."
-        data-revision="Sun Apr 17 2016 10:21:58 GMT+0000 (UTC)"
+        data-revision="Sun Apr 17 2016 22:02:12 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -501,7 +501,7 @@ res0: <span class="hljs-type">Point</span> = (<span class="hljs-number">3</span>
 defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span>
 </span>
 scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">adder</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-adder: <span class="hljs-type">Adder</span> = <span class="hljs-type">Adder</span>@<span class="hljs-number">523</span>f2482
+adder: <span class="hljs-type">Adder</span> = <span class="hljs-type">Adder</span>@<span class="hljs-number">15</span>c6ba9e
 
 scala&gt; adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 res1: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
@@ -595,7 +595,7 @@ scala&gt; <span class="hljs-keyword">new</span> <span class="hljs-type">BPrinter
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

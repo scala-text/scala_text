@@ -53,7 +53,7 @@
         data-chapter-title="S99の案内"
         data-filepath="exercises.md"
         data-basepath="."
-        data-revision="Sun Apr 17 2016 10:21:58 GMT+0000 (UTC)"
+        data-revision="Sun Apr 17 2016 22:02:12 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -479,7 +479,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

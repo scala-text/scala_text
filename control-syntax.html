@@ -53,7 +53,7 @@
         data-chapter-title="Scalaの制御構文"
         data-filepath="control-syntax.md"
         data-basepath="."
-        data-revision="Sun Apr 17 2016 10:21:58 GMT+0000 (UTC)"
+        data-revision="Sun Apr 17 2016 22:02:12 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -493,7 +493,7 @@ res2: <span class="hljs-type">String</span> = <span class="hljs-number">18</span
 <h3 id="control_syntax_ex1"><a name="control_syntax_ex1" class="plugin-anchor" href="#control_syntax_ex1"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
 <p><code>var age: Int = 5</code>&#x3068;&#x3044;&#x3046;&#x5E74;&#x9F62;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5909;&#x6570;&#x3068;<code>var isSchoolStarted: Boolean = false</code>&#x3068;&#x3044;&#x3046;&#x5C31;&#x5B66;&#x3092;&#x958B;&#x59CB;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x5909;&#x6570;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
 1&#x6B73;&#x304B;&#x3089;6&#x6B73;&#x307E;&#x3067;&#x306E;&#x5C31;&#x5B66;&#x4EE5;&#x524D;&#x306E;&#x5B50;&#x3069;&#x3082;&#x306E;&#x5834;&#x5408;&#x306B;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x3059;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3057;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x5408;&#x306F;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3059;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<div><button type="button" onclick="document.getElementById('answer_ex1').style.display='block';">解答例を表示する</button><button type="button" onclick="document.getElementById('answer_ex1').style.display='none';">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex1').style.display='block'; document.getElementById('answer_ex1_show_answer_button').style.display='none'; document.getElementById('answer_ex1_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex1').style.display='none'; document.getElementById('answer_ex1_show_answer_button').style.display='block'; document.getElementById('answer_ex1_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
 age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
 
@@ -542,7 +542,7 @@ i = <span class="hljs-number">10</span>
   } <span class="hljs-keyword">while</span>(???)
 }
 </code></pre>
-<div><button type="button" onclick="document.getElementById('answer_ex2').style.display='block';">解答例を表示する</button><button type="button" onclick="document.getElementById('answer_ex2').style.display='none';">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
+<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex2').style.display='block'; document.getElementById('answer_ex2_show_answer_button').style.display='none'; document.getElementById('answer_ex2_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex2').style.display='none'; document.getElementById('answer_ex2_show_answer_button').style.display='block'; document.getElementById('answer_ex2_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loop0To9</span>(</span>): <span class="hljs-type">Unit</span> = {
   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
   do {
@@ -828,7 +828,7 @@ scala&gt; obj <span class="hljs-keyword">match</span> {
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
