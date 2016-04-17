@@ -14,7 +14,7 @@
   "pluginsConfig": {
     "regexplace": {
       "substitutes": [
-        {"pattern": "<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->", "flags": "g", "substitute": "<div><button type=\"button\" onclick=\"document.getElementById('$1').style.display='block';\">解答例を表示する</button><button type=\"button\" onclick=\"document.getElementById('$1').style.display='none';\">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},
+        {"pattern": "<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->", "flags": "g", "substitute": "<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},
         {"pattern": "<!-- end answer -->", "flags": "g", "substitute": "</div>"}
       ]
     }
