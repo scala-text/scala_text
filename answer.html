@@ -53,7 +53,7 @@
         data-chapter-title="演習問題の解答"
         data-filepath="answer.md"
         data-basepath="."
-        data-revision="Sun Apr 17 2016 02:46:25 GMT+0000 (UTC)"
+        data-revision="Sun Apr 17 2016 10:21:58 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -431,63 +431,6 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;"><a name="&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;"><span class="fa fa-link"></span></a>&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;</h1>
-<h2 id="implicit-conversion&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x578B;&#x5909;&#x63DB;&#xFF09;&#x3068;implicit-parameter&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;"><a name="implicit-conversion&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x578B;&#x5909;&#x63DB;&#xFF09;&#x3068;implicit-parameter&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;" class="plugin-anchor" href="#implicit-conversion&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x578B;&#x5909;&#x63DB;&#xFF09;&#x3068;implicit-parameter&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;"><span class="fa fa-link"></span></a>implicit conversion&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x578B;&#x5909;&#x63DB;&#xFF09;&#x3068;implicit parameter&#xFF08;&#x6697;&#x9ED9;&#x306E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x89E3;&#x7B54;</h2>
-<h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
-<p>pimp my library&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3067;&#x3001;&#x65E2;&#x5B58;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x5229;&#x7528;&#x3092;&#x4FBF;&#x5229;&#x306B;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;implicit conversion&#x3092;1&#x3064;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305D;&#x308C;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x5834;&#x9762;&#x3067;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
-<h2 id="&#x89E3;&#x7B54;"><a name="&#x89E3;&#x7B54;" class="plugin-anchor" href="#&#x89E3;&#x7B54;"><span class="fa fa-link"></span></a>&#x89E3;&#x7B54;</h2>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Taps</span> {</span>
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tap</span>[</span><span class="hljs-type">T</span>](self: <span class="hljs-type">T</span>) {
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tap</span>[</span><span class="hljs-type">U</span>](block: <span class="hljs-type">T</span> =&gt; <span class="hljs-type">U</span>): <span class="hljs-type">T</span> = {
-      block(self) <span class="hljs-comment">//&#x5024;&#x306F;&#x6368;&#x3066;&#x308B;</span>
-      self
-    }
-  }
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>(</span>args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
-    <span class="hljs-string">&quot;Hello, World&quot;</span>.tap{s =&gt; println(s)}.reverse.tap{s =&gt; println(s)}
-  }
-}
-</code></pre>
-<p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x30C1;&#x30A7;&#x30A4;&#x30F3;&#x306E;&#x4E2D;&#x3067;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30D7;&#x30EA;&#x30F3;&#x30C8;&#x3092;&#x306F;&#x3055;&#x307F;&#x305F;&#x3044;&#x3068;&#x304D;&#x306B;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
-<p><code>m: Additive[T]</code>&#x3068;&#x5024;<code>t1: T, t2: T, t3: T</code>&#x306F;&#x3001;&#x6B21;&#x306E;&#x6761;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">m.plus(m.zero, t1) == t1  <span class="hljs-comment">// &#x5358;&#x4F4D;&#x5143;</span>
-m.plus(t1, m.zero) == t1  <span class="hljs-comment">// &#x5358;&#x4F4D;&#x5143;</span>
-m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) <span class="hljs-comment">// &#x7D50;&#x5408;&#x5247;</span>
-</code></pre>
-<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x6761;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3059;&#x578B;<code>T</code>&#x3068;&#x5358;&#x4F4D;&#x5143;<code>zero</code>&#x3001;&#x6F14;&#x7B97;<code>plus</code>&#x3092;&#x63A2;&#x3057;&#x51FA;&#x3057;&#x3001;<code>Additive[T]</code>&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3053;&#x306E;&#x969B;&#x3001;&#x6761;&#x4EF6;&#x304C;&#x6E80;&#x305F;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x5165;&#x529B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305F;&#x3001;&#x5B9A;&#x7FA9;&#x3057;&#x305F;<code>Additive[T]</code>&#x3092;<code>implicit</code>&#x306B;&#x3057;&#x3066;&#x3001;<code>T</code>&#x306E;&#x5408;&#x8A08;&#x5024;&#x3092;&#x5148;&#x307B;&#x3069;&#x306E;<code>sum</code>&#x3067;&#x8A08;&#x7B97;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x304B;&#x3081;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h2 id="&#x89E3;&#x7B54;&#xFF08;&#x4E00;&#x4F8B;&#x3067;&#x3059;&#x3002;&#x4ED6;&#x306B;&#x3082;&#x7B54;&#x3048;&#x306F;&#x7121;&#x6570;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF09;"><a name="&#x89E3;&#x7B54;&#xFF08;&#x4E00;&#x4F8B;&#x3067;&#x3059;&#x3002;&#x4ED6;&#x306B;&#x3082;&#x7B54;&#x3048;&#x306F;&#x7121;&#x6570;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF09;" class="plugin-anchor" href="#&#x89E3;&#x7B54;&#xFF08;&#x4E00;&#x4F8B;&#x3067;&#x3059;&#x3002;&#x4ED6;&#x306B;&#x3082;&#x7B54;&#x3048;&#x306F;&#x7121;&#x6570;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF09;"><span class="fa fa-link"></span></a>&#x89E3;&#x7B54;&#xFF08;&#x4E00;&#x4F8B;&#x3067;&#x3059;&#x3002;&#x4ED6;&#x306B;&#x3082;&#x7B54;&#x3048;&#x306F;&#x7121;&#x6570;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF09;</h2>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Additives</span> {</span>
-  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[</span><span class="hljs-type">A</span>] {
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span>(</span>a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span>:</span> <span class="hljs-type">A</span>
-  }
-
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Additive</span>[</span><span class="hljs-type">String</span>] {
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span>(</span>a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span>:</span> <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
-  }
-
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntAdditive</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Additive</span>[</span><span class="hljs-type">Int</span>] {
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span>(</span>a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span>:</span> <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
-  }
-
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(</span>x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>)
-
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">PointAdditive</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Additive</span>[</span><span class="hljs-type">Point</span>] {
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span>(</span>a: <span class="hljs-type">Point</span>, b: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = <span class="hljs-type">Point</span>(a.x + b.x, a.y + b.y)
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span>:</span> <span class="hljs-type">Point</span> = <span class="hljs-type">Point</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
-  }
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span>[</span><span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>(</span>args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
-    println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))) <span class="hljs-comment">// Point(6, 6)</span>
-    println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>)))) <span class="hljs-comment">// Point(9, 12)</span>
-  }
-}
-</code></pre>
 <h2 id="&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;"><a name="&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;" class="plugin-anchor" href="#&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;"><span class="fa fa-link"></span></a>&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;&#x306E;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x306E;&#x56DE;&#x7B54;</h2>
 <h2 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h2>
 <p><code>map</code>&#x3068;<code>flatten</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
