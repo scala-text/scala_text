@@ -7,7 +7,7 @@ trait NpmCliBase {
 
   // 執筆者の手により編集されるディレクトリ
   val srcDir = file("src")
-  def srcMarkdowns = srcDir.listFiles("*.md")
+  def srcMarkdowns = srcDir.listFiles("*.md").filterNot(f => f.getPath.contains("src/example_projects/"))
 
   // gitbookのビルドの起点になるディレクトリ(book/_book/index.htmlが生成される)
   val bookBuildDir = file("gitbook")
