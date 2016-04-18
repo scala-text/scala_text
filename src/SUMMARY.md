@@ -17,5 +17,4 @@
 - [テスト](test.md)
 - [javaとの相互運用](java-interop.md)
 - [S99の案内](exercises.md)
-- [演習問題の解答](answer.md)
 - [トレイトの応用編：依存性の注入によるリファクタリング](advanced-trait-di.md)

@@ -340,11 +340,31 @@ v1.map(i1 => v2.map(i2 => i1 * i2)).flatten
 
 つまり、キャッシュミスでSomeの値が取れなかった際も問題なくこの処理で動きます。
 
-#### 練習問題
+#### 練習問題 {#error_handling_ex1}
 
 `map`と`flatten`を利用して、
 `Some(2)`と`Some(3)`と`Some(5)`と`Some(7)`と`Some(11)`の値をかけて、`Some(2310)`を求めてみましょう。
 
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut:silent
+val v1: Option[Int] = Some(2)
+val v2: Option[Int] = Some(3)
+val v3: Option[Int] = Some(5)
+val v4: Option[Int] = Some(7)
+val v5: Option[Int] = Some(11)
+v1.map { i1 =>
+    v2.map { i2 =>
+        v3.map { i3 =>
+            v4.map { i4 =>
+                v5.map { i5 => i1 * i2 * i3 * i4 * i5 }
+            }.flatten
+        }.flatten
+    }.flatten
+}.flatten
+```
+
+<!-- end answer -->
 
 ### flatMap
 
@@ -389,11 +409,31 @@ v1.flatMap(i1 => v2.flatMap(i2 => v3.map(i3 => i1 * i2 * i3)))
 以上のようになります。
 
 
-#### 練習問題
+#### 練習問題 {#error_handling_ex2}
 
 `flatMap`を利用して、
 `Some(2)`と`Some(3)`と`Some(5)`と`Some(7)`と`Some(11)`の値をかけて、`Some(2310)`を求めてみましょう。
 
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```tut:silent
+val v1: Option[Int] = Some(2)
+val v2: Option[Int] = Some(3)
+val v3: Option[Int] = Some(5)
+val v4: Option[Int] = Some(7)
+val v5: Option[Int] = Some(11)
+v1.flatMap { i1 =>
+    v2.flatMap { i2 =>
+        v3.flatMap { i3 =>
+            v4.flatMap { i4 =>
+                v5.map { i5 => i1 * i2 * i3 * i4 * i5 }
+            }
+        }
+    }
+}
+```
+
+<!-- end answer -->
 
 ### forを利用したflatMapのリファクタリング
 
@@ -419,11 +459,27 @@ for { i1 <- v1
 `flatMap`と`map`を複数回使うような場合はfor式のほうがよりシンプルに書くことができていることがわかると思います。
 
 
-#### 練習問題
+#### 練習問題 {#error_handling_ex3}
 
 `for`を利用して、
 `Some(2)`と`Some(3)`と`Some(5)`と`Some(7)`と`Some(11)`の値をかけて、`Some(2310)`を求めてみましょう。
 
+<!-- begin answer id="answer_ex3" style="display:none" -->
+
+```tut:silent
+val v1: Option[Int] = Some(2)
+val v2: Option[Int] = Some(3)
+val v3: Option[Int] = Some(5)
+val v4: Option[Int] = Some(7)
+val v5: Option[Int] = Some(11)
+for { i1 <- v1
+      i2 <- v2
+      i3 <- v3
+      i4 <- v4
+      i5 <- v5 } yield i1 * i2 * i3 * i4 * i5
+```
+
+<!-- end answer -->
 
 ### [Either](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Either.scala)
 
