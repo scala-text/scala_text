@@ -10,7 +10,7 @@ object TextLint extends NpmCliBase {
   val settings = Seq(
     textLint := {
       val args = rawStringArg(srcMarkdowns.mkString("\n")).parsed
-      val options = if(args.isEmpty) s"$srcDir" else args
+      val options = if(args.isEmpty) srcMarkdowns.mkString("\n") else args
 
       printRun(Process(s"$textlintBin $options"))
     }
