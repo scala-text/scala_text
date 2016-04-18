@@ -53,7 +53,7 @@
         data-chapter-title="エラー処理"
         data-filepath="error-handling.md"
         data-basepath="."
-        data-revision="Sun Apr 17 2016 22:02:12 GMT+0000 (UTC)"
+        data-revision="Mon Apr 18 2016 10:12:03 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -367,29 +367,14 @@
             
         </li>
     
-        <li class="chapter " data-level="20" data-path="answer.html">
-            
-                
-                    <a href="./answer.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>20.</b>
-                        
-                        演習問題の解答
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="21" data-path="advanced-trait-di.html">
+        <li class="chapter " data-level="20" data-path="advanced-trait-di.html">
             
                 
                     <a href="./advanced-trait-di.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>21.</b>
+                            <b>20.</b>
                         
                         トレイトの応用編：依存性の注入によるリファクタリング
                     </a>
@@ -546,7 +531,7 @@ res4: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false<
 java.util.<span class="hljs-type">NoSuchElementException</span>: <span class="hljs-type">None</span>.get
   at scala.<span class="hljs-type">None</span>$.get(<span class="hljs-type">Option</span>.scala:<span class="hljs-number">347</span>)
   at scala.<span class="hljs-type">None</span>$.get(<span class="hljs-type">Option</span>.scala:<span class="hljs-number">345</span>)
-  ... <span class="hljs-number">962</span> elided
+  ... <span class="hljs-number">958</span> elided
 </code></pre>
 <p>Option&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30CB;&#x30AA;&#x30F3;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;apply&#x306B;&#x306F;&#x5F15;&#x6570;&#x304C;null&#x3067;&#x3042;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x304C;&#x5165;&#x3063;&#x3066;&#x304A;&#x308A;&#x3001;&#x5F15;&#x6570;&#x304C;null&#x306E;&#x5834;&#x5408;&#x3001;&#x5024;&#x304C;None&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
 <code>get</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x53E9;&#x3044;&#x305F;&#x6642;&#x306B;&#x3001;<code>java.util.NoSuchElementException</code>&#x3068;&#x3044;&#x3046;&#x4F8B;&#x5916;&#x304C;&#x8D77;&#x3053;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;&#x3053;&#x308C;&#x304C;NPE&#x3068;&#x540C;&#x3058;&#x3060;&#x3068;&#x601D;&#x3046;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;Option&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x69D8;&#x306A;&#x4FBF;&#x5229;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x3042;&#x308A;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;&#x56DE;&#x907F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
@@ -646,9 +631,26 @@ scala&gt; v1.map(i1 =&gt; v2.map(i2 =&gt; i1 * i2)).flatten
 res16: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
 </code></pre>
 <p>&#x3064;&#x307E;&#x308A;&#x3001;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x30DF;&#x30B9;&#x3067;Some&#x306E;&#x5024;&#x304C;&#x53D6;&#x308C;&#x306A;&#x304B;&#x3063;&#x305F;&#x969B;&#x3082;&#x554F;&#x984C;&#x306A;&#x304F;&#x3053;&#x306E;&#x51E6;&#x7406;&#x3067;&#x52D5;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<h4 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h4>
+<h4 id="error_handling_ex1"><a name="error_handling_ex1" class="plugin-anchor" href="#error_handling_ex1"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h4>
 <p><code>map</code>&#x3068;<code>flatten</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
 <code>Some(2)</code>&#x3068;<code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3068;<code>Some(7)</code>&#x3068;<code>Some(11)</code>&#x306E;&#x5024;&#x3092;&#x304B;&#x3051;&#x3066;&#x3001;<code>Some(2310)</code>&#x3092;&#x6C42;&#x3081;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex1').style.display='block'; document.getElementById('answer_ex1_show_answer_button').style.display='none'; document.getElementById('answer_ex1_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex1').style.display='none'; document.getElementById('answer_ex1_show_answer_button').style.display='block'; document.getElementById('answer_ex1_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v1</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v2</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v3</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v4</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v5</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">11</span>)
+v1.map { i1 =&gt;
+    v2.map { i2 =&gt;
+        v3.map { i3 =&gt;
+            v4.map { i4 =&gt;
+                v5.map { i5 =&gt; i1 * i2 * i3 * i4 * i5 }
+            }.flatten
+        }.flatten
+    }.flatten
+}.flatten
+</code></pre>
+</div>
 <h3 id="flatmap"><a name="flatmap" class="plugin-anchor" href="#flatmap"><span class="fa fa-link"></span></a>flatMap</h3>
 <p>&#x3053;&#x3053;&#x307E;&#x3067;&#x3067;&#x3001;<code>map</code>&#x3068;<code>flatten</code>&#x3092;&#x8A71;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5B9F;&#x969B;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x306F;&#x3053;&#x306E;&#x4E21;&#x65B9;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x4F7F;&#x3046;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3005;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x305D;&#x306E;2&#x3064;&#x3092;&#x9069;&#x7528;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;
 <code>flatMap</code>&#x3068;&#x3044;&#x3046;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;Option&#x306B;&#x306F;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x540D;&#x524D;&#x306F;<code>flatMap</code>&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x610F;&#x5473;&#x3068;&#x3057;&#x3066;&#x306F;Option&#x306B;<code>map</code>&#x3092;&#x304B;&#x3051;&#x3066;<code>flatten</code>&#x3092;&#x9069;&#x7528;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
@@ -660,7 +662,7 @@ scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <spa
 v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
 
 scala&gt; v1.flatMap(i1 =&gt; v2.map(i2 =&gt; i1 * i2))
-res17: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">15</span>)
+res18: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">15</span>)
 </code></pre>
 <p>&#x305A;&#x3044;&#x3076;&#x3093;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p><code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3068;<code>Some(7)</code>&#x3092;&#x304B;&#x3051;&#x308B;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
@@ -674,19 +676,36 @@ scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <spa
 v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
 
 scala&gt; v1.flatMap(i1 =&gt; v2.flatMap(i2 =&gt; v3.map(i3 =&gt; i1 * i2 * i3)))
-res18: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">105</span>)
+res19: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">105</span>)
 </code></pre>
 <p>&#x7121;&#x8AD6;&#x3053;&#x308C;&#x306F;&#x3001;v1, v2, v3&#x306E;&#x3044;&#x305A;&#x308C;&#x304C;None&#x3067;&#x3042;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x3082;&#x6210;&#x7ACB;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;<code>flatten</code>&#x306E;&#x6642;&#x3068;&#x540C;&#x69D8;&#x306B;<code>None</code>&#x304C;&#x6700;&#x7D42;&#x7684;&#x306A;&#x7B54;&#x3048;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v3</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
 v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
 
 scala&gt; v1.flatMap(i1 =&gt; v2.flatMap(i2 =&gt; v3.map(i3 =&gt; i1 * i2 * i3)))
-res19: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
+res20: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
 </code></pre>
 <p>&#x4EE5;&#x4E0A;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h4 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h4>
+<h4 id="error_handling_ex2"><a name="error_handling_ex2" class="plugin-anchor" href="#error_handling_ex2"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h4>
 <p><code>flatMap</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
 <code>Some(2)</code>&#x3068;<code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3068;<code>Some(7)</code>&#x3068;<code>Some(11)</code>&#x306E;&#x5024;&#x3092;&#x304B;&#x3051;&#x3066;&#x3001;<code>Some(2310)</code>&#x3092;&#x6C42;&#x3081;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex2').style.display='block'; document.getElementById('answer_ex2_show_answer_button').style.display='none'; document.getElementById('answer_ex2_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex2').style.display='none'; document.getElementById('answer_ex2_show_answer_button').style.display='block'; document.getElementById('answer_ex2_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v1</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v2</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v3</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v4</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v5</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">11</span>)
+v1.flatMap { i1 =&gt;
+    v2.flatMap { i2 =&gt;
+        v3.flatMap { i3 =&gt;
+            v4.flatMap { i4 =&gt;
+                v5.map { i5 =&gt; i1 * i2 * i3 * i4 * i5 }
+            }
+        }
+    }
+}
+</code></pre>
+</div>
 <h3 id="for&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;flatmap&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;"><a name="for&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;flatmap&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;" class="plugin-anchor" href="#for&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;flatmap&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;"><span class="fa fa-link"></span></a>for&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;flatMap&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;</h3>
 <p>Option&#x306F;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3060;&#x3068;&#x3044;&#x3046;&#x98A8;&#x306B;&#x8A00;&#x3044;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;for&#x3092;Option&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
 for&#x5F0F;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x306F;<code>flatMap</code>&#x3068;<code>map</code>&#x5C55;&#x958B;&#x3055;&#x308C;&#x3066;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
@@ -704,13 +723,26 @@ v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = 
 scala&gt; <span class="hljs-keyword">for</span> { i1 &lt;- v1
      |       i2 &lt;- v2
      |       i3 &lt;- v3 } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-res20: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">105</span>)
+res22: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">105</span>)
 </code></pre>
 <p>&#x5B9F;&#x306F;&#x3053;&#x306E;for&#x5F0F;&#x306F;&#x5148;&#x307B;&#x3069;&#x306E;<code>flatMap</code>&#x3068;<code>map</code>&#x3067;&#x66F8;&#x304B;&#x308C;&#x305F;&#x3082;&#x306E;&#x3068;&#x307E;&#x3063;&#x305F;&#x304F;&#x540C;&#x3058;&#x52D5;&#x4F5C;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;
 <code>flatMap</code>&#x3068;<code>map</code>&#x3092;&#x8907;&#x6570;&#x56DE;&#x4F7F;&#x3046;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306F;for&#x5F0F;&#x306E;&#x307B;&#x3046;&#x304C;&#x3088;&#x308A;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<h4 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h4>
+<h4 id="error_handling_ex3"><a name="error_handling_ex3" class="plugin-anchor" href="#error_handling_ex3"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h4>
 <p><code>for</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
 <code>Some(2)</code>&#x3068;<code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3068;<code>Some(7)</code>&#x3068;<code>Some(11)</code>&#x306E;&#x5024;&#x3092;&#x304B;&#x3051;&#x3066;&#x3001;<code>Some(2310)</code>&#x3092;&#x6C42;&#x3081;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex3').style.display='block'; document.getElementById('answer_ex3_show_answer_button').style.display='none'; document.getElementById('answer_ex3_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex3').style.display='none'; document.getElementById('answer_ex3_show_answer_button').style.display='block'; document.getElementById('answer_ex3_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v1</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v2</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v3</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v4</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
+<span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">v5</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">11</span>)
+<span class="hljs-keyword">for</span> { i1 &lt;- v1
+      i2 &lt;- v2
+      i3 &lt;- v3
+      i4 &lt;- v4
+      i5 &lt;- v5 } <span class="hljs-keyword">yield</span> i1 * i2 * i3 * i4 * i5
+</code></pre>
+</div>
 <h3 id="either"><a name="either" class="plugin-anchor" href="#either"><span class="fa fa-link"></span></a><a href="https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Either.scala" target="_blank">Either</a></h3>
 <p>Option&#x306B;&#x3088;&#x308A;null&#x3092;&#x4F7F;&#x3046;&#x5FC5;&#x8981;&#x306F;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x3044;&#x3063;&#x307D;&#x3046;&#x3067;Option&#x3067;&#x306F;&#x51E6;&#x7406;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;&#x3057;&#x304B;&#x308F;&#x304B;&#x3089;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
 None&#x306E;&#x5834;&#x5408;&#x3001;&#x5024;&#x304C;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x306A;&#x304B;&#x3063;&#x305F;&#x3053;&#x3068;&#x306F;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x306E;&#x72B6;&#x614B;&#x306F;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x4F7F;&#x7528;&#x3067;&#x304D;&#x308B;&#x306E;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x306E;&#x7A2E;&#x985E;&#x304C;&#x554F;&#x984C;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306E;&#x307F;&#x3067;&#x3059;&#x3002;</p>
@@ -801,7 +833,7 @@ asInstanceOf   canEqual   copy   e   exists   filter   flatMap   forall   foreac
 v: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">123</span>)
 
 scala&gt; v.right.map(_ * <span class="hljs-number">2</span>)
-res22: <span class="hljs-type">Product</span> <span class="hljs-keyword">with</span> <span class="hljs-type">Serializable</span> <span class="hljs-keyword">with</span> scala.util.<span class="hljs-type">Either</span>[<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">246</span>)
+res25: <span class="hljs-type">Product</span> <span class="hljs-keyword">with</span> <span class="hljs-type">Serializable</span> <span class="hljs-keyword">with</span> scala.util.<span class="hljs-type">Either</span>[<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">246</span>)
 </code></pre>
 <p>&#x3053;&#x308C;&#x3067;map&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5024;&#x3092;&#x4E8C;&#x500D;&#x306B;&#x3059;&#x308B;&#x95A2;&#x6570;&#x3092;Right&#x306B;&#x9069;&#x7528;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3061;&#x306A;&#x307F;&#x306B;Either&#x304C;Left&#x306E;&#x5834;&#x5408;&#x306F;&#x4F55;&#x306E;&#x51E6;&#x7406;&#x3082;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x308C;&#x306F;Option&#x3067;None&#x306B;&#x5BFE;&#x3057;&#x3066;map&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x4F55;&#x306E;&#x51E6;&#x7406;&#x3082;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x52D5;&#x4F5C;&#x306B;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#x3002;</p>
 <p>&#x6CE8;&#x610F;&#x3057;&#x3066;&#x307B;&#x3057;&#x3044;&#x306E;&#x306F;RightProjection&#x306E;map&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x8FD4;&#x308A;&#x5024;&#x306F;Either&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;map&#x3084;flatMap&#x3092;&#x9023;&#x9396;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306B;&#x306F;&#x6BCE;&#x56DE;Either&#x3092;RightProjection&#x306B;&#x5909;&#x5316;&#x3055;&#x305B;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
@@ -820,7 +852,7 @@ scala&gt; <span class="hljs-keyword">for</span> {
      |   i2 &lt;- v2.right
      |   i3 &lt;- v3.right
      | } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-res23: scala.util.<span class="hljs-type">Either</span>[<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">105</span>)
+res26: scala.util.<span class="hljs-type">Either</span>[<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">105</span>)
 </code></pre>
 <p>Right&#x304C;&#x6B63;&#x5E38;&#x306A;&#x5024;&#x3068;&#x3057;&#x3066;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3068;&#x3059;&#x308C;&#x3070;&#x3001;&#x307B;&#x3068;&#x3093;&#x3069;&#x306E;Either&#x306F;RightProjection&#x306B;&#x5909;&#x5316;&#x3055;&#x305B;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;Scala&#x306E;Either&#x306E;&#x4ED5;&#x69D8;&#x306F;Haskell&#x306E;Either&#x306E;&#x3088;&#x3046;&#x306A;&#x6697;&#x9ED9;&#x7684;&#x306B;Right&#x3092;&#x512A;&#x5148;&#x3059;&#x308B;&#x306E;&#x306B;&#x6BD4;&#x3079;&#x3066;&#x308F;&#x305A;&#x3089;&#x308F;&#x3057;&#x3044;&#x3068;&#x8A00;&#x308F;&#x308C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3068;&#x308A;&#x3042;&#x3048;&#x305A;Either&#x306E;map&#x3084;flatMap&#x306A;&#x3069;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306F;right&#x3067;RightProjection&#x306B;&#x5909;&#x5316;&#x3055;&#x305B;&#x308B;&#x3068;&#x899A;&#x3048;&#x3066;&#x3057;&#x307E;&#x3063;&#x3066;&#x3088;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <h3 id="try"><a name="try" class="plugin-anchor" href="#try"><span class="fa fa-link"></span></a><a href="https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Try.scala" target="_blank">Try</a></h3>
@@ -853,7 +885,7 @@ scala&gt; <span class="hljs-keyword">for</span> {
      |   i2 &lt;- v2
      |   i3 &lt;- v3
      | } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-res24: scala.util.<span class="hljs-type">Try</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Success</span>(<span class="hljs-number">105</span>)
+res27: scala.util.<span class="hljs-type">Try</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Success</span>(<span class="hljs-number">105</span>)
 </code></pre>
 <h4 id="nonfatal&#x306E;&#x4F8B;&#x5916;"><a name="nonfatal&#x306E;&#x4F8B;&#x5916;" class="plugin-anchor" href="#nonfatal&#x306E;&#x4F8B;&#x5916;"><span class="fa fa-link"></span></a><a href="https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/control/NonFatal.scala" target="_blank"><code>NonFatal</code></a>&#x306E;&#x4F8B;&#x5916;</h4>
 <p><code>Try.apply</code>&#x304C;catch&#x3059;&#x308B;&#x306E;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x4F8B;&#x5916;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
