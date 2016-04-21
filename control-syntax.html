@@ -53,7 +53,7 @@
         data-chapter-title="Scalaの制御構文"
         data-filepath="control-syntax.md"
         data-basepath="."
-        data-revision="Mon Apr 18 2016 12:38:04 GMT+0000 (UTC)"
+        data-revision="Thu Apr 21 2016 10:16:12 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -621,7 +621,7 @@ res9: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>]
 for-comprehension&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <h3 id="control_syntax_ex3"><a name="control_syntax_ex3" class="plugin-anchor" href="#control_syntax_ex3"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
 <p>1&#x304B;&#x3089;1000&#x307E;&#x3067;&#x306E;3&#x3064;&#x306E;&#x6574;&#x6570;a, b, c&#x304C;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306B;&#x306A;&#x308B;&#x3088;&#x3046;&#x306A;<code>a</code>, <code>b</code>, <code>c</code>&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3092;&#x5168;&#x3066;&#x51FA;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306E;&#x6761;&#x4EF6;&#x306B;&#x306F;&#x30D4;&#x30BF;&#x30B4;&#x30E9;&#x30B9;&#x306E;&#x5B9A;&#x7406;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x30D4;&#x30BF;&#x30B4;&#x30E9;&#x30B9;&#x306E;&#x5B9A;&#x7406;&#x3068;&#x306F;&#x4E09;&#x5E73;&#x65B9;&#x306E;&#x5B9A;&#x7406;&#x3068;&#x3082;&#x547C;&#x3070;&#x308C;&#x3001;<code>a ^ 2 == b ^ 2 + c ^ 2</code>&#x3092;&#x6E80;&#x305F;&#x3059;&#x3001;<code>a</code>, <code>b</code>, <code>c</code> &#x306E;&#x9577;&#x3055;&#x306E;&#x4E09;&#x8FBA;&#x3092;&#x6301;&#x3064;&#x4E09;&#x89D2;&#x5F62;&#x306F;&#x3001;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306B;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<!-- begin answer id="answer_ex3" -->
+<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex3').style.display='block'; document.getElementById('answer_ex3_show_answer_button').style.display='none'; document.getElementById('answer_ex3_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex3').style.display='none'; document.getElementById('answer_ex3_show_answer_button').style.display='block'; document.getElementById('answer_ex3_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(a &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>; b &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>; c &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>) {
   <span class="hljs-keyword">if</span>(a * a == b * b + c * c) println((a, b, c))
 }
