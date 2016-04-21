@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config &&
 openssl aes-256-cbc -k "$SERVER_KEY" -in travis_deploy_key.enc -d -a -out deploy.key &&
@@ -18,3 +19,17 @@ git add . &&
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT" &&
 if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" == "false" ]];
 then git push git@github.com:dwango/scala_text.git gh-pages:gh-pages ; fi
+
+git checkout -qf $TRAVIS_COMMIT
+openssl aes-256-cbc -k "$PREVIEW_KEY" -in preview_key.enc -d -a -out preview.key
+cp preview.key ~/.ssh/
+chmod 600 ~/.ssh/preview.key
+echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/preview.key\n" > ~/.ssh/config
+git clone git@github.com:dwango/scala_text_previews.git
+cd scala_text_previews
+rm -rf ./${TRAVIS_BRANCH}
+mkdir ${TRAVIS_BRANCH}
+cp -r ../../_book/* ./${TRAVIS_BRANCH}/
+git add .
+git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT $TRAVIS_BRANCH"
+git push origin gh-pages:gh-pages
