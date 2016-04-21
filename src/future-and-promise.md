@@ -347,10 +347,7 @@ FutureやPromiseの便利な特性を利用して、0〜1000ミリ秒間のラ�
 [CountDownLatch](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CountDownLatch.html)というクラスの
 動きの一部を模したものとなります。
 
-
-### 解答例： カウントダウンラッチ
-
-解答例は以下のとおりです。
+<!-- begin answer id="answer_ex1" style="display:none" -->
 
 ```tut:silent
 import java.util.concurrent.atomic.AtomicInteger
@@ -377,6 +374,8 @@ object CountDownLatchSample extends App {
   Thread.sleep(5000)
 }
 ```
+
+<!-- end answer -->
 
 上記のコードを簡単に説明すると、指定された処理を行うFutureの配列を用意し、それらがそれぞれ成功した時に
 AtomicIntegerで確保されているindexをアトミックにインクリメントさせながら、
