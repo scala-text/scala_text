@@ -193,6 +193,18 @@ object Stack {
 }
 ```
 
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut:silent
+class NonEmptyStack[+T](private val top: T, private val rest: Stack[T]) extends Stack[T] {
+  def push[E >: T](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def pop: (T, Stack[T]) = (top, rest)
+  def isEmpty: Boolean = false
+}
+```
+
+<!-- end answer -->
+
 ## 反変（contravariant）（★）
 
 次は共変とちょうど対になる性質である反変です。簡単に定義を示しましょう。反変というのは、型パラメータを持ったクラス`G`、型パラメータ`T1`と`T2`があったとき、`T1` が `T2` を継承しているときにのみ、
