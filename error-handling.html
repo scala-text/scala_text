@@ -53,7 +53,7 @@
         data-chapter-title="エラー処理"
         data-filepath="error-handling.md"
         data-basepath="."
-        data-revision="Thu Apr 21 2016 13:12:16 GMT+0000 (UTC)"
+        data-revision="Thu Apr 21 2016 13:13:34 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -597,7 +597,7 @@ java.lang.<span class="hljs-type">RuntimeException</span>
   at scala.<span class="hljs-type">Option</span>.fold(<span class="hljs-type">Option</span>.scala:<span class="hljs-number">158</span>)
   ... <span class="hljs-number">1021</span> elided
 </code></pre>
-<p>&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3067;&#x3001;None&#x306E;&#x969B;&#x306E;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x51E6;&#x7406;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x304B;&#x3064;&#x3001;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3057;&#x305F;&#x4E2D;&#x8EAB;&#x306E;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3067;&#x3001;None&#x306E;&#x969B;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x51E6;&#x7406;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x304B;&#x3064;&#x3001;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3057;&#x305F;&#x4E2D;&#x8EAB;&#x306E;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>).fold(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>)(_ * <span class="hljs-number">3</span>)
 res13: <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
 </code></pre>
