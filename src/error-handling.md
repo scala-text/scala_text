@@ -888,6 +888,6 @@ object MainRefactored {
 ```
 getPostalCodeResultが本質的に何をしているのかが非常にわかりやすいコードとなりました。何をしているかというと、
 Eitherではfor式を直接つかえないので`.right`というメソッドで、RightProjectionという型にして、
-for式が利用できる形に変換しています。そのあと、margeメソッドにより中身を畳み込んで取得しています。
+for式が利用できる形に変換しています。そのあと、mergeメソッドにより中身を畳み込んで取得しています。
 
 [^product-with-serializable]: Scala2.11以前だと`Product with Serializable with scala.util.Either`というような変な型になりますが、実用上問題ないので、ひとまず気にしなくてよいです。この変な型になる問題はScala2.12以降では修正されています。 https://github.com/scala/scala/pull/4355 https://issues.scala-lang.org/browse/SI-9173
