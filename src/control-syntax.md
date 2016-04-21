@@ -228,7 +228,7 @@ for-comprehensionと呼ぶことがあります。
 ピタゴラスの定理とは三平方の定理とも呼ばれ、`a ^ 2 == b ^ 2 + c ^ 2`を満たす、`a`, `b`, `c` の長さの三辺を持つ
 三角形は、直角三角形になるというものです。
 
-<!-- begin answer id="answer_ex3" -->
+<!-- begin answer id="answer_ex3" style="display:none" -->
 
 ```tut:silent
 for(a <- 1 to 1000; b <- 1 to 1000; c <- 1 to 1000) {
