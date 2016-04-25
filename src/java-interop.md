@@ -42,6 +42,15 @@ val list = new ArrayList[String]()
 
 `java.util.HashSet`クラスのインスタンスを`new`を使って生成してみましょう。
 
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut
+import java.util.HashSet
+val set = new HashSet[String]
+```
+
+<!-- end answer -->
+
 ### インスタンスメソッドの呼び出し
 
 インスタンスメソッドの呼び出しも同様です。
@@ -64,6 +73,14 @@ list.add("World")
 
 ```java.lang.System``` クラスのフィールド `out` のインスタンスメソッド `println` を引数 `"Hello, World!` として呼びだしてみましょう。
 
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```tut
+System.out.println("Hello, World!")
+```
+
+<!-- end answer -->
+
 #### staticメソッドの呼び出し
 
 staticメソッドの呼び出しもJavaの場合とほとんど同様にできますが、1つ注意点があります。それは、Scalaではstaticメソッドは継承されない
@@ -82,6 +99,16 @@ res0: Long = 1416357548906
 ##### 練習問題
 
 `java.lang.System`クラスのstaticメソッド`exit()`を引数 `0`  として呼びだしてみましょう。どのような結果になるでしょうか。
+
+<!-- begin answer id="answer_ex3" style="display:none" -->
+
+```scala
+System.exit(0)
+```
+
+実行中のScalaプログラム（プロセス）が終了する。
+
+<!-- end answer -->
 
 #### staticフィールドの参照
 
@@ -116,6 +143,12 @@ class MyFrame extends JFrame {
 ##### 練習問題
 
 ScalaでJavaのstaticフィールドを参照しなければならない局面を1つ以上挙げてみましょう。
+
+<!-- begin answer id="answer_ex4" style="display:none" -->
+
+`java.lang.System`クラスのstaticフィールド`err`を参照する場合
+
+<!-- end answer -->
 
 #### Scalaの型とJavaの型のマッピング
 
@@ -236,3 +269,17 @@ BufferはScalaの変更可能なリストのスーパークラスですが、と
 ##### 練習問題
 
 [`scala.collection.mutable.ArrayBuffer`](http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.ArrayBuffer)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
+
+<!-- begin answer id="answer_ex5" style="display:none" -->
+
+```tut
+import scala.collection.mutable.ArrayBuffer
+import scala.collection.JavaConverters._
+val buffer = new ArrayBuffer[String]
+buffer += "A"
+buffer += "B"
+buffer += "C"
+val list = buffer.asJava
+```
+
+<!-- end answer -->
