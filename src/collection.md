@@ -311,7 +311,7 @@ List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 <!-- begin answer id="answer_ex3" style="display:none" -->
 
 ```tut:silent
-def reverse[A](list: List[A]): List[A] = list.reverse
+def reverse[T](list: List[T]): List[T] = list.foldLeft(Nil: List[T])((a, b) => b :: a)
 ```
 
 ```tut
