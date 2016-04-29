@@ -433,6 +433,18 @@ new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toL
 `new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList`という値は、
 呼びだす度にランダムな5個の文字（`Char`型）のリストを与えます。
 
+<!-- begin answer id="answer_ex4" style="display:none" -->
+
+```tut:silent
+for(i <- 1 to 1000) {
+  val s = new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList match {
+    case List(a,b,c,d,_) => List(a,b,c,d,a).mkString
+  }
+  println(s)
+}
+```
+
+<!-- end answer -->
 
 ここまで書いただけでも、`match`式はswitch-caseに比べてかなり強力であることがわかると思います。ですが、`match`式の力はそれにとどまりません。
 後述しますが、パターンには自分で作ったクラス（のオブジェクト）を指定することでさらに強力になります。
