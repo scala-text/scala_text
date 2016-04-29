@@ -431,8 +431,23 @@ new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toL
 
 以上のコードを利用して、 最初と最後の文字が同じアルファベットであるランダムな5文字の文字列を1000回出力してください。
 `new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList`という値は、
-呼びだす度にランダムな5個の文字（`Char`型）のリストを与えます。
+呼びだす度にランダムな5個の文字（`Char`型）のリストを与えます。なお、以上のコード
+で生成されたリストの一部分を利用するだけでよく、最初と最後の文字が同じアルファベットである
+リストになるまで試行を続ける必要はありません。これは、`List(a, b, d, e, f)`が得られた
+場合に、`List(a, b, d, e, a)`のようにしても良いということです。
 
+<!-- begin answer id="answer_ex4" style="display:none" -->
+
+```tut:silent
+for(i <- 1 to 1000) {
+  val s = new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList match {
+    case List(a,b,c,d,_) => List(a,b,c,d,a).mkString
+  }
+  println(s)
+}
+```
+
+<!-- end answer -->
 
 ここまで書いただけでも、`match`式はswitch-caseに比べてかなり強力であることがわかると思います。ですが、`match`式の力はそれにとどまりません。
 後述しますが、パターンには自分で作ったクラス（のオブジェクト）を指定することでさらに強力になります。
