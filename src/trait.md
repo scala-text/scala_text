@@ -353,9 +353,9 @@ trait TraitC extends TraitA {
 
 // コンパイルエラー！
 // class ClassA needs to be a mixin, since method greet in trait TraitC of type ()Unit is marked `abstract' and `override', but no concrete implementation could be found in a base
-// コンパイルできる
 class ClassA extends TraitC
 
+// コンパイルできる
 class ClassB extends TraitB with TraitC
 ```
 
