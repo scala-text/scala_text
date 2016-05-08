@@ -12,6 +12,7 @@
 - [Scalaのコレクションライブラリ](collection.md)
 - [ケースクラスとパターンマッチング](case-class-and-pattern-matching.md)
 - [Implicit](implicit.md)
+- [型クラスの紹介](typeclass.md)
 - [エラー処理](error-handling.md)
 - [FutureとPromise](future-and-promise.md)
 - [テスト](test.md)
