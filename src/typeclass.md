@@ -208,6 +208,9 @@ trait Monoid[F] {
 ```tut:silent
 def leftIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
 def rightIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
+def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
+  F.append(F.append(a, b), c) == F.append(a, F.append(b, c))
+}
 ```
 
 Option[Int]型でMonoidインスタンスを定義してみましょう。
@@ -220,6 +223,9 @@ trait Monoid[F] {
 
 def leftIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
 def rightIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
+def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
+  F.append(F.append(a, b), c) == F.append(a, F.append(b, c))
+}
 
 implicit object OptionIntMonoid extends Monoid[Option[Int]] {
   def append(a: Option[Int], b: Option[Int]): Option[Int] = (a, b) match {
@@ -232,8 +238,11 @@ implicit object OptionIntMonoid extends Monoid[Option[Int]] {
 }
 
 val n: Option[Int] = Some(1)
+val m: Option[Int] = Some(2)
+val o: Option[Int] = Some(3)
 leftIdentity(n)
 rightIdentity(n)
+associativeLaw(n, m, o)
 ```
 
 型によっては結合方法が複数存在する場合があります。
