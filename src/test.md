@@ -409,7 +409,7 @@ libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.2" 
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
-```scala
+```tut:silent
 import org.scalamock.scalatest.MockFactory
 import org.scalatest._
 
@@ -420,7 +420,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with Moc
   "Calcのモックオブジェクト" should "振る舞いを偽装することができる" in {
     val mockCalc = mock[Calc]
     (mockCalc.sum _).expects(Seq(3, 4, 5)).returning(12)
-    asserr(mockCalc.sum(Seq(3, 4, 5)) === 12)
+    assert(mockCalc.sum(Seq(3, 4, 5)) === 12)
   }
 }
 ```
