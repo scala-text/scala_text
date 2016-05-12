@@ -398,7 +398,7 @@ BDDでテストを書くことによってテストによってどのような�
 - [ScalaMock](http://scalamock.org/)
 - [EasyMock](http://easymock.org/)
 - [JMock](http://www.jmock.org/)
-- [Mockito](https://code.google.com/p/mockito/)
+- [Mockito](https://github.com/mockito/mockito)
 
 ここでは、ScalaTestで最初に紹介されているScalaMockを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
