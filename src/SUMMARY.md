@@ -16,6 +16,6 @@
 - [型クラスの紹介](typeclass.md)
 - [FutureとPromise](future-and-promise.md)
 - [テスト](test.md)
-- [javaとの相互運用](java-interop.md)
+- [Javaとの相互運用](java-interop.md)
 - [S99の案内](exercises.md)
 - [トレイトの応用編：依存性の注入によるリファクタリング](advanced-trait-di.md)
