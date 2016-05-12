@@ -400,39 +400,40 @@ BDDでテストを書くことによってテストによってどのような�
 - [JMock](http://www.jmock.org/)
 - [Mockito](https://github.com/mockito/mockito)
 
-ここでは、ScalaTestで最初に紹介されているScalaMockを利用してみましょう。
+ここでは、ドワンゴ社内で利用率の高いMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```scala
-libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.2" % "test"
+libraryDependencies += "org.mockito" %% "mockito-core" % "1.10.19" % "test"
 ```
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
 ```tut:silent
-import org.scalamock.scalatest.MockFactory
-import org.scalatest._
+import org.scalatest.{FlatSpec, DiagrammedAssertions}
+import org.scalatest.concurrent.Timeouts
+import org.scalatest.mock.MockitoSugar
+import org.mockito.Mockito._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with MockFactory {
+class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with MockitoSugar {
 
   // ...
 
   "Calcのモックオブジェクト" should "振る舞いを偽装することができる" in {
     val mockCalc = mock[Calc]
-    (mockCalc.sum _).expects(Seq(3, 4, 5)).returning(12)
+    when(mockCalc.sum(Seq(3, 4, 5))).thenReturn(12)
     assert(mockCalc.sum(Seq(3, 4, 5)) === 12)
   }
 }
 ```
 
-`MockFactory`というトレイトをミックスインすることで、このモックの機能が利用できるようになります。
+`MockitoSuger`というトレイトをミックスインすることで、ScalaTest独自の省略記法を用いてMockitoを利用できるようになります。
 `val mockCalc = mock[Calc]`でモックオブジェクトを作成し、
-`(mockCalc.sum _).expects(Seq(3, 4, 5)).returning(12)`で振る舞いを作成しています。
+`when(mockCalc.sum(Seq(3, 4, 5)).thenReturn(12)`で振る舞いを作成しています。
 
 そして最後に、`assert(mockCalc.sum(Seq(3, 4, 5)) === 12)`でモックに仕込んだ偽装された振る舞いをテストしています。
 
 以上のようなモックの機能は、実際には時間がかかってしまう通信などの部分を高速に動かすために利用されています。
-より詳しい、モックの利用方法については、[ScalaMock User Guide](http://scalamock.org/user-guide/)をご覧ください。
 
 モックを含め、テストの対象が依存しているオブジェクトを置き換える代用品の総称をテストダブル[^xutp]と呼びます。
 
