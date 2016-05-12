@@ -53,7 +53,7 @@
         data-chapter-title="テスト"
         data-filepath="test.md"
         data-basepath="."
-        data-revision="Thu May 12 2016 09:29:06 GMT+0000 (UTC)"
+        data-revision="Thu May 12 2016 09:33:59 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -783,7 +783,7 @@ BDD&#x3067;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x30
   <span class="hljs-string">&quot;Calc&#x306E;&#x30E2;&#x30C3;&#x30AF;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&quot;</span> should <span class="hljs-string">&quot;&#x632F;&#x308B;&#x821E;&#x3044;&#x3092;&#x507D;&#x88C5;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&quot;</span> in {
     <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">mockCalc</span> =</span> mock[<span class="hljs-type">Calc</span>]
     (mockCalc.sum _).expects(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)).returning(<span class="hljs-number">12</span>)
-    asserr(mockCalc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)) === <span class="hljs-number">12</span>)
+    assert(mockCalc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)) === <span class="hljs-number">12</span>)
   }
 }
 </code></pre>
