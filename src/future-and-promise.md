@@ -396,6 +396,4 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 このRxは元々はC#で生まれたReactive Extensionsというライブラリで、
 現在では[様々な言語にポーティング](https://github.com/Reactive-Extensions)が行われています。
 
-まだ実装時間に余裕がある場合は、[Semaphore](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/Semaphore.html)（セマフォ）という常に特定個数ずつしか実行されない処理を実装してみましょう。
-
 [^concurrent]: 値の原始的な更新や同期の必要性などの並行処理に関する様々な話題の詳細な解説は本書の範囲をこえてしまうため割愛します。「Java Concurrency in Practice」ないしその和訳「Java並行処理プログラミング ー その「基盤」と「最新API」を究める」や「Effective Java」といった本でこれらの話題について学ぶことが出来ます。
