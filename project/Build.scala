@@ -14,6 +14,7 @@ object build extends Build with NpmCliBase {
       tutSourceDirectory := srcDir,
       tutTargetDirectory := compiledSrcDir,
       libraryDependencies ++= Seq(
+        "org.scalamock" %% "scalamock-scalatest-support" % "3.2",
         "org.scalatest" %% "scalatest" % "2.2.6" // tutで使うので、テストライブラリだが、わざとcompileスコープ
       )
     ).settings(
