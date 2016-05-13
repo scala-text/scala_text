@@ -53,7 +53,7 @@
         data-chapter-title="テスト"
         data-filepath="test.md"
         data-basepath="."
-        data-revision="Fri May 13 2016 07:46:29 GMT+0000 (UTC)"
+        data-revision="Fri May 13 2016 07:58:08 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -759,32 +759,30 @@ BDD&#x3067;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x30
 <li><a href="http://www.jmock.org/" target="_blank">JMock</a></li>
 <li><a href="https://github.com/mockito/mockito" target="_blank">Mockito</a></li>
 </ul>
-<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30C9;&#x30EF;&#x30F3;&#x30B4;&#x793E;&#x5185;&#x3067;&#x5229;&#x7528;&#x7387;&#x306E;&#x9AD8;&#x3044;Mockito&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;ScalaTest&#x3067;&#x6700;&#x521D;&#x306B;&#x7D39;&#x4ECB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;ScalaMock&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
 <code>build.sbt</code>&#x306B;&#x4EE5;&#x4E0B;&#x3092;&#x8FFD;&#x8A18;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5229;&#x7528;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">libraryDependencies += <span class="hljs-string">&quot;org.mockito&quot;</span> %% <span class="hljs-string">&quot;mockito-core&quot;</span> % <span class="hljs-string">&quot;1.10.19&quot;</span> % <span class="hljs-string">&quot;test&quot;</span>
+<pre><code class="lang-scala">libraryDependencies += <span class="hljs-string">&quot;org.scalamock&quot;</span> %% <span class="hljs-string">&quot;scalamock-scalatest-support&quot;</span> % <span class="hljs-string">&quot;3.2&quot;</span> % <span class="hljs-string">&quot;test&quot;</span>
 </code></pre>
 <p>&#x305B;&#x3063;&#x304B;&#x304F;&#x306A;&#x306E;&#x3067;&#x3001;&#x5148;&#x307B;&#x3069;&#x7528;&#x610F;&#x3057;&#x305F;Calc&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30E2;&#x30C3;&#x30AF;&#x3092;&#x7528;&#x610F;&#x3057;&#x3066;&#x3001;&#x30E2;&#x30C3;&#x30AF;&#x306B;sum&#x306E;&#x632F;&#x308B;&#x821E;&#x3044;&#x3092;&#x4ED5;&#x8FBC;&#x3093;&#x3067;&#x898B;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">import</span> org.scalatest.{<span class="hljs-type">FlatSpec</span>, <span class="hljs-type">DiagrammedAssertions</span>}
-<span class="hljs-keyword">import</span> org.scalatest.concurrent.<span class="hljs-type">Timeouts</span>
-<span class="hljs-keyword">import</span> org.scalatest.mock.<span class="hljs-type">MockitoSugar</span>
-<span class="hljs-keyword">import</span> org.mockito.<span class="hljs-type">Mockito</span>._
+<pre><code class="lang-scala"><span class="hljs-keyword">import</span> org.scalamock.scalatest.<span class="hljs-type">MockFactory</span>
+<span class="hljs-keyword">import</span> org.scalatest._
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CalcSpec</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">FlatSpec</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">DiagrammedAssertions</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">Timeouts</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">MockitoSugar</span> {</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CalcSpec</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">FlatSpec</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">DiagrammedAssertions</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">Timeouts</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">MockFactory</span> {</span>
 
   <span class="hljs-comment">// ...</span>
 
   <span class="hljs-string">&quot;Calc&#x306E;&#x30E2;&#x30C3;&#x30AF;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&quot;</span> should <span class="hljs-string">&quot;&#x632F;&#x308B;&#x821E;&#x3044;&#x3092;&#x507D;&#x88C5;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&quot;</span> in {
     <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">mockCalc</span> =</span> mock[<span class="hljs-type">Calc</span>]
-    when(mockCalc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>))).thenReturn(<span class="hljs-number">12</span>)
+    (mockCalc.sum _).expects(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)).returning(<span class="hljs-number">12</span>)
     assert(mockCalc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)) === <span class="hljs-number">12</span>)
   }
 }
 </code></pre>
-<p><code>MockitoSuger</code>&#x3068;&#x3044;&#x3046;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;ScalaTest&#x72EC;&#x81EA;&#x306E;&#x7701;&#x7565;&#x8A18;&#x6CD5;&#x3092;&#x7528;&#x3044;&#x3066;Mockito&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+<p><code>MockFactory</code>&#x3068;&#x3044;&#x3046;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x3053;&#x306E;&#x30E2;&#x30C3;&#x30AF;&#x306E;&#x6A5F;&#x80FD;&#x304C;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
 <code>val mockCalc = mock[Calc]</code>&#x3067;&#x30E2;&#x30C3;&#x30AF;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;
-<code>when(mockCalc.sum(Seq(3, 4, 5)).thenReturn(12)</code>&#x3067;&#x632F;&#x308B;&#x821E;&#x3044;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<code>(mockCalc.sum _).expects(Seq(3, 4, 5)).returning(12)</code>&#x3067;&#x632F;&#x308B;&#x821E;&#x3044;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x305D;&#x3057;&#x3066;&#x6700;&#x5F8C;&#x306B;&#x3001;<code>assert(mockCalc.sum(Seq(3, 4, 5)) === 12)</code>&#x3067;&#x30E2;&#x30C3;&#x30AF;&#x306B;&#x4ED5;&#x8FBC;&#x3093;&#x3060;&#x507D;&#x88C5;&#x3055;&#x308C;&#x305F;&#x632F;&#x308B;&#x821E;&#x3044;&#x3092;&#x30C6;&#x30B9;&#x30C8;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x306E;&#x3088;&#x3046;&#x306A;&#x30E2;&#x30C3;&#x30AF;&#x306E;&#x6A5F;&#x80FD;&#x306F;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x901A;&#x4FE1;&#x306A;&#x3069;&#x306E;&#x90E8;&#x5206;&#x3092;&#x9AD8;&#x901F;&#x306B;&#x52D5;&#x304B;&#x3059;&#x305F;&#x3081;&#x306B;&#x5229;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4EE5;&#x4E0A;&#x306E;&#x3088;&#x3046;&#x306A;&#x30E2;&#x30C3;&#x30AF;&#x306E;&#x6A5F;&#x80FD;&#x306F;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x901A;&#x4FE1;&#x306A;&#x3069;&#x306E;&#x90E8;&#x5206;&#x3092;&#x9AD8;&#x901F;&#x306B;&#x52D5;&#x304B;&#x3059;&#x305F;&#x3081;&#x306B;&#x5229;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3088;&#x308A;&#x8A73;&#x3057;&#x3044;&#x3001;&#x30E2;&#x30C3;&#x30AF;&#x306E;&#x5229;&#x7528;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;<a href="http://scalamock.org/user-guide/" target="_blank">ScalaMock User Guide</a>&#x3092;&#x3054;&#x89A7;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <p>&#x30E2;&#x30C3;&#x30AF;&#x3092;&#x542B;&#x3081;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x306E;&#x5BFE;&#x8C61;&#x304C;&#x4F9D;&#x5B58;&#x3057;&#x3066;&#x3044;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x308B;&#x4EE3;&#x7528;&#x54C1;&#x306E;&#x7DCF;&#x79F0;&#x3092;&#x30C6;&#x30B9;&#x30C8;&#x30C0;&#x30D6;&#x30EB;<sup><a href="#fn_4" id="reffn_4">4</a></sup>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="&#x30B3;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x306E;&#x6E2C;&#x5B9A;"><a name="&#x30B3;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x306E;&#x6E2C;&#x5B9A;" class="plugin-anchor" href="#&#x30B3;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x306E;&#x6E2C;&#x5B9A;"><span class="fa fa-link"></span></a>&#x30B3;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x306E;&#x6E2C;&#x5B9A;</h2>
 <p>&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x884C;&#x3063;&#x305F;&#x969B;&#x306B;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x304C;&#x6A5F;&#x80FD;&#x306E;&#x3069;&#x308C;&#x3050;&#x3089;&#x3044;&#x3092;&#x7DB2;&#x7F85;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3092;&#x77E5;&#x308B;&#x65B9;&#x6CD5;&#x3068;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x3092;&#x56F3;&#x308B;&#x3068;&#x3044;&#x3046;&#x65B9;&#x6CD5;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;<a href="https://github.com/scoverage/scalac-scoverage-plugin" target="_blank">scoverage</a>&#x3092;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
