@@ -1,6 +1,6 @@
 # Future/Promiseについて（★★★）
 
-FutureとPromiseは非同期プログラミングにおいて、終了しているかどうかわからない処理結果を抽象化した型です。Futureは未来の結果を表す型です。Promiseは一度だけ、成功を表す処理または値を設定することでFutureに変換できる型です。
+FutureとPromiseは非同期プログラミングにおいて、終了しているかどうかわからない処理結果を抽象化した型です。Futureは未来の結果を表す型です。Promiseは一度だけ、成功あるいは失敗を表す、処理または値を設定することでFutureに変換できる型です。
 
 JVM系の言語では、マルチスレッドで並行処理を使った非同期処理を行うことが多々あります。
 無論ブラウザ上のJavaScriptのようなシングルスレッドで行うような非同期処理もありますが、
@@ -267,9 +267,7 @@ object CompositeFutureSample extends App {
 
 [Promise](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Promise)とは、
 
-一度だけ、成功を表す処理または値を設定することによって、Futureに変換することのできるクラスです。
-Promiseはそれ自体が、一瞬可変オブジェクトのような振る舞いをします。なかなかわかりにくいかと
-思いますので、実際にサンプルコードを示します。
+一度だけ、成功あるいは失敗を表す、処理または値を設定することによって、Futureに変換することのできるクラスです。 Promiseは、一見可変オブジェクトのような振る舞いをします。なかなかわかりにくいかと思いますので、実際にサンプルコードを示します。
 
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
