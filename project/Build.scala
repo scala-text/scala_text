@@ -14,6 +14,7 @@ object build extends Build with NpmCliBase {
       tutSourceDirectory := srcDir,
       tutTargetDirectory := compiledSrcDir,
       libraryDependencies ++= Seq(
+        "org.scala-sbt" % "sbt" % "1.0.0-M4",
         "org.mockito" % "mockito-core" % "1.10.19",
         "org.scalatest" %% "scalatest" % "2.2.6" // tutで使うので、テストライブラリだが、わざとcompileスコープ
       )
