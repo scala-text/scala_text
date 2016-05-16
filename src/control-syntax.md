@@ -141,10 +141,10 @@ Javaで`while`文を使った場合と同様です。`do while`文もありま�
 
 ### 練習問題 {#control_syntax_ex2}
 
-`do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`print0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。
+`do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`loopFrom0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。
 
 ```tut:silent
-def loop0To9(): Unit = {
+def loopFrom0To9(): Unit = {
   do {
     ???
   } while(???)
@@ -154,7 +154,7 @@ def loop0To9(): Unit = {
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
 ```tut:silent
-def loop0To9(): Unit = {
+def loopFrom0To9(): Unit = {
   var i = 0
   do {
     println(i)
@@ -164,7 +164,7 @@ def loop0To9(): Unit = {
 ```
 
 ```tut
-loop0To9()
+loopFrom0To9()
 ```
 
 <!-- end answer -->
