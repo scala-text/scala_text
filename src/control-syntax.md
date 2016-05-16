@@ -145,6 +145,7 @@ Javaで`while`文を使った場合と同様です。`do while`文もありま�
 
 ```tut:silent
 def loopFrom0To9(): Unit = {
+  var i = ???
   do {
     ???
   } while(???)
