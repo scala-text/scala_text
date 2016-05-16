@@ -71,7 +71,7 @@ list.add("World")
 
 #### 練習問題
 
-```java.lang.System``` クラスのフィールド `out` のインスタンスメソッド `println` を引数 `"Hello, World!` として呼びだしてみましょう。
+```java.lang.System``` クラスのフィールド `out` のインスタンスメソッド `println` を引数 `"Hello, World!"` として呼びだしてみましょう。
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
