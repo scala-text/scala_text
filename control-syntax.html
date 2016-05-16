@@ -53,7 +53,7 @@
         data-chapter-title="Scalaの制御構文"
         data-filepath="control-syntax.md"
         data-basepath="."
-        data-revision="Mon May 16 2016 03:20:37 GMT+0000 (UTC)"
+        data-revision="Mon May 16 2016 04:18:07 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -535,15 +535,15 @@ i = <span class="hljs-number">10</span>
 </code></pre>
 <p>Java&#x3067;<code>while</code>&#x6587;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3068;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002;<code>do while</code>&#x6587;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x307B;&#x307C;Java&#x3068;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;&#x8AAC;&#x660E;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <h3 id="control_syntax_ex2"><a name="control_syntax_ex2" class="plugin-anchor" href="#control_syntax_ex2"><span class="fa fa-link"></span></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
-<p><code>do while</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;0&#x304B;&#x3089;&#x6570;&#x3048;&#x4E0A;&#x3052;&#x3066;9&#x307E;&#x3067;&#x51FA;&#x529B;&#x3057;&#x3066;10&#x306B;&#x306A;&#x3063;&#x305F;&#x3089;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x7D42;&#x4E86;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;<code>print0To9</code>&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>loopFrom0To9</code>&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>???</code>&#x306E;&#x90E8;&#x5206;&#x3092;&#x57CB;&#x3081;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loop0To9</span>(</span>): <span class="hljs-type">Unit</span> = {
+<p><code>do while</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;0&#x304B;&#x3089;&#x6570;&#x3048;&#x4E0A;&#x3052;&#x3066;9&#x307E;&#x3067;&#x51FA;&#x529B;&#x3057;&#x3066;10&#x306B;&#x306A;&#x3063;&#x305F;&#x3089;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x7D42;&#x4E86;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;<code>loopFrom0To9</code>&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>loopFrom0To9</code>&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>???</code>&#x306E;&#x90E8;&#x5206;&#x3092;&#x57CB;&#x3081;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loopFrom0To9</span>(</span>): <span class="hljs-type">Unit</span> = {
   do {
     ???
   } <span class="hljs-keyword">while</span>(???)
 }
 </code></pre>
 <div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex2').style.display='block'; document.getElementById('answer_ex2_show_answer_button').style.display='none'; document.getElementById('answer_ex2_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex2').style.display='none'; document.getElementById('answer_ex2_show_answer_button').style.display='block'; document.getElementById('answer_ex2_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loop0To9</span>(</span>): <span class="hljs-type">Unit</span> = {
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loopFrom0To9</span>(</span>): <span class="hljs-type">Unit</span> = {
   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
   do {
     println(i)
@@ -551,7 +551,7 @@ i = <span class="hljs-number">10</span>
   } <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">10</span>)
 }
 </code></pre>
-<pre><code class="lang-scala">scala&gt; loop0To9()
+<pre><code class="lang-scala">scala&gt; loopFrom0To9()
 <span class="hljs-number">0</span>
 <span class="hljs-number">1</span>
 <span class="hljs-number">2</span>
