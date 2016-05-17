@@ -16,6 +16,7 @@ object build extends Build with NpmCliBase {
       libraryDependencies ++= Seq(
         "org.scala-sbt" % "sbt" % "1.0.0-M4",
         "org.mockito" % "mockito-core" % "1.10.19",
+        "org.scalacheck" %% "scalacheck" % "1.12.5",
         "org.scalatest" %% "scalatest" % "2.2.6" // tutで使うので、テストライブラリだが、わざとcompileスコープ
       )
     ).settings(
