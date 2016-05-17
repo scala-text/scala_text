@@ -278,7 +278,7 @@ def foldLeft[B](z: B)(f: (B, A) ⇒ B): B
    +   2
   / \
  0   1
- ```
+```
 
 この図で、
 
@@ -455,7 +455,7 @@ List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 def filter[T](list: List[T])(f: T => Boolean): List[T] = {
   list.foldLeft(Nil:List[T]){(x, y) => if(f(y)) y::x else x}.reverse
 }
- ```
+```
 
 <!-- end answer -->
 
