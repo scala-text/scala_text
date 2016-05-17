@@ -53,7 +53,7 @@
         data-chapter-title="Scalaのコレクションライブラリ"
         data-filepath="collection.md"
         data-basepath="."
-        data-revision="Tue May 17 2016 03:06:27 GMT+0000 (UTC)"
+        data-revision="Tue May 17 2016 06:17:34 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -703,7 +703,7 @@ res29: <span class="hljs-type">Int</span> = <span class="hljs-number">120</span>
 <div><button type="button" id="answer_ex6_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex6').style.display='block'; document.getElementById('answer_ex6_show_answer_button').style.display='none'; document.getElementById('answer_ex6_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex6_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex6').style.display='none'; document.getElementById('answer_ex6_show_answer_button').style.display='block'; document.getElementById('answer_ex6_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex6" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mkString</span>[</span><span class="hljs-type">T</span>](list: <span class="hljs-type">List</span>[<span class="hljs-type">T</span>])(sep: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = list <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">Nil</span> =&gt; <span class="hljs-string">&quot;&quot;</span>
-  <span class="hljs-keyword">case</span> x::xs =&gt; xs.foldLeft(x.toString){ <span class="hljs-keyword">case</span> (x, y) =&gt; x + sep + y }
+  <span class="hljs-keyword">case</span> x::xs =&gt; xs.foldLeft(x.toString){(x, y) =&gt; x + sep + y}
 }
 </code></pre>
 </div>
