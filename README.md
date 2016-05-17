@@ -4,6 +4,14 @@
 
 このテキストはドワンゴの新入社員Scala研修のために作成されたものである。
 
+## 成果物
+
+このテキストのコンパイル済み成果物は次の場所から入手できる。
+
+- HTML版：http://dwango.github.io/scala_text/
+- PDF版：https://y-yu.github.io/scala_text_pdf/scala_text.pdf
+- EPUB版：http://dwango.github.io/scala_text/scala_text.epub
+
 ## 目的
 
 新入社員研修でScalaを習得してもらうために使用する。
@@ -110,13 +118,13 @@ textlintでルールを設定し原則としてこれに従う。
 - 三点リーダには`…`を用いて、原則2つ続けて使う
 - 原則として、中黒`・`を三点リーダの用途で使ってはならない
 
-## EPUB, PDF
+## EPUBファイルの作成
 
-gitbookではepubやpdf形式にもビルドすることが出来る。
+GitBookではEPUB形式にもビルドすることが出来る。
 依存ライブラリとして[Calibre](http://calibre-ebook.com/)が必要なのでインストールする必要がある。
 またcalibreの中の`ebook-convert`やnpmライブラリである`svgexport`にPATHが通っている必要があるので注意。
 
-macでのインストールは例えば以下のようになる。
+Macでのインストールは例えば以下のようになる。
 
 ```
 brew cask install calibre
@@ -129,7 +137,6 @@ ln -s ~/Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-conve
 # svgexportにPATHが通っている必要がある(PATHを変更したくない場合はnpm install -g svgexportでも可)
 PATH=node_modules/.bin:$PATH
 sbt textBuildEpub
-sbt textBuildPdf
 ```
 
 ## ライセンス
