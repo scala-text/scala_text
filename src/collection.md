@@ -404,7 +404,7 @@ def mkString[T](list: List[T])(sep: String): String = ???
 ```tut:silent
 def mkString[T](list: List[T])(sep: String): String = list match {
   case Nil => ""
-  case x::xs => xs.foldLeft(x.toString){ case (x, y) => x + sep + y }
+  case x::xs => xs.foldLeft(x.toString){(x, y) => x + sep + y}
 }
 ```
 
