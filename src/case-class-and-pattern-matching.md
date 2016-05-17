@@ -308,4 +308,38 @@ object BinaryTree {
 }
 ```
 
+```tut:invisible
+import org.scalacheck._, Arbitrary.arbitrary
+
+val nonEmptyTreeGen: Gen[BinaryTree.Tree] = {
+
+  lazy val branchGen: Gen[BinaryTree.Tree] = for{
+    x <- arbitrary[Int]
+    l <- treeGen
+    r <- treeGen
+  } yield BinaryTree.Branch(x, l, r)
+
+  lazy val treeGen: Gen[BinaryTree.Tree] =
+    Gen.oneOf(
+      branchGen,
+      Gen.const(BinaryTree.Empty)
+    )
+
+  branchGen
+}
+
+def test(f: BinaryTree.Tree => Boolean) = {
+  val result = Prop.forAll(nonEmptyTreeGen)(f).apply(Gen.Parameters.default)
+  assert(result.success, result)
+}
+
+test{ tree =>
+  BinaryTree.max(tree) == BinaryTree.toList(tree).max
+}
+
+test{ tree =>
+  BinaryTree.min(tree) == BinaryTree.toList(tree).min
+}
+```
+
 <!-- end answer -->
