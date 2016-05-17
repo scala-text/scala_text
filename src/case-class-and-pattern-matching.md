@@ -200,7 +200,7 @@ def depth(tree: Tree): Int = ???
 
 ```scala
 depth(Empty) == 0
-depth(Branch(10, Empty, Empty)) = 1
+depth(Branch(10, Empty, Empty)) == 1
 ```
 
 です。
