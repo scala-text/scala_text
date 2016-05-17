@@ -278,6 +278,11 @@ object BinaryTree {
       (if(ldepth < rdepth) rdepth else ldepth) + 1
   }
 
+  def toList(tree: Tree): List[Int] = tree match {
+    case Empty => Nil
+    case Branch(v, l, r) => toList(l) ++ List(v) ++ toList(r)
+  }
+
   def sort(t: Tree): Tree = {
     def fromList(list: List[Int]): Tree = {
       def insert(value: Int, t: Tree): Tree = t match {
@@ -287,10 +292,6 @@ object BinaryTree {
           else Branch(v, l, insert(value, r))
       }
       list.foldLeft(Empty:Tree){ case (t, v) => insert(v, t) }
-    }
-    def toList(tree: Tree): List[Int] = tree match {
-      case Empty => Nil
-      case Branch(v, l, r) => toList(l) ++ List(v) ++ toList(r)
     }
     fromList(toList(t))
   }
