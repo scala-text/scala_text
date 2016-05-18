@@ -435,7 +435,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with Moc
 ## コードカバレッジの測定
 
 テストを行った際に、テストが機能のどれぐらいを網羅できているのかを知る方法として、
-コードカバレッジを図るという方法があります。
+コードカバレッジを計測するという方法があります。
 ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。
 
 過去、[SCCT](http://mtkopone.github.io/scct/)というプロダクトがあったのですが紆余曲折あり、
