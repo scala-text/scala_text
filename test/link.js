@@ -183,9 +183,15 @@ function deleteFirstKUSA(url) {
 /*
  * <a href="hoge.html">のような他の原稿に対するリンクがあるので、
  * src/hoge.mdに変換して存在確認を行えるようにする。
+ * ただしexample_projects/.../mofu.scala.htmlのようなhtmlファイルを直接参照することがあるので
+ * その場合は拡張子変換を行わない。
  */
 function modifyLinkForTest(rawFilePath) {
-  return `src/${rawFilePath}`.replace(/\.html$/, ".md");
+  if (rawFilePath.includes("example_projects")) {
+    return `src/${rawFilePath}`
+  } else {
+    return `src/${rawFilePath}`.replace(/\.html$/, ".md");
+  }
 }
 
 /*
@@ -223,12 +229,20 @@ describe("Check links", () => {
   let links         = merge(hrefs, imgs);
   let [urls, files] = partition(links, isUrl);
 
+  // #から始まるリンクはページ内リンク（脚注）なので除外
+  let testFiles = files.filter((s) => !s.startsWith("#")).map(modifyLinkForTest);
+
+  // src/../foo/barのようなリンクはビルド後は参照できなくなるのでそういったリンクがないことを確認する。
+  it("should local files are in src directory", function() {
+    testFiles.forEach((filePath) => {
+      assert(qfs.join(filePath).startsWith("src"));
+    });
+  });
+
   it("should local files are exists", function(done) {
     this.timeout(2 * 1000);
 
-    // #から始まるリンクはページ内リンク（脚注）なので除外
-    let testLinks = files.filter((s) => !s.startsWith("#")).map(modifyLinkForTest);
-    let promises  = testLinks.map((filePath) => {
+    let promises  = testFiles.map((filePath) => {
       qfs.stat(filePath).then((stat) => {
         assert(stat.isFile());
         console.log(`ok: ${filePath}`);
