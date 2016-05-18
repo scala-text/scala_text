@@ -53,7 +53,7 @@
         data-chapter-title="ケースクラスとパターンマッチング"
         data-filepath="case-class-and-pattern-matching.md"
         data-basepath="."
-        data-revision="Wed May 18 2016 03:12:03 GMT+0000 (UTC)"
+        data-revision="Wed May 18 2016 03:35:50 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -584,32 +584,46 @@ depth(<span class="hljs-type">Branch</span>(<span class="hljs-number">10</span>,
   <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Empty</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Tree</span>
 </span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">max</span>(</span>t: <span class="hljs-type">Tree</span>): <span class="hljs-type">Int</span> = t <span class="hljs-keyword">match</span> {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v1, <span class="hljs-type">Branch</span>(v2, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>), <span class="hljs-type">Branch</span>(v3, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>)) =&gt;
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m</span> =</span> <span class="hljs-keyword">if</span>(v1 &lt;= v2) v2 <span class="hljs-keyword">else</span> v1
-      <span class="hljs-keyword">if</span>(m &lt;= v3) v3 <span class="hljs-keyword">else</span> m
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v1, <span class="hljs-type">Branch</span>(v2, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>), <span class="hljs-type">Empty</span>) =&gt; <span class="hljs-keyword">if</span>(v1 &lt;= v2) v2 <span class="hljs-keyword">else</span> v1
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v1, <span class="hljs-type">Empty</span>, <span class="hljs-type">Branch</span>(v2, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>)) =&gt; <span class="hljs-keyword">if</span>(v1 &lt;= v2) v2 <span class="hljs-keyword">else</span> v1
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, r) =&gt; 
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m1</span> =</span> max(l)
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m2</span> =</span> max(r)
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m3</span> =</span> <span class="hljs-keyword">if</span>(m1 &lt;= m2) m2 <span class="hljs-keyword">else</span> m1
-      <span class="hljs-keyword">if</span>(v &lt;= m3) m3 <span class="hljs-keyword">else</span> v
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Empty</span> =&gt; <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>) =&gt;
+      v
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, <span class="hljs-type">Empty</span>, r) =&gt;
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> max(r)
+      <span class="hljs-keyword">if</span>(v &gt; x) v <span class="hljs-keyword">else</span> x
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, <span class="hljs-type">Empty</span>) =&gt;
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> max(l)
+      <span class="hljs-keyword">if</span>(v &gt; x) v <span class="hljs-keyword">else</span> x
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, r) =&gt;
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> max(l)
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">y</span> =</span> max(r)
+      <span class="hljs-keyword">if</span>(v &gt; x) {
+        <span class="hljs-keyword">if</span>(v &gt; y) v <span class="hljs-keyword">else</span> y
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span>(x &gt; y) x <span class="hljs-keyword">else</span> y
+      }
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Empty</span> =&gt;
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>
   }
 
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">min</span>(</span>t: <span class="hljs-type">Tree</span>): <span class="hljs-type">Int</span> = t <span class="hljs-keyword">match</span> {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v1, <span class="hljs-type">Branch</span>(v2, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>), <span class="hljs-type">Branch</span>(v3, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>)) =&gt;
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m</span> =</span> <span class="hljs-keyword">if</span>(v1 &gt;= v2) v2 <span class="hljs-keyword">else</span> v1
-      <span class="hljs-keyword">if</span>(m &gt;= v3) v3 <span class="hljs-keyword">else</span> m
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v1, <span class="hljs-type">Branch</span>(v2, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>), <span class="hljs-type">Empty</span>) =&gt; <span class="hljs-keyword">if</span>(v1 &gt;= v2) v2 <span class="hljs-keyword">else</span> v1
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v1, <span class="hljs-type">Empty</span>, <span class="hljs-type">Branch</span>(v2, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>)) =&gt; <span class="hljs-keyword">if</span>(v1 &gt;= v2) v2 <span class="hljs-keyword">else</span> v1
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, r) =&gt; 
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m1</span> =</span> min(l)
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m2</span> =</span> min(r)
-      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">m3</span> =</span> <span class="hljs-keyword">if</span>(m1 &gt; m2) m2 <span class="hljs-keyword">else</span> m1
-      <span class="hljs-keyword">if</span>(v &gt;= m3) m3 <span class="hljs-keyword">else</span> v
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Empty</span> =&gt; <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, <span class="hljs-type">Empty</span>, <span class="hljs-type">Empty</span>) =&gt;
+      v
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, <span class="hljs-type">Empty</span>, r) =&gt;
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> min(r)
+      <span class="hljs-keyword">if</span>(v &lt; x) v <span class="hljs-keyword">else</span> x
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, <span class="hljs-type">Empty</span>) =&gt;
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> min(l)
+      <span class="hljs-keyword">if</span>(v &lt; x) v <span class="hljs-keyword">else</span> x
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, r) =&gt;
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">x</span> =</span> min(l)
+      <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">y</span> =</span> min(r)
+      <span class="hljs-keyword">if</span>(v &lt; x) {
+        <span class="hljs-keyword">if</span>(v &lt; y) v <span class="hljs-keyword">else</span> y
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span>(x &lt; y) x <span class="hljs-keyword">else</span> y
+      }
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Empty</span> =&gt;
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>
   }
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">depth</span>(</span>t: <span class="hljs-type">Tree</span>): <span class="hljs-type">Int</span> = t <span class="hljs-keyword">match</span> {
@@ -618,6 +632,11 @@ depth(<span class="hljs-type">Branch</span>(<span class="hljs-number">10</span>,
       <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">ldepth</span> =</span> depth(l) 
       <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">rdepth</span> =</span> depth(r)
       (<span class="hljs-keyword">if</span>(ldepth &lt; rdepth) rdepth <span class="hljs-keyword">else</span> ldepth) + <span class="hljs-number">1</span>
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toList</span>(</span>tree: <span class="hljs-type">Tree</span>): <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>] = tree <span class="hljs-keyword">match</span> {
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Empty</span> =&gt; <span class="hljs-type">Nil</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, r) =&gt; toList(l) ++ <span class="hljs-type">List</span>(v) ++ toList(r)
   }
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sort</span>(</span>t: <span class="hljs-type">Tree</span>): <span class="hljs-type">Tree</span> = {
@@ -629,10 +648,6 @@ depth(<span class="hljs-type">Branch</span>(<span class="hljs-number">10</span>,
           <span class="hljs-keyword">else</span> <span class="hljs-type">Branch</span>(v, l, insert(value, r))
       }
       list.foldLeft(<span class="hljs-type">Empty</span>:<span class="hljs-type">Tree</span>){ <span class="hljs-keyword">case</span> (t, v) =&gt; insert(v, t) }
-    }
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toList</span>(</span>tree: <span class="hljs-type">Tree</span>): <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>] = tree <span class="hljs-keyword">match</span> {
-      <span class="hljs-keyword">case</span> <span class="hljs-type">Empty</span> =&gt; <span class="hljs-type">Nil</span>
-      <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(v, l, r) =&gt; toList(l) ++ <span class="hljs-type">List</span>(v) ++ toList(r)
     }
     fromList(toList(t))
   }
