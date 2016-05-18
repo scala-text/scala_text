@@ -285,7 +285,7 @@ class ShowablePair[T1 <: Show, T2 <: Show](val t1: T1, val t2: T2) extends Show 
 
 まず、共変の練習問題であったような、イミュータブルな`Stack`クラスを定義します。この`Stack`は共変にしたいとします。
 
-```scala
+```tut:fail:silent
 abstract class Stack[+E]{
   def push(element: E): Stack[E]
   def top: E
