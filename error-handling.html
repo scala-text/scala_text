@@ -53,7 +53,7 @@
         data-chapter-title="エラー処理"
         data-filepath="error-handling.md"
         data-basepath="."
-        data-revision="Wed May 18 2016 07:19:33 GMT+0000 (UTC)"
+        data-revision="Wed May 18 2016 08:46:18 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -956,11 +956,11 @@ Either&#x3068;&#x4F8B;&#x5916;&#x3092;&#x4F75;&#x7528;&#x3059;&#x308B;&#x306E;&#
   <span class="hljs-keyword">sealed</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostalCodeResult</span>
 </span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Success</span>(</span>postalCode: <span class="hljs-type">String</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">PostalCodeResult</span>
   <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Failure</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">PostalCodeResult</span>
-</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserNotFound</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserNotHasAddress</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressNotFound</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressNotHasPostalCode</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">UserNotFound</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">UserNotHasAddress</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">AddressNotFound</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">AddressNotHasPostalCode</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>
   <span class="hljs-comment">// &#x3069;&#x3053;&#x3067;None&#x304C;&#x751F;&#x3058;&#x305F;&#x304B;&#x53D6;&#x5F97;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;for&#x5F0F;&#x304C;&#x3064;&#x304B;&#x3048;&#x305A;&#x5730;&#x7344;&#x306E;&#x3088;&#x3046;&#x306A;&#x30CD;&#x30B9;&#x30C8;&#x306B;&#x306A;&#x308B;</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getPostalCodeResult</span>(</span>userId: <span class="hljs-type">Int</span>): <span class="hljs-type">PostalCodeResult</span> = {
     findUser(userId) <span class="hljs-keyword">match</span> {
@@ -971,13 +971,13 @@ Either&#x3068;&#x4F8B;&#x5916;&#x3092;&#x4F75;&#x7528;&#x3059;&#x308B;&#x306E;&#
               <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(address) =&gt;
                 address.postalCode <span class="hljs-keyword">match</span> {
                   <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(postalCode) =&gt; <span class="hljs-type">Success</span>(postalCode)
-                  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">AddressNotHasPostalCode</span>()
+                  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">AddressNotHasPostalCode</span>
                 }
-              <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">AddressNotFound</span>()
+              <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">AddressNotFound</span>
             }
-          <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">UserNotHasAddress</span>()
+          <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">UserNotHasAddress</span>
         }
-      <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">UserNotFound</span>()
+      <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">UserNotFound</span>
     }
   }
 
@@ -991,9 +991,9 @@ Either&#x3068;&#x4F8B;&#x5916;&#x3092;&#x4F75;&#x7528;&#x3059;&#x308B;&#x306E;&#
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>(</span>args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
     println(getPostalCodeResult(<span class="hljs-number">1</span>)) <span class="hljs-comment">// Success(150-0002)</span>
-    println(getPostalCodeResult(<span class="hljs-number">2</span>)) <span class="hljs-comment">// AddressNotHasPostalCode()</span>
-    println(getPostalCodeResult(<span class="hljs-number">3</span>)) <span class="hljs-comment">// UserNotHasAddress()</span>
-    println(getPostalCodeResult(<span class="hljs-number">4</span>)) <span class="hljs-comment">// UserNotFound()</span>
+    println(getPostalCodeResult(<span class="hljs-number">2</span>)) <span class="hljs-comment">// AddressNotHasPostalCode</span>
+    println(getPostalCodeResult(<span class="hljs-number">3</span>)) <span class="hljs-comment">// UserNotHasAddress</span>
+    println(getPostalCodeResult(<span class="hljs-number">4</span>)) <span class="hljs-comment">// UserNotFound</span>
   }
 }
 </code></pre>
@@ -1020,11 +1020,11 @@ Either&#x3068;&#x4F8B;&#x5916;&#x3092;&#x4F75;&#x7528;&#x3059;&#x308B;&#x306E;&#
   <span class="hljs-keyword">sealed</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostalCodeResult</span>
 </span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Success</span>(</span>postalCode: <span class="hljs-type">String</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">PostalCodeResult</span>
   <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Failure</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">PostalCodeResult</span>
-</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserNotFound</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserNotHasAddress</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressNotFound</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddressNotHasPostalCode</span>(</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">Failure</span>
-
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">UserNotFound</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">UserNotHasAddress</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">AddressNotFound</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">AddressNotHasPostalCode</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Failure</span>
+</span>
   <span class="hljs-comment">// &#x672C;&#x8CEA;&#x7684;&#x306B;&#x4F55;&#x3092;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x304F;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getPostalCodeResult</span>(</span>userId: <span class="hljs-type">Int</span>): <span class="hljs-type">PostalCodeResult</span> = {
     (<span class="hljs-keyword">for</span> {
@@ -1035,25 +1035,25 @@ Either&#x3068;&#x4F8B;&#x5916;&#x3092;&#x4F75;&#x7528;&#x3059;&#x308B;&#x306E;&#
   }
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findUser</span>(</span>userId: <span class="hljs-type">Int</span>): <span class="hljs-type">Either</span>[<span class="hljs-type">Failure</span>, <span class="hljs-type">User</span>] = {
-    userDatabase.get(userId).toRight(<span class="hljs-type">UserNotFound</span>())
+    userDatabase.get(userId).toRight(<span class="hljs-type">UserNotFound</span>)
   }
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findAddress</span>(</span>user: <span class="hljs-type">User</span>): <span class="hljs-type">Either</span>[<span class="hljs-type">Failure</span>, <span class="hljs-type">Address</span>] = {
     <span class="hljs-keyword">for</span> {
-      addressId &lt;- user.addressId.toRight(<span class="hljs-type">UserNotHasAddress</span>()).right
-      address &lt;- addressDatabase.get(addressId).toRight(<span class="hljs-type">AddressNotFound</span>()).right
+      addressId &lt;- user.addressId.toRight(<span class="hljs-type">UserNotHasAddress</span>).right
+      address &lt;- addressDatabase.get(addressId).toRight(<span class="hljs-type">AddressNotFound</span>).right
     } <span class="hljs-keyword">yield</span> address
   }
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findPostalCode</span>(</span>address: <span class="hljs-type">Address</span>): <span class="hljs-type">Either</span>[<span class="hljs-type">Failure</span>, <span class="hljs-type">String</span>] = {
-    address.postalCode.toRight(<span class="hljs-type">AddressNotHasPostalCode</span>())
+    address.postalCode.toRight(<span class="hljs-type">AddressNotHasPostalCode</span>)
   }
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>(</span>args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
     println(getPostalCodeResult(<span class="hljs-number">1</span>)) <span class="hljs-comment">// Success(150-0002)</span>
-    println(getPostalCodeResult(<span class="hljs-number">2</span>)) <span class="hljs-comment">// AddressNotHasPostalCode()</span>
-    println(getPostalCodeResult(<span class="hljs-number">3</span>)) <span class="hljs-comment">// UserNotHasAddress()</span>
-    println(getPostalCodeResult(<span class="hljs-number">4</span>)) <span class="hljs-comment">// UserNotFound()</span>
+    println(getPostalCodeResult(<span class="hljs-number">2</span>)) <span class="hljs-comment">// AddressNotHasPostalCode</span>
+    println(getPostalCodeResult(<span class="hljs-number">3</span>)) <span class="hljs-comment">// UserNotHasAddress</span>
+    println(getPostalCodeResult(<span class="hljs-number">4</span>)) <span class="hljs-comment">// UserNotFound</span>
   }
 }
 </code></pre>
