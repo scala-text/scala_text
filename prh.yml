@@ -8,6 +8,7 @@ rules:
   - expected: Play
   - expected: Gradle
   - expected: IntelliJ
+  - expected: GitHub
 
 # 大文字小文字全角半角の統一
   - expected: Cookie
