@@ -327,8 +327,8 @@ mapだけを使ってシンプルに実装するとこんな風になってし�
 v1.map(i1 => v2.map(i2 => i1 * i2)).flatten
 ```
 
-最後に`flatten`を実行することで、Optionの入れをを解消することができます。
-なお、これはちゃんとv2がNoneである場合にも`flatten`は成立します。
+最後に`flatten`を実行することで、Optionの入れ子を解消することができます。
+なお、v2がNoneである場合にも`flatten`は成立します。
 
 ```tut
 val v1: Option[Int] = Some(3)
