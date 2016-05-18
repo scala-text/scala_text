@@ -228,32 +228,46 @@ object BinaryTree {
   case object Empty extends Tree
 
   def max(t: Tree): Int = t match {
-    case Branch(v1, Branch(v2, Empty, Empty), Branch(v3, Empty, Empty)) =>
-      val m = if(v1 <= v2) v2 else v1
-      if(m <= v3) v3 else m
-    case Branch(v1, Branch(v2, Empty, Empty), Empty) => if(v1 <= v2) v2 else v1
-    case Branch(v1, Empty, Branch(v2, Empty, Empty)) => if(v1 <= v2) v2 else v1
-    case Branch(v, l, r) => 
-      val m1 = max(l)
-      val m2 = max(r)
-      val m3 = if(m1 <= m2) m2 else m1
-      if(v <= m3) m3 else v
-    case Empty => throw new RuntimeException
+    case Branch(v, Empty, Empty) =>
+      v
+    case Branch(v, Empty, r) =>
+      val x = max(r)
+      if(v > x) v else x
+    case Branch(v, l, Empty) =>
+      val x = max(l)
+      if(v > x) v else x
+    case Branch(v, l, r) =>
+      val x = max(l)
+      val y = max(r)
+      if(v > x) {
+        if(v > y) v else y
+      } else {
+        if(x > y) x else y
+      }
+    case Empty =>
+      throw new RuntimeException
   }
 
 
   def min(t: Tree): Int = t match {
-    case Branch(v1, Branch(v2, Empty, Empty), Branch(v3, Empty, Empty)) =>
-      val m = if(v1 >= v2) v2 else v1
-      if(m >= v3) v3 else m
-    case Branch(v1, Branch(v2, Empty, Empty), Empty) => if(v1 >= v2) v2 else v1
-    case Branch(v1, Empty, Branch(v2, Empty, Empty)) => if(v1 >= v2) v2 else v1
-    case Branch(v, l, r) => 
-      val m1 = min(l)
-      val m2 = min(r)
-      val m3 = if(m1 > m2) m2 else m1
-      if(v >= m3) m3 else v
-    case Empty => throw new RuntimeException
+    case Branch(v, Empty, Empty) =>
+      v
+    case Branch(v, Empty, r) =>
+      val x = min(r)
+      if(v < x) v else x
+    case Branch(v, l, Empty) =>
+      val x = min(l)
+      if(v < x) v else x
+    case Branch(v, l, r) =>
+      val x = min(l)
+      val y = min(r)
+      if(v < x) {
+        if(v < y) v else y
+      } else {
+        if(x < y) x else y
+      }
+    case Empty =>
+      throw new RuntimeException
   }
 
   def depth(t: Tree): Int = t match {
@@ -262,6 +276,11 @@ object BinaryTree {
       val ldepth = depth(l) 
       val rdepth = depth(r)
       (if(ldepth < rdepth) rdepth else ldepth) + 1
+  }
+
+  def toList(tree: Tree): List[Int] = tree match {
+    case Empty => Nil
+    case Branch(v, l, r) => toList(l) ++ List(v) ++ toList(r)
   }
 
   def sort(t: Tree): Tree = {
@@ -273,10 +292,6 @@ object BinaryTree {
           else Branch(v, l, insert(value, r))
       }
       list.foldLeft(Empty:Tree){ case (t, v) => insert(v, t) }
-    }
-    def toList(tree: Tree): List[Int] = tree match {
-      case Empty => Nil
-      case Branch(v, l, r) => toList(l) ++ List(v) ++ toList(r)
     }
     fromList(toList(t))
   }
@@ -290,6 +305,40 @@ object BinaryTree {
     case Branch(v, l, r) => if(v == target) true else (if(target <= v) findBinaryTree(l, target) else findBinaryTree(r, target))
     case Empty => false
   }
+}
+```
+
+```tut:invisible
+import org.scalacheck._, Arbitrary.arbitrary
+
+val nonEmptyTreeGen: Gen[BinaryTree.Tree] = {
+
+  lazy val branchGen: Gen[BinaryTree.Tree] = for{
+    x <- arbitrary[Int]
+    l <- treeGen
+    r <- treeGen
+  } yield BinaryTree.Branch(x, l, r)
+
+  lazy val treeGen: Gen[BinaryTree.Tree] =
+    Gen.oneOf(
+      branchGen,
+      Gen.const(BinaryTree.Empty)
+    )
+
+  branchGen
+}
+
+def test(f: BinaryTree.Tree => Boolean) = {
+  val result = Prop.forAll(nonEmptyTreeGen)(f).apply(Gen.Parameters.default)
+  assert(result.success, result)
+}
+
+test{ tree =>
+  BinaryTree.max(tree) == BinaryTree.toList(tree).max
+}
+
+test{ tree =>
+  BinaryTree.min(tree) == BinaryTree.toList(tree).min
 }
 ```
 
