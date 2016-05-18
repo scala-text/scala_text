@@ -765,10 +765,10 @@ object MainBefore {
   sealed abstract class PostalCodeResult
   case class Success(postalCode: String) extends PostalCodeResult
   abstract class Failure extends PostalCodeResult
-  case class UserNotFound() extends Failure
-  case class UserNotHasAddress() extends Failure
-  case class AddressNotFound() extends Failure
-  case class AddressNotHasPostalCode() extends Failure
+  case object UserNotFound extends Failure
+  case object UserNotHasAddress extends Failure
+  case object AddressNotFound extends Failure
+  case object AddressNotHasPostalCode extends Failure
 
   // どこでNoneが生じたか取得しようとするとfor式がつかえず地獄のようなネストになる
   def getPostalCodeResult(userId: Int): PostalCodeResult = {
@@ -780,13 +780,13 @@ object MainBefore {
               case Some(address) =>
                 address.postalCode match {
                   case Some(postalCode) => Success(postalCode)
-                  case None => AddressNotHasPostalCode()
+                  case None => AddressNotHasPostalCode
                 }
-              case None => AddressNotFound()
+              case None => AddressNotFound
             }
-          case None => UserNotHasAddress()
+          case None => UserNotHasAddress
         }
-      case None => UserNotFound()
+      case None => UserNotFound
     }
   }
 
@@ -800,9 +800,9 @@ object MainBefore {
 
   def main(args: Array[String]): Unit = {
     println(getPostalCodeResult(1)) // Success(150-0002)
-    println(getPostalCodeResult(2)) // AddressNotHasPostalCode()
-    println(getPostalCodeResult(3)) // UserNotHasAddress()
-    println(getPostalCodeResult(4)) // UserNotFound()
+    println(getPostalCodeResult(2)) // AddressNotHasPostalCode
+    println(getPostalCodeResult(3)) // UserNotHasAddress
+    println(getPostalCodeResult(4)) // UserNotFound
   }
 }
 ```
@@ -836,10 +836,10 @@ object MainRefactored {
   sealed abstract class PostalCodeResult
   case class Success(postalCode: String) extends PostalCodeResult
   abstract class Failure extends PostalCodeResult
-  case class UserNotFound() extends Failure
-  case class UserNotHasAddress() extends Failure
-  case class AddressNotFound() extends Failure
-  case class AddressNotHasPostalCode() extends Failure
+  case object UserNotFound extends Failure
+  case object UserNotHasAddress extends Failure
+  case object AddressNotFound extends Failure
+  case object AddressNotHasPostalCode extends Failure
 
   // 本質的に何をしているかわかりやすくリファクタリング
   def getPostalCodeResult(userId: Int): PostalCodeResult = {
@@ -851,25 +851,25 @@ object MainRefactored {
   }
 
   def findUser(userId: Int): Either[Failure, User] = {
-    userDatabase.get(userId).toRight(UserNotFound())
+    userDatabase.get(userId).toRight(UserNotFound)
   }
 
   def findAddress(user: User): Either[Failure, Address] = {
     for {
-      addressId <- user.addressId.toRight(UserNotHasAddress()).right
-      address <- addressDatabase.get(addressId).toRight(AddressNotFound()).right
+      addressId <- user.addressId.toRight(UserNotHasAddress).right
+      address <- addressDatabase.get(addressId).toRight(AddressNotFound).right
     } yield address
   }
 
   def findPostalCode(address: Address): Either[Failure, String] = {
-    address.postalCode.toRight(AddressNotHasPostalCode())
+    address.postalCode.toRight(AddressNotHasPostalCode)
   }
 
   def main(args: Array[String]): Unit = {
     println(getPostalCodeResult(1)) // Success(150-0002)
-    println(getPostalCodeResult(2)) // AddressNotHasPostalCode()
-    println(getPostalCodeResult(3)) // UserNotHasAddress()
-    println(getPostalCodeResult(4)) // UserNotFound()
+    println(getPostalCodeResult(2)) // AddressNotHasPostalCode
+    println(getPostalCodeResult(3)) // UserNotHasAddress
+    println(getPostalCodeResult(4)) // UserNotFound
   }
 }
 
