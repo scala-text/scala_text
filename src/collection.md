@@ -318,6 +318,18 @@ def reverse[T](list: List[T]): List[T] = list.foldLeft(Nil: List[T])((a, b) => b
 reverse(List(1, 2, 3, 4, 5))
 ```
 
+```tut:invisible
+import org.scalacheck._, Arbitrary.arbitrary
+
+def test(f: List[Int] => Boolean) = {
+  Prop.forAll(arbitrary[List[Int]])(f).apply(Gen.Parameters.default)
+}
+
+test{ list =>
+  reverse(list) == list.reverse
+}
+```
+
 <!-- end answer -->
 
 ### foldRight：右からの畳み込み（★★）
