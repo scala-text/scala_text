@@ -322,7 +322,8 @@ reverse(List(1, 2, 3, 4, 5))
 import org.scalacheck._, Arbitrary.arbitrary
 
 def test(f: List[Int] => Boolean) = {
-  Prop.forAll(arbitrary[List[Int]])(f).apply(Gen.Parameters.default)
+  val result = Prop.forAll(arbitrary[List[Int]])(f).apply(Gen.Parameters.default)
+  assert(result.success, result)
 }
 
 test{ list =>
