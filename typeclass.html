@@ -53,7 +53,7 @@
         data-chapter-title="型クラスの紹介"
         data-filepath="typeclass.md"
         data-basepath="."
-        data-revision="Fri May 20 2016 06:50:45 GMT+0000 (UTC)"
+        data-revision="Fri May 20 2016 09:22:00 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -629,8 +629,8 @@ res13: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true<
 }
 </code></pre>
 <p>&#x524D;&#x7AE0;&#x3067;&#x5B9A;&#x7FA9;&#x3057;&#x305F;Additive&#x578B;&#x3068;&#x3088;&#x304F;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;Monoid&#x306F;&#x6B21;&#x306E;&#x898F;&#x5247;&#x3092;&#x6E80;&#x305F;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentity</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.zero, a)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentity</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.zero)
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentityLaw</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.zero, a)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentityLaw</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.zero)
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">associativeLaw</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>, c: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = {
   <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.append(a, b), c) == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.append(b, c))
 }
@@ -642,11 +642,11 @@ res13: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true<
      | }
 defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>
 </span>
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentity</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.zero, a)
-leftIdentity: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentityLaw</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.zero, a)
+leftIdentityLaw: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentity</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.zero)
-rightIdentity: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentityLaw</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.zero)
+rightIdentityLaw: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
 
 scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">associativeLaw</span>[</span><span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>, c: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = {
      |   <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.append(a, b), c) == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.append(b, c))
@@ -673,10 +673,10 @@ m: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <
 scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">o</span>:</span> <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
 o: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
 
-scala&gt; leftIdentity(n)
+scala&gt; leftIdentityLaw(n)
 res14: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
-scala&gt; rightIdentity(n)
+scala&gt; rightIdentityLaw(n)
 res15: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; associativeLaw(n, m, o)
