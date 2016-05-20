@@ -206,8 +206,8 @@ trait Monoid[F] {
 前章で定義したAdditive型とよく似ていますが、Monoidは次の規則を満たす必要があります。
 
 ```tut:silent
-def leftIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
-def rightIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
+def leftIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
+def rightIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
 def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
   F.append(F.append(a, b), c) == F.append(a, F.append(b, c))
 }
@@ -221,8 +221,8 @@ trait Monoid[F] {
   def zero: F
 }
 
-def leftIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
-def rightIdentity[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
+def leftIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
+def rightIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
 def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
   F.append(F.append(a, b), c) == F.append(a, F.append(b, c))
 }
@@ -240,8 +240,8 @@ implicit object OptionIntMonoid extends Monoid[Option[Int]] {
 val n: Option[Int] = Some(1)
 val m: Option[Int] = Some(2)
 val o: Option[Int] = Some(3)
-leftIdentity(n)
-rightIdentity(n)
+leftIdentityLaw(n)
+rightIdentityLaw(n)
 associativeLaw(n, m, o)
 ```
 
