@@ -8,7 +8,7 @@ chmod 600 ~/.ssh/deploy.key &&
 git config --global user.email "6b656e6a69@gmail.com" &&
 git config --global user.name "xuwei-k" &&
 mv gitbook/_book ../ &&
-mv gitbook/book.epub ../_book/scala_text.epub &&
+mv gitbook/scala_text.epub ../_book/scala_text.epub &&
 git fetch origin gh-pages:gh-pages &&
 git clean -fdx &&
 git checkout gh-pages &&

@@ -9,10 +9,15 @@ trait NpmCliBase {
   val srcDir = file("src")
   def srcMarkdowns = srcDir.listFiles("*.md").filterNot(f => f.getPath.contains("src/example_projects/"))
 
-  // gitbookのビルドの起点になるディレクトリ(book/_book/index.htmlが生成される)
-  val bookBuildDir = file("gitbook")
+  // book.jsonがあるディレクトリ
+  val bookJsonDir = file(".")
+
+  // gitbookのビルドの起点/成果物が入るディレクトリ(gitbook/_book/index.html, gitbook/scala_text.epubが生成される)
+  val bookDestDir = file("gitbook")
+
   // tutで処理済みのmarkdownファイルが入るディレクトリ。これがgitbook buildされる
-  val compiledSrcDir = bookBuildDir
+  // book.jsonのrootにも指定されている。
+  val compiledSrcDir = bookDestDir
 
   // リンク切れチェックのようなテストが入るディレクトリ
   val testDir = file("test")

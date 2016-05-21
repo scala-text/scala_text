@@ -6,7 +6,7 @@
 .DS_Store
 
 ### gitbook ###
-gitbook
+/gitbook
 
 ### npm ###
 node_modules
