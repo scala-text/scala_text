@@ -1,4 +1,5 @@
 {
+  "root": "./gitbook",
   "structure": {
     "readme": "INTRODUCTION.md",
     "summary": "SUMMARY.md"
