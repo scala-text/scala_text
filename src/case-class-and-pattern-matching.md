@@ -328,16 +328,11 @@ val nonEmptyTreeGen: Gen[BinaryTree.Tree] = {
   branchGen
 }
 
-def test(f: BinaryTree.Tree => Boolean) = {
-  val result = Prop.forAll(nonEmptyTreeGen)(f).apply(Gen.Parameters.default)
-  assert(result.success, result)
-}
-
-test{ tree =>
+Testing.test(nonEmptyTreeGen){ tree =>
   BinaryTree.max(tree) == BinaryTree.toList(tree).max
 }
 
-test{ tree =>
+Testing.test(nonEmptyTreeGen){ tree =>
   BinaryTree.min(tree) == BinaryTree.toList(tree).min
 }
 ```
