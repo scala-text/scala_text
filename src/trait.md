@@ -23,7 +23,7 @@ Scalaのトレイトはクラスに比べて以下のような特徴がありま
 
 Scalaのトレイトはクラスとは違い、複数のトレイトを1つのクラスやトレイトにミックスインすることができます。
 
-```scala
+```tut:silent
 trait TraitA
 
 trait TraitB
@@ -34,9 +34,10 @@ class ClassB
 
 // コンパイルできる
 class ClassC extends ClassA with TraitA with TraitB
+```
 
+```tut:fail
 // コンパイルエラー！
-// class ClassB needs to be a trait to be mixed in
 class ClassD extends ClassA with ClassB
 ```
 
@@ -48,12 +49,13 @@ class ClassD extends ClassA with ClassB
 
 Scalaのトレイトはクラスと違い、直接インスタンス化できません。
 
-```scala
+```tut
 trait TraitA
+```
 
+```tut:fail
 object ObjectA {
   // コンパイルエラー！
-  // trait TraitA is abstract; cannot be instantiated
   val a = new TraitA
 }
 ```
@@ -81,17 +83,16 @@ object ObjectA {
 
 Scalaのトレイトはクラスと違いパラメータ（コンストラクタの引数）を取ることができないという制限があります[^trait-param-sip]。
 
-```scala
+```tut:silent
 // 正しいプログラム
 class ClassA(name: String) {
   def printName() = println(name)
 }
+```
 
+```tut:fail
 // コンパイルエラー！
-// traits or objects may not have parameters
-trait TraitA(name: String) {
-  def printName: Unit = println(name)
-}
+trait TraitA(name: String)
 ```
 
 これもあまり問題になることはありません。トレイトに抽象メンバーを持たせることで値を渡すことができます。
@@ -137,7 +138,7 @@ object ObjectA {
 以下のような継承関係を考えてみましょう。
 `greet`メソッドを定義した`TraitA`と、`greet`を実装した`TraitB`と`TraitC`、そして`TraitB`と`TraitC`のどちらも継承した`ClassA`です。
 
-```scala
+```tut:silent
 trait TraitA {
   def greet(): Unit
 }
@@ -149,7 +150,9 @@ trait TraitB extends TraitA {
 trait TraitC extends TraitA {
   def greet(): Unit = println("Good evening!")
 }
+```
 
+```tut:fail:silent
 class ClassA extends TraitB with TraitC
 ```
 
@@ -159,21 +162,15 @@ class ClassA extends TraitB with TraitC
 
 ちなみに、上記の例をScalaでコンパイルすると以下のようなエラーが出ます。
 
-```
-ClassA.scala:13: error: class ClassA inherits conflicting members:
-  method greet in trait TraitB of type ()Unit  and
-  method greet in trait TraitC of type ()Unit
-(Note: this can be resolved by declaring an override in class ClassA.)
+```tut:fail
 class ClassA extends TraitB with TraitC
-      ^
-one error found
 ```
 
 Scalaではoverride指定なしの場合メソッド定義の衝突はエラーになります。
 
 この場合の1つの解法は、コンパイルエラーに「Note: this can be resolved by declaring an override in class ClassA.」とあるように`ClassA`で`greet`をoverrideすることです。
 
-```scala
+```tut:silent
 class ClassA extends TraitB with TraitC {
   override def greet(): Unit = println("How are you?")
 }
@@ -181,7 +178,7 @@ class ClassA extends TraitB with TraitC {
 
 このとき`ClassA`で`super`に型を指定してメソッドを呼びだすことで、`TraitB`や`TraitC`のメソッドを指定して使うこともできます。
 
-```scala
+```tut:silent
 class ClassB extends TraitB with TraitC {
   override def greet(): Unit = super[TraitB].greet()
 }
@@ -189,18 +186,16 @@ class ClassB extends TraitB with TraitC {
 
 実行結果は以下にようになります。
 
-```scala
-scala> (new ClassA).greet()
-How are you?
+```tut
+(new ClassA).greet()
 
-scala> (new ClassB).greet()
-Good morning!
+(new ClassB).greet()
 ```
 
 では、`TraitB`と`TraitC`の両方のメソッドを呼び出したい場合はどうでしょうか？
 1つの方法は上記と同じように`TraitB`と`TraitC`の両方のクラスを明示して呼びだすことです。
 
-```scala
+```tut:silent
 class ClassA extends TraitB with TraitC {
   override def greet(): Unit = {
     super[TraitB].greet()
@@ -305,20 +300,23 @@ Scalaには継承元のスーパークラスにそのメソッドの実装がな
 
 `abstract override`ではない`override`と`abstract override`を比較してみましょう。
 
-```scala
+```tut:silent
 trait TraitA {
   def greet(): Unit
 }
+```
 
+```tut:fail
 // コンパイルエラー！
-// method greet in trait TraitA is accessed from super. It may not be abstract unless it is overridden by a member declared `abstract' and `override'
 trait TraitB extends TraitA {
   override def greet(): Unit = {
     super.greet()
     println("Good morning!")
   }
 }
+```
 
+```tut:silent
 // コンパイルできる
 trait TraitC extends TraitA {
   abstract override def greet(): Unit = {
@@ -334,7 +332,7 @@ trait TraitC extends TraitA {
 
 しかし`abstract override`でも1つ制約があり、ミックスインされてクラスが作られるときにはスーパークラスのメソッドが実装されてなければなりません。
 
-```scala
+```tut:silent
 trait TraitA {
   def greet(): Unit
 }
@@ -350,11 +348,14 @@ trait TraitC extends TraitA {
     println("I like niconico.")
   }
 }
+```
 
+```tut:fail
 // コンパイルエラー！
-// class ClassA needs to be a mixin, since method greet in trait TraitC of type ()Unit is marked `abstract' and `override', but no concrete implementation could be found in a base
 class ClassA extends TraitC
+```
 
+```tut:silent
 // コンパイルできる
 class ClassB extends TraitB with TraitC
 ```
@@ -375,6 +376,7 @@ trait Robot {
   self: Greeter =>
 
   def start(): Unit = greet()
+  override final def toString = "Robot"
 }
 ```
 
@@ -384,23 +386,14 @@ trait Robot {
 このロボットのオブジェクトを実際に作るためには`greet`メソッドを実装したトレイトが必要になります。
 REPLを使って動作を確認してみましょう。
 
-```scala
-scala> :paste
-// Entering paste mode (ctrl-D to finish)
-
+```tut
 trait HelloGreeter extends Greeter {
   def greet(): Unit = println("Hello!")
 }
 
-// Exiting paste mode, now interpreting.
+val r = new Robot with HelloGreeter
 
-defined trait HelloGreeter
-
-scala> val r = new Robot with HelloGreeter
-r: Robot with HelloGreeter = $anon$1@1e5756c0
-
-scala> r.start()
-Hello!
+r.start()
 ```
 
 自分型を使う場合は、抽象トレイトを指定し、後から実装を追加するという形になります。
@@ -416,6 +409,7 @@ trait Greeter {
 
 trait Robot2 extends Greeter {
   def start(): Unit = greet()
+  override final def toString = "Robot2"
 }
 ```
 
@@ -423,19 +417,18 @@ trait Robot2 extends Greeter {
 `Robot2`も先程と同じように作成することができます。
 ただし、このトレイトを利用する側や、継承したトレイトやクラスには`Greeter`トレイトの見え方に違いができます。
 
-```scala
-scala> val r: Robot = new Robot with HelloGreeter
-r: Robot = $anon$1@10470bfa
+```tut
+val r: Robot = new Robot with HelloGreeter
+```
 
-scala> r.greet()
-<console>:9: error: value greet is not a member of Robot
-              r.greet()
+```tut:fail
+r.greet()
+```
 
-scala> val r: Robot2 = new Robot2 with HelloGreeter
-r: Robot = $anon$1@10470bfa
+```tut
+val r: Robot2 = new Robot2 with HelloGreeter
 
-scala> r.greet()
-Hello!
+r.greet()
 ```
 
 継承で作られた`Robot2`オブジェクトでは`Greeter`トレイトの`greet`メソッドを呼び出せてしまいますが、
@@ -448,14 +441,7 @@ Hello!
 
 自分型を使う場合は以下のようなトレイトの相互参照を許しますが、
 
-```scala
-// コンパイルできる
-trait Greeter {
-  self: Robot =>
-
-  def greet(): Unit = println(s"My name is $name")
-}
-
+```tut:silent
 trait Robot {
   self: Greeter =>
 
@@ -463,21 +449,27 @@ trait Robot {
 
   def start(): Unit = greet()
 }
+
+// コンパイルできる
+trait Greeter {
+  self: Robot =>
+
+  def greet(): Unit = println(s"My name is $name")
+}
 ```
 
 これを先ほどのように継承に置き換えることではできません。
 
-```scala
-// コンパイルエラー
-// illegal cyclic reference involving trait Greeter
-trait Greeter extends Robot {
-  def greet(): Unit = println(s"My name is $name")
-}
-
+```tut:fail
 trait Robot extends Greeter {
   def name: String
 
   def start(): Unit = greet()
+}
+
+// コンパイルエラー
+trait Greeter extends Robot {
+  def greet(): Unit = println(s"My name is $name")
 }
 ```
 
