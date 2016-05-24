@@ -53,7 +53,7 @@
         data-chapter-title="トレイト"
         data-filepath="trait.md"
         data-basepath="."
-        data-revision="Mon May 23 2016 08:42:19 GMT+0000 (UTC)"
+        data-revision="Tue May 24 2016 19:19:20 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -454,21 +454,26 @@
 </span>
 <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitB</span>
-</span>
-<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-<span class="hljs-comment">// class ClassB needs to be a trait to be mixed in</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">ClassB</span>
 </span></code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
+     | <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">ClassB</span>
+</span>&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-title">needs</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">a</span> <span class="hljs-title">trait</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">mixed</span> <span class="hljs-title">in</span>
+</span>       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">ClassB</span>
+</span>                                        ^
+</code></pre>
 <p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F;<code>ClassA</code>&#x3068;<code>TraitA</code>&#x3068;<code>TraitB</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;<code>ClassC</code>&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;<code>ClassA</code>&#x3068;<code>ClassB</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;<code>ClassD</code>&#x306F;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x300C;class ClassB needs to be a trait to be mixed in&#x300D;&#x3068;&#x3044;&#x3046;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x51FA;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;&#x300C;<code>ClassB</code>&#x3092;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x300D;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3059;&#x3002;&#x8907;&#x6570;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x7D99;&#x627F;&#x3055;&#x305B;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <h3 id="&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;"><a name="&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;" class="plugin-anchor" href="#&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;"><span class="fa fa-link"></span></a>&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;</h3>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x9055;&#x3044;&#x3001;&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
-</span>
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> {</span>
-  <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-  <span class="hljs-comment">// trait TraitA is abstract; cannot be instantiated</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
-}
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
+</span>defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
+</span></code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> {</span>
+     |   <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
+     | }
+&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-title">is</span> <span class="hljs-title">abstract</span>;</span> cannot be instantiated
+         <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
+                 ^
 </code></pre>
 <p>&#x3053;&#x306E;&#x5236;&#x9650;&#x306F;&#x56DE;&#x907F;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x3044;&#x304F;&#x3064;&#x304B;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;1&#x3064;&#x306F;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3082;&#x3046;1&#x3064;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x5B9F;&#x88C5;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
@@ -490,12 +495,12 @@
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>(</span>name: <span class="hljs-type">String</span>) {
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printName</span>(</span>) = println(name)
 }
-
-<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-<span class="hljs-comment">// traits or objects may not have parameters</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(</span>name: <span class="hljs-type">String</span>) {
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printName</span>:</span> <span class="hljs-type">Unit</span> = println(name)
-}
+</code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
+     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(</span>name: <span class="hljs-type">String</span>)
+&lt;console&gt;:<span class="hljs-number">3</span>: error: traits or objects may not have parameters
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(</span>name: <span class="hljs-type">String</span>)
+            ^
 </code></pre>
 <p>&#x3053;&#x308C;&#x3082;&#x3042;&#x307E;&#x308A;&#x554F;&#x984C;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x62BD;&#x8C61;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3092;&#x6301;&#x305F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;&#x554F;&#x984C;&#x306E;&#x3068;&#x304D;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x7D99;&#x627F;&#x3055;&#x305B;&#x305F;&#x308A;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x306E;&#x3068;&#x304D;&#x306B;&#x62BD;&#x8C61;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3092;&#x5B9F;&#x88C5;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
@@ -535,20 +540,21 @@
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
 }
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
+</code></pre>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
 </span></code></pre>
 <p><code>TraitB</code>&#x3068;<code>TraitC</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x885D;&#x7A81;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x5834;&#x5408;<code>ClassA</code>&#x306E;<code>greet</code>&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x52D5;&#x4F5C;&#x3092;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;
 <code>TraitB</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x304B;&#x3001;<code>TraitC</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x304B;&#x3002;&#x591A;&#x91CD;&#x7D99;&#x627F;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x8A00;&#x8A9E;&#x306F;&#x3069;&#x308C;&#x3082;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x3042;&#x3044;&#x307E;&#x3044;&#x3055;&#x306E;&#x554F;&#x984C;&#x3092;&#x62B1;&#x3048;&#x3066;&#x304A;&#x308A;&#x3001;&#x5BFE;&#x51E6;&#x304C;&#x6C42;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3061;&#x306A;&#x307F;&#x306B;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3092;Scala&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x3068;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x51FA;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>ClassA.scala:13: error: class ClassA inherits conflicting members:
-  method greet in trait TraitB of type ()Unit  and
-  method greet in trait TraitC of type ()Unit
-(Note: this can be resolved by declaring an override in class ClassA.)
-class ClassA extends TraitB with TraitC
-      ^
-one error found
-</code></pre><p>Scala&#x3067;&#x306F;override&#x6307;&#x5B9A;&#x306A;&#x3057;&#x306E;&#x5834;&#x5408;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x885D;&#x7A81;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
+</span>&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-title">inherits</span> <span class="hljs-title">conflicting</span> <span class="hljs-title">members</span>:</span>
+  method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span>  and
+  method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span>
+(<span class="hljs-type">Note</span>: <span class="hljs-keyword">this</span> can be resolved by declaring an <span class="hljs-keyword">override</span> in <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>.)
+</span>       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
+</span>             ^
+</code></pre>
+<p>Scala&#x3067;&#x306F;override&#x6307;&#x5B9A;&#x306A;&#x3057;&#x306E;&#x5834;&#x5408;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x885D;&#x7A81;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x5834;&#x5408;&#x306E;1&#x3064;&#x306E;&#x89E3;&#x6CD5;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x300C;Note: this can be resolved by declaring an override in class ClassA.&#x300D;&#x3068;&#x3042;&#x308B;&#x3088;&#x3046;&#x306B;<code>ClassA</code>&#x3067;<code>greet</code>&#x3092;override&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span> {</span>
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;How are you?&quot;</span>)
@@ -646,17 +652,19 @@ Scala&#x306B;&#x306F;&#x7D99;&#x627F;&#x5143;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
 }
-
-<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-<span class="hljs-comment">// method greet in trait TraitA is accessed from super. It may not be abstract unless it is overridden by a member declared `abstract&apos; and `override&apos;</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
-    <span class="hljs-keyword">super</span>.greet()
-    println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
-  }
-}
-
-<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
+</code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
+     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
+     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+     |     <span class="hljs-keyword">super</span>.greet()
+     |     println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
+     |   }
+     | }
+&lt;console&gt;:<span class="hljs-number">16</span>: error: method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-title">is</span> <span class="hljs-title">accessed</span> <span class="hljs-title">from</span> <span class="hljs-title">super</span>. <span class="hljs-title">It</span> <span class="hljs-title">may</span> <span class="hljs-title">not</span> <span class="hljs-title">be</span> <span class="hljs-title">abstract</span> <span class="hljs-title">unless</span> <span class="hljs-title">it</span> <span class="hljs-title">is</span> <span class="hljs-title">overridden</span> <span class="hljs-title">by</span> <span class="hljs-title">a</span> <span class="hljs-title">member</span> <span class="hljs-title">declared</span> `<span class="hljs-title">abstract</span>&apos; <span class="hljs-title">and</span> `<span class="hljs-title">override</span>&apos;
+</span>           <span class="hljs-keyword">super</span>.greet()
+                 ^
+</code></pre>
+<pre><code class="lang-scala"><span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
   <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
@@ -682,12 +690,14 @@ Scala&#x306B;&#x306F;&#x7D99;&#x627F;&#x5143;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x
     println(<span class="hljs-string">&quot;I like niconico.&quot;</span>)
   }
 }
-
-<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-<span class="hljs-comment">// class ClassA needs to be a mixin, since method greet in trait TraitC of type ()Unit is marked `abstract&apos; and `override&apos;, but no concrete implementation could be found in a base</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span>
-</span>
-<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
+</code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
+     | <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span>
+</span>&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-title">needs</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">a</span> <span class="hljs-title">mixin</span>, <span class="hljs-title">since</span> <span class="hljs-title">method</span> <span class="hljs-title">greet</span> <span class="hljs-title">in</span> <span class="hljs-title">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span> is marked `<span class="hljs-keyword">abstract</span>&apos; and `<span class="hljs-keyword">override</span>&apos;, but no concrete implementation could be found in a base <span class="hljs-class"><span class="hljs-keyword">class</span>
+</span>       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span>
+</span>             ^
+</code></pre>
+<pre><code class="lang-scala"><span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
 </span></code></pre>
 <h3 id="&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
@@ -701,25 +711,20 @@ Scala&#x306B;&#x306F;&#x7D99;&#x627F;&#x5143;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x
   self: <span class="hljs-type">Greeter</span> =&gt;
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
+  <span class="hljs-keyword">override</span> <span class="hljs-keyword">final</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> =</span> <span class="hljs-string">&quot;Robot&quot;</span>
 }
 </code></pre>
 <p>&#x3053;&#x306E;&#x30ED;&#x30DC;&#x30C3;&#x30C8;&#xFF08;<code>Robot</code>&#xFF09;&#x306F;&#x8D77;&#x52D5;&#xFF08;<code>start</code>&#xFF09;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x6328;&#x62F6;&#xFF08;<code>greet</code>&#xFF09;&#x3059;&#x308B;&#x3088;&#x3046;&#x3067;&#x3059;&#x3002;
 <code>Robot</code>&#x306F;&#x76F4;&#x63A5;<code>Greeter</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x306E;&#x306B;&#x3082;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3048;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x30ED;&#x30DC;&#x30C3;&#x30C8;&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x5B9F;&#x969B;&#x306B;&#x4F5C;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x88C5;&#x3057;&#x305F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
 REPL&#x3092;&#x4F7F;&#x3063;&#x3066;&#x52D5;&#x4F5C;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; :paste
-<span class="hljs-comment">// Entering paste mode (ctrl-D to finish)</span>
-
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
-}
-
-<span class="hljs-comment">// Exiting paste mode, now interpreting.</span>
-
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
+     | }
 defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span>
 </span>
 scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
-r: <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span> = $anon$<span class="hljs-number">1</span>@<span class="hljs-number">1e5756</span>c0
+r: <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span> = <span class="hljs-type">Robot</span>
 
 scala&gt; r.start()
 <span class="hljs-type">Hello</span>!
@@ -732,19 +737,21 @@ scala&gt; r.start()
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot2</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
+  <span class="hljs-keyword">override</span> <span class="hljs-keyword">final</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> =</span> <span class="hljs-string">&quot;Robot2&quot;</span>
 }
 </code></pre>
 <p>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x306F;&#x5909;&#x308F;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
 <code>Robot2</code>&#x3082;&#x5148;&#x7A0B;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x3053;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x5074;&#x3084;&#x3001;&#x7D99;&#x627F;&#x3057;&#x305F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3084;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x306F;<code>Greeter</code>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x898B;&#x3048;&#x65B9;&#x306B;&#x9055;&#x3044;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span>:</span> <span class="hljs-type">Robot</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
-r: <span class="hljs-type">Robot</span> = $anon$<span class="hljs-number">1</span>@<span class="hljs-number">10470</span>bfa
-
-scala&gt; r.greet()
-&lt;console&gt;:<span class="hljs-number">9</span>: error: value greet is not a member of <span class="hljs-type">Robot</span>
-              r.greet()
-
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span>:</span> <span class="hljs-type">Robot2</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot2</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
-r: <span class="hljs-type">Robot</span> = $anon$<span class="hljs-number">1</span>@<span class="hljs-number">10470</span>bfa
+r: <span class="hljs-type">Robot</span> = <span class="hljs-type">Robot</span>
+</code></pre>
+<pre><code class="lang-scala">scala&gt; r.greet()
+&lt;console&gt;:<span class="hljs-number">17</span>: error: value greet is not a member of <span class="hljs-type">Robot</span>
+       r.greet()
+         ^
+</code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span>:</span> <span class="hljs-type">Robot2</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot2</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
+r: <span class="hljs-type">Robot2</span> = <span class="hljs-type">Robot2</span>
 
 scala&gt; r.greet()
 <span class="hljs-type">Hello</span>!
@@ -753,33 +760,40 @@ scala&gt; r.greet()
 <p><code>Robot</code>&#x304C;&#x5229;&#x7528;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3042;&#x308B;<code>Greeter</code>&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5916;&#x304B;&#x3089;&#x547C;&#x3073;&#x51FA;&#x305B;&#x3066;&#x3057;&#x307E;&#x3046;&#x3053;&#x3068;&#x306F;&#x3042;&#x307E;&#x308A;&#x826F;&#x3044;&#x3053;&#x3068;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x70B9;&#x3067;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x30E1;&#x30EA;&#x30C3;&#x30C8;&#x304C;&#x3042;&#x308B;&#x3068;&#x8A00;&#x3048;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x9006;&#x306B;&#x5358;&#x306B;&#x4F9D;&#x5B58;&#x6027;&#x3092;&#x6CE8;&#x5165;&#x3067;&#x304D;&#x308C;&#x3070;&#x3088;&#x3044;&#x3068;&#x3044;&#x3046;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x3053;&#x306E;&#x52D5;&#x4F5C;&#x306F;&#x7169;&#x308F;&#x3057;&#x304F;&#x611F;&#x3058;&#x3089;&#x308C;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x3082;&#x3046;1&#x3064;&#x81EA;&#x5206;&#x578B;&#x306E;&#x7279;&#x5FB4;&#x3068;&#x3057;&#x3066;&#x306F;&#x578B;&#x306E;&#x5FAA;&#x74B0;&#x53C2;&#x7167;&#x3092;&#x8A31;&#x3059;&#x70B9;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x76F8;&#x4E92;&#x53C2;&#x7167;&#x3092;&#x8A31;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;</p>
-<pre><code class="lang-scala"><span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> {</span>
-  self: <span class="hljs-type">Robot</span> =&gt;
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(s<span class="hljs-string">&quot;My name is $name&quot;</span>)
-}
-
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> {</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> {</span>
   self: <span class="hljs-type">Greeter</span> =&gt;
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
 }
-</code></pre>
-<p>&#x3053;&#x308C;&#x3092;&#x5148;&#x307B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D99;&#x627F;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x3067;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;</span>
-<span class="hljs-comment">// illegal cyclic reference involving trait Greeter</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Robot</span> {</span>
+
+<span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> {</span>
+  self: <span class="hljs-type">Robot</span> =&gt;
+
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(s<span class="hljs-string">&quot;My name is $name&quot;</span>)
 }
+</code></pre>
+<p>&#x3053;&#x308C;&#x3092;&#x5148;&#x307B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D99;&#x627F;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x3067;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>
+     | 
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
+     | }
+&lt;console&gt;:<span class="hljs-number">16</span>: error: illegal inheritance;
+ self-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Robot</span> <span class="hljs-title">does</span> <span class="hljs-title">not</span> <span class="hljs-title">conform</span> <span class="hljs-title">to</span> <span class="hljs-title">Greeter</span>&apos;<span class="hljs-title">s</span> <span class="hljs-title">selftype</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">Robot</span>
+</span>       <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
+                           ^
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
-}
+scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;</span>
+     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Robot</span> {</span>
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(s<span class="hljs-string">&quot;My name is $name&quot;</span>)
+     | }
+&lt;console&gt;:<span class="hljs-number">15</span>: error: illegal inheritance;
+ self-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Greeter</span> <span class="hljs-title">does</span> <span class="hljs-title">not</span> <span class="hljs-title">conform</span> <span class="hljs-title">to</span> <span class="hljs-title">Robot</span>&apos;<span class="hljs-title">s</span> <span class="hljs-title">selftype</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">Greeter</span>
+</span>       <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Robot</span> {</span>
+                             ^
 </code></pre>
 <p>&#x3057;&#x304B;&#x3057;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x5FAA;&#x74B0;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x578B;&#x69CB;&#x6210;&#x3092;&#x6709;&#x52B9;&#x306B;&#x4F7F;&#x3046;&#x306E;&#x306F;&#x96E3;&#x3057;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x3001;&#x7D99;&#x627F;&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3001;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x82E5;&#x5E72;&#x60A9;&#x307E;&#x3057;&#x3044;&#x554F;&#x984C;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x6A5F;&#x80FD;&#x7684;&#x306B;&#x306F;&#x7D99;&#x627F;&#x304C;&#x3042;&#x308C;&#x3070;&#x3088;&#x3044;&#x3068;&#x8A00;&#x3048;&#x307E;&#x3059;&#x304C;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x53EF;&#x8996;&#x6027;&#x306E;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3057;&#x3001;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x304F;&#x306A;&#x308B;&#x52B9;&#x679C;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x5229;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x30C1;&#x30FC;&#x30E0;&#x3067;&#x76F8;&#x8AC7;&#x3059;&#x308B;&#x3068;&#x3088;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
