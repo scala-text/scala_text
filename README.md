@@ -128,7 +128,6 @@ Macでのインストールは例えば以下のようになる。
 
 ```
 brew cask install calibre
-ln -s ~/Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert /usr/local/bin/ebook-convert
 ```
 
 ビルドは以下のように行うことが出来る。
