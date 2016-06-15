@@ -1,450 +1,433 @@
+
 <!DOCTYPE HTML>
-<html lang="en" >
-    
+<html lang="" >
     <head>
-        
+        <title>sbtをインストールする · Scala研修テキスト</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>sbtをインストールする | Scala研修テキスト</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="generator" content="GitBook 3.0.3">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+    
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
-        
     
+        
     
 
         
     
     
-    <link rel="next" href="./basic.html" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="basic.html" />
     
     
-    <link rel="prev" href="./introduction-to-scala.html" />
+    <link rel="prev" href="introduction-to-scala.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book"
-        data-level="2"
-        data-chapter-title="sbtをインストールする"
-        data-filepath="sbt-install.md"
-        data-basepath="."
-        data-revision="Tue May 24 2016 19:19:20 GMT+0000 (UTC)"
-        data-innerlanguage="">
-    
-
-<div class="book-summary">
-    <nav role="navigation">
-        <ul class="summary">
             
             
-            
-            
-
-            
-
-            
-    
-        <li class="chapter " data-level="0" data-path="index.html">
-            
+                <nav role="navigation">
                 
-                    <a href="./index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                        Introduction
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="introduction-to-scala.html">
-            
-                
-                    <a href="./introduction-to-scala.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        Scalaとは
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="2" data-path="sbt-install.html">
-            
-                
-                    <a href="./sbt-install.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        sbtをインストールする
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="basic.html">
-            
-                
-                    <a href="./basic.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        Scalaの基本
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="sbt-compile-execute.html">
-            
-                
-                    <a href="./sbt-compile-execute.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        sbtでプログラムをコンパイル・実行する
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5" data-path="IDE.html">
-            
-                
-                    <a href="./IDE.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        IDE(Intellij IDEA)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6" data-path="control-syntax.html">
-            
-                
-                    <a href="./control-syntax.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                        Scalaの制御構文
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7" data-path="class.html">
-            
-                
-                    <a href="./class.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                        クラス
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8" data-path="object.html">
-            
-                
-                    <a href="./object.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                        オブジェクト
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="9" data-path="trait.html">
-            
-                
-                    <a href="./trait.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                        トレイト
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="10" data-path="type-parameter.html">
-            
-                
-                    <a href="./type-parameter.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                        型パラメータと変位指定
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="11" data-path="function.html">
-            
-                
-                    <a href="./function.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                        関数
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="12" data-path="collection.html">
-            
-                
-                    <a href="./collection.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                        Scalaのコレクションライブラリ
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="13" data-path="case-class-and-pattern-matching.html">
-            
-                
-                    <a href="./case-class-and-pattern-matching.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.</b>
-                        
-                        ケースクラスとパターンマッチング
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="14" data-path="error-handling.html">
-            
-                
-                    <a href="./error-handling.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.</b>
-                        
-                        エラー処理
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="15" data-path="implicit.html">
-            
-                
-                    <a href="./implicit.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.</b>
-                        
-                        Implicit
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="16" data-path="typeclass.html">
-            
-                
-                    <a href="./typeclass.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>16.</b>
-                        
-                        型クラスの紹介
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="17" data-path="future-and-promise.html">
-            
-                
-                    <a href="./future-and-promise.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>17.</b>
-                        
-                        FutureとPromise
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="18" data-path="test.html">
-            
-                
-                    <a href="./test.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>18.</b>
-                        
-                        テスト
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="19" data-path="java-interop.html">
-            
-                
-                    <a href="./java-interop.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>19.</b>
-                        
-                        Javaとの相互運用
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="20" data-path="exercises.html">
-            
-                
-                    <a href="./exercises.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>20.</b>
-                        
-                        S99の案内
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="21" data-path="advanced-trait-di.html">
-            
-                
-                    <a href="./advanced-trait-di.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>21.</b>
-                        
-                        トレイトの応用編：依存性の注入によるリファクタリング
-                    </a>
-            
-            
-        </li>
-    
 
 
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
             
-            <li class="divider"></li>
-            <li>
-                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
+                <a href="./">
+            
+                    
+                    Introduction
+            
                 </a>
-            </li>
             
-        </ul>
-    </nav>
-</div>
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="introduction-to-scala.html">
+            
+                <a href="introduction-to-scala.html">
+            
+                    
+                    Scalaとは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="sbt-install.html">
+            
+                <a href="sbt-install.html">
+            
+                    
+                    sbtをインストールする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="basic.html">
+            
+                <a href="basic.html">
+            
+                    
+                    Scalaの基本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sbt-compile-execute.html">
+            
+                <a href="sbt-compile-execute.html">
+            
+                    
+                    sbtでプログラムをコンパイル・実行する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="IDE.html">
+            
+                <a href="IDE.html">
+            
+                    
+                    IDE(Intellij IDEA)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="control-syntax.html">
+            
+                <a href="control-syntax.html">
+            
+                    
+                    Scalaの制御構文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    クラス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="object.html">
+            
+                <a href="object.html">
+            
+                    
+                    オブジェクト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="trait.html">
+            
+                <a href="trait.html">
+            
+                    
+                    トレイト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="type-parameter.html">
+            
+                <a href="type-parameter.html">
+            
+                    
+                    型パラメータと変位指定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="function.html">
+            
+                <a href="function.html">
+            
+                    
+                    関数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                    Scalaのコレクションライブラリ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="case-class-and-pattern-matching.html">
+            
+                <a href="case-class-and-pattern-matching.html">
+            
+                    
+                    ケースクラスとパターンマッチング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="error-handling.html">
+            
+                <a href="error-handling.html">
+            
+                    
+                    エラー処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="implicit.html">
+            
+                <a href="implicit.html">
+            
+                    
+                    Implicit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="typeclass.html">
+            
+                <a href="typeclass.html">
+            
+                    
+                    型クラスの紹介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="future-and-promise.html">
+            
+                <a href="future-and-promise.html">
+            
+                    
+                    FutureとPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="test.html">
+            
+                <a href="test.html">
+            
+                    
+                    テスト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="java-interop.html">
+            
+                <a href="java-interop.html">
+            
+                    
+                    Javaとの相互運用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="exercises.html">
+            
+                <a href="exercises.html">
+            
+                    
+                    S99の案内
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="advanced-trait-di.html">
+            
+                <a href="advanced-trait-di.html">
+            
+                    
+                    トレイトの応用編：依存性の注入によるリファクタリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
 
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >Scala研修テキスト</a>
+        <a href="." >sbtをインストールする</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <h1 id="sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><a name="sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h1>
-<p>&#x73FE;&#x5B9F;&#x306E;Scala&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x624B;&#x52D5;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x975E;&#x5E38;&#x306B;&#x7A00;&#x3067;&#x3001;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30D3;&#x30EB;&#x30C9;&#x30C4;&#x30FC;&#x30EB;&#x3067;&#x3042;&#x308B;<a href="http://www.scala-sbt.org/release/tutorial/ja/Setup.html" target="_blank">sbt&#xFF08;Simple Build Tool&#xFF09;</a>&#x3068;&#x3044;&#x3046;&#x30C4;&#x30FC;&#x30EB;&#x3092;&#x7528;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;sbt&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="mac-os&#x306E;&#x5834;&#x5408;"><a name="mac-os&#x306E;&#x5834;&#x5408;" class="plugin-anchor" href="#mac-os&#x306E;&#x5834;&#x5408;"><span class="fa fa-link"></span></a>Mac OS&#x306E;&#x5834;&#x5408;</h2>
-<p>Mac OS&#x306E;&#x5834;&#x5408;&#x3001;<a href="http://brew.sh/index_ja.html" target="_blank">Homebrew</a>&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;</p>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h1>
+<p>&#x73FE;&#x5B9F;&#x306E;Scala&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x624B;&#x52D5;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x975E;&#x5E38;&#x306B;&#x7A00;&#x3067;&#x3001;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30D3;&#x30EB;&#x30C9;&#x30C4;&#x30FC;&#x30EB;&#x3067;&#x3042;&#x308B;<a href="http://www.scala-sbt.org/release/tutorial/ja/Setup.html" _target="blank">sbt&#xFF08;Simple Build Tool&#xFF09;</a>&#x3068;&#x3044;&#x3046;&#x30C4;&#x30FC;&#x30EB;&#x3092;&#x7528;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;sbt&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="mac-os&#x306E;&#x5834;&#x5408;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>Mac OS&#x306E;&#x5834;&#x5408;</h2>
+<p>Mac OS&#x306E;&#x5834;&#x5408;&#x3001;<a href="http://brew.sh/index_ja.html" _target="blank">Homebrew</a>&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;</p>
 <pre><code>$ brew install sbt
 </code></pre><p>&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x306E;&#x304C;&#x697D;&#x3067;&#x3059;&#x3002;</p>
-<h2 id="windows&#x306E;&#x5834;&#x5408;"><a name="windows&#x306E;&#x5834;&#x5408;" class="plugin-anchor" href="#windows&#x306E;&#x5834;&#x5408;"><span class="fa fa-link"></span></a>Windows&#x306E;&#x5834;&#x5408;</h2>
-<p><a href="https://chocolatey.org/" target="_blank">chocolatey</a>&#x3092;&#x7528;&#x3044;&#x308B;&#x306E;&#x304C;&#x697D;&#x3067;&#x3059;&#x3002;
+<h2 id="windows&#x306E;&#x5834;&#x5408;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>Windows&#x306E;&#x5834;&#x5408;</h2>
+<p><a href="https://chocolatey.org/" _target="blank">chocolatey</a>&#x3092;&#x7528;&#x3044;&#x308B;&#x306E;&#x304C;&#x697D;&#x3067;&#x3059;&#x3002;
 chocolatey&#x306F;Windows&#x7528;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8; &#x30DE;&#x30CD;&#x30FC;&#x30B8;&#x30E3;&#x3067;&#x6D3B;&#x767A;&#x306B;&#x958B;&#x767A;&#x304C;&#x884C;&#x308F;&#x308C;&#x3066;&#x307E;&#x3059;&#x3002;chocolatey
 &#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x306F;sbt&#x306E;&#x3082;&#x306E;&#x3082;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;</p>
 <pre><code>&gt; choco install sbt
 </code></pre><p>&#x3068;&#x3059;&#x308C;&#x3070;Windows&#x306B;sbt&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>Windows/Linux&#x306E;&#x5834;&#x5408;&#x3067;&#x3001;&#x30B7;&#x30A7;&#x30EB;&#x74B0;&#x5883;&#x3067;sbt&#x3068;&#x5165;&#x529B;&#x3059;&#x308B;&#x3068;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x59CB;&#x307E;&#x308C;&#x3070;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306E;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;sbt&#x304C;&#x306A;&#x3044;&#x3068;&#x8A00;&#x308F;&#x308C;&#x308B;&#x5834;&#x5408;&#x3001;&#x74B0;&#x5883;&#x5909;&#x6570;&#x3078;sbt&#x3078;&#x306E;PATH&#x304C;&#x901A;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x3060;&#x3051;&#x3067;&#x3059;&#x306E;&#x3067;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;Windows&#x3067;&#x306E;&#x74B0;&#x5883;&#x5909;&#x6570;&#x7DE8;&#x96C6;&#x30C4;&#x30FC;&#x30EB;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;
-<a href="http://www.rapidee.com/en/about" target="_blank">Rapid Environment Editor</a>&#x304C;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
-<h2 id="repl&#x3068;sbt"><a name="repl&#x3068;sbt" class="plugin-anchor" href="#repl&#x3068;sbt"><span class="fa fa-link"></span></a>REPL&#x3068;sbt</h2>
+<a href="http://www.rapidee.com/en/about" _target="blank">Rapid Environment Editor</a>&#x304C;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="repl&#x3068;sbt"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>REPL&#x3068;sbt</h2>
 <p>&#x3053;&#x308C;&#x304B;&#x3089;&#x3057;&#x3070;&#x3089;&#x304F;&#x3001;REPL&#xFF08;Read Eval Print Loop&#xFF09;&#x6A5F;&#x80FD;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x5BFE;&#x8A71;&#x7684;&#x306A;&#x6A5F;&#x80FD;&#x3092;&#x7528;&#x3044;&#x3066;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x8A66;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x306F;&#x5E38;&#x306B;<code>sbt console</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x7D4C;&#x7531;&#x3057;&#x3066;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>sbt console&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;Windows&#x3067;&#x3082;Mac&#x3067;&#x3082;</p>
 <pre><code>$ sbt console
@@ -469,7 +452,7 @@ scala&gt;
 <pre><code class="lang-scala">scalaVersion := <span class="hljs-string">&quot;2.11.8&quot;</span>
 </code></pre>
 <p>&#x3068;&#x3057;&#x3066;&#x3084;&#x308B;&#x3068;&#x826F;&#x3044;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;<em>*.sbt</em>&#x304C;sbt&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x306F;REPL&#x306B;&#x6163;&#x308C;&#x3066;&#x3082;&#x3089;&#x3046;&#x6BB5;&#x968E;&#x306A;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;<em>.sbt</em>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x7D30;&#x304B;&#x3044;&#x66F8;&#x304D;&#x65B9;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x8AAC;&#x660E;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;"><a name="sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;" class="plugin-anchor" href="#sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;</h2>
+<h2 id="sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;</h2>
 <p>&#x3053;&#x306E;&#x201C;sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#x201D;&#x306F;&#x3001;&#x6700;&#x65B0;&#x7248;&#x3092;&#x6B63;&#x5E38;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3067;&#x304D;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x8AAD;&#x307F;&#x98DB;&#x3070;&#x3057;&#x3066;&#x3044;&#x305F;&#x3060;&#x3044;&#x3066;&#x69CB;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>sbt&#x306F;<code>sbt --version</code>&#x3082;&#x3057;&#x304F;&#x306F;<code>sbt --launcher-version</code>&#x3068;&#x3059;&#x308B;&#x3068;version&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;<sup><a href="#fn_2" id="reffn_2">2</a></sup>&#x3002;&#x3053;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3067;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;sbt 0.13<sup><a href="#fn_3" id="reffn_3">3</a></sup>&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x524D;&#x63D0;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;
 0.13&#x7CFB;&#xFF08;0.13.6&#x3001;0.13.7&#x306A;&#x3069;&#xFF09;&#x3067;&#x3042;&#x308C;&#x3070;&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;&#x554F;&#x984C;&#x306A;&#x3044;&#x306F;&#x305A;&#x3067;&#x3059;&#x304C;&#x3001;&#x7121;&#x7528;&#x306A;&#x30C8;&#x30E9;&#x30D6;&#x30EB;&#x3092;&#x907F;&#x3051;&#x308B;&#x305F;&#x3081;&#x3001;&#x3082;&#x3057;&#x904E;&#x53BB;&#x306B;&#x5C11;&#x3057;&#x53E4;&#x3044;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306E;sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x305F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x3067;&#x304D;&#x308B;&#x3060;&#x3051;&#x6700;&#x65B0;&#x7248;&#x3092;&#x5165;&#x308C;&#x3066;&#x304A;&#x3044;&#x305F;&#x307B;&#x3046;&#x304C;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305F;&#x3001;&#x3082;&#x3057;0.12&#x7CFB;&#xFF08;0.12.4&#x306A;&#x3069;&#xFF09;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x8272;&#x3005;&#x3068;&#x52D5;&#x4F5C;&#x304C;&#x7570;&#x306A;&#x308A;&#x4E0D;&#x90FD;&#x5408;&#x304C;&#x751F;&#x3058;&#x308B;&#x306E;&#x3067;&#x3001;0.12&#x7CFB;&#x306E;&#x5834;&#x5408;&#x306F;&#x5FC5;&#x305A;0.13&#x7CFB;&#x306E;&#x6700;&#x65B0;&#x7248;&#x3092;&#x5165;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
@@ -477,48 +460,64 @@ scala&gt;
 <sup>1</sup>. &#x3053;&#x3053;&#x3067;&#x8A00;&#x3046;&quot;&#x624B;&#x52D5;&#x3067;&quot;&#x3068;&#x306F;&#x3001;<code>scalac</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3059;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
 </blockquote>
 <blockquote id="fn_2">
-<sup>2</sup>. &#x30CF;&#x30A4;&#x30D5;&#x30F3;&#x306F;1&#x3064;&#x3067;&#x306F;&#x306A;&#x304F;2&#x3064;&#x306A;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x3002;version&#x306E;&#x8A73;&#x7D30;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308A;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x3053;&#x3061;&#x3089;&#x3082;&#x53C2;&#x7167;&#x3002; <a href="https://github.com/dwango/scala_text/issues/122" target="_blank">https://github.com/dwango/scala_text/issues/122</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
+<sup>2</sup>. &#x30CF;&#x30A4;&#x30D5;&#x30F3;&#x306F;1&#x3064;&#x3067;&#x306F;&#x306A;&#x304F;2&#x3064;&#x306A;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x3002;version&#x306E;&#x8A73;&#x7D30;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308A;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x3053;&#x3061;&#x3089;&#x3082;&#x53C2;&#x7167;&#x3002; <a href="https://github.com/dwango/scala_text/issues/122" _target="blank">https://github.com/dwango/scala_text/issues/122</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
 </blockquote>
 <blockquote id="fn_3">
 <sup>3</sup>. &#x5177;&#x4F53;&#x7684;&#x306B;&#x306F;&#x3053;&#x308C;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x308B;2016&#x5E74;02&#x6708;&#x6642;&#x70B9;&#x306E;&#x6700;&#x65B0;&#x7248;&#x3067;&#x3042;&#x308B;0.13.11&#x3002;<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#x21A9;</a>
 </blockquote>
 
-                    
-                    </section>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
                 
-                
-                </div>
             </div>
-        </div>
 
-        
-        <a href="./introduction-to-scala.html" class="navigation navigation-prev " aria-label="Previous page: Scalaとは"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="./basic.html" class="navigation navigation-next " aria-label="Next page: Scalaの基本"><i class="fa fa-angle-right"></i></a>
+            
+                
+                <a href="introduction-to-scala.html" class="navigation navigation-prev " aria-label="Previous page: Scalaとは">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="basic.html" class="navigation navigation-next " aria-label="Next page: Scalaの基本">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
     </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"sbtをインストールする","level":"1.3","depth":1,"next":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"previous":{"title":"Scalaとは","level":"1.2","depth":1,"path":"introduction-to-scala.md","ref":"introduction-to-scala.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-install.md","mtime":"2016-06-15T05:45:14.131Z","type":"markdown"},"gitbook":{"version":"3.0.3","time":"2016-06-15T05:46:01.710Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
 </div>
 
         
-<script src="gitbook/app.js"></script>
-
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
     
-    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
-    
-
-    
-    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
-
         
-    </body>
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
     
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
 </html>
+

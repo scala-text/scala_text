@@ -1,440 +1,423 @@
+
 <!DOCTYPE HTML>
-<html lang="en" >
-    
+<html lang="" >
     <head>
-        
+        <title>トレイト · Scala研修テキスト</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>トレイト | Scala研修テキスト</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="generator" content="GitBook 3.0.3">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+    
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
-        
     
+        
     
 
         
     
     
-    <link rel="next" href="./type-parameter.html" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="type-parameter.html" />
     
     
-    <link rel="prev" href="./object.html" />
+    <link rel="prev" href="object.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book"
-        data-level="9"
-        data-chapter-title="トレイト"
-        data-filepath="trait.md"
-        data-basepath="."
-        data-revision="Tue May 24 2016 19:19:20 GMT+0000 (UTC)"
-        data-innerlanguage="">
-    
-
-<div class="book-summary">
-    <nav role="navigation">
-        <ul class="summary">
             
             
-            
-            
-
-            
-
-            
-    
-        <li class="chapter " data-level="0" data-path="index.html">
-            
+                <nav role="navigation">
                 
-                    <a href="./index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                        Introduction
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="introduction-to-scala.html">
-            
-                
-                    <a href="./introduction-to-scala.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        Scalaとは
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2" data-path="sbt-install.html">
-            
-                
-                    <a href="./sbt-install.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        sbtをインストールする
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="basic.html">
-            
-                
-                    <a href="./basic.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        Scalaの基本
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="sbt-compile-execute.html">
-            
-                
-                    <a href="./sbt-compile-execute.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        sbtでプログラムをコンパイル・実行する
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5" data-path="IDE.html">
-            
-                
-                    <a href="./IDE.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        IDE(Intellij IDEA)
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6" data-path="control-syntax.html">
-            
-                
-                    <a href="./control-syntax.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                        Scalaの制御構文
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7" data-path="class.html">
-            
-                
-                    <a href="./class.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                        クラス
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8" data-path="object.html">
-            
-                
-                    <a href="./object.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                        オブジェクト
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="9" data-path="trait.html">
-            
-                
-                    <a href="./trait.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                        トレイト
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="10" data-path="type-parameter.html">
-            
-                
-                    <a href="./type-parameter.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                        型パラメータと変位指定
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="11" data-path="function.html">
-            
-                
-                    <a href="./function.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                        関数
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="12" data-path="collection.html">
-            
-                
-                    <a href="./collection.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                        Scalaのコレクションライブラリ
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="13" data-path="case-class-and-pattern-matching.html">
-            
-                
-                    <a href="./case-class-and-pattern-matching.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.</b>
-                        
-                        ケースクラスとパターンマッチング
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="14" data-path="error-handling.html">
-            
-                
-                    <a href="./error-handling.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.</b>
-                        
-                        エラー処理
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="15" data-path="implicit.html">
-            
-                
-                    <a href="./implicit.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.</b>
-                        
-                        Implicit
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="16" data-path="typeclass.html">
-            
-                
-                    <a href="./typeclass.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>16.</b>
-                        
-                        型クラスの紹介
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="17" data-path="future-and-promise.html">
-            
-                
-                    <a href="./future-and-promise.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>17.</b>
-                        
-                        FutureとPromise
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="18" data-path="test.html">
-            
-                
-                    <a href="./test.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>18.</b>
-                        
-                        テスト
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="19" data-path="java-interop.html">
-            
-                
-                    <a href="./java-interop.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>19.</b>
-                        
-                        Javaとの相互運用
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="20" data-path="exercises.html">
-            
-                
-                    <a href="./exercises.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>20.</b>
-                        
-                        S99の案内
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="21" data-path="advanced-trait-di.html">
-            
-                
-                    <a href="./advanced-trait-di.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>21.</b>
-                        
-                        トレイトの応用編：依存性の注入によるリファクタリング
-                    </a>
-            
-            
-        </li>
-    
 
 
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
             
-            <li class="divider"></li>
-            <li>
-                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
+                <a href="./">
+            
+                    
+                    Introduction
+            
                 </a>
-            </li>
             
-        </ul>
-    </nav>
-</div>
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="introduction-to-scala.html">
+            
+                <a href="introduction-to-scala.html">
+            
+                    
+                    Scalaとは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sbt-install.html">
+            
+                <a href="sbt-install.html">
+            
+                    
+                    sbtをインストールする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="basic.html">
+            
+                <a href="basic.html">
+            
+                    
+                    Scalaの基本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sbt-compile-execute.html">
+            
+                <a href="sbt-compile-execute.html">
+            
+                    
+                    sbtでプログラムをコンパイル・実行する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="IDE.html">
+            
+                <a href="IDE.html">
+            
+                    
+                    IDE(Intellij IDEA)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="control-syntax.html">
+            
+                <a href="control-syntax.html">
+            
+                    
+                    Scalaの制御構文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    クラス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="object.html">
+            
+                <a href="object.html">
+            
+                    
+                    オブジェクト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="trait.html">
+            
+                <a href="trait.html">
+            
+                    
+                    トレイト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="type-parameter.html">
+            
+                <a href="type-parameter.html">
+            
+                    
+                    型パラメータと変位指定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="function.html">
+            
+                <a href="function.html">
+            
+                    
+                    関数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                    Scalaのコレクションライブラリ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="case-class-and-pattern-matching.html">
+            
+                <a href="case-class-and-pattern-matching.html">
+            
+                    
+                    ケースクラスとパターンマッチング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="error-handling.html">
+            
+                <a href="error-handling.html">
+            
+                    
+                    エラー処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="implicit.html">
+            
+                <a href="implicit.html">
+            
+                    
+                    Implicit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="typeclass.html">
+            
+                <a href="typeclass.html">
+            
+                    
+                    型クラスの紹介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="future-and-promise.html">
+            
+                <a href="future-and-promise.html">
+            
+                    
+                    FutureとPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="test.html">
+            
+                <a href="test.html">
+            
+                    
+                    テスト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="java-interop.html">
+            
+                <a href="java-interop.html">
+            
+                    
+                    Javaとの相互運用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="exercises.html">
+            
+                <a href="exercises.html">
+            
+                    
+                    S99の案内
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="advanced-trait-di.html">
+            
+                <a href="advanced-trait-di.html">
+            
+                    
+                    トレイトの応用編：依存性の注入によるリファクタリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
 
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >Scala研修テキスト</a>
+        <a href="." >トレイト</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <h1 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;"><a name="&#x30C8;&#x30EC;&#x30A4;&#x30C8;" class="plugin-anchor" href="#&#x30C8;&#x30EC;&#x30A4;&#x30C8;"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;</h1>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;</h1>
 <p>&#x79C1;&#x305F;&#x3061;&#x306E;&#x4F5C;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;&#x6570;&#x4E07;&#x884C;&#x3001;&#x591A;&#x304F;&#x306A;&#x308B;&#x3068;&#x6570;&#x5341;&#x4E07;&#x884C;&#x3084;&#x305D;&#x308C;&#x4EE5;&#x4E0A;&#x306B;&#x53CA;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x5168;&#x3066;&#x3092;&#x4E00;&#x5EA6;&#x306B;&#x628A;&#x63E1;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x96E3;&#x3057;&#x3044;&#x306E;&#x3067;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x610F;&#x5473;&#x306E;&#x3042;&#x308B;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x5358;&#x4F4D;&#x3067;&#x5206;&#x5272;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3055;&#x3089;&#x306B;&#x3001;&#x305D;&#x306E;&#x5206;&#x5272;&#x3055;&#x308C;&#x305F;&#x90E8;&#x54C1;&#x306F;&#x306A;&#x308B;&#x3079;&#x304F;&#x67D4;&#x8EDF;&#x306B;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x3089;&#x308C;&#x3001;&#x5927;&#x304D;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x4F5C;&#x308C;&#x308B;&#x3068;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x5206;&#x5272;&#xFF08;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x5316;&#xFF09;&#x3068;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#xFF08;&#x5408;&#x6210;&#xFF09;&#x306F;&#x3001;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x6307;&#x5411;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x3082;&#x95A2;&#x6570;&#x578B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306B;&#x304A;&#x3044;&#x3066;&#x3082;&#x91CD;&#x8981;&#x306A;&#x8A2D;&#x8A08;&#x306E;&#x6982;&#x5FF5;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;Scala&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x6307;&#x5411;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306B;&#x304A;&#x3051;&#x308B;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x5316;&#x306E;&#x4E2D;&#x5FC3;&#x7684;&#x306A;&#x6982;&#x5FF5;&#x306B;&#x306A;&#x308B;&#x306E;&#x304C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x4E00;&#x901A;&#x308A;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h2 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x57FA;&#x672C;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><a name="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x57FA;&#x672C;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x57FA;&#x672C;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x57FA;&#x672C;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
+<h2 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x57FA;&#x672C;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x57FA;&#x672C;&#xFF08;&#x2605;&#x2605;&#x2605;&#xFF09;</h2>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x6BD4;&#x3079;&#x3066;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x7279;&#x5FB4;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <ul>
 <li>&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;</li>
@@ -442,127 +425,127 @@
 <li>&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;</li>
 </ul>
 <p>&#x4EE5;&#x4E0B;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x7279;&#x5FB4;&#x306E;&#x7D39;&#x4ECB;&#x3092;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;"><a name="&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;" class="plugin-anchor" href="#&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;"><span class="fa fa-link"></span></a>&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;</h3>
+<h3 id="&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3067;&#x304D;&#x308B;</h3>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x306F;&#x9055;&#x3044;&#x3001;&#x8907;&#x6570;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;1&#x3064;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
-</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span>
-</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>
-</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span>
-</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span></span>
+
 <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitB</span>
-</span></code></pre>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitA</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitB</span></span>
+</code></pre>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-     | <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">ClassB</span>
-</span>&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-title">needs</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">a</span> <span class="hljs-title">trait</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">mixed</span> <span class="hljs-title">in</span>
-</span>       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">ClassB</span>
-</span>                                        ^
+     | <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">with</span> <span class="hljs-title">ClassB</span></span>
+&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-title">needs</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">a</span> <span class="hljs-title">trait</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">mixed</span> <span class="hljs-title">in</span></span>
+       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassD</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">with</span> <span class="hljs-title">ClassB</span></span>
+                                        ^
 </code></pre>
 <p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F;<code>ClassA</code>&#x3068;<code>TraitA</code>&#x3068;<code>TraitB</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;<code>ClassC</code>&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;<code>ClassA</code>&#x3068;<code>ClassB</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;<code>ClassD</code>&#x306F;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x300C;class ClassB needs to be a trait to be mixed in&#x300D;&#x3068;&#x3044;&#x3046;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x51FA;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;&#x300C;<code>ClassB</code>&#x3092;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x300D;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3059;&#x3002;&#x8907;&#x6570;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x7D99;&#x627F;&#x3055;&#x305B;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h3 id="&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;"><a name="&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;" class="plugin-anchor" href="#&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;"><span class="fa fa-link"></span></a>&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;</h3>
+<h3 id="&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;</h3>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x9055;&#x3044;&#x3001;&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
-</span>defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
-</span></code></pre>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> {</span>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span></span>
+defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span></span>
+</code></pre>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> </span>{
      |   <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
+     |   <span class="hljs-keyword">val</span> a = <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
      | }
-&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-title">is</span> <span class="hljs-title">abstract</span>;</span> cannot be instantiated
-         <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
+&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-title">is</span> <span class="hljs-title">abstract</span></span>; cannot be instantiated
+         <span class="hljs-keyword">val</span> a = <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span>
                  ^
 </code></pre>
 <p>&#x3053;&#x306E;&#x5236;&#x9650;&#x306F;&#x56DE;&#x907F;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x3044;&#x304F;&#x3064;&#x304B;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;1&#x3064;&#x306F;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3082;&#x3046;1&#x3064;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x5B9F;&#x88C5;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>
-</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span>
-</span>
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> {</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> </span>{
   <span class="hljs-comment">// &#x30AF;&#x30E9;&#x30B9;&#x306B;&#x3059;&#x308C;&#x3070;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x308B;</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>
+  <span class="hljs-keyword">val</span> a = <span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>
 
   <span class="hljs-comment">// &#x5B9F;&#x88C5;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x3082;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x308B;</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a2</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span> {}
+  <span class="hljs-keyword">val</span> a2 = <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span> {}
 }
 </code></pre>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9F;&#x969B;&#x4F7F;&#x3046;&#x4E0A;&#x3067;&#x306F;&#x3001;&#x3042;&#x307E;&#x308A;&#x554F;&#x984C;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;&#x5236;&#x9650;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h3 id="&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;"><a name="&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;" class="plugin-anchor" href="#&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;"><span class="fa fa-link"></span></a>&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;</h3>
+<h3 id="&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x30AF;&#x30E9;&#x30B9;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;</h3>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x9055;&#x3044;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF08;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x5F15;&#x6570;&#xFF09;&#x3092;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x5236;&#x9650;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-comment">// &#x6B63;&#x3057;&#x3044;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>(</span>name: <span class="hljs-type">String</span>) {
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printName</span>(</span>) = println(name)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>(<span class="hljs-params">name: <span class="hljs-type">String</span></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printName</span></span>() = println(name)
 }
 </code></pre>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(</span>name: <span class="hljs-type">String</span>)
+     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(<span class="hljs-params">name: <span class="hljs-type">String</span></span>)</span>
 &lt;console&gt;:<span class="hljs-number">3</span>: error: traits or objects may not have parameters
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(</span>name: <span class="hljs-type">String</span>)
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span>(<span class="hljs-params">name: <span class="hljs-type">String</span></span>)</span>
             ^
 </code></pre>
 <p>&#x3053;&#x308C;&#x3082;&#x3042;&#x307E;&#x308A;&#x554F;&#x984C;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x62BD;&#x8C61;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3092;&#x6301;&#x305F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3067;&#x304D;&#x306A;&#x3044;&#x554F;&#x984C;&#x306E;&#x3068;&#x304D;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x7D99;&#x627F;&#x3055;&#x305B;&#x305F;&#x308A;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x306E;&#x3068;&#x304D;&#x306B;&#x62BD;&#x8C61;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3092;&#x5B9F;&#x88C5;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printName</span>(</span>): <span class="hljs-type">Unit</span> = println(name)
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">val</span> name: <span class="hljs-type">String</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printName</span></span>(): <span class="hljs-type">Unit</span> = println(name)
 }
 
 <span class="hljs-comment">// &#x30AF;&#x30E9;&#x30B9;&#x306B;&#x3057;&#x3066; name &#x3092;&#x4E0A;&#x66F8;&#x304D;&#x3059;&#x308B;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>(</span><span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>) <span class="hljs-keyword">extends</span> <span class="hljs-type">TraitA</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>(<span class="hljs-params">val name: <span class="hljs-type">String</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span></span>
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>(<span class="hljs-string">&quot;dwango&quot;</span>)
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> </span>{
+  <span class="hljs-keyword">val</span> a = <span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>(<span class="hljs-string">&quot;dwango&quot;</span>)
 
   <span class="hljs-comment">// name &#x3092;&#x4E0A;&#x66F8;&#x304D;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x5B9F;&#x88C5;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x3082;&#x3088;&#x3044;</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">a2</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span> { <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">name</span> =</span> <span class="hljs-string">&quot;kadokawa&quot;</span> }
+  <span class="hljs-keyword">val</span> a2 = <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span> { <span class="hljs-keyword">val</span> name = <span class="hljs-string">&quot;kadokawa&quot;</span> }
 }
 </code></pre>
 <p>&#x4EE5;&#x4E0A;&#x306E;&#x3088;&#x3046;&#x306B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5236;&#x9650;&#x306F;&#x5B9F;&#x7528;&#x4E0A;&#x307B;&#x3068;&#x3093;&#x3069;&#x554F;&#x984C;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3042;&#x308A;&#x3001;&#x305D;&#x306E;&#x4ED6;&#x306E;&#x70B9;&#x3067;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x5B9F;&#x8CEA;&#x7684;&#x306B;&#x591A;&#x91CD;&#x7D99;&#x627F;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x306F;&#x30E2;&#x30B8;&#x30E5;&#x30E9;&#x30EA;&#x30C6;&#x30A3;&#x306B;&#x5927;&#x304D;&#x306A;&#x6069;&#x6075;&#x3092;&#x3082;&#x305F;&#x3089;&#x3057;&#x307E;&#x3059;&#x3002;&#x662F;&#x975E;&#x4F7F;&#x3044;&#x3053;&#x306A;&#x305B;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h3 id="&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;"><a name="&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;</h3>
+<h3 id="&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;&#xFF08;&#x2605;&#xFF09;</h3>
 <p>&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3084;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x306A;&#x3069;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x6307;&#x5411;&#x306E;&#x7528;&#x8A9E;&#x304C;&#x7528;&#x3044;&#x3089;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x4ED6;&#x306E;&#x8A00;&#x8A9E;&#x306A;&#x3069;&#x3067;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x7528;&#x8A9E;&#x3068;&#x306F;&#x5C11;&#x3057;&#x9055;&#x3046;&#x610F;&#x5473;&#x3092;&#x6301;&#x3064;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x6CE8;&#x610F;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;Sch&#xE4;rli&#x3089;&#x306B;&#x3088;&#x308B;2003&#x5E74;&#x306E;ECOOP&#x306B;&#x63A1;&#x629E;&#x3055;&#x308C;&#x305F;&#x8AD6;&#x6587;&#x300E;Traits: Composable Units of Behaviour&#x300F;&#x304C;&#x30AA;&#x30EA;&#x30B8;&#x30CA;&#x30EB;&#x3068;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x8AD6;&#x6587;&#x4E2D;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5B9A;&#x7FA9;&#x3068;Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x4ED5;&#x69D8;&#x306F;&#x3001;&#x5408;&#x6210;&#x6642;&#x306E;&#x52D5;&#x4F5C;&#x3084;&#x3001;&#x72B6;&#x614B;&#x5909;&#x6570;&#x306E;&#x53D6;&#x308A;&#x6271;&#x3044;&#x306A;&#x3069;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x7570;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3088;&#x3046;&#x306B;&#x898B;&#x3048;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3057;&#x304B;&#x3057;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3084;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306F;&#x8A00;&#x8A9E;&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x308B;&#x3082;&#x306E;&#x3067;&#x3042;&#x308A;&#x3001;&#x6211;&#x3005;&#x304C;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x308B;Scala&#x306E;&#x516C;&#x5F0F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3084;&#x300E;Scala&#x30B9;&#x30B1;&#x30FC;&#x30E9;&#x30D6;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x300F;&#x3067;&#x3082;&#x300C;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x300D;&#x3068;&#x3044;&#x3046;&#x8868;&#x73FE;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x305D;&#x308C;&#x306B;&#x5023;&#x3044;&#x305F;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x69D8;&#x3005;&#x306A;&#x6A5F;&#x80FD;"><a name="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x69D8;&#x3005;&#x306A;&#x6A5F;&#x80FD;" class="plugin-anchor" href="#&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x69D8;&#x3005;&#x306A;&#x6A5F;&#x80FD;"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x69D8;&#x3005;&#x306A;&#x6A5F;&#x80FD;</h2>
-<h3 id="&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#xFF08;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#xFF08;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
+<h2 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x69D8;&#x3005;&#x306A;&#x6A5F;&#x80FD;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x69D8;&#x3005;&#x306A;&#x6A5F;&#x80FD;</h2>
+<h3 id="&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
 <p>&#x4EE5;&#x4E0A;&#x898B;&#x3066;&#x304D;&#x305F;&#x3088;&#x3046;&#x306B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x8FD1;&#x3044;&#x6A5F;&#x80FD;&#x3092;&#x6301;&#x3061;&#x306A;&#x304C;&#x3089;&#x5B9F;&#x8CEA;&#x7684;&#x306A;&#x591A;&#x91CD;&#x7D99;&#x627F;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x4FBF;&#x5229;&#x306A;&#x3082;&#x306E;&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;
 1&#x3064;&#x8003;&#x3048;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x591A;&#x91CD;&#x7D99;&#x627F;&#x3092;&#x6301;&#x3064;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x304C;&#x76F4;&#x9762;&#x3059;&#x308B;&#x300C;&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#x300D;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x7D99;&#x627F;&#x95A2;&#x4FC2;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
 <code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;<code>TraitA</code>&#x3068;&#x3001;<code>greet</code>&#x3092;&#x5B9F;&#x88C5;&#x3057;&#x305F;<code>TraitB</code>&#x3068;<code>TraitC</code>&#x3001;&#x305D;&#x3057;&#x3066;<code>TraitB</code>&#x3068;<code>TraitC</code>&#x306E;&#x3069;&#x3061;&#x3089;&#x3082;&#x7D99;&#x627F;&#x3057;&#x305F;<code>ClassA</code>&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
 }
 </code></pre>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
-</span></code></pre>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
+</code></pre>
 <p><code>TraitB</code>&#x3068;<code>TraitC</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x885D;&#x7A81;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x5834;&#x5408;<code>ClassA</code>&#x306E;<code>greet</code>&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x52D5;&#x4F5C;&#x3092;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;
 <code>TraitB</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x304B;&#x3001;<code>TraitC</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x304B;&#x3002;&#x591A;&#x91CD;&#x7D99;&#x627F;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x8A00;&#x8A9E;&#x306F;&#x3069;&#x308C;&#x3082;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x3042;&#x3044;&#x307E;&#x3044;&#x3055;&#x306E;&#x554F;&#x984C;&#x3092;&#x62B1;&#x3048;&#x3066;&#x304A;&#x308A;&#x3001;&#x5BFE;&#x51E6;&#x304C;&#x6C42;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3061;&#x306A;&#x307F;&#x306B;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3092;Scala&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x3068;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x51FA;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
-</span>&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-title">inherits</span> <span class="hljs-title">conflicting</span> <span class="hljs-title">members</span>:</span>
-  method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span>  and
-  method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span>
-(<span class="hljs-type">Note</span>: <span class="hljs-keyword">this</span> can be resolved by declaring an <span class="hljs-keyword">override</span> in <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>.)
-</span>       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
-</span>             ^
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
+&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-title">inherits</span> <span class="hljs-title">conflicting</span> <span class="hljs-title">members</span></span>:
+  method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (<span class="hljs-params"></span>)<span class="hljs-title">Unit</span>  <span class="hljs-title">and</span></span>
+  method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (<span class="hljs-params"></span>)<span class="hljs-title">Unit</span></span>
+(<span class="hljs-type">Note</span>: <span class="hljs-keyword">this</span> can be resolved by declaring an <span class="hljs-keyword">override</span> in <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>.)</span>
+       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
+             ^
 </code></pre>
 <p>Scala&#x3067;&#x306F;override&#x6307;&#x5B9A;&#x306A;&#x3057;&#x306E;&#x5834;&#x5408;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x885D;&#x7A81;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x5834;&#x5408;&#x306E;1&#x3064;&#x306E;&#x89E3;&#x6CD5;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x300C;Note: this can be resolved by declaring an override in class ClassA.&#x300D;&#x3068;&#x3042;&#x308B;&#x3088;&#x3046;&#x306B;<code>ClassA</code>&#x3067;<code>greet</code>&#x3092;override&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;How are you?&quot;</span>)
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;How are you?&quot;</span>)
 }
 </code></pre>
 <p>&#x3053;&#x306E;&#x3068;&#x304D;<code>ClassA</code>&#x3067;<code>super</code>&#x306B;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x3067;&#x3001;<code>TraitB</code>&#x3084;<code>TraitC</code>&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = <span class="hljs-keyword">super</span>[<span class="hljs-type">TraitB</span>].greet()
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = <span class="hljs-keyword">super</span>[<span class="hljs-type">TraitB</span>].greet()
 }
 </code></pre>
 <p>&#x5B9F;&#x884C;&#x7D50;&#x679C;&#x306F;&#x4EE5;&#x4E0B;&#x306B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
@@ -574,8 +557,8 @@ scala&gt; (<span class="hljs-keyword">new</span> <span class="hljs-type">ClassB<
 </code></pre>
 <p>&#x3067;&#x306F;&#x3001;<code>TraitB</code>&#x3068;<code>TraitC</code>&#x306E;&#x4E21;&#x65B9;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;
 1&#x3064;&#x306E;&#x65B9;&#x6CD5;&#x306F;&#x4E0A;&#x8A18;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;<code>TraitB</code>&#x3068;<code>TraitC</code>&#x306E;&#x4E21;&#x65B9;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x660E;&#x793A;&#x3057;&#x3066;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>[<span class="hljs-type">TraitB</span>].greet()
     <span class="hljs-keyword">super</span>[<span class="hljs-type">TraitC</span>].greet()
   }
@@ -583,55 +566,55 @@ scala&gt; (<span class="hljs-keyword">new</span> <span class="hljs-type">ClassB<
 </code></pre>
 <p>&#x3057;&#x304B;&#x3057;&#x3001;&#x7D99;&#x627F;&#x95A2;&#x4FC2;&#x304C;&#x8907;&#x96D1;&#x306B;&#x306A;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x3059;&#x3079;&#x3066;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x547C;&#x3076;&#x306E;&#x306F;&#x5927;&#x5909;&#x3067;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306E;&#x3088;&#x3046;&#x306B;&#x5FC5;&#x305A;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x306F;&#x3053;&#x306E;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x300C;&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#x300D;&#x3068;&#x3044;&#x3046;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#xFF08;&#x2605;&#xFF09;"><a name="&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#xFF08;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#xFF08;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#xFF08;&#x2605;&#xFF09;</h3>
+<h3 id="&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#xFF08;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x7DDA;&#x5F62;&#x5316;&#xFF08;linearization&#xFF09;&#xFF08;&#x2605;&#xFF09;</h3>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x7DDA;&#x5F62;&#x5316;&#x6A5F;&#x80FD;&#x3068;&#x306F;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x304C;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3055;&#x308C;&#x305F;&#x9806;&#x756A;&#x3092;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x7D99;&#x627F;&#x9806;&#x756A;&#x3068;&#x898B;&#x505A;&#x3059;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x6B21;&#x306B;&#x4EE5;&#x4E0B;&#x306E;&#x4F8B;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;&#x5148;&#x7A0B;&#x306E;&#x4F8B;&#x3068;&#x306E;&#x9055;&#x3044;&#x306F;<code>TraitB</code>&#x3068;<code>TraitC</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306B;<code>override</code>&#x4FEE;&#x98FE;&#x5B50;&#x304C;&#x4ED8;&#x3044;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
-</span></code></pre>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
+</code></pre>
 <p>&#x3053;&#x306E;&#x5834;&#x5408;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306F;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3067;&#x306F;<code>ClassA</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x305F;&#x5834;&#x5408;&#x3001;&#x3044;&#x3063;&#x305F;&#x3044;&#x4F55;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x5B9F;&#x969B;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-scala">scala&gt; (<span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>).greet()
 <span class="hljs-type">Good</span> evening!
 </code></pre>
 <p><code>ClassA</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3067;&#x3001;<code>TraitC</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x7D99;&#x627F;&#x9806;&#x756A;&#x304C;&#x7DDA;&#x5F62;&#x5316;&#x3055;&#x308C;&#x3066;&#x3001;&#x5F8C;&#x304B;&#x3089;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3057;&#x305F;<code>TraitC</code>&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x306E;&#x9806;&#x756A;&#x3092;&#x9006;&#x306B;&#x3059;&#x308B;&#x3068;<code>TraitB</code>&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x306E;&#x9806;&#x756A;&#x3092;&#x5909;&#x3048;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitB</span>
-</span></code></pre>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitB</span></span>
+</code></pre>
 <p>&#x3059;&#x308B;&#x3068;<code>ClassB</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3066;&#x3001;&#x4ECA;&#x5EA6;&#x306F;<code>TraitB</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>scala&gt; (new ClassB).greet()
 Good morning!
 </code></pre><p><code>super</code>&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x7DDA;&#x5F62;&#x5316;&#x3055;&#x308C;&#x305F;&#x89AA;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
     println(<span class="hljs-string">&quot;My name is Terebi-chan.&quot;</span>)
   }
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
     println(<span class="hljs-string">&quot;I like niconico.&quot;</span>)
   }
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
-</span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitB</span>
-</span></code></pre>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitB</span></span>
+</code></pre>
 <p>&#x3053;&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x7D50;&#x679C;&#x3082;&#x307E;&#x305F;&#x7D99;&#x627F;&#x3055;&#x308C;&#x305F;&#x9806;&#x756A;&#x3067;&#x5909;&#x308F;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">scala&gt; (<span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>).greet()
 <span class="hljs-type">Hello</span>!
@@ -645,28 +628,28 @@ scala&gt; (<span class="hljs-keyword">new</span> <span class="hljs-type">ClassB<
 </code></pre>
 <p>&#x7DDA;&#x5F62;&#x5316;&#x306E;&#x6A5F;&#x80FD;&#x306B;&#x3088;&#x308A;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3055;&#x308C;&#x305F;&#x3059;&#x3079;&#x3066;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x51E6;&#x7406;&#x3092;&#x7C21;&#x5358;&#x306B;&#x547C;&#x3073;&#x51FA;&#x305B;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x7DDA;&#x5F62;&#x5316;&#x306B;&#x3088;&#x308B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x7A4D;&#x307F;&#x91CD;&#x306D;&#x306E;&#x51E6;&#x7406;&#x3092;Scala&#x306E;&#x7528;&#x8A9E;&#x3067;&#x306F;&#x7A4D;&#x307F;&#x91CD;&#x306D;&#x53EF;&#x80FD;&#x306A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#xFF08;Stackable Trait&#xFF09;&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x7DDA;&#x5F62;&#x5316;&#x304C;Scala&#x306E;&#x83F1;&#x5F62;&#x7D99;&#x627F;&#x554F;&#x984C;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x5BFE;&#x51E6;&#x6CD5;&#x306B;&#x306A;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
-<h3 id="abstract-override&#xFF08;&#x2605;&#xFF09;"><a name="abstract-override&#xFF08;&#x2605;&#xFF09;" class="plugin-anchor" href="#abstract-override&#xFF08;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>abstract override&#xFF08;&#x2605;&#xFF09;</h3>
+<h3 id="abstract-override&#xFF08;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>abstract override&#xFF08;&#x2605;&#xFF09;</h3>
 <p>&#x901A;&#x5E38;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3067;<code>super</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x547C;&#x3073;&#x3060;&#x3059;&#x5834;&#x5408;&#x3001;&#x5F53;&#x7136;&#x306E;&#x3053;&#x3068;&#x306A;&#x304C;&#x3089;&#x7D99;&#x627F;&#x5143;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x308F;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;
 Scala&#x306B;&#x306F;&#x7D99;&#x627F;&#x5143;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x306A;&#x3044;&#x5834;&#x5408;&#x3067;&#x3082;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x304C;&#x53EF;&#x80FD;&#x306A;<code>abstract override</code>&#x3068;&#x3044;&#x3046;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p><code>abstract override</code>&#x3067;&#x306F;&#x306A;&#x3044;<code>override</code>&#x3068;<code>abstract override</code>&#x3092;&#x6BD4;&#x8F03;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span>
 }
 </code></pre>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
      |     <span class="hljs-keyword">super</span>.greet()
      |     println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
      |   }
      | }
-&lt;console&gt;:<span class="hljs-number">16</span>: error: method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-title">is</span> <span class="hljs-title">accessed</span> <span class="hljs-title">from</span> <span class="hljs-title">super</span>. <span class="hljs-title">It</span> <span class="hljs-title">may</span> <span class="hljs-title">not</span> <span class="hljs-title">be</span> <span class="hljs-title">abstract</span> <span class="hljs-title">unless</span> <span class="hljs-title">it</span> <span class="hljs-title">is</span> <span class="hljs-title">overridden</span> <span class="hljs-title">by</span> <span class="hljs-title">a</span> <span class="hljs-title">member</span> <span class="hljs-title">declared</span> `<span class="hljs-title">abstract</span>&apos; <span class="hljs-title">and</span> `<span class="hljs-title">override</span>&apos;
-</span>           <span class="hljs-keyword">super</span>.greet()
+&lt;console&gt;:<span class="hljs-number">16</span>: error: method greet in <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> <span class="hljs-title">is</span> <span class="hljs-title">accessed</span> <span class="hljs-title">from</span> <span class="hljs-title">super</span>. <span class="hljs-title">It</span> <span class="hljs-title">may</span> <span class="hljs-title">not</span> <span class="hljs-title">be</span> <span class="hljs-title">abstract</span> <span class="hljs-title">unless</span> <span class="hljs-title">it</span> <span class="hljs-title">is</span> <span class="hljs-title">overridden</span> <span class="hljs-title">by</span> <span class="hljs-title">a</span> <span class="hljs-title">member</span> <span class="hljs-title">declared</span> `<span class="hljs-title">abstract</span>&apos; <span class="hljs-title">and</span> `<span class="hljs-title">override</span>&apos;</span>
+           <span class="hljs-keyword">super</span>.greet()
                  ^
 </code></pre>
 <pre><code class="lang-scala"><span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
     println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
   }
@@ -675,55 +658,55 @@ Scala&#x306B;&#x306F;&#x7D99;&#x627F;&#x5143;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x
 <p><code>abstract</code>&#x4FEE;&#x98FE;&#x5B50;&#x3092;&#x4ED8;&#x3051;&#x3066;&#x3044;&#x306A;&#x3044;<code>TraitB</code>&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306E;&#x610F;&#x5473;&#x306F;&#x3001;<code>TraitA</code>&#x306E;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x306F;&#x5B9F;&#x88C5;&#x304C;&#x306A;&#x3044;&#x306E;&#x3067;<code>abstract override</code>&#x3092;&#x4ED8;&#x3051;&#x306A;&#x3044;&#x5834;&#x5408;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x304C;&#x8A31;&#x3055;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3092;<code>abstract override</code>&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x306A;&#x3044;&#x5834;&#x5408;&#x3067;&#x3082;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x7279;&#x6027;&#x306F;&#x62BD;&#x8C61;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3082;&#x7A4D;&#x307F;&#x91CD;&#x306D;&#x306E;&#x51E6;&#x7406;&#x304C;&#x66F8;&#x3051;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3057;&#x304B;&#x3057;<code>abstract override</code>&#x3067;&#x3082;1&#x3064;&#x5236;&#x7D04;&#x304C;&#x3042;&#x308A;&#x3001;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3055;&#x308C;&#x3066;&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x4F5C;&#x3089;&#x308C;&#x308B;&#x3068;&#x304D;&#x306B;&#x306F;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> =
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> =
     println(<span class="hljs-string">&quot;Hello!&quot;</span>)
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitA</span> {</span>
-  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = {
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
+  <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
     println(<span class="hljs-string">&quot;I like niconico.&quot;</span>)
   }
 }
 </code></pre>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#xFF01;</span>
-     | <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span>
-</span>&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-title">needs</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">a</span> <span class="hljs-title">mixin</span>, <span class="hljs-title">since</span> <span class="hljs-title">method</span> <span class="hljs-title">greet</span> <span class="hljs-title">in</span> <span class="hljs-title">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (</span>)<span class="hljs-type">Unit</span> is marked `<span class="hljs-keyword">abstract</span>&apos; and `<span class="hljs-keyword">override</span>&apos;, but no concrete implementation could be found in a base <span class="hljs-class"><span class="hljs-keyword">class</span>
-</span>       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitC</span>
-</span>             ^
+     | <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitC</span></span>
+&lt;console&gt;:<span class="hljs-number">15</span>: error: <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-title">needs</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">a</span> <span class="hljs-title">mixin</span>, <span class="hljs-title">since</span> <span class="hljs-title">method</span> <span class="hljs-title">greet</span> <span class="hljs-title">in</span> <span class="hljs-title">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (<span class="hljs-params"></span>)<span class="hljs-title">Unit</span> <span class="hljs-title">is</span> <span class="hljs-title">marked</span> `<span class="hljs-title">abstract</span>&apos; <span class="hljs-title">and</span> `<span class="hljs-title">override</span>&apos;, <span class="hljs-title">but</span> <span class="hljs-title">no</span> <span class="hljs-title">concrete</span> <span class="hljs-title">implementation</span> <span class="hljs-title">could</span> <span class="hljs-title">be</span> <span class="hljs-title">found</span> <span class="hljs-title">in</span> <span class="hljs-title">a</span> <span class="hljs-title">base</span> <span class="hljs-title">class</span></span>
+       <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitC</span></span>
+             ^
 </code></pre>
 <pre><code class="lang-scala"><span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">TraitC</span>
-</span></code></pre>
-<h3 id="&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
+</code></pre>
+<h3 id="&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x81EA;&#x5206;&#x578B;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
 <p>Scala&#x306B;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x4E2D;&#x3067;&#x81EA;&#x5206;&#x81EA;&#x8EAB;&#x306E;&#x578B;&#x306B;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;&#x81EA;&#x5206;&#x578B;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#xFF08;self type annotations&#xFF09;&#x3084;&#x5358;&#x306B;&#x81EA;&#x5206;&#x578B;&#xFF08;self types&#xFF09;&#x306A;&#x3069;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x4F8B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> {</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> </span>{
   self: <span class="hljs-type">Greeter</span> =&gt;
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
-  <span class="hljs-keyword">override</span> <span class="hljs-keyword">final</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> =</span> <span class="hljs-string">&quot;Robot&quot;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span></span>(): <span class="hljs-type">Unit</span> = greet()
+  <span class="hljs-keyword">override</span> <span class="hljs-keyword">final</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> </span>= <span class="hljs-string">&quot;Robot&quot;</span>
 }
 </code></pre>
 <p>&#x3053;&#x306E;&#x30ED;&#x30DC;&#x30C3;&#x30C8;&#xFF08;<code>Robot</code>&#xFF09;&#x306F;&#x8D77;&#x52D5;&#xFF08;<code>start</code>&#xFF09;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x6328;&#x62F6;&#xFF08;<code>greet</code>&#xFF09;&#x3059;&#x308B;&#x3088;&#x3046;&#x3067;&#x3059;&#x3002;
 <code>Robot</code>&#x306F;&#x76F4;&#x63A5;<code>Greeter</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x306E;&#x306B;&#x3082;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3048;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x30ED;&#x30DC;&#x30C3;&#x30C8;&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x5B9F;&#x969B;&#x306B;&#x4F5C;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;<code>greet</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x88C5;&#x3057;&#x305F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
 REPL&#x3092;&#x4F7F;&#x3063;&#x3066;&#x52D5;&#x4F5C;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Greeter</span> </span>{
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
      | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span>
-</span>
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span> =</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
+defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">HelloGreeter</span></span>
+
+scala&gt; <span class="hljs-keyword">val</span> r = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
 r: <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span> = <span class="hljs-type">Robot</span>
 
 scala&gt; r.start()
@@ -731,18 +714,18 @@ scala&gt; r.start()
 </code></pre>
 <p>&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306F;&#x3001;&#x62BD;&#x8C61;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3001;&#x5F8C;&#x304B;&#x3089;&#x5B9F;&#x88C5;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x5F62;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x5F8C;&#x304B;&#x3089;&#xFF08;&#x3082;&#x3057;&#x304F;&#x306F;&#x5916;&#x304B;&#x3089;&#xFF09;&#x5229;&#x7528;&#x3059;&#x308B;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x3053;&#x3068;&#x3092;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#xFF08;Dependency Injection&#xFF09;&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;&#x3053;&#x306E;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x8003;&#x3048;&#x3066;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x3067;&#x306F;&#x3053;&#x306E;&#x81EA;&#x5206;&#x578B;&#x306B;&#x3088;&#x308B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x6307;&#x5B9A;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x76F4;&#x63A5;&#x7D99;&#x627F;&#x3059;&#x308B;&#x5834;&#x5408;&#x3068;&#x6BD4;&#x3079;&#x3066;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x9055;&#x3044;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot2</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
-  <span class="hljs-keyword">override</span> <span class="hljs-keyword">final</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> =</span> <span class="hljs-string">&quot;Robot2&quot;</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Greeter</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span></span>(): <span class="hljs-type">Unit</span> = greet()
+  <span class="hljs-keyword">override</span> <span class="hljs-keyword">final</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span> </span>= <span class="hljs-string">&quot;Robot2&quot;</span>
 }
 </code></pre>
 <p>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x306F;&#x5909;&#x308F;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
 <code>Robot2</code>&#x3082;&#x5148;&#x7A0B;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x3053;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x5074;&#x3084;&#x3001;&#x7D99;&#x627F;&#x3057;&#x305F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3084;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x306F;<code>Greeter</code>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x898B;&#x3048;&#x65B9;&#x306B;&#x9055;&#x3044;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span>:</span> <span class="hljs-type">Robot</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> r: <span class="hljs-type">Robot</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
 r: <span class="hljs-type">Robot</span> = <span class="hljs-type">Robot</span>
 </code></pre>
 <pre><code class="lang-scala">scala&gt; r.greet()
@@ -750,7 +733,7 @@ r: <span class="hljs-type">Robot</span> = <span class="hljs-type">Robot</span>
        r.greet()
          ^
 </code></pre>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">r</span>:</span> <span class="hljs-type">Robot2</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot2</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> r: <span class="hljs-type">Robot2</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Robot2</span> <span class="hljs-keyword">with</span> <span class="hljs-type">HelloGreeter</span>
 r: <span class="hljs-type">Robot2</span> = <span class="hljs-type">Robot2</span>
 
 scala&gt; r.greet()
@@ -760,57 +743,57 @@ scala&gt; r.greet()
 <p><code>Robot</code>&#x304C;&#x5229;&#x7528;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3042;&#x308B;<code>Greeter</code>&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5916;&#x304B;&#x3089;&#x547C;&#x3073;&#x51FA;&#x305B;&#x3066;&#x3057;&#x307E;&#x3046;&#x3053;&#x3068;&#x306F;&#x3042;&#x307E;&#x308A;&#x826F;&#x3044;&#x3053;&#x3068;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x70B9;&#x3067;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x30E1;&#x30EA;&#x30C3;&#x30C8;&#x304C;&#x3042;&#x308B;&#x3068;&#x8A00;&#x3048;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x9006;&#x306B;&#x5358;&#x306B;&#x4F9D;&#x5B58;&#x6027;&#x3092;&#x6CE8;&#x5165;&#x3067;&#x304D;&#x308C;&#x3070;&#x3088;&#x3044;&#x3068;&#x3044;&#x3046;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x3053;&#x306E;&#x52D5;&#x4F5C;&#x306F;&#x7169;&#x308F;&#x3057;&#x304F;&#x611F;&#x3058;&#x3089;&#x308C;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x3082;&#x3046;1&#x3064;&#x81EA;&#x5206;&#x578B;&#x306E;&#x7279;&#x5FB4;&#x3068;&#x3057;&#x3066;&#x306F;&#x578B;&#x306E;&#x5FAA;&#x74B0;&#x53C2;&#x7167;&#x3092;&#x8A31;&#x3059;&#x70B9;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x76F8;&#x4E92;&#x53C2;&#x7167;&#x3092;&#x8A31;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> {</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> </span>{
   self: <span class="hljs-type">Greeter</span> =&gt;
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span></span>: <span class="hljs-type">String</span>
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span></span>(): <span class="hljs-type">Unit</span> = greet()
 }
 
 <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;</span>
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> {</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> </span>{
   self: <span class="hljs-type">Robot</span> =&gt;
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(s<span class="hljs-string">&quot;My name is $name&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">s&quot;My name is <span class="hljs-subst">$name</span>&quot;</span>)
 }
 </code></pre>
 <p>&#x3053;&#x308C;&#x3092;&#x5148;&#x307B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D99;&#x627F;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x3067;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span>:</span> <span class="hljs-type">String</span>
+<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Greeter</span> </span>{
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span></span>: <span class="hljs-type">String</span>
      | 
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(</span>): <span class="hljs-type">Unit</span> = greet()
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span></span>(): <span class="hljs-type">Unit</span> = greet()
      | }
 &lt;console&gt;:<span class="hljs-number">16</span>: error: illegal inheritance;
- self-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Robot</span> <span class="hljs-title">does</span> <span class="hljs-title">not</span> <span class="hljs-title">conform</span> <span class="hljs-title">to</span> <span class="hljs-title">Greeter</span>&apos;<span class="hljs-title">s</span> <span class="hljs-title">selftype</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">Robot</span>
-</span>       <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Greeter</span> {</span>
+ self-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Robot</span> <span class="hljs-title">does</span> <span class="hljs-title">not</span> <span class="hljs-title">conform</span> <span class="hljs-title">to</span> <span class="hljs-title">Greeter</span>&apos;<span class="hljs-title">s</span> <span class="hljs-title">selftype</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword">with</span> <span class="hljs-title">Robot</span></span>
+       <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Greeter</span> </span>{
                            ^
 
 scala&gt; <span class="hljs-comment">// &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;</span>
-     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Robot</span> {</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(</span>): <span class="hljs-type">Unit</span> = println(s<span class="hljs-string">&quot;My name is $name&quot;</span>)
+     | <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Robot</span> </span>{
+     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">s&quot;My name is <span class="hljs-subst">$name</span>&quot;</span>)
      | }
 &lt;console&gt;:<span class="hljs-number">15</span>: error: illegal inheritance;
- self-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Greeter</span> <span class="hljs-title">does</span> <span class="hljs-title">not</span> <span class="hljs-title">conform</span> <span class="hljs-title">to</span> <span class="hljs-title">Robot</span>&apos;<span class="hljs-title">s</span> <span class="hljs-title">selftype</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-title">Greeter</span>
-</span>       <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">Robot</span> {</span>
+ self-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Greeter</span> <span class="hljs-title">does</span> <span class="hljs-title">not</span> <span class="hljs-title">conform</span> <span class="hljs-title">to</span> <span class="hljs-title">Robot</span>&apos;<span class="hljs-title">s</span> <span class="hljs-title">selftype</span> <span class="hljs-title">Robot</span> <span class="hljs-keyword">with</span> <span class="hljs-title">Greeter</span></span>
+       <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Greeter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Robot</span> </span>{
                              ^
 </code></pre>
 <p>&#x3057;&#x304B;&#x3057;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x5FAA;&#x74B0;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x578B;&#x69CB;&#x6210;&#x3092;&#x6709;&#x52B9;&#x306B;&#x4F7F;&#x3046;&#x306E;&#x306F;&#x96E3;&#x3057;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x3001;&#x7D99;&#x627F;&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3001;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x82E5;&#x5E72;&#x60A9;&#x307E;&#x3057;&#x3044;&#x554F;&#x984C;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x6A5F;&#x80FD;&#x7684;&#x306B;&#x306F;&#x7D99;&#x627F;&#x304C;&#x3042;&#x308C;&#x3070;&#x3088;&#x3044;&#x3068;&#x8A00;&#x3048;&#x307E;&#x3059;&#x304C;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x53EF;&#x8996;&#x6027;&#x306E;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3057;&#x3001;&#x81EA;&#x5206;&#x578B;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x304F;&#x306A;&#x308B;&#x52B9;&#x679C;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x5229;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x30C1;&#x30FC;&#x30E0;&#x3067;&#x76F8;&#x8AC7;&#x3059;&#x308B;&#x3068;&#x3088;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<h3 id="&#x843D;&#x3068;&#x3057;&#x7A74;&#xFF1A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="&#x843D;&#x3068;&#x3057;&#x7A74;&#xFF1A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#xFF08;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x843D;&#x3068;&#x3057;&#x7A74;&#xFF1A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#xFF08;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x843D;&#x3068;&#x3057;&#x7A74;&#xFF1A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
+<h3 id="&#x843D;&#x3068;&#x3057;&#x7A74;&#xFF1A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x843D;&#x3068;&#x3057;&#x7A74;&#xFF1A;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
 <p>Scala&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;<code>val</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x4F7F;&#x3046;&#x4E0A;&#x3067;&#x5927;&#x304D;&#x306A;&#x843D;&#x3068;&#x3057;&#x7A74;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x4F8B;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>A</code>&#x3067;&#x5909;&#x6570;<code>foo</code>&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>B</code>&#x304C;<code>foo</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5909;&#x6570;<code>bar</code>&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;&#x30AF;&#x30E9;&#x30B9;<code>C</code>&#x3067;<code>foo</code>&#x306B;&#x5024;&#x3092;&#x4EE3;&#x5165;&#x3057;&#x3066;&#x304B;&#x3089;<code>bar</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">foo</span>:</span> <span class="hljs-type">String</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> </span>{
+  <span class="hljs-keyword">val</span> foo: <span class="hljs-type">String</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">A</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">bar</span> =</span> foo + <span class="hljs-string">&quot;World&quot;</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span> </span>{
+  <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">&quot;World&quot;</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">B</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">foo</span> =</span> <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> </span>{
+  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">&quot;Hello&quot;</span>
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span>(</span>): <span class="hljs-type">Unit</span> = println(bar)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span></span>(): <span class="hljs-type">Unit</span> = println(bar)
 }
 </code></pre>
 <p>REPL&#x3067;&#x30AF;&#x30E9;&#x30B9;<code>C</code>&#x306E;<code>printBar</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
@@ -820,21 +803,21 @@ nullWorld
 <p><code>nullWorld</code>&#x3068;&#x8868;&#x793A;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x30AF;&#x30E9;&#x30B9;<code>C</code>&#x3067;<code>foo</code>&#x306B;&#x4EE3;&#x5165;&#x3057;&#x305F;&#x5024;&#x304C;&#x53CD;&#x6620;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x3088;&#x3046;&#x3067;&#x3059;&#x3002;&#x3069;&#x3046;&#x3057;&#x3066;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x304C;&#x8D77;&#x304D;&#x308B;&#x304B;&#x3068;&#x3044;&#x3046;&#x3068;&#x3001;Scala&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x304A;&#x3088;&#x3073;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306F;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x304B;&#x3089;&#x9806;&#x756A;&#x306B;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x4F8B;&#x3067;&#x8A00;&#x3048;&#x3070;&#x3001;&#x30AF;&#x30E9;&#x30B9;<code>C</code>&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>B</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>B</code>&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>A</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x521D;&#x671F;&#x5316;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>A</code>&#x304C;&#x4E00;&#x756A;&#x5148;&#x306B;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x3001;&#x5909;&#x6570;<code>foo</code>&#x304C;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x3001;&#x4E2D;&#x8EAB;&#x306F;&#x4F55;&#x3082;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;null&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x6B21;&#x306B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>B</code>&#x3067;&#x5909;&#x6570;<code>bar</code>&#x304C;&#x5BA3;&#x8A00;&#x3055;&#x308C;<code>null</code>&#x3067;&#x3042;&#x308B;<code>foo</code>&#x3068;&quot;World&quot;&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x304B;&#x3089;<code>&quot;nullWorld&quot;</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x304C;&#x4F5C;&#x3089;&#x308C;&#x3001;&#x5909;&#x6570;<code>bar</code>&#x306B;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x6587;&#x5B57;&#x5217;&#x306F;&#x3053;&#x308C;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x7C21;&#x5358;&#x306A;&#x4F8B;&#x306A;&#x3089;&#x6C17;&#x3065;&#x304D;&#x3084;&#x3059;&#x3044;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x4F3C;&#x305F;&#x3088;&#x3046;&#x306A;&#x5F62;&#x306E;&#x5927;&#x898F;&#x6A21;&#x306A;&#x4F8B;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x81EA;&#x5206;&#x578B;&#x3067;&#x7D39;&#x4ECB;&#x3057;&#x305F;&#x300C;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x300D;&#x306F;&#x3001;&#x4E0A;&#x4F4D;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3067;&#x5BA3;&#x8A00;&#x3057;&#x305F;&#x3082;&#x306E;&#x3092;&#x3001;&#x4E2D;&#x9593;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3067;&#x4F7F;&#x3044;&#x3001;&#x6700;&#x7D42;&#x7684;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x30DF;&#x30C3;&#x30AF;&#x30B9;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x624B;&#x6CD5;&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3082;&#x3046;&#x3063;&#x304B;&#x308A;&#x3059;&#x308B;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306A;&#x7F60;&#x3092;&#x8E0F;&#x3093;&#x3067;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;
 Scala&#x4E0A;&#x7D1A;&#x8005;&#x3067;&#x3082;&#x3084;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x304C;<code>val</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x306E;&#x7F60;&#x306A;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<h3 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;val&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;val&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#xFF08;&#x2605;&#x2605;&#xFF09;" class="plugin-anchor" href="#&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;val&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#xFF08;&#x2605;&#x2605;&#xFF09;"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;<code>val</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
+<h3 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;val&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#xFF08;&#x2605;&#x2605;&#xFF09;"><a name="undefined" class="plugin-anchor" href="#undefined"><span class="fa fa-link"></span></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;<code>val</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#xFF08;&#x2605;&#x2605;&#xFF09;</h3>
 <p>&#x3067;&#x306F;&#x3001;&#x3053;&#x306E;&#x7F60;&#x306F;&#x3069;&#x3046;&#x3084;&#x308C;&#x3070;&#x56DE;&#x907F;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x8A00;&#x3048;&#x3070;&#x3001;&#x4F7F;&#x3046;&#x524D;&#x306B;&#x3061;&#x3083;&#x3093;&#x3068;<code>foo</code>&#x304C;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001;<code>bar</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x3092;&#x9045;&#x5EF6;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x51E6;&#x7406;&#x3092;&#x9045;&#x5EF6;&#x3055;&#x305B;&#x308B;&#x306B;&#x306F;<code>lazy val</code>&#x304B;<code>def</code>&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x5177;&#x4F53;&#x7684;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">foo</span>:</span> <span class="hljs-type">String</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> </span>{
+  <span class="hljs-keyword">val</span> foo: <span class="hljs-type">String</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">A</span> {</span>
-  <span class="hljs-keyword">lazy</span> <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">bar</span> =</span> foo + <span class="hljs-string">&quot;World&quot;</span> <span class="hljs-comment">// &#x3082;&#x3057;&#x304F;&#x306F; def bar &#x3067;&#x3082;&#x3088;&#x3044;</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span> </span>{
+  <span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">&quot;World&quot;</span> <span class="hljs-comment">// &#x3082;&#x3057;&#x304F;&#x306F; def bar &#x3067;&#x3082;&#x3088;&#x3044;</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">B</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">foo</span> =</span> <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> </span>{
+  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">&quot;Hello&quot;</span>
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span>(</span>): <span class="hljs-type">Unit</span> = println(bar)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span></span>(): <span class="hljs-type">Unit</span> = println(bar)
 }
 </code></pre>
 <p>&#x5148;&#x307B;&#x3069;&#x306E;<code>nullWorld</code>&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3063;&#x305F;&#x4F8B;&#x3068;&#x9055;&#x3044;&#x3001;<code>bar</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x306B;<code>lazy val</code>&#x304C;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;<code>bar</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x304C;&#x5B9F;&#x969B;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x307E;&#x3067;&#x9045;&#x5EF6;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x9593;&#x306B;&#x30AF;&#x30E9;&#x30B9;<code>C</code>&#x3067;<code>foo</code>&#x304C;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x521D;&#x671F;&#x5316;&#x524D;&#x306E;<code>foo</code>&#x304C;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x306A;&#x304F;&#x306A;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
@@ -842,66 +825,82 @@ Scala&#x4E0A;&#x7D1A;&#x8005;&#x3067;&#x3082;&#x3084;&#x3063;&#x3066;&#x3057;&#x
 <pre><code class="lang-scala">scala&gt; (<span class="hljs-keyword">new</span> <span class="hljs-type">C</span>).printBar()
 <span class="hljs-type">HelloWorld</span>
 </code></pre>
-<p><code>lazy val</code>&#x306F;<code>val</code>&#x306B;&#x6BD4;&#x3079;&#x3066;&#x82E5;&#x5E72;&#x51E6;&#x7406;&#x304C;&#x91CD;&#x304F;&#x3001;<a href="https://gist.github.com/xuwei-k/7b2be9957222bcb8f184" target="_blank">&#x8907;&#x96D1;&#x306A;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3067;&#x30C7;&#x30C3;&#x30C9;&#x30ED;&#x30C3;&#x30AF;&#x304C;&#x767A;&#x751F;</a>&#x3059;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+<p><code>lazy val</code>&#x306F;<code>val</code>&#x306B;&#x6BD4;&#x3079;&#x3066;&#x82E5;&#x5E72;&#x51E6;&#x7406;&#x304C;&#x91CD;&#x304F;&#x3001;<a href="https://gist.github.com/xuwei-k/7b2be9957222bcb8f184" _target="blank">&#x8907;&#x96D1;&#x306A;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3067;&#x30C7;&#x30C3;&#x30C9;&#x30ED;&#x30C3;&#x30AF;&#x304C;&#x767A;&#x751F;</a>&#x3059;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
 <code>val</code>&#x306E;&#x304B;&#x308F;&#x308A;&#x306B;<code>def</code>&#x3092;&#x4F7F;&#x3046;&#x3068;&#x6BCE;&#x56DE;&#x5024;&#x3092;&#x8A08;&#x7B97;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x3044;&#x3046;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x4E21;&#x65B9;&#x3068;&#x3082;&#x5927;&#x304D;&#x306A;&#x554F;&#x984C;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;&#x5834;&#x5408;&#x304C;&#x591A;&#x3044;&#x306E;&#x3067;&#x3001;&#x7279;&#x306B;<code>val</code>&#x306E;&#x5024;&#x3092;&#x4F7F;&#x3063;&#x3066;<code>val</code>&#x306E;&#x5024;&#x3092;&#x4F5C;&#x308A;&#x51FA;&#x3059;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306F;<code>lazy val</code>&#x304B;<code>def</code>&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3092;&#x691C;&#x8A0E;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;<code>val</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x9806;&#x5E8F;&#x3092;&#x56DE;&#x907F;&#x3059;&#x308B;&#x3082;&#x3046;1&#x3064;&#x306E;&#x65B9;&#x6CD5;&#x3068;&#x3057;&#x3066;&#x306F;&#x4E8B;&#x524D;&#x5B9A;&#x7FA9;&#xFF08;Early Definitions&#xFF09;&#x3092;&#x4F7F;&#x3046;&#x65B9;&#x6CD5;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x4E8B;&#x524D;&#x5B9A;&#x7FA9;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x521D;&#x671F;&#x5316;&#x3092;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x3088;&#x308A;&#x5148;&#x306B;&#x304A;&#x3053;&#x306A;&#x3046;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">foo</span>:</span> <span class="hljs-type">String</span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">A</span> </span>{
+  <span class="hljs-keyword">val</span> foo: <span class="hljs-type">String</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> <span class="hljs-title">A</span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">bar</span> =</span> foo + <span class="hljs-string">&quot;World&quot;</span> <span class="hljs-comment">// val&#x306E;&#x307E;&#x307E;&#x3067;&#x3088;&#x3044;</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span> </span>{
+  <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">&quot;World&quot;</span> <span class="hljs-comment">// val&#x306E;&#x307E;&#x307E;&#x3067;&#x3088;&#x3044;</span>
 }
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span></span> {</span>
-  <span class="hljs-function"><span class="hljs-keyword">val</span> <span class="hljs-title">foo</span> =</span> <span class="hljs-string">&quot;Hello&quot;</span> <span class="hljs-comment">// &#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x521D;&#x671F;&#x5316;&#x306E;&#x524D;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x308B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword">extends</span> </span>{
+  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">&quot;Hello&quot;</span> <span class="hljs-comment">// &#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x521D;&#x671F;&#x5316;&#x306E;&#x524D;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x308B;</span>
 } <span class="hljs-keyword">with</span> <span class="hljs-type">B</span> {
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span>(</span>): <span class="hljs-type">Unit</span> = println(bar)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span></span>(): <span class="hljs-type">Unit</span> = println(bar)
 }
 </code></pre>
 <p>&#x4E0A;&#x8A18;&#x306E;<code>C</code>&#x306E;<code>printBar</code>&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3066;&#x3082;&#x6B63;&#x3057;&#x304F;<code>HelloWorld</code>&#x3068;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x4E8B;&#x524D;&#x5B9A;&#x7FA9;&#x306F;&#x5229;&#x7528;&#x5074;&#x304B;&#x3089;&#x306E;&#x56DE;&#x907F;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x4F8B;&#x306E;&#x5834;&#x5408;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>B</code>&#x306E;&#x307B;&#x3046;&#x306B;&#x554F;&#x984C;&#x304C;&#x3042;&#x308B;&#xFF08;&#x666E;&#x901A;&#x306B;&#x4F7F;&#x3046;&#x3068;&#x521D;&#x671F;&#x5316;&#x306E;&#x554F;&#x984C;&#x304C;&#x767A;&#x751F;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#xFF09;&#x306E;&#x3067;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>B</code>&#x306E;&#x307B;&#x3046;&#x3092;&#x4FEE;&#x6B63;&#x3057;&#x305F;&#x307B;&#x3046;&#x304C;&#x3044;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x554F;&#x984C;&#x306F;&#x7D99;&#x627F;&#x3055;&#x308C;&#x308B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x5074;&#x3067;&#x89E3;&#x6C7A;&#x3057;&#x305F;&#x307B;&#x3046;&#x304C;&#x826F;&#x3044;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;&#x4E8B;&#x524D;&#x5B9A;&#x7FA9;&#x306E;&#x6A5F;&#x80FD;&#x306F;&#x5B9F;&#x969B;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x306F;&#x3042;&#x307E;&#x308A;&#x898B;&#x308B;&#x3053;&#x3068;&#x306F;&#x306A;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <blockquote id="fn_1">
-<sup>1</sup>. &#x5C06;&#x6765;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x53D6;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x8A71;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059; <a href="http://docs.scala-lang.org/sips/pending/trait-parameters.html" target="_blank">http://docs.scala-lang.org/sips/pending/trait-parameters.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+<sup>1</sup>. &#x5C06;&#x6765;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x53D6;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x8A71;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059; <a href="http://docs.scala-lang.org/sips/pending/trait-parameters.html" _target="blank">http://docs.scala-lang.org/sips/pending/trait-parameters.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
 </blockquote>
 
-                    
-                    </section>
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
                 
-                
-                </div>
             </div>
-        </div>
 
-        
-        <a href="./object.html" class="navigation navigation-prev " aria-label="Previous page: オブジェクト"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="./type-parameter.html" class="navigation navigation-next " aria-label="Next page: 型パラメータと変位指定"><i class="fa fa-angle-right"></i></a>
+            
+                
+                <a href="object.html" class="navigation navigation-prev " aria-label="Previous page: オブジェクト">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="type-parameter.html" class="navigation navigation-next " aria-label="Next page: 型パラメータと変位指定">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
     </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"トレイト","level":"1.10","depth":1,"next":{"title":"型パラメータと変位指定","level":"1.11","depth":1,"path":"type-parameter.md","ref":"type-parameter.md","articles":[]},"previous":{"title":"オブジェクト","level":"1.9","depth":1,"path":"object.md","ref":"object.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"trait.md","mtime":"2016-06-15T05:45:25.828Z","type":"markdown"},"gitbook":{"version":"3.0.3","time":"2016-06-15T05:46:01.710Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
 </div>
 
         
-<script src="gitbook/app.js"></script>
-
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
     
-    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
-    
-
-    
-    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"include-codeblock":{},"japanese-support":{},"footnote-string-to-number":{},"anchors":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
-
         
-    </body>
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
     
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
 </html>
+
