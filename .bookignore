@@ -1,0 +1,2 @@
+# gitbookディレクトリが無視されているとSUMMARY.md等が読み込まれないので除外から外す
+!/gitbook
