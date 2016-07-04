@@ -42,8 +42,7 @@ class ClassD extends ClassA with ClassB
 ```
 
 上記の例では`ClassA`と`TraitA`と`TraitB`を継承した`ClassC`を作ることはできますが`ClassA`と`ClassB`を継承した`ClassD`は作ることができません。
-「class ClassB needs to be a trait to be mixed in」というエラーメッセージが出ますが、これは「`ClassB`をミックスインさせるためにはトレイトにする必要がある」という意味です。
-複数のクラスを継承させたい場合はクラスをトレイトにしましょう。
+「class ClassB needs to be a trait to be mixed in」というエラーメッセージが出ますが、これは「`ClassB`をミックスインさせるためにはトレイトにする必要がある」という意味です。複数のクラスを継承させたい場合はクラスをトレイトにしましょう。
 
 ### 直接インスタンス化できない
 
@@ -60,8 +59,8 @@ object ObjectA {
 }
 ```
 
-この制限は回避する方法がいくつかあります。1つはインスタンス化できるようにトレイトを継承したクラスを作ることです。
-もう1つはトレイトに実装を与えてインスタンス化する方法です。
+これは、トレイトが単体で使われることをそもそも想定していないための制限です。トレイトを使うときは、通常、それを継承した
+クラスを作ります。
 
 ```tut:silent
 trait TraitA
@@ -72,12 +71,8 @@ object ObjectA {
   // クラスにすればインスタンス化できる
   val a = new ClassA
 
-  // 実装を与えてもインスタンス化できる
-  val a2 = new TraitA {}
 }
 ```
-
-このように実際使う上では、あまり問題にならない制限でしょう。
 
 ### クラスパラメータ（コンストラクタの引数）を取ることができない
 
@@ -517,4 +512,4 @@ class C extends {
 この事前定義の機能は実際のコードではあまり見ることはないかもしれません。
 
 
-[^trait-param-sip]: 将来のバージョンでは、パラメータを取れるようになるかもしれないという話があります http://docs.scala-lang.org/sips/pending/trait-parameters.html
+[^trait-param-sip]: 次世代Scalaコンパイラである[Dotty](http://dotty.epfl.ch/)では、[トレイトがパラメータを取る](http://docs.scala-lang.org/sips/pending/trait-parameters.html)ことができます。
