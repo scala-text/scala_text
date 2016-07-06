@@ -306,7 +306,11 @@ List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 
 #### 練習問題
 
-`foldLeft`を用いて、`List`の要素を反転させるメソッド`reverse`を実装してみましょう。
+`foldLeft`を用いて、`List`の要素を反転させる次のシグニチャを持ったメソッド`reverse`を実装してみましょう：
+
+```tut:silent
+def reverse[T](list: List[T]): List[T] = ???
+```
 
 <!-- begin answer id="answer_ex3" style="display:none" -->
 
@@ -432,7 +436,11 @@ Scalaのコレクションのメソッドの中でも非常によく使われる
 
 #### 練習問題
 
-`map`メソッドを`foldLeft`と`reverse`を使って実装してみましょう。
+次のシグニチャを持つ`map`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
+
+```tut:silent
+def map[T, U](list: List[T])(f: T => U): List[U] = ???
+```
 
 <!-- begin answer id="answer_ex7" style="display:none" -->
 
