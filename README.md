@@ -8,9 +8,9 @@
 
 このテキストのコンパイル済み成果物は次の場所から入手できる。
 
-- HTML版：http://dwango.github.io/scala_text/
-- PDF版：https://y-yu.github.io/scala_text_pdf/scala_text.pdf
-- EPUB版：http://dwango.github.io/scala_text/scala_text.epub
+- HTML版：https://dwango.github.io/scala_text/
+- PDF版：https://dwango.github.io/scala_text_pdf/scala_text.pdf
+- EPUB版：https://dwango.github.io/scala_text/scala_text.epub
 
 ## 目的
 
