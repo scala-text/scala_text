@@ -463,7 +463,11 @@ List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 
 #### 練習問題
 
-`filter`メソッドを`foldLeft`と`reverse`を使って実装してみましょう。
+次のシグニチャを持つ`filter`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
+
+```tut:silent
+def filter[T](list: List[T])(f: T => Boolean): List[T] = ???
+```
 
 <!-- begin answer id="answer_ex8" style="display:none" -->
 
@@ -505,7 +509,11 @@ List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 
 #### 練習問題
 
-`count`メソッドを`foldLeft`を使って実装してみましょう。
+次のシグニチャを持つ`count`メソッドを`foldLeft`を使って実装してみましょう：
+
+```tut:silent
+def count(list: List[Int])(f: Int => Boolean): Int = ???
+```
 
 <!-- begin answer id="answer_ex9" style="display:none" -->
 
@@ -526,7 +534,7 @@ def count(list: List[Int])(f: Int => Boolean): Int  = {
 final def flatMap[B](f: (A) ⇒ GenTraversableOnce[B]): List[B]
 ```
 
-となります。ここで、`GenTraversableOnce[B]`という変わった型が出てきていますが、ここではあらゆるコレクションを入れることが
+となります。ここで、`GenTraversableOnce[B]`という変わった型が出てきていますが、ここではあらゆるコレクション（要素の型はB型である）を入れることが
 できる型程度に考えてください。さて、flatMapの引数fの型は`(A) => GenTraversableOnce[B]`です。`flatMap`はこれを使って、各
 要素にfを適用して、結果の要素からなるコレクションを分解してListの要素にします。これについては、実際に見た方が早いでしょう。
 
