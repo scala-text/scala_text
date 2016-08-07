@@ -411,7 +411,7 @@ v1.flatMap(i1 => v2.flatMap(i2 => v3.map(i3 => i1 * i2 * i3)))
 
 #### 練習問題 {#error_handling_ex2}
 
-`flatMap`を利用して、
+`flatMap`と`map`を利用して、
 `Some(2)`と`Some(3)`と`Some(5)`と`Some(7)`と`Some(11)`の値をかけて、`Some(2310)`を求めてみましょう。
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
