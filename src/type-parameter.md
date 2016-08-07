@@ -167,7 +167,7 @@ val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
 
 ### 演習問題
 
-次の*immutable*な*Stack*型の定義（途中）があります。`???`の箇所を埋めて、*Stack*の定義を完成させなさい。なお、`E >: T`は、`E`は`T`の継承元である、という制約を表しています。また、`Nothing`は全ての型のサブクラスであるような型を表現します。`Stack[T]`は共変なので、`Stack[Nothing]`はどんな型の`Stack`変数にでも格納することができます。
+次の*immutable*な*Stack*型の定義（途中）があります。`???`の箇所を埋めて、*Stack*の定義を完成させなさい。なお、`E >: T`は、`E`は`T`の継承元である、という制約を表しています。
 
 ```tut:silent
 trait Stack[+T] {
@@ -191,6 +191,14 @@ case object EmptyStack extends Stack[Nothing] {
 object Stack {
   def apply(): Stack[Nothing] = EmptyStack
 }
+```
+
+また、`Nothing`は全ての型のサブクラスであるような型を表現します。`Stack[T]`は共変なので、`Stack[Nothing]`はどんな型の`Stack`変数にでも格納することができます。
+例えば`Stack[Nothing]`型である`EmptyStack`は、`Stack[Int]`型の変数と`Stack[String]`型の変数の両方に代入することができます。
+
+```tut
+val intStack: Stack[Int] = Stack()
+val stringStack: Stack[String] = Stack()
 ```
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
