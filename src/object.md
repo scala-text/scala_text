@@ -74,8 +74,10 @@ weightを`private`にした場合、
 class Person(name: String, age: Int, private val weight: Int)
 
 object Hoge {
-  val taro = new Person("Taro", 20, 70)
-  println(taro.weight)
+  def printWeight(): Unit = {
+    val taro = new Person("Taro", 20, 70)
+    println(taro.weight)
+  }
 }
 ```
 
@@ -86,8 +88,10 @@ object Hoge {
 class Person(name: String, age: Int, private val weight: Int)
 
 object Person {
-  val taro = new Person("Taro", 20, 70)
-  println(taro.weight)
+  def printWeight(): Unit = {
+    val taro = new Person("Taro", 20, 70)
+    println(taro.weight)
+  }
 }
 ```
 
