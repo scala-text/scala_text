@@ -232,8 +232,8 @@ for-comprehensionと呼ぶことがあります。
 <!-- begin answer id="answer_ex3" style="display:none" -->
 
 ```tut:silent
-for(a <- 1 to 1000; b <- 1 to 1000; c <- 1 to 1000) {
-  if(a * a == b * b + c * c) println((a, b, c))
+for(a <- 1 to 1000; b <- 1 to 1000; c <- 1 to 1000 if a * a == b * b + c * c) {
+  println((a, b, c))
 }
 ```
 
