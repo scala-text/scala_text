@@ -512,13 +512,13 @@ List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 次のシグニチャを持つ`count`メソッドを`foldLeft`を使って実装してみましょう：
 
 ```tut:silent
-def count(list: List[Int])(f: Int => Boolean): Int = ???
+def count[T](list: List[T])(f: T => Boolean): Int = ???
 ```
 
 <!-- begin answer id="answer_ex9" style="display:none" -->
 
 ```tut:silent
-def count(list: List[Int])(f: Int => Boolean): Int  = {
+def count[T](list: List[T])(f: T => Boolean): Int  = {
   list.foldLeft(0){(x, y) => if(f(y)) x + 1 else x}
 }
 ```
