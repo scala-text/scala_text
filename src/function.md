@@ -191,7 +191,44 @@ around(
 3. 後始末処理
 
 のそれぞれを部品化して、「何らかの処理」の部分で異常が発生しても必ず後始末処理を実行できています。この`around`メソッドは1〜3の手順を踏む様々な処理に流用することができます。一方、1〜3のそれぞれは呼び出し側で自由に与えることができます。このように処理を*値*として*部品化*することは高階関数を定義する大きなメリットの1つです。
+Java 7では後始末処理を自動化するtry-with-resources文が言語として取り入れられましたが、高階関数のある言語では、言語に頼らず自分でそのような働きをするメソッドを定義することができます。
 
-ちなみに、Java 7では後始末処理を自動化するtry-with-resources文が言語として取り入れられましたが、高階関数のある言語では、言語に頼らず自分でそのような働きをするメソッドを定義することができます。
+なお`around`のように高階関数を利用してリソースの後始末を行うパターンはローンパターンと呼ばれています。
+ローンパターンは例えば以下の`withFile`のような形で利用されることが多いです。
 
-後のコレクションの節を読むことで、高階関数のメリットをより具体的に理解できるようになるでしょう。
+```tut
+import scala.io.Source
+def withFile[A](filename: String)(f: Source => A): A = {
+  val s = Source.fromFile(filename)
+  try {
+    f(s)
+  } finally {
+    s.close()
+  }
+}
+```
+
+ファイル以外でも、何かリソースを取得して処理が終わったら確実に解放したいケースではローンパターンを利用することが出来ます。
+
+### 練習問題
+
+`withFile`メソッドを使って、次のようなシグネチャを持つテキストファイルの中身を一行ずつ表示する関数`printFile`を実装してみましょう。
+
+```tut:silent
+def printFile(filename: String): Unit = ???
+```
+
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut:silent
+def printFile(filename: String): Unit = {
+  withFile(filename) { file =>
+    file.getLines.foreach(println)
+  }
+}
+```
+
+<!-- end answer -->
+
+ここでは高階関数の利用例を簡単に紹介しました。
+後のコレクションの節を読むことで、高階関数のメリットをさらに理解できるようになるでしょう。
