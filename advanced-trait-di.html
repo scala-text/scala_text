@@ -419,9 +419,6 @@
 <p><a href="https://github.com/dwango/scala_text/tree/master/src/example_projects/trait-refactored-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x5F8C;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
 <h2 id="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;"><a name="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;" class="plugin-anchor" href="#&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;</h2>
 <p>&#x4ECA;&#x56DE;&#x306F;&#x4ECA;&#x307E;&#x3067;&#x3088;&#x308A;&#x5B9F;&#x8DF5;&#x7684;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x767B;&#x9332;&#x3068;&#x8A8D;&#x8A3C;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;<code>UserService</code>&#x3068;&#x3044;&#x3046;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;</p>
-<blockquote>
-<p><a id="build.sbt" href="example_projects/trait-example/build.sbt">build.sbt</a></p>
-</blockquote>
 <pre><code class="lang-scala">scalaVersion := <span class="hljs-string">&quot;2.11.8&quot;</span>
 
 libraryDependencies ++= <span class="hljs-type">Seq</span>(
@@ -429,9 +426,6 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
   <span class="hljs-string">&quot;org.mindrot&quot;</span>     %  <span class="hljs-string">&quot;jbcrypt&quot;</span>     % <span class="hljs-string">&quot;0.3m&quot;</span>
 )
 </code></pre>
-<blockquote>
-<p><a id="User.scala" href="example_projects/trait-example/src/main/scala/domain/User.scala">User.scala</a></p>
-</blockquote>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>(<span class="hljs-params">id: <span class="hljs-type">Long</span>, name: <span class="hljs-type">String</span>, hashedPassword: <span class="hljs-type">String</span></span>)</span>
@@ -441,9 +435,6 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
     <span class="hljs-type">User</span>(<span class="hljs-number">0</span>L, name, hashedPassword)
 }
 </code></pre>
-<blockquote>
-<p><a id="UserService.scala" href="example_projects/trait-example/src/main/scala/domain/UserService.scala">UserService.scala</a></p>
-</blockquote>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">import</span> org.mindrot.jbcrypt.<span class="hljs-type">BCrypt</span>
@@ -586,9 +577,6 @@ Java&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3068;&#x5
 <code>UserService</code>&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&#x3068;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;&#x3092;&#x304A;&#x3053;&#x306A;&#x3046;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ED8;&#x968F;&#x3057;&#x3066;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x5316;&#x3057;&#x305F;&#x308A;&#x3001;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3082;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x306F;<code>UserService</code>&#x4EE5;&#x5916;&#x3067;&#x3082;&#x4F7F;&#x3044;&#x305F;&#x3044;&#x30B1;&#x30FC;&#x30B9;&#x304C;&#x51FA;&#x3066;&#x304F;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x91CD;&#x8981;&#x306A;&#x64CD;&#x4F5C;&#x3092;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;&#x518D;&#x5EA6;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3055;&#x305B;&#x3001;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x3001;1&#x3064;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x8907;&#x6570;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x5206;&#x5272;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x8003;&#x3048;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x3042;&#x305F;&#x3089;&#x3057;&#x304F;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x3060;&#x3051;&#x3092;&#x6301;&#x3064;<code>PasswordService</code>&#x3068;<code>PasswordServiceImpl</code>&#x3092;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
-<blockquote>
-<p><a id="PasswordService.scala" href="example_projects/trait-refactored-example/src/main/scala/domain/PasswordService.scala">PasswordService.scala</a></p>
-</blockquote>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">import</span> org.mindrot.jbcrypt.<span class="hljs-type">BCrypt</span>
@@ -629,9 +617,6 @@ Java&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3068;&#x5
 </code></pre>
 <p>&#x3053;&#x308C;&#x3067;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x3092;&#x5206;&#x96E2;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x5206;&#x96E2;&#x3057;&#x305F;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x306F;&#x5225;&#x306E;&#x7528;&#x9014;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;&#x3082;<code>UserRepository</code>&#x3068;&#x3057;&#x3066;&#x5206;&#x96E2;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
-<blockquote>
-<p><a id="UserRepository.scala" href="example_projects/trait-refactored-example/src/main/scala/domain/UserRepository.scala">UserRepository.scala</a></p>
-</blockquote>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">import</span> scalikejdbc._
@@ -866,9 +851,6 @@ UserServiceImpl --|> UserService
 <p>&#x6700;&#x5F8C;&#x306B;&#x3001;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308A;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x305F;&#x3053;&#x3068;&#x3067;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x304C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x3063;&#x305F;&#x306E;&#x3067;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x3053;&#x3053;&#x3067;&#x306F;<code>register</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;2&#x3064;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x304C;&#x6709;&#x52B9;&#x306B;&#x6A5F;&#x80FD;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x306F;&#x5F15;&#x304D;&#x7D9A;&#x304D;&#x3001;ScalaTest&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<blockquote>
-<p><a id="UserServiceSpec.scala" href="example_projects/trait-refactored-example/src/test/scala/domain/UserServiceSpec.scala">UserServiceSpec.scala</a></p>
-</blockquote>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">import</span> org.scalatest._
@@ -925,7 +907,7 @@ UserServiceImpl --|> UserService
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.22","depth":1,"previous":{"title":"S99の案内","level":"1.21","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"advanced-trait-di.md","mtime":"2016-08-09T14:53:01.861Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-08-09T14:55:43.524Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.22","depth":1,"previous":{"title":"S99の案内","level":"1.21","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"advanced-trait-di.md","mtime":"2016-08-18T03:48:19.198Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-08-18T03:51:03.259Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
