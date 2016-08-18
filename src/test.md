@@ -135,7 +135,7 @@ version := "1.0"
 
 scalaVersion := "2.11.8"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 
 ```
 
@@ -145,8 +145,8 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.6/scalatest_2.11-2.2.6.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.11;2.2.6!scalatest_2.11.jar(bundle) (10199ms)
+[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.11/3.0.0/scalatest_2.11-3.0.0.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.11;3.0.0!scalatest_2.11.jar(bundle) (10199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2015/04/09 16:48:42
 ```
