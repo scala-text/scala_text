@@ -407,7 +407,7 @@ libraryDependencies += "org.mockito" % "mockito-core" % "1.10.19" % "test"
 ```tut:silent
 import org.scalatest.{FlatSpec, DiagrammedAssertions}
 import org.scalatest.concurrent.Timeouts
-import org.scalatest.mock.MockitoSugar
+import org.scalatest.mockito.MockitoSugar
 import org.mockito.Mockito._
 
 class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with MockitoSugar {
