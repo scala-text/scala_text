@@ -237,8 +237,8 @@ object CompositeFutureSample extends App {
   val futureSecond: Future[Int] = Future { waitRandom("second") }
 
   val compositeFuture: Future[(Int, Int)] = for {
-    first: Int <- futureFirst
-    second: Int <- futureSecond
+    first <- futureFirst
+    second <- futureSecond
   } yield (first, second)
 
   compositeFuture onComplete  {
