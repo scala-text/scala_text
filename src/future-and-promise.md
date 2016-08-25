@@ -324,9 +324,12 @@ class FutureSomething {
 object CallbackFuture extends App {
   val futureSomething = new FutureSomething
 
+  val iFuture = futureSomething.doSomething()
+  val jFuture = futureSomething.doSomething()
+
   for {
-    i <- futureSomething.doSomething()
-    j <- futureSomething.doSomething()
+    i <- iFuture
+    j <- jFuture
   } yield println(s"$i, $j")
 }
 ```
@@ -334,8 +337,8 @@ object CallbackFuture extends App {
 「Promiseには成功/失敗した時の値を設定できる」「PromiseからFutureを作ることが出来る」という２つの性質を利用して、
 callbackをFutureにすることができました。
 
-コールバックを使った非同期処理は今回のような例に限らず、Httpクライアントで非同期リクエストを行う場合などで必要になることがあります。
-柔軟なエラー処理が必要な場合、コールバックよりFutureの方が有利な場面があるため、Promiseを使って変換可能であることを覚えておくとよいでしょう。
+callbackを使った非同期処理は今回のような例に限らず、Httpクライアントで非同期リクエストを行う場合などで必要になることがあります。
+柔軟なエラー処理が必要な場合、callbackよりFutureの方が有利な場面があるため、Promiseを使って変換可能であることを覚えておくとよいでしょう。
 
 ### 演習： カウントダウンラッチ
 
