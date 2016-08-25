@@ -267,7 +267,7 @@ object CompositeFutureSample extends App {
 
 [Promise](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Promise)とは、
 
-一度だけ、成功あるいは失敗を表す、処理または値を設定することによって、Futureに変換することのできるクラスです。 Promiseは、一見可変オブジェクトのような振る舞いをします。なかなかわかりにくいかと思いますので、実際にサンプルコードを示します。
+成功あるいは失敗を表す値を設定することによってFutureに変換することのできるクラスです。 実際にサンプルコードを示します。
 
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -293,49 +293,49 @@ object PromiseSample extends App {
 `promiseGetInt.success(1).future`を`promiseGetInt.future`のように成功結果を与えないような処理にした場合には、
 onCompleteが呼ばれることはないため、何も出力されません。
 
-なおこの1度だけしか結果が適用されないという特性を活かして、Futureを組み合わせてものが実装できます。
-複数successが定義される場合には、successメソッドの場合にtrySuccessというPromiseのメソッドを利用します。
-successを利用して複数回成功した値を定義した場合には、例外`IllegalStateException`が投げられます。
-では早速実装例を見てみましょう。
+次にPromiseのよくある使い方の例として、callbackを指定するタイプの非同期処理をラップしてFutureを返すパターンを紹介します。
 
+下記の例では、CallBackSomethingをラップしたFutureSomethingを定義しています。 `doSomething` の中でPromiseが使われていることに注目してください。
 
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Future, Promise}
 import scala.util.{Failure, Random, Success}
 
-object PromiseFutureCompositionSample extends App {
+class CallbackSomething {
   val random = new Random()
-  val promiseGetInt: Promise[Int] = Promise[Int]
 
-  val firstFuture: Future[Int] = Future {
-    Thread.sleep(100)
-    1
+  def doSomething(onSuccess: Int => Unit, onFailure: Throwable => Unit): Unit = {
+    val i = random.nextInt(10)
+    if(i < 5) onSuccess(i) else onFailure(new RuntimeException(i.toString))
   }
-  firstFuture.onSuccess{ case i => promiseGetInt.trySuccess(i)}
+}
 
-  val secondFuture: Future[Int] = Future {
-    Thread.sleep(200)
-    2
+class FutureSomething {
+  val callbackSomething = new CallbackSomething
+
+  def doSomething(): Future[Int] = {
+    val promise = Promise[Int]
+    callbackSomething.doSomething(i => promise.success(i), t => promise.failure(t))
+    promise.future
   }
-  secondFuture.onSuccess{ case i => promiseGetInt.trySuccess(i)}
+}
 
-  val futureGetInt: Future[Int] = promiseGetInt.future
+object CallbackFuture extends App {
+  val futureSomething = new FutureSomething
 
-  futureGetInt.onComplete {
-    case Success(i) => println(s"Success! i: ${i}")
-    case Failure(t) => println(s"Failure! t: ${t.getMessage}")
-  }
-
-  Thread.sleep(1000)
+  for {
+    i <- futureSomething.doSomething()
+    j <- futureSomething.doSomething()
+  } yield println(s"$i, $j")
 }
 ```
 
-結果は必ず、`Success! i: 1`が表示されます。
-100ミリ秒待って1を返すfirstFutureと、200ミリ秒待って2を返す`secondFuture`が定義されています。
-時系列的に、`firstFuture`がほとんどの場合promiseのfutureを完成させる役割をします。そのため必ず出力結果は1となるわけです。
-Promiseは、このように非同期の結果を受け取ったり組み合わせたりするためのプレースホルダとしての部品の役割を果たしています。
+「Promiseには成功/失敗した時の値を設定できる」「PromiseからFutureを作ることが出来る」という２つの性質を利用して、
+callbackをFutureにすることができました。
 
+コールバックを使った非同期処理は今回のような例に限らず、Httpクライアントで非同期リクエストを行う場合などで必要になることがあります。
+柔軟なエラー処理が必要な場合、コールバックよりFutureの方が有利な場面があるため、Promiseを使って変換可能であることを覚えておくとよいでしょう。
 
 ### 演習： カウントダウンラッチ
 
