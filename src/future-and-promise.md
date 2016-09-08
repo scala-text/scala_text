@@ -272,10 +272,9 @@ object CompositeFutureSample extends App {
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Promise, Future}
-import scala.util.{Success, Failure, Random}
+import scala.util.{Success, Failure}
 
 object PromiseSample extends App {
-  val random = new Random()
   val promiseGetInt: Promise[Int] = Promise[Int]
 
   val futureGetInt: Future[Int] = promiseGetInt.success(1).future
