@@ -9,7 +9,7 @@ Scala IDE for Eclipseの2種類がありますが、IntelliJ IDEAの方がIDEと
 適宜コードをIDEのエディタに貼り付けて実行するなどしてください。
 
 IntelliJ IDEAは[JetBrains社](https://www.jetbrains.com/)が開発しているIDEで、Java用
-IDEとして根強い人気を誇っています。有料だが多機能のUltimate Editionやオープンソース
+IDEとして根強い人気を誇っています。有料ですが多機能のUltimate Editionやオープンソース
 で無料のCommunity Editionがあります。Community Editionでも、Scalaプラグインをインストール
 することでScala開発をすることができるので、本稿ではCommunity Editionをインストール
 してもらいます。
