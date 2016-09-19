@@ -33,3 +33,21 @@ cp -r ../../_book/* ./${TRAVIS_BRANCH}/
 git add .
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT $TRAVIS_BRANCH"
 git push origin gh-pages:gh-pages
+cd ..
+
+if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
+  git checkout -qf $TRAVIS_COMMIT
+  openssl aes-256-cbc -k "$PDF_KEY" -in travis_deploy_pdf_key.enc -d -a -out pdf.key
+  cp pdf.key ~/.ssh/
+  chmod 600 ~/.ssh/pdf.key
+  echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/pdf.key\n" > ~/.ssh/config
+  git clone git@github.com:dwango/scala_text_pdf.git
+  cd scala_text_pdf
+  git submodule update --init
+  cd scala_text
+  git pull origin master
+  cd ..
+  git add scala_text
+  git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT"
+  git push origin master
+fi
