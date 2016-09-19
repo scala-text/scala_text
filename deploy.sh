@@ -28,7 +28,7 @@ echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/previe
 git clone git@github.com:dwango/scala_text_previews.git
 cd scala_text_previews
 rm -rf ./${TRAVIS_BRANCH}
-mkdir ${TRAVIS_BRANCH}
+mkdir -p ${TRAVIS_BRANCH}
 cp -r ../../_book/* ./${TRAVIS_BRANCH}/
 git add .
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT $TRAVIS_BRANCH"
