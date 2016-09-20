@@ -234,10 +234,16 @@ List(1, 2, 3, 4, 5).mkString("[", ",", "]")
 `mkString`を使って、最初の数`start`と最後の数`end`を受け取って、
 
 ```
-start,...,end
+start,(start+1),(start+2)...,end
 ```
 
 となるような文字列を返すメソッド`joinByComma`を定義してみましょう（ヒント：`Range` にも`mkString`メソッドはあります）。
+
+例
+
+```scala
+joinByComma(1,5)  // 1,2,3,4,5
+```
 
 ```tut:silent
 def joinByComma(start: Int, end: Int): String = {

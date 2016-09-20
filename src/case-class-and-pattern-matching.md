@@ -201,6 +201,20 @@ def depth(tree: Tree): Int = ???
 ```scala
 depth(Empty) == 0
 depth(Branch(10, Empty, Empty)) == 1
+depth(Branch(10, Branch(20,
+                    Empty,
+                    Empty
+                 ), Empty)) == 2
+// 右のBranchの方が、左のBranchよりも深い
+depth(Branch(10, Branch(20,
+                    Empty,
+                    Empty
+                 ), Branch(30,
+                    Branch(40,
+                        Empty,
+                        Empty
+                    ),
+                 Empty))) == 3
 ```
 
 です。
