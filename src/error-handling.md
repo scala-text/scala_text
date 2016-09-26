@@ -228,9 +228,9 @@ o.getOrElse(throw new RuntimeException("nullは受け入れられません"))
 ```tut
 val s: Option[String] = Some("hoge")
 
-s match {
-  case Some(str) => println(str)
-  case None => throw new RuntimeException
+val result = s match {
+  case Some(str) => str
+  case None => "not matched"
 }
 ```
 
