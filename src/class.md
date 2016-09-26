@@ -7,8 +7,8 @@
 Scalaにおけるクラスは、記法を除けばJava言語のクラスと大して変わりません。Scalaのクラス定義はおおまかには次のような形を取ります。
 
 ```scala
-class クラス名(コンストラクタ引数1 :コンストラクタ引数1の型, コンストラクタ引数2 :コンストラクタ引数2の型, ...) {
-  0個以上のフィールドの定義またはメソッド定義
+class ClassName(parameter1: Type1, parameter2: Type2, ...) {
+  (a field or method definition)*
 }
 ```
 
@@ -54,15 +54,15 @@ class Point(val x: Int, val y: Int) {
 先ほど既にメソッド定義の例として`+`メソッドの定義が出てきましたが、一般的には、
 
 ```scala
-(private[this]/protected[package名]) def メソッド名(引数名1: 引数1の型, 引数名2: 引数2の型, ...): 返り値の型 = {
-  本体のコード
+(private[this]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = {
+  ???
 }
 ```
 
 という形をとります。ちなみに、メソッド本体が1つの式だけからなる場合は、
 
 ```scala
-(private[this]/protected[package名]) def メソッド名(引数名1: 引数1の型, 引数名2: 引数2の型, ...): 返り値の型 = 本体のコード
+(private[this]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = ???
 ```
 
 と書けます（実際には、こちらの方が基本形で、`= {}`を使ったスタイルの方が`{}`内に複数の式を並べて書けることを利用
@@ -92,7 +92,7 @@ p1 + p2
 メソッドは以下のように複数の引数リストを持つように定義することができます。
 
 ```scala
-def メソッド名(引数名1: 型名1, 引数名2: 型名2, ...)(引数名N: 型名N, ..., 引数名M: 型名M): 返り値型 = 本体
+def methodName(parameter11: Type11, parameter12: Type12, ...)(...)(parameterN1: TypeN1, ..., parameterNM: TypeNM): RerurnType = ???
 ```
 
 複数の引数リストを持つメソッドには、Scalaの糖衣構文と組み合わせて流暢なAPIを作ったり、後述するimplicit parameterのために必要になったり、
@@ -119,7 +119,7 @@ adder.add(2) _
 フィールド定義は
 
 ```scala
-(private/protected) (val/var) フィールド名: フィールドの型 = フィールドに代入される値の式
+(private/protected) (val/var) fieldName: Type = Expression
 ```
 
 という形を取ります。`val`の場合は変更不能、`var`の場合は変更可能なフィールドになります。また、`private`を付けるとその
@@ -141,7 +141,7 @@ Scalaではトレイトという仕組みで複数の実装の継承を実現し
 Scalaでのクラスの継承は次のような構文になります。
 
 ```scala
-class (....) extends 継承元クラス {
+class SubClass(....) extends SuperClass {
   ....
 }
 ```
