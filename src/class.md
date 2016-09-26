@@ -8,7 +8,7 @@ Scalaにおけるクラスは、記法を除けばJava言語のクラスと大�
 
 ```scala
 class ClassName(parameter1: Type1, parameter2: Type2, ...) {
-  (a field or method definition)*
+  (a field or method definition)の0回以上の繰り返し
 }
 ```
 
