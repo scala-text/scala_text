@@ -592,7 +592,7 @@ Eitherの左右が平等に扱われると考えた場合、mapメソッドは�
 - 暗黙的に左右どちらかのうち片方を優先し、そちらに関数を適用する（たとえばRightが正常な値になることが多いならRightを暗黙的に優先するとか）
 - 明示的に左右どちらを優先するか指定する
 
-前者はHaskellのアプローチで、後者がScalaのアプローチになります。
+前者はHaskellのアプローチで、後者がScalaのアプローチになります[^scala-212-either]。
 上記のEitherのメソッドに`left`と`right`というものがありました。
 これが左右どちらを優先するのか決めるメソッドです。
 
@@ -891,3 +891,4 @@ Eitherではfor式を直接つかえないので`.right`というメソッドで
 for式が利用できる形に変換しています。そのあと、mergeメソッドにより中身を畳み込んで取得しています。
 
 [^product-with-serializable]: Scala2.11以前だと`Product with Serializable with scala.util.Either`というような変な型になりますが、実用上問題ないので、ひとまず気にしなくてよいです。この変な型になる問題はScala2.12以降では修正されています。 https://github.com/scala/scala/pull/4355 https://issues.scala-lang.org/browse/SI-9173
+[^scala-212-either]: 今年リリース予定のScala 2.12では、Haskellと同じようにRight優先になります。
