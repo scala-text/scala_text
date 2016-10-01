@@ -1,4 +1,4 @@
-# Javaとの相互運用（★★★）
+# Javaとの相互運用
 
 ## ScalaとJava
 

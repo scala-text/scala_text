@@ -7,7 +7,7 @@
 
 本章で紹介する型クラスを絡めたScalaでのプログラミングについて詳しく知りたい場合は[Scala関数型デザイン＆プログラミング](http://book.impress.co.jp/books/1114101091)を読みましょう。
 
-## Functor（★★）
+## Functor
 
 前章に登場した`List`や`Option`には、`map`という関数が共通して定義されていました。
 この`map`関数がある規則を満たす場合はFunctor型クラスとして抽象化できます[^hkind]。
@@ -52,7 +52,7 @@ identityLaw(n)
 compositeLaw(n, (i: Int) => i * i, (i: Int) => i.toString)
 ```
 
-## Applicative Functor（★★）
+## Applicative Functor
 
 複数の値が登場する場合にはFunctorでは力不足です。
 そこで、複数の引数を持つ関数と値を組み合わせて1つの値を作りだせる機能を提供するApplicative Functorが登場します。
@@ -124,7 +124,7 @@ interchangeLaw(af, 1)
 OptionApplicative.map(a)(_ + 1) == OptionFunctor.map(a)(_ + 1)
 ```
 
-## Monad（★★）
+## Monad
 
 ある値を受け取りその値を包んだ型を返す関数をApplicative Functorで扱おうとすると、型がネストしてしまい平坦化できません。
 このネストする問題を解決するためにMonadと呼ばれる型クラスを用います。
@@ -192,7 +192,7 @@ leftIdentityLaw(1, f)
 associativeLaw(fa, f, g)
 ```
 
-## Monoid（★★）
+## Monoid
 
 2つの同じ型を結合する機能を持ち、更にゼロ値を知る型クラスはMonoidと呼ばれています。
 

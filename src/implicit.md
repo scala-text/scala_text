@@ -5,7 +5,7 @@ Scalaには、他の言語にはあまり見られない、implicit conversion�
 なお、本当は、implicit conversionとimplicit parameterは相互に関係がある2つの機能なのですが、今回学習する
 範囲では意識する必要がないと思われるので、2つの独立した機能として学びます。
 
-## Implicit Conversion（★★★）
+## Implicit Conversion
 
 implicit conversionは暗黙の型変換機能をユーザが定義できるようにする機能です。
 
@@ -115,7 +115,7 @@ Taps.main(Array())
 [Scala標準ライブラリ](http://www.scala-lang.org/api/current/index.html)の中からpimp my libraryが使われている例を（先ほど挙げた
 ものを除いて）1つ以上見つけてください。
 
-## Implicit Parameter（★★★）
+## Implicit Parameter
 
 implicit parameterは主として2つの目的で使われます。1つの目的は、あちこちのメソッドに共通で引き渡されるオブジェクト（たとえば、
 ソケットやデータベースのコネクションなど）を明示的に引き渡すのを省略するために使うものです。これは例で説明すると非常に簡単に
