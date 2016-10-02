@@ -1,4 +1,4 @@
-# sbtでプログラムをコンパイル・実行する（★★）
+# sbtでプログラムをコンパイル・実行する
 
 ```tut:invisible
 import sbt._, syntax._, Keys._

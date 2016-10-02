@@ -22,7 +22,7 @@ mutableなコレクションを効果的に使えばプログラムの実行速�
 - `Map`(immutable)・`Map`(mutable)
 - `Set`(immutable)・ `Set`(mutable)
 
-## [Array](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/Array.scala)（★★）
+## [Array](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/Array.scala)
 
 まずは大抵のプログラミング言語にある配列です。
 
@@ -96,7 +96,7 @@ arr
 
 <!-- end answer -->
 
-### [Range](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/Range.scala)（★★）
+### [Range](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/Range.scala)
 
 `Range`は範囲を表すオブジェクトです。`Range`は直接名前を指定して生成するより、`to`メソッドと`until`メソッドを用いて呼びだすことが多いです。また、`toList`メソッドを用いて、その範囲の数値の列を後述する`List`に変換することができます。では、早速REPLで`Range`を使ってみましょう。
 
@@ -112,7 +112,7 @@ arr
 
 `to`は右の被演算子を含む範囲を、`until`は右の被演算子を含まない範囲を表していることがわかります。また、`Range`は`toList`で後述する`List`に変換することができることもわかります。
 
-### [List](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/List.scala)（★★★）
+### [List](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/List.scala)
 
 さて、導入として大抵の言語にある`Array`を出しましたが、Scalaでは`Array`を使うことはそれほど多くありません。代わりに`List`や
 `Vector`といったデータ構造をよく使います（`Vector`については後述します）。`List`の特徴は、一度作成したら中身を
@@ -186,7 +186,7 @@ List(1, 2).++(List(3, 4))
 
 と同じ意味です。大きな`List`同士を連結する場合、計算量が大きくなるのでその点には注意した方が良いです。
 
-### mkString：文字列のフォーマッティング（★★★）
+### mkString：文字列のフォーマッティング
 
 このメソッドはScalaで非常に*頻繁に使用され*皆さんも、Scalaを使って
 いく上で使う機会が多いであろうメソッドです。このメソッドは引数によって多重定義されており、3バージョンあるので
@@ -265,7 +265,7 @@ joinByComma(1, 10)
 
 <!-- end answer -->
 
-### foldLeft：左からの畳み込み（★★★）
+### foldLeft：左からの畳み込み
 
 `foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)から引用すると、
 
@@ -338,7 +338,7 @@ Testing.test(arbitrary[List[Int]]){ list =>
 
 <!-- end answer -->
 
-### foldRight：右からの畳み込み（★★）
+### foldRight：右からの畳み込み
 
 `foldLeft`が`List`の左からの畳み込みだったのに対して、`foldRight`は右からの畳込みです。`foldRight`の宣言を
 [ScalaのAPIドキュメントから](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
@@ -428,7 +428,7 @@ def mkString[T](list: List[T])(sep: String): String = list match {
 
 <!-- end answer -->
 
-### map：各要素を加工した新しい`List`を返す（★★★）
+### map：各要素を加工した新しい`List`を返す
 
 `map`メソッドは、1引数の関数を引数に取り、各要素に関数を適用した結果できた要素からなる新たな`List`を返します。
 ためしに`List(1, 2, 3, 4, 5)`の各要素を2倍してみましょう。
@@ -458,7 +458,7 @@ def map[T, U](list: List[T])(f: T => U): List[U] = {
 
 <!-- end answer -->
 
-### filter：条件に合った要素だけを抽出した新しい`List`を返す（★★★）
+### filter：条件に合った要素だけを抽出した新しい`List`を返す
 
 `filter`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、各要素に関数を適用し、`true`になった要素のみを抽出した
 新たな`List`を返します。`List(1, 2, 3, 4, 5)`から奇数だけを抽出してみましょう。
@@ -485,7 +485,7 @@ def filter[T](list: List[T])(f: T => Boolean): List[T] = {
 
 <!-- end answer -->
 
-### find：条件に合った最初の要素を返す（★★★）
+### find：条件に合った最初の要素を返す
 
 `find`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、各要素に前から順番に関数を適用し、最初にtrueになった要素を
 `Some`でくるんだ値を`Option`型として返します。1つの要素もマッチしなかった場合`None`を`Option`型として返します。
@@ -497,7 +497,7 @@ List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 
 後で説明されることになりますが、`Option`型はScalaプログラミングの中で重要な要素であり頻出します。
 
-### takeWhile：先頭から条件を満たしている間を抽出する（★★）
+### takeWhile：先頭から条件を満たしている間を抽出する
 
 `takeWhile`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、前から順番に関数を適用し、結果が`true`の間のみからなる`List`を返します。`List(1, 2, 3, 4, 5)`の5より前の4要素を抽出してみます。
 
@@ -505,7 +505,7 @@ List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 List(1, 2, 3, 4, 5).takeWhile(x => x != 5)
 ```
 
-### count：`List`の中で条件を満たしている要素の数を計算する（★★）
+### count：`List`の中で条件を満たしている要素の数を計算する
 
 `count`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、全ての要素に関数を適用して、`true`が返ってきた要素の数を計算します。例として`List(1, 2, 3, 4, 5)`の中から偶数の数（2になるはず）を計算してみます。
 
@@ -531,7 +531,7 @@ def count[T](list: List[T])(f: T => Boolean): Int  = {
 
 <!-- end answer -->
 
-### flatMap：`List`をたいらにする（★★★）
+### flatMap：`List`をたいらにする
 
 `flatMap`は一見少し変わったメソッドですが、後々重要になってくるメソッドなので説明しておきます。flatMapの
 宣言は[ScalaのAPIドキュメントから](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
@@ -570,7 +570,7 @@ col1.flatMap{x => col2.map{y => z}}
 のシンタックスシュガーだったのです。すなわち、ある自分で定義したデータ型に`flatMap`と`map`を（適切に）実装すれば
 for構文の中で使うことができるのです。
 
-#### Listの性能特性（★★★）
+#### Listの性能特性
 
 `List`の性能特性として、`List`の先頭要素へのアクセスは高速にできる反面、要素へのランダムアクセスや末尾へのデータの追加は
 `List`の長さに比例した時間がかかってしまうということが挙げられます。`List`は関数型プログラミング言語で最も基本的なデータ
@@ -586,11 +586,11 @@ List(1, 2, 3, 4)
 List(1, 2, 3, 4) :+ 5 // 注意！末尾への追加は、Listの要素数分かかる
 ```
 
-### 紹介したメソッドについて（★）
+### 紹介したメソッドについて
 
 `mkString`をはじめとした`List`の色々なメソッドを紹介してきましたが、実はこれらの大半は`List`特有ではなく、既に紹介した`Range`や`Array`、これから紹介する他のコレクションでも同様に使うことができます。何故ならばこれらの操作の大半は特定のコレクションではなく、コレクションのスーパータイプである共通のトレイト中に宣言されているからです。もちろん、`List`に要素を加える処理と`Set`に要素を加える処理（`Set`に既にある要素は加えない）のように、中で行われる処理が異なることがあるので、その点は注意する必要があります。詳しくは[ScalaのAPIドキュメント](http://www.scala-lang.org/api/current/index.html)を探索してみましょう。
 
-### [Vector](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/Vector.scala)（★★★）
+### [Vector](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/collection/immutable/Vector.scala)
 
 `Vector`は少々変わったデータ構造です。`Vector`は一度データ構造を構築したら変更できないimmutableなデータ構造
 です。要素へのランダムアクセスや長さの取得、データの挿入や削除、いずれの操作も十分に高速にできる比較的
@@ -606,7 +606,7 @@ Vector(1, 2, 3, 4, 5) :+ 6
 Vector(1, 2, 3, 4, 5).updated(2, 5)
 ```
 
-## Map（★★★）
+## Map
 
 `Map`はキーから値へのマッピングを提供するデータ構造です。他の言語では辞書や連想配列と呼ばれたりします。
 Scalaでは`Map`として一度作成したら変更できないimmutableな`Map`と変更可能なmutableな`Map`の2種類を提供しています。
@@ -641,7 +641,7 @@ m("B") = 5 // B -> 5 のマッピングに置き換える
 m // 変更が反映されている
 ```
 
-## Set（★）
+## Set
 
 `Set`は値の集合を提供するデータ構造です。`Set`の中では同じ値が2つ以上存在しません。たとえば、`Int`の`Set`の中には1が2つ以上含まれていてはいけません。REPLで`Set`を作成するための式を入力すると、
 
@@ -681,7 +681,7 @@ s -= 5 // 5 を削除したら
 s // 変更が反映される
 ```
 
-### その他資料（★）
+### その他資料
 
 さらにコレクションライブラリについて詳しく知りたい場合は、以下の公式のドキュメントなどを読みましょう
 <http://docs.scala-lang.org/ja/overviews/collections/introduction.html>
