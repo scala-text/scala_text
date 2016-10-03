@@ -764,7 +764,7 @@ object MainBefore {
 
   sealed abstract class PostalCodeResult
   case class Success(postalCode: String) extends PostalCodeResult
-  abstract class Failure extends PostalCodeResult
+  sealed abstract class Failure extends PostalCodeResult
   case object UserNotFound extends Failure
   case object UserNotHasAddress extends Failure
   case object AddressNotFound extends Failure
