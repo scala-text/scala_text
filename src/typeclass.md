@@ -28,6 +28,12 @@ def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(implicit F: Fu
   F.map(fa)(f2 compose f1) == F.map(F.map(fa)(f1))(f2)
 ```
 
+なお、`identity`は次のように定義されます。
+
+```tut:silent
+def identity[A](a: A): A = a
+```
+
 例として、Option型でFunctor型クラスのインスタンスを定義し、前述の規則を満たすかどうか調べてみましょう。
 
 ```tut
