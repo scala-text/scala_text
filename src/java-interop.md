@@ -314,7 +314,6 @@ Comparator<? super String> cmp = new Comparator<Object>() {
 
 ```tut
 import java.util.{List => JList, ArrayList => JArrayList}
-import java.util.{List=>JList, ArrayList=>JArrayList}
 
 val objects: JList[_ <: Object] = new JArrayList[String]()
 ```
