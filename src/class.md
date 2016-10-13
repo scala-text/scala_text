@@ -54,7 +54,7 @@ class Point(val x: Int, val y: Int) {
 先ほど既にメソッド定義の例として`+`メソッドの定義が出てきましたが、一般的には、
 
 ```scala
-(private[this]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = {
+(private[this/package名]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = {
   ???
 }
 ```
@@ -62,13 +62,16 @@ class Point(val x: Int, val y: Int) {
 という形をとります。ちなみに、メソッド本体が1つの式だけからなる場合は、
 
 ```scala
-(private[this]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = ???
+(private[this/package名]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = ???
 ```
 
 と書けます（実際には、こちらの方が基本形で、`= {}`を使ったスタイルの方が`{}`内に複数の式を並べて書けることを利用
 した派生形になりますが、前者のパターンを使うことが多いでしょう）。
 
-返り値の型は省略しても特別な場合以外型推論してくれますが、読みやすさのために、返り値の型は明記する習慣を付けるようにしましょう。また、`private`を付けるとそのクラス内だけから、`protected`を付けるとそのクラスの派生クラスからのみアクセスできるフィールドになります。さらに、 `private[this]` をつけると、同じオブジェクトからのみ、 `protected[パッケージ名]` をつけると、追加で同じパッケージに所属しているもの全てからアクセスできるようになります。`private`も`protected`も付けない場合、そのフィールドはpublicとみなされます。
+返り値の型は省略しても特別な場合以外型推論してくれますが、読みやすさのために、返り値の型は明記する習慣を付けるようにしましょう。`private`を付けるとそのクラス内だけから、
+`protected`を付けると派生クラスからのみアクセスできるフィールドになります。 `private[this]` をつけると、同じオブジェクトからのみアクセス可能になります。また、
+`private[package名]`を付けると同一パッケージに所属しているものからのみ、 `protected[package名]` をつけると、派生クラスに加えて追加で同じパッケージに所属しているもの
+全てからアクセスできるようになります。`private`も`protected`も付けない場合、そのメソッドはpublicとみなされます。
 
 先ほど定義した`Point`クラスをREPLから使ってみましょう。
 
@@ -119,12 +122,19 @@ adder.add(2) _
 フィールド定義は
 
 ```scala
-(private/protected) (val/var) fieldName: Type = Expression
+(private[this/package名]/protected[package名]) (val/var) fieldName: Type = Expression
 ```
 
 という形を取ります。`val`の場合は変更不能、`var`の場合は変更可能なフィールドになります。また、`private`を付けるとその
-クラス内だけから、`protected`を付けるとそのクラスの派生クラスからのみアクセスできるフィールドになります。`private`
-も`protected`も付けない場合、そのフィールドはpublicとみなされます。
+クラス内だけから、`protected`を付けるとそのクラスの派生クラスからのみアクセスできるフィールドになります。 `private[this]` を
+付加すると、同じオブジェクトからのみアクセス可能になります。さらに、`private[package名]`を付けると同一パッケージからのみ、
+`protected[package名]` をつけると、派生クラスに加えて同じパッケージに所属しているもの全てからアクセスできるようになります。
+`private`も`protected`も付けない場合、そのフィールドはpublicとみなされます。
+
+`private[this]`を付けたフィールドへのアクセスは一般にJVMレベルでのフィールドへの直接アクセスになるため、若干高速です。細かいレベル
+でのパフォーマンスチューニングをする際は意識すると良いでしょう。
+
+先ほど定義した`Point`クラスをREPLから使ってみましょう。
 
 ## 継承
 
