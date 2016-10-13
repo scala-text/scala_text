@@ -283,3 +283,52 @@ val list = buffer.asJava
 ```
 
 <!-- end answer -->
+
+#### ワイルドカードと存在型
+
+Javaでは、
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+List<? extends Object> objects = new ArrayList<String>();
+```
+
+のようにして、クラス宣言時には不変であった型パラメータを共変にしたり、
+
+
+```java
+import java.util.Comparator;
+Comparator<? super String> cmp = new Comparator<Object>() {
+  public int compare(Object o1, Object o2) {
+    return o1.hashCode() - o2.hashCode();
+  }
+};
+```
+
+のようにして反変にすることができます。ここで、`? extends Object` の部分を共変ワイルドカード、
+`? super String`の部分を反変ワイルドカードと呼びます。より一般的には、このような機能を、利用側で
+変性を定義するという意味でuse-site varianceと呼びます。
+
+この機能に対応するものとして、Scalaには存在型があります。上記のJavaコードは、Scalaでは次のコードで表現することができます。
+
+```tut
+import java.util.{List => JList, ArrayList => JArrayList}
+
+val objects: JList[_ <: Object] = new JArrayList[String]()
+```
+
+```tut
+import java.util.{Comparator => JComparator}
+
+val cmp: JComparator[_ >: String] = new JComparator[Any] {
+  override def compare(o1: Any, o2: Any): Int = {
+    o1.hashCode() - o2.hashCode()
+  }
+}
+```
+
+より一般的には、`G<? extends T>` は `G[_ <: T]`に、`G<? super T>`は `G[_ >: T]` に置き換えることができます。Scalaのプログラム
+開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変性、
+つまりdeclaration-site varianceを使うべきであって、Javaと関係ない部分においてこの機能を使うのはプログラムをわかりにくくするため、
+避けるべきです。
