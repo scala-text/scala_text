@@ -28,6 +28,14 @@
 でなければ理解できないといったことはありません。ただし、本資料は1つ以上のプログラミング言語でアプリケーションを
 作れることを最低限の前提にしていますので、その点留意ください。
 
+## フィードバック
+* 誤字・脱字の指摘や修正、および明確な技術的誤りの指摘や修正：
+  * [scala_text](https://github.com/dwango/scala_text)のissue欄およびpull requestへ
+* それ以外の改善要望や感想：
+  * [専用issue](https://github.com/dwango/scala_text/issues/235)へ
+
+よろしくお願いいたします。
+
 ## ライセンス
 
 本文書は、[CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.ja)

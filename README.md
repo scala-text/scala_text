@@ -138,6 +138,13 @@ PATH=node_modules/.bin:$PATH
 sbt textBuildEpub
 ```
 
+## フィードバック
+
+* 誤字・脱字の指摘や修正、および明確な技術的誤りの指摘や修正：
+  * [scala_text](https://github.com/dwango/scala_text)のissue欄およびpull requestへ
+* それ以外の改善要望や感想：
+  * [専用issue](https://github.com/dwango/scala_text/issues/235)へ
+
 ## ライセンス
 
 本文書は、[CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.ja)
