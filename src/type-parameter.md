@@ -13,24 +13,24 @@ class クラス名[型パラメータ1, 型パラメータ2, ..., 型パラメ�
 `型パラメータ1`から`型パラメータN`までは好きな名前を付け、クラス定義の中で使うことができます。とりあえず、簡単な例として、1個の要素を保持して、要素を入れる（`put`する）か取りだす（`get`する）操作ができるクラス`Cell`を定義してみます。`Cell`の定義は次のようになります。
 
 ```tut:silent
-class Cell[T](var value: T) {
-  def put(newValue: T): Unit = {
+class Cell[A](var value: A) {
+  def put(newValue: A): Unit = {
     value = newValue
   }
   
-  def get(): T = value
+  def get(): A = value
 }
 ```
 
 これをREPLで使ってみましょう。
 
 ```scala
-scala> class Cell[T](var value: T) {
-     |   def put(newValue: T): Unit = {
+scala> class Cell[A](var value: A) {
+     |   def put(newValue: A): Unit = {
      |     value = newValue
      |   }
      |   
-     |   def get(): T = value
+     |   def get(): A = value
      | }
 defined class Cell
 
@@ -64,8 +64,8 @@ val cell = new Cell[Int](1)
 という選択肢しかありませんでした。しかし、前者は引数を返り値に使うという点で邪道ですし、後者の方法は多数の引数を返したい、あるいは解く問題上で意味のある名前の付けられるクラスであれば良いですが、ただ2つの値を返したいといった場合には小回りが効かず不便です。こういう場合、型パラメータを2つ取る`Pair`クラスを作ってしまいます。```Pair```クラスの定義は次のようになります。`toString`メソッドの定義は後で表示のために使うだけなので気にしないでください。
 
 ```tut:silent
-class Pair[T1, T2](val t1: T1, val t2: T2) {
-  override def toString(): String = "(" + t1 + "," + t2 + ")"
+class Pair[A, B](val a: A, val b: B) {
+  override def toString(): String = "(" + a + "," + b + ")"
 }
 ```
 
@@ -78,8 +78,8 @@ def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
 これらをREPLにまとめて流し込むと次のようになります。
 
 ```tut
-class Pair[T1, T2](val t1: T1, val t2: T2) {
-  override def toString(): String = "(" + t1 + "," + t2 + ")"
+class Pair[A, B](val a: A, val b: B) {
+  override def toString(): String = "(" + a + "," + b + ")"
 }
 
 def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
@@ -113,28 +113,28 @@ val n = 3
 
 ## 共変（covariant）
 
-Scalaでは、何も指定しなかった型パラメータは通常は非変（invariant）になります。非変というのは、型パラメータを持ったクラス`G`、型パラメータ`T1`と`T2`があったとき、`T1` = `T2`のときにのみ
+Scalaでは、何も指定しなかった型パラメータは通常は非変（invariant）になります。非変というのは、型パラメータを持ったクラス`G`、型パラメータ`A`と`B`があったとき、`A` = `B`のときにのみ
 
 ```
-val : G[T1] = G[T2]
+val : G[A] = G[B]
 ```
 
 というような代入が許されるという性質を表します。これは、違う型パラメータを与えたクラスは違う型になることを考えれば自然な性質です。ここであえて非変について言及したのは、Javaの組み込み配列クラスは標準で非変ではなく共変であるという設計ミスを犯しているからです。
 
-ここでまだ共変について言及していなかったので、簡単に定義を示しましょう。共変というのは、型パラメータを持ったクラス`G`、型パラメータ`T1`と`T2`があったとき、`T1` が `T2` を継承しているときにのみ、
+ここでまだ共変について言及していなかったので、簡単に定義を示しましょう。共変というのは、型パラメータを持ったクラス`G`、型パラメータ`A`と`B`があったとき、`A` が `B` を継承しているときにのみ、
 
 ```
-val : G[T2] = G[T1]
+val : G[B] = G[A]
 ```
 
 というような代入が許される性質を表します。Scalaでは、クラス定義時に
 
 ```tut:silent
-class G[+T]
+class G[+A]
 ```
 のように型パラメータの前に`+`を付けるとその型パラメータは（あるいはそのクラスは）共変になります。
 
-このままだと定義が抽象的でわかりづらいかもしれないので、具体的な例として配列型を挙げて説明します。配列型はJavaでは共変なのに対してScalaでは非変であるという点において、面白い例です。まずはJavaの例です。`G` = 配列、 `T1` = `String`, `T2` = `Object`として読んでください。
+このままだと定義が抽象的でわかりづらいかもしれないので、具体的な例として配列型を挙げて説明します。配列型はJavaでは共変なのに対してScalaでは非変であるという点において、面白い例です。まずはJavaの例です。`G` = 配列、 `A` = `String`, `B` = `Object`として読んでください。
 
 ```java
 Object[] objects = new String[1];
@@ -153,11 +153,11 @@ scala> val arr: Array[Any] = new Array[String](1)
 ```
 このような結果になるのは、Scalaでは配列は非変だからです。静的型付き言語の型安全性とは、コンパイル時により多くのプログラミングエラーを捕捉するものであるとするなら、配列の設計はScalaの方がJavaより型安全であると言えます。
 
-さて、Scalaでは型パラメータを共変にした時点で、安全ではない操作はコンパイラがエラーを出してくれるので安心ですが、共変をどのような場合に使えるかを知っておくのは意味があります。たとえば、先ほど作成したクラス`Pair[T1, T2]`について考えてみましょう。`Pair[T1, T2]`は一度インスタンス化したら、変更する操作ができませんから、`ArrayStoreException`のような例外は起こり得ません。実際、`Pair[T1, T2]`は安全に共変にできるクラスで、`class Pair[+T1, +T2]`のようにしても問題が起きません。
+さて、Scalaでは型パラメータを共変にした時点で、安全ではない操作はコンパイラがエラーを出してくれるので安心ですが、共変をどのような場合に使えるかを知っておくのは意味があります。たとえば、先ほど作成したクラス`Pair[A, B]`について考えてみましょう。`Pair[A, B]`は一度インスタンス化したら、変更する操作ができませんから、`ArrayStoreException`のような例外は起こり得ません。実際、`Pair[A, B]`は安全に共変にできるクラスで、`class Pair[+A, +B]`のようにしても問題が起きません。
 
 ```tut
-class Pair[+T1, +T2](val t1: T1, val t2: T2) {
-  override def toString(): String = "(" + t1 + "," + t2 + ")"
+class Pair[+A, +B](val a: A, val b: B) {
+  override def toString(): String = "(" + a + "," + b + ")"
 }
 
 val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
@@ -167,20 +167,20 @@ val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
 
 ### 演習問題
 
-次の*immutable*な*Stack*型の定義（途中）があります。`???`の箇所を埋めて、*Stack*の定義を完成させなさい。なお、`E >: T`は、`E`は`T`の継承元である、という制約を表しています。
+次の*immutable*な*Stack*型の定義（途中）があります。`???`の箇所を埋めて、*Stack*の定義を完成させなさい。なお、`E >: A`は、`E`は`A`の継承元である、という制約を表しています。
 
 ```tut:silent
-trait Stack[+T] {
-  def push[E >: T](e: E): Stack[E]
-  def top: T
-  def pop: Stack[T]
+trait Stack[+A] {
+  def push[E >: A](e: E): Stack[E]
+  def top: A
+  def pop: Stack[A]
   def isEmpty: Boolean
 }
 
-class NonEmptyStack[+T](private val first: T, private val rest: Stack[T]) extends Stack[T] {
-  def push[E >: T](e: E): Stack[E] = ???
-  def top: T = ???
-  def pop: Stack[T] = ???
+class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extends Stack[A] {
+  def push[E >: A](e: E): Stack[E] = ???
+  def top: A = ???
+  def pop: Stack[A] = ???
   def isEmpty: Boolean = ???
 }
 
@@ -196,7 +196,7 @@ object Stack {
 }
 ```
 
-また、`Nothing`は全ての型のサブクラスであるような型を表現します。`Stack[T]`は共変なので、`Stack[Nothing]`はどんな型の`Stack`変数にでも格納することができます。
+また、`Nothing`は全ての型のサブクラスであるような型を表現します。`Stack[A]`は共変なので、`Stack[Nothing]`はどんな型の`Stack`変数にでも格納することができます。
 例えば`Stack[Nothing]`型である`EmptyStack`は、`Stack[Int]`型の変数と`Stack[String]`型の変数の両方に代入することができます。
 
 ```tut
@@ -207,10 +207,10 @@ val stringStack: Stack[String] = Stack()
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
 ```tut:silent
-class NonEmptyStack[+T](private val first: T, private val rest: Stack[T]) extends Stack[T] {
-  def push[E >: T](e: E): Stack[E] = new NonEmptyStack[E](e, this)
-  def top: T = first
-  def pop: Stack[T] = rest
+class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extends Stack[A] {
+  def push[E >: A](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def top: A = first
+  def pop: Stack[A] = rest
   def isEmpty: Boolean = false
 }
 ```
@@ -219,27 +219,27 @@ class NonEmptyStack[+T](private val first: T, private val rest: Stack[T]) extend
 
 ## 反変（contravariant）
 
-次は共変とちょうど対になる性質である反変です。簡単に定義を示しましょう。反変というのは、型パラメータを持ったクラス`G`、型パラメータ`T1`と`T2`があったとき、`T1` が `T2` を継承しているときにのみ、
+次は共変とちょうど対になる性質である反変です。簡単に定義を示しましょう。反変というのは、型パラメータを持ったクラス`G`、型パラメータ`A`と`B`があったとき、`A` が `B` を継承しているときにのみ、
 
 ```
-val : G[T1] = G[T2]
+val : G[A] = G[B]
 ```
 
 というような代入が許される性質を表します。Scalaでは、クラス定義時に
 
 ```tut:silent
-class G[-T]
+class G[-A]
 ```
 のように型パラメータの前に`-`を付けるとその型パラメータは（あるいはそのクラスは）反変になります。
 
-反変の例として最もわかりやすいものの1つが関数の型です。たとえば、型`T1`と`T2`があったとき、
+反変の例として最もわかりやすいものの1つが関数の型です。たとえば、型`A`と`B`があったとき、
 
 ```scala
-val x1: T1 => AnyRef = T2 => AnyRef型の値
+val x1: A => AnyRef = B => AnyRef型の値
 x1(T1型の値)
 ```
 
-というプログラムの断片が成功するためには、`T1`が`T2`を継承する必要があります。その逆では駄目です。仮に、`T1 = String`, `T2 = AnyRef` として考えてみましょう。
+というプログラムの断片が成功するためには、`A`が`B`を継承する必要があります。その逆では駄目です。仮に、`A = String`, `B = AnyRef` として考えてみましょう。
 
 ```scala
 val x1: String => AnyRef = AnyRef => AnyRef型の値
@@ -247,7 +247,7 @@ x1(String型の値)
 ```
 
 ここで`x1`に実際に入っているのは`AnyRef => AnyRef`型の値であるため、
-引数として`String`型の値を与えても、`AnyRef`型の引数に`String`型の値を与えるのと同様であり、問題なく成功します。`T1`と`T2`が逆で、`T1 = AnyRef`, `T2 = String`の場合、`String`型の引数に`AnyRef`型の値を与えるのと同様になってしまうので、これは`x1`へ値を代入する時点でコンパイルエラーになるべきであり、実際にコンパイルエラーになります。
+引数として`String`型の値を与えても、`AnyRef`型の引数に`String`型の値を与えるのと同様であり、問題なく成功します。`A`と`B`が逆で、`A = AnyRef`, `B = String`の場合、`String`型の引数に`AnyRef`型の値を与えるのと同様になってしまうので、これは`x1`へ値を代入する時点でコンパイルエラーになるべきであり、実際にコンパイルエラーになります。
 
 実際にREPLで試してみましょう。
 
@@ -282,12 +282,12 @@ x1: String => AnyRef = <function1>
 abstract class Show {
   def show: String
 }
-class ShowablePair[T1 <: Show, T2 <: Show](val t1: T1, val t2: T2) extends Show {
-  override def show: String = "(" + t1.show + "," + t2.show + ")"
+class ShowablePair[A <: Show, B <: Show](val a: A, val b: B) extends Show {
+  override def show: String = "(" + a.show + "," + b.show + ")"
 }
 ```
 
-ここで、型パラメータ`T1`、`T2`ともに上限境界として`Show`が指定されているため、`t1`と`t2`に対して`show`を呼び出すことが
+ここで、型パラメータ`A`、`B`ともに上限境界として`Show`が指定されているため、`a`と`b`に対して`show`を呼び出すことが
 できます。なお、上限境界を明示的に指定しなかった場合、`Any`が指定されたものとみなされます。
 
 ### 下限境界（lower bounds）
@@ -298,10 +298,10 @@ class ShowablePair[T1 <: Show, T2 <: Show](val t1: T1, val t2: T2) extends Show 
 まず、共変の練習問題であったような、イミュータブルな`Stack`クラスを定義します。この`Stack`は共変にしたいとします。
 
 ```tut:fail:silent
-abstract class Stack[+E]{
-  def push(element: E): Stack[E]
-  def top: E
-  def pop: Stack[E]
+abstract class Stack[+A]{
+  def push(element: E): Stack[A]
+  def top: A
+  def pop: Stack[A]
   def isEmpty: Boolean
 }
 ```
@@ -309,26 +309,26 @@ abstract class Stack[+E]{
 しかし、この定義は、以下のようなコンパイルエラーになります。
 
 ```
-error: covariant type E occurs in contravariant position in type E of value element
-         def push(element: E): Stack[E]
+error: covariant type A occurs in contravariant position in type A of value element
+         def push(element: A): Stack[A]
                            ^
 ```
 
-このコンパイルエラーは、共変な型パラメータ`E`が反変な位置（反変な型パラメータが出現できる箇所）に出現したということを
+このコンパイルエラーは、共変な型パラメータ`A`が反変な位置（反変な型パラメータが出現できる箇所）に出現したということを
 言っています。一般に、引数の位置に共変型パラメータ`E`の値が来た場合、型安全性が壊れる可能性があるため、このようなエラーが
 出ます。しかし、この`Stack`は配列と違ってイミュータブルであるため、本来ならば型安全性上の問題は起きません。この問題に
-対処するために型パラメータの下限境界を使うことができます。型パラメータ`F`を`push`に追加し、その下限境界として、`Stack`
-の型パラメータ`E`を指定します。
+対処するために型パラメータの下限境界を使うことができます。型パラメータ`E`を`push`に追加し、その下限境界として、`Stack`
+の型パラメータ`A`を指定します。
 
 ```tut:silent
-abstract class Stack[+E]{
-  def push[F >: E](element: F): Stack[F]
-  def top: E
-  def pop: Stack[E]
+abstract class Stack[+A]{
+  def push[E >: A](element: E): Stack[E]
+  def top: A
+  def pop: Stack[A]
   def isEmpty: Boolean
 }
 ```
 
-このようにすることによって、コンパイラは、`Stack`には`E`の任意のスーパータイプの値が入れられる可能性があることがわかるように
-なります。そして、型パラメータ`F`は共変ではないため、どこに出現しても構いません。このようにして、下限境界を利用して、型安全な
+このようにすることによって、コンパイラは、`Stack`には`A`の任意のスーパータイプの値が入れられる可能性があることがわかるように
+なります。そして、型パラメータ`E`は共変ではないため、どこに出現しても構いません。このようにして、下限境界を利用して、型安全な
 `Stack`と共変性を両立することができます。
