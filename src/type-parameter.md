@@ -171,20 +171,23 @@ val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
 
 ```tut:silent
 trait Stack[+T] {
-  def pop: (T, Stack[T])
   def push[E >: T](e: E): Stack[E]
+  def top: T
+  def pop: Stack[T]
   def isEmpty: Boolean
 }
 
-class NonEmptyStack[+T](private val top: T, private val rest: Stack[T]) extends Stack[T] {
+class NonEmptyStack[+T](private val first: T, private val rest: Stack[T]) extends Stack[T] {
   def push[E >: T](e: E): Stack[E] = ???
-  def pop: (T, Stack[T]) = ???
+  def top: T = ???
+  def pop: Stack[T] = ???
   def isEmpty: Boolean = ???
 }
 
 case object EmptyStack extends Stack[Nothing] {
-  def pop: Nothing = throw new IllegalArgumentException("empty stack")
   def push[E >: Nothing](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def top: Nothing = throw new IllegalArgumentException("empty stack")
+  def pop: Nothing = throw new IllegalArgumentException("empty stack")
   def isEmpty: Boolean = true
 }
 
@@ -204,9 +207,10 @@ val stringStack: Stack[String] = Stack()
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
 ```tut:silent
-class NonEmptyStack[+T](private val top: T, private val rest: Stack[T]) extends Stack[T] {
+class NonEmptyStack[+T](private val first: T, private val rest: Stack[T]) extends Stack[T] {
   def push[E >: T](e: E): Stack[E] = new NonEmptyStack[E](e, this)
-  def pop: (T, Stack[T]) = (top, rest)
+  def top: T = first
+  def pop: Stack[T] = rest
   def isEmpty: Boolean = false
 }
 ```
