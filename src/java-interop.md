@@ -308,7 +308,7 @@ Comparator<? super String> cmp = new Comparator<Object>() {
 
 のようにして反変にすることができます。ここで、`? extends Object` の部分を共変ワイルドカード、
 `? super String`の部分を反変ワイルドカードと呼びます。より一般的には、このような機能を、利用側で
-変性を定義するという意味でuse-site varianceと呼びます。
+変位指定するという意味でuse-site varianceと呼びます。
 
 この機能に対応するものとして、Scalaには存在型があります。上記のJavaコードは、Scalaでは次のコードで表現することができます。
 
@@ -329,6 +329,6 @@ val cmp: JComparator[_ >: String] = new JComparator[Any] {
 ```
 
 より一般的には、`G<? extends T>` は `G[_ <: T]`に、`G<? super T>`は `G[_ >: T]` に置き換えることができます。Scalaのプログラム
-開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変性、
+開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変位指定、
 つまりdeclaration-site varianceを使うべきであって、Javaと関係ない部分においてこの機能を使うのはプログラムをわかりにくくするため、
 避けるべきです。
