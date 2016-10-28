@@ -30,7 +30,7 @@ textLintAll := Def.sequential(LinkTest.textEslint, TextLint.textLint.toTask(""))
 
 textTestAll := Def.sequential(compile in Test, LinkTest.textLinkTest).value
 
-val scalatext = project.in(file(".")).aggregate(
+aggregateProjects(
   RootProject(file("src/example_projects/trait-example")),
   RootProject(file("src/example_projects/trait-refactored-example"))
 )
