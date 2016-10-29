@@ -180,7 +180,7 @@ object FutureOptionUsageSample extends App {
   }
 
   Thread.sleep(3000)
- }
+}
 ```
 
 出力例としては、`Success! 1.538 sec`や`Failure: waitMilliSec is 971`というものになります。
@@ -197,11 +197,11 @@ flatMapもFutureに対して利用することもできます。
 上記のミリ秒を秒に変換する部分を100ミリ秒はかかる非同期のFutureにしてみた例は以下のとおりです。
 
 
-```
-  val futureSec: Future[Double] = futureMilliSec.flatMap(i => Future {
-    Thread.sleep(100)
-    i.toDouble / 1000
-  })
+```scala
+val futureSec: Future[Double] = futureMilliSec.flatMap(i => Future {
+  Thread.sleep(100)
+  i.toDouble / 1000
+})
 ```
 
 mapで適用する関数でOptionがとれてきてしまうのをflattenできるという書き方と同じように、
@@ -247,7 +247,7 @@ object CompositeFutureSample extends App {
   }
 
   Thread.sleep(5000)
- }
+}
 ```
 
 先ほど紹介した例に似ていますが、ランダムで生成した最大3秒間待つ関数を用意し、500ミリ秒未満しか待たなかった場合は失敗とみなします。
