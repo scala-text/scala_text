@@ -155,7 +155,7 @@ Javaのエラー処理では例外が中心的な役割を担っていました�
 
 ここでは正常の値とエラー値のどちらかを表現できるデータ構造の紹介を通じて、Scalaの関数型のエラー処理の方法を見ていきます。
 
-### [Option](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/Option.scala)
+### [Option](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/Option.scala)
 
 OptionはScalaでもっとも多用されるデータ型の1つです。
 前述のとおりJavaのnullの代替として使われることが多いデータ型です。
@@ -481,7 +481,7 @@ for { i1 <- v1
 
 <!-- end answer -->
 
-### [Either](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Either.scala)
+### [Either](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/util/Either.scala)
 
 Optionによりnullを使う必要はなくなりましたが、いっぽうでOptionでは処理が成功したかどうかしかわからないという問題があります。
 Noneの場合、値が取得できなかったことはわかりますが、エラーの状態は取得できないので、使用できるのはエラーの種類が問題にならないような場合のみです。
@@ -648,7 +648,7 @@ Rightが正常な値として用いられることが多いとすれば、ほと
 このScalaのEitherの仕様はHaskellのEitherのような暗黙的にRightを優先するのに比べてわずらわしいと言われることもあります。
 とりあえずEitherのmapやflatMapなどを使う場合はrightでRightProjectionに変化させると覚えてしまってよいと思います。
 
-### [Try](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Try.scala)
+### [Try](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/util/Try.scala)
 
 ScalaのTryはEitherと同じように正常な値とエラー値のどちらかを表現するデータ型です。
 Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowableに限定されており、型引数を1つしか取らないことです。
@@ -684,7 +684,7 @@ for {
 } yield i1 * i2 * i3
 ```
 
-#### [`NonFatal`](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/control/NonFatal.scala)の例外
+#### [`NonFatal`](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/util/control/NonFatal.scala)の例外
 
 `Try.apply`がcatchするのはすべての例外ではありません。
 NonFatalという種類の例外だけです。

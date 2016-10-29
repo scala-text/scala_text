@@ -80,7 +80,7 @@ scala> :quit
 _build.sbt_というファイルを作成し、
 
 ```tut:silent
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.0"
 ```
 
 としてやると良いです。この_*.sbt_がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう

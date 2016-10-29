@@ -133,7 +133,7 @@ name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.0"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 
@@ -145,8 +145,8 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.11/3.0.0/scalatest_2.11-3.0.0.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.11;3.0.0!scalatest_2.11.jar(bundle) (10199ms)
+[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.0/scalatest_2.12-3.0.0.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.12;3.0.0!scalatest_2.12.jar(bundle) (10199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2015/04/09 16:48:42
 ```
@@ -251,8 +251,8 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/classes...
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -271,7 +271,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -362,7 +362,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -449,7 +449,7 @@ resolvers += Classpaths.sbtPluginReleases
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.3.3")
 ```
 
-その後、`sbt clean coverage test`を実行することで、`target/scala-2.11/scoverage-report/index.html`にレポートが出力されます。
+その後、`sbt clean coverage test`を実行することで、`target/scala-2.12/scoverage-report/index.html`にレポートが出力されます。
 
 ![Scoverage Code Coverage](img/scoverage_code_coverage.png)
 
