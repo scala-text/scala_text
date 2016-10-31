@@ -4,7 +4,7 @@ import tut.Plugin._
 
 object GitBook extends NpmCliBase {
   val gitbookBin = nodeBin / cmd("gitbook")
-  val gitbookVersion = "3.1.1"
+  val gitbookVersion = "3.2.2"
 
   sealed trait Format {def command: String}
   object Format {
