@@ -333,7 +333,7 @@ object CallbackFuture extends App {
 }
 ```
 
-「Promiseには成功/失敗した時の値を設定できる」「PromiseからFutureを作ることが出来る」という２つの性質を利用して、
+「Promiseには成功/失敗した時の値を設定できる」「PromiseからFutureを作ることが出来る」という2つの性質を利用して、
 callbackをFutureにすることができました。
 
 callbackを使った非同期処理は今回のような例に限らず、Httpクライアントで非同期リクエストを行う場合などで必要になることがあります。
