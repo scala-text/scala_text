@@ -432,7 +432,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with Moc
 
 テストを行った際に、テストが機能のどれぐらいを網羅できているのかを知る方法として、
 コードカバレッジを計測するという方法があります。
-ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。
+ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。[^scoverage]
 
 過去、[SCCT](http://mtkopone.github.io/scct/)というプロダクトがあったのですが紆余曲折あり、
 今はあまりメンテンナンスされていません。
@@ -521,3 +521,4 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 [^power-assert]: 渡された条件式の実行過程をダイアグラムで表示する`assert`は、一般に“power assert”と呼ばれています
 [^predef-assert]: Scalaには`Predef`にも`assert`が存在しますが、基本的に使うことはありません
 [^xutp]: モック以外の仕組みについては[xUnit Test Patterns](http://xunitpatterns.com/)を参照してください
+[^scoverage]: 2016/11/4時点ではまだScala2.12では使うことが出来ませんが、近いうちに対応バージョンが出るはずです。 https://github.com/dwango/scala_text/pull/244
