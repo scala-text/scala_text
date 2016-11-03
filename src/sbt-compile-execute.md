@@ -1,9 +1,5 @@
 # sbtでプログラムをコンパイル・実行する
 
-```tut:invisible
-import sbt._, syntax._, Keys._
-```
-
 前節まででは、REPLを使ってScalaのプログラムを気軽に実行してみました。この節ではScalaのプログラムをsbtでコンパイルして実行する方法を学びましょう。
 まずはREPLの時と同様にHello, World!を表示するプログラムを作ってみましょう。その前に、REPLを抜けましょう。REPLを抜けるには、REPLから以下のように
 入力します[^repl-quit]。
@@ -38,7 +34,7 @@ sandbox
 
 今回の_build.sbt_にはScalaのバージョンと一緒に`scalac`の警告オプションも有効にしてみましょう。
 
-```tut:silent
+```scala
 // build.sbt
 scalaVersion := "2.12.0"
 
