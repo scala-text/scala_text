@@ -30,9 +30,7 @@ JVM系の言語では、マルチスレッドで並行処理を使った非同�
 
 [Future](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)とは、
 非同期に処理される結果が入ったOption型のようなものです。
-その処理が終わっているのかどうかや（isCompleted）、正しく終わった時の処理を適用する（onSuccess）、
-例外が起こったときの処理を適用する（onFailure）といったことが可能な他、
-flatMapやfilter、for式の適用といったようなOptionやListでも利用できる性質も持ち合わせています。
+mapやflatMapやfilter、for式の適用といったようなOptionやListでも利用できる性質を持っています。
 
 ライブラリやフレームワークの処理が非同期主体となっている場合、
 このFutureは基本的で重要な役割を果たすクラスとなります。
@@ -57,7 +55,7 @@ object FutureSample extends App {
     s + " future!"
   }
 
-  f.onSuccess { case s: String =>
+  f.foreach { case s: String =>
     println(s)
   }
 
@@ -66,6 +64,21 @@ object FutureSample extends App {
   Thread.sleep(5000) // Hello future!
 
   println(f.isCompleted) // true
+
+  val f2: Future[String] = Future {
+    Thread.sleep(1000)
+    throw new RuntimeException("わざと失敗")
+  }
+
+  f2.failed.foreach { case e: Throwable =>
+    println(e.getMessage)
+  }
+
+  println(f2.isCompleted) // false
+
+  Thread.sleep(5000) // わざと失敗
+
+  println(f2.isCompleted) // true
 }
 ```
 
@@ -74,6 +87,9 @@ object FutureSample extends App {
 ```
 false
 Hello future!
+true
+false
+わざと失敗
 true
 ```
 
@@ -117,8 +133,8 @@ object FutureSample extends App {
 
   }
 
-  f.onSuccess { case s: String =>
-    println(s"[ThreadName] In onSuccess: ${Thread.currentThread.getName}")
+  f.foreach { case s: String =>
+    println(s"[ThreadName] In Success: ${Thread.currentThread.getName}")
     println(s)
   }
 
@@ -138,12 +154,12 @@ false
 [ThreadName] In Future: ForkJoinPool-1-worker-5
 [ThreadName] In App: main
 true
-[ThreadName] In onSuccess: ForkJoinPool-1-worker-5
+[ThreadName] In Success: ForkJoinPool-1-worker-5
 Hello future!
 ```
 
 となります。以上のコードではそれぞれのスレッド名を各箇所について出力してみました。
-非常に興味深い結果ですね。`Future`と`onSuccess`に渡した関数に関しては、
+非常に興味深い結果ですね。`Future`と`foreach`に渡した関数に関しては、
 `ForkJoinPool-1-worker-5`というmainスレッドとは異なるスレッドで実行されています。
 
 つまりFutureを用いることで知らず知らずのうちのマルチスレッドのプログラミングが実行されていたということになります。
@@ -187,7 +203,7 @@ object FutureOptionUsageSample extends App {
 この処理では、3000ミリ秒を上限としたランダムな時間を待ってその待ったミリ秒を返すFutureを定義しています。
 ただし、1000ミリ秒未満しか待たない場合には失敗とみなし例外を投げます。
 この最初にえられるFutureを`futureMilliSec`としていますが、その後、`map`メソッドを利用して`Int`のミリ秒を`Doubule`の秒に変換しています。
-なお先ほどと違ってこの度は、`onSuccess`ではなく`onComplete`を利用して成功と失敗の両方の処理を記述しました。
+なお先ほどと違ってこの度は、`foreach`ではなく`onComplete`を利用して成功と失敗の両方の処理を記述しました。
 
 以上の実装のようにFutureは結果をOptionのように扱うことができるわけです。
 無論mapも使えますがOptionがネストしている場合にflatMapを利用できるのと同様に、
@@ -365,13 +381,13 @@ object CountDownLatchSample extends App {
     Thread.sleep(waitMilliSec)
     waitMilliSec
   }
-  futures.foreach { f => f.onSuccess {case waitMilliSec =>
+  futures.foreach { f => f.foreach {case waitMilliSec =>
     val index = indexHolder.getAndIncrement
     if(index < promises.length) {
       promises(index).success(waitMilliSec)
     }
   }}
-  promises.foreach { p => p.future.onSuccess{ case waitMilliSec => println(waitMilliSec)}}
+  promises.foreach { p => p.future.foreach { case waitMilliSec => println(waitMilliSec)}}
   Thread.sleep(5000)
 }
 ```

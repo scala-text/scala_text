@@ -20,7 +20,7 @@ $ sbt console
 とコマンドを打ってみましょう。
 
 ```
-Welcome to Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
+Welcome to Scala version 2.12.0 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
 Type in expressions to have them evaluated.
 Type :help for more information.
 

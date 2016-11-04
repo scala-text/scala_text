@@ -155,7 +155,7 @@ Javaのエラー処理では例外が中心的な役割を担っていました�
 
 ここでは正常の値とエラー値のどちらかを表現できるデータ構造の紹介を通じて、Scalaの関数型のエラー処理の方法を見ていきます。
 
-### [Option](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/Option.scala)
+### [Option](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/Option.scala)
 
 OptionはScalaでもっとも多用されるデータ型の1つです。
 前述のとおりJavaのnullの代替として使われることが多いデータ型です。
@@ -481,7 +481,7 @@ for { i1 <- v1
 
 <!-- end answer -->
 
-### [Either](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Either.scala)
+### [Either](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/util/Either.scala)
 
 Optionによりnullを使う必要はなくなりましたが、いっぽうでOptionでは処理が成功したかどうかしかわからないという問題があります。
 Noneの場合、値が取得できなかったことはわかりますが、エラーの状態は取得できないので、使用できるのはエラーの種類が問題にならないような場合のみです。
@@ -568,87 +568,26 @@ Eitherを使う場合はこのテクニックを覚えておいたほうがい�
 
 #### EitherのmapとflatMap
 
-以上、見てきたように格納できるデータが増えているという点でEitherはOptionの拡張版に近いのですが、ScalaのEitherはmapとflatMapの動作にちょっと癖があります。
-ScalaのEitherはOptionとは違い、直接mapやflatMapメソッドを持ちません。
-Eitherオブジェクトのメソッドを見てみますと、
+以上、見てきたように格納できるデータが増えているという点でEitherはOptionの拡張版に近いです。
+Optionと同様にEitherもfor式を使って複数のEitherを組み合わせることができます。
+EitherにはRight, Leftの2つの値がありますが、ScalaのEitherではRightが正常な値になることが多いため、mapやflatMapではRightの値が利用されます。[^right-either]
 
-```scala
-scala> val v: Either[String, Int] = Right(123)
-v: Either[String,Int] = Right(123)
-
-scala> v.
-asInstanceOf   fold   isInstanceOf   isLeft   isRight   joinLeft   joinRight   left   right   swap   toString
-```
-
-`fold`や`isLeft`や`isRight`などはOptionで同じようなメソッドがありましたが、肝心のmapやflatMapがありません。
-これではfor式を使って複数のEitherを組み合わせることができません。
-
-これにはScalaのEitherが左右の型を平等で扱っているという理由があります。
-たとえば自作のmapメソッドを作ることを考えてみましょう。
-mapメソッドは関数をコンテナの中身に適用できるようにするというものでした。
-Eitherの左右が平等に扱われると考えた場合、mapメソッドは左右のどちらの値に適用すればいいのでしょうか？
-この答えには2つのアプローチが考えられます。
-
-- 暗黙的に左右どちらかのうち片方を優先し、そちらに関数を適用する（たとえばRightが正常な値になることが多いならRightを暗黙的に優先するとか）
-- 明示的に左右どちらを優先するか指定する
-
-前者はHaskellのアプローチで、後者がScalaのアプローチになります[^right-either]。
-上記のEitherのメソッドに`left`と`right`というものがありました。
-これが左右どちらを優先するのか決めるメソッドです。
-
-試しに`right`メソッドを使ってみましょう。
-
-```scala
-scala> val v: Either[String, Int] = Right(123)
-v: Either[String,Int] = Right(123)
-
-scala> val e = v.right
-e: scala.util.Either.RightProjection[String,Int] = RightProjection(Right(123))
-
-scala> e.
-asInstanceOf   canEqual   copy   e   exists   filter   flatMap   forall   foreach   get   getOrElse   isInstanceOf   map   productArity   productElement   productIterator   productPrefix   toOption   toSeq   toString
-```
-
-Eitherに`right`メソッドを使ったら`RightProjection`というオブジェクトになりました。
-そして、この`RightProjection`オブジェクトを見てみると、ようやくListやOptionで見慣れたようなメソッドが出てきました。
-これらのメソッドはEitherのRightの値に対しておこなわれるメソッドということです。
-
-ためしに`RightProjection`の`map`メソッドを使ってみましょう[^product-with-serializable]。
+ためしに`Either`の`map`メソッドを使ってみましょう
 
 ```tut
 val v: Either[String, Int] = Right(123)
 
-v.right.map(_ * 2)
+v.map(_ * 2)
+
+val v2: Either[String, Int] = Left("a")
+v2.map(_ * 2) // v2がLeftなので実行されない
 ```
 
 これでmapを使って値を二倍にする関数をRightに適用できました。
-ちなみにEitherがLeftの場合は何の処理もおこなわれません。
+EitherがLeftの場合は何の処理もおこなわれません。
 これはOptionでNoneに対してmapを使った場合に何の処理もおこなわれないという動作に似ていますね。
 
-注意してほしいのはRightProjectionのmapメソッドの返り値はEitherであるという点です。
-つまりmapやflatMapを連鎖して使う場合には毎回EitherをRightProjectionに変化させる必要があるということです。
-
-Optionのときの掛け算の例をEitherで書いてみると、
-
-```tut
-val v1: Either[String, Int] = Right(3)
-
-val v2: Either[String, Int] = Right(5)
-
-val v3: Either[String, Int] = Right(7)
-
-for {
-  i1 <- v1.right
-  i2 <- v2.right
-  i3 <- v3.right
-} yield i1 * i2 * i3
-```
-
-Rightが正常な値として用いられることが多いとすれば、ほとんどのEitherはRightProjectionに変化させて使うことになります。
-このScalaのEitherの仕様はHaskellのEitherのような暗黙的にRightを優先するのに比べてわずらわしいと言われることもあります。
-とりあえずEitherのmapやflatMapなどを使う場合はrightでRightProjectionに変化させると覚えてしまってよいと思います。
-
-### [Try](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/Try.scala)
+### [Try](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/util/Try.scala)
 
 ScalaのTryはEitherと同じように正常な値とエラー値のどちらかを表現するデータ型です。
 Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowableに限定されており、型引数を1つしか取らないことです。
@@ -684,7 +623,7 @@ for {
 } yield i1 * i2 * i3
 ```
 
-#### [`NonFatal`](https://github.com/scala/scala/blob/v2.11.8/src/library/scala/util/control/NonFatal.scala)の例外
+#### [`NonFatal`](https://github.com/scala/scala/blob/v2.12.0/src/library/scala/util/control/NonFatal.scala)の例外
 
 `Try.apply`がcatchするのはすべての例外ではありません。
 NonFatalという種類の例外だけです。
@@ -844,9 +783,9 @@ object MainRefactored {
   // 本質的に何をしているかわかりやすくリファクタリング
   def getPostalCodeResult(userId: Int): PostalCodeResult = {
     (for {
-      user <- findUser(userId).right
-      address <- findAddress(user).right
-      postalCode <- findPostalCode(address).right
+      user <- findUser(userId)
+      address <- findAddress(user)
+      postalCode <- findPostalCode(address)
     } yield Success(postalCode)).merge
   }
 
@@ -856,8 +795,8 @@ object MainRefactored {
 
   def findAddress(user: User): Either[Failure, Address] = {
     for {
-      addressId <- user.addressId.toRight(UserNotHasAddress).right
-      address <- addressDatabase.get(addressId).toRight(AddressNotFound).right
+      addressId <- user.addressId.toRight(UserNotHasAddress)
+      address <- addressDatabase.get(addressId).toRight(AddressNotFound)
     } yield address
   }
 
@@ -880,15 +819,13 @@ object MainRefactored {
 ```scala
   def getPostalCodeResult(userId: Int): PostalCodeResult = {
     (for {
-      user <- findUser(userId).right
-      address <- findAddress(user).right
-      postalCode <- findPostalCode(address).right
+      user <- findUser(userId)
+      address <- findAddress(user)
+      postalCode <- findPostalCode(address)
     } yield Success(postalCode)).merge
   }
 ```
 getPostalCodeResultが本質的に何をしているのかが非常にわかりやすいコードとなりました。何をしているかというと、
-Eitherではfor式を直接つかえないので`.right`というメソッドで、RightProjectionという型にして、
-for式が利用できる形に変換しています。そのあと、mergeメソッドにより中身を畳み込んで取得しています。
+for式で値を取得した後、mergeメソッドにより中身を畳み込んで取得しています。
 
-[^product-with-serializable]: Scala2.11以前だと`Product with Serializable with scala.util.Either`というような変な型になりますが、実用上問題ないので、ひとまず気にしなくてよいです。この変な型になる問題はScala2.12以降では修正されています。 https://github.com/scala/scala/pull/4355 https://issues.scala-lang.org/browse/SI-9173
-[^right-either]: 今年リリース予定のScala 2.12では、Haskellと同じようにRight優先になります。
+[^right-either]: Scala 2.11までは、両者の値を平等に扱っていたため `.right` や `.left` を用いてどちらの値をmapに渡すかを明示する必要がありました。

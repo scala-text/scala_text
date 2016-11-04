@@ -124,16 +124,12 @@ BDDでは、テスト内にそのプログラムに与えられた機能的な�
 
 `build.sbt`を用意して、以下を記述しておきます。
 
-```tut:invisible
-import sbt._, syntax._, Keys._
-```
-
-```tut:silent
+```scala
 name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.0"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 
@@ -145,8 +141,8 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.11/3.0.0/scalatest_2.11-3.0.0.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.11;3.0.0!scalatest_2.11.jar(bundle) (10199ms)
+[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.0/scalatest_2.12-3.0.0.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.12;3.0.0!scalatest_2.12.jar(bundle) (10199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2015/04/09 16:48:42
 ```
@@ -251,8 +247,8 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/classes...
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -271,7 +267,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -362,7 +358,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.11/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -398,7 +394,7 @@ BDDでテストを書くことによってテストによってどのような�
 ここでは、ドワンゴ社内で利用率の高いMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
-```tut:silent
+```scala
 libraryDependencies += "org.mockito" % "mockito-core" % "1.10.19" % "test"
 ```
 
@@ -436,20 +432,20 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with Moc
 
 テストを行った際に、テストが機能のどれぐらいを網羅できているのかを知る方法として、
 コードカバレッジを計測するという方法があります。
-ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。
+ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。[^scoverage]
 
 過去、[SCCT](http://mtkopone.github.io/scct/)というプロダクトがあったのですが紆余曲折あり、
 今はあまりメンテンナンスされていません。
 
 `project/plugins.sbt` に以下のコードを記述します。
 
-```tut:silent
+```scala
 resolvers += Classpaths.sbtPluginReleases
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.3.3")
 ```
 
-その後、`sbt clean coverage test`を実行することで、`target/scala-2.11/scoverage-report/index.html`にレポートが出力されます。
+その後、`sbt clean coverage test`を実行することで、`target/scala-2.12/scoverage-report/index.html`にレポートが出力されます。
 
 ![Scoverage Code Coverage](img/scoverage_code_coverage.png)
 
@@ -477,7 +473,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.3.3")
 
 使い方は、`project/plugins.sbt` に以下のコードを記述します。
 
-```tut:silent
+```scala
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 ```
 
@@ -525,3 +521,4 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 [^power-assert]: 渡された条件式の実行過程をダイアグラムで表示する`assert`は、一般に“power assert”と呼ばれています
 [^predef-assert]: Scalaには`Predef`にも`assert`が存在しますが、基本的に使うことはありません
 [^xutp]: モック以外の仕組みについては[xUnit Test Patterns](http://xunitpatterns.com/)を参照してください
+[^scoverage]: 2016/11/4時点ではまだScala2.12では使うことが出来ませんが、近いうちに対応バージョンが出るはずです。 https://github.com/dwango/scala_text/pull/244
