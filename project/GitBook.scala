@@ -20,7 +20,7 @@ object GitBook extends NpmCliBase {
 
   lazy val textPluginInstall = taskKey[Unit]("install GitBook plugin")
   lazy val textHelpGitBook = taskKey[Unit]("help GitBook")
-  lazy val textBuildOnly = inputKey[Unit]("build only specified html")
+  lazy val textBuildHtmlQuick = inputKey[Unit]("build GitBook to html with tut cache")
   lazy val textBuildHtml = inputKey[Unit]("build GitBook to html")
   lazy val textBuildEpub = inputKey[Unit]("build GitBook to epub")
   lazy val textBuildPdf = inputKey[Unit]("build GitBook to pdf")
@@ -32,7 +32,7 @@ object GitBook extends NpmCliBase {
     textBuildEpub := buildBook(Format.Epub).dependsOn(tut).evaluated,
     textBuildPdf := sys.error("pdf-convertで利用するcalibreがcentOS6で上手く動かないので停止中"),
 
-    // tutを通さずビルドする（srcディレクトリからのコピーは行われないので tutOnly foo.md => textBuildOnly の順で実行する）
-    textBuildOnly := buildBook(Format.Html).evaluated
+    // キャッシュ付きのtutを利用する
+    textBuildHtmlQuick := buildBook(Format.Html).dependsOn(tutQuick).evaluated
   )
 }

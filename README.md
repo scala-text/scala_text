@@ -43,7 +43,7 @@ npm install
 ビルドされたページは`gitbook/_book/index.html`から見ることができる。
 
 ```
-sbt textBuildHtml
+sbt textBuildHtmlQuick
 ```
 
 その他にも、テキストの校正、リンク切れの確認などを行うコマンドが定義してある。
@@ -55,6 +55,9 @@ sbt textLint src/introduction.md
 
 # リンク切れ確認
 sbt textLinkTest
+
+# tutキャッシュなしのビルド
+sbt textBuildHtml
 
 # 全ての検査を実行した後にビルド
 sbt textBuildAllWithCheck
