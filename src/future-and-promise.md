@@ -196,7 +196,7 @@ object FutureOptionUsageSample extends App {
   }
 
   Thread.sleep(3000)
- }
+}
 ```
 
 出力例としては、`Success! 1.538 sec`や`Failure: waitMilliSec is 971`というものになります。
@@ -213,11 +213,11 @@ flatMapもFutureに対して利用することもできます。
 上記のミリ秒を秒に変換する部分を100ミリ秒はかかる非同期のFutureにしてみた例は以下のとおりです。
 
 
-```
-  val futureSec: Future[Double] = futureMilliSec.flatMap(i => Future {
-    Thread.sleep(100)
-    i.toDouble / 1000
-  })
+```scala
+val futureSec: Future[Double] = futureMilliSec.flatMap(i => Future {
+  Thread.sleep(100)
+  i.toDouble / 1000
+})
 ```
 
 mapで適用する関数でOptionがとれてきてしまうのをflattenできるという書き方と同じように、
@@ -263,7 +263,7 @@ object CompositeFutureSample extends App {
   }
 
   Thread.sleep(5000)
- }
+}
 ```
 
 先ほど紹介した例に似ていますが、ランダムで生成した最大3秒間待つ関数を用意し、500ミリ秒未満しか待たなかった場合は失敗とみなします。
@@ -287,28 +287,36 @@ object CompositeFutureSample extends App {
 
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Promise, Future}
+import scala.concurrent.{Promise, Future, Await}
 import scala.util.{Success, Failure}
+import scala.language.postfixOps
+import scala.concurrent.duration._
 
 object PromiseSample extends App {
   val promiseGetInt: Promise[Int] = Promise[Int]
+  val futureByPromise: Future[Int] = promiseGetInt.future // PromiseからFutureを作ることが出来る
 
-  val futureGetInt: Future[Int] = promiseGetInt.success(1).future
-
-  futureGetInt.onComplete {
+  // Promiseが解決されたときに実行される処理をFutureを使って書くことが出来る
+  futureByPromise.onComplete {
     case Success(i) => println(s"Success! i: ${i}")
     case Failure(t) => println(s"Failure! t: ${t.getMessage}")
   }
 
-  Thread.sleep(1000)
+  // 別スレッドで何か重い処理をして、終わったらPromiseに値を渡す
+  Future {
+    Thread.sleep(300)
+    promiseGetInt.success(1)
+  }
+
+  Await.ready(futureByPromise, 5000 millisecond)
 }
 ```
 
-この処理は必ず`Success! i: 1`という値を返します。
-`promiseGetInt.success(1).future`を`promiseGetInt.future`のように成功結果を与えないような処理にした場合には、
-onCompleteが呼ばれることはないため、何も出力されません。
+この処理は必ず`Success! i: 1`という値を表示します。
+このようにPromiseに値を渡すことで（Promiseから生成した）Futureを完了させることができます。
 
-次にPromiseのよくある使い方の例として、callbackを指定するタイプの非同期処理をラップしてFutureを返すパターンを紹介します。
+上の例はPromise自体の動作説明のためにFuture内でPromiseを使っています。通常はFutureの返り値を利用すればよいため、今の使い方ではあまりメリットがありません。
+そこで今度はPromiseのよくある使い方の例として、callbackを指定するタイプの非同期処理をラップしてFutureを返すパターンを紹介します。
 
 下記の例では、CallBackSomethingをラップしたFutureSomethingを定義しています。 `doSomething` の中でPromiseが使われていることに注目してください。
 
