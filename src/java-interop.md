@@ -332,3 +332,51 @@ val cmp: JComparator[_ >: String] = new JComparator[Any] {
 開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変位指定、
 つまりdeclaration-site varianceを使うべきであって、Javaと関係ない部分においてこの機能を使うのはプログラムをわかりにくくするため、
 避けるべきです。
+
+#### SAM変換
+
+Scala 2.12ではSAM(Single Abstract Method)変換が導入され[^sam]、Java 8のラムダ式を想定したライブラリを簡単に利用できるようになりました。
+Java 8におけるラムダ式とは、関数型インタフェースと呼ばれる、メソッドが1つしかないようなインタフェースに対して無名クラスを簡単に記述できる構文です[^lam]。
+例えば、10の階乗を例にすると以下のように簡潔に書くことができます。
+
+```java
+import java.util.stream.IntStream;
+int factorial10 = IntStream.rangeClosed(1, 10).reduce(1, (i1, i2) -> i1 * i2);
+```
+
+ちなみに、これをラムダ式を使わずに書くと、以下のようにとても大変です。
+
+```java
+import java.util.stream.IntStream;
+import java.util.function.IntBinaryOperator;
+int factorial10 = IntStream.rangeClosed(1, 10).reduce(1,
+  new IntBinaryOperator() {
+    @Override public int applyAsInt(int left, int right) {
+      return left * right;
+    }
+  });
+```
+
+関数の章で説明したように、元々Scalaにもラムダ式に相当する無名関数という構文があります。
+しかし、以前のScalaでは`FunctionN`型が期待される箇所に限定されており、Javaにおいてラムダ式が期待される箇所の大半において使用することができませんでした。
+例えば、10の階乗の例は`IntBinaryOperator`型が期待されているので以下のように無名クラスを使う必要がありました。
+
+```tut
+import java.util.stream.IntStream;
+import java.util.function.IntBinaryOperator;
+val factorial10 = IntStream.rangeClosed(1, 10).reduce(1,
+  new IntBinaryOperator {
+    def applyAsInt(left: Int, right: Int) = left * right;
+  });
+```
+
+SAM変換を利用すると以下のようにここにも無名関数を利用できるようになります。
+
+```tut
+import java.util.stream.IntStream;
+val factorial10 = IntStream.rangeClosed(1, 10).reduce(1, _ * _);
+```
+
+[^sam]: 正確には`-Xexperimetal`オプションにより、Scala 2.11でもSAM変換を有効にすることができます。
+[^lam]: 厳密に言うと、無名クラスを用いたコードとラムダ式もしくは無名関数を用いたコードの間には、JavaとScalaいずれにおいても細かな違いが存在します。
+例えば、スコープや出力されるバイトコードなどです。より詳しくは言語仕様などを当たってみてください。
