@@ -21,7 +21,15 @@
                 
             
                 
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
                 
             
                 
@@ -72,6 +80,10 @@
     <div class="book-summary">
         
             
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
             
                 <nav role="navigation">
                 
@@ -413,6 +425,9 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
+<div id="book-search-results">
+    <div class="search-noresults">
+    
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;"><a name="&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;" class="plugin-anchor" href="#&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;</h1>
@@ -542,7 +557,7 @@ res6: <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&q
 <pre><code class="lang-scala">scala&gt; o.getOrElse(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;null&#x306F;&#x53D7;&#x3051;&#x5165;&#x308C;&#x3089;&#x308C;&#x307E;&#x305B;&#x3093;&quot;</span>))
 java.lang.<span class="hljs-type">RuntimeException</span>: <span class="hljs-literal">null</span>&#x306F;&#x53D7;&#x3051;&#x5165;&#x308C;&#x3089;&#x308C;&#x307E;&#x305B;&#x3093;
   at .$anonfun$res7$<span class="hljs-number">1</span>(&lt;console&gt;:<span class="hljs-number">14</span>)
-  at $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">2078</span>/<span class="hljs-number">877011621.</span>apply(<span class="hljs-type">Unknown</span> <span class="hljs-type">Source</span>)
+  at $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">2078</span>/<span class="hljs-number">1140324029.</span>apply(<span class="hljs-type">Unknown</span> <span class="hljs-type">Source</span>)
   at scala.<span class="hljs-type">Option</span>.getOrElse(<span class="hljs-type">Option</span>.scala:<span class="hljs-number">121</span>)
   ... <span class="hljs-number">1021</span> elided
 </code></pre>
@@ -593,7 +608,7 @@ map&#x3067;&#x306F;&#x3001;&#x5024;&#x304C;Some&#x306E;&#x5834;&#x5408;&#x306F;&
 <pre><code class="lang-scala">scala&gt; n.fold(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>)(_ * <span class="hljs-number">3</span>)
 java.lang.<span class="hljs-type">RuntimeException</span>
   at .$anonfun$res11$<span class="hljs-number">1</span>(&lt;console&gt;:<span class="hljs-number">14</span>)
-  at $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">2081</span>/<span class="hljs-number">1927886259.</span>apply(<span class="hljs-type">Unknown</span> <span class="hljs-type">Source</span>)
+  at $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">2081</span>/<span class="hljs-number">1235599126.</span>apply(<span class="hljs-type">Unknown</span> <span class="hljs-type">Source</span>)
   at scala.<span class="hljs-type">Option</span>.fold(<span class="hljs-type">Option</span>.scala:<span class="hljs-number">158</span>)
   ... <span class="hljs-number">1021</span> elided
 </code></pre>
@@ -1022,6 +1037,22 @@ for&#x5F0F;&#x3067;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x305F;&#x5F8C;&#x30
                                 
                                 </section>
                             
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 
@@ -1045,7 +1076,7 @@ for&#x5F0F;&#x3067;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x305F;&#x5F8C;&#x30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.15","depth":1,"next":{"title":"Implicit","level":"1.16","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.14","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2016-12-01T04:44:54.825Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-01T04:45:20.730Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.15","depth":1,"next":{"title":"Implicit","level":"1.16","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.14","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/dwango/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2016-12-01T12:58:41.735Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-01T12:59:20.772Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1053,6 +1084,18 @@ for&#x5F0F;&#x3067;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x305F;&#x5F8C;&#x30
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
