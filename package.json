@@ -16,6 +16,7 @@
     "gitbook-cli": "2.3.0",
     "gitbook-plugin-anchors": "0.7.1",
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
+    "gitbook-plugin-forkmegithub": "^2.2.0",
     "gitbook-plugin-include-codeblock": "2.1.0",
     "gitbook-plugin-japanese-support": "0.0.1",
     "gitbook-plugin-regexplace": "2.1.2",
