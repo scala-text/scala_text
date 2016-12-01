@@ -17,7 +17,7 @@ class Cell[A](var value: A) {
   def put(newValue: A): Unit = {
     value = newValue
   }
-  
+
   def get(): A = value
 }
 ```
@@ -299,7 +299,7 @@ class ShowablePair[A <: Show, B <: Show](val a: A, val b: B) extends Show {
 
 ```tut:fail:silent
 abstract class Stack[+A]{
-  def push(element: E): Stack[A]
+  def push(element: A): Stack[A]
   def top: A
   def pop: Stack[A]
   def isEmpty: Boolean
