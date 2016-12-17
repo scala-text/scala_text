@@ -287,10 +287,8 @@ object CompositeFutureSample extends App {
 
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Promise, Future, Await}
+import scala.concurrent.{Promise, Future}
 import scala.util.{Success, Failure}
-import scala.language.postfixOps
-import scala.concurrent.duration._
 
 object PromiseSample extends App {
   val promiseGetInt: Promise[Int] = Promise[Int]
@@ -308,7 +306,7 @@ object PromiseSample extends App {
     promiseGetInt.success(1)
   }
 
-  Await.ready(futureByPromise, 5000 millisecond)
+  Thread.sleep(1000)
 }
 ```
 
