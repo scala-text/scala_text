@@ -68,7 +68,6 @@ Scalaプラグインのダウンロード・インストールには若干時間
 
 ```
 scala-sandbox
-├── build.sbt
 ├── src/main/scala/HelloWorld.scala
 ├── project/build.properties
 └── build.sbt
