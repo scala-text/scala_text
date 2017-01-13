@@ -9,7 +9,7 @@
 - [トレイト](trait.md)
 - [型パラメータと変位指定](type-parameter.md)
 - [関数](function.md)
-- [Scalaのコレクションライブラリ](collection.md)
+- [コレクションライブラリ](collection.md)
 - [ケースクラスとパターンマッチング](case-class-and-pattern-matching.md)
 - [エラー処理](error-handling.md)
 - [Implicit](implicit.md)

@@ -1,4 +1,4 @@
-# Scalaのコレクションライブラリ（immutableとmutable）
+# コレクションライブラリ（immutableとmutable）
 
 Scalaには配列（`Array`）やリスト（`List`）、連想配列（`Map`）、集合（`Set`）を扱うための豊富なライブラリがあります。これを使いこなすことで、Scalaでの
 プログラミングは劇的に楽になります。注意しなければならないのは、Scalaでは一度作成したら変更できない（immutable）なコレクションと
