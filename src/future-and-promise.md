@@ -287,7 +287,8 @@ object CompositeFutureSample extends App {
 
 ```tut:silent
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Promise, Future}
+import scala.concurrent.{Await, Promise, Future}
+import scala.concurrent.duration._
 import scala.util.{Success, Failure}
 
 object PromiseSample extends App {
@@ -295,9 +296,8 @@ object PromiseSample extends App {
   val futureByPromise: Future[Int] = promiseGetInt.future // PromiseからFutureを作ることが出来る
 
   // Promiseが解決されたときに実行される処理をFutureを使って書くことが出来る
-  futureByPromise.onComplete {
-    case Success(i) => println(s"Success! i: ${i}")
-    case Failure(t) => println(s"Failure! t: ${t.getMessage}")
+  val mappedFuture = futureByPromise.map { i =>
+    println(s"Success! i: ${i}")
   }
 
   // 別スレッドで何か重い処理をして、終わったらPromiseに値を渡す
@@ -306,7 +306,7 @@ object PromiseSample extends App {
     promiseGetInt.success(1)
   }
 
-  Thread.sleep(1000)
+  Await.ready(mappedFuture, 5000.millisecond)
 }
 ```
 
