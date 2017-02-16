@@ -607,8 +607,6 @@ val v: Try[Int] = Try(throw new RuntimeException("to be caught"))
 
 この機能を使って、例外が起こりそうな箇所を`Try`で包み、Failureにして値として扱えるようにするのがTryの特徴です。
 
-またTryはEitherと違い、正常な値を片方に決めているのでmapやflatMapをそのまま使うことができます。
-
 ```tut
 val v1 = Try(3)
 
