@@ -124,7 +124,11 @@ BDDでは、テスト内にそのプログラムに与えられた機能的な�
 
 `build.sbt`を用意して、以下を記述しておきます。
 
-```scala
+```tut:invisible
+import sbt._, Keys._
+```
+
+```tut:silent
 name := "scalatest_study"
 
 version := "1.0"
@@ -394,7 +398,7 @@ BDDでテストを書くことによってテストによってどのような�
 ここでは、ドワンゴ社内で利用率の高いMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
-```scala
+```tut:silent
 libraryDependencies += "org.mockito" % "mockito-core" % "2.7.22" % "test"
 ```
 
@@ -440,7 +444,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with Moc
 
 `project/plugins.sbt` に以下のコードを記述します。
 
-```scala
+```tut:silent
 resolvers += Classpaths.sbtPluginReleases
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.0")
@@ -474,7 +478,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.0")
 
 使い方は、`project/plugins.sbt` に以下のコードを記述します。
 
-```scala
+```tut:silent
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 ```
 
