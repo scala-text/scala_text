@@ -131,7 +131,7 @@ version := "1.0"
 
 scalaVersion := "2.12.1"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.3" % "test"
 
 ```
 
@@ -395,7 +395,7 @@ BDDでテストを書くことによってテストによってどのような�
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```scala
-libraryDependencies += "org.mockito" % "mockito-core" % "1.10.19" % "test"
+libraryDependencies += "org.mockito" % "mockito-core" % "2.7.22" % "test"
 ```
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
