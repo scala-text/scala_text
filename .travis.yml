@@ -18,6 +18,7 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
+    - oracle-java8-installer
 script:
 - sbt textLintAll textTestAll textBuildHtml test &&
   wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/614d94496efdcf960871429e1c090c56d2018f68/setup/linux-installer.py
