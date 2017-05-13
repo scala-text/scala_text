@@ -7,7 +7,7 @@ name := "textbook"
 
 scalaVersion := "2.12.2"
 
-tutSettings
+enablePlugins(TutPlugin)
 
 tutSourceDirectory := srcDir
 
