@@ -109,8 +109,10 @@ scala> :paste
 class Person(name: String, age: Int, private val weight: Int)
 
 object Person {
-  val taro = new Person("Taro", 20, 70)
-  println(taro.weight)
+  def printWeight(): Unit = {
+    val taro = new Person("Taro", 20, 70)
+    println(taro.weight)
+  }
 }
 
 // Exiting paste mode, now interpreting.
