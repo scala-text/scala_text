@@ -401,6 +401,7 @@ libraryDependencies += "org.mockito" % "mockito-core" % "2.7.22" % "test"
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
 ```tut:silent
+import org.scalatest.time.SpanSugar._
 import org.scalatest.{FlatSpec, DiagrammedAssertions}
 import org.scalatest.concurrent.Timeouts
 import org.scalatest.mockito.MockitoSugar
