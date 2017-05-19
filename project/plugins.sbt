@@ -1,3 +1,3 @@
 logLevel := Level.Warn
 
-addSbtPlugin("org.tpolecat" % "tut-plugin" % "0.5.1")
+addSbtPlugin("org.tpolecat" % "tut-plugin" % "0.5.2")
