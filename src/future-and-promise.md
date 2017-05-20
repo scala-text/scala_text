@@ -348,10 +348,13 @@ object CallbackFuture extends App {
   val iFuture = futureSomething.doSomething()
   val jFuture = futureSomething.doSomething()
 
-  for {
+  val iplusj = for {
     i <- iFuture
     j <- jFuture
-  } yield println(s"$i, $j")
+  } yield i + j
+
+  val result = Await.result(iplusj, Duration.Inf)
+  println(result)
 }
 ```
 
