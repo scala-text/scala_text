@@ -70,7 +70,7 @@ trait Applicative[F[_]] {
 }
 ```
 
-Applicative FunctorはFunctorを特殊化したものなので、Applicative Functorが持つ関数から`map`関数を定義できます。
+Applicative FunctorはFunctorを一般化したものなので、Applicative Functorが持つ関数から`map`関数を定義できます。
 
 ```tut:silent
 def map[F[_], A, B](fa: F[A])(f: A => B)(implicit F: Applicative[F]): F[B] =
