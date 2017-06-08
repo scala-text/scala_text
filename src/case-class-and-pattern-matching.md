@@ -352,3 +352,61 @@ Testing.test(nonEmptyTreeGen){ tree =>
 ```
 
 <!-- end answer -->
+
+
+## 部分関数
+
+これまでの説明の中で、無名関数とパターンマッチングについて説明してきましたが、この二つの機能を組み合わせた
+部分関数（PartialFunction）がScalaには存在します。説明の前に、まず、具体的なユースケースを挙げます：
+
+```tut
+List(1, 2, 3, 4, 5).collect { case i if i % 2 == 1 => i * 2 }
+```
+
+ここで、`collect`メソッドは `pf: PartialFunction[A, B]` を引数に取り、`pf.isDefinedAt(i)` が `true` になる
+要素のみを残し、さらに、`pf.apply(i)` の結果の値を元にした新しいコレクションを返します。
+
+`isDefinedAt` は
+
+```scala
+i % 2 == 1
+```
+
+の部分から自動的に生成され、パターンがマッチするときのみ真になるように定義されます。`collect`はこの`isDefinedAt`
+メソッドを使うことで、`filter` と `map` に相当する処理を同時に行うことができています。
+
+`PartialFunction` は、自分でクラスを継承して作ることも可能ですが、一般的には、
+
+```scala
+{
+  case pat1 => exp1
+  case pat2 => exp2
+  ...
+  case patn => expn
+}
+```
+
+という形の式から、自動的に生成されます。`isDefinedAt`が真になる条件は、`pat1 ... patn`のいずれかの条件にマッチすることです。
+
+`PartialFunction`を使う機会は実用的にはそれほど多いわけではありませんが、`collect`やサードパーティのライブラリで使うことが
+しばしばあるので、覚えておくと良いでしょう。
+
+注意点として、 `{ case .... }`　という形式は、あくまで `PartialFunction` 型が要求されているときにのみ `PartialFunction`
+が生成されるのであって、通常の `FunctionN` 型が要求されたときには、違う意味を持つということです。たとえば、以下のような
+定義があったとします。
+
+```tut
+val even: Int => Boolean = {
+  case i if i % 2 == 0 => true
+  case _ => false
+}
+```
+
+このとき、この定義は、無名関数とパターンマッチを組み合わせたものと同じ意味になります。この点にだけ注意してください。
+
+```tut
+val even: Int => Boolean = (x => x match {
+  case i if i % 2 == 0 => true
+  case _ => false
+})
+```
