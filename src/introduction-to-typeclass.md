@@ -45,14 +45,14 @@ def average[A](lst: List[A])(implicit m: Additive[A]): A = {
 
 ```tut
 trait Dividable[A] {
-  def div(a: A, b: A): A
+  def div(a: A, b: Int): A 
 }
 object  Dividable {
   implicit object IntDividable extends Dividable[Int] {
     def div(a: Int, b: Int): Int = a / b
   }
   implicit object DoubleDividable extends Dividable[Double] {
-    def div(a: Double, b: Double): Double = a / b
+    def div(a: Double, b: Int): Double = a / b
   }
 }
 ```
@@ -63,18 +63,15 @@ object  Dividable {
 trait Additive[A] {
   def plus(a: A, b: A): A
   def zero: A
-  def one: A
 }
 object Additive {
   implicit object IntAdditive extends Additive[Int] {
     def plus(a: Int, b: Int): Int = a + b
     def zero: Int = 0
-    def one: Int = 1
   }
   implicit object DoubleAdditive extends Additive[Double] {
     def plus(a: Double, b: Double): Double = a + b
     def zero: Double = 0.0
-    def one: Double = 1
   }
 }
 ```
@@ -84,7 +81,7 @@ object Additive {
 
 ```tut
 def average[A](lst: List[A])(implicit a: Additive[A], d: Dividable[A]): A = {
-  val length = lst.foldLeft(a.zero)((x, _) => a.plus(x, a.one))
+  val length = lst.length
   d.div(lst.foldLeft(a.zero)((x, y) => a.plus(x, y)), length)
 }
 ```
