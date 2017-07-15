@@ -17,7 +17,7 @@ echo -e "*class\ntarget" > .gitignore &&
 cp -r ../_book/* ./ &&
 git add . &&
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT" &&
-if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" == "false" ]];
+if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "dwango/scala_text"  ]];
 then git push git@github.com:dwango/scala_text.git gh-pages:gh-pages ; fi
 
 git checkout -qf $TRAVIS_COMMIT
@@ -35,7 +35,7 @@ git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT $TRAVI
 git push origin gh-pages:gh-pages
 cd ..
 
-if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
+if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "dwango/scala_text" ]]; then
   git checkout -qf $TRAVIS_COMMIT
   openssl aes-256-cbc -k "$PDF_KEY" -in travis_deploy_pdf_key.enc -d -a -out pdf.key
   cp pdf.key ~/.ssh/
