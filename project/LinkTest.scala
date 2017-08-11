@@ -1,4 +1,5 @@
 import sbt._
+import scala.sys.process.Process
 
 object LinkTest extends NpmCliBase {
   val eslintBin = nodeBin / cmd("eslint")
