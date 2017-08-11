@@ -176,6 +176,17 @@ nextDayOfWeek(Saturday)
 sealed abstract class Tree
 case class Branch(value: Int, left: Tree, right: Tree) extends Tree
 case object Empty extends Tree
+object BinaryTree {
+  def find(t: Tree, target: Int): Boolean = t match { //とりあえずここに退避
+    case Branch(v, l, r) => if(v == target) true else (find(l, target) || find(r, target))
+    case Empty => false
+  }
+
+  def findBinaryTree(t: Tree, target: Int): Boolean = t match { //とりあえずここに退避
+    case Branch(v, l, r) => if(v == target) true else (if(target <= v) findBinaryTree(l, target) else findBinaryTree(r, target))
+    case Empty => false
+  }
+}
 ```
 
 子が2つで左の子の値が`2`、右の子の値が`3`、自分自身の値が`1`の木構造はたとえば次のようにして定義することができます。
@@ -310,15 +321,6 @@ object BinaryTree {
     fromList(toList(t))
   }
 
-  def find(t: Tree, target: Int): Boolean = t match {
-    case Branch(v, l, r) => if(v == target) true else (find(l, target) || find(r, target))
-    case Empty => false
-  }
-
-  def findBinaryTree(t: Tree, target: Int): Boolean = t match {
-    case Branch(v, l, r) => if(v == target) true else (if(target <= v) findBinaryTree(l, target) else findBinaryTree(r, target))
-    case Empty => false
-  }
 }
 ```
 
