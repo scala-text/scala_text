@@ -1,6 +1,7 @@
 import sbt._
 
 import scala.util.control.NonFatal
+import scala.sys.process.Process
 
 object TextLint extends NpmCliBase {
   val textlintBin = nodeBin / cmd("textlint")

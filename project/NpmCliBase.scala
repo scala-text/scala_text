@@ -1,6 +1,7 @@
 import sbt._
 import sbt.complete.Parser
 import scala.util.Properties
+import scala.sys.process._
 
 object NpmCliBase extends NpmCliBase
 
@@ -30,7 +31,7 @@ trait NpmCliBase {
 
   // exit codeが0でなければ例外を投げる
   def printRun(p: ProcessBuilder) : Unit = {
-    p.lines foreach println
+    p.lineStream foreach println
   }
 
   def cmd(name: String) =
