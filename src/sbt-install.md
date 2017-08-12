@@ -1,5 +1,9 @@
 # sbtをインストールする
 
+```tut:invisible
+import sbt._, Keys._
+```
+
 現実のScalaアプリケーションでは、Scalaプログラムを手動でコンパイル[^scalac]することは非常に稀で、
 標準的なビルドツールである[sbt（Simple Build Tool）](http://www.scala-sbt.org/release/tutorial/ja/Setup.html)というツールを用いることになり
 ます。ここでは、sbtのインストールについて説明します。
@@ -75,7 +79,7 @@ scala> :quit
 になってしまうので、こちらが指定したバージョンのScalaでREPLを起動したい場合は、同じディレクトリに
 _build.sbt_というファイルを作成し、
 
-```scala
+```tut:silent
 scalaVersion := "2.12.2"
 ```
 
