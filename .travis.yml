@@ -4,7 +4,7 @@ jdk:
 - oraclejdk8
 before_install:
 - export CXX='g++-4.8'
-- nvm install 4.4.0 && nvm use 4.4.0 && npm install
+- nvm install 6.11.3 && nvm use 6.11.3 && npm install -g
 cache:
   directories:
   - "$HOME/.ivy2/cache"
