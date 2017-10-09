@@ -249,7 +249,7 @@ for(a <- 1 to 1000; b <- 1 to 1000; c <- 1 to 1000 if a * a == b * b + c * c) {
   case パターン2 [if ガード2] => 式2
   case パターン3 [if ガード3] => 式3
   case ...
-  case パターンN => 式N
+  case パターンN [if ガードN] => 式N
 }
 ```
 
