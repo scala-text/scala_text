@@ -54,19 +54,22 @@ class Point(val x: Int, val y: Int) {
 先ほど既にメソッド定義の例として`+`メソッドの定義が出てきましたが、一般的には、
 
 ```scala
-(private[this/package名]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = {
-  ???
-}
-```
-
-という形をとります。ちなみに、メソッド本体が1つの式だけからなる場合は、
-
-```scala
 (private[this/package名]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = ???
 ```
 
-と書けます（実際には、こちらの方が基本形で、`= {}`を使ったスタイルの方が`{}`内に複数の式を並べて書けることを利用
-した派生形になりますが、前者のパターンを使うことが多いでしょう）。
+という形をとります。ただし、実際には `{}` 式を使った以下の形式を取ることが多いでしょう。
+
+```scala
+(private[this/package名]/protected[package名]) def methodName(parameter1: Type1, parameter2: Type2, ...): ReturnType = {
+   ???
+   ???
+   ???
+   ...
+}
+```
+
+ここで、単に、メソッド本体が `{}` 式からなる場合にこうなる、というだけであって、メソッド定義を `{}` で
+囲む専用の構文があるわけではないことに注意しましょう。
 
 返り値の型は省略しても特別な場合以外型推論してくれますが、読みやすさのために、返り値の型は明記する習慣を付けるようにしましょう。`private`を付けるとそのクラス内だけから、
 `protected`を付けると派生クラスからのみアクセスできるメソッドになります。 `private[this]` をつけると、同じオブジェクトからのみアクセス可能になります。また、
