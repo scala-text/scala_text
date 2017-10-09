@@ -30,7 +30,7 @@ chocolateyはWindows用のパッケージ マネージャで活発に開発が�
 
 とすればWindowsにsbtがインストールされます。
 
-Windows/Linuxの場合で、シェル環境でsbtと入力するとバイナリのダウンロードが
+Windows/Mac OSの場合で、シェル環境でsbtと入力するとバイナリのダウンロードが
 始まればインストールの成功です。sbtがないと言われる場合、環境変数へsbtへのPATHが
 通っていないだけですので追加しましょう。Windowsでの環境変数編集ツールとしては、
 [Rapid Environment Editor](http://www.rapidee.com/en/about)が非常に便利です。
