@@ -22,7 +22,7 @@ IDEとして根強い人気を誇っています。有料ですが多機能のUl
 
 ![IntelliJ IDEAのダウンロードページ](img/IntelliJ_IDEA_Download.png)
 
-ボタンをクリックすると、`ideaIC-${version}.dmg`(`${version}はその時点でのIDEAのバージョン`)
+ボタンをクリックすると、`ideaIC-${version}.dmg`(`${version}`はその時点でのIDEAのバージョン)
 というファイルのダウンロードが始まるので（Windowsの場合、インストーラのexeファイル）、ダウンロード
 が終わるのを待ちます。ダウンロードが終了したら、ファイルをダブルクリックして、指示にしたがって
 インストールします。
