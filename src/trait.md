@@ -246,7 +246,7 @@ class ClassA extends TraitB with TraitC
 class ClassB extends TraitC with TraitB
 ```
 
-すると`ClassB`の`greet`メソッドの呼び出して、今度は`TraitB`の`greet`メソッドが実行されます。
+すると`ClassB`の`greet`メソッドの呼び出しで、今度は`TraitB`の`greet`メソッドが実行されます。
 
 ```
 scala> (new ClassB).greet()
