@@ -143,17 +143,15 @@ sbt textBuildEpub
 
 ## フィードバック
 
-* 誤字・脱字や技術的誤りの指摘・修正
-  * [scala_text](https://github.com/dwango/scala_text)のissue欄およびpull requestへ 
+### 誤字・脱字や技術的誤りの指摘・修正
+- [scala_text](https://github.com/dwango/scala_text)のissue欄およびpull requestへ 
   
-* 誤りとはいえないが改善して欲しい点や加筆して欲しい点に関して
+### 誤りとはいえないが改善して欲しい点や加筆して欲しい点に関して
+- [scala_text](https://github.com/dwango/scala_text)のissue欄へ
+- 特に１節を超えるレベルの加筆修正については、pull reqeust を送られても、文体の統一や文章の継続したメンテナンスの観点等から、対応するのが難しいのでご了承いただけると助かります。
 
-  * [scala_text](https://github.com/dwango/scala_text)のissue欄へ
-  * 特に１節を超えるレベルの加筆修正については、pull reqeust を送られても、文体の統一や文章の
-    継続したメンテナンスの観点等から、対応するのが難しいのでご了承いただけると助かります。
-    
-* その他全体的な感想や改善要望：
-  * [専用issue](https://github.com/dwango/scala_text/issues/235)へ
+### その他全体的な感想や改善要望
+- [専用issue](https://github.com/dwango/scala_text/issues/235)へ
 
 ## ライセンス
 
