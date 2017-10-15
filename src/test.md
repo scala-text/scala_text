@@ -447,7 +447,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with Moc
 ```tut:silent
 resolvers += Classpaths.sbtPluginReleases
 
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.0")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 ```
 
 その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-2.12/scoverage-report/index.html`にレポートが出力されます。
@@ -479,7 +479,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.0")
 使い方は、`project/plugins.sbt` に以下のコードを記述します。
 
 ```tut:silent
-addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
+addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 ```
 
 その後、`sbt scalastyleGenerateConfig`を一度だけ実施後、`sbt scalastyle`を実行します。
