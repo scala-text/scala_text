@@ -4,7 +4,7 @@ jdk:
 - oraclejdk8
 before_install:
 - export CXX='g++-4.8'
-- nvm install 4.4.0 && nvm use 4.4.0 && npm install
+- nvm install 8.9.1 && nvm use 8.9.1 && npm install
 - npm install svgexport -g
 cache:
   directories:
