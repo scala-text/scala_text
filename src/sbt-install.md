@@ -50,14 +50,14 @@ $ sbt console
 と入力すればOKです。成功すれば、
 
 ```
-[info] Loading global plugins from /Users/.../.sbt/0.13/plugins
+[info] Loading global plugins from /Users/.../.sbt/1.0/plugins
 [info] Set current project to sandbox (in build file:/Users/.../sandbox/)
 [info] Updating {file:/Users/.../sandbox/}sandbox...
 [info] Resolving org.fusesource.jansi#jansi;1.4 ...
 [info] Done updating.
 [info] Starting scala interpreter...
 [info] 
-Welcome to Scala version 2.10.4 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
+Welcome to Scala version 2.12.3 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
 Type in expressions to have them evaluated.
 Type :help for more information.
 
@@ -92,14 +92,14 @@ scalaVersion := "2.12.2"
 この“sbtのバージョンについて”は、最新版を正常にインストールできた場合は、読み飛ばしていただいて構いません。
 
 sbtは`sbt --version`もしくは`sbt --launcher-version`とするとversionが表示されます[^hyphen]。
-このテキストでは基本的にsbt 0.13[^latest]がインストールされている前提で説明していきます。
-0.13系（0.13.6、0.13.7など）であれば基本的には問題ないはずですが、無用なトラブルを避けるため、
+このテキストでは基本的にsbt 1.0[^latest]がインストールされている前提で説明していきます。
+1.0系であれば基本的には問題ないはずですが、無用なトラブルを避けるため、
 もし過去に少し古いバージョンのsbtをインストールしたことがある場合は、できるだけ最新版を入れておいたほうがいいでしょう。
-また、もし0.12系（0.12.4など）が入っている場合は、色々と動作が異なり不都合が生じるので、0.12系の場合は必ず0.13系の最新版を入れるようにしてください。
+また、もし0.13系以前のversion（0.13.16など）が入っている場合は、色々と動作が異なり不都合が生じるので、その場合は必ず1.0系の最新版を入れるようにしてください。
 
 
 [^scalac]: ここで言う"手動で"とは、`scalac`コマンドを直接呼び出すという意味です
 
 [^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/dwango/scala_text/issues/122
 
-[^latest]: 具体的にはこれを書いている2016年10月時点の最新版である0.13.13。
+[^latest]: 具体的にはこれを書いている2017年10月時点の最新版である1.0.2。
