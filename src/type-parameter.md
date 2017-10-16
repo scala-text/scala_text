@@ -52,7 +52,6 @@ scala> cell.put("something")
 
 ```scala
 scala> val cell = new Cell[Int](1)
-cell: Cell[Int] = Cell@192aaffb
 ```
 
 で、型パラメータとして`Int`型を与えて、その初期値として1を与えています。型パラメータに`Int`を与えて`Cell`をインスタンス化したため、REPLでは`String`を`put`しようとして、コンパイラにエラーとしてはじかれています。`Cell`は様々な型を与えてインスタンス化したいクラスであるため、クラス定義時には特定の型を与えることができません。そういった場合に、型パラメータは役に立ちます。
