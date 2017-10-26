@@ -116,12 +116,27 @@ val adder = new Adder()
 
 adder.add(2)(3)
 
-adder.add(2) _
+val fun = adder.add(2) _
+fun(3)
 ```
 
 複数の引数リストを持つメソッドは`obj.m(x, y)`の形式でなく`obj.m(x)(y)`の形式で呼びだすことになります。また、一番下の例のように
 最初の引数だけを適用して新しい関数を作る（部分適用）こともできます。
 
+もちろん、複数の引数リストを使わずに、単に複数の引数を持つメソッドも作ることができます（以下）。
+
+```tut
+class Adder {
+  def add(x: Int, y: Int): Int = x + y
+}
+
+val adder = new Adder()
+
+adder.add(2, 3)
+
+val fun: Int => Int = adder.add(2, _)
+fun(3)
+```
 
 ## フィールド定義
 
