@@ -102,4 +102,4 @@ sbtは`sbt --version`もしくは`sbt --launcher-version`とするとversionが�
 
 [^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/dwango/scala_text/issues/122
 
-[^latest]: 具体的にはこれを書いている2017年10月時点の最新版である1.0.2。
+[^latest]: 具体的にはこれを書いている2017年11月時点の最新版である1.0.4。
