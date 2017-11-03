@@ -17,7 +17,6 @@
       "no-start-duplicated-conjunction": {
         "interval": 2
       },
-      "spellcheck-tech-word": true,
       "no-mix-dearu-desumasu": true
     },
     "incremental-headers": true,
