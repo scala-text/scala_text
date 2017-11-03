@@ -188,10 +188,9 @@ function deleteFirstKUSA(url) {
  */
 function modifyLinkForTest(rawFilePath) {
   if (rawFilePath.includes("example_projects")) {
-    return `src/${rawFilePath}`
-  } else {
-    return `src/${rawFilePath}`.replace(/\.html$/, ".md");
+    return `src/${rawFilePath}`;
   }
+  return `src/${rawFilePath}`.replace(/\.html$/, ".md");
 }
 
 /*
