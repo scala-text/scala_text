@@ -22,7 +22,7 @@ object オブジェクト名 extends クラス名 with トレイト名1 with ト
 }
 ```
 
-のようになります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala/blob/v2.12.2/src/library/scala/Predef.scala)が定義・インポート
+のようになります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala/blob/v2.12.4/src/library/scala/Predef.scala)が定義・インポート
 されており、これは最初の使い方に当てはまります。たとえば、println()などとなにげなく
 使っていたメソッドも実はPredef objectのメソッドなのです。
 
