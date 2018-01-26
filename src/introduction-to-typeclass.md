@@ -136,7 +136,7 @@ List(1, 3, 2, 4).min
 ```
 
 比較できない要素のリストに対して `max` 、 `min` を求めようとするとコンパイルエラーになります。この `max`
-と `min` もimplicit parameterで実現されています。
+と `min` も型クラスで実現されています。
 
 `max` と `min` のシグネチャは次のようになっています。
 
@@ -149,7 +149,43 @@ def min[B >: A](implicit cmp: Ordering[B]): A
 ```
 
 `B >: A` の必要性についてはおいておくとして、ポイントは、 `Ordering[B]` 型のimplicit parameterを要求
-するところです。 `Ordering[B]` のインスタンスがあれば、 `B` 型同士の大小関係を比較できるため、最大値
-と最小値を求めることができます。Scalaの標準ライブラリにおけるimplicit parameterの使い方は控え目な方ですが、
-ライブラリ化が難しかった、あるいはそうすると冗長になるケースにおいて、implicit parameterが便利である
-ことはわかってきたのではないでしょうか？
+するところです。 `Ordering[B]` のimplicitなインスタンスがあれば、 `B` 型同士の大小関係を比較できるため、最大値
+と最小値を求めることができます。
+
+さらに、別のアルゴリズムをライブラリ化してみます。リストの中央値を求めるメソッド `median` を定義する
+ことを考えます。中央値は、要素数が奇数の場合、リストをソートした場合のちょうど真ん中の値を、偶数の
+場合、真ん中の2つの値を足して2で割ったものになります。ここで、中央値の最初のケースには `Ordering` が、
+2番目のケースにはそれに加えて、先程定義した `Num` と `FromInt` があれば良さそうです。
+
+この3つを使って、 `median` メソッドを定義してみます。先程出てきたcontext boundsを使って、シグネチャ
+が見やすいようにしています。
+
+```tut
+import Nums._
+import FromInts._
+def median[A:Num:Ordering:FromInt](lst: List[A]): A = {
+  val a = implicitly[Num[A]]
+  val b = implicitly[Ordering[A]]
+  val c = implicitly[FromInt[A]]
+  val size = lst.size
+  require(size > 0)
+  val sorted = lst.sorted
+  if(size % 2 == 1) {
+    sorted(size / 2)
+  } else {
+    val fst = sorted((size / 2) - 1)
+    val snd = sorted((size / 2))
+    a.divide(a.plus(fst, snd), c.to(2))
+  }
+}
+```
+
+このメソッドは次のようにして使うことができます。
+
+```tut
+assert(2 == median(List(1, 3, 2)))
+assert(2.5 == median(List(1.5, 2.5, 3.5)))
+assert(3 == median(List(1, 3, 4, 5)))
+```
+
+型クラスを使うことで、このように、コレクション上の様々なアルゴリズムを、あらかじめ定義できます。
