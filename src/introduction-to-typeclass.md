@@ -198,11 +198,12 @@ string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
 string(1) // 1
 string("Foo") // Foo
 class MyClass(val x: Int)
-string(new MyKlass(1)) // Compile Error!
+string(new MyClass(1)) // Compile Error!
 class MyKlass(val x: Int)
 implicit object MyKlassSerializer extends Serializer[MyKlass] {
   def serialize(klass: MyKlass): String = s"MyKlass(${klass.x})"
 }
+string(new MyKlass(1)) // OK
 ```
 
 この `string` メソッドは、
