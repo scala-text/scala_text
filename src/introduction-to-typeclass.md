@@ -187,3 +187,35 @@ assert(2 == median(List(1, 3, 2)))
 assert(2.5 == median(List(1.5, 2.5, 3.5)))
 assert(3 == median(List(1, 3, 4, 5)))
 ```
+
+次はより複雑な例を考えてみます。次のように、オブジェクトをシリアライズする
+メソッド `string` を定義したいとします。
+
+```scala
+import Serializer.string
+string(List(1, 2, 3)) // [1,2,3]
+string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
+string(1) // 1
+string("Foo") // Foo
+class MyClass(val x: Int)
+string(new MyKlass(1)) // Compile Error!
+class MyKlass(val x: Int)
+implicit object MyKlassSerializer extends Serializer[MyKlass] {
+  def serialize(klass: MyKlass): String = s"MyKlass(${klass.x})"
+}
+```
+
+この `string` メソッドは、
+
+* 整数をシリアライズ可能
+* 要素がシリアライズ可能なリストをシリアライズ可能
+* 文字列をシリアライズ可能
+
+であり、自分で作成したクラスについては、次のトレイト `Serializer` を
+継承して `serialize` メソッドを実装することで、シリアライズ可能にできます。
+
+```scala
+trait Serializer[A] {
+  def serialize(obj: A): String
+}
+```
