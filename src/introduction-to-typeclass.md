@@ -209,8 +209,8 @@ string(new MyKlass(1)) // OK
 この `string` メソッドは、
 
 * 整数をシリアライズ可能
-* 要素がシリアライズ可能なリストをシリアライズ可能
 * 文字列をシリアライズ可能
+* 要素がシリアライズ可能なリストをシリアライズ可能
 
 であり、自分で作成したクラスについては、次のトレイト `Serializer` を
 継承して `serialize` メソッドを実装するオブジェクトをimplicitにすることで、
@@ -248,10 +248,86 @@ object Serializers {
 }
 ```
 
-上の例では `Serializers` という `object を作っていますが、これは
-`Serializers` をimportすることで：
+`Serializers` という `object` を作っていますが、これをimportすることで：
 
 * `sting` メソッドを使える
 * `Serializer` 型クラスが公開される
 
-ようにするのが目的です。
+ようになります。
+
+さて、これでシグネチャの部分はできたので実装に入ります。とはいっても、今回の範囲内では、ほとんど
+オブジェクトを `toString` するだけのものなのですが…。
+
+```scala
+implicit object IntSerializer extends Serializer[Int] {
+  def serialize(obj: Int): String = obj.toString
+}
+implicit object StringSerializer extends Serializer[Int] {
+  def serialize(obj: String): String = obj
+}
+```
+
+以上は、整数と文字列の `Serializer` です。単に `toString` を呼び出しているか、自身を返しているだけなのが
+わかります。次が少しわかりにくいです。要素がシリアライズ可能なときだけ、リストがシリアライズ可能でなければ
+いけないのですから、単純に以下のようにしてもだめです。
+
+```scala
+implicit def ListSerializer[A]: Serializer[List[A]] = {
+  def serialize(obj: List[A]): String = ???
+}
+```
+
+この定義では `A` にどのような操作が可能なのかわからないため、中身を単純に `toString` するくらいしか
+実装しようがないですし、また、そのような実装では要素型の `Serializer` の実装と整合性が取れません。
+これを解決するには、 `ListSerializer` がimplicit parameterを取るようにします。
+
+```scala
+implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = {
+  def serialize(obj: List[A]): String = {
+    val serializedList = obj.map{o => serializer.serialize(o)}
+    serializedList.mkString("[",",","]")
+  }
+}
+```
+
+このように定義したとき、コンパイラは、要素型 `A` がシリアライズ可能でない場合（あらかじめimplicit def/objectで
+そう定義されていない場合）コンパイルエラーにしてくれます。つまり、型安全にオブジェクトをシリアライズできるの
+です。
+
+ここまでで、一通りの実装ができたので、定義を一箇所にまとめて実行結果を確認してみましょう。この節の最初の
+方の入力例を使って動作確認をします。
+
+```tut
+object Serializers {
+  trait Serializer[A] {
+    def serialize(obj: A): String
+  }
+  def string[A:Serializer](obj: A): String = {
+    implicitly[Serializers[A]].serialize(obj)
+  }
+  implicit object IntSerializer extends Serializer[Int] {
+    def serialize(obj: Int): String = obj.toString
+  }
+  implicit object StringSerializer extends Serializer[Int] {
+    def serialize(obj: String): String = obj
+  }
+  implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = {
+    def serialize(obj: List[A]): String = {
+      val serializedList = obj.map{o => serializer.serialize(o)}
+      serializedList.mkString("[",",","]")
+    }
+  }
+}
+import Serializers._
+string(List(1, 2, 3)) // [1,2,3]
+string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
+string(1) // 1
+string("Foo") // Foo
+// class MyClass(val x: Int)
+// string(new MyClass(1)) // Compile Error!
+class MyKlass(val x: Int)
+implicit object MyKlassSerializer extends Serializer[MyKlass] {
+  def serialize(klass: MyKlass): String = s"MyKlass(${klass.x})"
+}
+string(new MyKlass(1)) // OK
+```
