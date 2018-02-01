@@ -243,7 +243,7 @@ object Serializers {
     def serialize(obj: A): String
   }
   def string[A:Serializer](obj: A): String = {
-    implicitly[Serializers[A]].serialize(obj)
+    implicitly[Serializer[A]].serialize(obj)
   }
 }
 ```
@@ -303,15 +303,15 @@ object Serializers {
     def serialize(obj: A): String
   }
   def string[A:Serializer](obj: A): String = {
-    implicitly[Serializers[A]].serialize(obj)
+    implicitly[Serializer[A]].serialize(obj)
   }
   implicit object IntSerializer extends Serializer[Int] {
     def serialize(obj: Int): String = obj.toString
   }
-  implicit object StringSerializer extends Serializer[Int] {
+  implicit object StringSerializer extends Serializer[String] {
     def serialize(obj: String): String = obj
   }
-  implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = {
+  implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = new Serializer[List[A]]{
     def serialize(obj: List[A]): String = {
       val serializedList = obj.map{o => serializer.serialize(o)}
       serializedList.mkString("[",",","]")
@@ -320,7 +320,7 @@ object Serializers {
 }
 import Serializers._
 string(List(1, 2, 3)) // [1,2,3]
-string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
+string(List(List(1),List(2),List(3))) // [[1],[2],[3]]
 string(1) // 1
 string("Foo") // Foo
 // class MyClass(val x: Int)
@@ -331,3 +331,17 @@ implicit object MyKlassSerializer extends Serializer[MyKlass] {
 }
 string(new MyKlass(1)) // OK
 ```
+
+行コメントに書いた想定通りの動作をしていることがわかります。ここで重要なのは、 `MyClass` に
+対しては `Serializer` を定義していないので、コンパイルエラーになる点です。多くの言語のシリアライズ
+ライブラリでは、リフレクションを駆使して、実行時の型情報だけでシリアライズしようとするため、実行時になって
+初めてエラーがわかることが多いのですが、今回用いた手法では、後付けでシリアライズする型を追加でき、かつ、
+コンパイル時にその正当性を検査できるのです
+
+ここまでで紹介したように、型クラス（≒implicit parameter）は、うまく使うと、後付けのデータ型に対して
+既存のアルゴリズムを型安全に適用するのに使うことができます。この特徴は、特にライブラリ設計のときに
+重要になってきます。ライブラリ設計時点で定義されていないデータ型に対していかにしてライブラリのアルゴリズム
+を適用するか、つまり、拡張性が高いように作るかというのは、なかなか難しい問題です。簡潔に書けることを重視すると、
+拡張性が狭まりがちですし、拡張性が高いように作ると、デフォルトの動作でいいところを毎回書かなくてはいけなくて
+利用者にとって不便です。型クラスを使ったライブラリを提供することによって、この問題をある程度緩和することが
+できます。皆さんも、型クラスを使って、既存の問題をより簡潔に、拡張性が高く解決できないか考えてみてください。
