@@ -248,6 +248,10 @@ object Serializers {
 }
 ```
 
-`Serializers` という `objectO を作っていますが、これは、 `Serializers`
-をimportすれば `sting` メソッドを使えるようにするのと、 `Serializer`
-型クラスを公開するためのものです。
+上の例では `Serializers` という `object を作っていますが、これは
+`Serializers` をimportすることで：
+
+* `sting` メソッドを使える
+* `Serializer` 型クラスが公開される
+
+ようにするのが目的です。
