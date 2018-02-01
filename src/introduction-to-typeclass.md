@@ -213,10 +213,13 @@ string(new MyKlass(1)) // OK
 * 文字列をシリアライズ可能
 
 であり、自分で作成したクラスについては、次のトレイト `Serializer` を
-継承して `serialize` メソッドを実装することで、シリアライズ可能にできます。
+継承して `serialize` メソッドを実装するオブジェクトをimplicitにすることで、
+シリアライズ可能にできます。
 
 ```scala
 trait Serializer[A] {
   def serialize(obj: A): String
 }
 ```
+
+
