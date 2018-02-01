@@ -192,7 +192,7 @@ assert(3 == median(List(1, 3, 4, 5)))
 メソッド `string` を定義したいとします。
 
 ```scala
-import Serializer.string
+import Serializers.string
 string(List(1, 2, 3)) // [1,2,3]
 string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
 string(1) // 1
@@ -209,14 +209,140 @@ string(new MyKlass(1)) // OK
 この `string` メソッドは、
 
 * 整数をシリアライズ可能
-* 要素がシリアライズ可能なリストをシリアライズ可能
 * 文字列をシリアライズ可能
+* 要素がシリアライズ可能なリストをシリアライズ可能
 
 であり、自分で作成したクラスについては、次のトレイト `Serializer` を
-継承して `serialize` メソッドを実装することで、シリアライズ可能にできます。
+継承して `serialize` メソッドを実装するオブジェクトをimplicitにすることで、
+シリアライズ可能にできます。
 
 ```scala
 trait Serializer[A] {
   def serialize(obj: A): String
 }
 ```
+
+これを仮に `Serializer` 型クラスと呼びます。
+
+この `string` メソッドのシグニチャをまず考えてみます。このメソッドは
+`Serializer` 型クラスを必要としているので、 `Serializer[A]` のような
+implicit parameterを必要としているはずです。また、引数は `A` 型の値
+で、返り値は `String` なので、結果として次のようになります。
+
+```scala
+def string[A:Serializer](obj: A): String = ???
+```
+
+次に実装ですが、 `Serializer` 型クラスを要求しているということは、
+`Serializer` の `serialize` メソッドを呼びだせばいいだけなので、
+次のようになります。
+
+```tut
+object Serializers {
+  trait Serializer[A] {
+    def serialize(obj: A): String
+  }
+  def string[A:Serializer](obj: A): String = {
+    implicitly[Serializer[A]].serialize(obj)
+  }
+}
+```
+
+`Serializers` という `object` を作っていますが、これをimportすることで：
+
+* `string` メソッドを使える
+* `Serializer` 型クラスが公開される
+
+ようになります。
+
+さて、これでシグネチャの部分はできたので実装に入ります。とはいっても、今回の範囲内では、ほとんど
+オブジェクトを `toString` するだけのものなのですが…。
+
+```scala
+implicit object IntSerializer extends Serializer[Int] {
+  def serialize(obj: Int): String = obj.toString
+}
+implicit object StringSerializer extends Serializer[Int] {
+  def serialize(obj: String): String = obj
+}
+```
+
+以上は、整数と文字列の `Serializer` です。単に `toString` を呼び出しているか、自身を返しているだけなのが
+わかります。次が少しわかりにくいです。要素がシリアライズ可能なときだけ、リストがシリアライズ可能でなければ
+いけないのですから、単純に以下のようにしてもだめです。
+
+```scala
+implicit def ListSerializer[A]: Serializer[List[A]] = {
+  def serialize(obj: List[A]): String = ???
+}
+```
+
+この定義では `A` にどのような操作が可能なのかわからないため、中身を単純に `toString` するくらいしか
+実装しようがないですし、また、そのような実装では要素型の `Serializer` の実装と整合性が取れません。
+これを解決するには、 `ListSerializer` がimplicit parameterを取るようにします。
+
+```scala
+implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = {
+  def serialize(obj: List[A]): String = {
+    val serializedList = obj.map{o => serializer.serialize(o)}
+    serializedList.mkString("[",",","]")
+  }
+}
+```
+
+このように定義したとき、コンパイラは、要素型 `A` がシリアライズ可能でない場合（あらかじめimplicit def/objectで
+そう定義されていない場合）コンパイルエラーにしてくれます。つまり、型安全にオブジェクトをシリアライズできるの
+です。
+
+ここまでで、一通りの実装ができたので、定義を一箇所にまとめて実行結果を確認してみましょう。この節の最初の
+方の入力例を使って動作確認をします。
+
+```tut
+object Serializers {
+  trait Serializer[A] {
+    def serialize(obj: A): String
+  }
+  def string[A:Serializer](obj: A): String = {
+    implicitly[Serializer[A]].serialize(obj)
+  }
+  implicit object IntSerializer extends Serializer[Int] {
+    def serialize(obj: Int): String = obj.toString
+  }
+  implicit object StringSerializer extends Serializer[String] {
+    def serialize(obj: String): String = obj
+  }
+  implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = new Serializer[List[A]]{
+    def serialize(obj: List[A]): String = {
+      val serializedList = obj.map{o => serializer.serialize(o)}
+      serializedList.mkString("[",",","]")
+    }
+  }
+}
+import Serializers._
+string(List(1, 2, 3)) // [1,2,3]
+string(List(List(1),List(2),List(3))) // [[1],[2],[3]]
+string(1) // 1
+string("Foo") // Foo
+// class MyClass(val x: Int)
+// string(new MyClass(1)) // Compile Error!
+class MyKlass(val x: Int)
+implicit object MyKlassSerializer extends Serializer[MyKlass] {
+  def serialize(klass: MyKlass): String = s"MyKlass(${klass.x})"
+}
+string(new MyKlass(1)) // OK
+```
+
+行コメントに書いた想定通りの動作をしていることがわかります。ここで重要なのは、 `MyClass` に
+対しては `Serializer` を定義していないので、コンパイルエラーになる点です。多くの言語のシリアライズ
+ライブラリでは、リフレクションを駆使してシリアライズしようとするため、実行時になって初めてエラーが
+わかることが多いです。特に、静的型付き言語では、そのような場合、型によって安全を保証できないのは
+デメリットです。一方、今回用いた手法では、後付けでシリアライズする型を追加でき、かつコンパイル時に
+その正当性を検査できるのです。
+
+ここまでで紹介したように、型クラス（≒implicit parameter）は、うまく使うと、後付けのデータ型に対して
+既存のアルゴリズムを型安全に適用するのに使うことができます。この特徴は、特にライブラリ設計のときに
+重要になってきます。ライブラリ設計時点で定義されていないデータ型に対していかにしてライブラリのアルゴリズム
+を適用するか、つまり、拡張性が高いように作るかというのは、なかなか難しい問題です。簡潔に書けることを重視すると、
+拡張性が狭まりがちですし、拡張性が高いように作ると、デフォルトの動作でいいところを毎回書かなくてはいけなくて
+利用者にとって不便です。型クラスを使ったライブラリを提供することによって、この問題をある程度緩和することが
+できます。皆さんも、型クラスを使って、既存の問題をより簡潔に、拡張性が高く解決できないか考えてみてください。
