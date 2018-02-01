@@ -192,7 +192,7 @@ assert(3 == median(List(1, 3, 4, 5)))
 メソッド `string` を定義したいとします。
 
 ```scala
-import Serializer.string
+import Serializers.string
 string(List(1, 2, 3)) // [1,2,3]
 string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
 string(1) // 1
@@ -222,4 +222,32 @@ trait Serializer[A] {
 }
 ```
 
+これを仮に `Serializer` 型クラスを呼びます。
 
+この `string` メソッドのシグニチャをまず考えてみます。このメソッドは
+`Serializer` 型クラスを必要としているので、 `Serializer[A]` のような
+implicit parameterを必要としているはずです。また、引数は `A` 型の値
+で、返り値は `String` なので、結果として次のようになります。
+
+```scala
+def string[A:Serializer](obj: A): String = ???
+```
+
+次に実装ですが、 `Serializer` 型クラスを要求しているということは、
+`Serializer` の `serialize` メソッドを呼びだせばいいだけなので、
+次のようになります。
+
+```tut
+object Serializers {
+  trait Serializer[A] {
+    def serialize(obj: A): String
+  }
+  def string[A:Serializer](obj: A): String = {
+    implicitly[Serializers[A]].serialize(obj)
+  }
+}
+```
+
+`Serializers` という `objectO を作っていますが、これは、 `Serializers`
+をimportすれば `sting` メソッドを使えるようにするのと、 `Serializer`
+型クラスを公開するためのものです。
