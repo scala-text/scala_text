@@ -27,6 +27,7 @@ script:
   exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null &&
   export PATH="~/calibre-bin/calibre/:/home/travis/calibre-bin/calibre/:$PATH" &&
   sbt "textBuildEpub"
+- git diff --exit-code
 after_success:
 - "./deploy.sh"
 after_script:
