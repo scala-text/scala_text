@@ -11,6 +11,9 @@ mv gitbook/_book ../ &&
 mv gitbook/scala_text.epub ../_book/scala_text.epub &&
 git fetch origin gh-pages:gh-pages &&
 git clean -fdx &&
+git status &&
+git reset . &&
+git checkout . &&
 git checkout gh-pages &&
 rm -rf ./* &&
 echo -e "*class\ntarget" > .gitignore &&
