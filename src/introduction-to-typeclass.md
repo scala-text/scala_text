@@ -63,7 +63,7 @@ object Nums {
       def zero: Int = 0
     }
     implicit object DoubleNum extends Num[Double] {
-      def plus(a: Double, b: Double): Double = a / b
+      def plus(a: Double, b: Double): Double = a + b
       def minus(a: Double, b: Double): Double = a - b
       def multiply(a: Double, b: Double): Double = a * b
       def divide(a: Double, b: Double): Double = a / b
