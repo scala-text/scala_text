@@ -529,4 +529,4 @@ class C extends {
 この事前定義の機能は実際のコードではあまり見ることはないかもしれません。
 
 
-[^trait-param-sip]: 次世代Scalaコンパイラである[Dotty](http://dotty.epfl.ch/)では、[トレイトがパラメータを取る](http://docs.scala-lang.org/sips/pending/trait-parameters.html)ことができます。
+[^trait-param-sip]: 次世代Scalaコンパイラである[Dotty](http://dotty.epfl.ch/)では、[トレイトがパラメータを取る](https://docs.scala-lang.org/sips/pending/trait-parameters.html)ことができます。

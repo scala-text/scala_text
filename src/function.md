@@ -234,4 +234,4 @@ def printFile(filename: String): Unit = {
 ここでは高階関数の利用例を簡単に紹介しました。
 後のコレクションの節を読むことで、高階関数のメリットをさらに理解できるようになるでしょう。
 
-[^scala212]: Scala 2.12からは、[SAM Typeと互換性がある](http://scala-lang.org/files/archive/spec/2.12/06-expressions.html#sam-conversion)場合には対応するSAM Typeのコードが生成されるので、純粋なシンタックスシュガーとは呼べなくなりましたが、それ以外のケースについては従来と変わりありません。
+[^scala212]: Scala 2.12からは、[SAM Typeと互換性がある](https://scala-lang.org/files/archive/spec/2.12/06-expressions.html#sam-conversion)場合には対応するSAM Typeのコードが生成されるので、純粋なシンタックスシュガーとは呼べなくなりましたが、それ以外のケースについては従来と変わりありません。

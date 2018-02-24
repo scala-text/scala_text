@@ -267,7 +267,7 @@ joinByComma(1, 10)
 
 ### foldLeft：左からの畳み込み
 
-`foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)から引用すると、
+`foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)から引用すると、
 
 ```scala
 def foldLeft[B](z: B)(f: (B, A) ⇒ B): B
@@ -341,7 +341,7 @@ Testing.test(arbitrary[List[Int]]){ list =>
 ### foldRight：右からの畳み込み
 
 `foldLeft`が`List`の左からの畳み込みだったのに対して、`foldRight`は右からの畳込みです。`foldRight`の宣言を
-[ScalaのAPIドキュメントから](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
+[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
 
 ```scala
 def foldRight[B](z: B)(op: (A, B) ⇒ B): B
@@ -408,7 +408,7 @@ mul(List(1, 2, 3, 4, 5))
 #### 練習問題
 
 `mkString`を実装してみましょう。`mkString`そのものを使ってはいけませんが、`foldLeft`や`foldRight`などの`List`に定義されている
-他のメソッドは自由に使って構いません。[ListのAPIリファレンス](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)
+他のメソッドは自由に使って構いません。[ListのAPIリファレンス](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)
 を読めば必要なメソッドが載っています。実装する`mkString`の宣言は
 
 ```tut:silent
@@ -534,7 +534,7 @@ def count[T](list: List[T])(f: T => Boolean): Int  = {
 ### flatMap：`List`をたいらにする
 
 `flatMap`は一見少し変わったメソッドですが、後々重要になってくるメソッドなので説明しておきます。flatMapの
-宣言は[ScalaのAPIドキュメントから](http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
+宣言は[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
 
 ```scala
 final def flatMap[B](f: (A) ⇒ GenTraversableOnce[B]): List[B]
@@ -588,7 +588,7 @@ List(1, 2, 3, 4) :+ 5 // 注意！末尾への追加は、Listの要素数分か
 
 ### 紹介したメソッドについて
 
-`mkString`をはじめとした`List`の色々なメソッドを紹介してきましたが、実はこれらの大半は`List`特有ではなく、既に紹介した`Range`や`Array`、これから紹介する他のコレクションでも同様に使うことができます。何故ならばこれらの操作の大半は特定のコレクションではなく、コレクションのスーパータイプである共通のトレイト中に宣言されているからです。もちろん、`List`に要素を加える処理と`Set`に要素を加える処理（`Set`に既にある要素は加えない）のように、中で行われる処理が異なることがあるので、その点は注意する必要があります。詳しくは[ScalaのAPIドキュメント](http://www.scala-lang.org/api/current/index.html)を探索してみましょう。
+`mkString`をはじめとした`List`の色々なメソッドを紹介してきましたが、実はこれらの大半は`List`特有ではなく、既に紹介した`Range`や`Array`、これから紹介する他のコレクションでも同様に使うことができます。何故ならばこれらの操作の大半は特定のコレクションではなく、コレクションのスーパータイプである共通のトレイト中に宣言されているからです。もちろん、`List`に要素を加える処理と`Set`に要素を加える処理（`Set`に既にある要素は加えない）のように、中で行われる処理が異なることがあるので、その点は注意する必要があります。詳しくは[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/index.html)を探索してみましょう。
 
 ### [Vector](https://github.com/scala/scala/blob/v2.12.4/src/library/scala/collection/immutable/Vector.scala)
 
@@ -684,6 +684,6 @@ s // 変更が反映される
 ### その他資料
 
 さらにコレクションライブラリについて詳しく知りたい場合は、以下の公式のドキュメントなどを読みましょう
-<http://docs.scala-lang.org/ja/overviews/collections/introduction.html>
+<https://docs.scala-lang.org/ja/overviews/collections/introduction.html>
 
 [^fold-sum-product]: ただし、これはあくまでもfoldLeftの例であって、要素の和や積を求めたい場合に限って言えばもっと便利なメソッドが標準ライブラリに存在するので、実際にはこの例のような使い方はしません
