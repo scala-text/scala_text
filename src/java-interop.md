@@ -87,7 +87,7 @@ staticメソッドの呼び出しもJavaの場合とほとんど同様にでき�
 （というよりstaticメソッドという概念がない）ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに
 対してB.foo()とすることはできず、A.foo()としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。
 
-現在時刻をミリ秒単位で取得する[`System.currentTimeMillis()`](http://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--)をScalaから呼び出してみましょう。
+現在時刻をミリ秒単位で取得する[`System.currentTimeMillis()`](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--)をScalaから呼び出してみましょう。
 
 ```
 scala> System.currentTimeMillis()
@@ -264,11 +264,11 @@ val scalaList = list.asScala
 ```
 
 BufferはScalaの変更可能なリストのスーパークラスですが、ともあれ、asScalaメソッドによってJavaのコレクションをScalaのそれに変換することができている
-ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](http://www.scala-lang.org/api/current/index.html#scala.collection.JavaConverters$)を参照してください。
+ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/index.html#scala.collection.JavaConverters$)を参照してください。
 
 ##### 練習問題
 
-[`scala.collection.mutable.ArrayBuffer`](http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.ArrayBuffer)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
+[`scala.collection.mutable.ArrayBuffer`](https://www.scala-lang.org/api/current/index.html#scala.collection.mutable.ArrayBuffer)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
 
 <!-- begin answer id="answer_ex5" style="display:none" -->
 

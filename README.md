@@ -124,7 +124,7 @@ textlintでルールを設定し原則としてこれに従う。
 ## EPUBファイルの作成
 
 GitBookではEPUB形式にもビルドすることが出来る。
-依存ライブラリとして[Calibre](http://calibre-ebook.com/)が必要なのでインストールする必要がある。
+依存ライブラリとして[Calibre](https://calibre-ebook.com/)が必要なのでインストールする必要がある。
 またcalibreの中の`ebook-convert`やnpmライブラリである`svgexport`にPATHが通っている必要があるので注意。
 
 Macでのインストールは例えば以下のようになる。

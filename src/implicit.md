@@ -112,7 +112,7 @@ Taps.main(Array())
 
 #### 練習問題 {#implicit_ex3}
 
-[Scala標準ライブラリ](http://www.scala-lang.org/api/current/index.html)の中からpimp my libraryが使われている例を（先ほど挙げた
+[Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html)の中からpimp my libraryが使われている例を（先ほど挙げた
 ものを除いて）1つ以上見つけてください。
 
 ## Implicit Parameter
@@ -322,19 +322,19 @@ println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 ### 練習問題 {#implicit_ex5}
 
 `List[Int]` と `List[Double]` のsumを行うために、標準ライブラリでは何という型クラス（1つ）と型クラスのインスタンス
-（2つ）を定義しているかを、[Scala標準ライブラリ](http://www.scala-lang.org/api/current/index.html#package)から
+（2つ）を定義しているかを、[Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html#package)から
 探して挙げなさい。
 
 <!-- begin answer id="answer_ex3" style="display:none" -->
 
 型クラス：
 
-* [Numeric[T]](http://www.scala-lang.org/api/2.12.4/scala/math/Numeric.html)
+* [Numeric[T]](https://www.scala-lang.org/api/2.12.4/scala/math/Numeric.html)
 
 型クラスのインスタンス：
 
-* [IntIsIntegral](http://www.scala-lang.org/api/2.12.4/scala/math/Numeric$$IntIsIntegral$.html)
-* [DoubleAsIfIntegral](http://www.scala-lang.org/api/2.12.4/scala/math/Numeric$$DoubleAsIfIntegral$.html)
+* [IntIsIntegral](https://www.scala-lang.org/api/2.12.4/scala/math/Numeric$$IntIsIntegral$.html)
+* [DoubleAsIfIntegral](https://www.scala-lang.org/api/2.12.4/scala/math/Numeric$$DoubleAsIfIntegral$.html)
 
 <!-- end answer -->
 

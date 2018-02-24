@@ -8,7 +8,7 @@
 また、新しくプロジェクトに配属された場合は定義を確認しておきましょう。
 
 本章では、ソフトウェアテストを下記の定義とします。
-この定義は古典と呼ばれている書籍『[ソフトウェアテストの技法　第二版](http://www.amazon.co.jp/dp/4764903296)』をベースにしたものです。
+この定義は古典と呼ばれている書籍『[ソフトウェアテストの技法　第二版](https://www.amazon.co.jp/dp/4764903296)』をベースにしたものです。
 
 > ソフトウェアテストとは、ソフトウェアが意図されたように動作し意図されないことは全て実行されないように設計されていることを検証するように設計されたプロセス、あるいは一連のプロセスである。
 
@@ -81,7 +81,7 @@
 
 リファクタリングとは、ソフトウェアの仕様を変えること無く、プログラムの構造を扱いやすく変化させることです。
 
-マーチン・ファウラーの[リファクタリング](http://www.amazon.co.jp/dp/427405019X)では、リファクタリングを行う理由として4つの理由が挙げられています。
+マーチン・ファウラーの[リファクタリング](https://www.amazon.co.jp/dp/427405019X)では、リファクタリングを行う理由として4つの理由が挙げられています。
 
 1. ソフトウェア設計を向上させるため
 1. ソフトウェアを理解しやすくするため
@@ -103,7 +103,7 @@
 実際にユニットテストのテストコードを書く際には、テスティングフレームワークを利用します。
 Scalaで広く利用されているテスティングフレームワークとして紹介されるのは以下の2つです。
 
-- [Specs2](http://etorreborre.github.io/specs2/)
+- [Specs2](https://etorreborre.github.io/specs2/)
 - [ScalaTest](http://www.scalatest.org/)
 
 今回は、マクロを用いて実装されているpower assertという便利な機能を使いたいため、ScalaTestを利用します[^power-assert]。
@@ -145,7 +145,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.1/scalatest_2.12-3.0.1.jar ...
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.1/scalatest_2.12-3.0.1.jar ...
 [info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.12;3.0.1!scalatest_2.12.jar(bundle) (10199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2015/04/09 16:48:42

@@ -10,7 +10,7 @@ import sbt._, Keys._
 
 ## Mac OSの場合
 
-Mac OSの場合、[Homebrew](http://brew.sh/index_ja.html)を用いて、
+Mac OSの場合、[Homebrew](https://brew.sh/index_ja.html)を用いて、
 
 ```
 $ brew install sbt

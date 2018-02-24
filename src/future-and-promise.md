@@ -28,14 +28,14 @@ JVM系の言語では、マルチスレッドで並行処理を使った非同�
 
 ## Futureとは
 
-[Future](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)とは、
+[Future](https://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)とは、
 非同期に処理される結果が入ったOption型のようなものです。
 mapやflatMapやfilter、for式の適用といったようなOptionやListでも利用できる性質を持っています。
 
 ライブラリやフレームワークの処理が非同期主体となっている場合、
 このFutureは基本的で重要な役割を果たすクラスとなります。
 
-なおJavaにも[Future](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/Future.html)というクラスがありますが、
+なおJavaにも[Future](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/Future.html)というクラスがありますが、
 こちらには関数を与えたり[^CompletableFuture]、Optionの持つ特性はありません。
 また、ECMAScript 6にある[Promise](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 という機能がありますが、そちらの方がScalaのFutureの機能に似ています。
@@ -274,14 +274,14 @@ object CompositeFutureSample extends App {
 `Failure: second waitMilliSec is 133`といったものとなります。
 
 なおFutureにはfilterの他、様々な並列実行に対するメソッドが存在しますので、
-[APIドキュメント](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)を見てみてください。
-また複数のFuture生成や[並列実行に関してのまとめられた日本語の記事](http://qiita.com/mtoyoshi/items/297f6acdfe610440c719)もありますので、
+[APIドキュメント](https://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)を見てみてください。
+また複数のFuture生成や[並列実行に関してのまとめられた日本語の記事](https://qiita.com/mtoyoshi/items/297f6acdfe610440c719)もありますので、
 複雑な操作を試してみたい際にはぜひ参考にしてみてください。
 
 
 ## Promiseとは
 
-[Promise](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Promise)とは、
+[Promise](https://www.scala-lang.org/api/current/index.html#scala.concurrent.Promise)とは、
 
 成功あるいは失敗を表す値を設定することによってFutureに変換することのできるクラスです。 実際にサンプルコードを示します。
 
@@ -370,7 +370,7 @@ callbackを使った非同期処理は今回のような例に限らず、Http�
 FutureやPromiseの便利な特性を利用して、0〜1000ミリ秒間のランダムな時間を待つ8個のFutureを定義し、
 そのうちの3つが終わり次第すぐにその3つの待ち時間を全て出力するという実装をしてみましょう。
 なお、この動きは、Javaの並行処理のためのユーティリティである、
-[CountDownLatch](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CountDownLatch.html)というクラスの
+[CountDownLatch](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CountDownLatch.html)というクラスの
 動きの一部を模したものとなります。
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
@@ -411,10 +411,10 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 これはFutureに渡した関数の中では、同じスレッドが利用されているとは限らないために必要となる部分です。
 別なスレッドから変更される値に関しては、値を原子的に更新するようにコードを書かなければなりません。
 プリミティブな値に関して原子的な操作を提供するのが
-[AtomicInteger](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html)というJavaのクラスとなります。[^concurrent]
+[AtomicInteger](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html)というJavaのクラスとなります。[^concurrent]
 以上が解答例でした。
 
-ちなみに、このような複雑なイベント処理は既にJavaの[concurrentパッケージ](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html)に
+ちなみに、このような複雑なイベント処理は既にJavaの[concurrentパッケージ](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html)に
 いくつか実装があるので実際の利用ではそれらを用いることもできます。
 またもっと複雑なイベントの時間毎の絞込みや合成、分岐などをする際には
 [RxScala](http://reactivex.io/rxscala/)というイベントストリームを専門に
@@ -422,5 +422,5 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 このRxは元々はC#で生まれたReactive Extensionsというライブラリで、
 現在では[様々な言語にポーティング](https://github.com/Reactive-Extensions)が行われています。
 
-[^CompletableFuture]: ただし、Java 8から追加されたjava.util.concurrent.Futureのサブクラスである[CompletableFuture](http://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CompletableFuture.html)には、関数を引数にとるメソッドがあります。
+[^CompletableFuture]: ただし、Java 8から追加されたjava.util.concurrent.Futureのサブクラスである[CompletableFuture](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CompletableFuture.html)には、関数を引数にとるメソッドがあります。
 [^concurrent]: 値の原始的な更新や同期の必要性などの並行処理に関する様々な話題の詳細な解説は本書の範囲をこえてしまうため割愛します。「Java Concurrency in Practice」ないしその和訳「Java並行処理プログラミング ー その「基盤」と「最新API」を究める」や「Effective Java」といった本でこれらの話題について学ぶことが出来ます。

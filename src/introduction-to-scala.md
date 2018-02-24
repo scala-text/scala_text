@@ -71,13 +71,13 @@ ScalaはJavaとの互換性を第一に考えられた言語です。Scalaの型
 
 ## 非同期プログラミング、並行・分散プログラミング
 
-Scalaでは非同期の計算を表現する[Future](http://www.scala-lang.org/api/current/#scala.concurrent.Future)が標準ライブラリに含まれており、様々なライブラリで使われています。
+Scalaでは非同期の計算を表現する[Future](https://www.scala-lang.org/api/current/#scala.concurrent.Future)が標準ライブラリに含まれており、様々なライブラリで使われています。
 非同期プログラミングにより、スレッド数を超えるようなクライアントの大量同時のアクセスに対応することができます。
 
 また、他のシステムに問い合わせなければならない場合などにも、スレッドを占有することなく他のシステムの返答を待つことができます。
 ドワンゴのように内部に多数のシステムがあり、外からの大量アクセスが見込まれる場合、Scalaの非同期プログラミングのサポートは大きなプラスになります。
 
-またScalaには[Akka](http://akka.io/)という並行・分散プログラミングのためのライブラリがあります。
+またScalaには[Akka](https://akka.io/)という並行・分散プログラミングのためのライブラリがあります。
 Akkaにはアクターというスレッドより小さい単位の実行コンポーネントがあり、このアクター間の通信により並行・分散プログラミングをおこないます。
 Akkaでは大量のアクターを管理することにより、スケーラビリティや耐障害性を実現しています。Akkaもドワンゴのプロダクトで使われています。
 
@@ -85,4 +85,4 @@ Akkaでは大量のアクターを管理することにより、スケーラビ�
 
 [^first_class]: この特徴を関数が「第一級（first-class）」であると言います。
 
-[^mutable_and_immutable]: http://docs.scala-lang.org/ja/overviews/collections/overview.html
+[^mutable_and_immutable]: https://docs.scala-lang.org/ja/overviews/collections/overview.html
