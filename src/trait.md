@@ -93,7 +93,7 @@ object ObjectA {
 
 ### クラスパラメータ（コンストラクタの引数）を取ることができない
 
-Scalaのトレイトはクラスと違いパラメータ（コンストラクタの引数）を取ることができないという制限があります[^trait-param-sip]。
+Scalaのトレイトはクラスと違いパラメータ（コンストラクタの引数）を取ることができないという制限があります[^trait-param-dotty]。
 
 ```tut:silent
 // 正しいプログラム
@@ -529,4 +529,4 @@ class C extends {
 この事前定義の機能は実際のコードではあまり見ることはないかもしれません。
 
 
-[^trait-param-sip]: 次世代Scalaコンパイラである[Dotty](http://dotty.epfl.ch/)では、[トレイトがパラメータを取る](https://docs.scala-lang.org/sips/pending/trait-parameters.html)ことができます。
+[^trait-param-dotty]: 次世代Scalaコンパイラである[Dotty](http://dotty.epfl.ch/)では、[トレイトがパラメータを取る](http://dotty.epfl.ch/docs/reference/trait-parameters.html)ことができます。
