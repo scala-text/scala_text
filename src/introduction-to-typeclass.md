@@ -36,12 +36,13 @@ object Additive {
 
 ```scala
 def average[A](lst: List[A])(implicit m: Additive[A]): A = {
-  val length = lst.foldLeft(m.zero)((x, _) => m.plus(x, 1))
-  lst.foldLeft(m.zero)((x, y) => m.plus(x, y)) / length
+  val length: Int = lst.length
+  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y)) / length
+  sum / length
 }
 ```
 
-残念ながら、このコードはコンパイルを通りません。何故ならば、 `A` 型の値を `A` 型で割ろうとしているのですが、その方法がわからないから
+残念ながら、このコードはコンパイルを通りません。何故ならば、 `A` 型の値を `Int` 型の値で割ろうとしているのですが、その方法がわからないから
 です。ここで、`Additive` をより一般化して、引き算、掛け算、割り算をサポートした型 `Num` を考えてみます。掛け算の
 メソッドを `multiply` 、割り算のメソッドを `divide` とすると、 `Num` は次のようになるでしょう。
 ここで、 `Nums` は、対話環境でコンパニオンクラス/オブジェクトを扱うために便宜的に作った名前空間であり、通常のScalaプログラムでは、コンパニオンクラス/オブジェクトを定義するときの作法に従えばよいです[^repl-companion]。
@@ -99,8 +100,9 @@ object FromInts {
 import Nums._
 import FromInts._
 def average[A](lst: List[A])(implicit a: Num[A], b: FromInt[A]): A = {
-  val length = lst.length
-  a.divide(lst.foldLeft(a.zero)((x, y) => a.plus(x, y)), b.to(length))
+  val length: Int = lst.length
+  val sum: A  = lst.foldLeft(a.zero)((x, y) => a.plus(x, y))
+  a.divide(sum, b.to(length))
 }
 ```
 
@@ -124,7 +126,8 @@ def average[A:Num:FromInt](lst: List[A]): A = {
   val a = implicitly[Num[A]]
   val b = implicitly[FromInt[A]]
   val length = lst.length
-  a.divide(lst.foldLeft(a.zero)((x, y) => a.plus(x, y)), b.to(length))
+  val sum: A  = lst.foldLeft(a.zero)((x, y) => a.plus(x, y))
+  a.divide(sum, b.to(length))
 }
 ```
 
