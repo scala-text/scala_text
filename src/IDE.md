@@ -83,9 +83,7 @@ scala-sandbox
 
 ![Select File or Directory to Import](img/IntelliJ_IDEA_Select_File_Or_Directory_To_Import.png)
 
-すると、さらに次のような画面が表示されるので、「Use auto-import」と「Create directories ...」
-の両方にチェックを入れます。「Project SDK」が空の場合がありますが、その場合は、「New」を
-選択して自分で、JDKのホームディレクトリにあるJDKを指定します。
+すると、さらに次のような画面が表示されます。「Project SDK」が空の場合がありますが、その場合は、「New」を選択して自分で、JDKのホームディレクトリにあるJDKを指定します。
 
 ![Import Project From SBT.png](img/IntelliJ_IDEA_Import_Project_From_SBT.png)
 
@@ -94,9 +92,7 @@ scala-sandbox
 
 ![Hello World.png)](img/IntelliJ_IDEA_Editor_Hello_World.png)
 
-このように、IntelliJ IDEAでは、sbtのプロジェクトをインポートしてIDE内で編集することができます。実は、IntelliJ IDEAの以前の
-バージョンではsbt-ideaというsbtプラグインを使って、IDEAの設定ファイルを自動生成して開くのが普通でした。しかし、この方法は
-IntelliJ IDEA 14以降非推奨になったので、本稿ではsbtのプロジェクトとしてインポートする方法を取りました。
+このように、IntelliJ IDEAでは、sbtのプロジェクトをインポートしてIDE内で編集することができます。
 
 ## プログラムを実行する
 
