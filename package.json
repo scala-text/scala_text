@@ -17,7 +17,7 @@
     "gitbook-plugin-anchors": "0.7.1",
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
     "gitbook-plugin-forkmegithub": "^2.2.0",
-    "gitbook-plugin-include-codeblock": "3.1.4",
+    "gitbook-plugin-include-codeblock": "3.2.2",
     "gitbook-plugin-japanese-support": "0.0.1",
     "gitbook-plugin-regexplace": "2.1.2",
     "kramed": "0.5.6",
@@ -35,6 +35,6 @@
     "textlint-rule-prh": "5.0.1"
   },
   "dependencies": {
-    "gitbook-plugin-include-codeblock": "^3.2.1"
+    "gitbook-plugin-include-codeblock": "^3.2.2"
   }
 }
