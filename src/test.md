@@ -330,10 +330,10 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 
 ```tut:silent
 import org.scalatest._
-import org.scalatest.concurrent.Timeouts
+import org.scalatest.concurrent.TimeLimits
 import org.scalatest.time.SpanSugar._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts {
+class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
 
   val calc = new Calc
 
@@ -354,7 +354,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts {
 }
 ```
 
-`Timeouts`というトレイトを利用することで`failAfter`という処理時間を
+`TimeLimits`というトレイトを利用することで`failAfter`という処理時間を
 テストする機能を利用できるようになります。
 
 最終的に全てのテストをまとめて`sbt test`で実行すると以下の様な出力が得られます。
@@ -407,11 +407,11 @@ libraryDependencies += "org.mockito" % "mockito-core" % "2.13.0" % "test"
 ```tut:silent
 import org.scalatest.time.SpanSugar._
 import org.scalatest.{FlatSpec, DiagrammedAssertions}
-import org.scalatest.concurrent.Timeouts
+import org.scalatest.concurrent.TimeLimits
 import org.scalatest.mockito.MockitoSugar
 import org.mockito.Mockito._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with Timeouts with MockitoSugar {
+class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits with MockitoSugar {
 
   // ...
 
