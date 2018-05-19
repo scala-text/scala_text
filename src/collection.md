@@ -267,7 +267,7 @@ joinByComma(1, 10)
 
 ### foldLeft：左からの畳み込み
 
-`foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)から引用すると、
+`foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)から引用すると、
 
 ```scala
 def foldLeft[B](z: B)(f: (B, A) ⇒ B): B
@@ -341,7 +341,7 @@ Testing.test(arbitrary[List[Int]]){ list =>
 ### foldRight：右からの畳み込み
 
 `foldLeft`が`List`の左からの畳み込みだったのに対して、`foldRight`は右からの畳込みです。`foldRight`の宣言を
-[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
+[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)参照すると、
 
 ```scala
 def foldRight[B](z: B)(op: (A, B) ⇒ B): B
@@ -408,7 +408,7 @@ mul(List(1, 2, 3, 4, 5))
 #### 練習問題
 
 `mkString`を実装してみましょう。`mkString`そのものを使ってはいけませんが、`foldLeft`や`foldRight`などの`List`に定義されている
-他のメソッドは自由に使って構いません。[ListのAPIリファレンス](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)
+他のメソッドは自由に使って構いません。[ListのAPIリファレンス](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)
 を読めば必要なメソッドが載っています。実装する`mkString`の宣言は
 
 ```tut:silent
@@ -534,7 +534,7 @@ def count[T](list: List[T])(f: T => Boolean): Int  = {
 ### flatMap：`List`をたいらにする
 
 `flatMap`は一見少し変わったメソッドですが、後々重要になってくるメソッドなので説明しておきます。flatMapの
-宣言は[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List)参照すると、
+宣言は[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)参照すると、
 
 ```scala
 final def flatMap[B](f: (A) ⇒ GenTraversableOnce[B]): List[B]
