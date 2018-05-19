@@ -28,7 +28,7 @@ JVM系の言語では、マルチスレッドで並行処理を使った非同�
 
 ## Futureとは
 
-[Future](https://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)とは、
+[Future](https://www.scala-lang.org/api/current/scala/concurrent/Future.html)とは、
 非同期に処理される結果が入ったOption型のようなものです。
 mapやflatMapやfilter、for式の適用といったようなOptionやListでも利用できる性質を持っています。
 
@@ -274,14 +274,14 @@ object CompositeFutureSample extends App {
 `Failure: second waitMilliSec is 133`といったものとなります。
 
 なおFutureにはfilterの他、様々な並列実行に対するメソッドが存在しますので、
-[APIドキュメント](https://www.scala-lang.org/api/current/index.html#scala.concurrent.Future)を見てみてください。
+[APIドキュメント](https://www.scala-lang.org/api/current/scala/concurrent/Future.html)を見てみてください。
 また複数のFuture生成や[並列実行に関してのまとめられた日本語の記事](https://qiita.com/mtoyoshi/items/297f6acdfe610440c719)もありますので、
 複雑な操作を試してみたい際にはぜひ参考にしてみてください。
 
 
 ## Promiseとは
 
-[Promise](https://www.scala-lang.org/api/current/index.html#scala.concurrent.Promise)とは、
+[Promise](https://www.scala-lang.org/api/current/scala/concurrent/Promise.html)とは、
 
 成功あるいは失敗を表す値を設定することによってFutureに変換することのできるクラスです。 実際にサンプルコードを示します。
 

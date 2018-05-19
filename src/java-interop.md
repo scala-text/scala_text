@@ -264,11 +264,11 @@ val scalaList = list.asScala
 ```
 
 BufferはScalaの変更可能なリストのスーパークラスですが、ともあれ、asScalaメソッドによってJavaのコレクションをScalaのそれに変換することができている
-ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/index.html#scala.collection.JavaConverters$)を参照してください。
+ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/scala/collection/JavaConverters$.html)を参照してください。
 
 ##### 練習問題
 
-[`scala.collection.mutable.ArrayBuffer`](https://www.scala-lang.org/api/current/index.html#scala.collection.mutable.ArrayBuffer)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
+[`scala.collection.mutable.ArrayBuffer`](https://www.scala-lang.org/api/current/scala/collection/mutable/ArrayBuffer.html)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
 
 <!-- begin answer id="answer_ex5" style="display:none" -->
 

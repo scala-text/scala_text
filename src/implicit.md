@@ -322,7 +322,7 @@ println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 ### 練習問題 {#implicit_ex5}
 
 `List[Int]` と `List[Double]` のsumを行うために、標準ライブラリでは何という型クラス（1つ）と型クラスのインスタンス
-（2つ）を定義しているかを、[Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html#package)から
+（2つ）を定義しているかを、[Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html)から
 探して挙げなさい。
 
 <!-- begin answer id="answer_ex3" style="display:none" -->
