@@ -386,7 +386,7 @@ object CountDownLatchSample extends App {
   val random = new Random()
   val promises: Seq[Promise[Int]] = for {i <- 1 to 3} yield Promise[Int]
   val futures: Seq[Future[Int]] = for {i <- 1 to 8} yield Future[Int] {
-    val waitMilliSec = random.nextInt(1000)
+    val waitMilliSec = random.nextInt(1001)
     Thread.sleep(waitMilliSec)
     waitMilliSec
   }
