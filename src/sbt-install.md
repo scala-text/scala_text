@@ -8,6 +8,14 @@ import sbt._, Keys._
 標準的なビルドツールである[sbt](https://www.scala-sbt.org/release/docs/ja/Setup.html)というツールを用いることになり
 ます。ここでは、sbtのインストールについて説明します。
 
+## Javaのインストール
+
+Scala 2.12ではJava 8以降が必須なので、もしJavaがインストールされていなければ、まずJavaをインストールしましょう。
+Javaのインストール方法の詳細はここでは省略します。
+ScalaとJavaのそれぞれのバージョンの互換性に関しては、以下のScala公式サイトのページを見てください。
+
+https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
+
 ## Mac OSの場合
 
 Mac OSの場合、[Homebrew](https://brew.sh/index_ja.html)を用いて、
