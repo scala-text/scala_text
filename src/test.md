@@ -392,7 +392,7 @@ BDDでテストを書くことによってテストによってどのような�
 
 - [ScalaMock](http://scalamock.org/)
 - [EasyMock](http://easymock.org/)
-- [JMock](http://www.jmock.org/)
+- [JMock](http://jmock.org/)
 - [Mockito](https://github.com/mockito/mockito)
 
 ここでは、ドワンゴ社内で利用率の高いMockitoを利用してみましょう。

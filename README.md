@@ -1,6 +1,6 @@
 # ScalaText
 
-[![Build Status](https://travis-ci.org/dwango/scala_text.svg?branch=master)](https://travis-ci.org/dwango/scala_text)
+[![Build Status](https://api.travis-ci.org/dwango/scala_text.svg?branch=master)](https://travis-ci.org/dwango/scala_text)
 
 このテキストはドワンゴの新入社員Scala研修のために作成されたものである。
 
