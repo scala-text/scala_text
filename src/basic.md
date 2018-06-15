@@ -113,6 +113,10 @@ res2: Int = 3
 4.0 % 2.0
 
 4.0 % 3.0
+
+(4.5).asInstanceOf[Int]
+
+(4.0).asInstanceOf[Int]
 ```
 
 ### 練習問題
