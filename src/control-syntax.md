@@ -139,7 +139,8 @@ while(i <= 10) {
 }
 ```
 
-Javaで`while`文を使った場合と同様です。`do while`式もありますが、ほぼJavaと同じなので説明は省略します。なお、`break`文や`continue`文に相当するものはありません。
+Javaで`while`文を使った場合と同様です。`do while`式もありますが、ほぼJavaと同じなので説明は省略します。なお、Javaの`break`文や`continue`文に相当する言語機能はありません。
+しかし、後ほど説明する高階関数を適切に利用すれば、ほとんどの場合、 `break` や `continue` は必要ありません。
 
 ### 練習問題 {#control_syntax_ex2}
 
