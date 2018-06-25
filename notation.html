@@ -1,0 +1,580 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>記法 · Scala研修テキスト</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="control-syntax.html" />
+    
+    
+    <link rel="prev" href="IDE.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="introduction-to-scala.html">
+            
+                <a href="introduction-to-scala.html">
+            
+                    
+                    Scalaとは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="sbt-install.html">
+            
+                <a href="sbt-install.html">
+            
+                    
+                    sbtをインストールする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="basic.html">
+            
+                <a href="basic.html">
+            
+                    
+                    Scalaの基本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sbt-compile-execute.html">
+            
+                <a href="sbt-compile-execute.html">
+            
+                    
+                    sbtでプログラムをコンパイル・実行する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="IDE.html">
+            
+                <a href="IDE.html">
+            
+                    
+                    IDE(Intellij IDEA)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="notation.html">
+            
+                <a href="notation.html">
+            
+                    
+                    記法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="control-syntax.html">
+            
+                <a href="control-syntax.html">
+            
+                    
+                    Scalaの制御構文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    クラス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="object.html">
+            
+                <a href="object.html">
+            
+                    
+                    オブジェクト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="trait.html">
+            
+                <a href="trait.html">
+            
+                    
+                    トレイト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="type-parameter.html">
+            
+                <a href="type-parameter.html">
+            
+                    
+                    型パラメータと変位指定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="function.html">
+            
+                <a href="function.html">
+            
+                    
+                    関数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                    コレクションライブラリ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="case-class-and-pattern-matching.html">
+            
+                <a href="case-class-and-pattern-matching.html">
+            
+                    
+                    ケースクラスとパターンマッチング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="error-handling.html">
+            
+                <a href="error-handling.html">
+            
+                    
+                    エラー処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="implicit.html">
+            
+                <a href="implicit.html">
+            
+                    
+                    Implicit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="introduction-to-typeclass.html">
+            
+                <a href="introduction-to-typeclass.html">
+            
+                    
+                    型クラスへの誘い（β版）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="future-and-promise.html">
+            
+                <a href="future-and-promise.html">
+            
+                    
+                    FutureとPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="test.html">
+            
+                <a href="test.html">
+            
+                    
+                    テスト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="java-interop.html">
+            
+                <a href="java-interop.html">
+            
+                    
+                    Javaとの相互運用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="exercises.html">
+            
+                <a href="exercises.html">
+            
+                    
+                    S99の案内
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="advanced-trait-di.html">
+            
+                <a href="advanced-trait-di.html">
+            
+                    
+                    トレイトの応用編：依存性の注入によるリファクタリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="typeclass.html">
+            
+                <a href="typeclass.html">
+            
+                    
+                    付録：様々な型クラスの紹介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >記法</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="&#x8A18;&#x6CD5;"><a name="&#x8A18;&#x6CD5;" class="plugin-anchor" href="#&#x8A18;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8A18;&#x6CD5;</h1>
+<p>&#x3053;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x306F;Scala&#x306E;&#x57FA;&#x672C;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3076;&#x3082;&#x306E;&#x3067;&#x3059;&#x306E;&#x3067;&#x3001;&#x3053;&#x308C;&#x4EE5;&#x964D;&#x3001;Scala&#x306E;&#x3042;&#x308B;&#x69CB;&#x6587;&#x306B;&#x95A2;&#x3059;&#x308B;&#x8AAC;&#x660E;&#x304C;&#x3057;&#x3070;&#x3057;&#x3070;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x69CB;&#x6587;&#x3092;&#x8868;&#x3059;&#x305F;&#x3081;&#x306E;&#x8A18;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x7C21;&#x5358;&#x306B;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;"><a name="&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;" class="plugin-anchor" href="#&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;</h2>
+<p>&#x307E;&#x305A;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x3084;&#x8A18;&#x53F7;&#x306E;&#x306A;&#x3089;&#x3073;&#x304C;&#x305D;&#x306E;&#x307E;&#x307E;&#x73FE;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x6587;&#x5B57;&#x5217;&#x305D;&#x306E;&#x3082;&#x306E;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001; <code>if</code> &#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x305D;&#x306E;&#x3082;&#x306E;&#x3092;&#x8868;&#x3057;&#x3066;&#x3044;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
+<pre><code>if
+</code></pre><h2 id="&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;&#x3092;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3067;&#x56F2;&#x3093;&#x3060;&#x3082;&#x306E;"><a name="&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;&#x3092;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3067;&#x56F2;&#x3093;&#x3060;&#x3082;&#x306E;" class="plugin-anchor" href="#&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;&#x3092;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3067;&#x56F2;&#x3093;&#x3060;&#x3082;&#x306E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x306E;&#x4E26;&#x3073;&#x3092;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3067;&#x56F2;&#x3093;&#x3060;&#x3082;&#x306E;</h2>
+<p>&#x6B21;&#x306B;&#x3001;&#x30A2;&#x30EB;&#x30D5;&#x30A1;&#x30D9;&#x30C3;&#x30C8;&#x3084;&#x8A18;&#x53F7;&#x306E;&#x4E26;&#x3073;&#x3092;&#x30AF;&#x30AA;&#x30FC;&#x30C8;&#x3067;&#x56F2;&#x3093;&#x3060;&#x3082;&#x306E;&#x3082;&#x3001;&#x540C;&#x69D8;&#x306B;&#x6271;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x5F8C;&#x8FF0;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001;&#x4E00;&#x90E8;&#x306E;&#x6587;&#x5B57;&#x306B;&#x7279;&#x5225;&#x306A;&#x610F;&#x5473;&#x3092;&#x3082;&#x305F;&#x305B;&#x308B;&#x305F;&#x3081;&#x3001;&#x305D;&#x308C;&#x3068;&#x306E;&#x6DF7;&#x540C;&#x3092;&#x907F;&#x3051;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x3001;&#x5148;&#x7A0B;&#x3068;&#x540C;&#x3058;&#x610F;&#x5473;&#x3067;&#x3059;&#x3002;</p>
+<pre><code>&apos;if&apos;
+</code></pre><h2 id="&#x3068;--&#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;"><a name="&#x3068;--&#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;" class="plugin-anchor" href="#&#x3068;--&#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a><code>(</code> &#x3068; <code>)</code> &#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;</h2>
+<p>&#x306A;&#x3093;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x3067;&#x3001; <code>()</code> &#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x3082;&#x306E;&#x306F;&#x3001;&#x30B0;&#x30EB;&#x30FC;&#x30D4;&#x30F3;&#x30B0;&#x3092;&#x8868;&#x73FE;&#x3057;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x3001;<code>(</code>&#x3067;&#x59CB;&#x307E;&#x308B;&#x4F55;&#x3089;&#x304B;&#x306E;&#x6587;&#x5B57;&#x5217;
+<em>&#x3067;&#x306F;&#x306A;&#x304F;</em>&#x3001; <code>if()</code> &#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x306E;&#x4E26;&#x3073;&#x3092;&#x3072;&#x3068;&#x307E;&#x3068;&#x3081;&#x306B;&#x3057;&#x305F;&#x3082;&#x306E;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x5F8C;&#x8FF0;&#x3059;&#x308B;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x306E;&#x8868;&#x73FE;&#x306A;&#x3069;&#x3092;&#x3072;&#x3068;&#x307E;&#x3068;&#x3081;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>(&apos;if&apos; &apos;(&apos; &apos;)&apos;)
+</code></pre><p>&#x660E;&#x793A;&#x7684;&#x306B; <code>&apos;(&apos;</code> &#x3084; <code>&apos;)&apos;</code> &#x3068;&#x3057;&#x306A;&#x3044;&#x9650;&#x308A;&#x3001;&#x30B0;&#x30EB;&#x30FC;&#x30D4;&#x30F3;&#x30B0;&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x3068;--&#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;"><a name="&#x3068;--&#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;" class="plugin-anchor" href="#&#x3068;--&#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;"><i class="fa fa-link" aria-hidden="true"></i></a><code>&lt;</code> &#x3068; <code>&gt;</code> &#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x8981;&#x7D20;</h2>
+<p><code>&lt;&#x5F0F;&gt;</code> &#x306E;&#x3088;&#x3046;&#x306B; <code>&lt;</code> &#x3068; <code>&gt;</code> &#x3067;&#x56F2;&#x3093;&#x3067;&#x540D;&#x524D;&#x3092;&#x3064;&#x3051;&#x305F;&#x3082;&#x306E;&#x306F;&#x3001;&#x4F55;&#x3089;&#x304B;&#x306E;&#x69CB;&#x6587;&#x8981;&#x7D20;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;
+<code>&lt;&#x5F0F;&gt;</code> &#x3068;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3067;&#x3001; <code>&#x5F0F;</code> &#x3068;&#x3044;&#x3046;&#x6982;&#x5FF5;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x4F55;&#x3089;&#x304B;&#x306E;&#x69CB;&#x6587;&#x8981;&#x7D20;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x3067;&#x306F;&#x3001;Java&#x306E;
+<code>if</code> &#x6587;&#x306E;&#x69CB;&#x6587;&#x306E;&#x4E00;&#x90E8;&#x3092;&#x8868;&#x73FE;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002; <code>&lt;&#x6761;&#x4EF6;&#x5F0F;&gt;</code> &#x304C;&#x4F55;&#x304B;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x89E6;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;Java&#x306E;&#x8A00;&#x8A9E;&#x3067;
+<code>boolean</code> &#x304C;&#x8FD4;&#x3063;&#x3066;&#x304F;&#x308B;&#x5F0F;&#x3092;&#x60F3;&#x5B9A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>if &apos;(&apos; &lt;&#x6761;&#x4EF6;&#x5F0F;&gt; &apos;)&apos;
+</code></pre><h2 id="&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;"><a name="&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;" class="plugin-anchor" href="#&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B; <code>*</code> &#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;</h2>
+<p>&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306B;&#x7D9A;&#x3044;&#x3066;&#x3001; <code>*</code> &#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;&#x306F;&#x3001;&#x305D;&#x306E;&#x8981;&#x7D20;&#x304C;0&#x56DE;&#x4EE5;&#x4E0A;&#x73FE;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x3001;
+<code>&lt;&#x5F0F;&gt;</code> &#x306E;&#x3042;&#x3068;&#x306B; <code>;</code> &#x304C;&#x6765;&#x308B;&#x3088;&#x3046;&#x306A;&#x8981;&#x7D20;&#x304C;0&#x56DE;&#x4EE5;&#x4E0A;&#x73FE;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>(&lt;&#x5F0F;&gt; ;)*
+</code></pre><p>&#x3053;&#x3053;&#x3067;&#x3001; <code>a*</code> &#x306F; <code>a</code> &#x306E;&#x3042;&#x3068;&#x306B; <code>*</code> &#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x304C;&#x6765;&#x308B;&#x306E;&#x304B;&#x3001; <code>a</code> &#x306E;0&#x56DE;&#x4EE5;&#x4E0A;&#x306E;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x306A;&#x306E;&#x304B;&#x304C;&#x66D6;&#x6627;&#x3067;&#x3059;&#x3002;&#x66D6;&#x6627;&#x3055;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x660E;&#x793A;&#x7684;&#x306B; <code>&apos;*&apos;</code> &#x3068;&#x3057;&#x306A;&#x3044;&#x9650;&#x308A;&#x3001;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x308B;&#x3082;&#x306E;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;"><a name="&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;" class="plugin-anchor" href="#&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B; <code>+</code> &#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;</h2>
+<p>&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306B;&#x7D9A;&#x3044;&#x3066;&#x3001; <code>+</code> &#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;&#x306F;&#x3001;&#x305D;&#x306E;&#x8981;&#x7D20;&#x304C;1&#x56DE;&#x4EE5;&#x4E0A;&#x73FE;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x3001;
+<code>&lt;&#x5F0F;&gt;</code> &#x306E;&#x3042;&#x3068;&#x306B; <code>;</code> &#x304C;&#x6765;&#x308B;&#x3088;&#x3046;&#x306A;&#x8981;&#x7D20;&#x304C;1&#x56DE;&#x4EE5;&#x4E0A;&#x73FE;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>(&lt;&#x5F0F;&gt; ;)+
+</code></pre><p>&#x3053;&#x3053;&#x3067;&#x3001; <code>a+</code> &#x306F; <code>a</code> &#x306E;&#x3042;&#x3068;&#x306B; <code>+</code> &#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x304C;&#x6765;&#x308B;&#x306E;&#x304B;&#x3001; <code>a</code> &#x306E;1&#x56DE;&#x4EE5;&#x4E0A;&#x306E;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x306A;&#x306E;&#x304B;&#x304C;&#x66D6;&#x6627;&#x3067;&#x3059;&#x3002;&#x66D6;&#x6627;&#x3055;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x660E;&#x793A;&#x7684;&#x306B; <code>&apos;+&apos;</code> &#x3068;&#x3057;&#x306A;&#x3044;&#x9650;&#x308A;&#x3001;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x308B;&#x3082;&#x306E;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;"><a name="&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;" class="plugin-anchor" href="#&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B;--&#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306E;&#x3042;&#x3068;&#x306B; <code>?</code> &#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;</h2>
+<p>&#x4F55;&#x3089;&#x304B;&#x306E;&#x8981;&#x7D20;&#x306B;&#x7D9A;&#x3044;&#x3066;&#x3001; <code>?</code> &#x304C;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;&#x306F;&#x3001;&#x305D;&#x306E;&#x8981;&#x7D20;&#x304C;0&#x56DE;&#x307E;&#x305F;&#x306F;1&#x56DE;&#x73FE;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;&#x8A00;&#x3044;&#x63DB;&#x3048;&#x308B;&#x3068;&#x3001;&#x305D;&#x306E;&#x8981;&#x7D20;&#x306F;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30CA;&#x30EB;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x3001;</p>
+<p><code>else</code> &#x3067;&#x59CB;&#x307E;&#x308A;&#x3001;&#x305D;&#x306E;&#x6B21;&#x306B; <code>&lt;&#x5F0F;&gt;</code> &#x304C;&#x6765;&#x308B;&#x3088;&#x3046;&#x306A;&#x8981;&#x7D20;&#x304C;0&#x56DE;&#x307E;&#x305F;&#x306F;1&#x56DE;&#x73FE;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>(else &lt;&#x5F0F;&gt;)?
+</code></pre><p>&#x3053;&#x3053;&#x3067;&#x3001; <code>a?</code> &#x306F; <code>a</code> &#x306E;&#x3042;&#x3068;&#x306B; <code>?</code> &#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x304C;&#x6765;&#x308B;&#x306E;&#x304B;&#x3001; <code>a</code> &#x306E;0&#x56DE;&#x307E;&#x305F;&#x306F;1&#x56DE;&#x306E;&#x51FA;&#x73FE;&#x306A;&#x306E;&#x304B;&#x304C;&#x66D6;&#x6627;&#x3067;&#x3059;&#x3002;&#x66D6;&#x6627;&#x3055;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x660E;&#x793A;&#x7684;&#x306B; <code>&apos;?&apos;</code> &#x3068;&#x3057;&#x306A;&#x3044;&#x9650;&#x308A;&#x3001;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30CA;&#x30EB;&#x304C;&#x512A;&#x5148;&#x3055;&#x308C;&#x308B;&#x3082;&#x306E;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="if&#x5F0F;&#x306E;&#x69CB;&#x6587;"><a name="if&#x5F0F;&#x306E;&#x69CB;&#x6587;" class="plugin-anchor" href="#if&#x5F0F;&#x306E;&#x69CB;&#x6587;"><i class="fa fa-link" aria-hidden="true"></i></a>if&#x5F0F;&#x306E;&#x69CB;&#x6587;</h2>
+<p>&#x4EE5;&#x4E0A;&#x3092;&#x8E0F;&#x307E;&#x3048;&#x3066;&#x3001;Scala&#x306E; <code>if</code> &#x5F0F;&#x306E;&#x69CB;&#x6587;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x3068;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>if &apos;(&apos; &lt;&#x6761;&#x4EF6;&#x5F0F;&gt; &apos;)&apos; &lt;&#x5F0F;&gt; ( else &lt;&#x5F0F;&gt; )?
+</code></pre><p>Scala&#x306E; <code>if</code> &#x5F0F;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;&#x3042;&#x3068;&#x3067;&#x8A73;&#x3057;&#x304F;&#x89E3;&#x8AAC;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="IDE.html" class="navigation navigation-prev " aria-label="Previous page: IDE(Intellij IDEA)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="control-syntax.html" class="navigation navigation-next " aria-label="Next page: Scalaの制御構文">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"記法","level":"1.7","depth":1,"next":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"previous":{"title":"IDE(Intellij IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/dwango/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"notation.md","mtime":"2018-06-25T10:02:01.953Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-25T10:03:29.296Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
