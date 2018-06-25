@@ -3,6 +3,7 @@
 - [Scalaの基本](basic.md)
 - [sbtでプログラムをコンパイル・実行する](sbt-compile-execute.md)
 - [IDE(Intellij IDEA)](IDE.md)
+- [記法](notation.md)
 - [Scalaの制御構文](control-syntax.md)
 - [クラス](class.md)
 - [オブジェクト](object.md)
