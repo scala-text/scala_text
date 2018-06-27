@@ -14,17 +14,17 @@ Scalaでは、全ての値がオブジェクトです。また、全てのメソ
 3つが挙げられます。とはいえ、Singletonパターンを実現するために使われることはほとんどなく、もっぱら最初の
 2つの用途で使われます。
 
-objectの基本構文はクラスとほとんど同じで、
+objectの基本構文はクラスとおおむね同じで、
 
 ```
-object オブジェクト名 extends クラス名 with トレイト名1 with トレイト名2 ... {
-  本体
+object <オブジェクト名> extends <クラス名> (with <トレイト名>)* {
+  (<フィールド定義> | <メソッド定義>)*
 }
 ```
 
-のようになります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala/blob/v2.12.6/src/library/scala/Predef.scala)が定義・インポート
-されており、これは最初の使い方に当てはまります。たとえば、println()などとなにげなく
-使っていたメソッドも実はPredef objectのメソッドなのです。
+となります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala/blob/v2.12.6/src/library/scala/Predef.scala)が定義・インポート
+されており、これは最初の使い方に当てはまります。 `println("Hello")` となにげなく使っていたメソッドも
+実はPredef objectのメソッドなのです。
 
 一方、2番めの使い方について考えてみます。点を表すPointクラスのファクトリを
 `object`で作ろうとすると、次のようになります。applyという名前のメソッドはScala処理系に
