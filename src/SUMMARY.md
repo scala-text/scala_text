@@ -14,7 +14,7 @@
 - [ケースクラスとパターンマッチング](case-class-and-pattern-matching.md)
 - [エラー処理](error-handling.md)
 - [Implicit](implicit.md)
-- [型クラスへの誘い（β版）](introduction-to-typeclass.md)
+- [型クラスへの誘い](introduction-to-typeclass.md)
 - [FutureとPromise](future-and-promise.md)
 - [テスト](test.md)
 - [Javaとの相互運用](java-interop.md)
