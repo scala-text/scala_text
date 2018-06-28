@@ -28,10 +28,10 @@ val x: DayOfWeek = Sunday
 各`object`をパターンマッチングのパターンを使うことができます。パターンマッチングの構文は再度書くと、
 
 ```scala
-式 match {
-  case pat1 =>
-  case pat2 =>
-  ...
+<対象式> match {
+  (case <パターン> (if <ガード>)? '=>'
+    (<式> (;|<改行>))*
+  )+
 }
 ```
 
