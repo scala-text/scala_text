@@ -247,4 +247,39 @@ class BPrinter() extends APrinter {
 のようにメッセージを出力して、**コンパイルエラー**になります。Javaではしばしば、気付かずに既存のメソッドを
 オーバーライドするつもりで新しいメソッドを定義してしまうというミスがありましたが、Scalaでは`override`キーワードを使って言語レベルでこの問題に対処しているのです。
 
+### 練習問題 {#class_ex1}
+
+全てが `Int` 型の `x` 、 `y` 、 `z` という名前を持った、3次元座標を表す `Point3D` クラスを定義してください。
+`Point3D` クラスは次のようにして使うことができなければいけません。
+
+```scala
+val p = new Point3D(10, 20, 30)
+println(p.x) // 10
+println(p.y) // 20
+println(p.z) // 30
+```
+
+<!-- begin answer id="answer_ex1" style="display:none" -->
+
+```tut:silent
+class Point3D(val x: Int, val y: Int, val z: Int)
+```
+
+#### 解説
+
+プライマリコンストラクタの引数として座標の値を渡し、それをそのまま取り出しているので、
+プライマリコンストラクタの引数に `val` を付けるのが最も簡単です。別解として、以下のように
+別途 `val` でフィールドを定義することも可能ですが、今回あえてそうする意味は少ないでしょう。
+
+```tut:silent
+class Point3D(x_ : Int, y_ : Int, z_ : Int) {
+  val x: Int = x_
+  val y: Int = y_
+  val z: Int = z_
+}
+```
+
+<!-- end answer -->
+
+
 [^subtyping_polymorphism]: このように継承などにより型に親子関係を作り、複数の型に共通のインタフェースを持たせることをサブタイピング・ポリモーフィズムと呼びます。Scalaでは他にも構造的部分型というサブタイピング・ポリモーフィズムの機能がありますが、実際に使われることが少ないため、このテキストでは説明を省略しています。
