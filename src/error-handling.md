@@ -397,8 +397,8 @@ val v3: Option[Int] = Some(7)
 v1.flatMap(i1 => v2.flatMap(i2 => v3.map(i3 => i1 * i2 * i3)))
 ```
 
-無論これは、v1, v2, v3のいずれがNoneであった場合にも成立します。
-その場合には`flatten`の時と同様に`None`が最終的な答えになります。
+無論これは、 `v1`, `v2`, `v3` のいずれが `None` であった場合にも成立します。
+その場合には `flatten` の時と同様に `None` が最終的な答えになります。
 
 ```tut
 val v3: Option[Int] = None
