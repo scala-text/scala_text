@@ -263,6 +263,8 @@ def joinByComma(start: Int, end: Int): String = {
 joinByComma(1, 10)
 ```
 
+`(start to end)` で、 `start` から `end` までの列を作って、 `mkString(",")` を使って間に `,` を挟んでいます。
+
 <!-- end answer -->
 
 ### foldLeft：左からの畳み込み
@@ -327,6 +329,9 @@ def reverse[T](list: List[T]): List[T] = list.foldLeft(Nil: List[T])((a, b) => b
 ```tut
 reverse(List(1, 2, 3, 4, 5))
 ```
+
+`foldLeft` の初期値に `Nil` を与えて、そこから後ろにたどる毎に、「前に」要素を追加していくことで、
+逆順のリストを作ることができています。
 
 ```tut:invisible
 import org.scalacheck._, Arbitrary.arbitrary
