@@ -275,7 +275,7 @@ object Serializers {
 implicit object IntSerializer extends Serializer[Int] {
   def serialize(obj: Int): String = obj.toString
 }
-implicit object StringSerializer extends Serializer[Int] {
+implicit object StringSerializer extends Serializer[String] {
   def serialize(obj: String): String = obj
 }
 ```
