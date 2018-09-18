@@ -7,14 +7,14 @@
 簡単なケースクラスによるデータ型を定義してみます。
 
 ```tut:silent
-sealed abstract class DayOfWeek
-case object Sunday extends DayOfWeek
-case object Monday extends DayOfWeek
-case object Tuesday extends DayOfWeek
-case object Wednesday extends DayOfWeek
-case object Thursday extends DayOfWeek
-case object Friday extends DayOfWeek
-case object Saturday extends DayOfWeek
+sealed trait DayOfWeek
+object Sunday extends DayOfWeek
+object Monday extends DayOfWeek
+object Tuesday extends DayOfWeek
+object Wednesday extends DayOfWeek
+object Thursday extends DayOfWeek
+object Friday extends DayOfWeek
+object Saturday extends DayOfWeek
 ```
 
 これは、一週間の曜日を表すデータ型です。CやJavaの`enum`に似ていますね。実際、同じように使うことができます。
