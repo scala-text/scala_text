@@ -37,7 +37,7 @@ object Additive {
 ```scala
 def average[A](lst: List[A])(implicit m: Additive[A]): A = {
   val length: Int = lst.length
-  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y)) / length
+  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y)) 
   sum / length
 }
 ```
