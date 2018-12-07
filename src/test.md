@@ -199,7 +199,7 @@ class Calc {
     - 0で割ろうとした際には実行時例外が投げられる
 - isPrime関数
     - その値が素数であるかどうかのブール値を返す
-    - 100万以下の値の素数判定を一秒以内で処理できる
+    - 1000万以下の値の素数判定を一秒以内で処理できる
 
 以上のようにテストを行います。
 基本的にテストの設計は、
@@ -346,7 +346,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
     assert(calc.isPrime(17))
   }
 
-  it should "100万以下の値の素数判定を一秒以内で処理できる" in {
+  it should "1000万以下の値の素数判定を一秒以内で処理できる" in {
     failAfter(1000 millis) {
       assert(calc.isPrime(9999991))
     }
@@ -372,7 +372,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
 [info] - should 0で割ろうとした際には実行時例外が投げられる
 [info] isPrime関数
 [info] - should その値が素数であるかどうかのブール値を返す
-[info] - should 100万以下の値の素数判定を一秒以内で処理できる
+[info] - should 1000万以下の値の素数判定を一秒以内で処理できる
 [info] Run completed in 280 milliseconds.
 [info] Total number of tests run: 6
 [info] Suites: completed 1, aborted 0
