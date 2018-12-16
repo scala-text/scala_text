@@ -5,7 +5,7 @@ val textTestAll = taskKey[Unit]("test scala, links")
 
 name := "textbook"
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.12.8"
 
 enablePlugins(TutPlugin)
 

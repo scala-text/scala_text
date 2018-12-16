@@ -65,7 +65,7 @@ $ sbt console
 [info] Done updating.
 [info] Starting scala interpreter...
 [info] 
-Welcome to Scala version 2.12.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
+Welcome to Scala version 2.12.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
 Type in expressions to have them evaluated.
 Type :help for more information.
 
@@ -88,7 +88,7 @@ scala> :quit
 _build.sbt_というファイルを作成し、
 
 ```tut:silent
-scalaVersion := "2.12.7"
+scalaVersion := "2.12.8"
 ```
 
 としてやると良いです。この_*.sbt_がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう
