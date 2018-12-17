@@ -499,10 +499,10 @@ scala&gt; <span class="hljs-keyword">val</span> n: <span class="hljs-type">Optio
 n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
 
 scala&gt; identityLaw(n)
-res1: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res0: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; compositeLaw(n, (i: <span class="hljs-type">Int</span>) =&gt; i * i, (i: <span class="hljs-type">Int</span>) =&gt; i.toString)
-res2: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res1: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 </code></pre>
 <h2 id="applicative-functor"><a name="applicative-functor" class="plugin-anchor" href="#applicative-functor"><i class="fa fa-link" aria-hidden="true"></i></a>Applicative Functor</h2>
 <p>&#x8907;&#x6570;&#x306E;&#x5024;&#x304C;&#x767B;&#x5834;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;Functor&#x3067;&#x306F;&#x529B;&#x4E0D;&#x8DB3;&#x3067;&#x3059;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3092;&#x6301;&#x3064;&#x95A2;&#x6570;&#x3068;&#x5024;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;1&#x3064;&#x306E;&#x5024;&#x3092;&#x4F5C;&#x308A;&#x3060;&#x305B;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;Applicative Functor&#x304C;&#x767B;&#x5834;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -562,22 +562,22 @@ scala&gt; <span class="hljs-keyword">val</span> a: <span class="hljs-type">Optio
 a: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
 
 scala&gt; <span class="hljs-keyword">val</span> f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span> = { i =&gt; i.toString }
-f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span> = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">5940</span>/<span class="hljs-number">886469119</span>@<span class="hljs-number">20120</span>a1e
+f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span> = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7901</span>/<span class="hljs-number">258325146</span>@<span class="hljs-number">3871</span>a176
 
 scala&gt; <span class="hljs-keyword">val</span> af: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(f)
-af: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>($$<span class="hljs-type">Lambda</span>$<span class="hljs-number">5940</span>/<span class="hljs-number">886469119</span>@<span class="hljs-number">20120</span>a1e)
+af: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>($$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7901</span>/<span class="hljs-number">258325146</span>@<span class="hljs-number">3871</span>a176)
 
 scala&gt; identityLaw(a)
-res5: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res2: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; homomorphismLaw(f, <span class="hljs-number">1</span>)
-res6: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res3: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; interchangeLaw(af, <span class="hljs-number">1</span>)
-res7: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res4: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; <span class="hljs-type">OptionApplicative</span>.map(a)(_ + <span class="hljs-number">1</span>) == <span class="hljs-type">OptionFunctor</span>.map(a)(_ + <span class="hljs-number">1</span>)
-res8: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res5: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 </code></pre>
 <h2 id="monad"><a name="monad" class="plugin-anchor" href="#monad"><i class="fa fa-link" aria-hidden="true"></i></a>Monad</h2>
 <p>&#x3042;&#x308B;&#x5024;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x305D;&#x306E;&#x5024;&#x3092;&#x5305;&#x3093;&#x3060;&#x578B;&#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;&#x3092;Applicative Functor&#x3067;&#x6271;&#x304A;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;&#x578B;&#x304C;&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x3066;&#x3057;&#x307E;&#x3044;&#x5E73;&#x5766;&#x5316;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x30CD;&#x30B9;&#x30C8;&#x3059;&#x308B;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;Monad&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x7528;&#x3044;&#x307E;&#x3059;&#x3002;</p>
@@ -634,19 +634,19 @@ scala&gt; <span class="hljs-keyword">val</span> fa: <span class="hljs-type">Opti
 fa: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
 
 scala&gt; <span class="hljs-keyword">val</span> f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = { n =&gt; <span class="hljs-type">Some</span>(n + <span class="hljs-number">1</span>) }
-f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">5948</span>/<span class="hljs-number">958172450</span>@<span class="hljs-number">31e03</span>d4d
+f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7909</span>/<span class="hljs-number">1031512092</span>@<span class="hljs-number">6</span>b173364
 
 scala&gt; <span class="hljs-keyword">val</span> g: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = { n =&gt; <span class="hljs-type">Some</span>(n * n) }
-g: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">5949</span>/<span class="hljs-number">455727863</span>@<span class="hljs-number">3</span>f91a997
+g: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7910</span>/<span class="hljs-number">1646084131</span>@<span class="hljs-number">211</span>d4660
 
 scala&gt; rightIdentityLaw(fa)
-res11: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res6: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; leftIdentityLaw(<span class="hljs-number">1</span>, f)
-res12: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res7: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; associativeLaw(fa, f, g)
-res13: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res8: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 </code></pre>
 <h2 id="monoid"><a name="monoid" class="plugin-anchor" href="#monoid"><i class="fa fa-link" aria-hidden="true"></i></a>Monoid</h2>
 <p>2&#x3064;&#x306E;&#x540C;&#x3058;&#x578B;&#x3092;&#x7D50;&#x5408;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x6301;&#x3061;&#x3001;&#x66F4;&#x306B;&#x30BC;&#x30ED;&#x5024;&#x3092;&#x77E5;&#x308B;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x306F;Monoid&#x3068;&#x547C;&#x3070;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
@@ -701,13 +701,13 @@ scala&gt; <span class="hljs-keyword">val</span> o: <span class="hljs-type">Optio
 o: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
 
 scala&gt; leftIdentityLaw(n)
-res14: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res9: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; rightIdentityLaw(n)
-res15: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res10: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 
 scala&gt; associativeLaw(n, m, o)
-res16: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+res11: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
 </code></pre>
 <p>&#x578B;&#x306B;&#x3088;&#x3063;&#x3066;&#x306F;&#x7D50;&#x5408;&#x65B9;&#x6CD5;&#x304C;&#x8907;&#x6570;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x969B;&#x306F;&#x8907;&#x6570;&#x306E;Monoid&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x304A;&#x304D;&#x3001;&#x72B6;&#x6CC1;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x4F7F;&#x3044;&#x305F;&#x3044;Monoid&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x9078;&#x629E;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <blockquote id="fn_1">
@@ -752,7 +752,7 @@ res16: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"付録：様々な型クラスの紹介","level":"1.24","depth":1,"previous":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.23","depth":1,"path":"advanced-trait-di.md","ref":"advanced-trait-di.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/dwango/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"typeclass.md","mtime":"2018-12-16T02:36:25.140Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-16T02:37:57.444Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"付録：様々な型クラスの紹介","level":"1.24","depth":1,"previous":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.23","depth":1,"path":"advanced-trait-di.md","ref":"advanced-trait-di.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/dwango/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"typeclass.md","mtime":"2018-12-17T03:25:37.868Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-17T03:27:03.823Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
