@@ -5,8 +5,8 @@ echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy
 openssl aes-256-cbc -k "$SERVER_KEY" -in travis_deploy_key.enc -d -a -out deploy.key &&
 cp deploy.key ~/.ssh/ &&
 chmod 600 ~/.ssh/deploy.key &&
-git config --global user.email "6b656e6a69@gmail.com" &&
-git config --global user.name "xuwei-k" &&
+git config --global user.email "mizukota@gmail.com" &&
+git config --global user.name "Kota Mizushima" &&
 mv gitbook/_book ../ &&
 mv gitbook/scala_text.epub ../_book/scala_text.epub &&
 git fetch origin gh-pages:gh-pages &&
