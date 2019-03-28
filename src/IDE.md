@@ -83,7 +83,7 @@ scala-sandbox
 
 ![Select File or Directory to Import](img/IntelliJ_IDEA_Select_File_Or_Directory_To_Import.png)
 
-すると、さらに次のような画面が表示されます。「Project SDK」が空の場合がありますが、その場合は、「New」を選択して自分で、JDKのホームディレクトリにあるJDKを指定します。
+すると、さらに次のような画面が表示されます。「Project JDK」が空の場合がありますが、その場合は、「New」を選択して自分で、JDKのホームディレクトリにあるJDKを指定します。
 
 ![Import Project From SBT.png](img/IntelliJ_IDEA_Import_Project_From_SBT.png)
 
