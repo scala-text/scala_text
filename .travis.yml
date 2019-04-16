@@ -21,8 +21,7 @@ addons:
     - g++-4.8
     - oracle-java8-installer
 script:
-        # - sbt textLintAll textTestAll textBuildHtml test &&
-- sbt textBuildHtml &&
+- sbt textLintAll textTestAll textBuildHtml test &&
   wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/614d94496efdcf960871429e1c090c56d2018f68/setup/linux-installer.py
   | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n');
   exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null &&
