@@ -136,6 +136,75 @@ val Point(x, y) = Point(10, 20)
 
 とすると、`x`に`10`が、`y`に`20`が束縛されます。もしパターンにマッチしなかった場合は、例外 `scala.MatchError` が発生してしまうので、変数宣言におけるパターンマッチングは、それが必ず成功すると型情報から確信できる場合にのみ使うようにしましょう。
 
+## ケースクラスによって自動生成されるもの
+
+オブジェクトの章で少し触れましたが、ケースクラスはクラスに対して、いくらか追加の自動生成を行います。
+このテキストでは特に重要なものについて触れます。
+
+- プライマリコンストラクタ引数を公開します（`val`を付けたかのように扱われる）
+- インスタンス間の同値比較が行えるように`equals()`・`hashCode()`・`canEqual()`が定義されます
+  - つまり、クラスが同じで、プライマリコンストラクタ引数の値すべてが一致しているかどうかで同値判定するようになります
+- 型とプライマリコンストラクタ引数を使った`toString()`が定義されます
+- コンパニオンオブジェクトにプライマリコンストラクタ引数と対応する`apply()`が定義されます
+
+ラフに言うと、タプルに近い感覚でクラスを操作できるようになるということです。
+REPLでの実行例を示します。
+
+```scala
+scala> case class Point(x: Int, y: Int)
+defined class Point
+
+scala> val p = Point(1, 2)
+p: Point = Point(1,2)
+
+scala> println(p.x, p.y)
+(1,2)
+
+scala> Point(1, 2) == Point(1, 2)
+res4: Boolean = true
+
+scala> Point(1, 2) == Point(3, 4)
+res5: Boolean = false
+```
+
+本節で紹介しているケースクラスの機能は、あくまで便利さ簡潔さのためだけのものです。
+クラスに実装を足すことでも同等の振る舞いを持たせることもできます。
+例えば、前節で定義した`Point`をケースクラスを使わずに定義するとしたら、次のようになるでしょう。
+
+```tut
+class Point(val x: Int, val y: Int) {
+  override def equals(that: Any): Boolean = that match {
+    case thatPoint: Point =>
+      thatPoint.canEqual(this) && this.x == thatPoint.x && this.y == thatPoint.y
+    case _ =>
+      false
+  }
+
+  override def hashCode(): Int = x.hashCode ^ y.hashCode
+
+  def canEqual(that: Any): Boolean = that.isInstanceOf[Point]
+
+  override def toString(): String = "Point(" + x + ", " + y + ")"
+}
+
+object Point {
+  def apply(x: Int, y: Int): Point = new Point(x, y)
+}
+```
+
+比べてみると、ケースクラスによって大幅に記述量が減っていることがわかると思います。
+`Point`が典型例でしたが、一般に、データ構造のようなものを表すクラスをケースクラスにすると便利なことがあります。
+
+また、比較周りの実装が想像よりずっと複雑だと思った方もいるかもしれません。
+比較を「期待通り」に実装するのは、比較対象との継承関係を考慮する必要があるなど、それなりに難しいことが知られています。
+しかも、クラスのフィールド変数が増えるなど、クラスが何か変化するたびに修正が発生しかねない箇所でもあります。
+そういう問題を考えなくて済む点でもケースクラスは便利です。
+
+最後に改めて述べておきたいと思いますが、ケースクラスでは紹介したもの以外にもメソッド定義が増えます。
+例えば、パターンマッチの実現機構である`unapply()`や、複製のための`copy()`については触れませんでした。
+興味のある方はぜひ調べてみてください。
+
+
 ## 練習問題
 
 `DayOfWeek`型を使って、ある日の次の曜日を返すメソッド`nextDayOfWeek`
