@@ -312,6 +312,31 @@ List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 
 とすることで求める結果を得ることができます[^fold-sum-product]。その他にも様々な処理を`foldLeft`を用いて実装することができます。
 
+さて、節の最後に、実用上の補足を少ししておきます。
+少し恣意的ですが1つの例として、「リストのリスト」をリストに変換する（平らにする）処理というのを考えてみます。
+`List(List(1), List(2 ,3))`を`List(1, 2, 3)`に変換するのが目標です。安直に書くとこうなるでしょうか：
+
+```scala
+scala> List(List(1), List(2, 3), List(4)).foldLeft(Nil)(_ ++ _) 
+<console>:12: error: type mismatch;
+ found   : List[Int]
+ required: scala.collection.immutable.Nil.type
+       List(List(1), List(2, 3), List(4)).foldLeft(Nil)(_ ++ _)
+                                                          ^
+
+```
+
+しかしコンパイルが通りません。
+エラーメッセージの意味としては、今回の`Nil`は`List[Int]`型と見なされてほしいわけですが、期待したように型推論できていないようです。
+`Nil`に明示的に型注釈を付けることで、コンパイルできるようになります。
+
+```tut
+List(List(1), List(2, 3), List(4)).foldLeft(Nil: List[Int])(_ ++ _)
+```
+
+このように、`Nil`が混ざった処理はそのままだとうまくコンパイルが通ってくれないことがあります。
+そういう場合は型注釈を試すとよい、と頭の片隅に入れておいてください。
+
 #### 練習問題
 
 `foldLeft`を用いて、`List`の要素を反転させる次のシグニチャを持ったメソッド`reverse`を実装してみましょう：
