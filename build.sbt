@@ -15,7 +15,7 @@ tutTargetDirectory := compiledSrcDir
 
 libraryDependencies ++= Seq(
   "org.scala-sbt" % "sbt" % sbtVersion.value,
-  "org.mockito" % "mockito-core" % "2.23.4",
+  "org.mockito" % "mockito-core" % "2.28.2",
   "org.scalacheck" %% "scalacheck" % "1.14.0",
   "org.scalatest" %% "scalatest" % "3.0.7" // tutで使うので、テストライブラリだが、わざとcompileスコープ
 )
