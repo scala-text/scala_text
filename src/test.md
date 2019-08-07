@@ -474,7 +474,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 リグレッションを検出するためにつかわれます。
 その際に、CIの一環として一緒に行われることが多いのがコードスタイルチェックです。
 
-ここでは、[ScalaStyle](http://www.scalastyle.org/sbt.html)を利用します。
+ここでは、[ScalaStyle](https://scalastyle.github.io)を利用します。
 
 使い方は、`project/plugins.sbt` に以下のコードを記述します。
 
