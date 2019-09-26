@@ -2,11 +2,11 @@
 
 [![Build Status](https://api.travis-ci.org/scalajp/scala_text.svg?branch=master)](https://travis-ci.org/scalajp/scala_text)
 
-このテキストはドワンゴの新入社員Scala研修のために作成されたものである。
+このテキストは、Scala初学者がScalaを学ぶためのテキストです。ドワンゴの新入社員Scala研修のために作成されたものが、2019/09/26に `scalajp` に移管されたもの。
 
 ## 成果物
 
-このテキストのコンパイル済み成果物は次の場所から入手できる。
+このテキストのコンパイル済み成果物は次の場所から入手可能である（現在、移管に伴う作業中のため、一部が入手できなくなっている可能性がある点に注意）。
 
 - HTML版：https://scalajp.github.io/scala_text/
 - PDF版：https://dwango.github.io/scala_text_pdf/scala_text.pdf
@@ -14,24 +14,19 @@
 
 ## 目的
 
-新入社員研修でScalaを習得してもらうために使用する。
+Scalaの初学者にScalaを習得してもらうために利用してもらうことを想定。
 
 ## ターゲット
 
-ドワンゴの新入社員。少なくとも1つの言語（Java以外でも）に触れた（学校の授業程度でも）経験があることを前提とする。
-
-## 想定される研修期間
-
-詳細は未定。2015年は、ScalaとPlayの研修を両方合わせて、1日8時間の研修を2〜3週間程度行った。
+Scalaの初学者で、少なくとも1つのプログラミング言語に触れた経験があることを前提としている。
 
 ## 執筆スタイル
 
-Markdownで記述し、GitBookで静的サイトにしてGitHub Pages上に公開している。
-原稿ファイルは `src/` 以下に配置されている。
+Markdownで記述し、GitBookで静的サイトにしてGitHub Pages上に公開。原稿ファイルは `src/` 以下に配置。
 
 ### 執筆への参加
 
-以下のコマンドで初期設定を行うことができる。
+以下のコマンドで初期設定を行うことが可能。
 
 ```sh
 git clone https://github.com/scalajp/scala_text
@@ -148,7 +143,6 @@ sbt textBuildEpub
   
 ### 誤りとはいえないが改善して欲しい点や加筆して欲しい点に関して
 - [scala_text](https://github.com/scalajp/scala_text)のissue欄へ
-- 特に１節を超えるレベルの加筆修正については、pull reqeust を送られても、文体の統一や文章の継続したメンテナンスの観点等から、対応するのが難しいのでご了承いただけると助かります。
 
 ### その他全体的な感想や改善要望
 - [専用issue](https://github.com/scalajp/scala_text/issues/235)へ
