@@ -2,7 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/scalajp/scala_text.svg?branch=master)](https://travis-ci.org/scalajp/scala_text)
 
-このテキストは、Scala初学者がScalaを学ぶためのテキストです。ドワンゴの新入社員Scala研修のために作成されたものが、2019/09/26に `scalajp` に移管されたもの。
+このテキストは、Scala初学者がScalaを学ぶためのテキストである。ドワンゴの新入社員Scala研修のために作成されたものが、日本のScalaコミュニティに寄贈されたものとなる。
 
 ## 成果物
 

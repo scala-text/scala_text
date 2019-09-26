@@ -395,7 +395,7 @@ BDDでテストを書くことによってテストによってどのような�
 - [JMock](http://jmock.org/)
 - [Mockito](https://github.com/mockito/mockito)
 
-ここでは、ドワンゴ社内で利用率の高いMockitoを利用してみましょう。
+ここでは、よく使われているMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```tut:silent
