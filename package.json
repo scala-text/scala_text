@@ -2,7 +2,7 @@
   "name": "scala_text",
   "private": true,
   "version": "1.0.0",
-  "description": "dwangoの新人Scala研修用テキストです。",
+  "description": "Scala初学者がScalaを学ぶためのテキスト",
   "scripts": {
     "prepublish": "gitbook install"
   },
