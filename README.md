@@ -1,6 +1,6 @@
 # ScalaText
 
-[![Build Status](https://api.travis-ci.org/dwango/scala_text.svg?branch=master)](https://travis-ci.org/dwango/scala_text)
+[![Build Status](https://api.travis-ci.org/scalajp/scala_text.svg?branch=master)](https://travis-ci.org/scalajp/scala_text)
 
 このテキストはドワンゴの新入社員Scala研修のために作成されたものである。
 
@@ -8,9 +8,9 @@
 
 このテキストのコンパイル済み成果物は次の場所から入手できる。
 
-- HTML版：https://dwango.github.io/scala_text/
+- HTML版：https://scalajp.github.io/scala_text/
 - PDF版：https://dwango.github.io/scala_text_pdf/scala_text.pdf
-- EPUB版：https://dwango.github.io/scala_text/scala_text.epub
+- EPUB版：https://scalajp.github.io/scala_text/scala_text.epub
 
 ## 目的
 
@@ -34,7 +34,7 @@ Markdownで記述し、GitBookで静的サイトにしてGitHub Pages上に公�
 以下のコマンドで初期設定を行うことができる。
 
 ```sh
-git clone https://github.com/dwango/scala_text
+git clone https://github.com/scalajp/scala_text
 cd scala_text
 npm install
 ```
@@ -144,14 +144,14 @@ sbt textBuildEpub
 ## フィードバック
 
 ### 誤字・脱字や技術的誤りの指摘・修正
-- [scala_text](https://github.com/dwango/scala_text)のissue欄およびpull requestへ 
+- [scala_text](https://github.com/scalajp/scala_text)のissue欄およびpull requestへ 
   
 ### 誤りとはいえないが改善して欲しい点や加筆して欲しい点に関して
-- [scala_text](https://github.com/dwango/scala_text)のissue欄へ
+- [scala_text](https://github.com/scalajp/scala_text)のissue欄へ
 - 特に１節を超えるレベルの加筆修正については、pull reqeust を送られても、文体の統一や文章の継続したメンテナンスの観点等から、対応するのが難しいのでご了承いただけると助かります。
 
 ### その他全体的な感想や改善要望
-- [専用issue](https://github.com/dwango/scala_text/issues/235)へ
+- [専用issue](https://github.com/scalajp/scala_text/issues/235)へ
 
 ## ライセンス
 

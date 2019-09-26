@@ -20,15 +20,15 @@ echo -e "*class\ntarget" > .gitignore &&
 cp -r ../_book/* ./ &&
 git add . &&
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT" &&
-if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "dwango/scala_text"  ]];
-then git push git@github.com:dwango/scala_text.git gh-pages:gh-pages ; fi
+if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "scalajp/scala_text"  ]];
+then git push git@github.com:scalajp/scala_text.git gh-pages:gh-pages ; fi
 
 git checkout -qf $TRAVIS_COMMIT
 openssl aes-256-cbc -k "$PREVIEW_KEY" -in preview_key.enc -d -a -out preview.key
 cp preview.key ~/.ssh/
 chmod 600 ~/.ssh/preview.key
 echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/preview.key\n" > ~/.ssh/config
-git clone git@github.com:dwango/scala_text_previews.git
+git clone git@github.com:scalajp/scala_text_previews.git
 cd scala_text_previews
 rm -rf ./${TRAVIS_BRANCH}
 mkdir -p ${TRAVIS_BRANCH}
@@ -38,13 +38,13 @@ git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT $TRAVI
 git push origin gh-pages:gh-pages
 cd ..
 
-if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "dwango/scala_text" ]]; then
+if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "scalajp/scala_text" ]]; then
   git checkout -qf $TRAVIS_COMMIT
   openssl aes-256-cbc -k "$PDF_KEY" -in travis_deploy_pdf_key.enc -d -a -out pdf.key
   cp pdf.key ~/.ssh/
   chmod 600 ~/.ssh/pdf.key
   echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/pdf.key\n" > ~/.ssh/config
-  git clone git@github.com:dwango/scala_text_pdf.git
+  git clone git@github.com:scalajp/scala_text_pdf.git
   cd scala_text_pdf
   git submodule update --init
   cd scala_text

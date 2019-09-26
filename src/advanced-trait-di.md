@@ -8,9 +8,9 @@
 今回使われるサンプルプログラムは以下の場所にあります。
 実際に動かしたい場合は個々のディレクトリに入り、sbtを起動してください。
 
-[リファクタリング前のプログラム](https://github.com/dwango/scala_text/tree/master/src/example_projects/trait-example)
+[リファクタリング前のプログラム](https://github.com/scalajp/scala_text/tree/master/src/example_projects/trait-example)
 
-[リファクタリング後のプログラム](https://github.com/dwango/scala_text/tree/master/src/example_projects/trait-refactored-example)
+[リファクタリング後のプログラム](https://github.com/scalajp/scala_text/tree/master/src/example_projects/trait-refactored-example)
 
 ## リファクタリング前のプログラムの紹介
 
