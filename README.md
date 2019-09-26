@@ -9,7 +9,7 @@
 このテキストのコンパイル済み成果物は次の場所から入手可能である（現在、移管に伴う作業中のため、一部が入手できなくなっている可能性がある点に注意）。
 
 - HTML版：https://scalajp.github.io/scala_text/
-- PDF版：https://dwango.github.io/scala_text_pdf/scala_text.pdf
+- PDF版：https://scalajp.github.io/scala_text_pdf/scala_text.pdf
 - EPUB版：https://scalajp.github.io/scala_text/scala_text.epub
 
 ## 目的
