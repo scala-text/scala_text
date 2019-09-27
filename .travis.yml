@@ -9,6 +9,7 @@ before_install:
 cache:
   directories:
   - "$HOME/.ivy2/cache"
+  - "$HOME/.cache/coursier"
   - "$HOME/.sbt/boot"
   - "$HOME/.sbt/launchers"
   - node_modules
