@@ -22,7 +22,7 @@ mutableなコレクションを効果的に使えばプログラムの実行速�
 - `Map`(immutable)・`Map`(mutable)
 - `Set`(immutable)・ `Set`(mutable)
 
-## [Array](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/Array.scala)
+## [Array](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/Array.scala)
 
 まずは大抵のプログラミング言語にある配列です。
 
@@ -96,7 +96,7 @@ arr
 
 <!-- end answer -->
 
-### [Range](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/Range.scala)
+### [Range](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/Range.scala)
 
 `Range`は範囲を表すオブジェクトです。`Range`は直接名前を指定して生成するより、`to`メソッドと`until`メソッドを用いて呼びだすことが多いです。また、`toList`メソッドを用いて、その範囲の数値の列を後述する`List`に変換することができます。では、早速REPLで`Range`を使ってみましょう。
 
@@ -112,7 +112,7 @@ arr
 
 `to`は右の被演算子を含む範囲を、`until`は右の被演算子を含まない範囲を表していることがわかります。また、`Range`は`toList`で後述する`List`に変換することができることもわかります。
 
-### [List](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/List.scala)
+### [List](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/List.scala)
 
 さて、導入として大抵の言語にある`Array`を出しましたが、Scalaでは`Array`を使うことはそれほど多くありません。代わりに`List`や
 `Vector`といったデータ構造をよく使います（`Vector`については後述します）。`List`の特徴は、一度作成したら中身を
@@ -132,9 +132,9 @@ lst(0) = 7
 
 ### Nil：空のList
 
-まず最初に紹介するのは`Nil`です。Scalaで空の`List`を表すには`Nil`というものを使います。Rubyなどでは`nil`は言語上かなり特別な意味を持ちますが、Scalaではデフォルトでスコープに入っているということ以外は特別な意味はなく[単にobjectです](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/List.scala#L427)。Nilは単体では意味がありませんが、次に説明する`::`と合わせて用いることが多いです。
+まず最初に紹介するのは`Nil`です。Scalaで空の`List`を表すには`Nil`というものを使います。Rubyなどでは`nil`は言語上かなり特別な意味を持ちますが、Scalaではデフォルトでスコープに入っているということ以外は特別な意味はなく[単にobjectです](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/List.scala#L591)。Nilは単体では意味がありませんが、次に説明する`::`と合わせて用いることが多いです。
 
-### [:: - Listの先頭に要素をくっつける](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/List.scala#L114)
+### [:: - Listの先頭に要素をくっつける](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/List.scala#L97)
 
 `::`（コンスと読みます）は既にある`List`の先頭に要素をくっつけるメソッドです。これについては、REPLで結果をみた方が早いでしょう。
 
@@ -620,7 +620,7 @@ List(1, 2, 3, 4) :+ 5 // 注意！末尾への追加は、Listの要素数分か
 
 `mkString`をはじめとした`List`の色々なメソッドを紹介してきましたが、実はこれらの大半は`List`特有ではなく、既に紹介した`Range`や`Array`、これから紹介する他のコレクションでも同様に使うことができます。何故ならばこれらの操作の大半は特定のコレクションではなく、コレクションのスーパータイプである共通のトレイト中に宣言されているからです。もちろん、`List`に要素を加える処理と`Set`に要素を加える処理（`Set`に既にある要素は加えない）のように、中で行われる処理が異なることがあるので、その点は注意する必要があります。詳しくは[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/index.html)を探索してみましょう。
 
-### [Vector](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/Vector.scala)
+### [Vector](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/Vector.scala)
 
 `Vector`は少々変わったデータ構造です。`Vector`は一度データ構造を構築したら変更できないimmutableなデータ構造
 です。要素へのランダムアクセスや長さの取得、データの挿入や削除、いずれの操作も十分に高速にできる比較的
@@ -641,11 +641,11 @@ Vector(1, 2, 3, 4, 5).updated(2, 5)
 `Map`はキーから値へのマッピングを提供するデータ構造です。他の言語では辞書や連想配列と呼ばれたりします。
 Scalaでは`Map`として一度作成したら変更できないimmutableな`Map`と変更可能なmutableな`Map`の2種類を提供しています。
 
-### [`scala.collection.immutable.Map`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/Map.scala)
+### [`scala.collection.immutable.Map`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/Map.scala)
 
 Scalaで何も設定せずにただ`Map`と書いた場合、`scala.collection.immutable.Map`が使われます。その名の通り、一度
-作成すると変更することはできません。内部の実装としては主に[`scala.collection.immutable.HashMap`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/HashMap.scala)と
-[`scala.collection.immutable.TreeMap`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/TreeMap.scala)の2種類がありますが、通常は`HashMap`が使われます。
+作成すると変更することはできません。内部の実装としては主に[`scala.collection.immutable.HashMap`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/HashMap.scala)と
+[`scala.collection.immutable.TreeMap`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/TreeMap.scala)の2種類がありますが、通常は`HashMap`が使われます。
 
 ```tut
 val m = Map("A" -> 1, "B" -> 2, "C" -> 3)
@@ -685,8 +685,8 @@ Set(1, 1, 2, 3, 4)
 ### `scala.collection.immutable.Set`
 
 Scalaで何も設定せずにただ`Set`と書いた場合、`scala.collection.immutable.Set`が使われます。immutableな`Map`の場合と
-同じく、一度作成すると変更することはできません。内部の実装としては、主に [`scala.collection.immutable.HashSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/HashSet.scala) と
-[`scala.collection.immutable.TreeSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/TreeSet.scala) の2種類がありますが、通常は`HashSet`が使われます。
+同じく、一度作成すると変更することはできません。内部の実装としては、主に [`scala.collection.immutable.HashSet`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/HashSet.scala) と
+[`scala.collection.immutable.TreeSet`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/immutable/TreeSet.scala) の2種類がありますが、通常は`HashSet`が使われます。
 
 ```tut
 val s = Set(1, 2, 3, 4, 5)
@@ -698,8 +698,8 @@ s // 元のSetはそのまま
 
 ### `scala.collection.mutable.Set`
 
-Scalaの変更可能な`Set`は`scala.collection.mutable.Set`にあります。主な実装としては、[`scala.collection.mutable.HashSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/mutable/HashSet.scala) 、
-[`scala.collection.mutable.TreeSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/mutable/TreeSet.scala)がありますが、通常は`HashSet`が使われます。
+Scalaの変更可能な`Set`は`scala.collection.mutable.Set`にあります。主な実装としては、[`scala.collection.mutable.HashSet`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/mutable/HashSet.scala) 、
+[`scala.collection.mutable.TreeSet`](https://github.com/scala/scala/blob/v2.13.1/src/library/scala/collection/mutable/TreeSet.scala)がありますが、通常は`HashSet`が使われます。
 
 ```tut
 import scala.collection.mutable

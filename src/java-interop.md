@@ -335,7 +335,7 @@ val cmp: JComparator[_ >: String] = new JComparator[Any] {
 
 #### SAM変換
 
-Scala 2.12ではSAM(Single Abstract Method)変換が導入され[^sam]、Java 8のラムダ式を想定したライブラリを簡単に利用できるようになりました。
+Scala 2.12でSAM(Single Abstract Method)変換が導入され[^sam]、Java 8のラムダ式を想定したライブラリを簡単に利用できるようになりました。
 Java 8におけるラムダ式とは、関数型インタフェースと呼ばれる、メソッドが1つしかないようなインタフェースに対して無名クラスを簡単に記述できる構文です[^lam]。
 例えば、10の階乗を例にすると以下のように簡潔に書くことができます。
 

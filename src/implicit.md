@@ -55,7 +55,7 @@ implicit def enrichString(arg: String): RichString = new RichString(arg)
 ```
 
 ちゃんと文字列の末尾に`":-)"`を追加する`smile`メソッドが定義できています。さて、ここでひょっとしたら気がついた方もいるかもしれませんが、implicit conversionはそのままでは、既存のクラスへのメソッド追加のために使用するには冗長であるということです。Scala 2.10からは、classにimplicit
-というキーワードをつけることで同じようなことができるようになりました（皆さんが学習するのはScala 2.12なので気にする必要はありません。
+というキーワードをつけることで同じようなことができるようになりました（皆さんが学習するのはScala 2.13なので気にする必要はありません。
 
 ### Implicit Class
 
@@ -329,12 +329,12 @@ println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 
 型クラス：
 
-* [Numeric[T]](https://www.scala-lang.org/api/2.12.8/scala/math/Numeric.html)
+* [Numeric[T]](https://www.scala-lang.org/api/2.13.1/scala/math/Numeric.html)
 
 型クラスのインスタンス：
 
-* [IntIsIntegral](https://www.scala-lang.org/api/2.12.8/scala/math/Numeric$$IntIsIntegral$.html)
-* [DoubleAsIfIntegral](https://www.scala-lang.org/api/2.12.8/scala/math/Numeric$$DoubleAsIfIntegral$.html)
+* [IntIsIntegral](https://www.scala-lang.org/api/2.13.1/scala/math/Numeric$$IntIsIntegral$.html)
+* [DoubleAsIfIntegral](https://www.scala-lang.org/api/2.13.1/scala/math/Numeric$$DoubleAsIfIntegral$.html)
 
 <!-- end answer -->
 

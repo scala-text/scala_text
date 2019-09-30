@@ -40,7 +40,7 @@ sandbox
 
 ```tut:silent
 // build.sbt
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Xlint")
 ```
