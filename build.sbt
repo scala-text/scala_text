@@ -3,6 +3,8 @@ import NpmCliBase._
 val textLintAll = taskKey[Unit]("lint text, html")
 val textTestAll = taskKey[Unit]("test scala, links")
 
+ThisBuild / onChangedBuildSource := ReloadOnSourceChanges
+
 name := "textbook"
 
 scalaVersion := "2.12.8"
