@@ -20,6 +20,6 @@ URL: http://aperiodic.net/phil/scala/s-99/
 
 なお、S99の問題の模範解答として、
 
-https://github.com/scalajp/S99
+https://github.com/scala-text/S99
 
 というリポジトリを用意してあります。全ての解答が整備されているわけではありませんが、考えても解答がわからない場合は参考にしても良いでしょう。また、各問題の解答についてのテストケースも書いてあります。

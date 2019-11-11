@@ -62,7 +62,7 @@ Scalaプラグインのダウンロード・インストールには若干時間
 
 次に、単純なsbtプロジェクトをIntelliJ IDEAにインポートしてみます。今回は、あらかじめ用意して
 おいた`scala-sandbox`プロジェクトを使います。`scala-sandbox`プロジェクトは
-[ここ](https://github.com/scalajp/scala-sandbox)から`git clone`でcloneします。
+[ここ](https://github.com/scala-text/scala-sandbox)から`git clone`でcloneします。
 `scala-sandbox`プロジェクトは次のような構成になっているはずです。
 
 ```
