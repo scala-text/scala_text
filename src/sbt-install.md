@@ -108,6 +108,6 @@ sbtは`sbt --version`もしくは`sbt --launcher-version`とするとversionが�
 
 [^scalac]: ここで言う"手動で"とは、`scalac`コマンドを直接呼び出すという意味です
 
-[^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/scalajp/scala_text/issues/122
+[^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/scala-text/scala_text/issues/122
 
 [^latest]: 具体的にはこれを書いている2019年10月時点の最新版である1.3.3。

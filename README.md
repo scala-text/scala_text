@@ -1,6 +1,6 @@
 # ScalaText
 
-[![Build Status](https://api.travis-ci.org/scalajp/scala_text.svg?branch=master)](https://travis-ci.org/scalajp/scala_text)
+[![Build Status](https://api.travis-ci.org/scala-text/scala_text.svg?branch=master)](https://travis-ci.org/scala-text/scala_text)
 
 このテキストは、Scala初学者がScalaを学ぶためのテキストである。ドワンゴの新入社員Scala研修のために作成されたものが、日本のScalaコミュニティに寄贈されたものとなる。
 
@@ -8,9 +8,9 @@
 
 このテキストのコンパイル済み成果物は次の場所から入手可能である（現在、移管に伴う作業中のため、一部が入手できなくなっている可能性がある点に注意）。
 
-- HTML版：https://scalajp.github.io/scala_text/
-- PDF版：https://scalajp.github.io/scala_text_pdf/scala_text.pdf
-- EPUB版：https://scalajp.github.io/scala_text/scala_text.epub
+- HTML版：https://scala-text.github.io/scala_text/
+- PDF版：https://scala-text.github.io/scala_text_pdf/scala_text.pdf
+- EPUB版：https://scala-text.github.io/scala_text/scala_text.epub
 
 ## 目的
 
@@ -29,7 +29,7 @@ Markdownで記述し、GitBookで静的サイトにしてGitHub Pages上に公�
 以下のコマンドで初期設定を行うことが可能。
 
 ```sh
-git clone https://github.com/scalajp/scala_text
+git clone https://github.com/scala-text/scala_text
 cd scala_text
 npm install
 ```
@@ -139,13 +139,13 @@ sbt textBuildEpub
 ## フィードバック
 
 ### 誤字・脱字や技術的誤りの指摘・修正
-- [scala_text](https://github.com/scalajp/scala_text)のissue欄およびpull requestへ 
+- [scala_text](https://github.com/scala-text/scala_text)のissue欄およびpull requestへ 
   
 ### 誤りとはいえないが改善して欲しい点や加筆して欲しい点に関して
-- [scala_text](https://github.com/scalajp/scala_text)のissue欄へ
+- [scala_text](https://github.com/scala-text/scala_text)のissue欄へ
 
 ### その他全体的な感想や改善要望
-- [専用issue](https://github.com/scalajp/scala_text/issues/235)へ
+- [専用issue](https://github.com/scala-text/scala_text/issues/235)へ
 
 ## ライセンス
 
