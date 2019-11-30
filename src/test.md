@@ -399,7 +399,7 @@ BDDでテストを書くことによってテストによってどのような�
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```tut:silent
-libraryDependencies += "org.mockito" % "mockito-core" % "3.1.0" % "test"
+libraryDependencies += "org.mockito" % "mockito-core" % "3.2.0" % "test"
 ```
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
@@ -408,22 +408,20 @@ libraryDependencies += "org.mockito" % "mockito-core" % "3.1.0" % "test"
 import org.scalatest.time.SpanSugar._
 import org.scalatest.{FlatSpec, DiagrammedAssertions}
 import org.scalatest.concurrent.TimeLimits
-import org.scalatest.mockito.MockitoSugar
 import org.mockito.Mockito._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits with MockitoSugar {
+class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
 
   // ...
 
   "Calcのモックオブジェクト" should "振る舞いを偽装することができる" in {
-    val mockCalc = mock[Calc]
+    val mockCalc = mock(classOf[Calc])
     when(mockCalc.sum(Seq(3, 4, 5))).thenReturn(12)
     assert(mockCalc.sum(Seq(3, 4, 5)) === 12)
   }
 }
 ```
 
-`MockitoSugar`というトレイトをミックスインすることで、ScalaTest独自の省略記法を用いてMockitoを利用できるようになります。
 `val mockCalc = mock[Calc]`でモックオブジェクトを作成し、
 `when(mockCalc.sum(Seq(3, 4, 5)).thenReturn(12)`で振る舞いを作成しています。
 
