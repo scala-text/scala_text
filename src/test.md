@@ -422,7 +422,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
 }
 ```
 
-`val mockCalc = mock[Calc]`でモックオブジェクトを作成し、
+`val mockCalc = mock(classOf[Calc])`でモックオブジェクトを作成し、
 `when(mockCalc.sum(Seq(3, 4, 5)).thenReturn(12)`で振る舞いを作成しています。
 
 そして最後に、`assert(mockCalc.sum(Seq(3, 4, 5)) === 12)`でモックに仕込んだ偽装された振る舞いをテストしています。
