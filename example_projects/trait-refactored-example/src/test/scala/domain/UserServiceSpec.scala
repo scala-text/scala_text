@@ -1,8 +1,9 @@
 package domain
 
 import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
 
-class UserServiceSpec extends WordSpec {
+class UserServiceSpec extends AnyWordSpec {
   val user = User(1, "test_name", "test_password")
 
   val sut = new UserService with PasswordServiceImpl with UserRepository {
