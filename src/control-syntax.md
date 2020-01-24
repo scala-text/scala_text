@@ -173,6 +173,50 @@ loopFrom0To9()
 
 <!-- end answer -->
 
+## return式
+
+`return` 式はメソッドから、途中で脱出してメソッドの呼び出し元に返り値を返すための制御構文です。
+
+Scalaでは、メソッド定義の `=` の右は式であり、それを評価した値が返り値になるため、他の多くの言語と違い、`return` 式は必須ではありません。
+
+一方で、特に手続き的にコードを書くときに `return` 式が便利なこともあります。以下は配列から、指定された要素を見つけてその添字を返すメソッドです。
+
+```tut
+def indexOf(array: Array[String], target: String): Int = {
+  var index = -1
+  var found = false
+  var i = 0
+  while(i < array.length && !found) {
+    if(array(i) == target) {
+      index = i
+      found = true
+    }
+    i += 1
+  }
+  index
+}
+```
+
+このメソッドでは、既に要素が見つかったかを`found`という変数で管理していますが、そのためにコードが冗長になっています。`return` 式を使えば、このコードは以下のように書き換えることができます。
+
+
+
+```tut
+def indexOf(array: Array[String], target: String): Int = {
+  var i = 0
+  while(i < array.length) {
+    if(array(i) == target) return i
+    i += 1
+  }
+  -1
+}
+```
+
+見ての通り、不必要な変数が無くなって見通しがよくなりました。`return`式を使えばコードの見通しがよくなることもある、ということを覚えておくと良いでしょう。
+
+一方、従来の手続き型言語に親しんでいる人は、Scalaでは**`return`式は必須ではない**（脱出の必要がなければ書かない）ということを念頭においてください。
+
+
 ## for式
 
 Scalaには `for` 式という制御構文があります。これは、Javaの拡張 `for` 文と似た使い方ができるものの、ループ以外にも様々な応用範囲を持った制御構文です。 `for` 式の本当の力を理解するには、`flatMap`, `map`, `withFilter`, `foreach`というメソッドについて知る必要がありますが、ここでは基本的な `for` 式の使い方のみを説明します。
