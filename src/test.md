@@ -399,7 +399,7 @@ BDDでテストを書くことによってテストによってどのような�
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```tut:silent
-libraryDependencies += "org.mockito" % "mockito-core" % "3.2.4" % "test"
+libraryDependencies += "org.mockito" % "mockito-core" % "3.3.0" % "test"
 ```
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
