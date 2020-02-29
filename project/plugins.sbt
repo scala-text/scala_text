@@ -1,3 +1,3 @@
 logLevel := Level.Warn
 
-addSbtPlugin("org.tpolecat" % "tut-plugin" % "0.6.13")
+addSbtPlugin("org.scalameta" % "sbt-mdoc" % "2.1.1" )

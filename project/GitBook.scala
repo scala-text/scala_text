@@ -1,6 +1,6 @@
 import sbt._
 import sbt.io.IO
-import tut.TutPlugin.autoImport._
+import mdoc.MdocPlugin.autoImport._
 import scala.sys.process.Process
 
 object GitBook extends NpmCliBase {
@@ -21,19 +21,16 @@ object GitBook extends NpmCliBase {
 
   lazy val textPluginInstall = taskKey[Unit]("install GitBook plugin")
   lazy val textHelpGitBook = taskKey[Unit]("help GitBook")
-  lazy val textBuildHtmlQuick = inputKey[Unit]("build GitBook to html with tut cache")
+  lazy val textBuildHtmlQuick = inputKey[Unit]("build GitBook to html with mdoc cache")
   lazy val textBuildHtml = inputKey[Unit]("build GitBook to html")
   lazy val textBuildEpub = inputKey[Unit]("build GitBook to epub")
-  lazy val textBuildPdf = inputKey[Unit]("build GitBook to pdf")
+
+  private[this] val mdocTask = mdoc.toTask("")
 
   val settings = Seq(
     textPluginInstall := printRun(Process(s"$gitbookBin install")),
     textHelpGitBook := printRun(Process(s"$gitbookBin help")),
-    textBuildHtml := buildBook(Format.Html).dependsOn(tut).evaluated,
-    textBuildEpub := buildBook(Format.Epub).dependsOn(tut).evaluated,
-    textBuildPdf := sys.error("pdf-convertで利用するcalibreがcentOS6で上手く動かないので停止中"),
-
-    // キャッシュ付きのtutを利用する
-    textBuildHtmlQuick := buildBook(Format.Html).dependsOn(tutQuick).evaluated
+    textBuildHtml := buildBook(Format.Html).dependsOn(mdocTask).evaluated,
+    textBuildEpub := buildBook(Format.Epub).dependsOn(mdocTask).evaluated
   )
 }

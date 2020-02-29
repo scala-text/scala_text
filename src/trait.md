@@ -37,7 +37,7 @@ Scalaのトレイトはクラスに比べて以下のような特徴がありま
 
 Scalaのトレイトはクラスとは違い、複数のトレイトを1つのクラスやトレイトにミックスインすることができます。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait TraitA
 
 trait TraitB
@@ -50,7 +50,7 @@ class ClassB
 class ClassC extends ClassA with TraitA with TraitB
 ```
 
-```tut:fail
+```scala
 // コンパイルエラー！
 class ClassD extends ClassA with ClassB
 ```
@@ -62,11 +62,11 @@ class ClassD extends ClassA with ClassB
 
 Scalaのトレイトはクラスと違い、直接インスタンス化できません。
 
-```tut
+```scala mdoc:nest
 trait TraitA
 ```
 
-```tut:fail
+```scala
 object ObjectA {
   // コンパイルエラー！
   val a = new TraitA
@@ -76,7 +76,7 @@ object ObjectA {
 これは、トレイトが単体で使われることをそもそも想定していないための制限です。トレイトを使うときは、通常、それを継承した
 クラスを作ります。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait TraitA
 
 class ClassA extends TraitA
@@ -96,14 +96,14 @@ object ObjectA {
 
 Scalaのトレイトはクラスと違いパラメータ（コンストラクタの引数）を取ることができないという制限があります[^trait-param-dotty]。
 
-```tut:silent
+```scala mdoc:nest:silent
 // 正しいプログラム
 class ClassA(name: String) {
   def printName() = println(name)
 }
 ```
 
-```tut:fail
+```scala
 // コンパイルエラー！
 trait TraitA(name: String)
 ```
@@ -112,7 +112,7 @@ trait TraitA(name: String)
 インスタンス化できない問題のときと同じようにクラスに継承させたり、
 インスタンス化のときに抽象メンバーを実装をすることでトレイトに値を渡すことができます。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait TraitA {
   val name: String
   def printName(): Unit = println(name)
@@ -151,7 +151,7 @@ object ObjectA {
 以下のような継承関係を考えてみましょう。
 `greet`メソッドを定義した`TraitA`と、`greet`を実装した`TraitB`と`TraitC`、そして`TraitB`と`TraitC`のどちらも継承した`ClassA`です。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait TraitA {
   def greet(): Unit
 }
@@ -165,7 +165,7 @@ trait TraitC extends TraitA {
 }
 ```
 
-```tut:fail:silent
+```scala
 class ClassA extends TraitB with TraitC
 ```
 
@@ -175,7 +175,7 @@ class ClassA extends TraitB with TraitC
 
 ちなみに、上記の例をScalaでコンパイルすると以下のようなエラーが出ます。
 
-```tut:fail
+```scala
 class ClassA extends TraitB with TraitC
 ```
 
@@ -183,7 +183,7 @@ Scalaではoverride指定なしの場合メソッド定義の衝突はエラー�
 
 この場合の1つの解法は、コンパイルエラーに「Note: this can be resolved by declaring an override in class ClassA.」とあるように`ClassA`で`greet`をoverrideすることです。
 
-```tut:silent
+```scala mdoc:nest:silent
 class ClassA extends TraitB with TraitC {
   override def greet(): Unit = println("How are you?")
 }
@@ -191,7 +191,7 @@ class ClassA extends TraitB with TraitC {
 
 このとき`ClassA`で`super`に型を指定してメソッドを呼びだすことで、`TraitB`や`TraitC`のメソッドを指定して使うこともできます。
 
-```tut:silent
+```scala mdoc:nest:silent
 class ClassB extends TraitB with TraitC {
   override def greet(): Unit = super[TraitB].greet()
 }
@@ -199,7 +199,7 @@ class ClassB extends TraitB with TraitC {
 
 実行結果は以下にようになります。
 
-```tut
+```scala mdoc:nest
 (new ClassA).greet()
 
 (new ClassB).greet()
@@ -208,7 +208,7 @@ class ClassB extends TraitB with TraitC {
 では、`TraitB`と`TraitC`の両方のメソッドを呼び出したい場合はどうでしょうか？
 1つの方法は上記と同じように`TraitB`と`TraitC`の両方のクラスを明示して呼びだすことです。
 
-```tut:silent
+```scala mdoc:nest:silent
 class ClassA extends TraitB with TraitC {
   override def greet(): Unit = {
     super[TraitB].greet()
@@ -228,7 +228,7 @@ Scalaのトレイトの線形化機能とは、トレイトがミックスイン
 
 次に以下の例を考えてみます。先程の例との違いは`TraitB`と`TraitC`の`greet`メソッド定義に`override`修飾子が付いていることです。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait TraitA {
   def greet(): Unit
 }
@@ -247,7 +247,7 @@ class ClassA extends TraitB with TraitC
 この場合はコンパイルエラーにはなりません。では`ClassA`の`greet`メソッドを呼び出した場合、いったい何が表示されるのでしょうか？
 実際に実行してみましょう。
 
-```tut
+```scala mdoc:nest
 (new ClassA).greet()
 ```
 
@@ -256,7 +256,7 @@ class ClassA extends TraitB with TraitC
 つまりトレイトのミックスインの順番を逆にすると`TraitB`が優先されるようになります。
 以下のようにミックスインの順番を変えてみます。
 
-```tut:silent
+```scala mdoc:nest:silent
 class ClassB extends TraitC with TraitB
 ```
 
@@ -269,7 +269,7 @@ Good morning!
 
 `super`を使うことで線形化された親トレイトを使うこともできます
 
-```tut:silent
+```scala mdoc:nest:silent
 trait TraitA {
   def greet(): Unit = println("Hello!")
 }
@@ -294,7 +294,7 @@ class ClassB extends TraitC with TraitB
 
 この`greet`メソッドの結果もまた継承された順番で変わります。
 
-```tut
+```scala mdoc:nest
 (new ClassA).greet()
 
 (new ClassB).greet()
@@ -310,7 +310,7 @@ class ClassB extends TraitC with TraitB
 Scalaのトレイトの`val`の初期化順序はトレイトを使う上で大きな落とし穴になります。
 以下のような例を考えてみましょう。トレイト`A`で変数`foo`を宣言し、トレイト`B`が`foo`を使って変数`bar`を作成し、クラス`C`で`foo`に値を代入してから`bar`を使っています。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait A {
   val foo: String
 }
@@ -328,7 +328,7 @@ class C extends B {
 
 REPLでクラス`C`の`printBar`メソッドを呼び出してみましょう。
 
-```tut
+```scala mdoc:nest
 (new C).printBar()
 ```
 
@@ -346,7 +346,7 @@ REPLでクラス`C`の`printBar`メソッドを呼び出してみましょう。
 
 具体的なコードを見てみましょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait A {
   val foo: String
 }
@@ -368,7 +368,7 @@ class C extends B {
 
 今度はクラス`C`の`printBar`メソッドを呼び出してもちゃんと`HelloWorld`と表示されます。
 
-```tut
+```scala mdoc:nest
 (new C).printBar()
 ```
 
@@ -379,7 +379,7 @@ class C extends B {
 トレイトの`val`の初期化順序を回避するもう1つの方法としては事前定義（Early Definitions）を使う方法もあります。
 事前定義というのはフィールドの初期化をスーパークラスより先におこなう方法です。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait A {
   val foo: String
 }

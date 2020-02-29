@@ -1,6 +1,6 @@
 # sbtをインストールする
 
-```tut:invisible
+```scala mdoc:nest:invisible
 import sbt._, Keys._
 ```
 
@@ -87,7 +87,7 @@ scala> :quit
 になってしまうので、こちらが指定したバージョンのScalaでREPLを起動したい場合は、同じディレクトリに
 _build.sbt_というファイルを作成し、
 
-```tut:silent
+```scala mdoc:nest:silent
 scalaVersion := "2.12.8"
 ```
 

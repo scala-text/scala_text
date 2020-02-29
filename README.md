@@ -51,19 +51,19 @@ sbt textLint src/introduction.md
 # リンク切れ確認
 sbt textLinkTest
 
-# tutキャッシュなしのビルド
+# mdocのビルド
 sbt textBuildHtml
 
 # 全ての検査を実行した後にビルド
 sbt textBuildAllWithCheck
 ```
 
-### tut
+### mdoc
 
-[tut](https://github.com/tpolecat/tut)という、Scalaコードを書くと、そのコードのチェックや
+[mdoc](https://scalameta.org/mdoc/))という、Scalaコードを書くと、そのコードのチェックや
 元のソースとなるmarkdownファイルから、実行後の出力を付け加えたmarkdownに変換してくれるツールを使用している。
-Scalaのコード例をテキスト中に書く場合は、使用可能な箇所では出来る限りtutを使うこと。
-tut自体の具体的な使用方法は、tutのREADMEなどを参照すること。
+Scalaのコード例をテキスト中に書く場合は、使用可能な箇所では出来る限りmdocを使うこと。
+mdoc自体の具体的な使用方法は、mdocのREADMEなどを参照すること。
 
 ### gitbookで特別視されるファイルについて
 

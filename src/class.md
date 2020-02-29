@@ -15,7 +15,7 @@ class <クラス名> '(' (<引数名1> : <引数型1>, <引数名2>: <引数型2
 
 たとえば、点を表すクラス`Point`を定義したいとします。`Point`はx座標を表すフィールド`x`（`Int`型）とフィールド`y`（`Int`型）からなるとします。このクラス`Point`をScalaで書くと次のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 class Point(_x: Int, _y: Int) {
   val x = _x
   val y = _y
@@ -24,7 +24,7 @@ class Point(_x: Int, _y: Int) {
 
 コンストラクタの引数と同名のフィールドを定義し、それを公開する場合は、以下のように短く書くこともできます。
 
-```tut:silent
+```scala mdoc:nest:silent
 class Point(val x: Int, val y: Int)
 ```
 
@@ -35,7 +35,7 @@ class Point(val x: Int, val y: Int)
 
 2番目の点ですが、プライマリコンストラクタの引数にval/varをつけるとそのフィールドは公開され、外部からアクセスできるようになります。なお、プライマリコンストラクタの引数のスコープはクラス定義全体におよびます。そのため、以下のようにメソッド定義の中から直接コンストラクタ引数を参照できます。
 
-```tut:silent
+```scala mdoc:nest:silent
 class Point(val x: Int, val y: Int) {
   def +(p: Point): Point = {
     new Point(x + p.x, y + p.y)
@@ -71,7 +71,7 @@ class Point(val x: Int, val y: Int) {
 
 先ほど定義した`Point`クラスをREPLから使ってみましょう。
 
-```tut
+```scala mdoc:nest
 class Point(val x: Int, val y: Int) {
   def +(p: Point): Point = {
     new Point(x + p.x, y + p.y)
@@ -100,7 +100,7 @@ p1 + p2
 
 複数の引数リストを持つメソッドには、Scalaの糖衣構文と組み合わせて流暢なAPIを作ったり、後述するimplicit parameterのために必要になったり、型推論を補助するために使われたりといった用途があります。複数の引数リストを持つ加算メソッドを定義してみましょう。
 
-```tut
+```scala mdoc:nest
 class Adder {
   def add(x: Int)(y: Int): Int = x + y
 }
@@ -117,7 +117,7 @@ fun(3)
 
 次のように、複数の引数リストを使わずに単に複数の引数を持つメソッドも作ることができます。
 
-```tut
+```scala mdoc:nest
 class Adder {
   def add(x: Int, y: Int): Int = x + y
 }
@@ -158,7 +158,7 @@ fun(3)
 
 メソッドやフィールドの中身がない以外は、通常のメソッドやフィールド定義と同じです。また、抽象メソッドを一個以上持つクラスは、抽象クラスとして宣言する必要があります。たとえば、`x`座標と`y`座標を持つ、抽象クラス`XY`は次のようにして定義します。クラスの前に`abstract` 修飾子をつける必要があるのがポイントです。
 
-```tut
+```scala mdoc:nest
 abstract class XY {
   def x: Int
   def y: Int
@@ -179,7 +179,7 @@ class <クラス名> <クラス引数> (extends <スーパークラス>)? (with 
 
 トレイト名はここでは使われませんが、後で出てくるトレイトの節で説明を行います。継承のはたらきはJavaのクラスと同様ですが、既存のメソッドをオーバーライドするときは`override`キーワードを使わなければならない点が異なります。 たとえば、次のようにすることができます。
 
-```tut
+```scala mdoc:nest
 class APrinter() {
   def print(): Unit = {
     println("A")
@@ -200,7 +200,7 @@ new BPrinter().print
 
 ここで`override`キーワードをはずすと、次のようにメッセージを出力して、**コンパイルエラー**になります。 
 
-```tut:fail
+```scala
 class BPrinter() extends APrinter {
   def print(): Unit = {
     println("B")
@@ -223,7 +223,7 @@ println(p.z) // 30
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 class Point3D(val x: Int, val y: Int, val z: Int)
 ```
 
@@ -231,7 +231,7 @@ class Point3D(val x: Int, val y: Int, val z: Int)
 
 プライマリコンストラクタの引数として座標の値を渡し、それをそのまま取り出しているので、プライマリコンストラクタの引数に `val` を付けるのが最も簡単です。別解として、以下のように別途 `val` でフィールドを定義することも可能ですが、今回あえてそうする意味は少ないでしょう。 
 
-```tut:silent
+```scala mdoc:nest:silent
 class Point3D(x_ : Int, y_ : Int, z_ : Int) {
   val x: Int = x_
   val y: Int = y_

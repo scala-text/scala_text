@@ -6,7 +6,7 @@
 
 簡単なケースクラスによるデータ型を定義してみます。
 
-```tut:silent
+```scala mdoc:nest:silent
 sealed abstract class DayOfWeek
 case object Sunday extends DayOfWeek
 case object Monday extends DayOfWeek
@@ -20,7 +20,7 @@ case object Saturday extends DayOfWeek
 これは、一週間の曜日を表すデータ型です。CやJavaの`enum`に似ていますね。実際、同じように使うことができます。
 たとえば、以下のように`DayOfWeek`型の変数に`Sunday`を代入することができます。
 
-```tut:silent
+```scala mdoc:nest:silent
 val x: DayOfWeek = Sunday
 ```
 
@@ -37,7 +37,7 @@ val x: DayOfWeek = Sunday
 
 のようになります。`DayOfWeek`の場合、次のようにして使うことができます。
 
-```tut
+```scala mdoc:nest
 x match {
   case Sunday => 1
   case Monday => 2
@@ -64,7 +64,7 @@ x match {
 二項演算の結果として小数が現れた場合は小数部を切り捨てることとします。これを表すデータ型
 をScalaで定義すると次のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 sealed abstract class Exp
 case class Add(lhs: Exp, rhs: Exp) extends Exp
 case class Sub(lhs: Exp, rhs: Exp) extends Exp
@@ -76,14 +76,14 @@ case class Lit(value: Int) extends Exp
 全てのデータ型に`case`修飾子がついているので、これらのデータ型はパターンマッチングのパターンとして使うことができます。
 この定義から、`1 + ((2 * 3) / 2)`という式を表すノードを構築します。
 
-```tut
+```scala mdoc:nest
 val example = Add(Lit(1), Div(Mul(Lit(2), Lit(3)), Lit(2)))
 ```
 
 この`example`ノードを元に四則演算を定義する関数を定義してみます。関数の定義の
 詳細は後ほど説明しますが、ここでは雰囲気だけをつかんでください。
 
-```tut
+```scala mdoc:nest
 def eval(exp: Exp): Int = exp match {
   case Add(l, r) => eval(l) + eval(r)
   case Sub(l, r) => eval(l) - eval(r)
@@ -95,7 +95,7 @@ def eval(exp: Exp): Int = exp match {
 
 この定義をREPLに読み込ませて、`eval(example)`として、
 
-```tut
+```scala mdoc:nest
 eval(example)
 ```
 
@@ -124,13 +124,13 @@ It would fail on the following input: Lit(_)
 
 たとえば、次のようなケースクラス`Point`があったとします。
 
-```tut
+```scala mdoc:nest
 case class Point(x: Int, y: Int)
 ```
 
 このケースクラス`Point`に対して、
 
-```tut
+```scala mdoc:nest
 val Point(x, y) = Point(10, 20)
 ```
 
@@ -171,7 +171,7 @@ res5: Boolean = false
 クラスに実装を足すことでも同等の振る舞いを持たせることもできます。
 例えば、前節で定義した`Point`をケースクラスを使わずに定義するとしたら、次のようになるでしょう。
 
-```tut
+```scala mdoc:nest
 class Point(val x: Int, val y: Int) {
   override def equals(that: Any): Boolean = that match {
     case thatPoint: Point =>
@@ -209,7 +209,7 @@ object Point {
 
 `DayOfWeek`型を使って、ある日の次の曜日を返すメソッド`nextDayOfWeek`
 
-```tut:silent
+```scala mdoc:nest:silent
 def nextDayOfWeek(d: DayOfWeek): DayOfWeek = ???
 ```
 
@@ -217,7 +217,7 @@ def nextDayOfWeek(d: DayOfWeek): DayOfWeek = ???
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def nextDayOfWeek(d: DayOfWeek): DayOfWeek = d match {
   case Sunday => Monday
   case Monday => Tuesday
@@ -229,7 +229,7 @@ def nextDayOfWeek(d: DayOfWeek): DayOfWeek = d match {
 }
 ```
 
-```tut
+```scala mdoc:nest
 nextDayOfWeek(Sunday)
 nextDayOfWeek(Monday)
 nextDayOfWeek(Saturday)
@@ -241,7 +241,7 @@ nextDayOfWeek(Saturday)
 
 二分木（子の数が最大で2つであるような木構造）を表す型`Tree`と`Branch`, `Empty`を考えます：
 
-```tut:silent
+```scala mdoc:nest:silent
 sealed abstract class Tree
 case class Branch(value: Int, left: Tree, right: Tree) extends Tree
 case object Empty extends Tree
@@ -249,7 +249,7 @@ case object Empty extends Tree
 
 子が2つで左の子の値が`2`、右の子の値が`3`、自分自身の値が`1`の木構造はたとえば次のようにして定義することができます。
 
-```tut
+```scala mdoc:nest
 val tree: Tree = Branch(1, Branch(2, Empty, Empty), Branch(3, Empty, Empty))
 ```
 
@@ -259,7 +259,7 @@ val tree: Tree = Branch(1, Branch(2, Empty, Empty), Branch(3, Empty, Empty))
 2. 最小値を求める`min`メソッド：
 3. 深さを求める`depth`メソッド：
 
-```tut:silent
+```scala mdoc:nest:silent
 def max(tree: Tree): Int = ???
 def min(tree: Tree): Int = ???
 def depth(tree: Tree): Int = ???
@@ -296,7 +296,7 @@ depth(Branch(10, Branch(20,
 
 となるような木構造に変換する`sort`メソッド：
 
-```tut:silent
+```scala mdoc:nest:silent
 def sort(tree: Tree): Tree = ???
 ```
 
@@ -304,7 +304,7 @@ def sort(tree: Tree): Tree = ???
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 object BinaryTree {
   sealed abstract class Tree
   case class Branch(value: Int, left: Tree, right: Tree) extends Tree
@@ -382,8 +382,13 @@ object BinaryTree {
 }
 ```
 
-```tut:invisible
+```scala mdoc:nest:invisible
 import org.scalacheck._, Arbitrary.arbitrary
+
+def test[G] (g: Gen[G])(f: G  => Boolean) = {
+  val result = Prop.forAll(g)(f).apply(Gen.Parameters.default)
+  assert(result.success, result)
+}
 
 val nonEmptyTreeGen: Gen[BinaryTree.Tree] = {
 
@@ -402,11 +407,11 @@ val nonEmptyTreeGen: Gen[BinaryTree.Tree] = {
   branchGen
 }
 
-Testing.test(nonEmptyTreeGen){ tree =>
+test(nonEmptyTreeGen){ tree =>
   BinaryTree.max(tree) == BinaryTree.toList(tree).max
 }
 
-Testing.test(nonEmptyTreeGen){ tree =>
+test(nonEmptyTreeGen){ tree =>
   BinaryTree.min(tree) == BinaryTree.toList(tree).min
 }
 ```
@@ -419,7 +424,7 @@ Testing.test(nonEmptyTreeGen){ tree =>
 これまでの説明の中で、無名関数とパターンマッチングについて説明してきましたが、この2つの機能を組み合わせた
 部分関数（PartialFunction）がScalaには存在します。説明の前に、まず、具体的なユースケースを挙げます：
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).collect { case i if i % 2 == 1 => i * 2 }
 ```
 
@@ -455,7 +460,7 @@ i % 2 == 1
 が生成されるのであって、通常の `FunctionN` 型が要求されたときには、違う意味を持つということです。たとえば、以下のような
 定義があったとします。
 
-```tut
+```scala mdoc:nest
 val even: Int => Boolean = {
   case i if i % 2 == 0 => true
   case _ => false
@@ -464,7 +469,7 @@ val even: Int => Boolean = {
 
 このとき、この定義は、無名関数とパターンマッチを組み合わせたものと同じ意味になります。この点にだけ注意してください。
 
-```tut
+```scala mdoc:nest
 val even: Int => Boolean = (x => x match {
   case i if i % 2 == 0 => true
   case _ => false
