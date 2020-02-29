@@ -35,7 +35,8 @@ mkdir -p ${TRAVIS_BRANCH}
 cp -r ../../_book/* ./${TRAVIS_BRANCH}/
 git add .
 git commit -a -m "auto commit on travis $TRAVIS_JOB_NUMBER $TRAVIS_COMMIT $TRAVIS_BRANCH"
-git push origin gh-pages:gh-pages
+if [[ "${TRAVIS_BRANCH}" != "master" ]];
+then git push origin gh-pages:gh-pages ; fi
 cd ..
 
 if [[ "${TRAVIS_BRANCH}" == "master" && "${TRAVIS_EVENT_TYPE}" == "push" && "${TRAVIS_REPO_SLUG}" == "scala-text/scala_text" ]]; then
