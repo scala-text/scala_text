@@ -11,13 +11,13 @@ Implicitの章では、`Additive`という型クラスを定義することで�
 まず、`sum`に続いて、要素の平均値を計算するための`average`メソッドを作成することを考えます。`average`メソッドの
 素朴な実装は次のようになるでしょう。 [^list-size]
 
-```tut
+```scala mdoc:nest
 def average(list: List[Int]): Int = list.foldLeft(0)(_ + _) / list.size
 ```
 
 これを、前章のように `Additive`を使ってみます。
 
-```tut
+```scala mdoc:nest
 trait Additive[A] {
   def plus(a: A, b: A): A
   def zero: A
@@ -47,7 +47,7 @@ def average[A](lst: List[A])(implicit m: Additive[A]): A = {
 メソッドを `multiply` 、割り算のメソッドを `divide` とすると、 `Num` は次のようになるでしょう。
 ここで、 `Nums` は、対話環境でコンパニオンクラス/オブジェクトを扱うために便宜的に作った名前空間であり、通常のScalaプログラムでは、コンパニオンクラス/オブジェクトを定義するときの作法に従えばよいです[^repl-companion]。
 
-```tut
+```scala mdoc:nest
 object Nums {
   trait Num[A] {
     def plus(a: A, b: A): A
@@ -78,7 +78,7 @@ object Nums {
 また、 `average` メソッドは、リストの長さ、つまり整数で割る必要があるので、整数を `A` 型に変換するための型
 `FromInt` も用意します。 `FromInt` は次のようになります。 `to` は `Int` 型を対象の型に変換するメソッドです。
 
-```tut
+```scala mdoc:nest
 object FromInts {
   trait FromInt[A] {
     def to(from: Int): A
@@ -96,7 +96,7 @@ object FromInts {
 
 `Num` と `FromInt` を使うと、 `average` 関数は次のように書くことができます。
 
-```tut
+```scala mdoc:nest
 import Nums._
 import FromInts._
 def average[A](lst: List[A])(implicit a: Num[A], b: FromInt[A]): A = {
@@ -108,7 +108,7 @@ def average[A](lst: List[A])(implicit a: Num[A], b: FromInt[A]): A = {
 
 この `average` 関数は次のようにして使うことができます。
 
-```tut
+```scala mdoc:nest
 average(List(1, 3, 5))
 average(List(1.5, 2.5, 3.5))
 ```
@@ -119,7 +119,7 @@ average(List(1.5, 2.5, 3.5))
 
 上記のコードは、context boundsというシンタックスシュガーを使うことで、次のように書き換えることもできます。
 
-```tut
+```scala mdoc:nest
 import Nums._
 import FromInts._
 def average[A:Num:FromInt](lst: List[A]): A = {
@@ -139,7 +139,7 @@ implicit parameterの名前 `a` と `b` が引数から見えなくなりまし�
 別のアルゴリズムをライブラリ化した例を、Scalaの標準ライブラリから紹介します。コレクションから
 最大値を取得する `max` と最小値を取得する `min` です。これらは、次のようにして使うことができます。
 
-```tut
+```scala mdoc:nest
 List(1, 3, 4, 2).max
 List(1, 3, 2, 4).min
 ```
@@ -171,7 +171,7 @@ def min[B >: A](implicit cmp: Ordering[B]): A
 この3つを使って、 `median` メソッドを定義してみます。先程出てきたcontext boundsを使って、シグネチャ
 が見やすいようにしています。
 
-```tut
+```scala mdoc:nest
 import Nums._
 import FromInts._
 def median[A:Num:Ordering:FromInt](lst: List[A]): A = {
@@ -193,7 +193,7 @@ def median[A:Num:Ordering:FromInt](lst: List[A]): A = {
 
 このメソッドは次のようにして使うことができます。
 
-```tut
+```scala mdoc:nest
 assert(2 == median(List(1, 3, 2)))
 assert(2.5 == median(List(1.5, 2.5, 3.5)))
 assert(3 == median(List(1, 3, 4, 5)))
@@ -250,7 +250,7 @@ def string[A:Serializer](obj: A): String = ???
 `Serializer` の `serialize` メソッドを呼びだせばいいだけなので、
 次のようになります。
 
-```tut
+```scala mdoc:nest
 object Serializers {
   trait Serializer[A] {
     def serialize(obj: A): String
@@ -310,7 +310,7 @@ implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[L
 ここまでで、一通りの実装ができたので、定義を一箇所にまとめて実行結果を確認してみましょう。この節の最初の
 方の入力例を使って動作確認をします。
 
-```tut
+```scala mdoc:nest
 object Serializers {
   trait Serializer[A] {
     def serialize(obj: A): String

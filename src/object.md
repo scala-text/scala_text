@@ -34,7 +34,7 @@ object <オブジェクト名> extends <クラス名> (with <トレイト名>)* 
 `apply`メソッドでオブジェクトを生成するようにすることで、`Point(3, 5)`のような記述でオブジェクトを
 生成できるようになります。
 
-```tut
+```scala mdoc:nest
 class Point(val x:Int, val y:Int)
 
 object Point {
@@ -49,7 +49,7 @@ object Point {
 
 といったメリットがあります。なお、上記の記述はケースクラスを用いてもっと簡単に
 
-```tut
+```scala mdoc:nest
 case class Point(x: Int, y: Int)
 ```
 

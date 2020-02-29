@@ -9,17 +9,17 @@ name := "textbook"
 
 scalaVersion := "2.12.8"
 
-enablePlugins(TutPlugin)
+enablePlugins(MdocPlugin)
 
-tutSourceDirectory := srcDir
+mdocIn := srcDir
 
-tutTargetDirectory := compiledSrcDir
+mdocOut := compiledSrcDir
 
 libraryDependencies ++= Seq(
   "org.scala-sbt" % "sbt" % sbtVersion.value,
   "org.mockito" % "mockito-core" % "3.3.3",
   "org.scalacheck" %% "scalacheck" % "1.14.3",
-  "org.scalatest" %% "scalatest" % "3.1.1" // tutで使うので、テストライブラリだが、わざとcompileスコープ
+  "org.scalatest" %% "scalatest" % "3.1.1" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
 
 GitBook.settings

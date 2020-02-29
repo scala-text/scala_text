@@ -177,7 +177,7 @@ Option型には具体的には
 
 具体的な動きを見てみましょう。`Option`に具体的な値が入った場合は以下の様な動きをします。
 
-```tut
+```scala mdoc:nest
 val o: Option[String] = Option("hoge")
 
 o.get
@@ -189,7 +189,7 @@ o.isDefined
 
 今度は`null`を`Option`に入れるとどうなるでしょうか。
 
-```tut
+```scala mdoc:nest
 val o: Option[String] = Option(null)
 
 o.isEmpty
@@ -197,7 +197,7 @@ o.isEmpty
 o.isDefined
 ```
 
-```tut:fail
+```scala
 o.get
 
 ```
@@ -207,14 +207,14 @@ Optionのコンパニオンオブジェクトのapplyには引数がnullであ�
 これがNPEと同じだと思うかもしれません。
 しかしOptionには以下の様な便利メソッドがあり、それらを回避することができます。
 
-```tut
+```scala mdoc:nest
 o.getOrElse("")
 ```
 
 以上は`Option[String]`の中身が`None`だった場合に、空文字を返すというコードになります。
 値以外にも処理を書くこともできます。
 
-```tut:fail
+```scala
 o.getOrElse(throw new RuntimeException("nullは受け入れられません"))
 ```
 
@@ -226,7 +226,7 @@ o.getOrElse(throw new RuntimeException("nullは受け入れられません"))
 上記では、手続き的にOptionを処理しましたが、型を持っているため
 パターンマッチを使って処理することもできます。
 
-```tut
+```scala mdoc:nest
 val s: Option[String] = Some("hoge")
 
 val result = s match {
@@ -246,13 +246,13 @@ val result = s match {
 Optionには、コレクションの性質があると言いましたが、関数を内容の要素に適用できるという
 性質もそのまま持ち合わせています。
 
-```tut
+```scala mdoc:nest
 Some(3).map(_ * 3)
 ```
 
 このように、`map`で関数を適用する事もできます。なお、値が`None`の場合にはどうなるでしょうか。
 
-```tut
+```scala mdoc:nest
 val n: Option[Int] = None
 
 n.map(_ * 3)
@@ -264,7 +264,7 @@ Noneのままだと型情報を持たないので一度、変数にしていま�
 
 Java風に書くならば、
 
-```tut:fail
+```scala
 if (n.isDefined) {
   n.get * 3
 } else {
@@ -286,14 +286,14 @@ fold[B](ifEmpty: ⇒ B)(f: (A) ⇒ B): B
 
 そして関数を適用した値を最終的に取得できます。
 
-```tut:fail
+```scala
 n.fold(throw new RuntimeException)(_ * 3)
 ```
 
 上記のように書くことで、Noneの際に実行する処理を定義し、かつ、関数を適用した中身の値を
 取得することができます。
 
-```tut
+```scala mdoc:nest
 Some(3).fold(throw new RuntimeException)(_ * 3)
 ```
 
@@ -311,7 +311,7 @@ Some(3).fold(throw new RuntimeException)(_ * 3)
 例えば、1つ目と2つ目の整数の値がOptionで返ってきてそれをかけた値をもとめるような場合です。
 
 
-```tut
+```scala mdoc:nest
 val v1: Option[Int] = Some(3)
 
 val v2: Option[Int] = Some(5)
@@ -324,14 +324,14 @@ mapだけを使ってシンプルに実装するとこんな風になってし�
 
 このような入れ子のoptionを解消するために用意されているのが、`flatten`です。
 
-```tut
+```scala mdoc:nest
 v1.map(i1 => v2.map(i2 => i1 * i2)).flatten
 ```
 
 最後に`flatten`を実行することで、Optionの入れ子を解消することができます。
 なお、v2がNoneである場合にも`flatten`は成立します。
 
-```tut
+```scala mdoc:nest
 val v1: Option[Int] = Some(3)
 
 val v2: Option[Int] = None
@@ -348,7 +348,7 @@ v1.map(i1 => v2.map(i2 => i1 * i2)).flatten
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 val v1: Option[Int] = Some(2)
 val v2: Option[Int] = Some(3)
 val v3: Option[Int] = Some(5)
@@ -376,7 +376,7 @@ v1.map { i1 =>
 
 実際に先ほどの、`Some(3)`と`Some(5)`をかける例で利用してみると以下のようになります。
 
-```tut
+```scala mdoc:nest
 val v1: Option[Int] = Some(3)
 
 val v2: Option[Int] = Some(5)
@@ -388,7 +388,7 @@ v1.flatMap(i1 => v2.map(i2 => i1 * i2))
 
 `Some(3)`と`Some(5)`と`Some(7)`をかける場合はどうなるでしょうか。
 
-```tut
+```scala mdoc:nest
 val v1: Option[Int] = Some(3)
 
 val v2: Option[Int] = Some(5)
@@ -401,7 +401,7 @@ v1.flatMap(i1 => v2.flatMap(i2 => v3.map(i3 => i1 * i2 * i3)))
 無論これは、 `v1`, `v2`, `v3` のいずれが `None` であった場合にも成立します。
 その場合には `flatten` の時と同様に `None` が最終的な答えになります。
 
-```tut
+```scala mdoc:nest
 val v3: Option[Int] = None
 
 v1.flatMap(i1 => v2.flatMap(i2 => v3.map(i3 => i1 * i2 * i3)))
@@ -417,7 +417,7 @@ v1.flatMap(i1 => v2.flatMap(i2 => v3.map(i3 => i1 * i2 * i3)))
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 val v1: Option[Int] = Some(2)
 val v2: Option[Int] = Some(3)
 val v3: Option[Int] = Some(5)
@@ -447,7 +447,7 @@ for式は実際には`flatMap`と`map`展開されて実行されるのです。
 何をいっているのかわかりにくいと思いますので、先ほどの
 `Some(3)`と`Some(5)`と`Some(7)`をflatMapでかけるという処理をforで書いてみましょう。
 
-```tut
+```scala mdoc:nest
 val v1: Option[Int] = Some(3)
 
 val v2: Option[Int] = Some(5)
@@ -470,7 +470,7 @@ for { i1 <- v1
 
 <!-- begin answer id="answer_ex3" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 val v1: Option[Int] = Some(2)
 val v2: Option[Int] = Some(3)
 val v3: Option[Int] = Some(5)
@@ -494,7 +494,7 @@ Noneの場合、値が取得できなかったことはわかりますが、エ�
 Optionが正常な値と何もない値のどちらかを表現するデータ型だったのに対して、Eitherは2つの値のどちらかを表現するデータ型です。
 具体的には、Optionでは`Some`と`None`の2つの値を持ちましたが、Eitherは`Right`と`Left`の2つの値を持ちます。
 
-```tut
+```scala mdoc:nest
 val v1: Either[String, Int] = Right(123)
 
 val v2: Either[String, Int] = Left("abc")
@@ -502,7 +502,7 @@ val v2: Either[String, Int] = Left("abc")
 
 パターンマッチで値を取得できるのもOptionと同じです。
 
-```tut
+```scala mdoc:nest
 v1 match {
   case Right(i) => println(i)
   case Left(s)  => println(s)
@@ -578,7 +578,7 @@ EitherにはRight, Leftの2つの値がありますが、ScalaのEitherではRig
 
 ためしに`Either`の`map`メソッドを使ってみましょう
 
-```tut
+```scala mdoc:nest
 val v: Either[String, Int] = Right(123)
 
 v.map(_ * 2)
@@ -600,7 +600,7 @@ EitherがLeftの場合は何の処理もおこなわれません。
 Scalaにおいては、メソッド実行前にはまず引数が評価され、次いでメソッド本体のコードが実行されます。
 次の例からも分かります。
 
-```tut
+```scala mdoc:nest
 def f(x: Any): Unit = println("f")
 def g(): Unit = println("g")
 f(g())
@@ -613,7 +613,7 @@ f(g())
 **変数が実際に使用される箇所まで評価を遅延させる** ことができます。
 メソッド本体のそれが使われる箇所で引数の式が計算されるということです。次のようなコードを見ると分かりやすいと思います。
 
-```tut
+```scala mdoc:nest
 def g(): Unit = println("g")
 def f(g: => Unit): Unit = {
   println("prologue f")
@@ -646,7 +646,7 @@ Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowab
 ここでSuccessは型変数を取り、任意の値を入れることができますが、FailureはThrowableしか入れることができません。
 そしてTryには、コンパニオンオブジェクトのapplyで生成する際に、例外をcatchし、Failureにする機能があります。
 
-```tut
+```scala mdoc:nest
 import scala.util.Try
 
 val v: Try[Int] = Try(throw new RuntimeException("to be caught"))
@@ -654,7 +654,7 @@ val v: Try[Int] = Try(throw new RuntimeException("to be caught"))
 
 この機能を使って、例外が起こりそうな箇所を`Try`で包み、Failureにして値として扱えるようにするのがTryの特徴です。
 
-```tut
+```scala mdoc:nest
 val v1 = Try(3)
 
 val v2 = Try(5)
@@ -677,7 +677,7 @@ NonFatalではないエラーはアプリケーション中で復旧が困難な
 
 Try以外でも、たとえば扱うことができる全ての例外をまとめて処理したい場合などに、
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.util.control.NonFatal
 
 try {
@@ -729,7 +729,7 @@ Noneを盲目的に処理するのであれば、flatMapやfor式をつかえば
 
 以下のようなコードになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 object MainBefore {
 
   case class Address(id: Int, name: String, postalCode: Option[String])
@@ -800,7 +800,7 @@ findの各段階でFailureオブジェクトに引き換えるという動きを
 
 リファクタリングした結果は以下のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 object MainRefactored {
 
   case class Address(id: Int, name: String, postalCode: Option[String])

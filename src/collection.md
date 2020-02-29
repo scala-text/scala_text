@@ -26,20 +26,20 @@ mutableなコレクションを効果的に使えばプログラムの実行速�
 
 まずは大抵のプログラミング言語にある配列です。
 
-```tut
+```scala mdoc:nest
 val arr = Array(1, 2, 3, 4, 5)
 ```
 
 これで1から5までの要素を持った配列が`arr`に代入されました。Scalaの配列は、他の言語のそれと同じように要素の中身を入れ替えることができます。配列の添字は0から始まります。なお、配列の型を指定しなくて良いのは、`Array(1, 2, 3, 4, 5)`の部分で、要素型が`Int`であるに違いないと
 コンパイラが型推論してくれるからです。型を省略せずに書くと
 
-```tut
+```scala mdoc:nest
 val arr = Array[Int](1, 2, 3, 4, 5)
 ```
 
 となります。ここで、`[Int]`の部分は型パラメータと呼びます。`Array`だけだとどの型かわからないので、`[Int]`を付けることでどの型の`Array`かを指定しているわけです。この型パラメータは型推論を補うために、色々な箇所で出てくるので覚えておいてください。しかし、この場面では、`Array`の要素型は`Int`だとわかっているので、冗長です。次に要素へのアクセスと代入です。
 
-```tut
+```scala mdoc:nest
 arr(0) = 7
 
 arr
@@ -51,7 +51,7 @@ arr(0)
 
 配列の長さは`arr.length`で取得することができます。
 
-```tut
+```scala mdoc:nest
 arr.length
 ```
 
@@ -66,23 +66,23 @@ arr.length
 
 配列の`i`番目の要素と`j`番目の要素を入れ替える`swapArray`メソッドを定義してみましょう。`swapArray`メソッドの宣言は
 
-```tut:silent
-def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = ???
+```scala mdoc:nest:silent
+def swapArray[T] (arr: Array[T])(i: Int, j: Int): Unit = ???
 ```
 
 となります。`i`と`j`が配列の範囲外である場合は特に考慮しなくて良いです。
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
-def swapArray[T](arr: Array[T])(i: Int, j: Int): Unit = {
+```scala mdoc:nest:silent
+def swapArray[T] (arr: Array[T])(i: Int, j: Int): Unit = {
   val tmp = arr(i)
   arr(i) = arr(j)
   arr(j) = tmp
 }
 ```
 
-```tut
+```scala mdoc:nest
 val arr = Array(1, 2, 3, 4, 5)
 
 swapArray(arr)(0, 4)
@@ -100,7 +100,7 @@ arr
 
 `Range`は範囲を表すオブジェクトです。`Range`は直接名前を指定して生成するより、`to`メソッドと`until`メソッドを用いて呼びだすことが多いです。また、`toList`メソッドを用いて、その範囲の数値の列を後述する`List`に変換することができます。では、早速REPLで`Range`を使ってみましょう。
 
-```tut
+```scala mdoc:nest
 1 to 5
 
 (1 to 5).toList
@@ -119,11 +119,11 @@ arr
 変更できない（immutable）ということです。中身を変更できないデータ構造（永続データ構造とも呼びます）はScalaがサポートしている
 関数型プログラミングにとって重要な要素です。それでは`List`を使ってみましょう。
 
-```tut
+```scala mdoc:nest
 val lst = List(1, 2, 3, 4, 5)
 ```
 
-```tut:fail
+```scala
 lst(0) = 7
 ```
 
@@ -138,7 +138,7 @@ lst(0) = 7
 
 `::`（コンスと読みます）は既にある`List`の先頭に要素をくっつけるメソッドです。これについては、REPLで結果をみた方が早いでしょう。
 
-```tut
+```scala mdoc:nest
 val a1 = 1 :: Nil
 val a2 = 2 :: a1
 val a3 = 3 :: a2
@@ -148,13 +148,13 @@ val a5 = 5 :: a3
 
 付け足したい要素を`::`を挟んで`List`の前に書くことで`List`の先頭に要素がくっついていることがわかります。ここで、`::`はやや特別な呼び出し方をするメソッドであることを説明しなければなりません。まず、Scalaでは1引数のメソッドは中置記法で書くことができます。それで、`1 :: Nil` のように書くことができるわけです。次に、メソッド名の最後が`:`で終わる場合、被演算子の前と後ろをひっくり返して右結合で呼び出します。たとえば、
 
-```tut
+```scala mdoc:nest
 1 :: 2 :: 3 :: 4 :: Nil
 ```
 
 は、実際には、
 
-```tut
+```scala mdoc:nest
 Nil.::(4).::(3).::(2).::(1)
 ```
 
@@ -164,7 +164,7 @@ Nil.::(4).::(3).::(2).::(1)
 
 `++`はList同士を連結するメソッドです。これもREPLで見た方が早いでしょう。
 
-```tut
+```scala mdoc:nest
 List(1, 2) ++ List(3, 4)
 
 List(1) ++ List(3, 4, 5)
@@ -174,13 +174,13 @@ List(3, 4, 5) ++ List(1)
 
 `++`は1引数のメソッドなので、中置記法で書いています。また、末尾が`:`で終わっていないので、たとえば、
 
-```tut
+```scala mdoc:nest
 List(1, 2) ++ List(3, 4)
 ```
 
 は
 
-```tut
+```scala mdoc:nest
 List(1, 2).++(List(3, 4))
 ```
 
@@ -196,14 +196,14 @@ List(1, 2).++(List(3, 4))
 
 引数なしバージョンです。このメソッドは、単に`List`の各要素を左から順に繋げた文字列を返します。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).mkString
 ```
 
 注意しなければならないのは、引数なしメソッドの`mkString`は`()`を付けて呼びだすことが**できない**
 という点です。たとえば、以下のコードは、若干分かりにくいエラーメッセージがでてコンパイルに失敗します。
 
-```tut:fail
+```scala
 List(1, 2, 3, 4, 5).mkString()
 ```
 
@@ -217,7 +217,7 @@ Scalaの`0`引数メソッドは`()`なしと
 
 引数にセパレータ文字列`sep`を取り、`List`の各要素を`sep`で区切って左から順に繋げた文字列を返します。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).mkString(",")
 ```
 
@@ -225,7 +225,7 @@ List(1, 2, 3, 4, 5).mkString(",")
 
 `mkString(sep)`とほとんど同じですが、`start`と`end`に囲まれた文字列を返すところが異なります。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).mkString("[", ",", "]")
 ```
 
@@ -245,7 +245,7 @@ start,(start+1),(start+2)...,end
 joinByComma(1,5)  // 1,2,3,4,5
 ```
 
-```tut:silent
+```scala mdoc:nest:silent
 def joinByComma(start: Int, end: Int): String = {
   ???
 }
@@ -253,13 +253,13 @@ def joinByComma(start: Int, end: Int): String = {
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def joinByComma(start: Int, end: Int): String = {
   (start to end).mkString(",")
 }
 ```
 
-```tut
+```scala mdoc:nest
 joinByComma(1, 10)
 ```
 
@@ -300,13 +300,13 @@ def foldLeft[B](z: B)(f: (B, A) ⇒ B): B
 は英語で畳み込むという意味を持ちます）状態がイメージできるでしょうか。`foldLeft`は汎用性の高いメソッドで、
 たとえば、`List`の要素の合計を求めたい場合は
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3).foldLeft(0)((x, y) => x + y)
 ```
 
 `List`の要素を全て掛けあわせた結果を求めたい場合は
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 ```
 
@@ -330,7 +330,7 @@ scala> List(List(1), List(2, 3), List(4)).foldLeft(Nil)(_ ++ _)
 エラーメッセージの意味としては、今回の`Nil`は`List[Int]`型と見なされてほしいわけですが、期待したように型推論できていないようです。
 `Nil`に明示的に型注釈を付けることで、コンパイルできるようになります。
 
-```tut
+```scala mdoc:nest
 List(List(1), List(2, 3), List(4)).foldLeft(Nil: List[Int])(_ ++ _)
 ```
 
@@ -341,27 +341,32 @@ List(List(1), List(2, 3), List(4)).foldLeft(Nil: List[Int])(_ ++ _)
 
 `foldLeft`を用いて、`List`の要素を反転させる次のシグニチャを持ったメソッド`reverse`を実装してみましょう：
 
-```tut:silent
+```scala mdoc:nest:silent
 def reverse[T](list: List[T]): List[T] = ???
 ```
 
 <!-- begin answer id="answer_ex3" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def reverse[T](list: List[T]): List[T] = list.foldLeft(Nil: List[T])((a, b) => b :: a)
 ```
 
-```tut
+```scala mdoc:nest
 reverse(List(1, 2, 3, 4, 5))
 ```
 
 `foldLeft` の初期値に `Nil` を与えて、そこから後ろにたどる毎に、「前に」要素を追加していくことで、
 逆順のリストを作ることができています。
 
-```tut:invisible
+```scala mdoc:nest:invisible
 import org.scalacheck._, Arbitrary.arbitrary
 
-Testing.test(arbitrary[List[Int]]){ list =>
+def test[G] (g: Gen[G])(f: G  => Boolean) = {
+  val result = Prop.forAll(g)(f).apply(Gen.Parameters.default)
+  assert(result.success, result)
+}
+
+test(arbitrary[List[Int]]){ list =>
   reverse(list) == list.reverse
 }
 ```
@@ -398,17 +403,17 @@ def foldRight[B](z: B)(op: (A, B) ⇒ B): B
 `List`の全ての要素を足し合わせるメソッド`sum`を`foldRight`を用いて実装してみましょう。`sum`の宣言は次のようになります。
 なお、`List`が空のときは0を返してみましょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 def sum(list: List[Int]): Int = ???
 ```
 
 <!-- begin answer id="answer_ex4" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def sum(list: List[Int]): Int = list.foldRight(0){(x, y) => x + y}
 ```
 
-```tut
+```scala mdoc:nest
 sum(List(1, 2, 3, 4, 5))
 ```
 
@@ -419,17 +424,17 @@ sum(List(1, 2, 3, 4, 5))
 `List`の全ての要素を掛け合わせるメソッド`mul`を`foldRight`を用いて実装してみましょう。`mul`の宣言は次のようになります。
 なお、`List`が空のときは1を返してみましょう。
 
-```tut
+```scala mdoc:nest
 def mul(list: List[Int]): Int = ???
 ```
 
 <!-- begin answer id="answer_ex5" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def mul(list: List[Int]): Int = list.foldRight(1){(x, y) => x * y}
 ```
 
-```tut
+```scala mdoc:nest
 mul(List(1, 2, 3, 4, 5))
 ```
 
@@ -441,7 +446,7 @@ mul(List(1, 2, 3, 4, 5))
 他のメソッドは自由に使って構いません。[ListのAPIリファレンス](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)
 を読めば必要なメソッドが載っています。実装する`mkString`の宣言は
 
-```tut:silent
+```scala mdoc:nest:silent
 def mkString[T](list: List[T])(sep: String): String = ???
 ```
 
@@ -449,7 +454,7 @@ def mkString[T](list: List[T])(sep: String): String = ???
 
 <!-- begin answer id="answer_ex6" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def mkString[T](list: List[T])(sep: String): String = list match {
   case Nil => ""
   case x::xs => xs.foldLeft(x.toString){(x, y) => x + sep + y}
@@ -463,7 +468,7 @@ def mkString[T](list: List[T])(sep: String): String = list match {
 `map`メソッドは、1引数の関数を引数に取り、各要素に関数を適用した結果できた要素からなる新たな`List`を返します。
 ためしに`List(1, 2, 3, 4, 5)`の各要素を2倍してみましょう。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).map(x => x * 2)
 ```
 `x => x * 2`の部分は既に述べたように、無名関数を定義するための構文です。メソッドの引数に与える短い関数を定義するときは、
@@ -474,13 +479,13 @@ Scalaのコレクションのメソッドの中でも非常によく使われる
 
 次のシグニチャを持つ`map`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
 
-```tut:silent
+```scala mdoc:nest:silent
 def map[T, U](list: List[T])(f: T => U): List[U] = ???
 ```
 
 <!-- begin answer id="answer_ex7" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def map[T, U](list: List[T])(f: T => U): List[U] = {
   list.foldLeft(Nil:List[U]){(x, y) => f(y) :: x}.reverse
 }
@@ -493,7 +498,7 @@ def map[T, U](list: List[T])(f: T => U): List[U] = {
 `filter`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、各要素に関数を適用し、`true`になった要素のみを抽出した
 新たな`List`を返します。`List(1, 2, 3, 4, 5)`から奇数だけを抽出してみましょう。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 ```
 
@@ -501,13 +506,13 @@ List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 
 次のシグニチャを持つ`filter`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
 
-```tut:silent
+```scala mdoc:nest:silent
 def filter[T](list: List[T])(f: T => Boolean): List[T] = ???
 ```
 
 <!-- begin answer id="answer_ex8" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def filter[T](list: List[T])(f: T => Boolean): List[T] = {
   list.foldLeft(Nil:List[T]){(x, y) => if(f(y)) y::x else x}.reverse
 }
@@ -521,7 +526,7 @@ def filter[T](list: List[T])(f: T => Boolean): List[T] = {
 `Some`でくるんだ値を`Option`型として返します。1つの要素もマッチしなかった場合`None`を`Option`型として返します。
 `List(1, 2, 3, 4, 5)`から最初の奇数だけを抽出してみましょう
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 ```
 
@@ -531,7 +536,7 @@ List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 
 `takeWhile`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、前から順番に関数を適用し、結果が`true`の間のみからなる`List`を返します。`List(1, 2, 3, 4, 5)`の5より前の4要素を抽出してみます。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).takeWhile(x => x != 5)
 ```
 
@@ -539,7 +544,7 @@ List(1, 2, 3, 4, 5).takeWhile(x => x != 5)
 
 `count`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、全ての要素に関数を適用して、`true`が返ってきた要素の数を計算します。例として`List(1, 2, 3, 4, 5)`の中から偶数の数（2になるはず）を計算してみます。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 ```
 
@@ -547,13 +552,13 @@ List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 
 次のシグニチャを持つ`count`メソッドを`foldLeft`を使って実装してみましょう：
 
-```tut:silent
+```scala mdoc:nest:silent
 def count[T](list: List[T])(f: T => Boolean): Int = ???
 ```
 
 <!-- begin answer id="answer_ex9" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 def count[T](list: List[T])(f: T => Boolean): Int  = {
   list.foldLeft(0){(x, y) => if(f(y)) x + 1 else x}
 }
@@ -574,13 +579,13 @@ final def flatMap[B](f: (A) ⇒ GenTraversableOnce[B]): List[B]
 できる型程度に考えてください。さて、flatMapの引数fの型は`(A) => GenTraversableOnce[B]`です。`flatMap`はこれを使って、各
 要素にfを適用して、結果の要素からなるコレクションを分解してListの要素にします。これについては、実際に見た方が早いでしょう。
 
-```tut
+```scala mdoc:nest
 List(List(1, 2, 3), List(4, 5)).flatMap{e => e.map{g => g + 1}}
 ```
 
 ネストした`List`の各要素に`flatMap`の中で`map`を適用して、`List`の各要素に1を足したものをたいらにしています。これだけだとありがたみがわかりにくいですが、ちょっと形を変えてみると非常に面白い使い方ができます：
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3).flatMap{e => List(4, 5).map(g => e * g)}
 ```
 
@@ -608,7 +613,7 @@ for構文の中で使うことができるのです。
 特に他の言語のプログラマはうっかり`List`の末尾に要素を追加するような遅いプログラムを書いてしまうことがあるので注意する必要
 があります。
 
-```tut
+```scala mdoc:nest
 List(1, 2, 3, 4)
 
 5 :: List(1, 2, 3, 4) // Listの先頭のセルに新しいをくっつける
@@ -626,7 +631,7 @@ List(1, 2, 3, 4) :+ 5 // 注意！末尾への追加は、Listの要素数分か
 です。要素へのランダムアクセスや長さの取得、データの挿入や削除、いずれの操作も十分に高速にできる比較的
 万能なデータ構造です。immutableなデータ構造を使う場合は、まず`Vector`を検討すると良いでしょう。
 
-```tut
+```scala mdoc:nest
 Vector(1, 2, 3, 4, 5) //どの操作も「ほぼ」一定の時間で終わる
 
 6 +: Vector(1, 2, 3, 4, 5)
@@ -647,7 +652,7 @@ Scalaで何も設定せずにただ`Map`と書いた場合、`scala.collection.i
 作成すると変更することはできません。内部の実装としては主に[`scala.collection.immutable.HashMap`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/HashMap.scala)と
 [`scala.collection.immutable.TreeMap`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/TreeMap.scala)の2種類がありますが、通常は`HashMap`が使われます。
 
-```tut
+```scala mdoc:nest
 val m = Map("A" -> 1, "B" -> 2, "C" -> 3)
 
 m.updated("B", 4) //一見元のMapを変更したように見えても
@@ -661,7 +666,7 @@ Scalaの変更可能な`Map`は`scala.collection.mutable.Map`にあります。�
 `scala.collection.mutable.LinkedHashMap`、リストをベースにした`scala.collection.mutable.ListMap`がありますが、通常は
 `HashMap`が使われます。
 
-```tut
+```scala mdoc:nest
 import scala.collection.mutable
 
 val m = mutable.Map("A" -> 1, "B" -> 2, "C" -> 3)
@@ -675,7 +680,7 @@ m // 変更が反映されている
 
 `Set`は値の集合を提供するデータ構造です。`Set`の中では同じ値が2つ以上存在しません。たとえば、`Int`の`Set`の中には1が2つ以上含まれていてはいけません。REPLで`Set`を作成するための式を入力すると、
 
-```tut
+```scala mdoc:nest
 Set(1, 1, 2, 3, 4)
 ```
 
@@ -688,7 +693,7 @@ Scalaで何も設定せずにただ`Set`と書いた場合、`scala.collection.i
 同じく、一度作成すると変更することはできません。内部の実装としては、主に [`scala.collection.immutable.HashSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/HashSet.scala) と
 [`scala.collection.immutable.TreeSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/immutable/TreeSet.scala) の2種類がありますが、通常は`HashSet`が使われます。
 
-```tut
+```scala mdoc:nest
 val s = Set(1, 2, 3, 4, 5)
 
 s - 5 // 5を削除した後も
@@ -701,7 +706,7 @@ s // 元のSetはそのまま
 Scalaの変更可能な`Set`は`scala.collection.mutable.Set`にあります。主な実装としては、[`scala.collection.mutable.HashSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/mutable/HashSet.scala) 、
 [`scala.collection.mutable.TreeSet`](https://github.com/scala/scala/blob/v2.12.8/src/library/scala/collection/mutable/TreeSet.scala)がありますが、通常は`HashSet`が使われます。
 
-```tut
+```scala mdoc:nest
 import scala.collection.mutable
 
 val s = mutable.Set(1, 2, 3, 4, 5)

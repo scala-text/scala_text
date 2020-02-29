@@ -229,7 +229,13 @@ describe("Check links", () => {
   let [urls, files] = partition(links, isUrl);
 
   // #から始まるリンクはページ内リンク（脚注）なので除外
-  let testFiles = files.filter((s) => !s.startsWith("#")).map(modifyLinkForTest);
+  //
+  // Scalaコードの一部をリンクとして検出してしまうので、特定の拡張子以外は除外
+  let testFiles = files.filter((s) =>
+    !s.startsWith("#") && (
+      s.endsWith(".md") || s.endsWith(".scala") || s.endsWith(".sbt")
+    )
+  ).map(modifyLinkForTest);
 
   // src/../foo/barのようなリンクはビルド後は参照できなくなるのでそういったリンクがないことを確認する。
   it("should local files are in src directory", function() {

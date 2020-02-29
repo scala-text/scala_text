@@ -18,7 +18,7 @@ trait NpmCliBase {
   // gitbookのビルドの起点/成果物が入るディレクトリ(gitbook/_book/index.html, gitbook/scala_text.epubが生成される)
   val bookDestDir = file("gitbook")
 
-  // tutで処理済みのmarkdownファイルが入るディレクトリ。これがgitbook buildされる
+  // mdocで処理済みのmarkdownファイルが入るディレクトリ。これがgitbook buildされる
   // book.jsonのrootにも指定されている。
   val compiledSrcDir = bookDestDir
 

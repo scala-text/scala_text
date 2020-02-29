@@ -12,7 +12,7 @@ class <クラス名>[<型パラメータ1>, <型パラメータ2>, ...](<クラ�
 
 簡単な例として、1個の要素を保持して、要素を入れる（`put`する）か取りだす（`get`する）操作ができるクラス`Cell`を定義してみます。`Cell`の定義は次のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 class Cell[A](var value: A) {
   def put(newValue: A): Unit = {
     value = newValue
@@ -52,7 +52,7 @@ scala> cell.put("something")
 
 上記コードの
 
-```tut
+```scala mdoc:nest
 val cell = new Cell[Int](1)
 ```
 
@@ -65,7 +65,7 @@ val cell = new Cell[Int](1)
 
 という選択肢しかありませんでした。しかし、前者は引数を返り値に使うという点で邪道ですし、後者の方法は多数の引数を返したい、あるいは解く問題上で意味のある名前の付けられるクラスであれば良いですが、ただ2つの値を返したいといった場合には小回りが効かず不便です。こういう場合、型パラメータを2つ取る`Pair`クラスを作ってしまいます。```Pair```クラスの定義は次のようになります。`toString`メソッドの定義は後で表示のために使うだけなので気にしないでください。
 
-```tut:silent
+```scala mdoc:nest:silent
 class Pair[A, B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
@@ -73,13 +73,13 @@ class Pair[A, B](val a: A, val b: B) {
 
 このクラス```Pair```の利用法としては、たとえば割り算の商と余りの両方を返すメソッド`divide`が挙げられます。`divide`の定義は次のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
 ```
 
 これらをREPLにまとめて流し込むと次のようになります。
 
-```tut
+```scala mdoc:nest
 class Pair[A, B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
@@ -93,7 +93,7 @@ divide(7, 3)
 
 ちなみに、この`Pair`のようなクラスはScalaではよく使われるため、`Tuple1`から`Tuple22`(`Tuple`の後の数字は要素数）があらかじめ用意されています。また、インスタンス化する際も、
 
-```tut
+```scala mdoc:nest
 val m = 7
 val n = 3
 new Tuple2(m / n, m % n)
@@ -101,7 +101,7 @@ new Tuple2(m / n, m % n)
 
 などとしなくても、
 
-```tut
+```scala mdoc:nest
 val m = 7
 val n = 3
 (m / n, m % n)
@@ -131,7 +131,7 @@ val : G[B] = G[A]
 
 というような代入が許される性質を表します。Scalaでは、クラス定義時に
 
-```tut:silent
+```scala mdoc:nest:silent
 class G[+A]
 ```
 のように型パラメータの前に`+`を付けるとその型パラメータは（あるいはそのクラスは）共変になります。
@@ -157,7 +157,7 @@ scala> val arr: Array[Any] = new Array[String](1)
 
 さて、Scalaでは型パラメータを共変にした時点で、安全ではない操作はコンパイラがエラーを出してくれるので安心ですが、共変をどのような場合に使えるかを知っておくのは意味があります。たとえば、先ほど作成したクラス`Pair[A, B]`について考えてみましょう。`Pair[A, B]`は一度インスタンス化したら、変更する操作ができませんから、`ArrayStoreException`のような例外は起こり得ません。実際、`Pair[A, B]`は安全に共変にできるクラスで、`class Pair[+A, +B]`のようにしても問題が起きません。
 
-```tut
+```scala mdoc:nest
 class Pair[+A, +B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
@@ -171,7 +171,7 @@ val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
 
 次の*immutable*な*Stack*型の定義（途中）があります。`???`の箇所を埋めて、*Stack*の定義を完成させなさい。なお、`E >: A`は、`E`は`A`の継承元である、という制約を表しています。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Stack[+A] {
   def push[E >: A](e: E): Stack[E]
   def top: A
@@ -201,14 +201,14 @@ object Stack {
 また、`Nothing`は全ての型のサブクラスであるような型を表現します。`Stack[A]`は共変なので、`Stack[Nothing]`はどんな型の`Stack`変数にでも格納することができます。
 例えば`Stack[Nothing]`型である`EmptyStack`は、`Stack[Int]`型の変数と`Stack[String]`型の変数の両方に代入することができます。
 
-```tut
+```scala mdoc:nest
 val intStack: Stack[Int] = Stack()
 val stringStack: Stack[String] = Stack()
 ```
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extends Stack[A] {
   def push[E >: A](e: E): Stack[E] = new NonEmptyStack[E](e, this)
   def top: A = first
@@ -229,7 +229,7 @@ val : G[A] = G[B]
 
 というような代入が許される性質を表します。Scalaでは、クラス定義時に
 
-```tut:silent
+```scala mdoc:nest:silent
 class G[-A]
 ```
 のように型パラメータの前に`-`を付けるとその型パラメータは（あるいはそのクラスは）反変になります。
@@ -280,7 +280,7 @@ x1: String => AnyRef = <function1>
 の後に、`<:`を記述し、それに続いて制約となる型を記述します。以下では、`show`によって文字列化できるクラス`Show`を定義した
 うえで、`Show`であるような型のみを要素として持つ`ShowablePair`を定義しています。
 
-```tut:silent
+```scala mdoc:nest:silent
 abstract class Show {
   def show: String
 }
@@ -299,7 +299,7 @@ class ShowablePair[A <: Show, B <: Show](val a: A, val b: B) extends Show {
 
 まず、共変の練習問題であったような、イミュータブルな`Stack`クラスを定義します。この`Stack`は共変にしたいとします。
 
-```tut:fail:silent
+```scala
 abstract class Stack[+A]{
   def push(element: A): Stack[A]
   def top: A
@@ -322,7 +322,7 @@ error: covariant type A occurs in contravariant position in type A of value elem
 対処するために型パラメータの下限境界を使うことができます。型パラメータ`E`を`push`に追加し、その下限境界として、`Stack`
 の型パラメータ`A`を指定します。
 
-```tut:silent
+```scala mdoc:nest:silent
 abstract class Stack[+A]{
   def push[E >: A](element: E): Stack[E]
   def top: A

@@ -12,7 +12,7 @@
 前章に登場した`List`や`Option`には、`map`という関数が共通して定義されていました。
 この`map`関数がある規則を満たす場合はFunctor型クラスとして抽象化できます[^hkind]。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Functor[F[_]] {
   def map[A, B](fa: F[A])(f: A => B): F[B]
 }
@@ -20,7 +20,7 @@ trait Functor[F[_]] {
 
 この型クラスが満たすべき規則は2つです。
 
-```tut:silent
+```scala mdoc:nest:silent
 def identityLaw[F[_], A](fa: F[A])(implicit F: Functor[F]): Boolean =
   F.map(fa)(identity) == fa
 
@@ -30,13 +30,13 @@ def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(implicit F: Fu
 
 なお、`identity`は次のように定義されます。
 
-```tut:silent
+```scala mdoc:nest:silent
 def identity[A](a: A): A = a
 ```
 
 例として、Option型でFunctor型クラスのインスタンスを定義し、前述の規則を満たすかどうか調べてみましょう。
 
-```tut
+```scala mdoc:nest
 import scala.language.higherKinds
 
 trait Functor[F[_]] {
@@ -63,7 +63,7 @@ compositeLaw(n, (i: Int) => i * i, (i: Int) => i.toString)
 複数の値が登場する場合にはFunctorでは力不足です。
 そこで、複数の引数を持つ関数と値を組み合わせて1つの値を作りだせる機能を提供するApplicative Functorが登場します。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Applicative[F[_]] {
   def point[A](a: A): F[A]
   def ap[A, B](fa: F[A])(f: F[A => B]): F[B]
@@ -72,14 +72,14 @@ trait Applicative[F[_]] {
 
 Applicative FunctorはFunctorを特殊化したものなので、Applicative Functorが持つ関数から`map`関数を定義できます。
 
-```tut:silent
+```scala mdoc:nest:silent
 def map[F[_], A, B](fa: F[A])(f: A => B)(implicit F: Applicative[F]): F[B] =
   F.ap(fa)(F.point(f))
 ```
 
 Applicative Functorが満たすべき規則は以下の通りです。
 
-```tut:silent
+```scala mdoc:nest:silent
 def identityLaw[F[_], A](fa: F[A])(implicit F: Applicative[F]): Boolean =
   F.ap(fa)(F.point((a: A) => a)) == fa
 
@@ -94,7 +94,7 @@ def interchangeLaw[F[_], A, B](f: F[A => B], a: A)(implicit F: Applicative[F]): 
 
 例として、Option型でApplicative Functorを定義してみましょう。
 
-```tut
+```scala mdoc:nest
 trait Applicative[F[_]] {
   def point[A](a: A): F[A]
   def ap[A, B](fa: F[A])(f: F[A => B]): F[B]
@@ -135,7 +135,7 @@ OptionApplicative.map(a)(_ + 1) == OptionFunctor.map(a)(_ + 1)
 ある値を受け取りその値を包んだ型を返す関数をApplicative Functorで扱おうとすると、型がネストしてしまい平坦化できません。
 このネストする問題を解決するためにMonadと呼ばれる型クラスを用います。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Monad[F[_]] {
   def point[A](a: A): F[A]
   def bind[A, B](fa: F[A])(f: A => F[B]): F[B]
@@ -146,7 +146,7 @@ trait Monad[F[_]] {
 
 Monadは以下の規則を満たす必要があります。
 
-```tut:silent
+```scala mdoc:nest:silent
 def rightIdentityLaw[F[_], A](a: F[A])(implicit F: Monad[F]): Boolean =
   F.bind(a)(F.point(_)) == a
 
@@ -160,14 +160,14 @@ def associativeLaw[F[_], A, B, C](fa: F[A], f: A => F[B], g: B => F[C])(implicit
 MonadはApplicative Functorを特殊化したものなので、Monadが持つ関数から`point`関数と`ap`関数を定義できます。
 `point`に関しては同じシグネチャなので自明でしょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 def ap[F[_], A, B](fa: F[A])(f: F[A => B])(implicit F: Monad[F]): F[B] =
   F.bind(f)((g: A => B) => F.bind(fa)((a: A) => F.point(g(a))))
 ```
 
 それでは、Option型が前述の規則をみたすかどうか確認してみましょう。
 
-```tut
+```scala mdoc:nest
 trait Monad[F[_]] {
   def point[A](a: A): F[A]
   def bind[A, B](fa: F[A])(f: A => F[B]): F[B]
@@ -202,7 +202,7 @@ associativeLaw(fa, f, g)
 
 2つの同じ型を結合する機能を持ち、更にゼロ値を知る型クラスはMonoidと呼ばれています。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Monoid[F] {
   def append(a: F, b: F): F
   def zero: F
@@ -211,7 +211,7 @@ trait Monoid[F] {
 
 前章で定義したAdditive型とよく似ていますが、Monoidは次の規則を満たす必要があります。
 
-```tut:silent
+```scala mdoc:nest:silent
 def leftIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
 def rightIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
 def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
@@ -221,7 +221,7 @@ def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
 
 Option[Int]型でMonoidインスタンスを定義してみましょう。
 
-```tut
+```scala mdoc:nest
 trait Monoid[F] {
   def append(a: F, b: F): F
   def zero: F

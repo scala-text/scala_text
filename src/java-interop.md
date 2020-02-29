@@ -15,7 +15,7 @@ import java.util.ArrayList;
 ```
 は 
 
-```tut:silent
+```scala mdoc:nest:silent
 import java.util._
 import java.util.ArrayList
 ```
@@ -32,7 +32,7 @@ ArrayList<String> list = new ArrayList<>();
 
 というコードはScalaでは
 
-```tut
+```scala mdoc:nest
 val list = new ArrayList[String]()
 ```
 
@@ -44,7 +44,7 @@ val list = new ArrayList[String]()
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut
+```scala mdoc:nest
 import java.util.HashSet
 val set = new HashSet[String]
 ```
@@ -62,7 +62,7 @@ list.add("World");
 
 は
 
-```tut
+```scala mdoc:nest
 list.add("Hello")
 list.add("World")
 ```
@@ -75,7 +75,7 @@ list.add("World")
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```tut
+```scala mdoc:nest
 System.out.println("Hello, World!")
 ```
 
@@ -216,7 +216,7 @@ Scalaの世界ではnullを使うことはなく、代わりにOption型を使�
 
 java.util.Mapを使って確かめてみましょう。
 
-```tut
+```scala mdoc:nest
 val map = new java.util.HashMap[String, Int]()
 
 map.put("A", 1)
@@ -243,14 +243,14 @@ JavaのコレクションとScalaのコレクションはインタフェース�
 に渡したり、逆に返ってきたJavaのコレクションをScalaのコレクションに変換したい場合に不便です。そのような場合に便利なのがJavaConverters
 です。使い方はいたって簡単で、
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.collection.JavaConverters._
 ```
 
 とするだけです。これで、JavaとScalaのコレクションのそれぞれにasJava()やasScala()といったメソッドが追加されるのでそのメソッドを以下のように
 呼び出せば良いです。
 
-```tut
+```scala mdoc:nest
 import scala.collection.JavaConverters._
 import java.util.ArrayList
 
@@ -272,7 +272,7 @@ BufferはScalaの変更可能なリストのスーパークラスですが、と
 
 <!-- begin answer id="answer_ex5" style="display:none" -->
 
-```tut
+```scala mdoc:nest
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.JavaConverters._
 val buffer = new ArrayBuffer[String]
@@ -312,13 +312,13 @@ Comparator<? super String> cmp = new Comparator<Object>() {
 
 この機能に対応するものとして、Scalaには存在型があります。上記のJavaコードは、Scalaでは次のコードで表現することができます。
 
-```tut
+```scala mdoc:nest
 import java.util.{List => JList, ArrayList => JArrayList}
 
 val objects: JList[_ <: Object] = new JArrayList[String]()
 ```
 
-```tut
+```scala mdoc:nest
 import java.util.{Comparator => JComparator}
 
 val cmp: JComparator[_ >: String] = new JComparator[Any] {
@@ -361,7 +361,7 @@ int factorial10 = IntStream.rangeClosed(1, 10).reduce(1,
 しかし、以前のScalaでは`FunctionN`型が期待される箇所に限定されており、Javaにおいてラムダ式が期待される箇所の大半において使用することができませんでした。
 例えば、10の階乗の例は`IntBinaryOperator`型が期待されているので以下のように無名クラスを使う必要がありました。
 
-```tut
+```scala mdoc:nest
 import java.util.stream.IntStream;
 import java.util.function.IntBinaryOperator;
 val factorial10 = IntStream.rangeClosed(1, 10).reduce(1,
@@ -372,7 +372,7 @@ val factorial10 = IntStream.rangeClosed(1, 10).reduce(1,
 
 SAM変換を利用すると以下のようにここにも無名関数を利用できるようになります。
 
-```tut
+```scala mdoc:nest
 import java.util.stream.IntStream;
 val factorial10 = IntStream.rangeClosed(1, 10).reduce(1, _ * _);
 ```

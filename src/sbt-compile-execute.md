@@ -1,6 +1,6 @@
 # sbtでプログラムをコンパイル・実行する
 
-```tut:invisible
+```scala mdoc:nest:invisible
 import sbt._, Keys._
 ```
 
@@ -15,7 +15,7 @@ import sbt._, Keys._
 Scala 2.10までは`exit`、Scala 2.11以降は`sys.exit`で終了することができますが、これらはREPL専用のコマンドではなく、今のプロセス自体を
 終了させる汎用的なメソッドなのでREPLを終了させる時には使用しないようにしましょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 object HelloWorld {
   def main(args: Array[String]): Unit = {
     println("Hello, World!")
@@ -38,7 +38,7 @@ sandbox
 
 今回の_build.sbt_にはScalaのバージョンと一緒に`scalac`の警告オプションも有効にしてみましょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 // build.sbt
 scalaVersion := "2.12.8"
 
@@ -78,7 +78,7 @@ HelloWorldプログラムがコンパイルされ、さらに実行されて`Hel
 またsbtの管理下のScalaプログラムは`console`コマンドでREPLから呼び出せるようになります。
 _HelloWorld.scala_と同じ場所に_User.scala_というファイルを作ってみましょう
 
-```tut:silent
+```scala mdoc:nest:silent
 // User.scala
 class User(val name: String, val age: Int)
 

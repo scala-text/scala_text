@@ -124,11 +124,11 @@ BDDでは、テスト内にそのプログラムに与えられた機能的な�
 
 `build.sbt`を用意して、以下を記述しておきます。
 
-```tut:invisible
+```scala mdoc:nest:invisible
 import sbt._, Keys._
 ```
 
-```tut:silent
+```scala mdoc:nest:silent
 name := "scalatest_study"
 
 version := "1.0"
@@ -164,7 +164,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 
 これを実装した場合、`src/main/scala/Calc.scala`は以下のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 class Calc {
 
   /** 整数の配列を取得し、それらを出し合わせた整数を返す
@@ -222,7 +222,7 @@ XP（エクストリームプログラミング）のプラクティスに、不
 
 最小のテストを書いてみます。`src/test/scala/CalcSpec.scala`を以下のように記述します。
 
-```tut:silent
+```scala mdoc:nest:silent
 import org.scalatest._
 
 class CalcSpec extends FlatSpec with DiagrammedAssertions {
@@ -298,7 +298,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 次に、例外が発生することをテストする場合について記述してみましょう。
 div関数までテストの実装を進めます。
 
-```tut:silent
+```scala mdoc:nest:silent
 import org.scalatest._
 
 class CalcSpec extends FlatSpec with DiagrammedAssertions {
@@ -328,7 +328,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 なお、本来ユニットテストは時間がかかるテストを書くべきではありませんが、
 できるだけ短い時間でそれを判定できるように実装します。
 
-```tut:silent
+```scala mdoc:nest:silent
 import org.scalatest._
 import org.scalatest.concurrent.TimeLimits
 import org.scalatest.time.SpanSugar._
@@ -398,13 +398,13 @@ BDDでテストを書くことによってテストによってどのような�
 ここでは、よく使われているMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
-```tut:silent
+```scala mdoc:nest:silent
 libraryDependencies += "org.mockito" % "mockito-core" % "3.3.3" % "test"
 ```
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 import org.scalatest.time.SpanSugar._
 import org.scalatest.{FlatSpec, DiagrammedAssertions}
 import org.scalatest.concurrent.TimeLimits
@@ -442,7 +442,7 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
 
 `project/plugins.sbt` に以下のコードを記述します。
 
-```tut:silent
+```scala mdoc:nest:silent
 resolvers += Classpaths.sbtPluginReleases
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
@@ -476,7 +476,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 
 使い方は、`project/plugins.sbt` に以下のコードを記述します。
 
-```tut:silent
+```scala mdoc:nest:silent
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 ```
 

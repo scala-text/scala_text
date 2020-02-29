@@ -43,7 +43,7 @@ mapやflatMapやfilter、for式の適用といったようなOptionやListでも
 
 実際のコード例を見てみましょう。
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -108,7 +108,7 @@ futureの結果取得を5000ミリ秒間待つという処理を行った後、
 Futureが終わるまで最大5000ミリ秒を待つという書き方となります。
 ただし、この書き方をする前に、
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.language.postfixOps
@@ -117,7 +117,7 @@ import scala.language.postfixOps
 以上をimport文に追加する必要があります。さらにこれらがどのように動いているのかを、スレッドの観点から見てみましょう。
 以下のようにコードを書いてみます。
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
@@ -172,7 +172,7 @@ ForkJoinPoolに関しては、Javaの並行プログラミングをサポート�
 
 Futureについての動きがわかった所で、FutureがOptionのように扱えることも説明します。
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.util.{Failure, Random, Success}
@@ -232,7 +232,7 @@ Futureに適用する関数の中でさらにFutureが取得できるような�
 実際に実装例を見てみましょう。
 
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.language.postfixOps
@@ -285,7 +285,7 @@ object CompositeFutureSample extends App {
 
 成功あるいは失敗を表す値を設定することによってFutureに変換することのできるクラスです。 実際にサンプルコードを示します。
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Promise, Future}
 import scala.concurrent.duration._
@@ -318,7 +318,7 @@ object PromiseSample extends App {
 
 下記の例では、CallBackSomethingをラップしたFutureSomethingを定義しています。 `doSomething` の中でPromiseが使われていることに注目してください。
 
-```tut:silent
+```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Future, Promise}
 import scala.util.{Failure, Random, Success}
@@ -375,7 +375,7 @@ FutureやPromiseの便利な特性を利用して、0〜1000ミリ秒間のラ�
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 import java.util.concurrent.atomic.AtomicInteger
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Promise, Future}

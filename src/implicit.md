@@ -22,7 +22,7 @@ implicit conversionは
 定義したimplicit conversionは大きく分けて二通りの使われ方をします。1つは、新しく定義したユーザ定義の型などを
 既存の型に当てはめたい場合です。たとえば、
 
-```tut
+```scala mdoc:nest
 implicit def intToBoolean(arg: Int): Boolean = arg != 0
 
 if(1) {
@@ -44,7 +44,7 @@ implicit conversionを利用することができます。
 
 試しに、`String`の末尾に`":-)"`という文字列を追加して返すimplicit conversionを定義してみましょう。
 
-```tut
+```scala mdoc:nest
 class RichString(val src: String) {
   def smile: String = src + ":-)"
 }
@@ -61,7 +61,7 @@ implicit def enrichString(arg: String): RichString = new RichString(arg)
 
 上の定義は、Scala 2.10以降では、
 
-```tut:reset
+```scala mdoc:reset
 implicit class RichString(val src: String) {
   def smile: String = src + ":-)"
 }
@@ -86,7 +86,7 @@ pimp my libraryパターンで、既存のクラスの利用を便利にする�
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
-```tut:silent
+```scala mdoc:nest:silent
 object Taps {
   implicit class Tap[T](self: T) {
     def tap[U](block: T => U): T = {
@@ -101,7 +101,7 @@ object Taps {
 }
 ```
 
-```tut
+```scala mdoc:nest
 import Taps._
 Taps.main(Array())
 ```
@@ -161,7 +161,7 @@ implicit parameterのもう1つの使い方は、少々変わっています。�
 まず、2つの同じ型を足す（0の場合はそれに相当する値を返す）方法を知っている型を定義します。ここではその型を`Additive`とします。
 `Additive`の定義は次のようになります：
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Additive[A] {
   def plus(a: A, b: A): A
   def zero: A
@@ -177,13 +177,13 @@ trait Additive[A] {
 
 次に、この`Additive`型を使って、`List`の全ての要素を合計するメソッドを定義します：
 
-```tut:silent
+```scala mdoc:nest:silent
 def sum[A](lst: List[A])(m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
 ```
 
 後は、それぞれの型に応じた加算と0の定義を持ったobjectを定義します。ここでは`String`と`Int`について定義をします。
 
-```tut:silent
+```scala mdoc:nest:silent
 object StringAdditive extends Additive[String] {
   def plus(a: String, b: String): String = a + b
   def zero: String = ""
@@ -197,7 +197,7 @@ object IntAdditive extends Additive[Int] {
 
 まとめると次のようになります。
 
-```tut:silent
+```scala mdoc:nest:silent
 trait Additive[A] {
   def plus(a: A, b: A): A
   def zero: A
@@ -218,7 +218,7 @@ def sum[A](lst: List[A])(m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus
 これで、`Int`型の`List`も`String`型の`List`のどちらの要素の合計も計算できる汎用的な`sum`メソッドができました。
 実際に呼び出したいときには、
 
-```tut
+```scala mdoc:nest
 sum(List(1, 2, 3))(IntAdditive)
 sum(List("A", "B", "C"))(StringAdditive)
 ```
@@ -227,7 +227,7 @@ sum(List("A", "B", "C"))(StringAdditive)
 いるのだからいちいち`IntAdditive`, `StringAdditive`を明示的に渡さずとも賢く推論してほしいものです。そして、まさにそれをimplicit
 parameterで実現することができます。方法は簡単で、`StringAdditive`と`IntAdditive`の定義の前にimplicitと付けることと、`sum`の最後の引数リストの`m`にimplicitを付けるだけです。implicit parameterを使った最終形は次のようになります。
 
-```tut
+```scala mdoc:nest
 trait Additive[A] {
   def plus(a: A, b: A): A
   def zero: A
@@ -256,7 +256,7 @@ sum(List("A", "B", "C"))
 
 このimplicit parameterの用法は標準ライブラリにもあって、たとえば、
 
-```tut
+```scala mdoc:nest
 List[Int]().sum
 
 List(1, 2, 3, 4).sum
@@ -282,37 +282,34 @@ m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) // 結合則
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```tut:silent
+```scala mdoc:silent
 
-object Additives {
-  trait Additive[A] {
-    def plus(a: A, b: A): A
-    def zero: A
-  }
-
-  implicit object StringAdditive extends Additive[String] {
-    def plus(a: String, b: String): String = a + b
-    def zero: String = ""
-  }
-
-  implicit object IntAdditive extends Additive[Int] {
-    def plus(a: Int, b: Int): Int = a + b
-    def zero: Int = 0
-  }
-
-  case class Point(x: Int, y: Int)
-
-  implicit object PointAdditive extends Additive[Point] {
-    def plus(a: Point, b: Point): Point = Point(a.x + b.x, a.y + b.y)
-    def zero: Point = Point(0, 0)
-  }
-
-  def sum[A](lst: List[A])(implicit m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
+trait Additive[A] {
+  def plus(a: A, b: A): A
+  def zero: A
 }
+
+implicit object StringAdditive extends Additive[String] {
+  def plus(a: String, b: String): String = a + b
+  def zero: String = ""
+}
+
+implicit object IntAdditive extends Additive[Int] {
+  def plus(a: Int, b: Int): Int = a + b
+  def zero: Int = 0
+}
+
+case class Point(x: Int, y: Int)
+
+implicit object PointAdditive extends Additive[Point] {
+  def plus(a: Point, b: Point): Point = Point(a.x + b.x, a.y + b.y)
+  def zero: Point = Point(0, 0)
+}
+
+def sum[A](lst: List[A])(implicit m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
 ```
 
-```tut
-import Additives._
+```scala mdoc:nest
 println(sum(List(Point(1, 1), Point(2, 2), Point(3, 3)))) // Point(6, 6)
 println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 ```
