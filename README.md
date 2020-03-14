@@ -60,7 +60,7 @@ sbt textBuildAllWithCheck
 
 ### mdoc
 
-[mdoc](https://scalameta.org/mdoc/))という、Scalaコードを書くと、そのコードのチェックや
+[mdoc](https://scalameta.org/mdoc/)という、Scalaコードを書くと、そのコードのチェックや
 元のソースとなるmarkdownファイルから、実行後の出力を付け加えたmarkdownに変換してくれるツールを使用している。
 Scalaのコード例をテキスト中に書く場合は、使用可能な箇所では出来る限りmdocを使うこと。
 mdoc自体の具体的な使用方法は、mdocのREADMEなどを参照すること。
