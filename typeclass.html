@@ -474,35 +474,28 @@
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">identity</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">A</span> = a
 </code></pre>
 <p>&#x4F8B;&#x3068;&#x3057;&#x3066;&#x3001;Option&#x578B;&#x3067;Functor&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x524D;&#x8FF0;&#x306E;&#x898F;&#x5247;&#x3092;&#x6E80;&#x305F;&#x3059;&#x304B;&#x3069;&#x3046;&#x304B;&#x8ABF;&#x3079;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">import</span> scala.language.higherKinds
-<span class="hljs-keyword">import</span> scala.language.higherKinds
+<pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.language.higherKinds
 
-scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span></span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">F</span>[_]] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">identityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.map(fa)(identity) == fa
-identityLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">identityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.map(fa)(identity) == fa
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compositeLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f1: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>, f2: <span class="hljs-type">B</span> =&gt; <span class="hljs-type">C</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.map(fa)(f2 compose f1) == <span class="hljs-type">F</span>.map(<span class="hljs-type">F</span>.map(fa)(f1))(f2)
-compositeLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f1: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>, f2: <span class="hljs-type">B</span> =&gt; <span class="hljs-type">C</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compositeLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f1: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>, f2: <span class="hljs-type">B</span> =&gt; <span class="hljs-type">C</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Functor</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.map(fa)(f2 compose f1) == <span class="hljs-type">F</span>.map(<span class="hljs-type">F</span>.map(fa)(f1))(f2)
 
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionFunctor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">Option</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>] = fa.map(f)
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionFunctor</span></span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionFunctor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Functor</span>[<span class="hljs-type">Option</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>] = fa.map(f)
+}
 
-scala&gt; <span class="hljs-keyword">val</span> n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
-n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
-
-scala&gt; identityLaw(n)
-res0: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; compositeLaw(n, (i: <span class="hljs-type">Int</span>) =&gt; i * i, (i: <span class="hljs-type">Int</span>) =&gt; i.toString)
-res1: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">val</span> n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
+<span class="hljs-comment">// n: Option[Int] = Some(2)</span>
+identityLaw(n)
+<span class="hljs-comment">// res0: Boolean = true</span>
+compositeLaw(n, (i: <span class="hljs-type">Int</span>) =&gt; i * i, (i: <span class="hljs-type">Int</span>) =&gt; i.toString)
+<span class="hljs-comment">// res1: Boolean = true</span>
 </code></pre>
 <h2 id="applicative-functor"><a name="applicative-functor" class="plugin-anchor" href="#applicative-functor"><i class="fa fa-link" aria-hidden="true"></i></a>Applicative Functor</h2>
 <p>&#x8907;&#x6570;&#x306E;&#x5024;&#x304C;&#x767B;&#x5834;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;Functor&#x3067;&#x306F;&#x529B;&#x4E0D;&#x8DB3;&#x3067;&#x3059;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3092;&#x6301;&#x3064;&#x95A2;&#x6570;&#x3068;&#x5024;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;1&#x3064;&#x306E;&#x5024;&#x3092;&#x4F5C;&#x308A;&#x3060;&#x305B;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;Applicative Functor&#x304C;&#x767B;&#x5834;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -527,57 +520,46 @@ res1: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</
 </code></pre>
 <p>&#x307E;&#x305F;&#x3001;<code>ap</code>&#x3068;<code>point</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5B9A;&#x7FA9;&#x3057;&#x305F;<code>map</code>&#x95A2;&#x6570;&#x304C;Functor&#x306E;&#x3082;&#x306E;&#x3068;&#x540C;&#x3058;&#x632F;&#x308B;&#x821E;&#x3044;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x4F8B;&#x3068;&#x3057;&#x3066;&#x3001;Option&#x578B;&#x3067;Applicative Functor&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">F</span>[_]] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = ap(fa)(point(f))
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Applicative</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">F</span>[_]] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>] = ap(fa)(point(f))
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">identityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.ap(fa)(<span class="hljs-type">F</span>.point((a: <span class="hljs-type">A</span>) =&gt; a)) == fa
-identityLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">identityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.ap(fa)(<span class="hljs-type">F</span>.point((a: <span class="hljs-type">A</span>) =&gt; a)) == fa
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">homomorphismLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>, a: <span class="hljs-type">A</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.ap(<span class="hljs-type">F</span>.point(a))(<span class="hljs-type">F</span>.point(f)) == <span class="hljs-type">F</span>.point(f(a))
-homomorphismLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>, a: <span class="hljs-type">A</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">homomorphismLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>, a: <span class="hljs-type">A</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.ap(<span class="hljs-type">F</span>.point(a))(<span class="hljs-type">F</span>.point(f)) == <span class="hljs-type">F</span>.point(f(a))
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">interchangeLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>], a: <span class="hljs-type">A</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.ap(<span class="hljs-type">F</span>.point(a))(f) == <span class="hljs-type">F</span>.ap(f)(<span class="hljs-type">F</span>.point((g: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>) =&gt; g(a)))
-interchangeLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>], a: <span class="hljs-type">A</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">interchangeLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](f: <span class="hljs-type">F</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>], a: <span class="hljs-type">A</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Applicative</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.ap(<span class="hljs-type">F</span>.point(a))(f) == <span class="hljs-type">F</span>.ap(f)(<span class="hljs-type">F</span>.point((g: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>) =&gt; g(a)))
 
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionApplicative</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">Option</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Some</span>(a)
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>]): <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>] = f <span class="hljs-keyword">match</span> {
-     |     <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(g) =&gt; fa <span class="hljs-keyword">match</span> {
-     |       <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(a) =&gt; <span class="hljs-type">Some</span>(g(a))
-     |       <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">None</span>
-     |     }
-     |     <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">None</span>
-     |   }
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionApplicative</span></span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionApplicative</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Applicative</span>[<span class="hljs-type">Option</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Some</span>(a)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ap</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>]): <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>] = f <span class="hljs-keyword">match</span> {
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(g) =&gt; fa <span class="hljs-keyword">match</span> {
+      <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(a) =&gt; <span class="hljs-type">Some</span>(g(a))
+      <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">None</span>
+    }
+    <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">None</span>
+  }
+}
 
-scala&gt; <span class="hljs-keyword">val</span> a: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
-a: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
-
-scala&gt; <span class="hljs-keyword">val</span> f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span> = { i =&gt; i.toString }
-f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span> = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7914</span>/<span class="hljs-number">1076496150</span>@<span class="hljs-number">2</span>a21e504
-
-scala&gt; <span class="hljs-keyword">val</span> af: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(f)
-af: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>($$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7914</span>/<span class="hljs-number">1076496150</span>@<span class="hljs-number">2</span>a21e504)
-
-scala&gt; identityLaw(a)
-res2: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; homomorphismLaw(f, <span class="hljs-number">1</span>)
-res3: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; interchangeLaw(af, <span class="hljs-number">1</span>)
-res4: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; <span class="hljs-type">OptionApplicative</span>.map(a)(_ + <span class="hljs-number">1</span>) == <span class="hljs-type">OptionFunctor</span>.map(a)(_ + <span class="hljs-number">1</span>)
-res5: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">val</span> a: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
+<span class="hljs-comment">// a: Option[Int] = Some(1)</span>
+<span class="hljs-keyword">val</span> f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span> = { i =&gt; i.toString }
+<span class="hljs-comment">// f: Int =&gt; String = &lt;function1&gt;</span>
+<span class="hljs-keyword">val</span> af: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span> =&gt; <span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(f)
+<span class="hljs-comment">// af: Option[Int =&gt; String] = Some(&lt;function1&gt;)</span>
+identityLaw(a)
+<span class="hljs-comment">// res2: Boolean = true</span>
+homomorphismLaw(f, <span class="hljs-number">1</span>)
+<span class="hljs-comment">// res3: Boolean = true</span>
+interchangeLaw(af, <span class="hljs-number">1</span>)
+<span class="hljs-comment">// res4: Boolean = true</span>
+<span class="hljs-type">OptionApplicative</span>.map(a)(_ + <span class="hljs-number">1</span>) == <span class="hljs-type">OptionFunctor</span>.map(a)(_ + <span class="hljs-number">1</span>)
+<span class="hljs-comment">// res5: Boolean = true</span>
 </code></pre>
 <h2 id="monad"><a name="monad" class="plugin-anchor" href="#monad"><i class="fa fa-link" aria-hidden="true"></i></a>Monad</h2>
 <p>&#x3042;&#x308B;&#x5024;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x305D;&#x306E;&#x5024;&#x3092;&#x5305;&#x3093;&#x3060;&#x578B;&#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;&#x3092;Applicative Functor&#x3067;&#x6271;&#x304A;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;&#x578B;&#x304C;&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x3066;&#x3057;&#x307E;&#x3044;&#x5E73;&#x5766;&#x5316;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x30CD;&#x30B9;&#x30C8;&#x3059;&#x308B;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;Monad&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x7528;&#x3044;&#x307E;&#x3059;&#x3002;</p>
@@ -603,50 +585,40 @@ res5: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</
   <span class="hljs-type">F</span>.bind(f)((g: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">B</span>) =&gt; <span class="hljs-type">F</span>.bind(fa)((a: <span class="hljs-type">A</span>) =&gt; <span class="hljs-type">F</span>.point(g(a))))
 </code></pre>
 <p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;Option&#x578B;&#x304C;&#x524D;&#x8FF0;&#x306E;&#x898F;&#x5247;&#x3092;&#x307F;&#x305F;&#x3059;&#x304B;&#x3069;&#x3046;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">F</span>[_]] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bind</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">F</span>[_]] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">F</span>[<span class="hljs-type">A</span>]
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bind</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">F</span>[<span class="hljs-type">B</span>]
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](a: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.bind(a)(<span class="hljs-type">F</span>.point(_)) == a
-rightIdentityLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](a: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>](a: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.bind(a)(<span class="hljs-type">F</span>.point(_)) == a
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](a: <span class="hljs-type">A</span>, f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.bind(<span class="hljs-type">F</span>.point(a))(f) == f(a)
-leftIdentityLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](a: <span class="hljs-type">A</span>, f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentityLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>](a: <span class="hljs-type">A</span>, f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.bind(<span class="hljs-type">F</span>.point(a))(f) == f(a)
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">associativeLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>], g: <span class="hljs-type">B</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">C</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
-     |   <span class="hljs-type">F</span>.bind(<span class="hljs-type">F</span>.bind(fa)(f))(g) == <span class="hljs-type">F</span>.bind(fa)((a: <span class="hljs-type">A</span>) =&gt; <span class="hljs-type">F</span>.bind(f(a))(g))
-associativeLaw: [<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>], g: <span class="hljs-type">B</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">C</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">associativeLaw</span></span>[<span class="hljs-type">F</span>[_], <span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>](fa: <span class="hljs-type">F</span>[<span class="hljs-type">A</span>], f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">B</span>], g: <span class="hljs-type">B</span> =&gt; <span class="hljs-type">F</span>[<span class="hljs-type">C</span>])(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monad</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> =
+  <span class="hljs-type">F</span>.bind(<span class="hljs-type">F</span>.bind(fa)(f))(g) == <span class="hljs-type">F</span>.bind(fa)((a: <span class="hljs-type">A</span>) =&gt; <span class="hljs-type">F</span>.bind(f(a))(g))
 
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionMonad</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">Option</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Some</span>(a)
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bind</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>] = fa <span class="hljs-keyword">match</span> {
-     |     <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(a) =&gt; f(a)
-     |     <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">None</span>
-     |   }
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionMonad</span></span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionMonad</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Monad</span>[<span class="hljs-type">Option</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">point</span></span>[<span class="hljs-type">A</span>](a: <span class="hljs-type">A</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>] = <span class="hljs-type">Some</span>(a)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bind</span></span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](fa: <span class="hljs-type">Option</span>[<span class="hljs-type">A</span>])(f: <span class="hljs-type">A</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>]): <span class="hljs-type">Option</span>[<span class="hljs-type">B</span>] = fa <span class="hljs-keyword">match</span> {
+    <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(a) =&gt; f(a)
+    <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">None</span>
+  }
+}
 
-scala&gt; <span class="hljs-keyword">val</span> fa: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
-fa: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
-
-scala&gt; <span class="hljs-keyword">val</span> f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = { n =&gt; <span class="hljs-type">Some</span>(n + <span class="hljs-number">1</span>) }
-f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7925</span>/<span class="hljs-number">113075689</span>@<span class="hljs-number">1</span>f1f546f
-
-scala&gt; <span class="hljs-keyword">val</span> g: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = { n =&gt; <span class="hljs-type">Some</span>(n * n) }
-g: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">7926</span>/<span class="hljs-number">860649127</span>@<span class="hljs-number">4</span>acd991b
-
-scala&gt; rightIdentityLaw(fa)
-res6: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; leftIdentityLaw(<span class="hljs-number">1</span>, f)
-res7: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; associativeLaw(fa, f, g)
-res8: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">val</span> fa: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
+<span class="hljs-comment">// fa: Option[Int] = Some(1)</span>
+<span class="hljs-keyword">val</span> f: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = { n =&gt; <span class="hljs-type">Some</span>(n + <span class="hljs-number">1</span>) }
+<span class="hljs-comment">// f: Int =&gt; Option[Int] = &lt;function1&gt;</span>
+<span class="hljs-keyword">val</span> g: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = { n =&gt; <span class="hljs-type">Some</span>(n * n) }
+<span class="hljs-comment">// g: Int =&gt; Option[Int] = &lt;function1&gt;</span>
+rightIdentityLaw(fa)
+<span class="hljs-comment">// res6: Boolean = true</span>
+leftIdentityLaw(<span class="hljs-number">1</span>, f)
+<span class="hljs-comment">// res7: Boolean = true</span>
+associativeLaw(fa, f, g)
+<span class="hljs-comment">// res8: Boolean = true</span>
 </code></pre>
 <h2 id="monoid"><a name="monoid" class="plugin-anchor" href="#monoid"><i class="fa fa-link" aria-hidden="true"></i></a>Monoid</h2>
 <p>2&#x3064;&#x306E;&#x540C;&#x3058;&#x578B;&#x3092;&#x7D50;&#x5408;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x6301;&#x3061;&#x3001;&#x66F4;&#x306B;&#x30BC;&#x30ED;&#x5024;&#x3092;&#x77E5;&#x308B;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x306F;Monoid&#x3068;&#x547C;&#x3070;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
@@ -663,51 +635,39 @@ res8: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</
 }
 </code></pre>
 <p>Option[Int]&#x578B;&#x3067;Monoid&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[<span class="hljs-type">F</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append</span></span>(a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>): <span class="hljs-type">F</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">F</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Monoid</span>[<span class="hljs-type">F</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append</span></span>(a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>): <span class="hljs-type">F</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">F</span>
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentityLaw</span></span>[<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.zero, a)
-leftIdentityLaw: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leftIdentityLaw</span></span>[<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.zero, a)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentityLaw</span></span>[<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.zero)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">associativeLaw</span></span>[<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>, c: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = {
+  <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.append(a, b), c) == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.append(b, c))
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rightIdentityLaw</span></span>[<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = a == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.zero)
-rightIdentityLaw: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionIntMonoid</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Monoid</span>[<span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append</span></span>(a: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>], b: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]): <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = (a, b) <span class="hljs-keyword">match</span> {
+    <span class="hljs-keyword">case</span> (<span class="hljs-type">None</span>, <span class="hljs-type">None</span>) =&gt; <span class="hljs-type">None</span>
+    <span class="hljs-keyword">case</span> (<span class="hljs-type">Some</span>(v), <span class="hljs-type">None</span>) =&gt; <span class="hljs-type">Some</span>(v)
+    <span class="hljs-keyword">case</span> (<span class="hljs-type">None</span>, <span class="hljs-type">Some</span>(v)) =&gt; <span class="hljs-type">Some</span>(v)
+    <span class="hljs-keyword">case</span> (<span class="hljs-type">Some</span>(v1), <span class="hljs-type">Some</span>(v2)) =&gt; <span class="hljs-type">Some</span>(v1 + v2)
+  }
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">associativeLaw</span></span>[<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>, c: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Boolean</span> = {
-     |   <span class="hljs-type">F</span>.append(<span class="hljs-type">F</span>.append(a, b), c) == <span class="hljs-type">F</span>.append(a, <span class="hljs-type">F</span>.append(b, c))
-     | }
-associativeLaw: [<span class="hljs-type">F</span>](a: <span class="hljs-type">F</span>, b: <span class="hljs-type">F</span>, c: <span class="hljs-type">F</span>)(<span class="hljs-keyword">implicit</span> <span class="hljs-type">F</span>: <span class="hljs-type">Monoid</span>[<span class="hljs-type">F</span>])<span class="hljs-type">Boolean</span>
-
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionIntMonoid</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Monoid</span>[<span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append</span></span>(a: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>], b: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]): <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = (a, b) <span class="hljs-keyword">match</span> {
-     |     <span class="hljs-keyword">case</span> (<span class="hljs-type">None</span>, <span class="hljs-type">None</span>) =&gt; <span class="hljs-type">None</span>
-     |     <span class="hljs-keyword">case</span> (<span class="hljs-type">Some</span>(v), <span class="hljs-type">None</span>) =&gt; <span class="hljs-type">Some</span>(v)
-     |     <span class="hljs-keyword">case</span> (<span class="hljs-type">None</span>, <span class="hljs-type">Some</span>(v)) =&gt; <span class="hljs-type">Some</span>(v)
-     |     <span class="hljs-keyword">case</span> (<span class="hljs-type">Some</span>(v1), <span class="hljs-type">Some</span>(v2)) =&gt; <span class="hljs-type">Some</span>(v1 + v2)
-     |   }
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OptionIntMonoid</span></span>
-
-scala&gt; <span class="hljs-keyword">val</span> n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
-n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
-
-scala&gt; <span class="hljs-keyword">val</span> m: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
-m: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
-
-scala&gt; <span class="hljs-keyword">val</span> o: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-o: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-
-scala&gt; leftIdentityLaw(n)
-res9: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; rightIdentityLaw(n)
-res10: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
-
-scala&gt; associativeLaw(n, m, o)
-res11: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">val</span> n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)
+<span class="hljs-comment">// n: Option[Int] = Some(1)</span>
+<span class="hljs-keyword">val</span> m: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
+<span class="hljs-comment">// m: Option[Int] = Some(2)</span>
+<span class="hljs-keyword">val</span> o: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
+<span class="hljs-comment">// o: Option[Int] = Some(3)</span>
+leftIdentityLaw(n)
+<span class="hljs-comment">// res9: Boolean = true</span>
+rightIdentityLaw(n)
+<span class="hljs-comment">// res10: Boolean = true</span>
+associativeLaw(n, m, o)
+<span class="hljs-comment">// res11: Boolean = true</span>
 </code></pre>
 <p>&#x578B;&#x306B;&#x3088;&#x3063;&#x3066;&#x306F;&#x7D50;&#x5408;&#x65B9;&#x6CD5;&#x304C;&#x8907;&#x6570;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x969B;&#x306F;&#x8907;&#x6570;&#x306E;Monoid&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x304A;&#x304D;&#x3001;&#x72B6;&#x6CC1;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x4F7F;&#x3044;&#x305F;&#x3044;Monoid&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x9078;&#x629E;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <blockquote id="fn_1">
@@ -752,7 +712,7 @@ res11: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">true<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"付録：様々な型クラスの紹介","level":"1.24","depth":1,"previous":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.23","depth":1,"path":"advanced-trait-di.md","ref":"advanced-trait-di.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"typeclass.md","mtime":"2020-03-14T02:27:59.683Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T02:29:16.236Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"付録：様々な型クラスの紹介","level":"1.24","depth":1,"previous":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.23","depth":1,"path":"advanced-trait-di.md","ref":"advanced-trait-di.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"typeclass.md","mtime":"2020-03-14T08:19:11.104Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T08:19:58.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

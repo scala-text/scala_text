@@ -502,22 +502,21 @@
 <p>&#x5358;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x672C;&#x4F53;&#x304C;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;&#x304B;&#x3089;&#x306A;&#x308B;&#x5834;&#x5408;&#x306B;&#x3053;&#x3046;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x3060;&#x3051;&#x3067;&#x3042;&#x3063;&#x3066;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x3092; <code>{}</code> &#x3067;&#x56F2;&#x3080;&#x5C02;&#x7528;&#x306E;&#x69CB;&#x6587;&#x304C;&#x3042;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x8FD4;&#x308A;&#x5024;&#x578B;&#x306F;&#x7701;&#x7565;&#x3057;&#x3066;&#x3082;&#x7279;&#x5225;&#x306A;&#x5834;&#x5408;&#x4EE5;&#x5916;&#x578B;&#x63A8;&#x8AD6;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x8AAD;&#x307F;&#x3084;&#x3059;&#x3055;&#x306E;&#x305F;&#x3081;&#x306B;&#x3001;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x306F;&#x660E;&#x8A18;&#x3059;&#x308B;&#x7FD2;&#x6163;&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002; <code>private</code> &#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x5185;&#x3060;&#x3051;&#x304B;&#x3089;&#x3001; <code>protected</code> &#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x6D3E;&#x751F;&#x30AF;&#x30E9;&#x30B9;&#x304B;&#x3089;&#x306E;&#x307F;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;  <code>private[this]</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x3068;&#x3001;&#x540C;&#x3058;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x304B;&#x3089;&#x306E;&#x307F;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001; <code>private[&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;]</code> &#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x540C;&#x4E00;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x6240;&#x5C5E;&#x3057;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x304B;&#x3089;&#x306E;&#x307F;&#x3001; <code>protected[&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;]</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x3068;&#x3001;&#x6D3E;&#x751F;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x52A0;&#x3048;&#x3066;&#x8FFD;&#x52A0;&#x3067;&#x540C;&#x3058;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x6240;&#x5C5E;&#x3057;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x5168;&#x3066;&#x304B;&#x3089;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; <code>private</code> &#x3082; <code>protected</code> &#x3082;&#x4ED8;&#x3051;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;public&#x3068;&#x307F;&#x306A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x5148;&#x307B;&#x3069;&#x5B9A;&#x7FA9;&#x3057;&#x305F;<code>Point</code>&#x30AF;&#x30E9;&#x30B9;&#x3092;REPL&#x304B;&#x3089;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span>, val y: <span class="hljs-type">Int</span></span>) </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span></span>(p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
-     |     <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x + p.x, y + p.y)
-     |   }
-     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>(): <span class="hljs-type">String</span> = <span class="hljs-string">&quot;(&quot;</span> + x + <span class="hljs-string">&quot;, &quot;</span> + y + <span class="hljs-string">&quot;)&quot;</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span>, val y: <span class="hljs-type">Int</span></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span></span>(p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
+    <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x + p.x, y + p.y)
+  }
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>(): <span class="hljs-type">String</span> = <span class="hljs-string">&quot;(&quot;</span> + x + <span class="hljs-string">&quot;, &quot;</span> + y + <span class="hljs-string">&quot;)&quot;</span>
+}
 
-scala&gt; <span class="hljs-keyword">val</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
-p1: <span class="hljs-type">Point</span> = (<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">val</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+<span class="hljs-comment">// p1: Point = (1, 1)</span>
 
-scala&gt; <span class="hljs-keyword">val</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
-p2: <span class="hljs-type">Point</span> = (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+<span class="hljs-keyword">val</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+<span class="hljs-comment">// p2: Point = (2, 2)</span>
 
-scala&gt; p1 + p2
-res0: <span class="hljs-type">Point</span> = (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)
+p1 + p2
+<span class="hljs-comment">// res0: Point = (3, 3)</span>
 </code></pre>
 <h2 id="&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;"><a name="&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;" class="plugin-anchor" href="#&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</h2>
 <p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
@@ -528,41 +527,37 @@ res0: <span class="hljs-type">Point</span> = (<span class="hljs-number">3</span>
 &apos;)&apos; )* : &lt;&#x8FD4;&#x308A;&#x5024;&#x578B;&gt; = &lt;&#x672C;&#x4F53;&#x5F0F;&gt;
 </code></pre>
 <p>&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x306F;&#x3001;Scala&#x306E;&#x7CD6;&#x8863;&#x69CB;&#x6587;&#x3068;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x6D41;&#x66A2;&#x306A;API&#x3092;&#x4F5C;&#x3063;&#x305F;&#x308A;&#x3001;&#x5F8C;&#x8FF0;&#x3059;&#x308B;implicit parameter&#x306E;&#x305F;&#x3081;&#x306B;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x3063;&#x305F;&#x308A;&#x3001;&#x578B;&#x63A8;&#x8AD6;&#x3092;&#x88DC;&#x52A9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x305F;&#x308A;&#x3068;&#x3044;&#x3063;&#x305F;&#x7528;&#x9014;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x52A0;&#x7B97;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span> </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span></span>(x: <span class="hljs-type">Int</span>)(y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span></span>(x: <span class="hljs-type">Int</span>)(y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y
+}
 
-scala&gt; <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-adder: <span class="hljs-type">Adder</span> = <span class="hljs-type">Adder</span><span class="hljs-meta">@c</span>6c187
+<span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
+<span class="hljs-comment">// adder: Adder = repl.Session$App$Adder$1@6a0c9a63</span>
 
-scala&gt; adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
-res1: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
+adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
+<span class="hljs-comment">// res1: Int = 5</span>
 
-scala&gt; <span class="hljs-keyword">val</span> fun = adder.add(<span class="hljs-number">2</span>) _
-fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">8578</span>/<span class="hljs-number">1606350476</span>@<span class="hljs-number">580</span>bb650
-
-scala&gt; fun(<span class="hljs-number">3</span>)
-res2: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
+<span class="hljs-keyword">val</span> fun = adder.add(<span class="hljs-number">2</span>) _
+<span class="hljs-comment">// fun: Int =&gt; Int = &lt;function1&gt;</span>
+fun(<span class="hljs-number">3</span>)
+<span class="hljs-comment">// res2: Int = 5</span>
 </code></pre>
 <p>&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F; <code>obj.method(x, y)</code>&#x306E;&#x5F62;&#x5F0F;&#x3067;&#x306A;&#x304F; <code>obj.method(x)(y)</code> &#x306E;&#x5F62;&#x5F0F;&#x3067;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x4E00;&#x756A;&#x4E0B;&#x306E;&#x4F8B;&#x306E;&#x3088;&#x3046;&#x306B;&#x6700;&#x521D;&#x306E;&#x5F15;&#x6570;&#x3060;&#x3051;&#x3092;&#x9069;&#x7528;&#x3057;&#x3066;&#x65B0;&#x3057;&#x3044;&#x95A2;&#x6570;&#x3092;&#x4F5C;&#x308B;&#xFF08;&#x90E8;&#x5206;&#x9069;&#x7528;&#xFF09;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x4F7F;&#x308F;&#x305A;&#x306B;&#x5358;&#x306B;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3082;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span> </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span></span>(x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span></span>(x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = x + y
+}
 
-scala&gt; <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-adder: <span class="hljs-type">Adder</span> = <span class="hljs-type">Adder</span>@<span class="hljs-number">4e543</span>d3d
+<span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
+<span class="hljs-comment">// adder: Adder = repl.Session$App$Adder$2@7c66aee6</span>
 
-scala&gt; adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
-res3: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
+adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+<span class="hljs-comment">// res3: Int = 5</span>
 
-scala&gt; <span class="hljs-keyword">val</span> fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>, _)
-fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = $$<span class="hljs-type">Lambda</span>$<span class="hljs-number">8579</span>/<span class="hljs-number">1913225963</span>@<span class="hljs-number">6</span>b5e0374
-
-scala&gt; fun(<span class="hljs-number">3</span>)
-res4: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
+<span class="hljs-keyword">val</span> fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>, _)
+<span class="hljs-comment">// fun: Int =&gt; Int = &lt;function1&gt;</span>
+fun(<span class="hljs-number">3</span>)
+<span class="hljs-comment">// res4: Int = 5</span>
 </code></pre>
 <h2 id="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;"><a name="&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;" class="plugin-anchor" href="#&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;</h2>
 <p>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#x306F;</p>
@@ -579,11 +574,10 @@ res4: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
 <pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;&gt;])? | <span class="hljs-keyword">protected</span>([&lt;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;&gt;])?)? (<span class="hljs-keyword">val</span> | <span class="hljs-keyword">var</span>) &lt;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x540D;&gt;: &lt;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x578B;&gt;
 </code></pre>
 <p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x4E2D;&#x8EAB;&#x304C;&#x306A;&#x3044;&#x4EE5;&#x5916;&#x306F;&#x3001;&#x901A;&#x5E38;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x62BD;&#x8C61;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4E00;&#x500B;&#x4EE5;&#x4E0A;&#x6301;&#x3064;&#x30AF;&#x30E9;&#x30B9;&#x306F;&#x3001;&#x62BD;&#x8C61;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x3057;&#x3066;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;<code>x</code>&#x5EA7;&#x6A19;&#x3068;<code>y</code>&#x5EA7;&#x6A19;&#x3092;&#x6301;&#x3064;&#x3001;&#x62BD;&#x8C61;&#x30AF;&#x30E9;&#x30B9;<code>XY</code>&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x524D;&#x306B;<code>abstract</code> &#x4FEE;&#x98FE;&#x5B50;&#x3092;&#x3064;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x306E;&#x304C;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XY</span> </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">x</span></span>: <span class="hljs-type">Int</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">y</span></span>: <span class="hljs-type">Int</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XY</span></span>
+<pre><code class="lang-scala"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XY</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">x</span></span>: <span class="hljs-type">Int</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">y</span></span>: <span class="hljs-type">Int</span>
+}
 </code></pre>
 <h2 id="&#x7D99;&#x627F;"><a name="&#x7D99;&#x627F;" class="plugin-anchor" href="#&#x7D99;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7D99;&#x627F;</h2>
 <p>Scala&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306F;&#x3001;Java&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x540C;&#x69D8;&#x3001;&#x7D99;&#x627F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x7D99;&#x627F;&#x306B;&#x306F;2&#x3064;&#x306E;&#x76EE;&#x7684;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;1&#x3064;&#x306F;&#x7D99;&#x627F;&#x306B;&#x3088;&#x308A;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3082;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3092;&#x518D;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3082;&#x3046;1&#x3064;&#x306F;&#x8907;&#x6570;&#x306E;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x5171;&#x901A;&#x306E;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x51E6;&#x7406;&#x3092;&#x5171;&#x901A;&#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;&#x5B9F;&#x88C5;&#x306E;&#x7D99;&#x627F;&#x306B;&#x306F;&#x8907;&#x6570;&#x306E;&#x7D99;&#x627F;&#x306B;&#x3088;&#x308A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x540D;&#x524D;&#x304C;&#x885D;&#x7A81;&#x3059;&#x308B;&#x5834;&#x5408;&#x306E;&#x632F;&#x821E;&#x3044;&#x306A;&#x3069;&#x306B;&#x554F;&#x984C;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x77E5;&#x3089;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;Java&#x3067;&#x306F;&#x5B9F;&#x88C5;&#x7D99;&#x627F;&#x304C;1&#x3064;&#x3060;&#x3051;&#x306B;&#x9650;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;Java 8&#x3067;&#x306F;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x306B;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x6301;&#x305F;&#x305B;&#x3089;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5909;&#x6570;&#x306F;&#x6301;&#x305F;&#x305B;&#x3089;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x5236;&#x7D04;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3068;&#x3044;&#x3046;&#x4ED5;&#x7D44;&#x307F;&#x3067;&#x8907;&#x6570;&#x306E;&#x5B9F;&#x88C5;&#x306E;&#x7D99;&#x627F;&#x3092;&#x5B9F;&#x73FE;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x5225;&#x306E;&#x7BC0;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -593,36 +587,30 @@ defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span c
 }
 </code></pre>
 <p>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x540D;&#x306F;&#x3053;&#x3053;&#x3067;&#x306F;&#x4F7F;&#x308F;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x5F8C;&#x3067;&#x51FA;&#x3066;&#x304F;&#x308B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x7BC0;&#x3067;&#x8AAC;&#x660E;&#x3092;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;&#x7D99;&#x627F;&#x306E;&#x306F;&#x305F;&#x3089;&#x304D;&#x306F;Java&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x540C;&#x69D8;&#x3067;&#x3059;&#x304C;&#x3001;&#x65E2;&#x5B58;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3059;&#x308B;&#x3068;&#x304D;&#x306F;<code>override</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x70B9;&#x304C;&#x7570;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; &#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span>(<span class="hljs-params"></span>) </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-     |     println(<span class="hljs-string">&quot;A&quot;</span>)
-     |   }
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
+    println(<span class="hljs-string">&quot;A&quot;</span>)
+  }
+}
 
-scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
-     |   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-     |     println(<span class="hljs-string">&quot;B&quot;</span>)
-     |   }
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span></span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
+    println(<span class="hljs-string">&quot;B&quot;</span>)
+  }
+}
 
-scala&gt; <span class="hljs-keyword">new</span> <span class="hljs-type">APrinter</span>().print
-<span class="hljs-type">A</span>
+<span class="hljs-keyword">new</span> <span class="hljs-type">APrinter</span>().print
+<span class="hljs-comment">// A</span>
 
-scala&gt; <span class="hljs-keyword">new</span> <span class="hljs-type">BPrinter</span>().print
-<span class="hljs-type">B</span>
+<span class="hljs-keyword">new</span> <span class="hljs-type">BPrinter</span>().print
+<span class="hljs-comment">// B</span>
 </code></pre>
 <p>&#x3053;&#x3053;&#x3067;<code>override</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x306F;&#x305A;&#x3059;&#x3068;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x3001;<strong>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;</strong>&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; </p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-     |     println(<span class="hljs-string">&quot;B&quot;</span>)
-     |   }
-     | }
-&lt;console&gt;:<span class="hljs-number">14</span>: error: overriding method print in <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span> <span class="hljs-title">of</span> <span class="hljs-title">type</span> (<span class="hljs-params"></span>)<span class="hljs-title">Unit</span></span>;
- method print needs `<span class="hljs-keyword">override</span>&apos; modifier
-         <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-             ^
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
+    println(<span class="hljs-string">&quot;B&quot;</span>)
+  }
+}
 </code></pre>
 <p>Java&#x3067;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;&#x3001;&#x6C17;&#x4ED8;&#x304B;&#x305A;&#x306B;&#x65E2;&#x5B58;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x3059;&#x308B;&#x3064;&#x3082;&#x308A;&#x3067;&#x65B0;&#x3057;&#x3044;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x3044;&#x3046;&#x30DF;&#x30B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;Scala&#x3067;&#x306F;<code>override</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x8A00;&#x8A9E;&#x30EC;&#x30D9;&#x30EB;&#x3067;&#x3053;&#x306E;&#x554F;&#x984C;&#x306B;&#x5BFE;&#x51E6;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
 <h3 id="class_ex1"><a name="class_ex1" class="plugin-anchor" href="#class_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
@@ -690,7 +678,7 @@ println(p.z) <span class="hljs-comment">// 30</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2020-03-14T02:28:45.554Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T02:29:16.236Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2020-03-14T08:19:28.633Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T08:19:58.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

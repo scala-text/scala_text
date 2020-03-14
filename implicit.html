@@ -465,14 +465,12 @@
 </code></pre>
 <p>&#x3068;&#x3044;&#x3046;&#x5F62;&#x3067;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;<code>implicit</code>&#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x304C;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3068;&#x5F15;&#x6570;&#x304C;1&#x3064;&#x3057;&#x304B;&#x306A;&#x3044;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3053;&#x3068;&#x3092;&#x9664;&#x3051;&#x3070;&#x901A;&#x5E38;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x3068;&#x540C;&#x69D8;&#x3067;&#x3059;&#x306D;&#x3002;&#x3055;&#x3066;&#x3001;implicit conversion&#x3067;&#x306F;&#x3001;&#x5F15;&#x6570;&#x306E;&#x578B;&#x3068;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x306B;&#x91CD;&#x8981;&#x306A;&#x610F;&#x5473;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x306F;&#x3001;&#x3053;&#x308C;&#x304C;&#x3001;&#x5F15;&#x6570;&#x306E;&#x578B;&#x306E;&#x5F0F;&#x304C;&#x73FE;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x3092;&#x6697;&#x9ED9;&#x306E;&#x5909;&#x63DB;&#x5019;&#x88DC;&#x3068;&#x3057;&#x3066;&#x767B;&#x9332;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x5B9A;&#x7FA9;&#x3057;&#x305F;implicit conversion&#x306F;&#x5927;&#x304D;&#x304F;&#x5206;&#x3051;&#x3066;&#x4E8C;&#x901A;&#x308A;&#x306E;&#x4F7F;&#x308F;&#x308C;&#x65B9;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;1&#x3064;&#x306F;&#x3001;&#x65B0;&#x3057;&#x304F;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x5B9A;&#x7FA9;&#x306E;&#x578B;&#x306A;&#x3069;&#x3092;&#x65E2;&#x5B58;&#x306E;&#x578B;&#x306B;&#x5F53;&#x3066;&#x306F;&#x3081;&#x305F;&#x3044;&#x5834;&#x5408;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">intToBoolean</span></span>(arg: <span class="hljs-type">Int</span>): <span class="hljs-type">Boolean</span> = arg != <span class="hljs-number">0</span>
-warning: there was one feature warning; <span class="hljs-keyword">for</span> details, enable `:setting -feature&apos; or `:replay -feature&apos;
-intToBoolean: (arg: <span class="hljs-type">Int</span>)<span class="hljs-type">Boolean</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">intToBoolean</span></span>(arg: <span class="hljs-type">Int</span>): <span class="hljs-type">Boolean</span> = arg != <span class="hljs-number">0</span>
 
-scala&gt; <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span>) {
-     |   println(<span class="hljs-string">&quot;1&#x306F;&#x771F;&#x306A;&#x308A;&quot;</span>)
-     | }
-<span class="hljs-number">1</span>&#x306F;&#x771F;&#x306A;&#x308A;
+<span class="hljs-keyword">if</span>(<span class="hljs-number">1</span>) {
+  println(<span class="hljs-string">&quot;1&#x306F;&#x771F;&#x306A;&#x308A;&quot;</span>)
+}
+<span class="hljs-comment">// 1&#x306F;&#x771F;&#x306A;&#x308A;</span>
 </code></pre>
 <p>&#x3068;&#x3044;&#x3063;&#x305F;&#x5F62;&#x3067;&#x3001;&#x672C;&#x6765;<code>Boolean</code>&#x3057;&#x304B;&#x6E21;&#x305B;&#x306A;&#x3044;&#x306F;&#x305A;&#x306E;if&#x5F0F;&#x306B;<code>Int</code>&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x3053;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x306F;&#x3042;&#x307E;&#x308A;&#x826F;&#x3044;&#x3082;&#x306E;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x4E0A;&#x306E;&#x4F8B;&#x3092;&#x307F;&#x308C;&#x3070;&#x308F;&#x304B;&#x308B;&#x901A;&#x308A;&#x3001;implicit conversion&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x3088;&#x308A;&#x3001;&#x672C;&#x6765;&#x306F;if&#x5F0F;&#x306E;&#x6761;&#x4EF6;&#x5F0F;&#x306B;&#x306F;<code>Boolean</code>&#x578B;&#x306E;&#x5F0F;&#x3057;&#x304B;&#x6E21;&#x305B;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3092;&#x901A;&#x308A;&#x306C;&#x3051;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3057;&#x307E;&#x3046;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;&#x4E00;&#x90E8;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x306F;&#x305D;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x5185;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x3068;Scala&#x6A19;&#x6E96;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x3092;&#x76F8;&#x4E92;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;implicit conversion&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x308B;&#x4F8B;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x672C;&#x5F53;&#x306B;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x5909;&#x63DB;&#x304C;&#x5FC5;&#x8981;&#x304B;&#x3088;&#x304F;&#x8003;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <h3 id="pimp-my-library"><a name="pimp-my-library" class="plugin-anchor" href="#pimp-my-library"><i class="fa fa-link" aria-hidden="true"></i></a>pimp my library</h3>
@@ -482,29 +480,25 @@ Scala&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x4E2D;&#x
 &#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x633F;&#x5165;&#x3059;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x306E;&#x5834;&#x5408;&#x3001;implicit conversion&#x306E;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x304C;&#x4ED6;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x5B89;&#x5168;&#x306B;
 implicit conversion&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x8A66;&#x3057;&#x306B;&#x3001;<code>String</code>&#x306E;&#x672B;&#x5C3E;&#x306B;<code>&quot;:-)&quot;</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x8FD4;&#x3059;implicit conversion&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(<span class="hljs-params">val src: <span class="hljs-type">String</span></span>) </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span></span>: <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(<span class="hljs-params">val src: <span class="hljs-type">String</span></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span></span>: <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
+}
 
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enrichString</span></span>(arg: <span class="hljs-type">String</span>): <span class="hljs-type">RichString</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">RichString</span>(arg)
-warning: there was one feature warning; <span class="hljs-keyword">for</span> details, enable `:setting -feature&apos; or `:replay -feature&apos;
-enrichString: (arg: <span class="hljs-type">String</span>)<span class="hljs-type">RichString</span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enrichString</span></span>(arg: <span class="hljs-type">String</span>): <span class="hljs-type">RichString</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">RichString</span>(arg)
 
-scala&gt; <span class="hljs-string">&quot;Hi, &quot;</span>.smile
-res1: <span class="hljs-type">String</span> = <span class="hljs-type">Hi</span>, :-)
+<span class="hljs-string">&quot;Hi, &quot;</span>.smile
+<span class="hljs-comment">// res1: String = &quot;Hi, :-)&quot;</span>
 </code></pre>
 <p>&#x3061;&#x3083;&#x3093;&#x3068;&#x6587;&#x5B57;&#x5217;&#x306E;&#x672B;&#x5C3E;&#x306B;<code>&quot;:-)&quot;</code>&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;<code>smile</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3055;&#x3066;&#x3001;&#x3053;&#x3053;&#x3067;&#x3072;&#x3087;&#x3063;&#x3068;&#x3057;&#x305F;&#x3089;&#x6C17;&#x304C;&#x3064;&#x3044;&#x305F;&#x65B9;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;implicit conversion&#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x3067;&#x306F;&#x3001;&#x65E2;&#x5B58;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3078;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x8FFD;&#x52A0;&#x306E;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306B;&#x306F;&#x5197;&#x9577;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;Scala 2.10&#x304B;&#x3089;&#x306F;&#x3001;class&#x306B;implicit
 &#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x3067;&#x540C;&#x3058;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#xFF08;&#x7686;&#x3055;&#x3093;&#x304C;&#x5B66;&#x7FD2;&#x3059;&#x308B;&#x306E;&#x306F;Scala 2.12&#x306A;&#x306E;&#x3067;&#x6C17;&#x306B;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <h3 id="implicit-class"><a name="implicit-class" class="plugin-anchor" href="#implicit-class"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit Class</h3>
 <p>&#x4E0A;&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x3001;Scala 2.10&#x4EE5;&#x964D;&#x3067;&#x306F;&#x3001;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(<span class="hljs-params">val src: <span class="hljs-type">String</span></span>) </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span></span>: <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span></span>
+<pre><code class="lang-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(<span class="hljs-params">val src: <span class="hljs-type">String</span></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span></span>: <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
+}
 
-scala&gt; <span class="hljs-string">&quot;Hi, &quot;</span>.smile
-res0: <span class="hljs-type">String</span> = <span class="hljs-type">Hi</span>, :-)
+<span class="hljs-string">&quot;Hi, &quot;</span>.smile
+<span class="hljs-comment">// res3: String = &quot;Hi, :-)&quot;</span>
 </code></pre>
 <p>&#x3068;&#x3044;&#x3046;&#x5F62;&#x3067;&#x66F8;&#x304D;&#x306A;&#x304A;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
 implicit class&#x306F;pimp my library&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x5C02;&#x7528;&#x306E;&#x6A5F;&#x80FD;&#x3067;&#x3042;&#x308A;&#x3001;implicit def&#x3067;&#x65E2;&#x5B58;&#x578B;&#x3078;&#x306E;&#x5909;&#x63DB;&#x3057;&#x305F;&#x5834;&#x5408;&#x306A;&#x3069;&#x306B;&#x3088;&#x308B;&#x6DF7;&#x4E71;&#x304C;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;Scala 2.10&#x4EE5;&#x964D;&#x3067;pimp my library&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;&#x5F8C;&#x8005;&#x306E;&#x5F62;&#x5F0F;&#x306B;&#x3059;&#x3079;&#x304D;&#x3067;&#x3059;&#x304C;&#x3001;&#x30B5;&#x30FC;&#x30C9;&#x30D1;&#x30FC;&#x30C6;&#x30A3;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3084;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x3082;&#x524D;&#x8005;&#x306E;&#x5F62;&#x5F0F;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3082;&#x8AAD;&#x3081;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
@@ -527,12 +521,10 @@ conversion&#x306B;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x5371;&#x967
   }
 }
 </code></pre>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">import</span> <span class="hljs-type">Taps</span>._
-<span class="hljs-keyword">import</span> <span class="hljs-type">Taps</span>._
-
-scala&gt; <span class="hljs-type">Taps</span>.main(<span class="hljs-type">Array</span>())
-<span class="hljs-type">Hello</span>, <span class="hljs-type">World</span>
-dlroW ,olleH
+<pre><code class="lang-scala"><span class="hljs-keyword">import</span> <span class="hljs-type">Taps</span>._
+<span class="hljs-type">Taps</span>.main(<span class="hljs-type">Array</span>())
+<span class="hljs-comment">// Hello, World</span>
+<span class="hljs-comment">// dlroW ,olleH</span>
 </code></pre>
 <p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x30C1;&#x30A7;&#x30A4;&#x30F3;&#x306E;&#x4E2D;&#x3067;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30D7;&#x30EA;&#x30F3;&#x30C8;&#x3092;&#x306F;&#x3055;&#x307F;&#x305F;&#x3044;&#x3068;&#x304D;&#x306B;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;</p>
 </div>
@@ -603,51 +595,46 @@ def useDatabase3(...., conn: Connection)
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
 </code></pre>
 <p>&#x3053;&#x308C;&#x3067;&#x3001;<code>Int</code>&#x578B;&#x306E;<code>List</code>&#x3082;<code>String</code>&#x578B;&#x306E;<code>List</code>&#x306E;&#x3069;&#x3061;&#x3089;&#x306E;&#x8981;&#x7D20;&#x306E;&#x5408;&#x8A08;&#x3082;&#x8A08;&#x7B97;&#x3067;&#x304D;&#x308B;&#x6C4E;&#x7528;&#x7684;&#x306A;<code>sum</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;</p>
-<pre><code class="lang-scala">scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))(<span class="hljs-type">IntAdditive</span>)
-res2: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
-
-scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))(<span class="hljs-type">StringAdditive</span>)
-res3: <span class="hljs-type">String</span> = <span class="hljs-type">ABC</span>
+<pre><code class="lang-scala">sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))(<span class="hljs-type">IntAdditive</span>)
+<span class="hljs-comment">// res5: Int = 6</span>
+sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))(<span class="hljs-type">StringAdditive</span>)
+<span class="hljs-comment">// res6: String = &quot;ABC&quot;</span>
 </code></pre>
 <p>&#x3068;&#x3059;&#x308C;&#x3070;&#x826F;&#x3044;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x3055;&#x3066;&#x3001;&#x3053;&#x308C;&#x3067;&#x76EE;&#x7684;&#x306F;&#x679C;&#x305F;&#x3059;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x4F55;&#x306E;<code>List</code>&#x306E;&#x8981;&#x7D20;&#x3092;&#x5408;&#x8A08;&#x3059;&#x308B;&#x304B;&#x306F;&#x578B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x6642;&#x70B9;&#x3067;&#x306F;&#x308F;&#x304B;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3060;&#x304B;&#x3089;&#x3044;&#x3061;&#x3044;&#x3061;<code>IntAdditive</code>, <code>StringAdditive</code>&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x6E21;&#x3055;&#x305A;&#x3068;&#x3082;&#x8CE2;&#x304F;&#x63A8;&#x8AD6;&#x3057;&#x3066;&#x307B;&#x3057;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x307E;&#x3055;&#x306B;&#x305D;&#x308C;&#x3092;implicit
 parameter&#x3067;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x65B9;&#x6CD5;&#x306F;&#x7C21;&#x5358;&#x3067;&#x3001;<code>StringAdditive</code>&#x3068;<code>IntAdditive</code>&#x306E;&#x5B9A;&#x7FA9;&#x306E;&#x524D;&#x306B;implicit&#x3068;&#x4ED8;&#x3051;&#x308B;&#x3053;&#x3068;&#x3068;&#x3001;<code>sum</code>&#x306E;&#x6700;&#x5F8C;&#x306E;&#x5F15;&#x6570;&#x30EA;&#x30B9;&#x30C8;&#x306E;<code>m</code>&#x306B;implicit&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;implicit parameter&#x3092;&#x4F7F;&#x3063;&#x305F;&#x6700;&#x7D42;&#x5F62;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">A</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span></span>
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">A</span>
+}
 
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">String</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span></span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">String</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
+}
 
-scala&gt; <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">Int</span>] </span>{
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
-     |   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
-     | }
-defined <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntAdditive</span></span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">Int</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
+}
 
-scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
-sum: [<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>])<span class="hljs-type">A</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
 
-scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
-res4: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
+sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+<span class="hljs-comment">// res7: Int = 6</span>
 
-scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
-res5: <span class="hljs-type">String</span> = <span class="hljs-type">ABC</span>
+sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
+<span class="hljs-comment">// res8: String = &quot;ABC&quot;</span>
 </code></pre>
 <p>&#x4EFB;&#x610F;&#x306E;List&#x306E;&#x8981;&#x7D20;&#x306E;&#x5408;&#x8A08;&#x5024;&#x3092;&#x6C42;&#x3081;&#x308B;sum&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x81EA;&#x7136;&#x306A;&#x5F62;&#xFF08;<code>sum(List(1, 2, 3))</code>&#xFF09;&#x3067;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;implicit parameter&#x306E;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x306F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;Haskell&#x304B;&#x3089;&#x501F;&#x308A;&#x3066;&#x304D;&#x305F;&#x3082;&#x306E;&#x3067;&#x3001;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#xFF08;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x8A08;&#x7B97;&#xFF09;&#x3068;&#x8A00;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;Haskell&#x306E;&#x7528;&#x8A9E;&#x3060;&#x3068;&#x3001;<code>Additive</code>&#x3092;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x3001;<code>StringAdditive</code>&#x3068;<code>IntAdditive</code>&#x3092;<code>Additive</code>&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;implicit parameter&#x306E;&#x7528;&#x6CD5;&#x306F;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x3082;&#x3042;&#x3063;&#x3066;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]().sum
-res6: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
+<pre><code class="lang-scala"><span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]().sum
+<span class="hljs-comment">// res9: Int = 0</span>
 
-scala&gt; <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>).sum
-res7: <span class="hljs-type">Int</span> = <span class="hljs-number">10</span>
+<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>).sum
+<span class="hljs-comment">// res10: Int = 10</span>
 
-scala&gt; <span class="hljs-type">List</span>(<span class="hljs-number">1.1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">1.4</span>).sum
-res8: <span class="hljs-type">Double</span> = <span class="hljs-number">5.0</span>
+<span class="hljs-type">List</span>(<span class="hljs-number">1.1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">1.4</span>).sum
+<span class="hljs-comment">// res11: Double = 5.0</span>
 </code></pre>
 <p>&#x306E;&#x3088;&#x3046;&#x306B;&#x6574;&#x6570;&#x3084;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306E;&#x5408;&#x8A08;&#x5024;&#x3092;&#x7279;&#x306B;&#x6C17;&#x306B;&#x3068;&#x3081;&#x308B;&#x3053;&#x3068;&#x306A;&#x304F;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;Scala&#x306B;&#x304A;&#x3044;&#x3066;&#x578B;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x30FB;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x899A;&#x3048;&#x308B;&#x3068;&#x3001;&#x8A2D;&#x8A08;&#x306E;&#x5E45;&#x304C;&#x30B0;&#x30F3;&#x3068;&#x5E83;&#x304C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <h3 id="implicit_ex4"><a name="implicit_ex4" class="plugin-anchor" href="#implicit_ex4"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
@@ -660,40 +647,34 @@ m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) <span class="hljs-comme
 <p>&#x30D2;&#x30F3;&#x30C8;&#xFF1A;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x6761;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3059;&#x3082;&#x306E;&#x306F;&#x7121;&#x6570;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x601D;&#x3044;&#x3064;&#x304B;&#x306A;&#x3044;&#x4EBA;&#x306F;&#x305F;&#x3068;&#x3048;&#x3070;<code>x</code>&#x5EA7;&#x6A19;&#x3068;<code>y</code>&#x5EA7;&#x6A19;&#x304B;&#x3089;&#x306A;&#x308B;&#x70B9;&#x3092;&#x8868;&#x3059;&#x30AF;&#x30E9;&#x30B9;<code>Point</code>&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x308B;&#x3068;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala">
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Additives</span> </span>{
-  <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">A</span>
-  }
-
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">String</span>] </span>{
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
-  }
-
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">Int</span>] </span>{
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
-  }
-
-  <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span></span>)</span>
-
-  <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">PointAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">Point</span>] </span>{
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">Point</span>, b: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = <span class="hljs-type">Point</span>(a.x + b.x, a.y + b.y)
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Point</span> = <span class="hljs-type">Point</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
-  }
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">A</span>
 }
+
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">String</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
+}
+
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">IntAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">Int</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = a + b
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
+}
+
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span></span>)</span>
+
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">PointAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">Point</span>] </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">Point</span>, b: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = <span class="hljs-type">Point</span>(a.x + b.x, a.y + b.y)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Point</span> = <span class="hljs-type">Point</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
 </code></pre>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">import</span> <span class="hljs-type">Additives</span>._
-<span class="hljs-keyword">import</span> <span class="hljs-type">Additives</span>._
-
-scala&gt; println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))) <span class="hljs-comment">// Point(6, 6)</span>
-<span class="hljs-type">Point</span>(<span class="hljs-number">6</span>,<span class="hljs-number">6</span>)
-
-scala&gt; println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>)))) <span class="hljs-comment">// Point(9, 12)</span>
-<span class="hljs-type">Point</span>(<span class="hljs-number">9</span>,<span class="hljs-number">12</span>)
+<pre><code class="lang-scala">println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)))) <span class="hljs-comment">// Point(6, 6)</span>
+<span class="hljs-comment">// Point(6,6) // Point(6, 6)</span>
+println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>), <span class="hljs-type">Point</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>)))) <span class="hljs-comment">// Point(9, 12)</span>
+<span class="hljs-comment">// Point(9,12)</span>
 </code></pre>
 </div>
 <h3 id="implicit_ex5"><a name="implicit_ex5" class="plugin-anchor" href="#implicit_ex5"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
@@ -787,7 +768,7 @@ res0: <span class="hljs-type">Rational</span> = <span class="hljs-type">Rational
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Implicit","level":"1.17","depth":1,"next":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"previous":{"title":"エラー処理","level":"1.16","depth":1,"path":"error-handling.md","ref":"error-handling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"implicit.md","mtime":"2020-03-14T02:28:20.121Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T02:29:16.236Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Implicit","level":"1.17","depth":1,"next":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"previous":{"title":"エラー処理","level":"1.16","depth":1,"path":"error-handling.md","ref":"error-handling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"implicit.md","mtime":"2020-03-14T08:19:17.968Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T08:19:58.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

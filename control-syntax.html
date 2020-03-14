@@ -474,10 +474,10 @@ Scala&#x3067;&#x306F;&#x6587;&#x3088;&#x308A;&#x3082;&#x5F0F;&#x3092;&#x591A;&#x
 </code></pre>
 <p>&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>&#x5F0F;</code> &#x306E;&#x4E26;&#x3073;&#x306F;&#x3001;&#x9806;&#x756A;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x500B;&#x3005;&#x306E;&#x5F0F;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;&#x5F0F;&#x304C;&#x6539;&#x884C;&#x3067;&#x533A;&#x5207;&#x3089;&#x308C;&#x3066;&#x3044;&#x308C;&#x3070;&#x30BB;&#x30DF;&#x30B3;&#x30ED;&#x30F3;&#x306F;&#x7701;&#x7565;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>{}</code> &#x5F0F;&#x306F;<code>&#x5F0F;1</code>, <code>&#x5F0F;2</code> ... &#x3068;&#x5F0F;&#x306E;&#x4E26;&#x3073;&#x3092;&#x9806;&#x756A;&#x306B;&#x8A55;&#x4FA1;&#x3057;&#x3001; &#x6700;&#x5F8C;&#x306E; <code>&#x5F0F;</code> &#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x6B21;&#x306E;&#x5F0F;&#x3067;&#x306F;</p>
-<pre><code class="lang-scala">scala&gt; { println(<span class="hljs-string">&quot;A&quot;</span>); println(<span class="hljs-string">&quot;B&quot;</span>); <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; }
-<span class="hljs-type">A</span>
-<span class="hljs-type">B</span>
-res0: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span>
+<pre><code class="lang-scala">{ println(<span class="hljs-string">&quot;A&quot;</span>); println(<span class="hljs-string">&quot;B&quot;</span>); <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; }
+<span class="hljs-comment">// A</span>
+<span class="hljs-comment">// B</span>
+<span class="hljs-comment">// res0: Int = 3</span>
 </code></pre>
 <p>A&#x3068;B&#x304C;&#x51FA;&#x529B;&#x3055;&#x308C;&#x3001;&#x6700;&#x5F8C;&#x306E;&#x5F0F;&#x3067;&#x3042;&#x308B;<code>1 + 2</code>&#x306E;&#x7D50;&#x679C;&#x3067;&#x3042;&#x308B;<code>3</code>&#x304C;<code>{}</code>&#x5F0F;&#x306E;&#x5024;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x3053;&#x3068;&#x306F;&#x3001;&#x5F8C;&#x307B;&#x3069;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306A;&#x3069;&#x306B;&#x304A;&#x3044;&#x3066;&#x91CD;&#x8981;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x306F;&#x3001;</p>
@@ -492,25 +492,24 @@ res0: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span>
 </code></pre>
 <p><code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x306F;<code>Boolean</code>&#x578B;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<code>else &lt;else&#x5F0F;&gt;</code>&#x306F;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>then&#x5F0F;</code> &#x306F; <code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x304C; <code>true</code>&#x306E;&#x3068;&#x304D;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x5F0F;&#x3067;&#x3001;<code>else&#x5F0F;</code>&#x306F; <code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x304C;<code>false</code>&#x306E;&#x3068;&#x304D;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x5F0F;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x65E9;&#x901F;<code>if</code>&#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">var</span> age = <span class="hljs-number">17</span>
-age: <span class="hljs-type">Int</span> = <span class="hljs-number">17</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">var</span> age = <span class="hljs-number">17</span>
+<span class="hljs-comment">// age: Int = 17</span>
 
-scala&gt; <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
-     |   <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
-     | } <span class="hljs-keyword">else</span> {
-     |   <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
-     | }
-res1: <span class="hljs-type">String</span> = <span class="hljs-number">18</span>&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;
+<span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
+  <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
+}
+<span class="hljs-comment">// res1: String = &quot;18\u6b73\u672a\u6e80\u3067\u3059&quot;</span>
 
-scala&gt; age = <span class="hljs-number">18</span>
-age: <span class="hljs-type">Int</span> = <span class="hljs-number">18</span>
+age = <span class="hljs-number">18</span>
 
-scala&gt; <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
-     |   <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
-     | } <span class="hljs-keyword">else</span> {
-     |   <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
-     | }
-res2: <span class="hljs-type">String</span> = <span class="hljs-number">18</span>&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;
+<span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
+  <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
+}
+<span class="hljs-comment">// res3: String = &quot;18\u6b73\u4ee5\u4e0a\u3067\u3059&quot;</span>
 </code></pre>
 <p>&#x5909;&#x66F4;&#x53EF;&#x80FD;&#x306A;&#x5909;&#x6570; <code>age</code> &#x304C;18&#x3088;&#x308A;&#x5C0F;&#x3055;&#x3044;&#x304B;&#x3069;&#x3046;&#x304B;&#x3067;&#x5225;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;<em>&#x8FD4;&#x3059;</em>&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p><code>if</code> &#x5F0F;&#x306B;&#x9650;&#x3089;&#x305A;&#x3001;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x306F;&#x5168;&#x3066;&#x5F0F;&#x3067;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x5FC5;&#x305A;&#x4F55;&#x3089;&#x304B;&#x306E;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;Java&#x306A;&#x3069;&#x306E;&#x8A00;&#x8A9E;&#x3067;&#x4E09;&#x9805;&#x6F14;&#x7B97;&#x5B50;<code>?:</code>&#x3092;&#x898B;&#x305F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;Scala&#x3067;&#x306F;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x5024;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x9762;&#x3067; <code>if</code> &#x5F0F;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
@@ -522,18 +521,16 @@ res2: <span class="hljs-type">String</span> = <span class="hljs-number">18</span
 <p><code>var age: Int = 5</code>&#x3068;&#x3044;&#x3046;&#x5E74;&#x9F62;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5909;&#x6570;&#x3068;<code>var isSchoolStarted: Boolean = false</code>&#x3068;&#x3044;&#x3046;&#x5C31;&#x5B66;&#x3092;&#x958B;&#x59CB;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x5909;&#x6570;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
 1&#x6B73;&#x304B;&#x3089;6&#x6B73;&#x307E;&#x3067;&#x306E;&#x5C31;&#x5B66;&#x4EE5;&#x524D;&#x306E;&#x5B50;&#x3069;&#x3082;&#x306E;&#x5834;&#x5408;&#x306B;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x3059;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3057;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x5408;&#x306F;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3059;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex1" style="display:none">
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
-age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
-
-scala&gt; <span class="hljs-keyword">var</span> isSchoolStarted: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
-isSchoolStarted: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
-
-scala&gt; <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> &lt;= age &amp;&amp; age &lt;= <span class="hljs-number">6</span> &amp;&amp; !isSchoolStarted) {
-     |   println(<span class="hljs-string">&quot;&#x5E7C;&#x5150;&#x3067;&#x3059;&quot;</span>)
-     | } <span class="hljs-keyword">else</span> {
-     |   println(<span class="hljs-string">&quot;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&quot;</span>)
-     | }
-&#x5E7C;&#x5150;&#x3067;&#x3059;
+<pre><code class="lang-scala"><span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
+<span class="hljs-comment">// age: Int = 5</span>
+<span class="hljs-keyword">var</span> isSchoolStarted: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
+<span class="hljs-comment">// isSchoolStarted: Boolean = false</span>
+<span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> &lt;= age &amp;&amp; age &lt;= <span class="hljs-number">6</span> &amp;&amp; !isSchoolStarted) {
+  println(<span class="hljs-string">&quot;&#x5E7C;&#x5150;&#x3067;&#x3059;&quot;</span>)
+} <span class="hljs-keyword">else</span> {
+  println(<span class="hljs-string">&quot;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&quot;</span>)
+}
+<span class="hljs-comment">// &#x5E7C;&#x5150;&#x3067;&#x3059;</span>
 </code></pre>
 </div>
 <h2 id="while&#x5F0F;"><a name="while&#x5F0F;" class="plugin-anchor" href="#while&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>while&#x5F0F;</h2>
@@ -542,23 +539,23 @@ scala&gt; <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span
 </code></pre>
 <p><code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x306F; <code>Boolean</code> &#x578B;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<code>while</code> &#x5F0F;&#x306F;&#x3001; <code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x304C;<code>true</code>&#x306E;&#x9593;&#x3001;<code>&#x672C;&#x4F53;&#x5F0F;</code> &#x3092;&#x8A55;&#x4FA1;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>while</code> &#x5F0F;&#x3082;&#x5F0F;&#x306A;&#x306E;&#x3067;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;<code>while</code>&#x5F0F;&#x306B;&#x306F;&#x9069;&#x5207;&#x306A;&#x8FD4;&#x3059;&#x3079;&#x304D;&#x5024;&#x304C;&#x306A;&#x3044;&#x306E;&#x3067;<code>Unit</code>&#x578B;&#x306E;&#x5024;<code>()</code>&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3055;&#x3066;&#x3001; <code>while</code> &#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;1&#x304B;&#x3089;10&#x307E;&#x3067;&#x306E;&#x5024;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>
-i: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>
+<span class="hljs-comment">// i: Int = 1</span>
 
-scala&gt; <span class="hljs-keyword">while</span>(i &lt;= <span class="hljs-number">10</span>) {
-     |   println(<span class="hljs-string">&quot;i = &quot;</span> + i)
-     |   i = i + <span class="hljs-number">1</span>
-     | }
-i = <span class="hljs-number">1</span>
-i = <span class="hljs-number">2</span>
-i = <span class="hljs-number">3</span>
-i = <span class="hljs-number">4</span>
-i = <span class="hljs-number">5</span>
-i = <span class="hljs-number">6</span>
-i = <span class="hljs-number">7</span>
-i = <span class="hljs-number">8</span>
-i = <span class="hljs-number">9</span>
-i = <span class="hljs-number">10</span>
+<span class="hljs-keyword">while</span>(i &lt;= <span class="hljs-number">10</span>) {
+  println(<span class="hljs-string">&quot;i = &quot;</span> + i)
+  i = i + <span class="hljs-number">1</span>
+}
+<span class="hljs-comment">// i = 1</span>
+<span class="hljs-comment">// i = 2</span>
+<span class="hljs-comment">// i = 3</span>
+<span class="hljs-comment">// i = 4</span>
+<span class="hljs-comment">// i = 5</span>
+<span class="hljs-comment">// i = 6</span>
+<span class="hljs-comment">// i = 7</span>
+<span class="hljs-comment">// i = 8</span>
+<span class="hljs-comment">// i = 9</span>
+<span class="hljs-comment">// i = 10</span>
 </code></pre>
 <p>Java&#x3067; <code>while</code> &#x6587;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3068;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002; <code>do while</code> &#x5F0F;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;Java&#x3068;&#x540C;&#x69D8;&#x306A;&#x306E;&#x3067;&#x8AAC;&#x660E;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;Java&#x306E; <code>break</code> &#x6587;&#x3084; <code>continue</code> &#x6587;&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x8A00;&#x8A9E;&#x6A5F;&#x80FD;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x5F8C;&#x307B;&#x3069;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x9AD8;&#x968E;&#x95A2;&#x6570;&#x3092;&#x9069;&#x5207;&#x306B;&#x5229;&#x7528;&#x3059;&#x308C;&#x3070;&#x3001;&#x307B;&#x3068;&#x3093;&#x3069;&#x306E;&#x5834;&#x5408;&#x3001; <code>break</code> &#x3084; <code>continue</code> &#x306F;&#x5FC5;&#x8981;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <h3 id="control_syntax_ex2"><a name="control_syntax_ex2" class="plugin-anchor" href="#control_syntax_ex2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
@@ -579,48 +576,46 @@ i = <span class="hljs-number">10</span>
   } <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">10</span>)
 }
 </code></pre>
-<pre><code class="lang-scala">scala&gt; loopFrom0To9()
-<span class="hljs-number">0</span>
-<span class="hljs-number">1</span>
-<span class="hljs-number">2</span>
-<span class="hljs-number">3</span>
-<span class="hljs-number">4</span>
-<span class="hljs-number">5</span>
-<span class="hljs-number">6</span>
-<span class="hljs-number">7</span>
-<span class="hljs-number">8</span>
-<span class="hljs-number">9</span>
+<pre><code class="lang-scala">loopFrom0To9()
+<span class="hljs-comment">// 0</span>
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 3</span>
+<span class="hljs-comment">// 4</span>
+<span class="hljs-comment">// 5</span>
+<span class="hljs-comment">// 6</span>
+<span class="hljs-comment">// 7</span>
+<span class="hljs-comment">// 8</span>
+<span class="hljs-comment">// 9</span>
 </code></pre>
 </div>
 <h2 id="return&#x5F0F;"><a name="return&#x5F0F;" class="plugin-anchor" href="#return&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>return&#x5F0F;</h2>
 <p><code>return</code> &#x5F0F;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089;&#x3001;&#x9014;&#x4E2D;&#x3067;&#x8131;&#x51FA;&#x3057;&#x3066;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x5143;&#x306B;&#x8FD4;&#x308A;&#x5024;&#x3092;&#x8FD4;&#x3059;&#x305F;&#x3081;&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3067;&#x3059;&#x3002;</p>
 <p>Scala&#x3067;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E; <code>=</code> &#x306E;&#x53F3;&#x306F;&#x5F0F;&#x3067;&#x3042;&#x308A;&#x3001;&#x305D;&#x308C;&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x5024;&#x304C;&#x8FD4;&#x308A;&#x5024;&#x306B;&#x306A;&#x308B;&#x305F;&#x3081;&#x3001;&#x4ED6;&#x306E;&#x591A;&#x304F;&#x306E;&#x8A00;&#x8A9E;&#x3068;&#x9055;&#x3044;&#x3001;<code>return</code> &#x5F0F;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x4E00;&#x65B9;&#x3067;&#x3001;&#x7279;&#x306B;&#x624B;&#x7D9A;&#x304D;&#x7684;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3068;&#x304D;&#x306B; <code>return</code> &#x5F0F;&#x304C;&#x4FBF;&#x5229;&#x306A;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x914D;&#x5217;&#x304B;&#x3089;&#x3001;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x8981;&#x7D20;&#x3092;&#x898B;&#x3064;&#x3051;&#x3066;&#x305D;&#x306E;&#x6DFB;&#x5B57;&#x3092;&#x8FD4;&#x3059;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">indexOf</span></span>(array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
-     |   <span class="hljs-keyword">var</span> index = <span class="hljs-number">-1</span>
-     |   <span class="hljs-keyword">var</span> found = <span class="hljs-literal">false</span>
-     |   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
-     |   <span class="hljs-keyword">while</span>(i &lt; array.length &amp;&amp; !found) {
-     |     <span class="hljs-keyword">if</span>(array(i) == target) {
-     |       index = i
-     |       found = <span class="hljs-literal">true</span>
-     |     }
-     |     i += <span class="hljs-number">1</span>
-     |   }
-     |   index
-     | }
-indexOf: (array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>)<span class="hljs-type">Int</span>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">indexOf</span></span>(array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
+  <span class="hljs-keyword">var</span> index = <span class="hljs-number">-1</span>
+  <span class="hljs-keyword">var</span> found = <span class="hljs-literal">false</span>
+  <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
+  <span class="hljs-keyword">while</span>(i &lt; array.length &amp;&amp; !found) {
+    <span class="hljs-keyword">if</span>(array(i) == target) {
+      index = i
+      found = <span class="hljs-literal">true</span>
+    }
+    i += <span class="hljs-number">1</span>
+  }
+  index
+}
 </code></pre>
 <p>&#x3053;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x306F;&#x3001;&#x65E2;&#x306B;&#x8981;&#x7D20;&#x304C;&#x898B;&#x3064;&#x304B;&#x3063;&#x305F;&#x304B;&#x3092;<code>found</code>&#x3068;&#x3044;&#x3046;&#x5909;&#x6570;&#x3067;&#x7BA1;&#x7406;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x305F;&#x3081;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x5197;&#x9577;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>return</code> &#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x3070;&#x3001;&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">indexOf</span></span>(array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
-     |   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
-     |   <span class="hljs-keyword">while</span>(i &lt; array.length) {
-     |     <span class="hljs-keyword">if</span>(array(i) == target) <span class="hljs-keyword">return</span> i
-     |     i += <span class="hljs-number">1</span>
-     |   }
-     |   <span class="hljs-number">-1</span>
-     | }
-indexOf: (array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>)<span class="hljs-type">Int</span>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">indexOf</span></span>(array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
+  <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
+  <span class="hljs-keyword">while</span>(i &lt; array.length) {
+    <span class="hljs-keyword">if</span>(array(i) == target) <span class="hljs-keyword">return</span> i
+    i += <span class="hljs-number">1</span>
+  }
+  <span class="hljs-number">-1</span>
+}
 </code></pre>
 <p>&#x898B;&#x3066;&#x306E;&#x901A;&#x308A;&#x3001;&#x4E0D;&#x5FC5;&#x8981;&#x306A;&#x5909;&#x6570;&#x304C;&#x7121;&#x304F;&#x306A;&#x3063;&#x3066;&#x898B;&#x901A;&#x3057;&#x304C;&#x3088;&#x304F;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;<code>return</code>&#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x3070;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x898B;&#x901A;&#x3057;&#x304C;&#x3088;&#x304F;&#x306A;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308B;&#x3001;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3092;&#x899A;&#x3048;&#x3066;&#x304A;&#x304F;&#x3068;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x4E00;&#x65B9;&#x3001;&#x5F93;&#x6765;&#x306E;&#x624B;&#x7D9A;&#x304D;&#x578B;&#x8A00;&#x8A9E;&#x306B;&#x89AA;&#x3057;&#x3093;&#x3067;&#x3044;&#x308B;&#x4EBA;&#x306F;&#x3001;Scala&#x3067;&#x306F;<strong><code>return</code>&#x5F0F;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x306F;&#x306A;&#x3044;</strong>&#xFF08;&#x8131;&#x51FA;&#x306E;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x3051;&#x308C;&#x3070;&#x66F8;&#x304B;&#x306A;&#x3044;&#xFF09;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3092;&#x5FF5;&#x982D;&#x306B;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
@@ -631,66 +626,66 @@ indexOf: (array: <span class="hljs-type">Array</span>[<span class="hljs-type">St
 # &lt;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&gt; = x &lt;- &lt;&#x5F0F;&gt;
 </code></pre><p>&#x5404; <code>&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;</code> &#x306E;&#x5909;&#x6570; <code>x</code> &#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x90E8;&#x5206;&#x306F;&#x3001;&#x597D;&#x304D;&#x306A;&#x540D;&#x524D;&#x306E;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; <code>&#x5F0F;</code> &#x306B;&#x306F;&#x8272;&#x3005;&#x306A;&#x5F0F;&#x304C;&#x66F8;&#x3051;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3001;&#x73FE;&#x72B6;&#x3067;&#x306F;&#x5168;&#x3066;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x304D;&#x308C;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x4F55;&#x304B;&#x306E;&#x6570;&#x306E;&#x7BC4;&#x56F2;&#x3092;&#x8868;&#x3059;&#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x308B;&#x3068;&#x899A;&#x3048;&#x3066;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;<code>1 to 10</code> &#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x3080;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3001; <code>1 until 10</code> &#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x307E;&#x306A;&#x3044;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x65E9;&#x901F; <code>for</code> &#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span>){
-     |   println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
-     | }
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">4</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span>){
+  println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
+}
+<span class="hljs-comment">// x = 1 y = 1</span>
+<span class="hljs-comment">// x = 1 y = 2</span>
+<span class="hljs-comment">// x = 1 y = 3</span>
+<span class="hljs-comment">// x = 1 y = 4</span>
+<span class="hljs-comment">// x = 2 y = 1</span>
+<span class="hljs-comment">// x = 2 y = 2</span>
+<span class="hljs-comment">// x = 2 y = 3</span>
+<span class="hljs-comment">// x = 2 y = 4</span>
+<span class="hljs-comment">// x = 3 y = 1</span>
+<span class="hljs-comment">// x = 3 y = 2</span>
+<span class="hljs-comment">// x = 3 y = 3</span>
+<span class="hljs-comment">// x = 3 y = 4</span>
+<span class="hljs-comment">// x = 4 y = 1</span>
+<span class="hljs-comment">// x = 4 y = 2</span>
+<span class="hljs-comment">// x = 4 y = 3</span>
+<span class="hljs-comment">// x = 4 y = 4</span>
+<span class="hljs-comment">// x = 5 y = 1</span>
+<span class="hljs-comment">// x = 5 y = 2</span>
+<span class="hljs-comment">// x = 5 y = 3</span>
+<span class="hljs-comment">// x = 5 y = 4</span>
 </code></pre>
 <p><code>x</code>&#x3092;1&#x304B;&#x3089;5&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;&#x3001;<code>y</code>&#x3092;1&#x304B;&#x3089;4&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;<code>x</code>, <code>y</code>&#x306E;&#x5024;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&#x3092;2&#x3064;&#x3060;&#x3051;&#x306B;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x6570;&#x3092;&#x5897;&#x3084;&#x305B;&#x3070;&#x4F55;&#x91CD;&#x306B;&#x3082;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p><code>for</code>&#x5F0F;&#x306E;&#x529B;&#x306F;&#x3053;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x6761;&#x4EF6;&#x306B;&#x3042;&#x3063;&#x305F;&#x3082;&#x306E;&#x3060;&#x3051;&#x3092;&#x7D5E;&#x308A;&#x8FBC;&#x3080;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>until</code>&#x306E;&#x5F8C;&#x3067;<code>if x != y</code>&#x3068;&#x66F8;&#x3044;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;&#x3001;<code>x</code>&#x3068;<code>y</code>&#x304C;&#x7570;&#x306A;&#x308B;&#x5024;&#x306E;&#x5834;&#x5408;&#x306E;&#x307F;&#x3092;&#x62BD;&#x51FA;&#x3057;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span> <span class="hljs-keyword">if</span> x != y){
-     |   println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
-     | }
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">1</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">2</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">3</span> y = <span class="hljs-number">4</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">4</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">1</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">2</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">3</span>
-x = <span class="hljs-number">5</span> y = <span class="hljs-number">4</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span> <span class="hljs-keyword">if</span> x != y){
+  println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
+}
+<span class="hljs-comment">// x = 1 y = 2</span>
+<span class="hljs-comment">// x = 1 y = 3</span>
+<span class="hljs-comment">// x = 1 y = 4</span>
+<span class="hljs-comment">// x = 2 y = 1</span>
+<span class="hljs-comment">// x = 2 y = 3</span>
+<span class="hljs-comment">// x = 2 y = 4</span>
+<span class="hljs-comment">// x = 3 y = 1</span>
+<span class="hljs-comment">// x = 3 y = 2</span>
+<span class="hljs-comment">// x = 3 y = 4</span>
+<span class="hljs-comment">// x = 4 y = 1</span>
+<span class="hljs-comment">// x = 4 y = 2</span>
+<span class="hljs-comment">// x = 4 y = 3</span>
+<span class="hljs-comment">// x = 5 y = 1</span>
+<span class="hljs-comment">// x = 5 y = 2</span>
+<span class="hljs-comment">// x = 5 y = 3</span>
+<span class="hljs-comment">// x = 5 y = 4</span>
 </code></pre>
 <p><code>for</code>&#x5F0F;&#x306F;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x3092;1&#x3064;1&#x3064;&#x305F;&#x3069;&#x3063;&#x3066;&#x4F55;&#x304B;&#x306E;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x306B;&#x3082;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
 <code>&quot;D&quot;</code>, <code>&quot;E&quot;</code>&#x306E;5&#x3064;&#x306E;&#x8981;&#x7D20;&#x304B;&#x3089;&#x306A;&#x308B;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x305F;&#x3069;&#x3063;&#x3066;&#x5168;&#x3066;&#x3092;&#x51FA;&#x529B;&#x3059;&#x308B;&#x51E6;&#x7406;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) println(e)
-<span class="hljs-type">A</span>
-<span class="hljs-type">B</span>
-<span class="hljs-type">C</span>
-<span class="hljs-type">D</span>
-<span class="hljs-type">E</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) println(e)
+<span class="hljs-comment">// A</span>
+<span class="hljs-comment">// B</span>
+<span class="hljs-comment">// C</span>
+<span class="hljs-comment">// D</span>
+<span class="hljs-comment">// E</span>
 </code></pre>
 <p>&#x3055;&#x3089;&#x306B;&#x3001;<code>for</code>&#x5F0F;&#x306F;&#x305F;&#x3069;&#x3063;&#x305F;&#x8981;&#x7D20;&#x3092;&#x52A0;&#x5DE5;&#x3057;&#x3066;&#x65B0;&#x3057;&#x3044;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x8981;&#x7D20;&#x5168;&#x3066;&#x306B;<code>Pre</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x3092;&#x4ED8;&#x52A0;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) <span class="hljs-keyword">yield</span> {
-     |   <span class="hljs-string">&quot;Pre&quot;</span> + e
-     | }
-res9: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">PreA</span>, <span class="hljs-type">PreB</span>, <span class="hljs-type">PreC</span>, <span class="hljs-type">PreD</span>, <span class="hljs-type">PreE</span>)
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) <span class="hljs-keyword">yield</span> {
+  <span class="hljs-string">&quot;Pre&quot;</span> + e
+}
+<span class="hljs-comment">// res10: List[String] = List(&quot;PreA&quot;, &quot;PreB&quot;, &quot;PreC&quot;, &quot;PreD&quot;, &quot;PreE&quot;)</span>
 </code></pre>
 <p>&#x3053;&#x3053;&#x3067;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3068;&#x306A;&#x308B;&#x306E;&#x306F;&#x3001;<code>yield</code>&#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3067;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;<code>for</code>&#x69CB;&#x6587;&#x306F;<code>yield</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x3092;&#x52A0;&#x5DE5;&#x3057;&#x3066;&#x8FD4;&#x3059;&#x3068;&#x3044;&#x3046;&#x5168;&#x304F;&#x7570;&#x306A;&#x308B;&#x7528;&#x9014;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x7279;&#x306B;<code>yield</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;<code>for</code>&#x5F0F;&#x3092;&#x7279;&#x5225;&#x306B;
 for-comprehension&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
@@ -711,27 +706,27 @@ for-comprehension&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A
   )+
 }
 </code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x300C;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x300D;&#x306B;&#x66F8;&#x3051;&#x308B;&#x5185;&#x5BB9;&#x304C;&#x975E;&#x5E38;&#x306B;&#x591A;&#x5C90;&#x306B;&#x6E21;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x307E;&#x305A;&#x3001;Java&#x306E;switch-case&#x306E;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3092;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> taro = <span class="hljs-string">&quot;Taro&quot;</span>
-taro: <span class="hljs-type">String</span> = <span class="hljs-type">Taro</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> taro = <span class="hljs-string">&quot;Taro&quot;</span>
+<span class="hljs-comment">// taro: String = &quot;Taro&quot;</span>
 
-scala&gt; taro <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Taro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
-     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Jiro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
-     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Hanako&quot;</span> =&gt; <span class="hljs-string">&quot;Female&quot;</span>
-     | }
-res10: <span class="hljs-type">String</span> = <span class="hljs-type">Male</span>
+taro <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Taro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Jiro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Hanako&quot;</span> =&gt; <span class="hljs-string">&quot;Female&quot;</span>
+}
+<span class="hljs-comment">// res11: String = &quot;Male&quot;</span>
 </code></pre>
 <p>&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3001;<code>taro</code>&#x306B;&#x306F;&#x6587;&#x5B57;&#x5217;<code>&quot;Taro&quot;</code>&#x304C;&#x5165;&#x3063;&#x3066;&#x304A;&#x308A;&#x3001;&#x3053;&#x308C;&#x306F;<code>case &quot;Taro&quot;</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x305F;&#x3081;&#x3001;<code>&quot;Male&quot;</code>&#x304C;&#x8FD4;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;&#x3053;&#x3053;&#x3067;&#x6C17;&#x3065;&#x3044;&#x305F;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;<code>match</code>&#x5F0F;&#x3082;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;<code>match</code>&#x5F0F;&#x306E;&#x5024;&#x306F;&#x3001;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;<code>=&gt;</code>&#x306E;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x6587;&#x5B57;&#x5217;&#x3060;&#x3051;&#x3067;&#x306A;&#x304F;&#x6570;&#x5024;&#x306A;&#x3069;&#x591A;&#x69D8;&#x306A;&#x5024;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> one = <span class="hljs-number">1</span>
-one: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> one = <span class="hljs-number">1</span>
+<span class="hljs-comment">// one: Int = 1</span>
 
-scala&gt; one <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">&quot;one&quot;</span>
-     |   <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">&quot;two&quot;</span>
-     |   <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">&quot;other&quot;</span>
-     | }
-res11: <span class="hljs-type">String</span> = one
+one <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">&quot;one&quot;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">&quot;two&quot;</span>
+  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">&quot;other&quot;</span>
+}
+<span class="hljs-comment">// res12: String = &quot;one&quot;</span>
 </code></pre>
 <p>&#x3053;&#x3053;&#x3067;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x7B87;&#x6240;&#x306B;<code>_</code>&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;switch-case&#x306E;default&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x3082;&#x306E;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;<strong>&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;</strong>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002; <code>match</code> &#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306F;&#x3001;&#x6F0F;&#x308C;&#x304C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x3002;</p>
 <h3 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;"><a name="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;" class="plugin-anchor" href="#&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;</h3>
@@ -751,58 +746,52 @@ Java&#x304C;C&#x8A00;&#x8A9E;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x
 </code></pre>
 <h3 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><a name="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;" class="plugin-anchor" href="#&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;</h3>
 <p>switch-case&#x4EE5;&#x5916;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x306E;&#x4E00;&#x90E8;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x6B21;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-lst: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>)
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
+<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
-scala&gt; lst <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) =&gt;
-     |     println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-     |     println(<span class="hljs-string">&quot;c = &quot;</span> + c)
-     |   <span class="hljs-keyword">case</span> _ =&gt;
-     |     println(<span class="hljs-string">&quot;nothing&quot;</span>)
-     | }
-b = <span class="hljs-type">B</span>
-c = <span class="hljs-type">C</span>
+lst <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) =&gt;
+    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
+    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> _ =&gt;
+    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+}
+<span class="hljs-comment">// b = B</span>
+<span class="hljs-comment">// c = C</span>
 </code></pre>
 <p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;<code>List</code>&#x306E;&#x5148;&#x982D;&#x8981;&#x7D20;&#x304C;<code>&quot;A&quot;</code>&#x3067;3&#x8981;&#x7D20;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x3068;&#x3001;&#x6B8B;&#x308A;&#x306E;<code>b</code>, <code>c</code>&#x306B;<code>List</code>&#x306E;2&#x756A;&#x76EE;&#x4EE5;&#x964D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x675F;&#x7E1B;&#x3055;&#x308C;&#x3066;&#x3001;<code>=&gt;</code>&#x306E;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; <code>match</code> &#x5F0F;&#x3067;&#x306F;&#x3001;&#x7279;&#x306B;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x983B;&#x51FA;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x306F;&#x30AC;&#x30FC;&#x30C9;&#x5F0F;&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x3001;&#x304B;&#x3064;&#x3001;&#x30AC;&#x30FC;&#x30C9;&#x5F0F;&#xFF08;<code>Boolean</code>&#x578B;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#xFF09;&#x306B;&#x3082;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-lst: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>)
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
+<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
-scala&gt; lst <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) <span class="hljs-keyword">if</span> b != <span class="hljs-string">&quot;B&quot;</span> =&gt;
-     |     println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-     |     println(<span class="hljs-string">&quot;c = &quot;</span> + c)
-     |   <span class="hljs-keyword">case</span> _ =&gt;
-     |     println(<span class="hljs-string">&quot;nothing&quot;</span>)
-     | }
-nothing
+lst <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) <span class="hljs-keyword">if</span> b != <span class="hljs-string">&quot;B&quot;</span> =&gt;
+    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
+    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> _ =&gt;
+    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+}
+<span class="hljs-comment">// nothing</span>
 </code></pre>
 <p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x30AC;&#x30FC;&#x30C9;&#x6761;&#x4EF6;&#x306B;&#x3001;<code>List</code>&#x306E;2&#x756A;&#x76EE;&#x306E;&#x8981;&#x7D20;&#x304C;<code>&quot;B&quot;</code>&#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x3001;&#x3068;&#x3044;&#x3046;&#x6761;&#x4EF6;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x305F;&#x3081;&#x3001;&#x6700;&#x521D;&#x306E;&#x6761;&#x4EF6;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x305B;&#x305A; <code>_</code> &#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x306E;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x307E;&#x305F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x30CD;&#x30B9;&#x30C8;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5C11;&#x3057;&#x6539;&#x5909;&#x3057;&#x3066;&#x3001;&#x5148;&#x982D;&#x304C;<code>List(&quot;A&quot;)</code>&#x3067;&#x3042;&#x308B;&#x3088;&#x3046;&#x306A;<code>List</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>), <span class="hljs-type">List</span>(<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
-lst: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-type">String</span>]] = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-type">A</span>), <span class="hljs-type">List</span>(<span class="hljs-type">B</span>, <span class="hljs-type">C</span>))
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>), <span class="hljs-type">List</span>(<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
+<span class="hljs-comment">// lst: List[List[String]] = List(List(&quot;A&quot;), List(&quot;B&quot;, &quot;C&quot;))</span>
 
-scala&gt; lst <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a<span class="hljs-meta">@List</span>(<span class="hljs-string">&quot;A&quot;</span>), x) =&gt;
-     |   println(a)
-     |   println(x)
-     |   <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">&quot;nothing&quot;</span>)
-     | }
-<span class="hljs-type">List</span>(<span class="hljs-type">A</span>)
-<span class="hljs-type">List</span>(<span class="hljs-type">B</span>, <span class="hljs-type">C</span>)
+lst <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a<span class="hljs-meta">@List</span>(<span class="hljs-string">&quot;A&quot;</span>), x) =&gt;
+  println(a)
+  println(x)
+  <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">&quot;nothing&quot;</span>)
+}
+<span class="hljs-comment">// List(A)</span>
+<span class="hljs-comment">// List(B, C)</span>
 </code></pre>
 <p><code>lst</code>&#x306F;<code>List(&quot;A&quot;)</code>&#x3068;<code>List(&quot;B&quot;, &quot;C&quot;)</code>&#x306E;2&#x8981;&#x7D20;&#x304B;&#x3089;&#x306A;&#x308B;<code>List</code>&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3001;match&#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x5148;&#x982D;&#x304C;<code>List(&quot;A&quot;)</code>&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x8A18;&#x8FF0;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x524D;&#x306B;<code>@</code>&#x304C;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;as&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;<code>@</code>&#x306E;&#x5F8C;&#x306B;&#x7D9A;&#x304F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x5F0F;&#x3092; <code>@</code> &#x306E;&#x524D;&#x306E;&#x5909;&#x6570;&#xFF08;&#x3053;&#x3053;&#x3067;&#x306F;<code>a</code>&#xFF09;&#x306B;&#x675F;&#x7E1B;&#x3057;&#x307E;&#x3059;&#x3002; <code>as</code> &#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x304C;&#x8907;&#x96D1;&#x306A;&#x3068;&#x304D;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x4E00;&#x90E8;&#x3060;&#x3051;&#x3092;&#x5207;&#x308A;&#x53D6;&#x308A;&#x305F;&#x3044;&#x6642;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057; <code>|</code> &#x3092;&#x4F7F;&#x3063;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x5834;&#x5408;&#x306F;&#x5024;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x70B9;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x4E0B;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;<code>|</code>&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; (<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a) | <span class="hljs-type">Some</span>(a) =&gt;
-     |     println(a)
-     | }
-&lt;console&gt;:<span class="hljs-number">14</span>: error: illegal variable in pattern alternative
-         <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a) | <span class="hljs-type">Some</span>(a) =&gt;
-                   ^
-&lt;console&gt;:<span class="hljs-number">14</span>: error: illegal variable in pattern alternative
-         <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a) | <span class="hljs-type">Some</span>(a) =&gt;
-                             ^
+<pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a) | <span class="hljs-type">Some</span>(a) =&gt;
+    println(a)
+}
 </code></pre>
 <p>&#x5024;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3055;&#x306A;&#x3044;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306F;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
@@ -812,72 +801,61 @@ scala&gt; lst <span class="hljs-keyword">match</span> {
 </code></pre>
 <h3 id="&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><a name="&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;" class="plugin-anchor" href="#&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;</h3>
 <p>&#x5148;&#x306E;&#x7BC0;&#x3067;&#x66F8;&#x3044;&#x305F;&#x3088;&#x3046;&#x306A;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x5225;&#x306E;&#x8A18;&#x6CD5;&#x3067;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-lst: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>)
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
+<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
-scala&gt; lst <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) =&gt;
-     |     println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-     |     println(<span class="hljs-string">&quot;c = &quot;</span> + c)
-     |   <span class="hljs-keyword">case</span> _ =&gt;
-     |     println(<span class="hljs-string">&quot;nothing&quot;</span>)
-     | }
-b = <span class="hljs-type">B</span>
-c = <span class="hljs-type">C</span>
+lst <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) =&gt;
+    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
+    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> _ =&gt;
+    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+}
+<span class="hljs-comment">// b = B</span>
+<span class="hljs-comment">// c = C</span>
 </code></pre>
 <p>&#x3068;&#x3044;&#x3046;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-lst: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">List</span>(<span class="hljs-type">A</span>, <span class="hljs-type">B</span>, <span class="hljs-type">C</span>)
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
+<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
-scala&gt; lst <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;A&quot;</span> :: b :: c :: _ =&gt;
-     |     println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-     |     println(<span class="hljs-string">&quot;c = &quot;</span> + c)
-     |   <span class="hljs-keyword">case</span> _ =&gt;
-     |     println(<span class="hljs-string">&quot;nothing&quot;</span>)
-     | }
-b = <span class="hljs-type">B</span>
-c = <span class="hljs-type">C</span>
+lst <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;A&quot;</span> :: b :: c :: _ =&gt;
+    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
+    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> _ =&gt;
+    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+}
+<span class="hljs-comment">// b = B</span>
+<span class="hljs-comment">// c = C</span>
 </code></pre>
 <p>&#x3053;&#x3053;&#x3067;&#x3001; <code>&quot;A&quot; :: b :: c :: _</code> &#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x8981;&#x7D20;&#x306E;&#x9593;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x540D;&#xFF08;<code>::</code>&#xFF09;&#x304C;&#x73FE;&#x308C;&#x308B;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3092;&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#xFF08;<code>::</code>&#xFF09;&#x306B;&#x3088;&#x3063;&#x3066;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x884C;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001; <code>::</code> &#x306E;&#x524D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x6700;&#x521D;&#x306E;&#x8981;&#x7D20;&#x3092;&#x3001;&#x5F8C;&#x308D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x30EA;&#x30B9;&#x30C8;&#x306E;<strong>&#x6B8B;&#x308A;&#x5168;&#x3066;</strong>&#x3092;&#x6307;&#x3059;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x672B;&#x5C3E;&#x3092;&#x7121;&#x8996;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x6700;&#x5F8C;&#x306B; <code>_</code> &#x3092;&#x633F;&#x5165;&#x3059;&#x308B;&#x3068;&#x3044;&#x3063;&#x305F;&#x3053;&#x3068;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x306F;&#x983B;&#x51FA;&#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308B;&#x306E;&#x3060;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x5FF5;&#x982D;&#x306B;&#x7F6E;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <h3 id="&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;"><a name="&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;" class="plugin-anchor" href="#&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;</h3>
 <p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x3057;&#x3066;&#x306F;&#x5024;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x578B;&#x306B;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3082;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5024;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x578B;&#x306B;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x3001;<code>&#x540D;&#x524D;:&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x578B;</code>&#x306E;&#x5F62;&#x3067;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>AnyRef</code>&#x578B;&#x306F;&#x3001;Java&#x306E;<code>Object</code>&#x578B;&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x578B;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x53C2;&#x7167;&#x578B;&#x306E;&#x5024;&#x3092;<code>AnyRef</code>&#x578B;&#x306E;&#x5909;&#x6570;&#x306B;&#x683C;&#x7D0D;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
-<span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
 
-scala&gt; <span class="hljs-keyword">val</span> obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-string">&quot;String Literal&quot;</span>
-obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-type">String</span> <span class="hljs-type">Literal</span>
+<span class="hljs-keyword">val</span> obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-string">&quot;String Literal&quot;</span>
+<span class="hljs-comment">// obj: AnyRef = &quot;String Literal&quot;</span>
 
-scala&gt; obj <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> v:java.lang.<span class="hljs-type">Integer</span> =&gt;
-     |     println(<span class="hljs-string">&quot;Integer!&quot;</span>)
-     |   <span class="hljs-keyword">case</span> v:<span class="hljs-type">String</span> =&gt;
-     |     println(v.toUpperCase(<span class="hljs-type">Locale</span>.<span class="hljs-type">ENGLISH</span>))
-     | }
-<span class="hljs-type">STRING</span> <span class="hljs-type">LITERAL</span>
+obj <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> v:java.lang.<span class="hljs-type">Integer</span> =&gt;
+    println(<span class="hljs-string">&quot;Integer!&quot;</span>)
+  <span class="hljs-keyword">case</span> v:<span class="hljs-type">String</span> =&gt;
+    println(v.toUpperCase(<span class="hljs-type">Locale</span>.<span class="hljs-type">ENGLISH</span>))
+}
+<span class="hljs-comment">// STRING LITERAL</span>
 </code></pre>
 <p><code>java.lang.Integer</code> &#x306B;&#x306F;&#x30DE;&#x30C3;&#x30C1;&#x305B;&#x305A;&#x3001; <code>String</code> &#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x3084; <code>equals</code> &#x306E;&#x5B9A;&#x7FA9;&#x306A;&#x3069;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x578B;&#x3067;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x5024;&#x306F;&#x3001;&#x305D;&#x306E;&#x578B;&#x306B;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x306E;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x5F0F;&#x3067;<code>String</code>&#x578B;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;<code>v</code>&#x306F;<code>String</code>&#x578B;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;<code>toUpperCase</code>&#x3092;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3057;&#x3070;&#x3057;&#x3070;Scala&#x3067;&#x306F;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x306E;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x306E;&#x3067;&#x899A;&#x3048;&#x3066;&#x304A;&#x304F;&#x3068;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <h3 id="jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;"><a name="jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;" class="plugin-anchor" href="#jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;</h3>
 <p>&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x6CE8;&#x610F;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;1&#x3064;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;Scala&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;JVM&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308A;&#x3001;&#x578B;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;&#x6B63;&#x3057;&#x304F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x69D8;&#x306A;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;REPL&#x3067;&#x5B9F;&#x884C;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;&#x8B66;&#x544A;&#x304C;&#x51FA;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>)
-obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(a)
-
-scala&gt; obj <span class="hljs-keyword">match</span> {
-     |   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
-     |   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
-     | }
-&lt;console&gt;:<span class="hljs-number">16</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">Int</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[<span class="hljs-type">Int</span>] (<span class="hljs-params">the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]</span>) <span class="hljs-title">is</span> <span class="hljs-title">unchecked</span> <span class="hljs-title">since</span> <span class="hljs-title">it</span> <span class="hljs-title">is</span> <span class="hljs-title">eliminated</span> <span class="hljs-title">by</span> <span class="hljs-title">erasure</span></span>
-         <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
-                 ^
-&lt;console&gt;:<span class="hljs-number">17</span>: warning: non-variable <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">argument</span> <span class="hljs-title">String</span> <span class="hljs-title">in</span> <span class="hljs-title">type</span> <span class="hljs-title">pattern</span> <span class="hljs-title">List</span>[<span class="hljs-type">String</span>] (<span class="hljs-params">the underlying of <span class="hljs-type">List</span>[<span class="hljs-type">String</span>]</span>) <span class="hljs-title">is</span> <span class="hljs-title">unchecked</span> <span class="hljs-title">since</span> <span class="hljs-title">it</span> <span class="hljs-title">is</span> <span class="hljs-title">eliminated</span> <span class="hljs-title">by</span> <span class="hljs-title">erasure</span></span>
-         <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
-                 ^
-&lt;console&gt;:<span class="hljs-number">17</span>: warning: unreachable code
-         <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
-                                        ^
-<span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>)
+<span class="hljs-comment">// obj: Any = List(&quot;a&quot;)</span>
+obj <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
+}
+<span class="hljs-comment">// List[Int]</span>
 </code></pre>
 <p>&#x578B;&#x3068;&#x3057;&#x3066;&#x306F;<code>List[Int]</code>&#x3068;<code>List[String]</code>&#x306F;&#x9055;&#x3046;&#x578B;&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x306F;&#x3053;&#x308C;&#x3092;&#x533A;&#x5225;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <p>&#x6700;&#x521D;&#x306E;2&#x3064;&#x306E;&#x8B66;&#x544A;&#x306E;&#x610F;&#x5473;&#x306F;Scala&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x300C;&#x578B;&#x6D88;&#x53BB;&#x300D;&#x3068;&#x3044;&#x3046;&#x52D5;&#x4F5C;&#x306B;&#x3088;&#x308A;<code>List[Int]</code>&#x306E;<code>Int</code>&#x306E;&#x90E8;&#x5206;&#x304C;&#x6D88;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
@@ -944,7 +922,7 @@ scala&gt; obj <span class="hljs-keyword">match</span> {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2020-03-14T02:28:27.817Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T02:29:16.236Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2020-03-14T08:19:21.170Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T08:19:58.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

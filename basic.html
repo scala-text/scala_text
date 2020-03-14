@@ -473,12 +473,12 @@ scala&gt;
 </code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3067;Scala&#x306E;&#x4E16;&#x754C;&#x306B;&#x5165;&#x308B;&#x6E96;&#x5099;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x306A;&#x304A;&#x3001;<code>$</code>&#x306E;&#x90E8;&#x5206;&#x306F;&#x30B7;&#x30A7;&#x30EB;&#x30D7;&#x30ED;&#x30F3;&#x30D7;&#x30C8;&#x306A;&#x306E;&#x3067;&#x5165;&#x529B;&#x3057;&#x306A;&#x304F;&#x3066;&#x826F;&#x3044;&#x3067;&#x3059;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;</p>
 <h2 id="hello-world"><a name="hello-world" class="plugin-anchor" href="#hello-world"><i class="fa fa-link" aria-hidden="true"></i></a>Hello, World!</h2>
 <p>&#x307E;&#x305A;&#x306F;&#x5B9A;&#x756A;&#x306E;Hello, World!&#x3092;&#x8868;&#x793A;&#x3055;&#x305B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
-<span class="hljs-type">Hello</span>, <span class="hljs-type">World</span>!
+<pre><code class="lang-scala">println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
+<span class="hljs-comment">// Hello, World!</span>
 </code></pre>
 <p>&#x7121;&#x4E8B;&#x3001;Hello, World!&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;&#x6B21;&#x306B;&#x3061;&#x3087;&#x3063;&#x3068;&#x5165;&#x529B;&#x3092;&#x5909;&#x3048;&#x3066;&#x3001;<code>println()</code>&#x3092;&#x306F;&#x305A;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3055;&#x3066;&#x3001;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-string">&quot;Hello, World!&quot;</span>
-res1: <span class="hljs-type">String</span> = <span class="hljs-type">Hello</span>, <span class="hljs-type">World</span>!
+<pre><code class="lang-scala"><span class="hljs-string">&quot;Hello, World!&quot;</span>
+<span class="hljs-comment">// res1: String = &quot;Hello, World!&quot;</span>
 </code></pre>
 <p><code>res1: String = Hello, World</code> &#x3068;&#x3001;&#x5148;&#x307B;&#x3069;&#x3068;&#x306F;&#x9055;&#x3046;&#x8868;&#x793A;&#x304C;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x306D;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;<code>&quot;Hello, World&quot;</code>&#x3068;&#x3044;&#x3046;&#x5F0F;&#x306E;&#x578B;&#x304C;<code>String</code>&#x3067;&#x3042;&#x308A;&#x3001;&#x305D;&#x306E;&#x5024;&#x304C;<code>&quot;Hello, World&quot;</code>&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x307E;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3067;&#x3057;&#x305F;&#x304C;&#x3001;Scala&#x306F;&#x9759;&#x7684;&#x306A;&#x578B;&#x3092;&#x6301;&#x3064;&#x8A00;&#x8A9E;&#x3067;&#x3001;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x524D;&#x306B;&#x578B;&#x304C;&#x5408;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;C&#x3084;Java&#x306A;&#x3069;&#x306E;&#x8A00;&#x8A9E;&#x3092;&#x77E5;&#x3063;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x306B;&#x306F;&#x304A;&#x306A;&#x3058;&#x307F;&#x3067;&#x3059;&#x306D;&#x3002;</p>
 <h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
@@ -503,42 +503,42 @@ res1: Int = 3
 <pre><code>scala&gt; res1
 res2: Int = 3
 </code></pre><p>&#x3053;&#x306E;&#x6A5F;&#x80FD;&#x306F;REPL&#x3067;&#x5C11;&#x3057;&#x9577;&#x3044;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x306E;&#x3067;&#x3001;&#x6D3B;&#x7528;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;Int&#x578B;&#x306B;&#x306F;&#x4ED6;&#x306B;&#x3082;<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x6F14;&#x7B97;&#x5B50;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-number">1</span> + <span class="hljs-number">2</span>
-res2: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span>
+<pre><code class="lang-scala"><span class="hljs-number">1</span> + <span class="hljs-number">2</span>
+<span class="hljs-comment">// res2: Int = 3</span>
 
-scala&gt; <span class="hljs-number">2</span> * <span class="hljs-number">2</span>
-res3: <span class="hljs-type">Int</span> = <span class="hljs-number">4</span>
+<span class="hljs-number">2</span> * <span class="hljs-number">2</span>
+<span class="hljs-comment">// res3: Int = 4</span>
 
-scala&gt; <span class="hljs-number">4</span> / <span class="hljs-number">2</span>
-res4: <span class="hljs-type">Int</span> = <span class="hljs-number">2</span>
+<span class="hljs-number">4</span> / <span class="hljs-number">2</span>
+<span class="hljs-comment">// res4: Int = 2</span>
 
-scala&gt; <span class="hljs-number">4</span> % <span class="hljs-number">3</span>
-res5: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+<span class="hljs-number">4</span> % <span class="hljs-number">3</span>
+<span class="hljs-comment">// res5: Int = 1</span>
 </code></pre>
 <p>&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306E;&#x6F14;&#x7B97;&#x306E;&#x305F;&#x3081;&#x306B;&#x3082;&#x3001;&#x307B;&#x307C;&#x540C;&#x3058;&#x6F14;&#x7B97;&#x5B50;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306B;&#x306F;&#x8AA4;&#x5DEE;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x305D;&#x306E;&#x70B9;&#x306B;&#x306F;&#x6CE8;&#x610F;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;&#x898B;&#x308C;&#x3070;&#x308F;&#x304B;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001;<code>Double</code>&#x3068;&#x3044;&#x3046;<code>Int</code>&#x3068;&#x7570;&#x306A;&#x308B;&#x578B;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>dbl.asInstanceOf[Int]</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x3057;&#x3066;&#x578B;&#x3092;&#x5909;&#x63DB;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x5834;&#x5408;&#x3001;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306E;&#x5C0F;&#x6570;&#x306E;&#x90E8;&#x5206;&#x304C;&#x5207;&#x308A;&#x6368;&#x3066;&#x3089;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-number">1.0</span> + <span class="hljs-number">2.0</span>
-res6: <span class="hljs-type">Double</span> = <span class="hljs-number">3.0</span>
+<pre><code class="lang-scala"><span class="hljs-number">1.0</span> + <span class="hljs-number">2.0</span>
+<span class="hljs-comment">// res6: Double = 3.0</span>
 
-scala&gt; <span class="hljs-number">2.2</span> * <span class="hljs-number">2</span>
-res7: <span class="hljs-type">Double</span> = <span class="hljs-number">4.4</span>
+<span class="hljs-number">2.2</span> * <span class="hljs-number">2</span>
+<span class="hljs-comment">// res7: Double = 4.4</span>
 
-scala&gt; <span class="hljs-number">4.5</span> / <span class="hljs-number">2</span>
-res8: <span class="hljs-type">Double</span> = <span class="hljs-number">2.25</span>
+<span class="hljs-number">4.5</span> / <span class="hljs-number">2</span>
+<span class="hljs-comment">// res8: Double = 2.25</span>
 
-scala&gt; <span class="hljs-number">4</span> % <span class="hljs-number">3</span>
-res9: <span class="hljs-type">Int</span> = <span class="hljs-number">1</span>
+<span class="hljs-number">4</span> % <span class="hljs-number">3</span>
+<span class="hljs-comment">// res9: Int = 1</span>
 
-scala&gt; <span class="hljs-number">4.0</span> % <span class="hljs-number">2.0</span>
-res10: <span class="hljs-type">Double</span> = <span class="hljs-number">0.0</span>
+<span class="hljs-number">4.0</span> % <span class="hljs-number">2.0</span>
+<span class="hljs-comment">// res10: Double = 0.0</span>
 
-scala&gt; <span class="hljs-number">4.0</span> % <span class="hljs-number">3.0</span>
-res11: <span class="hljs-type">Double</span> = <span class="hljs-number">1.0</span>
+<span class="hljs-number">4.0</span> % <span class="hljs-number">3.0</span>
+<span class="hljs-comment">// res11: Double = 1.0</span>
 
-scala&gt; (<span class="hljs-number">4.5</span>).asInstanceOf[<span class="hljs-type">Int</span>]
-res12: <span class="hljs-type">Int</span> = <span class="hljs-number">4</span>
+(<span class="hljs-number">4.5</span>).asInstanceOf[<span class="hljs-type">Int</span>]
+<span class="hljs-comment">// res12: Int = 4</span>
 
-scala&gt; (<span class="hljs-number">4.0</span>).asInstanceOf[<span class="hljs-type">Int</span>]
-res13: <span class="hljs-type">Int</span> = <span class="hljs-number">4</span>
+(<span class="hljs-number">4.0</span>).asInstanceOf[<span class="hljs-type">Int</span>]
+<span class="hljs-comment">// res13: Int = 4</span>
 </code></pre>
 <h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
 <p>&#x3053;&#x308C;&#x307E;&#x3067;&#x51FA;&#x3066;&#x304D;&#x305F;&#x3001;<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>,<code>%</code>&#x306E;&#x6F14;&#x7B97;&#x5B50;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x597D;&#x304D;&#x306A;&#x3088;&#x3046;&#x306B;&#x6570;&#x5F0F;&#x3092;&#x6253;&#x3061;&#x8FBC;&#x3093;&#x3067;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
@@ -567,8 +567,8 @@ res13: <span class="hljs-type">Int</span> = <span class="hljs-number">4</span>
 Java&#x3068;&#x540C;&#x69D8;&#x306B;&#x5909;&#x6570;&#x304C;&#x3042;&#x308A;&#x3001;&#x8A08;&#x7B97;&#x7D50;&#x679C;&#x3092;&#x683C;&#x7D0D;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x6CE8;&#x610F;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3051;&#x306A;&#x3044;&#x306E;&#x306F;Scala&#x306E;&#x5909;&#x6570;&#x306B;&#x306F;<code>val</code>&#x3068;<code>var</code>&#x306E;2&#x7A2E;&#x985E;&#x304C;&#x3042;&#x308A;&#x3001;&#x524D;&#x8005;&#x306F;&#x4E00;&#x5EA6;&#x5909;&#x6570;&#x306B;&#x5024;&#x3092;&#x683C;&#x7D0D;&#x3057;&#x305F;&#x3089;&#x5909;&#x66F4;&#x4E0D;&#x53EF;&#x80FD;&#x3067;&#x3001;&#x5F8C;&#x8005;&#x306F;C&#x3084;Java&#x306E;&#x901A;&#x5E38;&#x306E;&#x5909;&#x6570;&#x306E;&#x3088;&#x3046;&#x306B;&#x5909;&#x66F4;&#x53EF;&#x80FD;&#x3060;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;<code>val</code>&#x306F;
 Java&#x306E;final&#x306A;&#x5909;&#x6570;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x8003;&#x3048;&#x308C;&#x3070;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x308B;&#x3053;&#x3068;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;&#x3001;<code>var</code>&#x306F;&#x3042;&#x307E;&#x308A;&#x4F7F;&#x308F;&#x305A;<code>val</code>&#x306E;&#x307F;&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;<strong>Scala&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3092;&#x3059;&#x308B;&#x4E0A;&#x3067;&#x5927;&#x5909;&#x91CD;&#x8981;&#x306A;&#x3053;&#x3068;&#x306A;&#x306E;&#x3067;</strong>&#x5FD8;&#x308C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> x = <span class="hljs-number">3</span> * <span class="hljs-number">2</span>
-x: <span class="hljs-type">Int</span> = <span class="hljs-number">6</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> x = <span class="hljs-number">3</span> * <span class="hljs-number">2</span>
+<span class="hljs-comment">// x: Int = 6</span>
 </code></pre>
 <p>&#x3053;&#x308C;&#x306F;&#x3001;&#x5909;&#x6570;x&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x305D;&#x308C;&#x306B;<code>3 * 2</code>&#x306E;&#x8A08;&#x7B97;&#x7D50;&#x679C;&#x3092;&#x683C;&#x7D0D;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x7279;&#x7B46;&#x3059;&#x3079;&#x304D;&#x306F;&#x3001;C&#x3084;Java&#x3068;&#x9055;&#x3044;&#x3001;<code>x</code>&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002; <code>3 * 2</code>&#x306E;&#x7D50;&#x679C;&#x304C;<code>Int</code>&#x306A;&#x306E;&#x3067;&#x3001;&#x305D;&#x3053;&#x304B;&#x3089;<code>x</code>&#x306E;&#x578B;&#x3082;<code>Int</code>&#x306B;&#x9055;&#x3044;&#x306A;&#x3044;&#x3068;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x63A8;&#x8AD6;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;&#x3001;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;Scala&#x306E;&#x3053;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#xFF08;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#xFF09;&#x578B;&#x63A8;&#x8AD6;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x5909;&#x6570;&#x306E;&#x578B;&#x306F;<code>Int</code>&#x3068;&#x63A8;&#x8AD6;&#x3055;&#x308C;&#x305F;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x5F8C;&#x3001;<code>x</code>&#x3092;&#x5225;&#x306E;&#x578B;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070;<code>String</code>&#x578B;&#x3068;&#x3057;&#x3066;&#x6271;&#x304A;&#x3046;&#x3068;&#x3057;&#x3066;&#x3082;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306E;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x3066;&#x3044;&#x306A;&#x304F;&#x3066;&#x3082;&#x3061;&#x3083;&#x3093;&#x3068;&#x578B;&#x304C;&#x6C7A;&#x307E;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 <p><code>val</code>&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5909;&#x6570;&#x306B;&#x306F;&#x5024;&#x3092;&#x518D;&#x4EE3;&#x5165;&#x3067;&#x304D;&#x305A;&#x3001;&#x578B;&#x63A8;&#x8AD6;&#x306E;&#x52B9;&#x679C;&#x304C;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x3044;&#x306E;&#x3067;&#x3001;<code>var</code>&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5909;&#x6570;&#x3067;&#x5B9F;&#x9A13;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;
@@ -594,8 +594,8 @@ x: Int = 12
 <p>&#x3053;&#x3053;&#x307E;&#x3067;&#x306F;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x305B;&#x305A;&#x306B;&#x578B;&#x63A8;&#x8AD6;&#x306B;&#x307E;&#x304B;&#x305B;&#x3066;&#x6765;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x660E;&#x793A;&#x7684;&#x306B;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x306B;&#x306F;</p>
 <pre><code>&#xFF08;&apos;val&apos;|&apos;var&apos;&#xFF09;&lt;&#x5909;&#x6570;&#x540D;&gt; : &lt;&#x578B;&#x540D;&gt; = &lt;&#x5F0F;&gt;
 </code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> x: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span> * <span class="hljs-number">3</span>
-x: <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> x: <span class="hljs-type">Int</span> = <span class="hljs-number">3</span> * <span class="hljs-number">3</span>
+<span class="hljs-comment">// x: Int = 9</span>
 </code></pre>
 <p>&#x3061;&#x3083;&#x3093;&#x3068;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x5BA3;&#x8A00;&#x3067;&#x304D;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#x3002;</p>
 <h3 id="&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><a name="&#x7DF4;&#x7FD2;&#x554F;&#x984C;" class="plugin-anchor" href="#&#x7DF4;&#x7FD2;&#x554F;&#x984C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C;</h3>
@@ -659,7 +659,7 @@ x: <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scalaの基本","level":"1.4","depth":1,"next":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"path":"sbt-compile-execute.md","ref":"sbt-compile-execute.md","articles":[]},"previous":{"title":"sbtをインストールする","level":"1.3","depth":1,"path":"sbt-install.md","ref":"sbt-install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"basic.md","mtime":"2020-03-14T02:27:52.275Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T02:29:16.236Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scalaの基本","level":"1.4","depth":1,"next":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"path":"sbt-compile-execute.md","ref":"sbt-compile-execute.md","articles":[]},"previous":{"title":"sbtをインストールする","level":"1.3","depth":1,"path":"sbt-install.md","ref":"sbt-install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"basic.md","mtime":"2020-03-14T08:19:08.035Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-14T08:19:58.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
