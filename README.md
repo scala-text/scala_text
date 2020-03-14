@@ -38,7 +38,7 @@ npm install
 ビルドされたページは`gitbook/_book/index.html`から見ることができる。
 
 ```
-sbt textBuildHtmlQuick
+sbt textBuildHtml
 ```
 
 その他にも、テキストの校正、リンク切れの確認などを行うコマンドが定義してある。

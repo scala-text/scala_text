@@ -21,7 +21,6 @@ object GitBook extends NpmCliBase {
 
   lazy val textPluginInstall = taskKey[Unit]("install GitBook plugin")
   lazy val textHelpGitBook = taskKey[Unit]("help GitBook")
-  lazy val textBuildHtmlQuick = inputKey[Unit]("build GitBook to html with mdoc cache")
   lazy val textBuildHtml = inputKey[Unit]("build GitBook to html")
   lazy val textBuildEpub = inputKey[Unit]("build GitBook to epub")
 
