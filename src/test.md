@@ -223,9 +223,10 @@ XP（エクストリームプログラミング）のプラクティスに、不
 最小のテストを書いてみます。`src/test/scala/CalcSpec.scala`を以下のように記述します。
 
 ```scala mdoc:nest:silent
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.diagrams.Diagrams
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions {
+class CalcSpec extends AnyFlatSpec with Diagrams {
 
   val calc = new Calc
 
@@ -242,8 +243,8 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 }
 ```
 
-テストクラスに`DiagrammedAssertions`をミックスインし、`assert`メソッドの引数に期待する条件を記述していきます[^predef-assert]。
-`DiagrammedAssertions`を使うことで、覚えるべきAPIを減らしつつテスト失敗時に多くの情報を表示できるようになります。
+テストクラスに`Diagrams`をミックスインし、`assert`メソッドの引数に期待する条件を記述していきます[^predef-assert]。
+`Diagrams`を使うことで、覚えるべきAPIを減らしつつテスト失敗時に多くの情報を表示できるようになります。
 
 テストを実装したら`sbt test`でテストを実行してください。
 以下のような実行結果が表示されます。
@@ -299,9 +300,10 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 div関数までテストの実装を進めます。
 
 ```scala mdoc:nest:silent
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.diagrams.Diagrams
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions {
+class CalcSpec extends AnyFlatSpec with Diagrams {
 
   val calc = new Calc
 
@@ -329,11 +331,12 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
 できるだけ短い時間でそれを判定できるように実装します。
 
 ```scala mdoc:nest:silent
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.diagrams.Diagrams
 import org.scalatest.concurrent.TimeLimits
 import org.scalatest.time.SpanSugar._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
+class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
   val calc = new Calc
 
@@ -406,11 +409,12 @@ libraryDependencies += "org.mockito" % "mockito-core" % "3.3.3" % "test"
 
 ```scala mdoc:nest:silent
 import org.scalatest.time.SpanSugar._
-import org.scalatest.{FlatSpec, DiagrammedAssertions}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.diagrams.Diagrams
 import org.scalatest.concurrent.TimeLimits
 import org.mockito.Mockito._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions with TimeLimits {
+class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
   // ...
 
