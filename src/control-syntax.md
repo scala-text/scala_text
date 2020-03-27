@@ -391,8 +391,8 @@ val lst = List(List("A"), List("B", "C"))
 
 lst match {
   case List(a@List("A"), x) =>
-  println(a)
-  println(x)
+    println(a)
+    println(x)
   case _ => println("nothing")
 }
 ```
