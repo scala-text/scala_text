@@ -176,7 +176,13 @@ class ClassA extends TraitB with TraitC
 ちなみに、上記の例をScalaでコンパイルすると以下のようなエラーが出ます。
 
 ```scala
-class ClassA extends TraitB with TraitC
+scala> class ClassA extends TraitB with TraitC
+<console>:13: error: class ClassA inherits conflicting members:
+  method greet in trait TraitB of type ()Unit  and
+  method greet in trait TraitC of type ()Unit
+(Note: this can be resolved by declaring an override in class ClassA.)
+       class ClassA extends TraitB with TraitC
+             ^
 ```
 
 Scalaではoverride指定なしの場合メソッド定義の衝突はエラーになります。
