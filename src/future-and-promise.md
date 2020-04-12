@@ -104,14 +104,13 @@ futureの結果取得を5000ミリ秒間待つという処理を行った後、
 その結果がどうなっているのかをコンソールに出力するという処理をします。
 
 なお以上のように5000ミリ秒待つという他に、そのFuture自体の処理を待つという書き方もすることができます。
-`Thread.sleep(5000)`を`Await.ready(f, 5000 millisecond)`とすることで、
+`Thread.sleep(5000)`を`Await.ready(f, 5000.millisecond)`とすることで、
 Futureが終わるまで最大5000ミリ秒を待つという書き方となります。
 ただし、この書き方をする前に、
 
 ```scala mdoc:nest:silent
 import scala.concurrent.Await
 import scala.concurrent.duration._
-import scala.language.postfixOps
 ```
 
 以上をimport文に追加する必要があります。さらにこれらがどのように動いているのかを、スレッドの観点から見てみましょう。
@@ -121,7 +120,6 @@ import scala.language.postfixOps
 import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
-import scala.language.postfixOps
 
 object FutureSample extends App {
 
@@ -140,7 +138,7 @@ object FutureSample extends App {
 
   println(f.isCompleted) // false
 
-  Await.ready(f, 5000 millisecond) // Hello future!
+  Await.ready(f, 5000.millisecond) // Hello future!
 
   println(s"[ThreadName] In App: ${Thread.currentThread.getName}")
   println(f.isCompleted) // true
@@ -163,7 +161,7 @@ Hello future!
 `ForkJoinPool-1-worker-5`というmainスレッドとは異なるスレッドで実行されています。
 
 つまりFutureを用いることで知らず知らずのうちのマルチスレッドのプログラミングが実行されていたということになります。
-また、`Await.ready(f, 5000 millisecond)`で処理を書いたことで、`isCompleted`の確認処理のほうが、
+また、`Await.ready(f, 5000.millisecond)`で処理を書いたことで、`isCompleted`の確認処理のほうが、
 `"Hello future!"`の文字列結合よりも先に出力されていることがわかります。
 これは文字列結合の方が値参照よりもコストが高いためこのようになります。
 
@@ -235,7 +233,6 @@ Futureに適用する関数の中でさらにFutureが取得できるような�
 ```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.language.postfixOps
 import scala.util.{Failure, Success, Random}
 
 object CompositeFutureSample extends App {
