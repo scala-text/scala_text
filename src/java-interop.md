@@ -237,21 +237,22 @@ Option(map.get("D"))
 ちゃんとnullがOptionにラップされていることがわかります。Scalaの世界からJavaのメソッドを呼びだすときは、返り値をできるだけ
 Option()でくるむように意識しましょう。
 
-#### JavaConverters 
+#### `scala.jdk.CollectionConverters`
 
 JavaのコレクションとScalaのコレクションはインタフェースに互換性がありません。これでは、ScalaのコレクションをJavaのコレクション
-に渡したり、逆に返ってきたJavaのコレクションをScalaのコレクションに変換したい場合に不便です。そのような場合に便利なのがJavaConverters
-です。使い方はいたって簡単で、
+に渡したり、逆に返ってきたJavaのコレクションをScalaのコレクションに変換したい場合に不便です。そのような場合に便利なのが`scala.jdk.CollectionConverters`です。
+Scala 2.12以前は同様の機能は`scala.collection.JavaConverters`で提供されていましたが、Scala 2.13以降はそれが非推奨になりました。
+使い方はいたって簡単で、
 
 ```scala mdoc:nest:silent
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 ```
 
 とするだけです。これで、JavaとScalaのコレクションのそれぞれにasJava()やasScala()といったメソッドが追加されるのでそのメソッドを以下のように
 呼び出せば良いです。
 
 ```scala mdoc:nest
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import java.util.ArrayList
 
 val list = new ArrayList[String]()
@@ -264,17 +265,19 @@ val scalaList = list.asScala
 ```
 
 BufferはScalaの変更可能なリストのスーパークラスですが、ともあれ、asScalaメソッドによってJavaのコレクションをScalaのそれに変換することができている
-ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/scala/collection/JavaConverters$.html)を参照してください。
+ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/scala.jdk.CollectionConverters$.html)を参照してください。
+
+また、`scala.jdk`パッケージには、コレクションの変換以外の機能も提供されています。
 
 ##### 練習問題
 
-[`scala.collection.mutable.ArrayBuffer`](https://www.scala-lang.org/api/current/scala/collection/mutable/ArrayBuffer.html)型の値を生成してから、JavaConvertersを使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
+[`scala.collection.mutable.ArrayBuffer`](https://www.scala-lang.org/api/current/scala/collection/mutable/ArrayBuffer.html)型の値を生成してから、`scala.jdk.CollectionConverters`を使って[java.util.List](https://docs.oracle.com/javase/jp/8/docs/api/java/util/List.html)型に変換してみましょう。なお、`ArrayBuffer`には1つ以上の要素を入れておくこととします。
 
 <!-- begin answer id="answer_ex5" style="display:none" -->
 
 ```scala mdoc:nest
 import scala.collection.mutable.ArrayBuffer
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 val buffer = new ArrayBuffer[String]
 buffer += "A"
 buffer += "B"
