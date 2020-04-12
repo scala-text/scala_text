@@ -1,6 +1,6 @@
 # sbtでプログラムをコンパイル・実行する
 
-```scala mdoc:nest:invisible
+```scala
 import sbt._, Keys._
 ```
 
@@ -38,9 +38,9 @@ sandbox
 
 今回の_build.sbt_にはScalaのバージョンと一緒に`scalac`の警告オプションも有効にしてみましょう。
 
-```scala mdoc:nest:silent
+```scala
 // build.sbt
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Xlint")
 ```

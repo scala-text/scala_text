@@ -124,18 +124,14 @@ BDDでは、テスト内にそのプログラムに与えられた機能的な�
 
 `build.sbt`を用意して、以下を記述しておきます。
 
-```scala mdoc:nest:invisible
-import sbt._, Keys._
-```
-
-```scala mdoc:nest:silent
+```scala
 name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % "test"
 
 ```
 
@@ -145,8 +141,8 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.8/scalatest_2.12-3.0.8.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.12;3.0.8!scalatest_2.12.jar(bundle) (10199ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest_2.13/3.1.1/scalatest_2.13-3.1.1.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest_2.13;3.1.1!scalatest_2.13.jar(bundle) (10199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2015/04/09 16:48:42
 ```
@@ -252,8 +248,8 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/classes...
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -272,7 +268,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -365,7 +361,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.12/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -401,7 +397,7 @@ BDDでテストを書くことによってテストによってどのような�
 ここでは、よく使われているMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
-```scala mdoc:nest:silent
+```scala
 libraryDependencies += "org.mockito" % "mockito-core" % "3.3.3" % "test"
 ```
 
@@ -446,13 +442,13 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
 `project/plugins.sbt` に以下のコードを記述します。
 
-```scala mdoc:nest:silent
+```scala
 resolvers += Classpaths.sbtPluginReleases
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 ```
 
-その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-2.12/scoverage-report/index.html`にレポートが出力されます。
+その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-2.13/scoverage-report/index.html`にレポートが出力されます。
 
 ![Scoverage Code Coverage](img/scoverage_code_coverage.png)
 
@@ -480,7 +476,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 
 使い方は、`project/plugins.sbt` に以下のコードを記述します。
 
-```scala mdoc:nest:silent
+```scala
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 ```
 

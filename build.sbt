@@ -7,7 +7,7 @@ ThisBuild / onChangedBuildSource := ReloadOnSourceChanges
 
 name := "textbook"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 enablePlugins(MdocPlugin)
 
@@ -16,7 +16,8 @@ mdocIn := srcDir
 mdocOut := compiledSrcDir
 
 libraryDependencies ++= Seq(
-  "org.scala-sbt" % "sbt" % sbtVersion.value,
+  // TODO sbtがScala 2.13対応したら再び有効化
+  // "org.scala-sbt" % "sbt" % sbtVersion.value,
   "org.mockito" % "mockito-core" % "3.3.3",
   "org.scalacheck" %% "scalacheck" % "1.14.3",
   "org.scalatest" %% "scalatest" % "3.1.1" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
