@@ -6,7 +6,7 @@
 
 ## 成果物
 
-このテキストのコンパイル済み成果物は次の場所から入手可能である（現在、移管に伴う作業中のため、一部が入手できなくなっている可能性がある点に注意）。
+このテキストのコンパイル済み成果物は次の場所から入手可能である。
 
 - HTML版：https://scala-text.github.io/scala_text/
 - PDF版：https://scala-text.github.io/scala_text_pdf/scala_text.pdf
