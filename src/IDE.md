@@ -107,6 +107,3 @@ scala-sandbox
 すると、Hello Worldプログラムの最初のコンパイルが始まるので少し待ちます。その後、次のような画面が表示されたら成功です。
 
 ![Run Hello World](img/IntelliJ_IDEA_Run_Hello_World.png)
-
-なお、ここではIntelliJ IDEAのセットアップ方法のみを説明しましたが、最近安定性と機能が向上した[Scala IDE for Eclipse](http://scala-ide.org/)
-を試してみても良いかもしれません。
