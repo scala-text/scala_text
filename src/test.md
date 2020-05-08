@@ -437,6 +437,8 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 コードカバレッジを計測するという方法があります。
 ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。
 
+**scoverageは現在最新のScalaで動かない問題があります<https://github.com/scala-text/scala_text/issues/553>。**
+
 過去、[SCCT](http://mtkopone.github.io/scct/)というプロダクトがあったのですが紆余曲折あり、
 今はあまりメンテンナンスされていません。
 
