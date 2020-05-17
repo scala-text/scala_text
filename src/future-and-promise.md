@@ -128,7 +128,6 @@ object FutureSample extends App {
     Thread.sleep(1000)
     println(s"[ThreadName] In Future: ${Thread.currentThread.getName}")
     s + " future!"
-
   }
 
   f.foreach { case s: String =>
@@ -180,7 +179,7 @@ object FutureOptionUsageSample extends App {
   val waitMaxMilliSec = 3000
 
   val futureMilliSec: Future[Int] = Future {
-    val waitMilliSec = random.nextInt(waitMaxMilliSec);
+    val waitMilliSec = random.nextInt(waitMaxMilliSec)
     if(waitMilliSec < 1000) throw new RuntimeException(s"waitMilliSec is ${waitMilliSec}" )
     Thread.sleep(waitMilliSec)
     waitMilliSec
@@ -240,7 +239,7 @@ object CompositeFutureSample extends App {
   val waitMaxMilliSec = 3000
 
   def waitRandom(futureName: String): Int = {
-    val waitMilliSec = random.nextInt(waitMaxMilliSec);
+    val waitMilliSec = random.nextInt(waitMaxMilliSec)
     if(waitMilliSec < 500) throw new RuntimeException(s"${futureName} waitMilliSec is ${waitMilliSec}" )
     Thread.sleep(waitMilliSec)
     waitMilliSec
@@ -317,7 +316,8 @@ object PromiseSample extends App {
 
 ```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Future, Promise}
+import scala.concurrent.{Await, Future, Promise}
+import scala.concurrent.duration._
 import scala.util.{Failure, Random, Success}
 
 class CallbackSomething {
@@ -417,7 +417,7 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 [RxScala](http://reactivex.io/rxscala/)というイベントストリームを専門に
 取り扱うライブラリを利用することができます。
 このRxは元々はC#で生まれたReactive Extensionsというライブラリで、
-現在では[様々な言語にポーティング](https://github.com/Reactive-Extensions)が行われています。
+現在では[様々な言語にポーティング](https://github.com/ReactiveX)が行われています。
 
 [^CompletableFuture]: ただし、Java 8から追加されたjava.util.concurrent.Futureのサブクラスである[CompletableFuture](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CompletableFuture.html)には、関数を引数にとるメソッドがあります。
 [^concurrent]: 値の原始的な更新や同期の必要性などの並行処理に関する様々な話題の詳細な解説は本書の範囲をこえてしまうため割愛します。「Java Concurrency in Practice」ないしその和訳「Java並行処理プログラミング ー その「基盤」と「最新API」を究める」や「Effective Java」といった本でこれらの話題について学ぶことが出来ます。
