@@ -167,7 +167,7 @@ val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
 
 ここで、`Pair`は作成時に値を与えたら後は変更できず、したがって`ArrayStoreException`のような例外が発生する余地がないことがわかります。一般的には、一度作成したら変更できない（immutable）などの型パラメータは共変にしても多くの場合問題がありません。
 
-### 演習問題
+### 練習問題
 
 次の*immutable*な*Stack*型の定義（途中）があります。`???`の箇所を埋めて、*Stack*の定義を完成させなさい。なお、`E >: A`は、`E`は`A`の継承元である、という制約を表しています。
 
