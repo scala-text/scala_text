@@ -241,5 +241,42 @@ class Point3D(x_ : Int, y_ : Int, z_ : Int) {
 
 <!-- end answer -->
 
+### 練習問題 {#class_ex2}
+
+次の抽象クラス `Shape` を継承して、 `Rectangle` クラス（長方形クラス）と`Circle` クラス（円クラス）を定義してください。また、`area` メソッドをオーバーライドして、ただしく面積が計算できるように定義してください。なお、長方形の面積は幅を`w`、高さを`h`とすると、`w * h`で求めることができます。円の面積は、半径を`r`とすると、`r * r * math.Pi` で求めることができます。
+
+```scala
+abstract class Shape {
+  def area: Double
+}
+/*
+ * RectangleとCircleの定義
+ */
+var shape: Shape = new Rectangle(10.0, 20.0)
+println(shape.area)
+shape = new Circle(2.0)
+println(shape.area)
+```
+
+<!-- begin answer id="answer_ex2" style="display:none" -->
+
+```scala mdoc:nest:silent
+abstract class Shape {
+  def area: Double
+}
+class Rectangle(val width: Double, val height: Double) extends Shape {
+  override def area: Double = width * height
+}
+class Circle(val radius: Double) extends Shape {
+  override def area: Double = radius * radius * math.Pi
+}
+```
+
+#### 解説
+
+`Rectangle`と`Circle`クラスが`Shape`クラスを継承して、それぞれで`area: Double`メソッドをオーバーライドしています。この場合、`Shape`の`area`は抽象メソッドなので`override`は必須ではありませんが、つけた方が良いでしょう。
+
+<!-- end answer -->
+
 
 [^subtyping_polymorphism]: このように継承などにより型に親子関係を作り、複数の型に共通のインタフェースを持たせることをサブタイピング・ポリモーフィズムと呼びます。Scalaでは他にも構造的部分型というサブタイピング・ポリモーフィズムの機能がありますが、実際に使われることが少ないため、このテキストでは説明を省略しています。
