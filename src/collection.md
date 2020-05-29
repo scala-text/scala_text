@@ -483,6 +483,14 @@ Scalaのコレクションのメソッドの中でも非常によく使われる
 def map[T, U](list: List[T])(f: T => U): List[U] = ???
 ```
 
+`map` メソッドは次のようにして使います。
+
+```scala
+assert(List(2, 3, 4) == map(List(1, 2, 3))(x => x + 1))
+assert(List(2, 4, 6) == map(List(1, 2, 3))(x => x * 2))
+assert(Nil == map(List[Int]())(x => x * x))
+assert(List(0, 0, 0)  == map(List(1, 2, 3))(x => 0))
+```
 <!-- begin answer id="answer_ex7" style="display:none" -->
 
 ```scala mdoc:nest:silent
@@ -510,6 +518,14 @@ List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 def filter[T](list: List[T])(f: T => Boolean): List[T] = ???
 ```
 
+```scala
+assert(List(2) == filter(List(1, 2, 3))(x => x % 2 == 0))
+assert(List(1, 3) == filter(List(1, 2, 3))(x => x % 2 == 1))
+assert(Nil == filter(List(1, 2, 3))(x => x > 3))
+assert(List(1) == filter(List(1))(x => x == 1))
+assert(Nil == filter(List[Int]())(x => false))
+```
+
 <!-- begin answer id="answer_ex8" style="display:none" -->
 
 ```scala mdoc:nest:silent
@@ -532,6 +548,34 @@ List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 
 後で説明されることになりますが、`Option`型はScalaプログラミングの中で重要な要素であり頻出します。
 
+#### 練習問題
+
+次のシグニチャを持つ`find`メソッドを`foldLeft`または再帰で実装してみましょう。`Option[T]` 型の`Some[T]` は `Some(1)` のように生成できます。また、要素がないことを表す`None`は`None`と表記できます。
+
+```scala mdoc:nest:silent
+def find[T](list: List[T])(f: T => Boolean): Option[T] = ???
+```
+
+```scala
+assert(Some(2) == find(List(1, 2, 3))(x => x == 2))
+assert(None == find(List(1, 2, 3))(x => x > 3))
+assert(Some(1) == find(List(1))(x => x == 1))
+assert(None == find(List(1))(x => false))
+assert(None == find(List[Int]())(x => x == 1))
+```
+
+<!-- begin answer id="answer_ex9" style="display:none" -->
+
+```scala mdoc:nest:silent
+def find[T](list: List[T])(f: T => Boolean): Option[T] = list match {
+  case x::xs if f(x) => Some(x)
+  case x::xs => find(xs)(f)
+  case _ => None
+}
+```
+
+<!-- end answer -->
+
 ### takeWhile：先頭から条件を満たしている間を抽出する
 
 `takeWhile`メソッドは、`Boolean`型を返す1引数の関数を引数に取り、前から順番に関数を適用し、結果が`true`の間のみからなる`List`を返します。`List(1, 2, 3, 4, 5)`の5より前の4要素を抽出してみます。
@@ -539,6 +583,38 @@ List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 ```scala mdoc:nest
 List(1, 2, 3, 4, 5).takeWhile(x => x != 5)
 ```
+
+#### 練習問題
+
+次のシグニチャを持つ`takeWhile`メソッドをループまたは再帰を使って実装してみましょう：
+
+```scala mdoc:nest:silent
+def takeWhile[T](list: List[T])(f: T => Boolean): List[T] = ???
+```
+
+`takeWhile` メソッドは次のようにして使います。
+
+```scala
+assert(List(1, 2, 3) == takeWhile(List(1, 2, 3, 4, 5))(x => x <= 3))
+assert(List(1) == takeWhile(List(1, 2, 3, 3, 4, 5))(x => x == 1))
+assert(List(1, 2, 3, 4)  == takeWhile(List(1, 2, 3, 4, 5))(x => x < 5))
+assert(Nil == takeWhile(List(1, 2, 3, 3, 2, 2))(x => false))
+```
+
+<!-- begin answer id="answer_ex10" style="display:none" -->
+
+```scala mdoc:nest:silent
+def takeWhile[T](list: List[T])(f: T => Boolean): List[T] = {
+  list match {
+    case x::xs if f(x) =>
+      x::takeWhile(xs)(f)
+    case _ =>
+      Nil
+  }
+}
+```
+
+<!-- end answer -->
 
 ### count：`List`の中で条件を満たしている要素の数を計算する
 
@@ -556,7 +632,16 @@ List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 def count[T](list: List[T])(f: T => Boolean): Int = ???
 ```
 
-<!-- begin answer id="answer_ex9" style="display:none" -->
+`count` メソッドは次のようにして使います。
+
+```scala
+assert(3 == count(List(1, 2, 3, 3, 2, 2))(x => x == 2))
+assert(1 == count(List(1, 2, 3, 3, 2, 2))(x => x == 1))
+assert(2 == count(List(1, 2, 3, 3, 2, 2))(x => x == 3))
+assert(0 == count(List(1, 2, 3, 3, 2, 2))(x => x == 5))
+```
+
+<!-- begin answer id="answer_ex11" style="display:none" -->
 
 ```scala mdoc:nest:silent
 def count[T](list: List[T])(f: T => Boolean): Int  = {
@@ -604,6 +689,38 @@ col1.flatMap{x => col2.map{y => z}}
 
 のシンタックスシュガーだったのです。すなわち、ある自分で定義したデータ型に`flatMap`と`map`を（適切に）実装すれば
 for構文の中で使うことができるのです。
+
+#### 練習問題
+
+次のシグニチャを持つ`flatMap`メソッドを再帰やループで実装してみましょう：
+
+```scala mdoc:nest:silent
+def flatMap[T, U](list: List[T])(f: T => List[U]): List[U] = ???
+```
+
+`flatMap` メソッドは次のようにして使います。
+
+```scala
+assert(List(1, 2, 3) == flatMap(List(1, 2, 3))(x => List(x)))
+assert(
+  List(3, 4, 6, 8) == flatMap(List(1, 2))(x =>
+    map(List(3, 4))(y => x * y)
+  )
+)
+```
+
+<!-- begin answer id="answer_ex12" style="display:none" -->
+
+```scala mdoc:nest:silent
+def flatMap[T, U](list: List[T])(f: T => List[U]): List[U] = {
+  list match {
+    case Nil => Nil
+    case x::xs => f(x) ::: flatMap(xs)(f)
+  }
+}
+```
+
+<!-- end answer -->
 
 #### Listの性能特性
 
