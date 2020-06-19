@@ -20,7 +20,7 @@ libraryDependencies ++= Seq(
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
   "org.mockito" % "mockito-core" % "3.3.3",
   "org.scalacheck" %% "scalacheck" % "1.14.3",
-  "org.scalatest" %% "scalatest" % "3.1.2" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
+  "org.scalatest" %% "scalatest" % "3.2.0" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
 
 GitBook.settings
