@@ -4,7 +4,7 @@ jdk:
 - openjdk8
 before_install:
 - export CXX='g++-4.8'
-- nvm install 9.4.0 && nvm use 9.4.0 && npm install -g npm && npm install
+- nvm install 12.18.3 && nvm use 12.18.3 && npm install -g npm && npm ci
 - npm install svgexport -g
 cache:
   directories:
