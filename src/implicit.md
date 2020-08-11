@@ -70,8 +70,8 @@ implicit class RichString(val src: String) {
 ```
 
 という形で書きなおすことができます。
-implicit classはpimp my libraryパターン専用の機能であり、implicit defで既存型への変換した場合などによる混乱がないため、Scala 2.10以降でpimp my libraryパターンを使うときは基本的に後者の形式にすべきですが、
-サードパーティのライブラリや標準ライブラリでも前者の形式になっていることがあるので、そのようなコードも読めるようにして
+implicit classはpimp my libraryパターン専用の機能であり、implicit defで既存型への変換した場合などによる混乱がないため、Scala 2.10以降でpimp my libraryパターンを使うときは基本的に後者の形式にすべきです。
+しかし、サードパーティのライブラリや標準ライブラリでも前者の形式になっていることがあるので、そのようなコードも読めるようにして
 おきましょう。
 
 ### 練習問題 {#implicit_ex1}
