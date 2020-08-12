@@ -163,7 +163,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.0" % "test"
 ```scala mdoc:nest:silent
 class Calc {
 
-  /** 整数の配列を取得し、それらを出し合わせた整数を返す
+  /** 整数の配列を取得し、それらを足し合わせた整数を返す
     *
     * Intの最大を上回った際にはオーバーフローする
     */
