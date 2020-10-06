@@ -511,7 +511,7 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 
 - 不具合を見つけたら、可能であれば再現手順もあわせて報告する
 - パッチを送る際はテストを含める
-- [不具合にテストを書いて立ち向かう](http://t-wada.hatenablog.jp/entry/debugging-tests)
+- [不具合にテストを書いて立ち向かう](https://t-wada.hatenablog.jp/entry/debugging-tests)
 
 他人から報告された不具合は、伝聞ということもありどうしても再現させづらい場合があります。
 その結果として「私の環境では再現しませんでした」と言われて終わってしまうのでは、不具合を修正するせっかくのチャンスを逃すことになってしまいます。
