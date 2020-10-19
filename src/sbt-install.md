@@ -20,7 +20,7 @@ Mac OSの場合、[Homebrew](https://brew.sh/index_ja.html)を用いて、
 $ brew install sbt
 ```
 
-でインストールするのが楽です。
+でインストールするのが楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 https://github.com/scala-text/scala_text/issues/566
 
 ## Windowsの場合
 
