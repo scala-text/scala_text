@@ -547,7 +547,7 @@ Option&#x578B;&#x306B;&#x306F;&#x5177;&#x4F53;&#x7684;&#x306B;&#x306F;</p>
 <code>None</code>&#x306F;&#x5024;&#x304C;&#x4F55;&#x3082;&#x683C;&#x7D0D;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x6642;&#x306E;<code>Option</code>&#x306E;&#x578B;&#x3067;&#x3059;&#x3002;</p>
 <p>&#x5177;&#x4F53;&#x7684;&#x306A;&#x52D5;&#x304D;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>Option</code>&#x306B;&#x5177;&#x4F53;&#x7684;&#x306A;&#x5024;&#x304C;&#x5165;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x69D8;&#x306A;&#x52D5;&#x304D;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> o: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Option</span>(<span class="hljs-string">&quot;hoge&quot;</span>)
-<span class="hljs-comment">// o: Option[String] = Some(&quot;hoge&quot;)</span>
+<span class="hljs-comment">// o: Option[String] = Some(value = &quot;hoge&quot;)</span>
 
 o.get
 <span class="hljs-comment">// res0: String = &quot;hoge&quot;</span>
@@ -582,7 +582,7 @@ o.isDefined
 <h4 id="option&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;"><a name="option&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;" class="plugin-anchor" href="#option&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;"><i class="fa fa-link" aria-hidden="true"></i></a>Option&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;</h4>
 <p>&#x4E0A;&#x8A18;&#x3067;&#x306F;&#x3001;&#x624B;&#x7D9A;&#x304D;&#x7684;&#x306B;Option&#x3092;&#x51E6;&#x7406;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x51E6;&#x7406;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> s: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(<span class="hljs-string">&quot;hoge&quot;</span>)
-<span class="hljs-comment">// s: Option[String] = Some(&quot;hoge&quot;)</span>
+<span class="hljs-comment">// s: Option[String] = Some(value = &quot;hoge&quot;)</span>
 
 <span class="hljs-keyword">val</span> result = s <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(str) =&gt; str
@@ -595,7 +595,7 @@ o.isDefined
 <h4 id="option&#x306B;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3059;&#x308B;"><a name="option&#x306B;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3059;&#x308B;" class="plugin-anchor" href="#option&#x306B;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3059;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>Option&#x306B;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3059;&#x308B;</h4>
 <p>Option&#x306B;&#x306F;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x6027;&#x8CEA;&#x304C;&#x3042;&#x308B;&#x3068;&#x8A00;&#x3044;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x95A2;&#x6570;&#x3092;&#x5185;&#x5BB9;&#x306E;&#x8981;&#x7D20;&#x306B;&#x9069;&#x7528;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x6027;&#x8CEA;&#x3082;&#x305D;&#x306E;&#x307E;&#x307E;&#x6301;&#x3061;&#x5408;&#x308F;&#x305B;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-type">Some</span>(<span class="hljs-number">3</span>).map(_ * <span class="hljs-number">3</span>)
-<span class="hljs-comment">// res6: Option[Int] = Some(9)</span>
+<span class="hljs-comment">// res6: Option[Int] = Some(value = 9)</span>
 </code></pre>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;<code>map</code>&#x3067;&#x95A2;&#x6570;&#x3092;&#x9069;&#x7528;&#x3059;&#x308B;&#x4E8B;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;&#x5024;&#x304C;<code>None</code>&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
@@ -632,22 +632,22 @@ map&#x3067;&#x306F;&#x3001;&#x5024;&#x304C;Some&#x306E;&#x5834;&#x5408;&#x306F;&
 <p>&#x305F;&#x3068;&#x3048;&#x3070;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x304B;&#x3089;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x30D2;&#x30C3;&#x30C8;&#x3059;&#x308B;&#x5834;&#x5408;&#x3068;&#x3001;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x30DF;&#x30B9;&#x3059;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x3001;&#x305D;&#x308C;&#x3089;&#x306F;Scala&#x3067;&#x306F;&#x3088;&#x304F;Option&#x578B;&#x3067;&#x8868;&#x73FE;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x53D6;&#x5F97;&#x304C;&#x9023;&#x7D9A;&#x3057;&#x3066;&#x7E70;&#x308A;&#x8FD4;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;1&#x3064;&#x76EE;&#x3068;2&#x3064;&#x76EE;&#x306E;&#x6574;&#x6570;&#x306E;&#x5024;&#x304C;Option&#x3067;&#x8FD4;&#x3063;&#x3066;&#x304D;&#x3066;&#x305D;&#x308C;&#x3092;&#x304B;&#x3051;&#x305F;&#x5024;&#x3092;&#x3082;&#x3068;&#x3081;&#x308B;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
 
 v1.map(i1 =&gt; v2.map(i2 =&gt; i1 * i2))
-<span class="hljs-comment">// res9: Option[Option[Int]] = Some(Some(15))</span>
+<span class="hljs-comment">// res9: Option[Option[Int]] = Some(value = Some(value = 15))</span>
 </code></pre>
 <p>map&#x3060;&#x3051;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x3068;&#x3053;&#x3093;&#x306A;&#x98A8;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;&#x30A6;&#x30A6;&#x30C3;&#x2026;&#x3001;&#x60B2;&#x3057;&#x3044;&#x3053;&#x3068;&#x306B;<code>Option[Option[Int]]</code>&#x306E;&#x3088;&#x3046;&#x306B;Option&#x304C;&#x5165;&#x308C;&#x5B50;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5165;&#x308C;&#x5B50;&#x306E;option&#x3092;&#x89E3;&#x6D88;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x304C;&#x3001;<code>flatten</code>&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">v1.map(i1 =&gt; v2.map(i2 =&gt; i1 * i2)).flatten
-<span class="hljs-comment">// res10: Option[Int] = Some(15)</span>
+<span class="hljs-comment">// res10: Option[Int] = Some(value = 15)</span>
 </code></pre>
 <p>&#x6700;&#x5F8C;&#x306B;<code>flatten</code>&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;Option&#x306E;&#x5165;&#x308C;&#x5B50;&#x3092;&#x89E3;&#x6D88;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;v2&#x304C;None&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306B;&#x3082;<code>flatten</code>&#x306F;&#x6210;&#x7ACB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
 <span class="hljs-comment">// v2: Option[Int] = None</span>
@@ -681,27 +681,27 @@ v1.map { i1 =&gt;
 <code>flatMap</code>&#x3068;&#x3044;&#x3046;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;Option&#x306B;&#x306F;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x540D;&#x524D;&#x306F;<code>flatMap</code>&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x610F;&#x5473;&#x3068;&#x3057;&#x3066;&#x306F;Option&#x306B;<code>map</code>&#x3092;&#x304B;&#x3051;&#x3066;<code>flatten</code>&#x3092;&#x9069;&#x7528;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x5B9F;&#x969B;&#x306B;&#x5148;&#x307B;&#x3069;&#x306E;&#x3001;<code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3092;&#x304B;&#x3051;&#x308B;&#x4F8B;&#x3067;&#x5229;&#x7528;&#x3057;&#x3066;&#x307F;&#x308B;&#x3068;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
 
 v1.flatMap(i1 =&gt; v2.map(i2 =&gt; i1 * i2))
-<span class="hljs-comment">// res13: Option[Int] = Some(15)</span>
+<span class="hljs-comment">// res13: Option[Int] = Some(value = 15)</span>
 </code></pre>
 <p>&#x305A;&#x3044;&#x3076;&#x3093;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <p><code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3068;<code>Some(7)</code>&#x3092;&#x304B;&#x3051;&#x308B;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
 
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
-<span class="hljs-comment">// v3: Option[Int] = Some(7)</span>
+<span class="hljs-comment">// v3: Option[Int] = Some(value = 7)</span>
 
 v1.flatMap(i1 =&gt; v2.flatMap(i2 =&gt; v3.map(i3 =&gt; i1 * i2 * i3)))
-<span class="hljs-comment">// res14: Option[Int] = Some(105)</span>
+<span class="hljs-comment">// res14: Option[Int] = Some(value = 105)</span>
 </code></pre>
 <p>&#x7121;&#x8AD6;&#x3053;&#x308C;&#x306F;&#x3001; <code>v1</code>, <code>v2</code>, <code>v3</code> &#x306E;&#x3044;&#x305A;&#x308C;&#x304C; <code>None</code> &#x3067;&#x3042;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x3082;&#x6210;&#x7ACB;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F; <code>flatten</code> &#x306E;&#x6642;&#x3068;&#x540C;&#x69D8;&#x306B; <code>None</code> &#x304C;&#x6700;&#x7D42;&#x7684;&#x306A;&#x7B54;&#x3048;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
@@ -738,18 +738,18 @@ for&#x5F0F;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x306F;<code>flatMap</code>&#x3068;<
 <p>&#x4F55;&#x3092;&#x3044;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x5148;&#x307B;&#x3069;&#x306E;
 <code>Some(3)</code>&#x3068;<code>Some(5)</code>&#x3068;<code>Some(7)</code>&#x3092;flatMap&#x3067;&#x304B;&#x3051;&#x308B;&#x3068;&#x3044;&#x3046;&#x51E6;&#x7406;&#x3092;for&#x3067;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
 
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
-<span class="hljs-comment">// v3: Option[Int] = Some(7)</span>
+<span class="hljs-comment">// v3: Option[Int] = Some(value = 7)</span>
 
 <span class="hljs-keyword">for</span> { i1 &lt;- v1
       i2 &lt;- v2
       i3 &lt;- v3 } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-<span class="hljs-comment">// res17: Option[Int] = Some(105)</span>
+<span class="hljs-comment">// res17: Option[Int] = Some(value = 105)</span>
 </code></pre>
 <p>&#x5B9F;&#x306F;&#x3053;&#x306E;for&#x5F0F;&#x306F;&#x5148;&#x307B;&#x3069;&#x306E;<code>flatMap</code>&#x3068;<code>map</code>&#x3067;&#x66F8;&#x304B;&#x308C;&#x305F;&#x3082;&#x306E;&#x3068;&#x307E;&#x3063;&#x305F;&#x304F;&#x540C;&#x3058;&#x52D5;&#x4F5C;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;
 <code>flatMap</code>&#x3068;<code>map</code>&#x3092;&#x8907;&#x6570;&#x56DE;&#x4F7F;&#x3046;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306F;for&#x5F0F;&#x306E;&#x307B;&#x3046;&#x304C;&#x3088;&#x308A;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
@@ -775,10 +775,10 @@ None&#x306E;&#x5834;&#x5408;&#x3001;&#x5024;&#x304C;&#x53D6;&#x5F97;&#x3067;&#x3
 <p>&#x305D;&#x3093;&#x306A;Option&#x3068;&#x9055;&#x3044;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x6642;&#x306B;&#x30A8;&#x30E9;&#x30FC;&#x306E;&#x7A2E;&#x985E;&#x307E;&#x3067;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x308B;&#x306E;&#x304C;Either&#x3067;&#x3059;&#x3002;
 Option&#x304C;&#x6B63;&#x5E38;&#x306A;&#x5024;&#x3068;&#x4F55;&#x3082;&#x306A;&#x3044;&#x5024;&#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x3060;&#x3063;&#x305F;&#x306E;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;Either&#x306F;2&#x3064;&#x306E;&#x5024;&#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x3067;&#x3059;&#x3002;&#x5177;&#x4F53;&#x7684;&#x306B;&#x306F;&#x3001;Option&#x3067;&#x306F;<code>Some</code>&#x3068;<code>None</code>&#x306E;2&#x3064;&#x306E;&#x5024;&#x3092;&#x6301;&#x3061;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;Either&#x306F;<code>Right</code>&#x3068;<code>Left</code>&#x306E;2&#x3064;&#x306E;&#x5024;&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">123</span>)
-<span class="hljs-comment">// v1: Either[String, Int] = Right(123)</span>
+<span class="hljs-comment">// v1: Either[String, Int] = Right(value = 123)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">&quot;abc&quot;</span>)
-<span class="hljs-comment">// v2: Either[String, Int] = Left(&quot;abc&quot;)</span>
+<span class="hljs-comment">// v2: Either[String, Int] = Left(value = &quot;abc&quot;)</span>
 </code></pre>
 <p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x308B;&#x306E;&#x3082;Option&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala">v1 <span class="hljs-keyword">match</span> {
@@ -830,15 +830,15 @@ Option&#x3068;&#x540C;&#x69D8;&#x306B;Either&#x3082;for&#x5F0F;&#x3092;&#x4F7F;&
 Either&#x306B;&#x306F;Right, Left&#x306E;2&#x3064;&#x306E;&#x5024;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;Scala&#x306E;Either&#x3067;&#x306F;Right&#x304C;&#x6B63;&#x5E38;&#x306A;&#x5024;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x305F;&#x3081;&#x3001;map&#x3084;flatMap&#x3067;&#x306F;Right&#x306E;&#x5024;&#x304C;&#x5229;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;<sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
 <p>&#x305F;&#x3081;&#x3057;&#x306B;<code>Either</code>&#x306E;<code>map</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">123</span>)
-<span class="hljs-comment">// v: Either[String, Int] = Right(123)</span>
+<span class="hljs-comment">// v: Either[String, Int] = Right(value = 123)</span>
 
 v.map(_ * <span class="hljs-number">2</span>)
-<span class="hljs-comment">// res20: Either[String, Int] = Right(246)</span>
+<span class="hljs-comment">// res20: Either[String, Int] = Right(value = 246)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">&quot;a&quot;</span>)
-<span class="hljs-comment">// v2: Either[String, Int] = Left(&quot;a&quot;)</span>
+<span class="hljs-comment">// v2: Either[String, Int] = Left(value = &quot;a&quot;)</span>
 v2.map(_ * <span class="hljs-number">2</span>) <span class="hljs-comment">// v2&#x304C;Left&#x306A;&#x306E;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x306A;&#x3044;</span>
-<span class="hljs-comment">// res21: Either[String, Int] = Left(&quot;a&quot;)</span>
+<span class="hljs-comment">// res21: Either[String, Int] = Left(value = &quot;a&quot;)</span>
 </code></pre>
 <p>&#x3053;&#x308C;&#x3067;map&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5024;&#x3092;&#x4E8C;&#x500D;&#x306B;&#x3059;&#x308B;&#x95A2;&#x6570;&#x3092;Right&#x306B;&#x9069;&#x7528;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;
 Either&#x304C;Left&#x306E;&#x5834;&#x5408;&#x306F;&#x4F55;&#x306E;&#x51E6;&#x7406;&#x3082;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x308C;&#x306F;Option&#x3067;None&#x306B;&#x5BFE;&#x3057;&#x3066;map&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x4F55;&#x306E;&#x51E6;&#x7406;&#x3082;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x52D5;&#x4F5C;&#x306B;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#x3002;</p>
@@ -883,24 +883,24 @@ Either&#x3068;&#x306E;&#x9055;&#x3044;&#x306F;&#x3001;2&#x3064;&#x306E;&#x578B;&
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.util.<span class="hljs-type">Try</span>
 
 <span class="hljs-keyword">val</span> v: <span class="hljs-type">Try</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Try</span>(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;to be caught&quot;</span>))
-<span class="hljs-comment">// v: Try[Int] = Failure(java.lang.RuntimeException: to be caught)</span>
+<span class="hljs-comment">// v: Try[Int] = Failure(exception = java.lang.RuntimeException: to be caught)</span>
 </code></pre>
 <p>&#x3053;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x4F8B;&#x5916;&#x304C;&#x8D77;&#x3053;&#x308A;&#x305D;&#x3046;&#x306A;&#x7B87;&#x6240;&#x3092;<code>Try</code>&#x3067;&#x5305;&#x307F;&#x3001;Failure&#x306B;&#x3057;&#x3066;&#x5024;&#x3068;&#x3057;&#x3066;&#x6271;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x306E;&#x304C;Try&#x306E;&#x7279;&#x5FB4;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1 = <span class="hljs-type">Try</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Try[Int] = Success(3)</span>
+<span class="hljs-comment">// v1: Try[Int] = Success(value = 3)</span>
 
 <span class="hljs-keyword">val</span> v2 = <span class="hljs-type">Try</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Try[Int] = Success(5)</span>
+<span class="hljs-comment">// v2: Try[Int] = Success(value = 5)</span>
 
 <span class="hljs-keyword">val</span> v3 = <span class="hljs-type">Try</span>(<span class="hljs-number">7</span>)
-<span class="hljs-comment">// v3: Try[Int] = Success(7)</span>
+<span class="hljs-comment">// v3: Try[Int] = Success(value = 7)</span>
 
 <span class="hljs-keyword">for</span> {
   i1 &lt;- v1
   i2 &lt;- v2
   i3 &lt;- v3
 } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-<span class="hljs-comment">// res24: Try[Int] = Success(105)</span>
+<span class="hljs-comment">// res24: Try[Int] = Success(value = 105)</span>
 </code></pre>
 <h4 id="nonfatal&#x306E;&#x4F8B;&#x5916;"><a name="nonfatal&#x306E;&#x4F8B;&#x5916;" class="plugin-anchor" href="#nonfatal&#x306E;&#x4F8B;&#x5916;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala/blob/v2.13.2/src/library/scala/util/control/NonFatal.scala" target="_blank"><code>NonFatal</code></a>&#x306E;&#x4F8B;&#x5916;</h4>
 <p><code>Try.apply</code>&#x304C;catch&#x3059;&#x308B;&#x306E;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x4F8B;&#x5916;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
@@ -1114,7 +1114,7 @@ for&#x5F0F;&#x3067;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x305F;&#x5F8C;&#x30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2020-11-11T00:11:19.872Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-11-11T00:11:45.081Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2020-11-11T00:22:49.016Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-11-11T00:23:24.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
