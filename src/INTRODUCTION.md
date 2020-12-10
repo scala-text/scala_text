@@ -38,7 +38,7 @@
 * 誤字・脱字の指摘や修正、および明確な技術的誤りの指摘や修正：
   * [scala_text](https://github.com/scala-text/scala_text)のissue欄およびpull requestへ
 * それ以外の改善要望や感想：
-  * [専用issue](https://github.com/scala-text/scala_text/issues/235)へ
+  * [専用discussions](https://github.com/scala-text/scala_text/discussions/235)へ
 
 よろしくお願いいたします。
 

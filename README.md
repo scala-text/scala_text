@@ -145,7 +145,7 @@ sbt textBuildEpub
 - [scala_text](https://github.com/scala-text/scala_text)のissue欄へ
 
 ### その他全体的な感想や改善要望
-- [専用issue](https://github.com/scala-text/scala_text/issues/235)へ
+- [専用discussions](https://github.com/scala-text/scala_text/discussions/235)へ
 
 ## ライセンス
 
