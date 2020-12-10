@@ -21,7 +21,7 @@
     "gitbook-plugin-japanese-support": "0.0.1",
     "gitbook-plugin-regexplace": "2.1.2",
     "kramed": "0.5.6",
-    "mocha": "4.0.1",
+    "mocha": "8.2.1",
     "npm-check-updates": "^2.15.0",
     "npm-run-all": "4.1.1",
     "power-assert": "1.4.4",
