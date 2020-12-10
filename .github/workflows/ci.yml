@@ -48,9 +48,7 @@ jobs:
     - uses: webfactory/ssh-agent@v0.4.1
       if: ${{ !github.event.repository.fork && github.event_name == 'push' }}
       with:
-        ssh-private-key: |
-          ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
-          ${{ secrets.SCALA_TEXT_PDF_KEY }}
+        ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
     - name: push to scala_text_previews
       uses: JamesIves/github-pages-deploy-action@3.7.1
       if: ${{ !github.event.repository.fork && github.ref != 'refs/heads/master' && github.event_name == 'push' }}
@@ -61,8 +59,16 @@ jobs:
         BRANCH: gh-pages
         FOLDER: gitbook/_book/
         CLEAN: true
-    - name: push to scala_text_pdf
-      if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+  push_pdf:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - uses: webfactory/ssh-agent@v0.4.1
+      if: ${{ !github.event.repository.fork && github.event_name == 'push' }}
+      with:
+        ssh-private-key: ${{ secrets.SCALA_TEXT_PDF_KEY }}
+    - if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
       run: |
         git clone git@github.com:scala-text/scala_text_pdf.git
         cd scala_text_pdf
