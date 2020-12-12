@@ -6,7 +6,7 @@ import sleep from "sleep";
 import assert from "power-assert";
 import cheerio from "cheerio";
 
-// gitbookで使っているmarkdownパーサー
+// honkitで使っているmarkdownパーサー
 import kramed from "kramed";
 
 // === util ====

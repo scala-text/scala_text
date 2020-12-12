@@ -1,5 +1,5 @@
 {
-  "root": "./gitbook",
+  "root": "./honkit",
   "structure": {
     "readme": "INTRODUCTION.md",
     "summary": "SUMMARY.md"

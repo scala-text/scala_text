@@ -22,7 +22,7 @@ jobs:
     - run: sudo apt-get install g++-4.8
     - uses: actions/setup-node@v1.4.4
       with:
-        node-version: '12.18.2' # https://github.com/nodejs/node/issues/34529
+        node-version: '14.15.1'
     - run: npm install -g npm
     - run: npm ci
     - run: npm install svgexport -g
@@ -34,7 +34,7 @@ jobs:
         export PATH="~/calibre-bin/calibre/:$HOME/calibre-bin/calibre/:$PATH"
         sbt textBuildEpub
     - run: git diff --exit-code
-    - run: mv gitbook/scala_text.epub gitbook/_book/
+    - run: mv honkit/scala_text.epub honkit/_book/
     - run: find . -name "*.class" | xargs rm -rf
     - run: find . -name target | xargs rm -rf
     - name: push to gh-pages
@@ -43,7 +43,7 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: gitbook/_book/
+        FOLDER: honkit/_book/
         CLEAN: true
     - uses: webfactory/ssh-agent@v0.4.1
       if: ${{ !github.event.repository.fork && github.event_name == 'push' }}
@@ -57,7 +57,7 @@ jobs:
         TARGET_FOLDER: ${{ github.ref }}
         REPOSITORY_NAME: scala-text/scala_text_previews
         BRANCH: gh-pages
-        FOLDER: gitbook/_book/
+        FOLDER: honkit/_book/
         CLEAN: true
   push_pdf:
     needs: test

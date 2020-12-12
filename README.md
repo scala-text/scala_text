@@ -33,7 +33,7 @@ npm install
 ```
 
 原稿のビルドは以下のように行う。
-ビルドされたページは`gitbook/_book/index.html`から見ることができる。
+ビルドされたページは`honkit/_book/index.html`から見ることができる。
 
 ```
 sbt textBuildHtml
@@ -63,9 +63,9 @@ sbt textBuildAllWithCheck
 Scalaのコード例をテキスト中に書く場合は、使用可能な箇所では出来る限りmdocを使うこと。
 mdoc自体の具体的な使用方法は、mdocのREADMEなどを参照すること。
 
-### gitbookで特別視されるファイルについて
+### honkitで特別視されるファイルについて
 
-book.jsonで記述されているreadme, summaryはgitbookのビルド時に特別視される。
+book.jsonで記述されているreadme, summaryはhonkitのビルド時に特別視される。
 具体的には以下のような構成になっている。
 
 - readme: Introductionとして本の先頭ページに配置される
