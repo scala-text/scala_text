@@ -70,7 +70,7 @@ implicit class RichString(val src: String) {
 ```
 
 という形で書きなおすことができます。
-implicit classはpimp my libraryパターン専用の機能であり、implicit defで既存型への変換した場合などによる混乱がないため、Scala 2.10以降でpimp my libraryパターンを使うときは基本的に後者の形式にすべきです。
+implicit classはenrich my libraryパターン専用の機能であり、implicit defで既存型への変換した場合などによる混乱がないため、Scala 2.10以降でenrich my libraryパターンを使うときは基本的に後者の形式にすべきです。
 しかし、サードパーティのライブラリや標準ライブラリでも前者の形式になっていることがあるので、そのようなコードも読めるようにして
 おきましょう。
 
@@ -81,7 +81,7 @@ conversionにはどのような危険があるかを考えてください。
 
 ### 練習問題 {#implicit_ex2}
 
-pimp my libraryパターンで、既存のクラスの利用を便利にするようなimplicit conversionを1つ定義してみてください。それはどのような
+enrich my libraryパターンで、既存のクラスの利用を便利にするようなimplicit conversionを1つ定義してみてください。それはどのような
 場面で役に立つでしょうか？
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
@@ -112,7 +112,7 @@ Taps.main(Array())
 
 #### 練習問題 {#implicit_ex3}
 
-[Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html)の中からpimp my libraryが使われている例を（先ほど挙げた
+[Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html)の中からenrich my libraryが使われている例を（先ほど挙げた
 ものを除いて）1つ以上見つけてください。
 
 ## Implicit Parameter
