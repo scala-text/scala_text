@@ -3,9 +3,8 @@ import sbt.io.IO
 import mdoc.MdocPlugin.autoImport._
 import scala.sys.process.Process
 
-object GitBook extends NpmCliBase {
-  val gitbookBin = nodeBin / cmd("gitbook")
-  val gitbookVersion = "3.2.2"
+object Honkit extends NpmCliBase {
+  val honkitBin = nodeBin / cmd("honkit")
 
   sealed trait Format {def command: String}
   object Format {
@@ -15,20 +14,18 @@ object GitBook extends NpmCliBase {
   }
 
   def buildBook(format: Format) = Def.inputTask[Unit] {
-    val options = rawStringArg("<gitbook command>").parsed
-    printRun(Process(s"$gitbookBin  ${format.command} --gitbook=$gitbookVersion $options"))
+    val options = rawStringArg("<honkit command>").parsed
+    printRun(Process(s"$honkitBin ${format.command} $options"))
   }
 
-  lazy val textPluginInstall = taskKey[Unit]("install GitBook plugin")
-  lazy val textHelpGitBook = taskKey[Unit]("help GitBook")
-  lazy val textBuildHtml = inputKey[Unit]("build GitBook to html")
-  lazy val textBuildEpub = inputKey[Unit]("build GitBook to epub")
+  lazy val textHelpHonkit = taskKey[Unit]("help Honkit")
+  lazy val textBuildHtml = inputKey[Unit]("build Honkit to html")
+  lazy val textBuildEpub = inputKey[Unit]("build Honkit to epub")
 
   private[this] val mdocTask = mdoc.toTask("")
 
   val settings = Seq(
-    textPluginInstall := printRun(Process(s"$gitbookBin install")),
-    textHelpGitBook := printRun(Process(s"$gitbookBin help")),
+    textHelpHonkit := printRun(Process(s"$honkitBin help")),
     textBuildHtml := buildBook(Format.Html).dependsOn(mdocTask).evaluated,
     textBuildEpub := buildBook(Format.Epub).dependsOn(mdocTask).evaluated
   )

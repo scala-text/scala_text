@@ -5,8 +5,8 @@
 *~
 .DS_Store
 
-### gitbook ###
-/gitbook
+### honkit ###
+/honkit
 
 ### npm ###
 node_modules

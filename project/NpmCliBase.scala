@@ -15,10 +15,10 @@ trait NpmCliBase {
   // book.jsonがあるディレクトリ
   val bookJsonDir = file(".")
 
-  // gitbookのビルドの起点/成果物が入るディレクトリ(gitbook/_book/index.html, gitbook/scala_text.epubが生成される)
-  val bookDestDir = file("gitbook")
+  // honkitのビルドの起点/成果物が入るディレクトリ(honkit/_book/index.html, honkit/scala_text.epubが生成される)
+  val bookDestDir = file("honkit")
 
-  // mdocで処理済みのmarkdownファイルが入るディレクトリ。これがgitbook buildされる
+  // mdocで処理済みのmarkdownファイルが入るディレクトリ。これがhonkit buildされる
   // book.jsonのrootにも指定されている。
   val compiledSrcDir = bookDestDir
 

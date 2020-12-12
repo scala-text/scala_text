@@ -23,7 +23,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.3" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
 
-GitBook.settings
+Honkit.settings
 
 TextLint.settings
 
