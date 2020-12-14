@@ -3,11 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>sbtでプログラムをコンパイル・実行する · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="HonKit 3.6.15">
         
         
         
@@ -76,7 +75,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -417,8 +416,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -456,51 +455,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="sbt&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30FB;&#x5B9F;&#x884C;&#x3059;&#x308B;"><a name="sbt&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30FB;&#x5B9F;&#x884C;&#x3059;&#x308B;" class="plugin-anchor" href="#sbt&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30FB;&#x5B9F;&#x884C;&#x3059;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>sbt&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30FB;&#x5B9F;&#x884C;&#x3059;&#x308B;</h1>
+                                <html><head></head><body><h1 id="sbtでプログラムをコンパイル・実行する"><a name="sbtでプログラムをコンパイル・実行する" class="plugin-anchor" href="#sbtでプログラムをコンパイル・実行する"><i class="fa fa-link" aria-hidden="true"></i></a>sbtでプログラムをコンパイル・実行する</h1>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> sbt._, <span class="hljs-type">Keys</span>._
 </code></pre>
-<p>&#x524D;&#x7BC0;&#x307E;&#x3067;&#x3067;&#x306F;&#x3001;REPL&#x3092;&#x4F7F;&#x3063;&#x3066;Scala&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x6C17;&#x8EFD;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;Scala&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;sbt&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x5B66;&#x3073;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305A;&#x306F;REPL&#x306E;&#x6642;&#x3068;&#x540C;&#x69D8;&#x306B;Hello, World!&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x306E;&#x524D;&#x306B;&#x3001;REPL&#x3092;&#x629C;&#x3051;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;REPL&#x3092;&#x629C;&#x3051;&#x308B;&#x306B;&#x306F;&#x3001;REPL&#x304B;&#x3089;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5165;&#x529B;&#x3057;&#x307E;&#x3059;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3002;</p>
+<p>前節まででは、REPLを使ってScalaのプログラムを気軽に実行してみました。この節ではScalaのプログラムをsbtでコンパイルして実行する方法を学びましょう。まずはREPLの時と同様にHello, World!を表示するプログラムを作ってみましょう。その前に、REPLを抜けましょう。REPLを抜けるには、REPLから以下のように入力します<sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
 <pre><code>&gt;:quit
-</code></pre><p>Scala 2.10&#x307E;&#x3067;&#x306F;<code>exit</code>&#x3001;Scala 2.11&#x4EE5;&#x964D;&#x306F;<code>sys.exit</code>&#x3067;&#x7D42;&#x4E86;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x3089;&#x306F;REPL&#x5C02;&#x7528;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x4ECA;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x81EA;&#x4F53;&#x3092;&#x7D42;&#x4E86;&#x3055;&#x305B;&#x308B;&#x6C4E;&#x7528;&#x7684;&#x306A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306A;&#x306E;&#x3067;REPL&#x3092;&#x7D42;&#x4E86;&#x3055;&#x305B;&#x308B;&#x6642;&#x306B;&#x306F;&#x4F7F;&#x7528;&#x3057;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+</code></pre><p>Scala 2.10までは<code>exit</code>、Scala 2.11以降は<code>sys.exit</code>で終了することができますが、これらはREPL専用のコマンドではなく、今のプロセス自体を終了させる汎用的なメソッドなのでREPLを終了させる時には使用しないようにしましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">HelloWorld</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
     println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
   }
 }
 </code></pre>
-<p><code>object</code>&#x3084;<code>def</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x65B0;&#x3057;&#x3044;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x306D;&#x3002;&#x3053;&#x308C;&#x3089;&#x306E;&#x8A73;&#x3057;&#x3044;&#x610F;&#x5473;&#x306F;&#x3042;&#x3068;&#x3067;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;<code>scalac</code>&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x3067;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3082;&#x306E;&#x3068;&#x601D;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<code>{}</code>&#x3067;&#x56F2;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x90E8;&#x5206;&#x306F;REPL&#x306E;&#x5834;&#x5408;&#x3068;&#x540C;&#x3058;&#x3001;<code>println(&quot;Hello, World!&quot;)</code> &#x3067;&#x3059;&#x306D;&#x3002; &#x3053;&#x308C;&#x3092;<em>HelloWorld.scala</em>&#x3068;&#x3044;&#x3046;&#x540D;&#x524D;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x4FDD;&#x5B58;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4E0A;&#x8A18;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;sbt&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3001;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;<em>sandbox</em>&#x3068;&#x3044;&#x3046;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;&#x305D;&#x3053;&#x306B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x7F6E;&#x304F;&#x3053;&#x3068;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><code>object</code>や<code>def</code>といった新しいキーワードが出てきましたね。これらの詳しい意味はあとで説明するので、ここでは、<code>scalac</code>でコンパイルするプログラムはこのような形で定義するものと思ってください。<code>{}</code>で囲まれている部分はREPLの場合と同じ、<code>println(&quot;Hello, World!&quot;)</code> ですね。 これを<em>HelloWorld.scala</em>という名前のファイルに保存します。</p>
+<p>上記のプログラムはsbtでコンパイルし、実行することができます。ここでは<em>sandbox</em>というディレクトリを作成し、そこにプログラムを置くことにしましょう。</p>
 <pre><code>sandbox
-&#x251C;&#x2500;&#x2500; HelloWorld.scala
-&#x2514;&#x2500;&#x2500; build.sbt
-</code></pre><p>&#x4EE5;&#x4E0A;&#x306E;&#x3088;&#x3046;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x7F6E;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4ECA;&#x56DE;&#x306E;<em>build.sbt</em>&#x306B;&#x306F;Scala&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3068;&#x4E00;&#x7DD2;&#x306B;<code>scalac</code>&#x306E;&#x8B66;&#x544A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3082;&#x6709;&#x52B9;&#x306B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+├── HelloWorld.scala
+└── build.sbt
+</code></pre><p>以上のようにファイルを置きます。</p>
+<p>今回の<em>build.sbt</em>にはScalaのバージョンと一緒に<code>scalac</code>の警告オプションも有効にしてみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-comment">// build.sbt</span>
 scalaVersion := <span class="hljs-string">&quot;2.13.2&quot;</span>
 
 scalacOptions ++= <span class="hljs-type">Seq</span>(<span class="hljs-string">&quot;-deprecation&quot;</span>, <span class="hljs-string">&quot;-feature&quot;</span>, <span class="hljs-string">&quot;-unchecked&quot;</span>, <span class="hljs-string">&quot;-Xlint&quot;</span>)
 </code></pre>
-<p>&#x3053;&#x306E;&#x8A18;&#x8FF0;&#x3092;&#x52A0;&#x3048;&#x308B;&#x3053;&#x3068;&#x3067;<code>scalac</code>&#x304C;</p>
+<p>この記述を加えることで<code>scalac</code>が</p>
 <ul>
-<li>&#x4ECA;&#x5F8C;&#x5EC3;&#x6B62;&#x306E;&#x4E88;&#x5B9A;&#x306E;API&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#xFF08;<code>-deprecation</code>&#xFF09;</li>
-<li>&#x660E;&#x793A;&#x7684;&#x306B;&#x4F7F;&#x7528;&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x306A;&#x3044;&#x3068;&#x3044;&#x3051;&#x306A;&#x3044;&#x5B9F;&#x9A13;&#x7684;&#x306A;&#x6A5F;&#x80FD;&#x3084;&#x6CE8;&#x610F;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x6A5F;&#x80FD;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#xFF08;<code>-feature</code>&#xFF09;</li>
-<li>&#x578B;&#x6D88;&#x53BB;&#x306A;&#x3069;&#x3067;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x6709;&#x52B9;&#x306B;&#x6A5F;&#x80FD;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#xFF08;<code>-unchecked</code>&#xFF09;</li>
-<li>&#x305D;&#x306E;&#x4ED6;&#x3001;&#x671B;&#x307E;&#x3057;&#x3044;&#x66F8;&#x304D;&#x65B9;&#x3084;&#x843D;&#x3068;&#x3057;&#x7A74;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x60C5;&#x5831;&#xFF08;<code>-Xlint</code>&#xFF09;</li>
+<li>今後廃止の予定のAPIを利用している（<code>-deprecation</code>）</li>
+<li>明示的に使用を宣言しないといけない実験的な機能や注意しなければならない機能を利用している（<code>-feature</code>）</li>
+<li>型消去などでパターンマッチが有効に機能しない場合（<code>-unchecked</code>）</li>
+<li>その他、望ましい書き方や落とし穴についての情報（<code>-Xlint</code>）</li>
 </ul>
-<p>&#x306A;&#x3069;&#x306E;&#x8B66;&#x544A;&#x306E;&#x60C5;&#x5831;&#x3092;&#x8A73;&#x3057;&#x304F;&#x51FA;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x89AA;&#x5207;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x4ED8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p>&#x3055;&#x3066;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x914D;&#x7F6E;&#x3057;&#x305F;&#x3089;<em>sandbox</em>&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x5165;&#x308A;&#x3001;sbt&#x3092;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;sbt&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x306B;&#x306F;&#x5BFE;&#x8A71;&#x30B7;&#x30A7;&#x30EB;&#x304B;&#x3089;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x6253;&#x3061;&#x307E;&#x3059;&#x3002;</p>
+<p>などの警告の情報を詳しく出してくれるようになります。コンパイラのメッセージが親切になるので付けるようにしましょう。</p>
+<p>さて、このようにファイルを配置したら<em>sandbox</em>ディレクトリに入り、sbtを起動します。sbtを起動するには対話シェルから以下のようにコマンドを打ちます。</p>
 <pre><code>$ sbt
-</code></pre><p>&#x3059;&#x308B;&#x3068;sbt&#x306E;&#x30D7;&#x30ED;&#x30F3;&#x30D7;&#x30C8;&#x304C;&#x51FA;&#x3066;&#x3001;sbt&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x5165;&#x529B;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4ECA;&#x56DE;&#x306F;HelloWorld&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;<code>run</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+</code></pre><p>するとsbtのプロンプトが出て、sbtのコマンドが入力できるようになります。今回はHelloWorldのプログラムを実行するために<code>run</code>コマンドを入力してみましょう。</p>
 <pre><code class="lang-scala">&gt; run
 [info] <span class="hljs-type">Compiling</span> <span class="hljs-number">1</span> <span class="hljs-type">Scala</span> source to ...
 [info] <span class="hljs-type">Running</span> <span class="hljs-type">HelloWorld</span>
 <span class="hljs-type">Hello</span>, <span class="hljs-type">World</span>!
 [success] <span class="hljs-type">Total</span> time: <span class="hljs-number">1</span> s, completed <span class="hljs-number">2015</span>/<span class="hljs-number">02</span>/<span class="hljs-number">09</span> <span class="hljs-number">15</span>:<span class="hljs-number">44</span>:<span class="hljs-number">44</span>
 </code></pre>
-<p>HelloWorld&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x3001;&#x3055;&#x3089;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;<code>Hello, World!</code>&#x3068;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;
-<code>run</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x306F;<code>main</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x63A2;&#x3057;&#x3066;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305F;sbt&#x306E;&#x7BA1;&#x7406;&#x4E0B;&#x306E;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;<code>console</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;REPL&#x304B;&#x3089;&#x547C;&#x3073;&#x51FA;&#x305B;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
-<em>HelloWorld.scala</em>&#x3068;&#x540C;&#x3058;&#x5834;&#x6240;&#x306B;<em>User.scala</em>&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;</p>
+<p>HelloWorldプログラムがコンパイルされ、さらに実行されて<code>Hello, World!</code>と表示されました。
+<code>run</code>コマンドでは<code>main</code>メソッドを持っているオブジェクトを探して実行してくれます。</p>
+<p>またsbtの管理下のScalaプログラムは<code>console</code>コマンドでREPLから呼び出せるようになります。
+<em>HelloWorld.scala</em>と同じ場所に<em>User.scala</em>というファイルを作ってみましょう</p>
 <pre><code class="lang-scala"><span class="hljs-comment">// User.scala</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>(<span class="hljs-params">val name: <span class="hljs-type">String</span>, val age: <span class="hljs-type">Int</span></span>)</span>
 
@@ -508,21 +507,21 @@ scalacOptions ++= <span class="hljs-type">Seq</span>(<span class="hljs-string">&
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printUser</span></span>(user: <span class="hljs-type">User</span>) = println(user.name + <span class="hljs-string">&quot; &quot;</span> + user.age)
 }
 </code></pre>
-<p>&#x3053;&#x306E;<em>User.scala</em>&#x306B;&#x306F;<code>User</code>&#x30AF;&#x30E9;&#x30B9;&#x3068;<code>User</code>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x304C;&#x3042;&#x308A;&#x3001;<code>User</code>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x306F;<code>User</code>&#x306E;&#x60C5;&#x5831;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;<code>printUser</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF08;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x8A73;&#x7D30;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3053;&#x306E;&#x5F8C;&#x306E;&#x7BC0;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#xFF09;&#x3002;</p>
+<p>この<em>User.scala</em>には<code>User</code>クラスと<code>User</code>オブジェクトがあり、<code>User</code>オブジェクトには<code>User</code>の情報を表示する<code>printUser</code>メソッドがあります（クラスやオブジェクトの詳細についてはこの後の節で説明します）。</p>
 <pre><code>sandbox
-&#x251C;&#x2500;&#x2500; HelloWorld.scala
-&#x251C;&#x2500;&#x2500; User.scala
-&#x2514;&#x2500;&#x2500; build.sbt
-</code></pre><p>&#x3053;&#x306E;&#x72B6;&#x614B;&#x3067;<code>sbt console</code>&#x3067;REPL&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x3068;&#x3001;REPL&#x3067;<code>User</code>&#x30AF;&#x30E9;&#x30B9;&#x3084;<code>User</code>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+├── HelloWorld.scala
+├── User.scala
+└── build.sbt
+</code></pre><p>この状態で<code>sbt console</code>でREPLを起動すると、REPLで<code>User</code>クラスや<code>User</code>オブジェクトを利用することができます。</p>
 <pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> u = <span class="hljs-keyword">new</span> <span class="hljs-type">User</span>(<span class="hljs-string">&quot;dwango&quot;</span>, <span class="hljs-number">13</span>)
 u: <span class="hljs-type">User</span> = <span class="hljs-type">User</span>@<span class="hljs-number">20</span>daebd4
 
 scala&gt; <span class="hljs-type">User</span>.printUser(u)
 dwango <span class="hljs-number">13</span>
 </code></pre>
-<p>&#x4ECA;&#x5F8C;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x69D8;&#x3005;&#x306A;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;sbt&#x3092;&#x4F7F;&#x3046;&#x3068;&#x7C21;&#x5358;&#x306B;&#x81EA;&#x5206;&#x3067;&#x8A66;&#x3057;&#x3066;&#x307F;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3001;&#x6D3B;&#x7528;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>今後の節では様々なサンプルコードが出てきますが、このようにsbtを使うと簡単に自分で試してみることができるので、活用してみてください。</p>
 <blockquote id="fn_1">
-<sup>1</sup>. <code>:quit</code>&#x3067;&#x306F;&#x306A;&#x304F;<code>:q</code>&#x306E;&#x307F;&#x3067;&#x3082;&#x7D42;&#x4E86;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+<sup>1</sup>. <code>:quit</code>ではなく<code>:q</code>のみでも終了できます。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
 </body></html>
                                 
@@ -567,12 +566,56 @@ dwango <span class="hljs-number">13</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"next":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"previous":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-compile-execute.md","mtime":"2020-12-12T01:13:18.194Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-12T01:13:43.058Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"next":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"previous":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-compile-execute.md","mtime":"2020-12-14T05:53:37.851Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2020-12-14T05:53:42.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
     
@@ -594,10 +637,6 @@ dwango <span class="hljs-number">13</span>
     
         
         <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

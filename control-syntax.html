@@ -3,11 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Scalaの制御構文 · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="HonKit 3.6.15">
         
         
         
@@ -76,7 +75,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -417,8 +416,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -456,89 +455,89 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="&#x5236;&#x5FA1;&#x69CB;&#x6587;"><a name="&#x5236;&#x5FA1;&#x69CB;&#x6587;" class="plugin-anchor" href="#&#x5236;&#x5FA1;&#x69CB;&#x6587;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5236;&#x5FA1;&#x69CB;&#x6587;</h1>
-<p>&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x3001;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3073;&#x307E;&#x3059;&#x3002;&#x901A;&#x5E38;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x3068;&#x304F;&#x3089;&#x3079;&#x3066;&#x305D;&#x308C;&#x307B;&#x3069;&#x7A81;&#x98DB;&#x306A;&#x3082;&#x306E;&#x304C;&#x51FA;&#x3066;&#x304F;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x3044;&#x306E;&#x3067;&#x5FC3;&#x914D;&#x306F;&#x8981;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<h2 id="&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;"><a name="&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;" class="plugin-anchor" href="#&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x306B;&#x3064;&#x3044;&#x3066;</h2>
-<p>&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x300C;&#x69CB;&#x6587;&#x300D;&#x3068;&#x300C;&#x5F0F;&#x300D;&#x3068;&#x300C;&#x6587;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x304C;&#x5165;&#x308A;&#x4E71;&#x308C;&#x3066;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x5C11;&#x3005;&#x308F;&#x304B;&#x308A;&#x3065;&#x3089;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x5148;&#x306B;&#x3053;&#x306E;3&#x3064;&#x306E;&#x7528;&#x8A9E;&#x306E;&#x89E3;&#x8AAC;&#x3092;&#x3057;&#x305F;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305A;&#x300C;&#x69CB;&#x6587;&#xFF08;Syntax&#xFF09;&#x300D;&#x306F;&#x3001;&#x305D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x5185;&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x69CB;&#x9020;&#x3092;&#x6301;&#x3064;&#x305F;&#x3081;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x3067;&#x3059;&#x3002;&#x591A;&#x304F;&#x306E;&#x5834;&#x5408;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x5185;&#x3067;&#x7279;&#x5225;&#x6271;&#x3044;&#x3055;&#x308C;&#x308B;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070;<code>class</code>&#x3084;<code>val</code>&#x3001;<code>if</code>&#x306A;&#x3069;&#x304C;&#x542B;&#x307E;&#x308C;&#x3001;&#x305D;&#x3057;&#x3066;&#x6B63;&#x3057;&#x3044;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
-<code>class</code>&#x306E;&#x5834;&#x5408;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;<code>class</code>&#x306E;&#x5F8C;&#x306B;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x540D;&#x304C;&#x7D9A;&#x304D;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x4E2D;&#x8EAB;&#x306F;<code>{</code>&#x3068;<code>}</code>&#x3067;&#x62EC;&#x3089;&#x308C;&#x308B;&#x3001;&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x7BC0;&#x306F;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3092;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x51E6;&#x7406;&#x306E;&#x6D41;&#x308C;&#x3092;&#x5236;&#x5FA1;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x4F5C;&#x308B;&#x305F;&#x3081;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x6B21;&#x306B;&#x300C;&#x5F0F;&#xFF08;Expression&#xFF09;&#x300D;&#x306F;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x90E8;&#x5206;&#x306E;&#x3046;&#x3061;&#x3001;&#x8A55;&#x4FA1;&#x304C;&#x6210;&#x529F;&#x3059;&#x308B;&#x3068;&#x5024;&#x306B;&#x306A;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;<code>1</code>&#x3084;<code>1 + 2</code>&#x3001;<code>&quot;hoge&quot;</code>&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306F;&#x8A55;&#x4FA1;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x6570;&#x5024;&#x3084;&#x6587;&#x5B57;&#x5217;&#x306E;&#x5024;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x8A55;&#x4FA1;&#x304C;&#x6210;&#x529F;&#x3001;&#x3068;&#x3044;&#x3046;&#x8868;&#x73FE;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x8A55;&#x4FA1;&#x306E;&#x7D50;&#x679C;&#x3068;&#x3057;&#x3066;&#x4F8B;&#x5916;&#x304C;&#x6295;&#x3052;&#x3089;&#x308C;&#x305F;&#x5834;&#x5408;&#x7B49;&#x304C;&#x3001;&#x8A55;&#x4FA1;&#x304C;&#x5931;&#x6557;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;&#x5F53;&#x305F;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x6700;&#x5F8C;&#x306B;&#x300C;&#x6587;&#xFF08;Statement&#xFF09;&#x300D;&#x3067;&#x3059;&#x304C;&#x3001;&#x5F0F;&#x3068;&#x306F;&#x5BFE;&#x7167;&#x7684;&#x306B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x90E8;&#x5206;&#x306E;&#x3046;&#x3061;&#x3001;&#x8A55;&#x4FA1;&#x3057;&#x3066;&#x3082;&#x5024;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x5909;&#x6570;&#x306E;&#x5B9A;&#x7FA9;&#x3067;&#x3042;&#x308B;<code>val i = 1</code>&#x306F;&#x8A55;&#x4FA1;&#x3057;&#x3066;&#x3082;&#x5909;&#x6570;<code>i</code>&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3001;<code>i</code>&#x306E;&#x5024;&#x304C;<code>1</code>&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x5B9A;&#x7FA9;&#x5168;&#x4F53;&#x3068;&#x3057;&#x3066;&#x306F;&#x5024;&#x3092;&#x6301;&#x3061;&#x307E;&#x305B;&#x3093;&#x3002;&#x3088;&#x3063;&#x3066;&#x3001;&#x3053;&#x308C;&#x306F;&#x6587;&#x3067;&#x3059;&#x3002;</p>
-<p>Scala&#x306F;C&#x3084;Java&#x306A;&#x3069;&#x306E;&#x624B;&#x7D9A;&#x304D;&#x578B;&#x306E;&#x8A00;&#x8A9E;&#x306B;&#x6BD4;&#x3079;&#x3066;&#x3001;&#x6587;&#x3088;&#x308A;&#x3082;&#x5F0F;&#x306B;&#x306A;&#x308B;&#x69CB;&#x6587;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x3002;
-Scala&#x3067;&#x306F;&#x6587;&#x3088;&#x308A;&#x3082;&#x5F0F;&#x3092;&#x591A;&#x304F;&#x5229;&#x7528;&#x3059;&#x308B;&#x69CB;&#x6587;&#x304C;&#x63A1;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x5909;&#x6570;&#x306A;&#x3069;&#x306E;&#x72B6;&#x614B;&#x3092;&#x51FA;&#x6765;&#x308B;&#x3060;&#x3051;&#x6392;&#x9664;&#x3057;&#x305F;&#x5206;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x66F8;&#x304D;&#x3084;&#x3059;&#x304F;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x8A00;&#x8449;&#x306E;&#x4F7F;&#x308F;&#x308C;&#x65B9;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x8AAC;&#x660E;&#x3092;&#x8AAD;&#x3093;&#x3067;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h2 id="&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;"><a name="&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;" class="plugin-anchor" href="#&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;</h2>
-<p>Scala&#x3067;&#x306F; <code>{}</code> &#x3067;&#x8907;&#x6570;&#x306E;&#x5F0F;&#x306E;&#x4E26;&#x3073;&#x3092;&#x56F2;&#x3080;&#x3068;&#x3001;&#x305D;&#x308C;&#x5168;&#x4F53;&#x304C;&#x5F0F;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x4FBF;&#x5B9C;&#x4E0A;&#x305D;&#x308C;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F0F;&#x306E;&#x4E00;&#x822C;&#x5F62;&#x306F;</p>
-<pre><code class="lang-scala">{ &lt;&#x5F0F;<span class="hljs-number">1</span>&gt;(;|&lt;&#x6539;&#x884C;&gt;) &lt;&#x5F0F;<span class="hljs-number">2</span>&gt;(;|&lt;&#x6539;&#x884C;&gt;) ... }
+                                <html><head></head><body><h1 id="制御構文"><a name="制御構文" class="plugin-anchor" href="#制御構文"><i class="fa fa-link" aria-hidden="true"></i></a>制御構文</h1>
+<p>この節では、Scalaの制御構文について学びます。通常のプログラミング言語とくらべてそれほど突飛なものが出てくるわけではないので心配は要りません。</p>
+<h2 id="「構文」と「式」と「文」という用語について"><a name="「構文」と「式」と「文」という用語について" class="plugin-anchor" href="#「構文」と「式」と「文」という用語について"><i class="fa fa-link" aria-hidden="true"></i></a>「構文」と「式」と「文」という用語について</h2>
+<p>この節では「構文」と「式」と「文」という用語が入り乱れて使われて少々わかりづらいかもしれないので、先にこの3つの用語の解説をしたいと思います。</p>
+<p>まず「構文（Syntax）」は、そのプログラミング言語内でプログラムが構造を持つためのルールです。多くの場合、プログラミング言語内で特別扱いされるキーワード、たとえば<code>class</code>や<code>val</code>、<code>if</code>などが含まれ、そして正しいプログラムを構成するためのルールがあります。
+<code>class</code>の場合であれば、<code>class</code>の後にはクラス名が続き、クラスの中身は<code>{</code>と<code>}</code>で括られる、などです。この節はScalaの制御構文を説明するので、処理の流れを制御するようなプログラムを作るためのルールが説明されるわけです。</p>
+<p>次に「式（Expression）」は、プログラムを構成する部分のうち、評価が成功すると値になるものです。たとえば<code>1</code>や<code>1 + 2</code>、<code>&quot;hoge&quot;</code>などです。これらは評価することにより、数値や文字列の値になります。評価が成功、という表現を使いましたが、評価の結果として例外が投げられた場合等が、評価が失敗した場合に当たります。</p>
+<p>最後に「文（Statement）」ですが、式とは対照的にプログラムを構成する部分のうち、評価しても値にならないものです。たとえば変数の定義である<code>val i = 1</code>は評価しても変数<code>i</code>が定義され、<code>i</code>の値が<code>1</code>になりますが、この定義全体としては値を持ちません。よって、これは文です。</p>
+<p>ScalaはCやJavaなどの手続き型の言語に比べて、文よりも式になる構文が多いです。
+Scalaでは文よりも式を多く利用する構文が採用されています。これにより変数などの状態を出来るだけ排除した分かりやすいコードが書きやすくなっています。</p>
+<p>このような言葉の使われ方に注意し、以下の説明を読んでみてください。</p>
+<h2 id="ブロック式"><a name="ブロック式" class="plugin-anchor" href="#ブロック式"><i class="fa fa-link" aria-hidden="true"></i></a>ブロック式</h2>
+<p>Scalaでは <code>{}</code> で複数の式の並びを囲むと、それ全体が式になりますが、便宜上それをブロック式と呼ぶことにします。</p>
+<p>ブロック式の一般形は</p>
+<pre><code class="lang-scala">{ &lt;式<span class="hljs-number">1</span>&gt;(;|&lt;改行&gt;) &lt;式<span class="hljs-number">2</span>&gt;(;|&lt;改行&gt;) ... }
 </code></pre>
-<p>&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>&#x5F0F;</code> &#x306E;&#x4E26;&#x3073;&#x306F;&#x3001;&#x9806;&#x756A;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x500B;&#x3005;&#x306E;&#x5F0F;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;&#x5F0F;&#x304C;&#x6539;&#x884C;&#x3067;&#x533A;&#x5207;&#x3089;&#x308C;&#x3066;&#x3044;&#x308C;&#x3070;&#x30BB;&#x30DF;&#x30B3;&#x30ED;&#x30F3;&#x306F;&#x7701;&#x7565;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>{}</code> &#x5F0F;&#x306F;<code>&#x5F0F;1</code>, <code>&#x5F0F;2</code> ... &#x3068;&#x5F0F;&#x306E;&#x4E26;&#x3073;&#x3092;&#x9806;&#x756A;&#x306B;&#x8A55;&#x4FA1;&#x3057;&#x3001; &#x6700;&#x5F8C;&#x306E; <code>&#x5F0F;</code> &#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x6B21;&#x306E;&#x5F0F;&#x3067;&#x306F;</p>
+<p>となります。<code>式</code> の並びは、順番に評価される個々の式を表します。式が改行で区切られていればセミコロンは省略できます。<code>{}</code> 式は<code>式1</code>, <code>式2</code> ... と式の並びを順番に評価し、 最後の <code>式</code> を評価した値を返します。</p>
+<p>次の式では</p>
 <pre><code class="lang-scala">{ println(<span class="hljs-string">&quot;A&quot;</span>); println(<span class="hljs-string">&quot;B&quot;</span>); <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; }
 <span class="hljs-comment">// A</span>
 <span class="hljs-comment">// B</span>
 <span class="hljs-comment">// res0: Int = 3</span>
 </code></pre>
-<p>A&#x3068;B&#x304C;&#x51FA;&#x529B;&#x3055;&#x308C;&#x3001;&#x6700;&#x5F8C;&#x306E;&#x5F0F;&#x3067;&#x3042;&#x308B;<code>1 + 2</code>&#x306E;&#x7D50;&#x679C;&#x3067;&#x3042;&#x308B;<code>3</code>&#x304C;<code>{}</code>&#x5F0F;&#x306E;&#x5024;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x3053;&#x3068;&#x306F;&#x3001;&#x5F8C;&#x307B;&#x3069;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306A;&#x3069;&#x306B;&#x304A;&#x3044;&#x3066;&#x91CD;&#x8981;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x306F;&#x3001;</p>
+<p>AとBが出力され、最後の式である<code>1 + 2</code>の結果である<code>3</code>が<code>{}</code>式の値になっていることがわかります。</p>
+<p>このことは、後ほど記述するメソッド定義などにおいて重要になってきます。Scalaでは、</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(): <span class="hljs-type">String</span> = {
   <span class="hljs-string">&quot;foo&quot;</span> + <span class="hljs-string">&quot;foo&quot;</span>
 }
 </code></pre>
-<p>&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x3067;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x4E00;&#x822C;&#x7684;&#x3067;&#x3059;&#x304C;&#xFF08;&#x5F8C;&#x8FF0;&#x3057;&#x307E;&#x3059;&#xFF09;&#x3001;&#x3053;&#x3053;&#x3067;<code>{}</code>&#x306F;&#x5358;&#x306B;<code>{}</code>&#x5F0F;&#x3067;&#x3042;&#x3063;&#x3066;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E;&#x69CB;&#x6587;&#x306B;<code>{}</code>&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x5B9A;&#x7FA9;&#x69CB;&#x6587;&#x306A;&#x3069;&#x306B;&#x304A;&#x3051;&#x308B;<code>{}</code>&#x306F;&#x69CB;&#x6587;&#x306E;&#x4E00;&#x90E8;&#x3067;&#x3059;&#x3002;</p>
-<h2 id="if&#x5F0F;"><a name="if&#x5F0F;" class="plugin-anchor" href="#if&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>if&#x5F0F;</h2>
-<p><code>if</code>&#x5F0F;&#x306F;Java&#x306E;<code>if</code>&#x6587;&#x3068;&#x307B;&#x3068;&#x3093;&#x3069;&#x540C;&#x3058;&#x4F7F;&#x3044;&#x65B9;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;<code>if</code>&#x5F0F;&#x306E;&#x69CB;&#x6587;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos;&lt;&#x6761;&#x4EF6;&#x5F0F;&gt;&apos;)&apos; &lt;then&#x5F0F;&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>&#x5F0F;&gt;)?
+<p>のような形でメソッド定義をすることが一般的ですが（後述します）、ここで<code>{}</code>は単に<code>{}</code>式であって、メソッド定義の構文に<code>{}</code>が含まれているわけではありません。ただし、クラス定義構文などにおける<code>{}</code>は構文の一部です。</p>
+<h2 id="if式"><a name="if式" class="plugin-anchor" href="#if式"><i class="fa fa-link" aria-hidden="true"></i></a>if式</h2>
+<p><code>if</code>式はJavaの<code>if</code>文とほとんど同じ使い方をします。<code>if</code>式の構文は次のようになります。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos;&lt;条件式&gt;&apos;)&apos; &lt;then式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
 </code></pre>
-<p><code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x306F;<code>Boolean</code>&#x578B;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<code>else &lt;else&#x5F0F;&gt;</code>&#x306F;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>then&#x5F0F;</code> &#x306F; <code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x304C; <code>true</code>&#x306E;&#x3068;&#x304D;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x5F0F;&#x3067;&#x3001;<code>else&#x5F0F;</code>&#x306F; <code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x304C;<code>false</code>&#x306E;&#x3068;&#x304D;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x5F0F;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x65E9;&#x901F;<code>if</code>&#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><code>条件式</code> は<code>Boolean</code>型である必要があります。<code>else &lt;else式&gt;</code>は省略することができます。<code>then式</code> は <code>条件式</code> が <code>true</code>のときに評価される式で、<code>else式</code>は <code>条件式</code> が<code>false</code>のときに評価される式です。</p>
+<p>早速<code>if</code>式を使ってみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">var</span> age = <span class="hljs-number">17</span>
 <span class="hljs-comment">// age: Int = 17</span>
 
 <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
-  <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
+  <span class="hljs-string">&quot;18歳未満です&quot;</span>
 } <span class="hljs-keyword">else</span> {
-  <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
+  <span class="hljs-string">&quot;18歳以上です&quot;</span>
 }
 <span class="hljs-comment">// res1: String = &quot;18\u6b73\u672a\u6e80\u3067\u3059&quot;</span>
 
 age = <span class="hljs-number">18</span>
 
 <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
-  <span class="hljs-string">&quot;18&#x6B73;&#x672A;&#x6E80;&#x3067;&#x3059;&quot;</span>
+  <span class="hljs-string">&quot;18歳未満です&quot;</span>
 } <span class="hljs-keyword">else</span> {
-  <span class="hljs-string">&quot;18&#x6B73;&#x4EE5;&#x4E0A;&#x3067;&#x3059;&quot;</span>
+  <span class="hljs-string">&quot;18歳以上です&quot;</span>
 }
 <span class="hljs-comment">// res3: String = &quot;18\u6b73\u4ee5\u4e0a\u3067\u3059&quot;</span>
 </code></pre>
-<p>&#x5909;&#x66F4;&#x53EF;&#x80FD;&#x306A;&#x5909;&#x6570; <code>age</code> &#x304C;18&#x3088;&#x308A;&#x5C0F;&#x3055;&#x3044;&#x304B;&#x3069;&#x3046;&#x304B;&#x3067;&#x5225;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;<em>&#x8FD4;&#x3059;</em>&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p><code>if</code> &#x5F0F;&#x306B;&#x9650;&#x3089;&#x305A;&#x3001;Scala&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x306F;&#x5168;&#x3066;&#x5F0F;&#x3067;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x5FC5;&#x305A;&#x4F55;&#x3089;&#x304B;&#x306E;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;Java&#x306A;&#x3069;&#x306E;&#x8A00;&#x8A9E;&#x3067;&#x4E09;&#x9805;&#x6F14;&#x7B97;&#x5B50;<code>?:</code>&#x3092;&#x898B;&#x305F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;Scala&#x3067;&#x306F;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x5024;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x9762;&#x3067; <code>if</code> &#x5F0F;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x306A;&#x304A;&#x3001;<code>else</code>&#x304C;&#x7701;&#x7565;&#x53EF;&#x80FD;&#x3060;&#x3068;&#x66F8;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x305D;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B; <code>Unit</code> &#x578B;&#x306E;&#x5024; <code>()</code> &#x304C;&#x88DC;&#x308F;&#x308C;&#x305F;&#x306E;&#x3068;&#x540C;&#x3058;&#x5024;&#x304C;&#x8FD4;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos; &lt;&#x6761;&#x4EF6;&#x5F0F;&gt; &apos;)&apos; &lt;then&#x5F0F;&gt; <span class="hljs-keyword">else</span> ()
+<p>変更可能な変数 <code>age</code> が18より小さいかどうかで別の文字列を<em>返す</em>ようにしています。</p>
+<p><code>if</code> 式に限らず、Scalaの制御構文は全て式です。つまり必ず何らかの値を返します。Javaなどの言語で三項演算子<code>?:</code>を見たことがある人もいるかもしれませんが、Scalaでは同じように値が必要な場面で <code>if</code> 式を使います。</p>
+<p>なお、<code>else</code>が省略可能だと書きましたが、その場合は、以下のように <code>Unit</code> 型の値 <code>()</code> が補われたのと同じ値が返ってきます。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;then式&gt; <span class="hljs-keyword">else</span> ()
 </code></pre>
-<p><code>Unit</code>&#x578B;&#x306F;Java&#x3067;&#x306F;<code>void</code>&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;&#x8FD4;&#x3059;&#x3079;&#x304D;&#x5024;&#x304C;&#x306A;&#x3044;&#x3068;&#x304D;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3001;&#x552F;&#x4E00;&#x306E;&#x5024;<code>()</code>&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="control_syntax_ex1"><a name="control_syntax_ex1" class="plugin-anchor" href="#control_syntax_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
-<p><code>var age: Int = 5</code>&#x3068;&#x3044;&#x3046;&#x5E74;&#x9F62;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5909;&#x6570;&#x3068;<code>var isSchoolStarted: Boolean = false</code>&#x3068;&#x3044;&#x3046;&#x5C31;&#x5B66;&#x3092;&#x958B;&#x59CB;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x5909;&#x6570;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
-1&#x6B73;&#x304B;&#x3089;6&#x6B73;&#x307E;&#x3067;&#x306E;&#x5C31;&#x5B66;&#x4EE5;&#x524D;&#x306E;&#x5B50;&#x3069;&#x3082;&#x306E;&#x5834;&#x5408;&#x306B;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x3059;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3057;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x5408;&#x306F;&#x201C;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x201D;&#x3068;&#x51FA;&#x529B;&#x3059;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex1" style="display:none">
+<p><code>Unit</code>型はJavaでは<code>void</code>に相当するもので、返すべき値がないときに使われ、唯一の値<code>()</code>を持ちます。</p>
+<h3 id="control_syntax_ex1"><a name="control_syntax_ex1" class="plugin-anchor" href="#control_syntax_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
+<p><code>var age: Int = 5</code>という年齢を定義する変数と<code>var isSchoolStarted: Boolean = false</code>という就学を開始しているかどうかという変数を利用して、
+1歳から6歳までの就学以前の子どもの場合に“幼児です”と出力し、それ以外の場合は“幼児ではありません”と出力するコードを書いてみましょう。</p>
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
 <span class="hljs-comment">// age: Int = 5</span>
 <span class="hljs-keyword">var</span> isSchoolStarted: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
 <span class="hljs-comment">// isSchoolStarted: Boolean = false</span>
 <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> &lt;= age &amp;&amp; age &lt;= <span class="hljs-number">6</span> &amp;&amp; !isSchoolStarted) {
-  println(<span class="hljs-string">&quot;&#x5E7C;&#x5150;&#x3067;&#x3059;&quot;</span>)
+  println(<span class="hljs-string">&quot;幼児です&quot;</span>)
 } <span class="hljs-keyword">else</span> {
-  println(<span class="hljs-string">&quot;&#x5E7C;&#x5150;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&quot;</span>)
+  println(<span class="hljs-string">&quot;幼児ではありません&quot;</span>)
 }
-<span class="hljs-comment">// &#x5E7C;&#x5150;&#x3067;&#x3059;</span>
+<span class="hljs-comment">// 幼児です</span>
 </code></pre>
 </div>
-<h2 id="while&#x5F0F;"><a name="while&#x5F0F;" class="plugin-anchor" href="#while&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>while&#x5F0F;</h2>
-<p><code>while</code>&#x5F0F;&#x306E;&#x69CB;&#x6587;&#x306F;Java&#x306E;&#x3082;&#x306E;&#x3068;&#x307B;&#x307C;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">while</span> &apos;(&apos; &lt;&#x6761;&#x4EF6;&#x5F0F;&gt; &apos;)&apos; &#x672C;&#x4F53;&#x5F0F;
+<h2 id="while式"><a name="while式" class="plugin-anchor" href="#while式"><i class="fa fa-link" aria-hidden="true"></i></a>while式</h2>
+<p><code>while</code>式の構文はJavaのものとほぼ同じです。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">while</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; 本体式
 </code></pre>
-<p><code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x306F; <code>Boolean</code> &#x578B;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<code>while</code> &#x5F0F;&#x306F;&#x3001; <code>&#x6761;&#x4EF6;&#x5F0F;</code> &#x304C;<code>true</code>&#x306E;&#x9593;&#x3001;<code>&#x672C;&#x4F53;&#x5F0F;</code> &#x3092;&#x8A55;&#x4FA1;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>while</code> &#x5F0F;&#x3082;&#x5F0F;&#x306A;&#x306E;&#x3067;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;<code>while</code>&#x5F0F;&#x306B;&#x306F;&#x9069;&#x5207;&#x306A;&#x8FD4;&#x3059;&#x3079;&#x304D;&#x5024;&#x304C;&#x306A;&#x3044;&#x306E;&#x3067;<code>Unit</code>&#x578B;&#x306E;&#x5024;<code>()</code>&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3055;&#x3066;&#x3001; <code>while</code> &#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;1&#x304B;&#x3089;10&#x307E;&#x3067;&#x306E;&#x5024;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><code>条件式</code> は <code>Boolean</code> 型である必要があります。<code>while</code> 式は、 <code>条件式</code> が<code>true</code>の間、<code>本体式</code> を評価し続けます。なお、<code>while</code> 式も式なので値を返しますが、<code>while</code>式には適切な返すべき値がないので<code>Unit</code>型の値<code>()</code>を返します。</p>
+<p>さて、 <code>while</code> 式を使って1から10までの値を出力してみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>
 <span class="hljs-comment">// i: Int = 1</span>
 
@@ -557,9 +556,9 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// i = 9</span>
 <span class="hljs-comment">// i = 10</span>
 </code></pre>
-<p>Java&#x3067; <code>while</code> &#x6587;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3068;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002; <code>do while</code> &#x5F0F;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;Java&#x3068;&#x540C;&#x69D8;&#x306A;&#x306E;&#x3067;&#x8AAC;&#x660E;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;Java&#x306E; <code>break</code> &#x6587;&#x3084; <code>continue</code> &#x6587;&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x8A00;&#x8A9E;&#x6A5F;&#x80FD;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x5F8C;&#x307B;&#x3069;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x9AD8;&#x968E;&#x95A2;&#x6570;&#x3092;&#x9069;&#x5207;&#x306B;&#x5229;&#x7528;&#x3059;&#x308C;&#x3070;&#x3001;&#x307B;&#x3068;&#x3093;&#x3069;&#x306E;&#x5834;&#x5408;&#x3001; <code>break</code> &#x3084; <code>continue</code> &#x306F;&#x5FC5;&#x8981;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<h3 id="control_syntax_ex2"><a name="control_syntax_ex2" class="plugin-anchor" href="#control_syntax_ex2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
-<p><code>do while</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;0&#x304B;&#x3089;&#x6570;&#x3048;&#x4E0A;&#x3052;&#x3066;9&#x307E;&#x3067;&#x51FA;&#x529B;&#x3057;&#x3066;10&#x306B;&#x306A;&#x3063;&#x305F;&#x3089;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x7D42;&#x4E86;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;<code>loopFrom0To9</code>&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>loopFrom0To9</code>&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>???</code>&#x306E;&#x90E8;&#x5206;&#x3092;&#x57CB;&#x3081;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>Javaで <code>while</code> 文を使った場合と同様です。 <code>do while</code> 式もありますが、Javaと同様なので説明は省略します。なお、Javaの <code>break</code> 文や <code>continue</code> 文に相当する言語機能はありません。しかし、後ほど説明する高階関数を適切に利用すれば、ほとんどの場合、 <code>break</code> や <code>continue</code> は必要ありません。</p>
+<h3 id="control_syntax_ex2"><a name="control_syntax_ex2" class="plugin-anchor" href="#control_syntax_ex2"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
+<p><code>do while</code>を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド<code>loopFrom0To9</code>を書いてみましょう。<code>loopFrom0To9</code>は次のような形になります。<code>???</code>の部分を埋めてください。</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loopFrom0To9</span></span>(): <span class="hljs-type">Unit</span> = {
   <span class="hljs-keyword">var</span> i = ???
   do {
@@ -567,7 +566,7 @@ age = <span class="hljs-number">18</span>
   } <span class="hljs-keyword">while</span>(???)
 }
 </code></pre>
-<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex2" style="display:none">
+<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loopFrom0To9</span></span>(): <span class="hljs-type">Unit</span> = {
   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
   do {
@@ -589,10 +588,10 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// 9</span>
 </code></pre>
 </div>
-<h2 id="return&#x5F0F;"><a name="return&#x5F0F;" class="plugin-anchor" href="#return&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>return&#x5F0F;</h2>
-<p><code>return</code> &#x5F0F;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089;&#x3001;&#x9014;&#x4E2D;&#x3067;&#x8131;&#x51FA;&#x3057;&#x3066;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x5143;&#x306B;&#x8FD4;&#x308A;&#x5024;&#x3092;&#x8FD4;&#x3059;&#x305F;&#x3081;&#x306E;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3067;&#x3059;&#x3002;</p>
-<p>Scala&#x3067;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9A;&#x7FA9;&#x306E; <code>=</code> &#x306E;&#x53F3;&#x306F;&#x5F0F;&#x3067;&#x3042;&#x308A;&#x3001;&#x305D;&#x308C;&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x5024;&#x304C;&#x8FD4;&#x308A;&#x5024;&#x306B;&#x306A;&#x308B;&#x305F;&#x3081;&#x3001;&#x4ED6;&#x306E;&#x591A;&#x304F;&#x306E;&#x8A00;&#x8A9E;&#x3068;&#x9055;&#x3044;&#x3001;<code>return</code> &#x5F0F;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<p>&#x4E00;&#x65B9;&#x3067;&#x3001;&#x7279;&#x306B;&#x624B;&#x7D9A;&#x304D;&#x7684;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3068;&#x304D;&#x306B; <code>return</code> &#x5F0F;&#x304C;&#x4FBF;&#x5229;&#x306A;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0B;&#x306F;&#x914D;&#x5217;&#x304B;&#x3089;&#x3001;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x8981;&#x7D20;&#x3092;&#x898B;&#x3064;&#x3051;&#x3066;&#x305D;&#x306E;&#x6DFB;&#x5B57;&#x3092;&#x8FD4;&#x3059;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="return式"><a name="return式" class="plugin-anchor" href="#return式"><i class="fa fa-link" aria-hidden="true"></i></a>return式</h2>
+<p><code>return</code> 式はメソッドから、途中で脱出してメソッドの呼び出し元に返り値を返すための制御構文です。</p>
+<p>Scalaでは、メソッド定義の <code>=</code> の右は式であり、それを評価した値が返り値になるため、他の多くの言語と違い、<code>return</code> 式は必須ではありません。</p>
+<p>一方で、特に手続き的にコードを書くときに <code>return</code> 式が便利なこともあります。以下は配列から、指定された要素を見つけてその添字を返すメソッドです。</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">indexOf</span></span>(array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
   <span class="hljs-keyword">var</span> index = <span class="hljs-number">-1</span>
   <span class="hljs-keyword">var</span> found = <span class="hljs-literal">false</span>
@@ -607,7 +606,7 @@ age = <span class="hljs-number">18</span>
   index
 }
 </code></pre>
-<p>&#x3053;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x306F;&#x3001;&#x65E2;&#x306B;&#x8981;&#x7D20;&#x304C;&#x898B;&#x3064;&#x304B;&#x3063;&#x305F;&#x304B;&#x3092;<code>found</code>&#x3068;&#x3044;&#x3046;&#x5909;&#x6570;&#x3067;&#x7BA1;&#x7406;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x305F;&#x3081;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x5197;&#x9577;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>return</code> &#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x3070;&#x3001;&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>このメソッドでは、既に要素が見つかったかを<code>found</code>という変数で管理していますが、そのためにコードが冗長になっています。<code>return</code> 式を使えば、このコードは以下のように書き換えることができます。</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">indexOf</span></span>(array: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>], target: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
   <span class="hljs-keyword">while</span>(i &lt; array.length) {
@@ -617,15 +616,15 @@ age = <span class="hljs-number">18</span>
   <span class="hljs-number">-1</span>
 }
 </code></pre>
-<p>&#x898B;&#x3066;&#x306E;&#x901A;&#x308A;&#x3001;&#x4E0D;&#x5FC5;&#x8981;&#x306A;&#x5909;&#x6570;&#x304C;&#x7121;&#x304F;&#x306A;&#x3063;&#x3066;&#x898B;&#x901A;&#x3057;&#x304C;&#x3088;&#x304F;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;<code>return</code>&#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x3070;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x898B;&#x901A;&#x3057;&#x304C;&#x3088;&#x304F;&#x306A;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308B;&#x3001;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3092;&#x899A;&#x3048;&#x3066;&#x304A;&#x304F;&#x3068;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p>&#x4E00;&#x65B9;&#x3001;&#x5F93;&#x6765;&#x306E;&#x624B;&#x7D9A;&#x304D;&#x578B;&#x8A00;&#x8A9E;&#x306B;&#x89AA;&#x3057;&#x3093;&#x3067;&#x3044;&#x308B;&#x4EBA;&#x306F;&#x3001;Scala&#x3067;&#x306F;<strong><code>return</code>&#x5F0F;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x306F;&#x306A;&#x3044;</strong>&#xFF08;&#x8131;&#x51FA;&#x306E;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x3051;&#x308C;&#x3070;&#x66F8;&#x304B;&#x306A;&#x3044;&#xFF09;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3092;&#x5FF5;&#x982D;&#x306B;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h2 id="for&#x5F0F;"><a name="for&#x5F0F;" class="plugin-anchor" href="#for&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>for&#x5F0F;</h2>
-<p>Scala&#x306B;&#x306F; <code>for</code> &#x5F0F;&#x3068;&#x3044;&#x3046;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;Java&#x306E;&#x62E1;&#x5F35; <code>for</code> &#x6587;&#x3068;&#x4F3C;&#x305F;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x306E;&#x3001;&#x30EB;&#x30FC;&#x30D7;&#x4EE5;&#x5916;&#x306B;&#x3082;&#x69D8;&#x3005;&#x306A;&#x5FDC;&#x7528;&#x7BC4;&#x56F2;&#x3092;&#x6301;&#x3063;&#x305F;&#x5236;&#x5FA1;&#x69CB;&#x6587;&#x3067;&#x3059;&#x3002; <code>for</code> &#x5F0F;&#x306E;&#x672C;&#x5F53;&#x306E;&#x529B;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;<code>flatMap</code>, <code>map</code>, <code>withFilter</code>, <code>foreach</code>&#x3068;&#x3044;&#x3046;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306A; <code>for</code> &#x5F0F;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x306E;&#x307F;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p><code>for</code> &#x5F0F;&#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x69CB;&#x6587;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code>for &apos;(&apos; (&lt;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&gt;;)+ &apos;)&apos; &apos;&lt;&#x672C;&#x4F53;&gt;&apos; 
-# &lt;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&gt; = x &lt;- &lt;&#x5F0F;&gt;
-</code></pre><p>&#x5404; <code>&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;</code> &#x306E;&#x5909;&#x6570; <code>x</code> &#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x90E8;&#x5206;&#x306F;&#x3001;&#x597D;&#x304D;&#x306A;&#x540D;&#x524D;&#x306E;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; <code>&#x5F0F;</code> &#x306B;&#x306F;&#x8272;&#x3005;&#x306A;&#x5F0F;&#x304C;&#x66F8;&#x3051;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3001;&#x73FE;&#x72B6;&#x3067;&#x306F;&#x5168;&#x3066;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x304D;&#x308C;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x4F55;&#x304B;&#x306E;&#x6570;&#x306E;&#x7BC4;&#x56F2;&#x3092;&#x8868;&#x3059;&#x5F0F;&#x3092;&#x4F7F;&#x3048;&#x308B;&#x3068;&#x899A;&#x3048;&#x3066;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;<code>1 to 10</code> &#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x3080;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3001; <code>1 until 10</code> &#x306F;1&#x304B;&#x3089;10&#x307E;&#x3067;&#xFF08;10&#x3092;&#x542B;&#x307E;&#x306A;&#x3044;&#xFF09;&#x306E;&#x7BC4;&#x56F2;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x65E9;&#x901F; <code>for</code> &#x5F0F;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>見ての通り、不必要な変数が無くなって見通しがよくなりました。<code>return</code>式を使えばコードの見通しがよくなることもある、ということを覚えておくと良いでしょう。</p>
+<p>一方、従来の手続き型言語に親しんでいる人は、Scalaでは<strong><code>return</code>式は必須ではない</strong>（脱出の必要がなければ書かない）ということを念頭においてください。</p>
+<h2 id="for式"><a name="for式" class="plugin-anchor" href="#for式"><i class="fa fa-link" aria-hidden="true"></i></a>for式</h2>
+<p>Scalaには <code>for</code> 式という制御構文があります。これは、Javaの拡張 <code>for</code> 文と似た使い方ができるものの、ループ以外にも様々な応用範囲を持った制御構文です。 <code>for</code> 式の本当の力を理解するには、<code>flatMap</code>, <code>map</code>, <code>withFilter</code>, <code>foreach</code>というメソッドについて知る必要がありますが、ここでは基本的な <code>for</code> 式の使い方のみを説明します。</p>
+<p><code>for</code> 式の基本的な構文は次のようになります。</p>
+<pre><code>for &apos;(&apos; (&lt;ジェネレータ&gt;;)+ &apos;)&apos; &apos;&lt;本体&gt;&apos; 
+# &lt;ジェネレータ&gt; = x &lt;- &lt;式&gt;
+</code></pre><p>各 <code>ジェネレータ</code> の変数 <code>x</code> に相当する部分は、好きな名前のループ変数を使うことができます。 <code>式</code> には色々な式が書けます。ただ、現状では全てを説明しきれないため、何かの数の範囲を表す式を使えると覚えておいてください。たとえば、<code>1 to 10</code> は1から10まで（10を含む）の範囲で、 <code>1 until 10</code> は1から10まで（10を含まない）の範囲です。</p>
+<p>それでは、早速 <code>for</code> 式を使ってみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span>){
   println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
 }
@@ -650,8 +649,8 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// x = 5 y = 3</span>
 <span class="hljs-comment">// x = 5 y = 4</span>
 </code></pre>
-<p><code>x</code>&#x3092;1&#x304B;&#x3089;5&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;&#x3001;<code>y</code>&#x3092;1&#x304B;&#x3089;4&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;<code>x</code>, <code>y</code>&#x306E;&#x5024;&#x3092;&#x51FA;&#x529B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&#x3092;2&#x3064;&#x3060;&#x3051;&#x306B;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x6570;&#x3092;&#x5897;&#x3084;&#x305B;&#x3070;&#x4F55;&#x91CD;&#x306B;&#x3082;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p><code>for</code>&#x5F0F;&#x306E;&#x529B;&#x306F;&#x3053;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30EB;&#x30FC;&#x30D7;&#x5909;&#x6570;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x6761;&#x4EF6;&#x306B;&#x3042;&#x3063;&#x305F;&#x3082;&#x306E;&#x3060;&#x3051;&#x3092;&#x7D5E;&#x308A;&#x8FBC;&#x3080;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>until</code>&#x306E;&#x5F8C;&#x3067;<code>if x != y</code>&#x3068;&#x66F8;&#x3044;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;&#x3001;<code>x</code>&#x3068;<code>y</code>&#x304C;&#x7570;&#x306A;&#x308B;&#x5024;&#x306E;&#x5834;&#x5408;&#x306E;&#x307F;&#x3092;&#x62BD;&#x51FA;&#x3057;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<p><code>x</code>を1から5までループして、<code>y</code>を1から4までループして<code>x</code>, <code>y</code>の値を出力しています。ここでは、ジェネレータを2つだけにしましたが、数を増やせば何重にもループを行うことができます。</p>
+<p><code>for</code>式の力はこれだけではありません。ループ変数の中から条件にあったものだけを絞り込むこともできます。<code>until</code>の後で<code>if x != y</code>と書いていますが、これは、<code>x</code>と<code>y</code>が異なる値の場合のみを抽出したものです。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span> <span class="hljs-keyword">if</span> x != y){
   println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
 }
@@ -672,8 +671,8 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// x = 5 y = 3</span>
 <span class="hljs-comment">// x = 5 y = 4</span>
 </code></pre>
-<p><code>for</code>&#x5F0F;&#x306F;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x3092;1&#x3064;1&#x3064;&#x305F;&#x3069;&#x3063;&#x3066;&#x4F55;&#x304B;&#x306E;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x306B;&#x3082;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
-<code>&quot;D&quot;</code>, <code>&quot;E&quot;</code>&#x306E;5&#x3064;&#x306E;&#x8981;&#x7D20;&#x304B;&#x3089;&#x306A;&#x308B;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x305F;&#x3069;&#x3063;&#x3066;&#x5168;&#x3066;&#x3092;&#x51FA;&#x529B;&#x3059;&#x308B;&#x51E6;&#x7406;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><code>for</code>式はコレクションの要素を1つ1つたどって何かの処理を行うことにも利用することができます。<code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
+<code>&quot;D&quot;</code>, <code>&quot;E&quot;</code>の5つの要素からなるリストをたどって全てを出力する処理を書いてみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) println(e)
 <span class="hljs-comment">// A</span>
 <span class="hljs-comment">// B</span>
@@ -681,31 +680,31 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// D</span>
 <span class="hljs-comment">// E</span>
 </code></pre>
-<p>&#x3055;&#x3089;&#x306B;&#x3001;<code>for</code>&#x5F0F;&#x306F;&#x305F;&#x3069;&#x3063;&#x305F;&#x8981;&#x7D20;&#x3092;&#x52A0;&#x5DE5;&#x3057;&#x3066;&#x65B0;&#x3057;&#x3044;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x8981;&#x7D20;&#x5168;&#x3066;&#x306B;<code>Pre</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x5217;&#x3092;&#x4ED8;&#x52A0;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>さらに、<code>for</code>式はたどった要素を加工して新しいコレクションを作ることもできます。先ほどのリストの要素全てに<code>Pre</code>という文字列を付加してみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) <span class="hljs-keyword">yield</span> {
   <span class="hljs-string">&quot;Pre&quot;</span> + e
 }
 <span class="hljs-comment">// res10: List[String] = List(&quot;PreA&quot;, &quot;PreB&quot;, &quot;PreC&quot;, &quot;PreD&quot;, &quot;PreE&quot;)</span>
 </code></pre>
-<p>&#x3053;&#x3053;&#x3067;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3068;&#x306A;&#x308B;&#x306E;&#x306F;&#x3001;<code>yield</code>&#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3067;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;<code>for</code>&#x69CB;&#x6587;&#x306F;<code>yield</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x3092;&#x52A0;&#x5DE5;&#x3057;&#x3066;&#x8FD4;&#x3059;&#x3068;&#x3044;&#x3046;&#x5168;&#x304F;&#x7570;&#x306A;&#x308B;&#x7528;&#x9014;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x7279;&#x306B;<code>yield</code>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;<code>for</code>&#x5F0F;&#x3092;&#x7279;&#x5225;&#x306B;
-for-comprehension&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="control_syntax_ex3"><a name="control_syntax_ex3" class="plugin-anchor" href="#control_syntax_ex3"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
-<p>1&#x304B;&#x3089;1000&#x307E;&#x3067;&#x306E;3&#x3064;&#x306E;&#x6574;&#x6570;a, b, c&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x4E09;&#x8FBA;&#x304B;&#x3089;&#x306A;&#x308B;&#x4E09;&#x89D2;&#x5F62;&#x304C;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306B;&#x306A;&#x308B;&#x3088;&#x3046;&#x306A;
-<code>a</code>, <code>b</code>, <code>c</code>&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3092;&#x5168;&#x3066;&#x51FA;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306E;&#x6761;&#x4EF6;&#x306B;&#x306F;&#x30D4;&#x30BF;&#x30B4;&#x30E9;&#x30B9;&#x306E;&#x5B9A;&#x7406;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002; &#x30D4;&#x30BF;&#x30B4;&#x30E9;&#x30B9;&#x306E;&#x5B9A;&#x7406;&#x3068;&#x306F;&#x4E09;&#x5E73;&#x65B9;&#x306E;&#x5B9A;&#x7406;&#x3068;&#x3082;&#x547C;&#x3070;&#x308C;&#x3001;<code>a ^ 2 == b ^ 2 + c ^ 2</code>&#x3092;&#x6E80;&#x305F;&#x3059;&#x3001;<code>a</code>, <code>b</code>, <code>c</code> &#x306E;&#x9577;&#x3055;&#x306E;&#x4E09;&#x8FBA;&#x3092;&#x6301;&#x3064;&#x4E09;&#x89D2;&#x5F62;&#x306F;&#x3001;&#x76F4;&#x89D2;&#x4E09;&#x89D2;&#x5F62;&#x306B;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex3" style="display:none">
+<p>ここでポイントとなるのは、<code>yield</code>というキーワードです。実は、<code>for</code>構文は<code>yield</code>キーワードを使うことで、コレクションの要素を加工して返すという全く異なる用途に使うことができます。特に<code>yield</code>キーワードを使った<code>for</code>式を特別に
+for-comprehensionと呼ぶことがあります。</p>
+<h3 id="control_syntax_ex3"><a name="control_syntax_ex3" class="plugin-anchor" href="#control_syntax_ex3"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
+<p>1から1000までの3つの整数a, b, cについて、三辺からなる三角形が直角三角形になるような
+<code>a</code>, <code>b</code>, <code>c</code>の組み合わせを全て出力してください。直角三角形の条件にはピタゴラスの定理を利用してください。 ピタゴラスの定理とは三平方の定理とも呼ばれ、<code>a ^ 2 == b ^ 2 + c ^ 2</code>を満たす、<code>a</code>, <code>b</code>, <code>c</code> の長さの三辺を持つ三角形は、直角三角形になるというものです。</p>
+<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(a &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>; b &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>; c &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span> <span class="hljs-keyword">if</span> a * a == b * b + c * c) {
   println((a, b, c))
 }
 </code></pre>
 </div>
-<h2 id="match&#x5F0F;"><a name="match&#x5F0F;" class="plugin-anchor" href="#match&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>match&#x5F0F;</h2>
-<p><code>match</code>&#x5F0F;&#x306F;Java&#x306E;<code>switch</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x8907;&#x6570;&#x306E;&#x5206;&#x5C90;&#x3092;&#x8868;&#x73FE;&#x3067;&#x304D;&#x308B;&#x5236;&#x5FA1;&#x69CB;&#x9020;&#x3067;&#x3059;&#x304C;&#x3001;<code>switch</code>&#x3088;&#x308A;&#x69D8;&#x3005;&#x306A;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>match</code>&#x5F0F;&#x306E;&#x57FA;&#x672C;&#x69CB;&#x6587;&#x306F;</p>
-<pre><code>&lt;&#x5BFE;&#x8C61;&#x5F0F;&gt; match {
-  (case &lt;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&gt; (if &lt;&#x30AC;&#x30FC;&#x30C9;&gt;)? &apos;=&gt;&apos;
-    (&lt;&#x5F0F;&gt; (;|&lt;&#x6539;&#x884C;&gt;))*
+<h2 id="match式"><a name="match式" class="plugin-anchor" href="#match式"><i class="fa fa-link" aria-hidden="true"></i></a>match式</h2>
+<p><code>match</code>式はJavaの<code>switch</code>のように、複数の分岐を表現できる制御構造ですが、<code>switch</code>より様々なことができます。<code>match</code>式の基本構文は</p>
+<pre><code>&lt;対象式&gt; match {
+  (case &lt;パターン&gt; (if &lt;ガード&gt;)? &apos;=&gt;&apos;
+    (&lt;式&gt; (;|&lt;改行&gt;))*
   )+
 }
-</code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x300C;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x300D;&#x306B;&#x66F8;&#x3051;&#x308B;&#x5185;&#x5BB9;&#x304C;&#x975E;&#x5E38;&#x306B;&#x591A;&#x5C90;&#x306B;&#x6E21;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x307E;&#x305A;&#x3001;Java&#x306E;switch-case&#x306E;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3092;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
+</code></pre><p>のようになりますが、この「パターン」に書ける内容が非常に多岐に渡るためです。まず、Javaのswitch-caseのような使い方をしてみます。たとえば、</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> taro = <span class="hljs-string">&quot;Taro&quot;</span>
 <span class="hljs-comment">// taro: String = &quot;Taro&quot;</span>
 
@@ -716,8 +715,8 @@ taro <span class="hljs-keyword">match</span> {
 }
 <span class="hljs-comment">// res11: String = &quot;Male&quot;</span>
 </code></pre>
-<p>&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3001;<code>taro</code>&#x306B;&#x306F;&#x6587;&#x5B57;&#x5217;<code>&quot;Taro&quot;</code>&#x304C;&#x5165;&#x3063;&#x3066;&#x304A;&#x308A;&#x3001;&#x3053;&#x308C;&#x306F;<code>case &quot;Taro&quot;</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x305F;&#x3081;&#x3001;<code>&quot;Male&quot;</code>&#x304C;&#x8FD4;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;&#x3053;&#x3053;&#x3067;&#x6C17;&#x3065;&#x3044;&#x305F;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;<code>match</code>&#x5F0F;&#x3082;&#x5024;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;<code>match</code>&#x5F0F;&#x306E;&#x5024;&#x306F;&#x3001;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;<code>=&gt;</code>&#x306E;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x305F;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x6587;&#x5B57;&#x5217;&#x3060;&#x3051;&#x3067;&#x306A;&#x304F;&#x6570;&#x5024;&#x306A;&#x3069;&#x591A;&#x69D8;&#x306A;&#x5024;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>のようにして使うことができます。ここで、<code>taro</code>には文字列<code>&quot;Taro&quot;</code>が入っており、これは<code>case &quot;Taro&quot;</code>にマッチするため、<code>&quot;Male&quot;</code>が返されます。なお、ここで気づいた人もいるかと思いますが、<code>match</code>式も値を返します。<code>match</code>式の値は、マッチしたパターンの<code>=&gt;</code>の右辺の式を評価したものになります。</p>
+<p>パターンは文字列だけでなく数値など多様な値を扱うことができます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> one = <span class="hljs-number">1</span>
 <span class="hljs-comment">// one: Int = 1</span>
 
@@ -728,24 +727,24 @@ one <span class="hljs-keyword">match</span> {
 }
 <span class="hljs-comment">// res12: String = &quot;one&quot;</span>
 </code></pre>
-<p>&#x3053;&#x3053;&#x3067;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x7B87;&#x6240;&#x306B;<code>_</code>&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;switch-case&#x306E;default&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x3082;&#x306E;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;<strong>&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;</strong>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002; <code>match</code> &#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306F;&#x3001;&#x6F0F;&#x308C;&#x304C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x3002;</p>
-<h3 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;"><a name="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;" class="plugin-anchor" href="#&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;</h3>
-<p>Java&#x3084;C&#x306A;&#x3069;&#x306E;&#x8A00;&#x8A9E;&#x3067;switch-case&#x6587;&#x3092;&#x5B66;&#x3093;&#x3060;&#x65B9;&#x306B;&#x306F;&#x3001;Scala&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x3044;&#x308F;&#x3086;&#x308B;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#xFF08;fall through&#xFF09;&#x306E;&#x52D5;&#x4F5C;&#x3092;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x9055;&#x548C;&#x611F;&#x304C;&#x3042;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>ここで、パターンの箇所に<code>_</code>が出てきましたが、これはswitch-caseのdefaultに相当するもので、あらゆるものにマッチするパターンです。このパターンを<strong>ワイルドカードパターン</strong>と呼びます。 <code>match</code> 式を使うときは、漏れがないようにするために、ワイルドカードパターンを使うことが多いです。</p>
+<h3 id="パターンをまとめる"><a name="パターンをまとめる" class="plugin-anchor" href="#パターンをまとめる"><i class="fa fa-link" aria-hidden="true"></i></a>パターンをまとめる</h3>
+<p>JavaやCなどの言語でswitch-case文を学んだ方には、Scalaのパターンマッチがいわゆるフォールスルー（fall through）の動作をしないことに違和感があるかもしれません。</p>
 <pre><code class="lang-scala"><span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> =&gt; println(<span class="hljs-string">&quot;first&quot;</span>)   <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x51E6;&#x7406;&#x304C;&#x7D42;&#x4E86;</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;def&quot;</span> =&gt; println(<span class="hljs-string">&quot;second&quot;</span>) <span class="hljs-comment">// &#x3053;&#x3063;&#x3061;&#x306F;&#x8868;&#x793A;&#x3055;&#x308C;&#x306A;&#x3044;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> =&gt; println(<span class="hljs-string">&quot;first&quot;</span>)   <span class="hljs-comment">// ここで処理が終了</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;def&quot;</span> =&gt; println(<span class="hljs-string">&quot;second&quot;</span>) <span class="hljs-comment">// こっちは表示されない</span>
 }
 </code></pre>
-<p>C&#x8A00;&#x8A9E;&#x306E;switch-case&#x6587;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#x52D5;&#x4F5C;&#x306F;&#x5229;&#x70B9;&#x3088;&#x308A;&#x30D0;&#x30B0;&#x3092;&#x751F;&#x307F;&#x51FA;&#x3059;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x6709;&#x540D;&#x306A;&#x3082;&#x306E;&#x3067;&#x3057;&#x305F;&#x3002;
-Java&#x304C;C&#x8A00;&#x8A9E;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#x52D5;&#x4F5C;&#x3092;&#x5F15;&#x304D;&#x7D99;&#x3044;&#x3060;&#x3053;&#x3068;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;&#x975E;&#x96E3;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3067;Scala&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x306F;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30B9;&#x30EB;&#x30FC;&#x52D5;&#x4F5C;&#x304C;&#x306A;&#x3044;&#x308F;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;&#x8907;&#x6570;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x3044;&#x3068;&#x304D;&#x306E;&#x305F;&#x3081;&#x306B;<code>|</code>&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;</p>
+<p>C言語のswitch-case文のフォールスルー動作は利点よりバグを生み出すことが多いということで有名なものでした。
+JavaがC言語のフォールスルー動作を引き継いだことはしばしば非難されます。それでScalaのパターンマッチにはフォールスルー動作がないわけですが、複数のパターンをまとめたいときのために<code>|</code>があります</p>
 <pre><code class="lang-scala"><span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> | <span class="hljs-string">&quot;def&quot;</span> =&gt;
     println(<span class="hljs-string">&quot;first&quot;</span>)
     println(<span class="hljs-string">&quot;second&quot;</span>)
 }
 </code></pre>
-<h3 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><a name="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;" class="plugin-anchor" href="#&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306B;&#x3088;&#x308B;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;</h3>
-<p>switch-case&#x4EE5;&#x5916;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x306E;&#x4E00;&#x90E8;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x6B21;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h3 id="パターンマッチによる値の取り出し"><a name="パターンマッチによる値の取り出し" class="plugin-anchor" href="#パターンマッチによる値の取り出し"><i class="fa fa-link" aria-hidden="true"></i></a>パターンマッチによる値の取り出し</h3>
+<p>switch-case以外の使い方としては、コレクションの要素の一部にマッチさせる使い方があります。次のプログラムを見てみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
 <span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
@@ -759,8 +758,8 @@ lst <span class="hljs-keyword">match</span> {
 <span class="hljs-comment">// b = B</span>
 <span class="hljs-comment">// c = C</span>
 </code></pre>
-<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;<code>List</code>&#x306E;&#x5148;&#x982D;&#x8981;&#x7D20;&#x304C;<code>&quot;A&quot;</code>&#x3067;3&#x8981;&#x7D20;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x3068;&#x3001;&#x6B8B;&#x308A;&#x306E;<code>b</code>, <code>c</code>&#x306B;<code>List</code>&#x306E;2&#x756A;&#x76EE;&#x4EE5;&#x964D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x675F;&#x7E1B;&#x3055;&#x308C;&#x3066;&#x3001;<code>=&gt;</code>&#x306E;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; <code>match</code> &#x5F0F;&#x3067;&#x306F;&#x3001;&#x7279;&#x306B;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x8981;&#x7D20;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x983B;&#x51FA;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x306F;&#x30AC;&#x30FC;&#x30C9;&#x5F0F;&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x3001;&#x304B;&#x3064;&#x3001;&#x30AC;&#x30FC;&#x30C9;&#x5F0F;&#xFF08;<code>Boolean</code>&#x578B;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#xFF09;&#x306B;&#x3082;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x53F3;&#x8FBA;&#x306E;&#x5F0F;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>ここでは、<code>List</code>の先頭要素が<code>&quot;A&quot;</code>で3要素のパターンにマッチすると、残りの<code>b</code>, <code>c</code>に<code>List</code>の2番目以降の要素が束縛されて、<code>=&gt;</code>の右辺の式が評価されることになります。 <code>match</code> 式では、特にコレクションの要素にマッチさせる使い方が頻出します。</p>
+<p>パターンマッチではガード式を用いて、パターンにマッチして、かつ、ガード式（<code>Boolean</code>型でなければならない）にもマッチしなければ右辺の式が評価されないような使い方もできます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
 <span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
@@ -773,8 +772,8 @@ lst <span class="hljs-keyword">match</span> {
 }
 <span class="hljs-comment">// nothing</span>
 </code></pre>
-<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x30AC;&#x30FC;&#x30C9;&#x6761;&#x4EF6;&#x306B;&#x3001;<code>List</code>&#x306E;2&#x756A;&#x76EE;&#x306E;&#x8981;&#x7D20;&#x304C;<code>&quot;B&quot;</code>&#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x3001;&#x3068;&#x3044;&#x3046;&#x6761;&#x4EF6;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x305F;&#x3081;&#x3001;&#x6700;&#x521D;&#x306E;&#x6761;&#x4EF6;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x305B;&#x305A; <code>_</code> &#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x30CD;&#x30B9;&#x30C8;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5C11;&#x3057;&#x6539;&#x5909;&#x3057;&#x3066;&#x3001;&#x5148;&#x982D;&#x304C;<code>List(&quot;A&quot;)</code>&#x3067;&#x3042;&#x308B;&#x3088;&#x3046;&#x306A;<code>List</code>&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3055;&#x305B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>ここでは、パターンマッチのガード条件に、<code>List</code>の2番目の要素が<code>&quot;B&quot;</code>でないこと、という条件を指定したため、最初の条件にマッチせず <code>_</code> にマッチしたのです。</p>
+<p>また、パターンマッチのパターンはネストが可能です。先ほどのプログラムを少し改変して、先頭が<code>List(&quot;A&quot;)</code>であるような<code>List</code>にマッチさせてみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>), <span class="hljs-type">List</span>(<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
 <span class="hljs-comment">// lst: List[List[String]] = List(List(&quot;A&quot;), List(&quot;B&quot;, &quot;C&quot;))</span>
 
@@ -787,20 +786,20 @@ lst <span class="hljs-keyword">match</span> {
 <span class="hljs-comment">// List(A)</span>
 <span class="hljs-comment">// List(B, C)</span>
 </code></pre>
-<p><code>lst</code>&#x306F;<code>List(&quot;A&quot;)</code>&#x3068;<code>List(&quot;B&quot;, &quot;C&quot;)</code>&#x306E;2&#x8981;&#x7D20;&#x304B;&#x3089;&#x306A;&#x308B;<code>List</code>&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3001;match&#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x5148;&#x982D;&#x304C;<code>List(&quot;A&quot;)</code>&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x8A18;&#x8FF0;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x524D;&#x306B;<code>@</code>&#x304C;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;as&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;<code>@</code>&#x306E;&#x5F8C;&#x306B;&#x7D9A;&#x304F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x5F0F;&#x3092; <code>@</code> &#x306E;&#x524D;&#x306E;&#x5909;&#x6570;&#xFF08;&#x3053;&#x3053;&#x3067;&#x306F;<code>a</code>&#xFF09;&#x306B;&#x675F;&#x7E1B;&#x3057;&#x307E;&#x3059;&#x3002; <code>as</code> &#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x304C;&#x8907;&#x96D1;&#x306A;&#x3068;&#x304D;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x4E00;&#x90E8;&#x3060;&#x3051;&#x3092;&#x5207;&#x308A;&#x53D6;&#x308A;&#x305F;&#x3044;&#x6642;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057; <code>|</code> &#x3092;&#x4F7F;&#x3063;&#x305F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x5834;&#x5408;&#x306F;&#x5024;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x70B9;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x4E0B;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;<code>|</code>&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p><code>lst</code>は<code>List(&quot;A&quot;)</code>と<code>List(&quot;B&quot;, &quot;C&quot;)</code>の2要素からなる<code>List</code>です。ここで、match式を使うことで、先頭が<code>List(&quot;A&quot;)</code>であるというネストしたパターンを記述できていることがわかります。また、パターンの前に<code>@</code>がついているのはasパターンと呼ばれるもので、<code>@</code>の後に続くパターンにマッチする式を <code>@</code> の前の変数（ここでは<code>a</code>）に束縛します。 <code>as</code> パターンはパターンが複雑なときにパターンの一部だけを切り取りたい時に便利です。ただし <code>|</code> を使ったパターンマッチの場合は値を取り出すことができない点に注意してください。下記のように<code>|</code>のパターンマッチで変数を使った場合はコンパイルエラーになります。</p>
 <pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a) | <span class="hljs-type">Some</span>(a) =&gt;
     println(a)
 }
 </code></pre>
-<p>&#x5024;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3055;&#x306A;&#x3044;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306F;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<p>値を取り出さないパターンマッチは可能です。</p>
 <pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(_) | <span class="hljs-type">Some</span>(_) =&gt;
     println(<span class="hljs-string">&quot;ok&quot;</span>)
 }
 </code></pre>
-<h3 id="&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><a name="&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;" class="plugin-anchor" href="#&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5024;&#x306E;&#x53D6;&#x308A;&#x51FA;&#x3057;</h3>
-<p>&#x5148;&#x306E;&#x7BC0;&#x3067;&#x66F8;&#x3044;&#x305F;&#x3088;&#x3046;&#x306A;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x5225;&#x306E;&#x8A18;&#x6CD5;&#x3067;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;</p>
+<h3 id="中置パターンを使った値の取り出し"><a name="中置パターンを使った値の取り出し" class="plugin-anchor" href="#中置パターンを使った値の取り出し"><i class="fa fa-link" aria-hidden="true"></i></a>中置パターンを使った値の取り出し</h3>
+<p>先の節で書いたようなパターンマッチを別の記法で書くことができます。たとえば、</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
 <span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
@@ -814,7 +813,7 @@ lst <span class="hljs-keyword">match</span> {
 <span class="hljs-comment">// b = B</span>
 <span class="hljs-comment">// c = C</span>
 </code></pre>
-<p>&#x3068;&#x3044;&#x3046;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>というコードは、以下のように書き換えることができます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
 <span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
 
@@ -828,9 +827,9 @@ lst <span class="hljs-keyword">match</span> {
 <span class="hljs-comment">// b = B</span>
 <span class="hljs-comment">// c = C</span>
 </code></pre>
-<p>&#x3053;&#x3053;&#x3067;&#x3001; <code>&quot;A&quot; :: b :: c :: _</code> &#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x8981;&#x7D20;&#x306E;&#x9593;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x540D;&#xFF08;<code>::</code>&#xFF09;&#x304C;&#x73FE;&#x308C;&#x308B;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3092;&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#xFF08;<code>::</code>&#xFF09;&#x306B;&#x3088;&#x3063;&#x3066;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x884C;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001; <code>::</code> &#x306E;&#x524D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x6700;&#x521D;&#x306E;&#x8981;&#x7D20;&#x3092;&#x3001;&#x5F8C;&#x308D;&#x306E;&#x8981;&#x7D20;&#x304C;&#x30EA;&#x30B9;&#x30C8;&#x306E;<strong>&#x6B8B;&#x308A;&#x5168;&#x3066;</strong>&#x3092;&#x6307;&#x3059;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x672B;&#x5C3E;&#x3092;&#x7121;&#x8996;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306E;&#x6700;&#x5F8C;&#x306B; <code>_</code> &#x3092;&#x633F;&#x5165;&#x3059;&#x308B;&#x3068;&#x3044;&#x3063;&#x305F;&#x3053;&#x3068;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x4E2D;&#x7F6E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x306F;&#x983B;&#x51FA;&#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308B;&#x306E;&#x3060;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x5FF5;&#x982D;&#x306B;&#x7F6E;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h3 id="&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;"><a name="&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;" class="plugin-anchor" href="#&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x578B;&#x306B;&#x3088;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;</h3>
-<p>&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x3057;&#x3066;&#x306F;&#x5024;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x578B;&#x306B;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3082;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5024;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x578B;&#x306B;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x3001;<code>&#x540D;&#x524D;:&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x578B;</code>&#x306E;&#x5F62;&#x3067;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;<code>AnyRef</code>&#x578B;&#x306F;&#x3001;Java&#x306E;<code>Object</code>&#x578B;&#x306B;&#x76F8;&#x5F53;&#x3059;&#x308B;&#x578B;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x53C2;&#x7167;&#x578B;&#x306E;&#x5024;&#x3092;<code>AnyRef</code>&#x578B;&#x306E;&#x5909;&#x6570;&#x306B;&#x683C;&#x7D0D;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>ここで、 <code>&quot;A&quot; :: b :: c :: _</code> のように、リストの要素の間にパターン名（<code>::</code>）が現れるようなものを中置パターンと呼びます。中置パターン（<code>::</code>）によってパターンマッチを行った場合、 <code>::</code> の前の要素がリストの最初の要素を、後ろの要素がリストの<strong>残り全て</strong>を指すことになります。リストの末尾を無視する場合、上記のようにパターンの最後に <code>_</code> を挿入するといったことが必要になります。リストの中置パターンはScalaプログラミングでは頻出するので、このような機能があるのだということは念頭に置いてください。</p>
+<h3 id="型によるパターンマッチ"><a name="型によるパターンマッチ" class="plugin-anchor" href="#型によるパターンマッチ"><i class="fa fa-link" aria-hidden="true"></i></a>型によるパターンマッチ</h3>
+<p>パターンとしては値が特定の型に所属する場合にのみマッチするパターンも使うことができます。値が特定の型に所属する場合にのみマッチするパターンは、<code>名前:マッチする型</code>の形で使います。たとえば、以下のようにして使うことができます。なお、<code>AnyRef</code>型は、Javaの<code>Object</code>型に相当する型で、あらゆる参照型の値を<code>AnyRef</code>型の変数に格納することができます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
 
 <span class="hljs-keyword">val</span> obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-string">&quot;String Literal&quot;</span>
@@ -844,11 +843,11 @@ obj <span class="hljs-keyword">match</span> {
 }
 <span class="hljs-comment">// STRING LITERAL</span>
 </code></pre>
-<p><code>java.lang.Integer</code> &#x306B;&#x306F;&#x30DE;&#x30C3;&#x30C1;&#x305B;&#x305A;&#x3001; <code>String</code> &#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x3084; <code>equals</code> &#x306E;&#x5B9A;&#x7FA9;&#x306A;&#x3069;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x578B;&#x3067;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;&#x5024;&#x306F;&#x3001;&#x305D;&#x306E;&#x578B;&#x306B;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x306E;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x5F0F;&#x3067;<code>String</code>&#x578B;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x305F;<code>v</code>&#x306F;<code>String</code>&#x578B;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;<code>toUpperCase</code>&#x3092;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3057;&#x3070;&#x3057;&#x3070;Scala&#x3067;&#x306F;&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x306E;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x306E;&#x3067;&#x899A;&#x3048;&#x3066;&#x304A;&#x304F;&#x3068;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h3 id="jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;"><a name="jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;" class="plugin-anchor" href="#jvm&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;"><i class="fa fa-link" aria-hidden="true"></i></a>JVM&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308B;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;</h3>
-<p>&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x6CE8;&#x610F;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;1&#x3064;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;Scala&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;JVM&#x306E;&#x5236;&#x7D04;&#x306B;&#x3088;&#x308A;&#x3001;&#x578B;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;&#x6B63;&#x3057;&#x304F;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x304C;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<p>&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x69D8;&#x306A;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;REPL&#x3067;&#x5B9F;&#x884C;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;&#x8B66;&#x544A;&#x304C;&#x51FA;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><code>java.lang.Integer</code> にはマッチせず、 <code>String</code> にマッチしていることがわかります。このパターンは例外処理や <code>equals</code> の定義などで使うことがあります。型でマッチした値は、その型にキャストしたのと同じように扱うことができます。</p>
+<p>たとえば、上記の式で<code>String</code>型にマッチした<code>v</code>は<code>String</code>型のメソッドである<code>toUpperCase</code>を呼びだすことができます。しばしばScalaではキャストの代わりにパターンマッチが用いられるので覚えておくとよいでしょう。</p>
+<h3 id="jvmの制約による型のパターンマッチの落とし穴"><a name="jvmの制約による型のパターンマッチの落とし穴" class="plugin-anchor" href="#jvmの制約による型のパターンマッチの落とし穴"><i class="fa fa-link" aria-hidden="true"></i></a>JVMの制約による型のパターンマッチの落とし穴</h3>
+<p>型のパターンマッチで注意しなければならないことが1つあります。Scalaを実行するJVMの制約により、型変数を使った場合、正しくパターンマッチがおこなわれません。</p>
+<p>たとえば、以下の様なパターンマッチをREPLで実行しようとすると、警告が出てしまいます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>)
 <span class="hljs-comment">// obj: Any = List(&quot;a&quot;)</span>
 obj <span class="hljs-keyword">match</span> {
@@ -857,19 +856,19 @@ obj <span class="hljs-keyword">match</span> {
 }
 <span class="hljs-comment">// List[Int]</span>
 </code></pre>
-<p>&#x578B;&#x3068;&#x3057;&#x3066;&#x306F;<code>List[Int]</code>&#x3068;<code>List[String]</code>&#x306F;&#x9055;&#x3046;&#x578B;&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3067;&#x306F;&#x3053;&#x308C;&#x3092;&#x533A;&#x5225;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<p>&#x6700;&#x521D;&#x306E;2&#x3064;&#x306E;&#x8B66;&#x544A;&#x306E;&#x610F;&#x5473;&#x306F;Scala&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x300C;&#x578B;&#x6D88;&#x53BB;&#x300D;&#x3068;&#x3044;&#x3046;&#x52D5;&#x4F5C;&#x306B;&#x3088;&#x308A;<code>List[Int]</code>&#x306E;<code>Int</code>&#x306E;&#x90E8;&#x5206;&#x304C;&#x6D88;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x7D50;&#x679C;&#x7684;&#x306B;2&#x3064;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x533A;&#x5225;&#x3067;&#x304D;&#x306A;&#x3044;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306F;&#x4E0A;&#x304B;&#x3089;&#x9806;&#x756A;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;&#x3044;&#x304F;&#x306E;&#x3067;&#x3001;2&#x756A;&#x76EE;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306F;&#x5230;&#x9054;&#x3057;&#x306A;&#x3044;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;3&#x756A;&#x76EE;&#x306E;&#x8B66;&#x544A;&#x306F;&#x3053;&#x308C;&#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x578B;&#x5909;&#x6570;&#x3092;&#x542B;&#x3080;&#x578B;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>型としては<code>List[Int]</code>と<code>List[String]</code>は違う型なのですが、パターンマッチではこれを区別できません。</p>
+<p>最初の2つの警告の意味はScalaコンパイラの「型消去」という動作により<code>List[Int]</code>の<code>Int</code>の部分が消されてしまうのでチェックされないということです。</p>
+<p>結果的に2つのパターンは区別できないものになり、パターンマッチは上から順番に実行されていくので、2番目のパターンは到達しないコードになります。3番目の警告はこれを意味しています。</p>
+<p>型変数を含む型のパターンマッチは、以下のようにワイルドカードパターンを使うと良いでしょう。</p>
 <pre><code class="lang-scala">obj <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[_] =&gt; println(<span class="hljs-string">&quot;List[_]&quot;</span>)
 }
 </code></pre>
-<h3 id="control_syntax_ex4"><a name="control_syntax_ex4" class="plugin-anchor" href="#control_syntax_ex4"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7DF4;&#x7FD2;&#x554F;&#x984C; </h3>
+<h3 id="control_syntax_ex4"><a name="control_syntax_ex4" class="plugin-anchor" href="#control_syntax_ex4"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <pre><code class="lang-scala"><span class="hljs-keyword">new</span> scala.util.<span class="hljs-type">Random</span>(<span class="hljs-keyword">new</span> java.security.<span class="hljs-type">SecureRandom</span>()).alphanumeric.take(<span class="hljs-number">5</span>).toList
 </code></pre>
-<p>&#x4EE5;&#x4E0A;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001; &#x6700;&#x521D;&#x3068;&#x6700;&#x5F8C;&#x306E;&#x6587;&#x5B57;&#x304C;&#x540C;&#x3058;&#x82F1;&#x6570;&#x5B57;&#x3067;&#x3042;&#x308B;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;5&#x6587;&#x5B57;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;1000&#x56DE;&#x51FA;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002; <code>new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList</code> &#x3068;&#x3044;&#x3046;&#x5024;&#x306F;&#x3001;&#x547C;&#x3073;&#x3060;&#x3059;&#x5EA6;&#x306B;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;5&#x500B;&#x306E;&#x6587;&#x5B57;&#xFF08;<code>Char</code>&#x578B;&#xFF09;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x4E0E;&#x3048;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;&#x4EE5;&#x4E0A;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x4E00;&#x90E8;&#x5206;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3060;&#x3051;&#x3067;&#x3088;&#x304F;&#x3001;&#x6700;&#x521D;&#x3068;&#x6700;&#x5F8C;&#x306E;&#x6587;&#x5B57;&#x304C;&#x540C;&#x3058;&#x82F1;&#x6570;&#x5B57;&#x3067;&#x3042;&#x308B;&#x30EA;&#x30B9;&#x30C8;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x8A66;&#x884C;&#x3092;&#x7D9A;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;<code>List(a, b, d, e, f)</code>&#x304C;&#x5F97;&#x3089;&#x308C;&#x305F;&#x5834;&#x5408;&#x306B;&#x3001;<code>List(a, b, d, e, a)</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3082;&#x826F;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002; </p>
-<div><button type="button" id="answer_ex4_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex4&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex4_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex4_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex4_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex4&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex4_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex4_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex4" style="display:none">
+<p>以上のコードを利用して、 最初と最後の文字が同じ英数字であるランダムな5文字の文字列を1000回出力してください。 <code>new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList</code> という値は、呼びだす度にランダムな5個の文字（<code>Char</code>型）のリストを与えます。なお、以上のコードで生成されたリストの一部分を利用するだけでよく、最初と最後の文字が同じ英数字であるリストになるまで試行を続ける必要はありません。これは、<code>List(a, b, d, e, f)</code>が得られた場合に、<code>List(a, b, d, e, a)</code>のようにしても良いということです。 </p>
+<div><button type="button" id="answer_ex4_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex4&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex4_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex4_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex4_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex4&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex4_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex4_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex4" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>) {
   <span class="hljs-keyword">val</span> s = <span class="hljs-keyword">new</span> scala.util.<span class="hljs-type">Random</span>(<span class="hljs-keyword">new</span> java.security.<span class="hljs-type">SecureRandom</span>()).alphanumeric.take(<span class="hljs-number">5</span>).toList <span class="hljs-keyword">match</span> {
     <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a,b,c,d,_) =&gt; <span class="hljs-type">List</span>(a,b,c,d,a).mkString
@@ -878,7 +877,7 @@ obj <span class="hljs-keyword">match</span> {
 }
 </code></pre>
 </div>
-<p><code>match</code> &#x5F0F;&#x306F;switch-case&#x306B;&#x6BD4;&#x3079;&#x3066;&#x304B;&#x306A;&#x308A;&#x5F37;&#x529B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x3067;&#x3059;&#x304C;&#x3001; <code>match</code> &#x5F0F;&#x306E;&#x529B;&#x306F;&#x305D;&#x308C;&#x306B;&#x3068;&#x3069;&#x307E;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x5F8C;&#x8FF0;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x306F;&#x81EA;&#x5206;&#x3067;&#x4F5C;&#x3063;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#xFF08;&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3055;&#x3089;&#x306B;&#x5F37;&#x529B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p><code>match</code> 式はswitch-caseに比べてかなり強力であることがわかると思います。ですが、 <code>match</code> 式の力はそれにとどまりません。後述しますが、パターンには自分で作ったクラス（のオブジェクト）を指定することでさらに強力になります。</p>
 </body></html>
                                 
                                 </section>
@@ -922,12 +921,56 @@ obj <span class="hljs-keyword">match</span> {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2020-12-12T01:13:12.086Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-12T01:13:43.058Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2020-12-14T05:53:30.623Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2020-12-14T05:53:42.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
     
@@ -949,10 +992,6 @@ obj <span class="hljs-keyword">match</span> {
     
         
         <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

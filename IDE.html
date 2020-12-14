@@ -3,11 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>IDE(IntelliJ IDEA) · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="HonKit 3.6.15">
         
         
         
@@ -76,7 +75,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -417,8 +416,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -457,53 +456,53 @@
                                 <section class="normal markdown-section">
                                 
                                 <html><head></head><body><h1 id="ide-integrated-development-environment"><a name="ide-integrated-development-environment" class="plugin-anchor" href="#ide-integrated-development-environment"><i class="fa fa-link" aria-hidden="true"></i></a>IDE (Integrated Development Environment)</h1>
-<p>Scala&#x3067;&#x672C;&#x683C;&#x7684;&#x306B;&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x969B;&#x306F;&#x3001;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#xFF08;Emacs, Vim, Sublime Text&#xFF09;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3082;&#x69CB;&#x3044;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;
-IDE&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3088;&#x308A;&#x958B;&#x767A;&#x304C;&#x697D;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;Scala&#x3067;&#x958B;&#x767A;&#x3059;&#x308B;&#x969B;&#x306E;IDE&#x3068;&#x3057;&#x3066;&#x306F;IntelliJ IDEA + Scala Plugin&#x3068;
-Scala IDE for Eclipse&#x306E;2&#x7A2E;&#x985E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;IntelliJ IDEA&#x306E;&#x65B9;&#x304C;IDE&#x3068;&#x3057;&#x3066;&#x9AD8;&#x6A5F;&#x80FD;&#x3067;&#x3042;&#x308A;&#x3001;&#x5B89;&#x5B9A;&#x6027;&#x3082;&#x9AD8;&#x3044;&#x305F;&#x3081;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;IntelliJ IDEA + Scala Plugin&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x65B9;&#x6CD5;&#x3068;&#x57FA;&#x672C;&#x7684;&#x306A;&#x64CD;&#x4F5C;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x88DC;&#x8DB3;&#xFF1A;&#x306A;&#x304A;&#x3001;&#x672C;&#x7BC0;&#x3067;IDE&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x5F8C;&#x3082;&#x8AAC;&#x660E;&#x306F;<strong>REPL&#x3092;&#x4F7F;&#x3063;&#x3066;&#x884C;&#x3044;&#x307E;&#x3059;</strong>&#x304C;&#x3001;IDE&#x30D9;&#x30FC;&#x30B9;&#x3067;&#x5B66;&#x7FD2;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x9069;&#x5B9C;&#x30B3;&#x30FC;&#x30C9;&#x3092;IDE&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x306B;&#x8CBC;&#x308A;&#x4ED8;&#x3051;&#x3066;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x306A;&#x3069;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p>IntelliJ IDEA&#x306F;<a href="https://www.jetbrains.com/" target="_blank">JetBrains&#x793E;</a>&#x304C;&#x958B;&#x767A;&#x3057;&#x3066;&#x3044;&#x308B;IDE&#x3067;&#x3001;Java&#x7528;
-IDE&#x3068;&#x3057;&#x3066;&#x6839;&#x5F37;&#x3044;&#x4EBA;&#x6C17;&#x3092;&#x8A87;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x6709;&#x6599;&#x3067;&#x3059;&#x304C;&#x591A;&#x6A5F;&#x80FD;&#x306E;Ultimate Edition&#x3084;&#x30AA;&#x30FC;&#x30D7;&#x30F3;&#x30BD;&#x30FC;&#x30B9;&#x3067;&#x7121;&#x6599;&#x306E;Community Edition&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;Community Edition&#x3067;&#x3082;&#x3001;Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;Scala&#x958B;&#x767A;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3001;&#x672C;&#x7A3F;&#x3067;&#x306F;Community Edition&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3082;&#x3089;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305A;&#x3001;IntelliJ IDEA&#x306E;<a href="https://www.jetbrains.com/idea/download/" target="_blank">Download&#x30DA;&#x30FC;&#x30B8;</a>&#x306B;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;Windows, Mac OS X, Linux&#x306E;3&#x3064;&#x306E;&#x30BF;&#x30D6;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;OS&#x306B;&#x5FDC;&#x3058;&#x305F;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x3001;&#x300C;Download Community&#x300D;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x4EE5;&#x964D;&#x3001;IDEA&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x304C;&#x3067;&#x3066;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x90FD;&#x5408;&#x4E0A;&#x3001;Mac OS X&#x4E0A;&#x3067;&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x3054;&#x627F;&#x77E5;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p><img src="img/IntelliJ_IDEA_Download.png" alt="IntelliJ IDEA&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x30DA;&#x30FC;&#x30B8;"></p>
-<p>&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x3068;&#x3001;<code>ideaIC-${version}.dmg</code>&#xFF08;<code>${version}</code>&#x306F;&#x305D;&#x306E;&#x6642;&#x70B9;&#x3067;&#x306E;IDEA&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#xFF09;&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x59CB;&#x307E;&#x308B;&#x306E;&#x3067;&#xFF08;Windows&#x306E;&#x5834;&#x5408;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x306E;exe&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#xFF09;&#x3001;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x7D42;&#x308F;&#x308B;&#x306E;&#x3092;&#x5F85;&#x3061;&#x307E;&#x3059;&#x3002;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x7D42;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;&#x6307;&#x793A;&#x306B;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p><img src="img/IntelliJ_IDEA_Install.png" alt="IntelliJ IDEA&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;"></p>
-<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x304C;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;&#x30B9;&#x30D7;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x304C;&#x73FE;&#x308C;&#x3066;&#x3057;&#x3070;&#x3089;&#x304F;&#x5F85;&#x3064;&#x3068;&#x3001;</p>
-<p><img src="img/IntelliJ_IDEA_Startup.png" alt="IntelliJ IDEA&#x306E;&#x8D77;&#x52D5;&#x753B;&#x9762;"></p>
-<p>&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x307E;&#x3067;&#x3067;&#x3001;IDEA&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306F;&#x5B8C;&#x4E86;&#x3067;&#x3059;&#x3002;&#x6B21;&#x306B;&#x3001;IDEA&#x306E;
-Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x306E;<code>Configure-&gt;Plugins</code>&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p><img src="img/IntelliJ_IDEA_Startup_Configure.png" alt="IntelliJ IDEA&#x306E;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x306E;Configure"></p>
-<p>&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x4E2D;&#x306E;&#x300C;Browse repositories&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p><img src="img/IntelliJ_IDEA_Plugins.png" alt="IntelliJ IDEA&#x306E;Plugins&#x306E;&#x753B;&#x9762;"></p>
-<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x53EF;&#x80FD;&#x306A;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x306E;&#x4E00;&#x89A7;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x691C;&#x7D22;&#x7A93;&#x304B;&#x3089;<code>scala</code>&#x3067;&#x7D5E;&#x308A;&#x8FBC;&#x307F;&#x3092;&#x304B;&#x3051;&#x3066;&#x3001;&#x300C;Install&#x300D;&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#xFF08;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x53C2;&#x7167;&#xFF09;</p>
-<p><img src="img/IntelliJ_IDEA_Browse_Repositories.png" alt="IntelliJ IDEA&#x306E;Browse Repositories&#x306E;&#x753B;&#x9762;"></p>
-<p>Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x30FB;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x306F;&#x82E5;&#x5E72;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x308B;&#x306E;&#x3067;&#x3057;&#x3070;&#x3089;&#x304F;&#x5F85;&#x3061;&#x307E;&#x3059;&#x3002;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x30FB;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x300C;Restart IntelliJ IDEA&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p><img src="img/IntelliJ_IDEA_Plugins_Changed.png" alt="IntelliJ IDEA&#x306E;&#x518D;&#x8D77;&#x52D5;"></p>
-<p>&#x518D;&#x8D77;&#x52D5;&#x5F8C;&#x3001;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x3067;&#x300C;Create New Project&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3001;&#x6B21;&#x306E;&#x753B;&#x9762;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308C;&#x3070;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306F;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
-<p><img src="img/IntelliJ_IDEA_New_Project.png" alt="IntelliJ IDEA&#x306E;Create New Project"></p>
-<h2 id="sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;"><a name="sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;" class="plugin-anchor" href="#sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;"><i class="fa fa-link" aria-hidden="true"></i></a>sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;</h2>
-<p>&#x6B21;&#x306B;&#x3001;&#x5358;&#x7D14;&#x306A;sbt&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;IntelliJ IDEA&#x306B;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;&#x4ECA;&#x56DE;&#x306F;&#x3001;&#x3042;&#x3089;&#x304B;&#x3058;&#x3081;&#x7528;&#x610F;&#x3057;&#x3066;&#x304A;&#x3044;&#x305F;<code>scala-sandbox</code>&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;<code>scala-sandbox</code>&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;
-<a href="https://github.com/scala-text/scala-sandbox" target="_blank">&#x3053;&#x3053;</a>&#x304B;&#x3089;<code>git clone</code>&#x3067;clone&#x3057;&#x307E;&#x3059;&#x3002;
-<code>scala-sandbox</code>&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x69CB;&#x6210;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;</p>
+<p>Scalaで本格的にコーディングする際は、エディタ（Emacs, Vim, Sublime Text）を使っても構いませんが、
+IDEを使うとより開発が楽になります。Scalaで開発する際のIDEとしてはIntelliJ IDEA + Scala Pluginと
+Scala IDE for Eclipseの2種類がありますが、IntelliJ IDEAの方がIDEとして高機能であり、安定性も高いため、ここではIntelliJ IDEA + Scala Pluginのインストール方法と基本的な操作について説明します。</p>
+<p>補足：なお、本節でIDEをインストール後も説明は<strong>REPLを使って行います</strong>が、IDEベースで学習したい場合は適宜コードをIDEのエディタに貼り付けて実行するなどしてください。</p>
+<p>IntelliJ IDEAは<a href="https://www.jetbrains.com/" target="_blank">JetBrains社</a>が開発しているIDEで、Java用
+IDEとして根強い人気を誇っています。有料ですが多機能のUltimate Editionやオープンソースで無料のCommunity Editionがあります。Community Editionでも、ScalaプラグインをインストールすることでScala開発をすることができるので、本稿ではCommunity Editionをインストールしてもらいます。</p>
+<p>まず、IntelliJ IDEAの<a href="https://www.jetbrains.com/idea/download/" target="_blank">Downloadページ</a>に移動します。Windows, Mac OS X, Linuxの3つのタブがあるので、それぞれのOSに応じたタブを選択して、「Download Community」ボタンをクリックしてください。以降、IDEAのスクリーンショットがでてきますが、都合上、Mac OS X上でのスクリーンショットであることをご承知ください。</p>
+<p><img src="img/IntelliJ_IDEA_Download.png" alt="IntelliJ IDEAのダウンロードページ"></p>
+<p>ボタンをクリックすると、<code>ideaIC-${version}.dmg</code>（<code>${version}</code>はその時点でのIDEAのバージョン）というファイルのダウンロードが始まるので（Windowsの場合、インストーラのexeファイル）、ダウンロードが終わるのを待ちます。ダウンロードが終了したら、ファイルをダブルクリックして、指示にしたがってインストールします。</p>
+<p><img src="img/IntelliJ_IDEA_Install.png" alt="IntelliJ IDEAのインストール"></p>
+<p>インストールが終わったら起動します。スプラッシュスクリーンが現れてしばらく待つと、</p>
+<p><img src="img/IntelliJ_IDEA_Startup.png" alt="IntelliJ IDEAの起動画面"></p>
+<p>のような画面が表示されるはずです。ここまでで、IDEAのインストールは完了です。次に、IDEAの
+Scalaプラグインをインストールする必要があります。起動画面の<code>Configure-&gt;Plugins</code>をクリックしてください。</p>
+<p><img src="img/IntelliJ_IDEA_Startup_Configure.png" alt="IntelliJ IDEAの起動画面のConfigure"></p>
+<p>次のような画面が現れるので、その中の「Browse repositories」をクリックします。</p>
+<p><img src="img/IntelliJ_IDEA_Plugins.png" alt="IntelliJ IDEAのPluginsの画面"></p>
+<p>インストール可能なプラグインの一覧が現れるので、検索窓から<code>scala</code>で絞り込みをかけて、「Install」でインストールします（スクリーンショット参照）</p>
+<p><img src="img/IntelliJ_IDEA_Browse_Repositories.png" alt="IntelliJ IDEAのBrowse Repositoriesの画面"></p>
+<p>Scalaプラグインのダウンロード・インストールには若干時間がかかるのでしばらく待ちます。ダウンロード・インストールが完了したら、次のような画面が現れるので、「Restart IntelliJ IDEA」をクリックします。</p>
+<p><img src="img/IntelliJ_IDEA_Plugins_Changed.png" alt="IntelliJ IDEAの再起動"></p>
+<p>再起動後、起動画面で「Create New Project」をクリックし、次の画面のようになっていればインストールは成功です。</p>
+<p><img src="img/IntelliJ_IDEA_New_Project.png" alt="IntelliJ IDEAのCreate New Project"></p>
+<h2 id="sbtプロジェクトのインポート"><a name="sbtプロジェクトのインポート" class="plugin-anchor" href="#sbtプロジェクトのインポート"><i class="fa fa-link" aria-hidden="true"></i></a>sbtプロジェクトのインポート</h2>
+<p>次に、単純なsbtプロジェクトをIntelliJ IDEAにインポートしてみます。今回は、あらかじめ用意しておいた<code>scala-sandbox</code>プロジェクトを使います。<code>scala-sandbox</code>プロジェクトは
+<a href="https://github.com/scala-text/scala-sandbox" target="_blank">ここ</a>から<code>git clone</code>でcloneします。
+<code>scala-sandbox</code>プロジェクトは次のような構成になっているはずです。</p>
 <pre><code>scala-sandbox
-&#x251C;&#x2500;&#x2500; src/main/scala/HelloWorld.scala
-&#x251C;&#x2500;&#x2500; project/build.properties
-&#x2514;&#x2500;&#x2500; build.sbt
-</code></pre><p>&#x3053;&#x306E;<code>scala-sandbox</code>&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x3057;&#x3066;IntelliJ IDEA&#x306B;&#x53D6;&#x308A;&#x8FBC;&#x307F;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305A;&#x3001;IntelliJ IDEA&#x306E;&#x8D77;&#x52D5;&#x753B;&#x9762;&#x304B;&#x3089;&#x3001;&#x300C;Import Project&#x300D;&#x3092;&#x9078;&#x629E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+├── src/main/scala/HelloWorld.scala
+├── project/build.properties
+└── build.sbt
+</code></pre><p>この<code>scala-sandbox</code>ディレクトリをプロジェクトとしてIntelliJ IDEAに取り込みます。</p>
+<p>まず、IntelliJ IDEAの起動画面から、「Import Project」を選択します。</p>
 <p><img src="img/IntelliJ_IDEA_Import_Project.png" alt="Import Project"></p>
-<p>&#x6B21;&#x306B;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;build.sbt&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;OK&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>次に、以下のような画面が表示されるので、build.sbtをクリックして、OKします。</p>
 <p><img src="img/IntelliJ_IDEA_Select_File_Or_Directory_To_Import.png" alt="Select File or Directory to Import"></p>
-<p>&#x3059;&#x308B;&#x3068;&#x3001;&#x3055;&#x3089;&#x306B;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x300C;Project JDK&#x300D;&#x304C;&#x7A7A;&#x306E;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x300C;New&#x300D;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x81EA;&#x5206;&#x3067;&#x3001;JDK&#x306E;&#x30DB;&#x30FC;&#x30E0;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x3042;&#x308B;JDK&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>すると、さらに次のような画面が表示されます。「Project JDK」が空の場合がありますが、その場合は、「New」を選択して自分で、JDKのホームディレクトリにあるJDKを指定します。</p>
 <p><img src="img/IntelliJ_IDEA_Import_Project_From_SBT.png" alt="Import Project From SBT.png"></p>
-<p>&#x6700;&#x5F8C;&#x306B;&#x3001;OK&#x3057;&#x307E;&#x3059;&#x3002;&#x6700;&#x521D;&#x306F;&#x3001;sbt&#x81EA;&#x4F53;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x53D6;&#x5F97;&#x306A;&#x3069;&#x3059;&#x308B;&#x305F;&#x3081;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3057;&#x3070;&#x3089;&#x304F;&#x5F85;&#x3064;&#x3068;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x753B;&#x9762;&#x304C;&#x958B;&#x304D;&#x307E;&#x3059;&#x3002;&#x305D;&#x3053;&#x304B;&#x3089;&#x3001;<em>HelloWorld.scala</em>&#x3092;&#x9078;&#x3093;&#x3067;&#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x308C;&#x3070;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
+<p>最後に、OKします。最初は、sbt自体のソースを取得などするため時間がかかりますが、しばらく待つとプロジェクト画面が開きます。そこから、<em>HelloWorld.scala</em>を選んでダブルクリックして、以下のように表示されれば成功です。</p>
 <p><img src="img/IntelliJ_IDEA_Editor_Hello_World.png" alt="Hello World.png)"></p>
-<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;IntelliJ IDEA&#x3067;&#x306F;&#x3001;sbt&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;IDE&#x5185;&#x3067;&#x7DE8;&#x96C6;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;"><a name="&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;" class="plugin-anchor" href="#&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;</h2>
-<p>&#x6700;&#x5F8C;&#x306B;&#x3001;&#x3053;&#x306E;HelloWorld&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;<em>HelloWorld.scala</em>&#x3092;IDE&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3067;&#x958B;&#x3044;&#x305F;&#x72B6;&#x614B;&#x3067;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x304B;&#x3089;<code>Run -&gt; Run</code>&#x3068;&#x9078;&#x629E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>このように、IntelliJ IDEAでは、sbtのプロジェクトをインポートしてIDE内で編集することができます。</p>
+<h2 id="プログラムを実行する"><a name="プログラムを実行する" class="plugin-anchor" href="#プログラムを実行する"><i class="fa fa-link" aria-hidden="true"></i></a>プログラムを実行する</h2>
+<p>最後に、このHelloWorldプログラムを実行します。<em>HelloWorld.scala</em>をIDEのエディタで開いた状態でメニューから<code>Run -&gt; Run</code>と選択します。</p>
 <p><img src="img/IntelliJ_IDEA_Run_Menu.png" alt="Run Menu"></p>
-<p>&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x73FE;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;<strong>Hello World</strong>&#x3092;&#x9078;&#x629E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>次のような画面が現れるので、<strong>Hello World</strong>を選択します。</p>
 <p><img src="img/IntelliJ_IDEA_Edit_Configuration_Hello_World.png" alt="Select Hello World"></p>
-<p>&#x3059;&#x308B;&#x3068;&#x3001;Hello World&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x6700;&#x521D;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x304C;&#x59CB;&#x307E;&#x308B;&#x306E;&#x3067;&#x5C11;&#x3057;&#x5F85;&#x3061;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x5F8C;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x753B;&#x9762;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x3089;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;</p>
+<p>すると、Hello Worldプログラムの最初のコンパイルが始まるので少し待ちます。その後、次のような画面が表示されたら成功です。</p>
 <p><img src="img/IntelliJ_IDEA_Run_Hello_World.png" alt="Run Hello World"></p>
 </body></html>
                                 
@@ -548,12 +547,56 @@ Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"next":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"previous":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"path":"sbt-compile-execute.md","ref":"sbt-compile-execute.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"IDE.md","mtime":"2020-12-12T01:12:59.298Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-12T01:13:43.058Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"next":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"previous":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"path":"sbt-compile-execute.md","ref":"sbt-compile-execute.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"IDE.md","mtime":"2020-12-14T05:53:14.778Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2020-12-14T05:53:42.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
     
@@ -575,10 +618,6 @@ Scala&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x
     
         
         <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

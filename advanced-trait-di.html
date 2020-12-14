@@ -3,11 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>トレイトの応用編：依存性の注入によるリファクタリング · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="HonKit 3.6.15">
         
         
         
@@ -76,7 +75,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -417,8 +416,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -456,14 +455,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5FDC;&#x7528;&#x7DE8;&#xFF1A;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;"><a name="&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5FDC;&#x7528;&#x7DE8;&#xFF1A;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;" class="plugin-anchor" href="#&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5FDC;&#x7528;&#x7DE8;&#xFF1A;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5FDC;&#x7528;&#x7DE8;&#xFF1A;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;</h1>
-<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5FDC;&#x7528;&#x7DE8;&#x3068;&#x3057;&#x3066;&#x3001;&#x5927;&#x304D;&#x306A;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x904E;&#x7A0B;&#x3092;&#x901A;&#x3057;&#x3066;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x5B9F;&#x969B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x304F;&#x304B;&#x3092;&#x5B66;&#x3093;&#x3067;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3055;&#x3089;&#x306B;&#x5927;&#x898F;&#x6A21;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x958B;&#x767A;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x3044;&#x3046;&#x6280;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;"><a name="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;" class="plugin-anchor" href="#&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</h2>
-<p>&#x4ECA;&#x56DE;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x5834;&#x6240;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x52D5;&#x304B;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x500B;&#x3005;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x5165;&#x308A;&#x3001;sbt&#x3092;&#x8D77;&#x52D5;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p><a href="https://github.com/scala-text/scala_text/tree/master/src/example_projects/trait-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
-<p><a href="https://github.com/scala-text/scala_text/tree/master/src/example_projects/trait-refactored-example" target="_blank">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x5F8C;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;</a></p>
-<h2 id="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;"><a name="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;" class="plugin-anchor" href="#&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x524D;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x7D39;&#x4ECB;</h2>
-<p>&#x4ECA;&#x56DE;&#x306F;&#x4ECA;&#x307E;&#x3067;&#x3088;&#x308A;&#x5B9F;&#x8DF5;&#x7684;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x767B;&#x9332;&#x3068;&#x8A8D;&#x8A3C;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;<code>UserService</code>&#x3068;&#x3044;&#x3046;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;</p>
+                                <html><head></head><body><h1 id="トレイトの応用編：依存性の注入によるリファクタリング"><a name="トレイトの応用編：依存性の注入によるリファクタリング" class="plugin-anchor" href="#トレイトの応用編：依存性の注入によるリファクタリング"><i class="fa fa-link" aria-hidden="true"></i></a>トレイトの応用編：依存性の注入によるリファクタリング</h1>
+<p>ここではトレイトの応用編として、大きなクラスをリファクタリングする過程を通してトレイトを実際どのように使っていくかを学んでいきましょう。さらに大規模システム開発で使われる依存性の注入という技法についても紹介します。</p>
+<h2 id="サンプルプログラム"><a name="サンプルプログラム" class="plugin-anchor" href="#サンプルプログラム"><i class="fa fa-link" aria-hidden="true"></i></a>サンプルプログラム</h2>
+<p>今回使われるサンプルプログラムは以下の場所にあります。実際に動かしたい場合は個々のディレクトリに入り、sbtを起動してください。</p>
+<p><a href="https://github.com/scala-text/scala_text/tree/master/src/example_projects/trait-example" target="_blank">リファクタリング前のプログラム</a></p>
+<p><a href="https://github.com/scala-text/scala_text/tree/master/src/example_projects/trait-refactored-example" target="_blank">リファクタリング後のプログラム</a></p>
+<h2 id="リファクタリング前のプログラムの紹介"><a name="リファクタリング前のプログラムの紹介" class="plugin-anchor" href="#リファクタリング前のプログラムの紹介"><i class="fa fa-link" aria-hidden="true"></i></a>リファクタリング前のプログラムの紹介</h2>
+<p>今回は今までより実践的なプログラムを考えてみましょう。ユーザーの登録と認証を管理する<code>UserService</code>というクラスです。</p>
 <pre><code class="lang-scala">scalaVersion := <span class="hljs-string">&quot;2.13.2&quot;</span>
 
 libraryDependencies ++= <span class="hljs-type">Seq</span>(
@@ -488,7 +487,7 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserService</span> </span>{
   <span class="hljs-keyword">val</span> maxNameLength = <span class="hljs-number">32</span>
 
-  <span class="hljs-comment">// &#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// ストレージ機能</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span></span>(user: <span class="hljs-type">User</span>): <span class="hljs-type">User</span> = <span class="hljs-type">DB</span> localTx { <span class="hljs-keyword">implicit</span> s =&gt;
     <span class="hljs-keyword">val</span> id = <span class="hljs-string">sql&quot;&quot;</span><span class="hljs-string">&quot;insert into users (name, password) values (${user.name}, ${user.hashedPassword})&quot;</span><span class="hljs-string">&quot;&quot;</span>
       .updateAndReturnGeneratedKey.apply()
@@ -508,14 +507,14 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
       .map(createUser).single.apply()
   }
 
-  <span class="hljs-comment">// &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// パスワード機能</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hashPassword</span></span>(rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> =
     <span class="hljs-type">BCrypt</span>.hashpw(rawPassword, <span class="hljs-type">BCrypt</span>.gensalt())
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkPassword</span></span>(rawPassword: <span class="hljs-type">String</span>, hashedPassword: <span class="hljs-type">String</span>): <span class="hljs-type">Boolean</span> =
     <span class="hljs-type">BCrypt</span>.checkpw(rawPassword, hashedPassword)
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;</span>
+  <span class="hljs-comment">// ユーザー登録</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = {
     <span class="hljs-keyword">if</span> (name.length &gt; maxNameLength) {
       <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Exception</span>(<span class="hljs-string">&quot;Too long name!&quot;</span>)
@@ -526,7 +525,7 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
     insert(<span class="hljs-type">User</span>(name, hashPassword(rawPassword)))
   }
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;</span>
+  <span class="hljs-comment">// ユーザー認証</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">login</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = {
     find(name) <span class="hljs-keyword">match</span> {
       <span class="hljs-keyword">case</span> <span class="hljs-type">None</span>       =&gt; <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Exception</span>(<span class="hljs-string">&quot;User not found!&quot;</span>)
@@ -539,26 +538,26 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
   }
 }
 </code></pre>
-<p><code>UserService</code>&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p><code>UserService</code>は以下のような機能があります。</p>
 <ul>
-<li><code>register</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x767B;&#x9332;&#x3092;&#x304A;&#x3053;&#x306A;&#x3046;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x540D;&#x524D;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x3001;&#x540D;&#x524D;&#x306E;&#x6700;&#x5927;&#x9577;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3068;&#x65E2;&#x306B;&#x540D;&#x524D;&#x304C;&#x767B;&#x9332;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x8ABF;&#x3079;&#x3066;&#x3001;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;</li>
-<li><code>login</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x8A8D;&#x8A3C;&#x3092;&#x304A;&#x3053;&#x306A;&#x3046;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x540D;&#x524D;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x3001;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x540C;&#x540D;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3092;&#x898B;&#x3064;&#x3051;&#x51FA;&#x3057;&#x3001;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;</li>
-<li>&#x3053;&#x306E;&#x4ED6;&#x306E;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x5185;&#x90E8;&#x7684;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x306E;&#x307F;&#x3067;&#x3042;&#x308B;</li>
+<li><code>register</code>メソッドはユーザーの登録をおこなうメソッドで、ユーザーの名前とパスワードを引数として受け取り、名前の最大長のチェックと既に名前が登録されているかどうかを調べて、ストレージに保存する</li>
+<li><code>login</code>メソッドはユーザーの認証をおこなうメソッドで、ユーザーの名前とパスワードを受け取り、ストレージに保存されているユーザーの中から同名のユーザーを見つけ出し、パスワードをチェックする</li>
+<li>この他のストレージ機能とパスワード機能のメソッドは内部的に使われるのみである</li>
 </ul>
-<p>&#x4E0A;&#x8A18;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3067;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x52D5;&#x304B;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;<a href="https://github.com/scalikejdbc/scalikejdbc" target="_blank">ScalikeJDBC</a>&#x3068;&#x3044;&#x3046;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x7528;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3068;jBCrypt&#x3068;&#x3044;&#x3046;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30B9;&#x306E;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x5024;&#x3092;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x5B9F;&#x88C5;&#x306E;&#x8A73;&#x7D30;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x65E2;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x305F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x5B9F;&#x88C5;&#x3092;&#x7701;&#x7565;&#x3057;<a href="https://github.com/scala/scala/blob/v2.13.2/src/library/scala/Predef.scala#L347" target="_blank"><code>???</code></a>&#x3067;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x516C;&#x958B;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x5236;&#x9650;&#x3059;&#x308B;"><a name="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x516C;&#x958B;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x5236;&#x9650;&#x3059;&#x308B;" class="plugin-anchor" href="#&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x516C;&#x958B;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x5236;&#x9650;&#x3059;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x516C;&#x958B;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x5236;&#x9650;&#x3059;&#x308B;</h2>
-<p>&#x3055;&#x3066;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x5316;&#x3068;&#x3044;&#x3046;&#x89B3;&#x70B9;&#x3067;<code>UserService</code>&#x3092;&#x898B;&#x308B;&#x3068;&#x3001;&#x3069;&#x3046;&#x3044;&#x3063;&#x305F;&#x554F;&#x984C;&#x304C;&#x8003;&#x3048;&#x3089;&#x308C;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
-<p>1&#x3064;&#x306F;UserService&#x304C;&#x5FC5;&#x8981;&#x4EE5;&#x4E0A;&#x306B;&#x60C5;&#x5831;&#x3092;&#x516C;&#x958B;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;
-<code>UserService</code>&#x306E;&#x5F79;&#x5272;&#x306F;<code>register</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&#x3068;<code>login</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x8A8D;&#x8A3C;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;&#x3067;&#x3042;&#x308B;<code>insert</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;<code>find</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3082;&#x516C;&#x958B;&#x3057;&#x3066;&#x3057;&#x307E;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p><code>register</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x540D;&#x524D;&#x306E;&#x6700;&#x5927;&#x9577;&#x3084;&#x65E2;&#x306B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x767B;&#x9332;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;<code>insert</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x305D;&#x3046;&#x3044;&#x3063;&#x305F;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x305B;&#x305A;&#x306B;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306B;&#x4FDD;&#x5B58;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;<code>insert</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x76F4;&#x63A5;&#x4F7F;&#x308F;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&#x60F3;&#x5B9A;&#x5916;&#x306B;&#x540D;&#x524D;&#x304C;&#x9577;&#x3044;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3084;&#x3001;&#x540D;&#x524D;&#x304C;&#x91CD;&#x8907;&#x3057;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p><code>find</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3082;&#x540C;&#x69D8;&#x306E;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
-<code>login</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x306F;&#x306A;&#x304F;&#x76F4;&#x63A5;<code>find</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x306A;&#x3057;&#x306B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3067;&#x306F;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x4FEE;&#x6B63;&#x304C;&#x8003;&#x3048;&#x3089;&#x308C;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x307E;&#x305A;&#x8003;&#x3048;&#x3089;&#x308C;&#x308B;&#x306E;&#x306F;&#x5916;&#x90E8;&#x304B;&#x3089;&#x4F7F;&#x3063;&#x3066;&#x307B;&#x3057;&#x304F;&#x306A;&#x3044;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;<code>private</code>&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<p>上記のプログラムでは実際に動かすことができるように<a href="https://github.com/scalikejdbc/scalikejdbc" target="_blank">ScalikeJDBC</a>というデータベース用のライブラリとjBCryptというパスワースのハッシュ値を計算するライブラリが使われていますが、実装の詳細を理解する必要はありません。既にメソッドの実装を説明したことがある場合は実装を省略し<a href="https://github.com/scala/scala/blob/v2.13.2/src/library/scala/Predef.scala#L347" target="_blank"><code>???</code></a>で書くことがあります。</p>
+<h2 id="リファクタリング：公開する機能を制限する"><a name="リファクタリング：公開する機能を制限する" class="plugin-anchor" href="#リファクタリング：公開する機能を制限する"><i class="fa fa-link" aria-hidden="true"></i></a>リファクタリング：公開する機能を制限する</h2>
+<p>さて、モジュール化という観点で<code>UserService</code>を見ると、どういった問題が考えられるでしょうか？</p>
+<p>1つはUserServiceが必要以上に情報を公開しているということです。
+<code>UserService</code>の役割は<code>register</code>メソッドを使ったユーザー登録と<code>login</code>メソッドを使ったユーザーの認証です。しかしストレージ機能である<code>insert</code>メソッドや<code>find</code>メソッドも公開してしまっています。</p>
+<p><code>register</code>メソッドはユーザーの名前の最大長や既にユーザーが登録されているかどうかチェックしていますが、<code>insert</code>メソッドはそういったチェックをせずにデータベースに保存しています。もし<code>insert</code>メソッドを直接使われた場合、想定外に名前が長いユーザーや、名前が重複したユーザーが保存されてしまいます。</p>
+<p><code>find</code>メソッドも同様の問題があります。
+<code>login</code>メソッドではなく直接<code>find</code>メソッドが使われた場合、パスワードのチェックなしにユーザーの情報を取得することができます。</p>
+<p>では、どのような修正が考えられるでしょうか。まず考えられるのは外部から使ってほしくないメソッドを<code>private</code>にすることです。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserService</span> </span>{
-  <span class="hljs-comment">// &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x306F;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;???&#x3067;&#x4EE3;&#x7528;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;</span>
+  <span class="hljs-comment">// メソッドの実装は同じなので???で代用しています</span>
   <span class="hljs-keyword">val</span> maxNameLength = <span class="hljs-number">32</span>
 
-  <span class="hljs-comment">// &#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// ストレージ機能</span>
   <span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>] <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span></span>(user: <span class="hljs-type">User</span>): <span class="hljs-type">User</span> = ???
 
   <span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>] <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createUser</span></span>(rs: <span class="hljs-type">WrappedResultSet</span>): <span class="hljs-type">User</span> = ???
@@ -567,20 +566,20 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
 
   <span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>] <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span></span>(id: <span class="hljs-type">Long</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">User</span>] = ???
 
-  <span class="hljs-comment">// &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// パスワード機能</span>
   <span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>] <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hashPassword</span></span>(rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = ???
 
   <span class="hljs-keyword">private</span>[<span class="hljs-keyword">this</span>] <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkPassword</span></span>(rawPassword: <span class="hljs-type">String</span>, hashedPassword: <span class="hljs-type">String</span>): <span class="hljs-type">Boolean</span> = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;</span>
+  <span class="hljs-comment">// ユーザー登録</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;</span>
+  <span class="hljs-comment">// ユーザー認証</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">login</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 }
 </code></pre>
-<p>&#x3053;&#x308C;&#x3067;<code>insert</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;<code>find</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x5916;&#x90E8;&#x304B;&#x3089;&#x547C;&#x3073;&#x3060;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x304F;&#x306A;&#x3063;&#x305F;&#x306E;&#x3067;&#x3001;&#x5148;&#x307B;&#x3069;&#x306E;&#x554F;&#x984C;&#x306F;&#x8D77;&#x304D;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
-<p>&#x3057;&#x304B;&#x3057;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x516C;&#x958B;&#x3057;&#x305F;&#x3044;&#x6A5F;&#x80FD;&#x3092;&#x5236;&#x9650;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x307E;&#x305A;&#x3001;&#x516C;&#x958B;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3060;&#x3051;&#x3092;&#x96C6;&#x3081;&#x305F;&#x65B0;&#x3057;&#x3044;&#x30C8;&#x30EC;&#x30A4;&#x30C8;<code>UserService</code>&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>これで<code>insert</code>メソッドや<code>find</code>メソッドは外部から呼びだすことができなくなったので、先ほどの問題は起きなくなりました。</p>
+<p>しかしトレイトを使って同じように公開したい機能を制限することもできます。まず、公開するメソッドだけを集めた新しいトレイト<code>UserService</code>を作ります。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">UserService</span> </span>{
   <span class="hljs-keyword">val</span> maxNameLength = <span class="hljs-number">32</span>
 
@@ -589,11 +588,11 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">login</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span>
 }
 </code></pre>
-<p>&#x305D;&#x3057;&#x3066;&#x3001;&#x3053;&#x306E;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x5B9F;&#x88C5;&#x30AF;&#x30E9;&#x30B9;<code>UserServiceImpl</code>&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>そして、このトレイトの実装クラス<code>UserServiceImpl</code>を作ります。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UserService</span> </span>{
-  <span class="hljs-comment">// &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x306F;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;???&#x3067;&#x4EE3;&#x7528;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;</span>
+  <span class="hljs-comment">// メソッドの実装は同じなので???で代用しています</span>
 
-  <span class="hljs-comment">// &#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// ストレージ機能</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span></span>(user: <span class="hljs-type">User</span>): <span class="hljs-type">User</span> = ???
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createUser</span></span>(rs: <span class="hljs-type">WrappedResultSet</span>): <span class="hljs-type">User</span> = ???
@@ -602,26 +601,26 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span></span>(id: <span class="hljs-type">Long</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">User</span>] = ???
 
-  <span class="hljs-comment">// &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// パスワード機能</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hashPassword</span></span>(rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = ???
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkPassword</span></span>(rawPassword: <span class="hljs-type">String</span>, hashedPassword: <span class="hljs-type">String</span>): <span class="hljs-type">Boolean</span> = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;</span>
+  <span class="hljs-comment">// ユーザー登録</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;</span>
+  <span class="hljs-comment">// ユーザー認証</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">login</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 }
 </code></pre>
-<p><code>UserService</code>&#x306E;&#x5229;&#x7528;&#x8005;&#x306F;&#x5B9F;&#x88C5;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x306F;&#x306A;&#x304F;&#x516C;&#x958B;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x307B;&#x3046;&#x3060;&#x3051;&#x3092;&#x53C2;&#x7167;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308C;&#x3070;&#x3001;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x4E0D;&#x6574;&#x5408;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x3067;&#x304D;&#x3066;&#x3057;&#x307E;&#x3046;&#x554F;&#x984C;&#x3082;&#x8D77;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x516C;&#x958B;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x5236;&#x9650;&#x3059;&#x308B;&#x306E;&#x3082;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x306E;&#x4F7F;&#x308F;&#x308C;&#x65B9;&#x306E;1&#x3064;&#x3067;&#x3059;&#x3002;
-Java&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3067;&#x3059;&#x306D;&#x3002;</p>
-<h3 id="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x5927;&#x304D;&#x306A;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x5206;&#x5272;&#x3059;&#x308B;"><a name="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x5927;&#x304D;&#x306A;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x5206;&#x5272;&#x3059;&#x308B;" class="plugin-anchor" href="#&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x5927;&#x304D;&#x306A;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x5206;&#x5272;&#x3059;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF1A;&#x5927;&#x304D;&#x306A;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x5206;&#x5272;&#x3059;&#x308B;</h3>
-<p>&#x6B21;&#x306B;&#x3053;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x554F;&#x984C;&#x70B9;&#x3068;&#x3057;&#x3066;&#x6319;&#x3052;&#x3089;&#x308C;&#x308B;&#x306E;&#x306F;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C;&#x591A;&#x304F;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x6301;&#x3061;&#x3059;&#x304E;&#x3066;&#x3044;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;
-<code>UserService</code>&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&#x3068;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;&#x3092;&#x304A;&#x3053;&#x306A;&#x3046;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ED8;&#x968F;&#x3057;&#x3066;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x5316;&#x3057;&#x305F;&#x308A;&#x3001;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3082;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x306F;<code>UserService</code>&#x4EE5;&#x5916;&#x3067;&#x3082;&#x4F7F;&#x3044;&#x305F;&#x3044;&#x30B1;&#x30FC;&#x30B9;&#x304C;&#x51FA;&#x3066;&#x304F;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x91CD;&#x8981;&#x306A;&#x64CD;&#x4F5C;&#x3092;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;&#x518D;&#x5EA6;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3055;&#x305B;&#x3001;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x3001;1&#x3064;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x8907;&#x6570;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x5206;&#x5272;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x8003;&#x3048;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x3042;&#x305F;&#x3089;&#x3057;&#x304F;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x3060;&#x3051;&#x3092;&#x6301;&#x3064;<code>PasswordService</code>&#x3068;<code>PasswordServiceImpl</code>&#x3092;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<p><code>UserService</code>の利用者は実装クラスではなく公開トレイトのほうだけを参照するようにすれば、チェックされていないメソッドを使って不整合データができてしまう問題も起きません。</p>
+<p>このようにモジュールのインタフェースを定義し、公開する機能を制限するのもトレイトの使われ方の1つです。
+Javaのインタフェースと同じような使い方ですね。</p>
+<h3 id="リファクタリング：大きなモジュールを分割する"><a name="リファクタリング：大きなモジュールを分割する" class="plugin-anchor" href="#リファクタリング：大きなモジュールを分割する"><i class="fa fa-link" aria-hidden="true"></i></a>リファクタリング：大きなモジュールを分割する</h3>
+<p>次にこのモジュールの問題点として挙げられるのは、モジュールが多くの機能を持ちすぎているということです。
+<code>UserService</code>はユーザー登録とユーザー認証をおこなうサービスですが、付随してパスワードをハッシュ化したり、パスワードをチェックする機能も持っています。</p>
+<p>このパスワード機能は<code>UserService</code>以外でも使いたいケースが出てくるかもしれません。たとえばユーザーが重要な操作をした場合に再度パスワードを入力させ、チェックしたい場合などです。</p>
+<p>このような場合、1つのモジュールを複数のモジュールに分割することが考えられます。あたらしくパスワード機能だけを持つ<code>PasswordService</code>と<code>PasswordServiceImpl</code>を作ってみます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">import</span> org.mindrot.jbcrypt.<span class="hljs-type">BCrypt</span>
@@ -640,11 +639,11 @@ Java&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3068;&#x5
     <span class="hljs-type">BCrypt</span>.checkpw(rawPassword, hashedPassword)
 }
 </code></pre>
-<p>&#x305D;&#x3057;&#x3066;&#x3001;&#x5148;&#x307B;&#x3069;&#x4F5C;&#x3063;&#x305F;<code>UserServiceImpl</code>&#x306B;<code>PasswordServiceImpl</code>&#x3092;&#x7D99;&#x627F;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>そして、先ほど作った<code>UserServiceImpl</code>に<code>PasswordServiceImpl</code>を継承して使うようにします。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UserService</span> <span class="hljs-keyword">with</span> <span class="hljs-title">PasswordServiceImpl</span> </span>{
-  <span class="hljs-comment">// &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x306F;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;???&#x3067;&#x4EE3;&#x7528;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;</span>
+  <span class="hljs-comment">// メソッドの実装は同じなので???で代用しています</span>
 
-  <span class="hljs-comment">// &#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;</span>
+  <span class="hljs-comment">// ストレージ機能</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span></span>(user: <span class="hljs-type">User</span>): <span class="hljs-type">User</span> = ???
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createUser</span></span>(rs: <span class="hljs-type">WrappedResultSet</span>): <span class="hljs-type">User</span> = ???
@@ -653,15 +652,15 @@ Java&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3068;&#x5
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span></span>(id: <span class="hljs-type">Long</span>): <span class="hljs-type">Option</span>[<span class="hljs-type">User</span>] = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;</span>
+  <span class="hljs-comment">// ユーザー登録</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;</span>
+  <span class="hljs-comment">// ユーザー認証</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">login</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 }
 </code></pre>
-<p>&#x3053;&#x308C;&#x3067;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x3092;&#x5206;&#x96E2;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x5206;&#x96E2;&#x3057;&#x305F;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x6A5F;&#x80FD;&#x306F;&#x5225;&#x306E;&#x7528;&#x9014;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p>&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x6A5F;&#x80FD;&#x3082;<code>UserRepository</code>&#x3068;&#x3057;&#x3066;&#x5206;&#x96E2;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<p>これでパスワード機能を分離することができました。分離したパスワード機能は別の用途で使うこともできるでしょう。</p>
+<p>同じようにストレージ機能も<code>UserRepository</code>として分離してみます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">package</span> domain
 
 <span class="hljs-keyword">import</span> scalikejdbc._
@@ -695,43 +694,43 @@ Java&#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3068;&#x5
   }
 }
 </code></pre>
-<p>&#x3059;&#x308B;&#x3068;&#x3001;UserServiceImpl&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>すると、UserServiceImplは以下のようになります。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UserService</span> <span class="hljs-keyword">with</span> <span class="hljs-title">PasswordServiceImpl</span> <span class="hljs-keyword">with</span> <span class="hljs-title">UserRepositoryImpl</span> </span>{
-  <span class="hljs-comment">// &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x306F;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;???&#x3067;&#x4EE3;&#x7528;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;</span>
+  <span class="hljs-comment">// メソッドの実装は同じなので???で代用しています</span>
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;</span>
+  <span class="hljs-comment">// ユーザー登録</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">register</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 
-  <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x8A8D;&#x8A3C;</span>
+  <span class="hljs-comment">// ユーザー認証</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">login</span></span>(name: <span class="hljs-type">String</span>, rawPassword: <span class="hljs-type">String</span>): <span class="hljs-type">User</span> = ???
 }
 </code></pre>
-<p>&#x3053;&#x308C;&#x3067;&#x5927;&#x304D;&#x306A;<code>UserService</code>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x8907;&#x6570;&#x306E;&#x6A5F;&#x80FD;&#x306B;&#x5206;&#x5272;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;</p>
-<h2 id="&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;"><a name="&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;" class="plugin-anchor" href="#&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;</h2>
-<p>&#x3055;&#x3066;&#x3001;&#x3044;&#x3088;&#x3044;&#x3088;&#x3053;&#x306E;&#x7BC0;&#x306E;&#x4E3B;&#x984C;&#x3067;&#x3042;&#x308B;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x308B;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x306E;&#x8A71;&#x306B;&#x5165;&#x308A;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p>&#x3053;&#x3053;&#x307E;&#x3067;&#x30C8;&#x30EC;&#x30A4;&#x30C8;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x516C;&#x958B;&#x3059;&#x308B;&#x6A5F;&#x80FD;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x5206;&#x5272;&#x3057;&#x3001;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x9032;&#x3081;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;<code>UserService</code>&#x306B;&#x306F;&#x3082;&#x3046;1&#x3064;&#x5927;&#x304D;&#x306A;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x9593;&#x306E;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x304C;&#x5206;&#x96E2;&#x3067;&#x304D;&#x3066;&#x3044;&#x306A;&#x3044;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x305F;&#x3068;&#x3048;&#x3070;<code>UserServiceImpl</code>&#x306E;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x306F;&#x5916;&#x90E8;&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x74B0;&#x5883;&#x3067;&#x30C6;&#x30B9;&#x30C8;&#x3057;&#x3084;&#x3059;&#x304F;&#x3001;&#x4E26;&#x884C;&#x3057;&#x3066;&#x8907;&#x6570;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x5358;&#x4F53;&#x306E;&#x6A5F;&#x80FD;&#x306E;&#x307F;&#x3092;&#x30C6;&#x30B9;&#x30C8;&#x3059;&#x308B;&#x305F;&#x3081;&#x5931;&#x6557;&#x3057;&#x305F;&#x5834;&#x5408;&#x3001;&#x554F;&#x984C;&#x306E;&#x7B87;&#x6240;&#x304C;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x3068;&#x3044;&#x3046;&#x7279;&#x5FB4;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p><code>UserServiceImpl</code>&#x306F;<code>UserRepositoryImpl</code>&#x306B;&#x4F9D;&#x5B58;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
-<code>UserRepositoryImpl</code>&#x306F;ScalikeJDBC&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5916;&#x90E8;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3067;&#x3042;&#x308B;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306E;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x307E;&#x307E;&#x306E;<code>UserServiceImpl</code>&#x3067;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x305F;&#x5834;&#x5408;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x306E;&#x306B;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x3092;&#x7528;&#x610F;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x305A;&#x3001;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x3092;&#x5171;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x8907;&#x6570;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x540C;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x306E;&#x304C;&#x96E3;&#x3057;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3055;&#x3089;&#x306B;&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x5931;&#x6557;&#x3057;&#x305F;&#x5834;&#x5408;<code>UserServiceImpl</code>&#x306B;&#x539F;&#x56E0;&#x304C;&#x3042;&#x308B;&#x306E;&#x304B;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306E;&#x8A2D;&#x5B9A;&#x3084;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x306B;&#x539F;&#x56E0;&#x304C;&#x3042;&#x308B;&#x306E;&#x304B;&#x3001;&#x8ABF;&#x67FB;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x308C;&#x3067;&#x306F;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x3068;&#x306F;&#x8A00;&#x3048;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<p>&#x305D;&#x3053;&#x3067;&#x5177;&#x4F53;&#x7684;&#x306A;<code>UserRepositoryImpl</code>&#x3078;&#x306E;&#x4F9D;&#x5B58;&#x3092;&#x5206;&#x96E2;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x8003;&#x3048;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x306E;&#x304C;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x624B;&#x6CD5;&#x3067;&#x3059;&#x3002;</p>
-<h3 id="&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x306F;&#xFF1F;"><a name="&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x306F;&#xFF1F;" class="plugin-anchor" href="#&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x306F;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3068;&#x306F;&#xFF1F;</h3>
-<p>&#x307E;&#x305A;&#x306F;&#x4E00;&#x822C;&#x7684;&#x306A;&#x300C;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#xFF08;Dependency Injection&#x3001;DI&#xFF09;&#x300D;&#x306E;&#x5B9A;&#x7FA9;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p>&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3064;&#x3044;&#x3066;Wikipedia&#x306E;<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank">Dependency injection&#x306E;&#x9805;&#x76EE;</a>&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3059;&#x3068;&#x3001;</p>
+<p>これで大きな<code>UserService</code>モジュールを複数の機能に分割することできました。</p>
+<h2 id="依存性の注入によるリファクタリング"><a name="依存性の注入によるリファクタリング" class="plugin-anchor" href="#依存性の注入によるリファクタリング"><i class="fa fa-link" aria-hidden="true"></i></a>依存性の注入によるリファクタリング</h2>
+<p>さて、いよいよこの節の主題である依存性の注入によるリファクタリングの話に入りましょう。</p>
+<p>ここまでトレイトを使って公開する機能を定義し、モジュールを分割し、リファクタリングを進めてきましたが、<code>UserService</code>にはもう1つ大きな問題があります。モジュール間の依存関係が分離できていないことです。</p>
+<p>たとえば<code>UserServiceImpl</code>のユニットテストをすることを考えてみましょう。ユニットテストは外部のシステムを使わないので、ローカル環境でテストしやすく、並行して複数のテストをすることもできます。また、単体の機能のみをテストするため失敗した場合、問題の箇所がわかりやすいという特徴もあります。</p>
+<p><code>UserServiceImpl</code>は<code>UserRepositoryImpl</code>に依存しています。
+<code>UserRepositoryImpl</code>はScalikeJDBCを使った外部システムであるデータベースのアクセスコードがあります。このままの<code>UserServiceImpl</code>でユニットテストを作成した場合、テストを実行するのにデータベースを用意しなければならず、データベースを共用する場合複数のテストを同時に実行するのが難しくなります。さらにテストに失敗した場合<code>UserServiceImpl</code>に原因があるのか、もしくはデータベースの設定やテーブルに原因があるのか、調査しなければなりません。これではユニットテストとは言えません。</p>
+<p>そこで具体的な<code>UserRepositoryImpl</code>への依存を分離することが考えられます。このために使われるのが依存性の注入と呼ばれる手法です。</p>
+<h3 id="依存性の注入とは？"><a name="依存性の注入とは？" class="plugin-anchor" href="#依存性の注入とは？"><i class="fa fa-link" aria-hidden="true"></i></a>依存性の注入とは？</h3>
+<p>まずは一般的な「依存性の注入（Dependency Injection、DI）」の定義を確認しましょう。</p>
+<p>依存性の注入についてWikipediaの<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank">Dependency injectionの項目</a>を見てみますと、</p>
 <ul>
-<li>Dependency&#x3068;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x306A;&#x3069;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3042;&#x308B;</li>
-<li>Injection&#x3068;&#x306F;Dependency&#x3092;&#x4F7F;&#x3046;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x6E21;&#x3059;&#x3053;&#x3068;&#x3067;&#x3042;&#x308B;</li>
+<li>Dependencyとは実際にサービスなどで使われるオブジェクトである</li>
+<li>InjectionとはDependencyを使うオブジェクトに渡すことである</li>
 </ul>
-<p>&#x3068;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3055;&#x3089;&#x306B;DI&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;4&#x3064;&#x306E;&#x5F79;&#x5272;&#x304C;&#x767B;&#x5834;&#x3059;&#x308B;&#x3068;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>とあります。さらにDIには以下の4つの役割が登場するとあります。</p>
 <ul>
-<li>&#x4F7F;&#x308F;&#x308C;&#x308B;&#x5BFE;&#x8C61;&#x306E;&#x300C;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x300D;</li>
-<li>&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3092;&#x4F7F;&#x3046;&#xFF08;&#x4F9D;&#x5B58;&#x3059;&#x308B;&#xFF09;&#x300C;&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x300D;</li>
-<li>&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x304C;&#x3069;&#x3046;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3092;&#x5B9A;&#x3081;&#x305F;&#x300C;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x300D;</li>
-<li>&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3092;&#x69CB;&#x7BC9;&#x3057;&#x3001;&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x306B;&#x6E21;&#x3059;&#x300C;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x300D;</li>
+<li>使われる対象の「サービス」</li>
+<li>サービスを使う（依存する）「クライアント」</li>
+<li>クライアントがどうサービスを使うかを定めた「インタフェース」</li>
+<li>サービスを構築し、クライアントに渡す「インジェクタ」</li>
 </ul>
-<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x5F79;&#x5272;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x4ECA;&#x56DE;&#x306E;&#x4F8B;&#x306E;<code>UserRepository</code>&#x3001;<code>UserRepositoryImpl</code>&#x3001;<code>UserServiceImpl</code>&#x3067;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;
-Wikipedia&#x4E2D;&#x306E;&#x300C;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x300D;&#x3068;&#x3044;&#x3046;&#x7528;&#x8A9E;&#x3068;&#x3001;&#x3053;&#x308C;&#x307E;&#x3067;&#x306E;&#x4F8B;&#x306E;&#x4E2D;&#x3067;&#x767B;&#x5834;&#x3059;&#x308B;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3068;&#x3044;&#x3046;&#x8A00;&#x8449;&#x306F;&#x5225;&#x306E;&#x610F;&#x5473;&#x306A;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p>&#x307E;&#x305A;&#x306F;DI&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x72B6;&#x614B;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x56F3;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p><img src="img/before-di.svg" alt="DI&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x30AF;&#x30E9;&#x30B9;&#x56F3;"></p>
+<p>これらの役割について、今回の例の<code>UserRepository</code>、<code>UserRepositoryImpl</code>、<code>UserServiceImpl</code>で考えてみます。
+Wikipedia中の「サービス」という用語と、これまでの例の中で登場するサービスという言葉は別の意味なので注意してください。</p>
+<p>まずはDIを使っていない状態のクラス図を見てみましょう。</p>
+<p><img src="img/before-di.svg" alt="DIを使っていないクラス図"></p>
 <!---
 ```
 @startuml
@@ -753,37 +752,37 @@ UserServiceImpl --|> UserRepositoryImpl
 @enduml
 ```
 -->
-<p>&#x3053;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x56F3;&#x306E;&#x5F79;&#x5272;&#x3092;&#x8868;&#x306B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<p>このクラス図の役割を表にしてみます。</p>
 <table>
 <thead>
 <tr>
-<th>DI&#x306E;&#x5F79;&#x5272;</th>
-<th>&#x30B3;&#x30FC;&#x30C9;&#x4E0A;&#x306E;&#x540D;&#x524D;</th>
-<th>&#x8AAC;&#x660E;</th>
+<th>DIの役割</th>
+<th>コード上の名前</th>
+<th>説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;</td>
+<td>インタフェース</td>
 <td>UserRepository</td>
-<td>&#x62BD;&#x8C61;&#x7684;&#x306A;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;</td>
+<td>抽象的なインタフェース</td>
 </tr>
 <tr>
-<td>&#x30B5;&#x30FC;&#x30D3;&#x30B9;</td>
+<td>サービス</td>
 <td>UserRepositoryImpl</td>
-<td>&#x5177;&#x4F53;&#x7684;&#x306A;&#x5B9F;&#x88C5;</td>
+<td>具体的な実装</td>
 </tr>
 <tr>
-<td>&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;</td>
+<td>クライアント</td>
 <td>UserServiceImpl</td>
-<td>UserRepository&#x306E;&#x5229;&#x7528;&#x8005;</td>
+<td>UserRepositoryの利用者</td>
 </tr>
 </tbody>
 </table>
-<p>DI&#x3092;&#x4F7F;&#x308F;&#x306A;&#x3044;&#x72B6;&#x614B;&#x3067;&#x306F;<code>UserRepository</code>&#x3068;&#x3044;&#x3046;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x306B;&#x3082;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;&#x3001;<code>UserServiceImpl</code>&#x306F;<code>UserRepositoryImpl</code>&#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5B9F;&#x88C5;&#x3082;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x3067;&#x306F;&#x305B;&#x3063;&#x304B;&#x304F;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3092;&#x5206;&#x96E2;&#x3057;&#x305F;&#x610F;&#x5473;&#x304C;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
-<code>UserServiceImpl</code>&#x304C;<code>UserRepository</code>&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3060;&#x3051;&#x3092;&#x53C2;&#x7167;&#xFF08;&#x4F9D;&#x5B58;&#xFF09;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308C;&#x3070;&#x3001;&#x5177;&#x4F53;&#x7684;&#x306A;&#x5B9F;&#x88C5;&#x3067;&#x3042;&#x308B;<code>UserRepositoryImpl</code>&#x306E;&#x5909;&#x66F4;&#x306B;&#x5F71;&#x97FF;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x306E;&#x304C;DI&#x306E;&#x76EE;&#x7684;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x305D;&#x308C;&#x3067;&#x306F;DI&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x3092;&#x52A0;&#x3048;&#x3066;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x56F3;&#x3092;&#x4FEE;&#x6B63;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p><img src="img/using-di.svg" alt="DI&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x4FEE;&#x6B63;&#x3055;&#x308C;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#x56F3;"></p>
+<p>DIを使わない状態では<code>UserRepository</code>というインタフェースが定義されているのにもかかわらず、<code>UserServiceImpl</code>は<code>UserRepositoryImpl</code>を継承することで実装も参照していました。これではせっかくインタフェースを分離した意味がありません。
+<code>UserServiceImpl</code>が<code>UserRepository</code>インタフェースだけを参照（依存）するようにすれば、具体的な実装である<code>UserRepositoryImpl</code>の変更に影響されることはありません。この問題を解決するのがDIの目的です。</p>
+<p>それではDIのインジェクタを加えて、上記のクラス図を修正しましょう。</p>
+<p><img src="img/using-di.svg" alt="DIを使うことにより修正されたクラス図"></p>
 <!---
 ```
 @startuml
@@ -808,21 +807,21 @@ Injector ..> UserServiceImpl
 @enduml
 ```
 -->
-<p>&#x8B0E;&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x306E;&#x767B;&#x5834;&#x306B;&#x3088;&#x308A;<code>UserServiceImpl</code>&#x304B;&#x3089;<code>UserRepositoryImpl</code>&#x3078;&#x306E;&#x53C2;&#x7167;&#x304C;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x304A;&#x305D;&#x3089;&#x304F;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x306F;&#x4F55;&#x3089;&#x304B;&#x306E;&#x624B;&#x6BB5;&#x3067;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3067;&#x3042;&#x308B;<code>UserRepositoryImpl</code>&#xFF08;Dependency&#xFF09;&#x3092;&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x3067;&#x3042;&#x308B;<code>UserServiceImpl</code>&#x306B;&#x6E21;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF08;Injection&#xFF09;&#x3002;&#x3053;&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x306E;&#x52D5;&#x4F5C;&#x3092;&#x6307;&#x3057;&#x3066;&#x300C;Dependency Injection&#x300D;&#x3068;&#x547C;&#x3076;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x3053;&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x3092;&#x3069;&#x3046;&#x3084;&#x3063;&#x3066;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x304B;&#x3001;&#x305D;&#x308C;&#x304C;DI&#x6280;&#x8853;&#x306E;&#x6838;&#x5FC3;&#x306B;&#x5F53;&#x305F;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306E;&#x5229;&#x70B9;"><a name="&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306E;&#x5229;&#x70B9;" class="plugin-anchor" href="#&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306E;&#x5229;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306E;&#x5229;&#x70B9;</h3>
-<p>&#x3067;&#x306F;&#x3001;&#x3053;&#x306E;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x5229;&#x70B9;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
-<p>1&#x3064;&#x306F;&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x304C;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3060;&#x3051;&#x3092;&#x53C2;&#x7167;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x5177;&#x4F53;&#x7684;&#x306A;&#x5B9F;&#x88C5;&#x3078;&#x306E;&#x53C2;&#x7167;&#x304C;&#x5C11;&#x306A;&#x304F;&#x306A;&#x308A; <strong>&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x540C;&#x58EB;&#x304C;&#x758E;&#x7D50;&#x5408;&#x306B;&#x306A;&#x308B;</strong> &#x3068;&#x3044;&#x3046;&#x70B9;&#x304C;&#x6319;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;<code>UserRepositoryImpl</code>&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x540D;&#x3084;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;&#x304C;&#x5909;&#x66F4;&#x3055;&#x308C;&#x3066;&#x3082;<code>UserServiceImpl</code>&#x306B;&#x306F;&#x4F55;&#x306E;&#x5F71;&#x97FF;&#x3082;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x6B21;&#x306B;&#x6319;&#x3052;&#x3089;&#x308C;&#x308B;&#x70B9;&#x306F;&#x5177;&#x4F53;&#x7684;&#x306A;&#x5B9F;&#x88C5;&#x3092;&#x5DEE;&#x3057;&#x66FF;&#x3048;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A; <strong>&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x306E;&#x52D5;&#x4F5C;&#x304C;&#x30AB;&#x30B9;&#x30BF;&#x30DE;&#x30A4;&#x30BA;&#x53EF;&#x80FD;</strong> &#x306B;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x4ECA;&#x56DE;&#x306E;&#x4F8B;&#x3067;&#x306F;<code>UserRepositoryImpl</code>&#x306F;ScalikeJDBC&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x3057;&#x305F;&#x304C;&#x3001;MongoDB&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;<code>MongoUserRepositoryImpl</code>&#x3092;&#x65B0;&#x3057;&#x304F;&#x4F5C;&#x3063;&#x3066;<code>UserServiceImpl</code>&#x306B;&#x6E21;&#x305B;&#x3070;&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x3092;MongoDB&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305F;DI&#x306F;&#x8A2D;&#x8A08;&#x30EC;&#x30D9;&#x30EB;&#x3067;&#x3082;&#x610F;&#x5473;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
-DI&#x3092;&#x4F7F;&#x3046;&#x3068; <strong>&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x9006;&#x8EE2;&#x306E;&#x539F;&#x5247;&#x3092;&#x5B9F;&#x73FE;&#x3067;&#x304D;&#x307E;&#x3059;</strong> &#x3002;&#x901A;&#x5E38;&#x306E;&#x624B;&#x7D9A;&#x304D;&#x578B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x306F;&#x3001;&#x4E0A;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304B;&#x3089;&#x4E0B;&#x4F4D;&#x306E;&#x8A73;&#x7D30;&#x306A;&#x5B9F;&#x88C5;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x547C;&#x3076;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x3057;&#x3070;&#x3057;&#x3070;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3053;&#x306E;&#x5834;&#x5408;&#x3001;&#x4E0A;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C;&#x4E0B;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x4F9D;&#x5B58;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x4E0B;&#x4F4D;&#x306E;&#x5B9F;&#x88C5;&#x306E;&#x5909;&#x66F4;&#x304C;&#x4E0A;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x307E;&#x3067;&#x5F71;&#x97FF;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x9006;&#x8EE2;&#x306E;&#x539F;&#x5247;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x3001;&#x4E0A;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x5074;&#x306B;&#x4E0B;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C;&#x5B9F;&#x88C5;&#x3059;&#x3079;&#x304D;&#x62BD;&#x8C61;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x4E0B;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306F;&#x305D;&#x306E;&#x62BD;&#x8C61;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x5B9F;&#x88C5;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x3079;&#x304D;&#x3068;&#x3044;&#x3046;&#x8003;&#x3048;&#x65B9;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;<code>UserService</code>&#x304C;&#x4E0A;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3060;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;<code>UserRepositoryImpl</code>&#x306F;&#x4E0B;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x9006;&#x8EE2;&#x3092;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;<code>UserService</code>&#x304B;&#x3089;&#x76F4;&#x63A5;<code>UserRepositoryImpl</code>&#x3092;&#x547C;&#x3070;&#x3056;&#x308B;&#x3092;&#x3048;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x307E;&#x307E;&#x3060;&#x3068;&#x5148;&#x307B;&#x3069;&#x8FF0;&#x3079;&#x305F;&#x3088;&#x3046;&#x306A;&#x554F;&#x984C;&#x304C;&#x751F;&#x3058;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x3001;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x9006;&#x8EE2;&#x306E;&#x539F;&#x5247;&#x306B;&#x5F93;&#x3063;&#x3066;&#x3001;&#x4E0A;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x62BD;&#x8C61;&#x7684;&#x306A;<code>UserRepository</code>&#x3092;&#x7528;&#x610F;&#x3057;&#x3001;<code>UserService</code>&#x306F;<code>UserRepository</code>&#x3092;&#x4F7F;&#x3046;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x4F9D;&#x5B58;&#x6027;&#x306E;&#x6CE8;&#x5165;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x4E0B;&#x4F4D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;<code>UserRepositoryImpl</code>&#x3092;<code>UserService</code>&#x306B;&#x6E21;&#x3059;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x3067;&#x304D;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x307E;&#x305F;&#x898B;&#x843D;&#x3055;&#x308C;&#x304C;&#x3061;&#x306A;&#x70B9;&#x3067;&#x3059;&#x304C;&#x3001;DI&#x3067;&#x306F; <strong>&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x306B;&#x7279;&#x5225;&#x306A;&#x5B9F;&#x88C5;&#x3092;&#x8981;&#x6C42;&#x3057;&#x306A;&#x3044;</strong> &#x3068;&#x3044;&#x3046;&#x70B9;&#x3082;&#x91CD;&#x8981;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;Java&#x754C;&#x9688;&#x3067;DI&#x304C;&#x767B;&#x5834;&#x3057;&#x305F;&#x80CC;&#x666F;&#x306B;&#x95A2;&#x9023;&#x3059;&#x308B;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;Spring Framework&#x306A;&#x3069;&#x306E;DI&#x3092;&#x5B9F;&#x73FE;&#x3059;&#x308B;DI&#x30B3;&#x30F3;&#x30C6;&#x30CA;&#x306F;&#x8907;&#x96D1;&#x306A;Enterprise JavaBeans(EJB)&#x306B;&#x5BFE;&#x3059;&#x308B;&#x30A2;&#x30F3;&#x30C1;&#x30C6;&#x30FC;&#x30BC;&#x3068;&#x3057;&#x3066;&#x8A95;&#x751F;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;&#x8907;&#x96D1;&#x306A;EJB&#x306B;&#x5BFE;&#x3057;&#x3001;&#x4F55;&#x3082;&#x7279;&#x5225;&#x3067;&#x306A;&#x3044;&#x305F;&#x3060;&#x306E;Java&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3042;&#x308B;Plain Old Java Object(POJO)&#x3068;&#x3044;&#x3046;&#x6982;&#x5FF5;&#x304C;&#x63D0;&#x5531;&#x3055;&#x308C;&#x3001;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3055;&#x3084;&#x3001;&#x8A00;&#x8A9E;&#x305D;&#x306E;&#x3082;&#x306E;&#x306E;&#x6A5F;&#x80FD;&#x306B;&#x3088;&#x308B;&#x81EA;&#x7531;&#x306A;&#x8A18;&#x8FF0;&#x304C;&#x91CD;&#x8996;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;
-DI&#x306E;&#x767B;&#x5834;&#x306B;&#x306F;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x80CC;&#x666F;&#x304C;&#x3042;&#x308A;&#x3001;&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x7D14;&#x7C8B;&#x306A;&#x8A00;&#x8A9E;&#x6A5F;&#x80FD;&#x4EE5;&#x5916;&#x6C42;&#x3081;&#x3089;&#x308C;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x4E00;&#x822C;&#x7684;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x6700;&#x5F8C;&#x306B;&#x3001;&#x5148;&#x307B;&#x3069;&#x3082;&#x89E6;&#x308C;&#x307E;&#x3057;&#x305F;&#x304C; <strong>&#x4F9D;&#x5B58;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30E2;&#x30C3;&#x30AF;&#x5316;&#x306B;&#x3088;&#x308B;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x304C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308B;</strong> &#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;Web&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x308B;&#x3068;&#x3001;Web&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x69D8;&#x3005;&#x306A;&#x5916;&#x90E8;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;
-Web&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306F;MySQL&#x3084;Redis&#x306A;&#x3069;&#x306E;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x3092;&#x4F7F;&#x3044;&#x3001;Twitter&#x3084;Facebook&#x306A;&#x3069;&#x306E;&#x5916;&#x90E8;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305F;&#x523B;&#x4E00;&#x523B;&#x3068;&#x5909;&#x5316;&#x3059;&#x308B;&#x6642;&#x9593;&#x3084;&#x5929;&#x5019;&#x306A;&#x3069;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5916;&#x90E8;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x304C;&#x95A2;&#x4FC2;&#x3059;&#x308B;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306F;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x56F0;&#x96E3;&#x3067;&#x3059;&#x3002;
-DI&#x3092;&#x4F7F;&#x3048;&#x3070;&#x5916;&#x90E8;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x5206;&#x96E2;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3001;&#x30E2;&#x30C3;&#x30AF;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x3066;&#x3001;&#x697D;&#x306B;&#x30C6;&#x30B9;&#x30C8;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x3001;DI&#x306E;&#x5229;&#x70B9;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x5B9F;&#x88C5;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;Dependency&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3001;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x306B;&#x6E21;&#x3059;&#xFF08;Injection&#xFF09;&#x3068;&#x3044;&#x3046;&#x5F79;&#x5272;&#x3092;&#x3059;&#x308B;&#x3060;&#x3051;&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30BF;&#x306E;&#x767B;&#x5834;&#x306B;&#x3088;&#x308A;&#x69D8;&#x3005;&#x306A;&#x30E1;&#x30EA;&#x30C3;&#x30C8;&#x304C;&#x751F;&#x307E;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x7406;&#x89E3;&#x3067;&#x304D;&#x305F;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;
-DI&#x306F;&#x7279;&#x306B;&#x5927;&#x898F;&#x6A21;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x69CB;&#x7BC9;&#x306B;&#x6B20;&#x304B;&#x305B;&#x306A;&#x3044;&#x6280;&#x8853;&#x3067;&#x3042;&#x308B;&#x3068;&#x8A00;&#x3063;&#x3066;&#x3082;&#x904E;&#x8A00;&#x3067;&#x306F;&#x306A;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>謎のインジェクタの登場により<code>UserServiceImpl</code>から<code>UserRepositoryImpl</code>への参照がなくなりました。おそらくインジェクタは何らかの手段でサービスである<code>UserRepositoryImpl</code>（Dependency）をクライアントである<code>UserServiceImpl</code>に渡しています（Injection）。このインジェクタの動作を指して「Dependency Injection」と呼ぶわけです。そして、このインジェクタをどうやって実現するか、それがDI技術の核心に当たります。</p>
+<h3 id="依存性の注入の利点"><a name="依存性の注入の利点" class="plugin-anchor" href="#依存性の注入の利点"><i class="fa fa-link" aria-hidden="true"></i></a>依存性の注入の利点</h3>
+<p>では、この依存性の注入を使うとどのような利点があるのでしょうか。</p>
+<p>1つはクライアントがインタフェースだけを参照することにより、具体的な実装への参照が少なくなり <strong>コンポーネント同士が疎結合になる</strong> という点が挙げられます。たとえば<code>UserRepositoryImpl</code>のクラス名やパッケージ名が変更されても<code>UserServiceImpl</code>には何の影響もなくなります。</p>
+<p>次に挙げられる点は具体的な実装を差し替えることにより <strong>クライアントの動作がカスタマイズ可能</strong> になるという点です。たとえば今回の例では<code>UserRepositoryImpl</code>はScalikeJDBCの実装でしたが、MongoDBに保存する<code>MongoUserRepositoryImpl</code>を新しく作って<code>UserServiceImpl</code>に渡せばクライアントをMongoDBに保存するように変更することができます。</p>
+<p>またDIは設計レベルでも意味があります。
+DIを使うと <strong>依存関係逆転の原則を実現できます</strong> 。通常の手続き型プログラミングでは、上位のモジュールから下位の詳細な実装のモジュールを呼ぶということがしばしばあります。しかし、この場合、上位のモジュールが下位のモジュールに依存することになります。つまり、下位の実装の変更が上位のモジュールにまで影響することになってしまうわけです。</p>
+<p>依存関係逆転の原則というのは、上位のモジュールの側に下位のモジュールが実装すべき抽象を定義し、下位のモジュールはその抽象に対して実装を提供すべきという考え方です。たとえば<code>UserService</code>が上位のモジュールだとすると、<code>UserRepositoryImpl</code>は下位のモジュールになります。依存関係逆転をしない場合、<code>UserService</code>から直接<code>UserRepositoryImpl</code>を呼ばざるをえません。このままだと先ほど述べたような問題が生じてしまうので、依存関係逆転の原則に従って、上位のモジュールに抽象的な<code>UserRepository</code>を用意し、<code>UserService</code>は<code>UserRepository</code>を使うようにします。そして、依存性の注入によって、下位のモジュールの<code>UserRepositoryImpl</code>を<code>UserService</code>に渡すことにより、このような問題を解決できるわけです。</p>
+<p>また見落されがちな点ですが、DIでは <strong>クライアントに特別な実装を要求しない</strong> という点も重要です。これはJava界隈でDIが登場した背景に関連するのですが、Spring FrameworkなどのDIを実現するDIコンテナは複雑なEnterprise JavaBeans(EJB)に対するアンチテーゼとして誕生しました。複雑なEJBに対し、何も特別でないただのJavaオブジェクトであるPlain Old Java Object(POJO)という概念が提唱され、わかりやすさや、言語そのものの機能による自由な記述が重視されました。
+DIの登場にはそのような背景があり、クライアントに対して純粋な言語機能以外求められないことが一般的です。</p>
+<p>最後に、先ほども触れましたが <strong>依存オブジェクトのモック化によるユニットテストが可能になる</strong> という点です。たとえばWebアプリケーションについて考えると、Webアプリケーションは様々な外部システムを使います。
+WebアプリケーションはMySQLやRedisなどのストレージを使い、TwitterやFacebookなどの外部サービスにアクセスすることもあるでしょう。また刻一刻と変化する時間や天候などの情報を使うかもしれません。このような外部システムが関係するモジュールはユニットテストすることが困難です。
+DIを使えば外部システムの実装を分離できるので、モックに置き換えて、楽にテストできるようになります。</p>
+<p>以上、DIの利点を見てきました。実装オブジェクト（Dependency）を取得し、サービスに渡す（Injection）という役割をするだけのインジェクタの登場により様々なメリットが生まれることが理解できたと思います。
+DIは特に大規模システムの構築に欠かせない技術であると言っても過言ではないと思います。</p>
 </body></html>
                                 
                                 </section>
@@ -866,12 +865,56 @@ DI&#x306F;&#x7279;&#x306B;&#x5927;&#x898F;&#x6A21;&#x30B7;&#x30B9;&#x30C6;&#x30E
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.23","depth":1,"next":{"title":"付録：様々な型クラスの紹介","level":"1.24","depth":1,"path":"typeclass.md","ref":"typeclass.md","articles":[]},"previous":{"title":"S99の案内","level":"1.22","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"advanced-trait-di.md","mtime":"2020-12-12T01:12:59.306Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-12T01:13:43.058Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"トレイトの応用編：依存性の注入によるリファクタリング","level":"1.23","depth":1,"next":{"title":"付録：様々な型クラスの紹介","level":"1.24","depth":1,"path":"typeclass.md","ref":"typeclass.md","articles":[]},"previous":{"title":"S99の案内","level":"1.22","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"advanced-trait-di.md","mtime":"2020-12-14T05:53:14.798Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2020-12-14T05:53:42.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
     
@@ -893,10 +936,6 @@ DI&#x306F;&#x7279;&#x306B;&#x5927;&#x898F;&#x6A21;&#x30B7;&#x30B9;&#x30C6;&#x30E
     
         
         <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

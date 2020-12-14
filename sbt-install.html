@@ -3,11 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>sbtをインストールする · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="HonKit 3.6.15">
         
         
         
@@ -76,7 +75,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -417,8 +416,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -456,30 +455,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;"><a name="sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;" class="plugin-anchor" href="#sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;</h1>
-<p>&#x73FE;&#x5B9F;&#x306E;Scala&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x624B;&#x52D5;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x975E;&#x5E38;&#x306B;&#x7A00;&#x3067;&#x3001;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30D3;&#x30EB;&#x30C9;&#x30C4;&#x30FC;&#x30EB;&#x3067;&#x3042;&#x308B;<a href="https://www.scala-sbt.org/release/docs/ja/Setup.html" target="_blank">sbt</a>&#x3068;&#x3044;&#x3046;&#x30C4;&#x30FC;&#x30EB;&#x3092;&#x7528;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;sbt&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="java&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;"><a name="java&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;" class="plugin-anchor" href="#java&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;"><i class="fa fa-link" aria-hidden="true"></i></a>Java&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h2>
-<p>Scala 2.12&#x3084;2.13&#x3067;&#x306F;Java 8&#x4EE5;&#x964D;&#x304C;&#x5FC5;&#x9808;&#x306A;&#x306E;&#x3067;&#x3001;&#x3082;&#x3057;Java&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x307E;&#x305A;Java&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
-Java&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x65B9;&#x6CD5;&#x306E;&#x8A73;&#x7D30;&#x306F;&#x3053;&#x3053;&#x3067;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;
-Scala&#x3068;Java&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306E;&#x4E92;&#x63DB;&#x6027;&#x306B;&#x95A2;&#x3057;&#x3066;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;Scala&#x516C;&#x5F0F;&#x30B5;&#x30A4;&#x30C8;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+                                <html><head></head><body><h1 id="sbtをインストールする"><a name="sbtをインストールする" class="plugin-anchor" href="#sbtをインストールする"><i class="fa fa-link" aria-hidden="true"></i></a>sbtをインストールする</h1>
+<p>現実のScalaアプリケーションでは、Scalaプログラムを手動でコンパイル<sup><a href="#fn_1" id="reffn_1">1</a></sup>することは非常に稀で、標準的なビルドツールである<a href="https://www.scala-sbt.org/release/docs/ja/Setup.html" target="_blank">sbt</a>というツールを用いることになります。ここでは、sbtのインストールについて説明します。</p>
+<h2 id="javaのインストール"><a name="javaのインストール" class="plugin-anchor" href="#javaのインストール"><i class="fa fa-link" aria-hidden="true"></i></a>Javaのインストール</h2>
+<p>Scala 2.12や2.13ではJava 8以降が必須なので、もしJavaがインストールされていなければ、まずJavaをインストールしましょう。
+Javaのインストール方法の詳細はここでは省略します。
+ScalaとJavaのそれぞれのバージョンの互換性に関しては、以下のScala公式サイトのページを見てください。</p>
 <p><a href="https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html" target="_blank">https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html</a></p>
-<h2 id="mac-os&#x306E;&#x5834;&#x5408;"><a name="mac-os&#x306E;&#x5834;&#x5408;" class="plugin-anchor" href="#mac-os&#x306E;&#x5834;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>Mac OS&#x306E;&#x5834;&#x5408;</h2>
-<p>Mac OS&#x306E;&#x5834;&#x5408;&#x3001;<a href="https://brew.sh/index_ja.html" target="_blank">Homebrew</a>&#x3092;&#x7528;&#x3044;&#x3066;&#x3001;</p>
+<h2 id="mac-osの場合"><a name="mac-osの場合" class="plugin-anchor" href="#mac-osの場合"><i class="fa fa-link" aria-hidden="true"></i></a>Mac OSの場合</h2>
+<p>Mac OSの場合、<a href="https://brew.sh/index_ja.html" target="_blank">Homebrew</a>を用いて、</p>
 <pre><code>$ brew install sbt
-</code></pre><p>&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x306E;&#x304C;&#x697D;&#x3067;&#x3059;&#x304C;&#x3001;&#x65B0;&#x3057;&#x3059;&#x304E;&#x308B;JDK&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x3044;&#x3046;&#x554F;&#x984C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002; <a href="https://github.com/scala-text/scala_text/issues/566" target="_blank">https://github.com/scala-text/scala_text/issues/566</a></p>
-<h2 id="windows&#x306E;&#x5834;&#x5408;"><a name="windows&#x306E;&#x5834;&#x5408;" class="plugin-anchor" href="#windows&#x306E;&#x5834;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>Windows&#x306E;&#x5834;&#x5408;</h2>
-<p><a href="https://chocolatey.org/" target="_blank">chocolatey</a>&#x3092;&#x7528;&#x3044;&#x308B;&#x306E;&#x304C;&#x697D;&#x3067;&#x3059;&#x3002;
-chocolatey&#x306F;Windows&#x7528;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8; &#x30DE;&#x30CD;&#x30FC;&#x30B8;&#x30E3;&#x3067;&#x6D3B;&#x767A;&#x306B;&#x958B;&#x767A;&#x304C;&#x884C;&#x308F;&#x308C;&#x3066;&#x307E;&#x3059;&#x3002;chocolatey
-&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306B;&#x306F;sbt&#x306E;&#x3082;&#x306E;&#x3082;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;</p>
+</code></pre><p>でインストールするのが楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 <a href="https://github.com/scala-text/scala_text/issues/566" target="_blank">https://github.com/scala-text/scala_text/issues/566</a></p>
+<h2 id="windowsの場合"><a name="windowsの場合" class="plugin-anchor" href="#windowsの場合"><i class="fa fa-link" aria-hidden="true"></i></a>Windowsの場合</h2>
+<p><a href="https://chocolatey.org/" target="_blank">chocolatey</a>を用いるのが楽です。
+chocolateyはWindows用のパッケージ マネージャで活発に開発が行われてます。chocolatey
+のパッケージにはsbtのものもあるので、</p>
 <pre><code>&gt; choco install sbt
-</code></pre><p>&#x3068;&#x3059;&#x308C;&#x3070;Windows&#x306B;sbt&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
-<p>Windows/Mac OS&#x306E;&#x5834;&#x5408;&#x3067;&#x3001;&#x30B7;&#x30A7;&#x30EB;&#x74B0;&#x5883;&#x3067;sbt&#x3068;&#x5165;&#x529B;&#x3059;&#x308B;&#x3068;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x59CB;&#x307E;&#x308C;&#x3070;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306E;&#x6210;&#x529F;&#x3067;&#x3059;&#x3002;sbt&#x304C;&#x306A;&#x3044;&#x3068;&#x8A00;&#x308F;&#x308C;&#x308B;&#x5834;&#x5408;&#x3001;&#x74B0;&#x5883;&#x5909;&#x6570;&#x3078;sbt&#x3078;&#x306E;PATH&#x304C;&#x901A;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x3060;&#x3051;&#x3067;&#x3059;&#x306E;&#x3067;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;Windows&#x3067;&#x306E;&#x74B0;&#x5883;&#x5909;&#x6570;&#x7DE8;&#x96C6;&#x30C4;&#x30FC;&#x30EB;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;
-<a href="http://www.rapidee.com/en/about" target="_blank">Rapid Environment Editor</a>&#x304C;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
-<h2 id="repl&#x3068;sbt"><a name="repl&#x3068;sbt" class="plugin-anchor" href="#repl&#x3068;sbt"><i class="fa fa-link" aria-hidden="true"></i></a>REPL&#x3068;sbt</h2>
-<p>&#x3053;&#x308C;&#x304B;&#x3089;&#x3057;&#x3070;&#x3089;&#x304F;&#x3001;REPL&#xFF08;Read Eval Print Loop&#xFF09;&#x6A5F;&#x80FD;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x5BFE;&#x8A71;&#x7684;&#x306A;&#x6A5F;&#x80FD;&#x3092;&#x7528;&#x3044;&#x3066;Scala&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x8A66;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x306F;&#x5E38;&#x306B;<code>sbt console</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x7D4C;&#x7531;&#x3057;&#x3066;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>sbt console&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;Windows&#x3067;&#x3082;Mac&#x3067;&#x3082;</p>
+</code></pre><p>とすればWindowsにsbtがインストールされます。</p>
+<p>Windows/Mac OSの場合で、シェル環境でsbtと入力するとバイナリのダウンロードが始まればインストールの成功です。sbtがないと言われる場合、環境変数へsbtへのPATHが通っていないだけですので追加しましょう。Windowsでの環境変数編集ツールとしては、
+<a href="http://www.rapidee.com/en/about" target="_blank">Rapid Environment Editor</a>が非常に便利です。</p>
+<h2 id="replとsbt"><a name="replとsbt" class="plugin-anchor" href="#replとsbt"><i class="fa fa-link" aria-hidden="true"></i></a>REPLとsbt</h2>
+<p>これからしばらく、REPL（Read Eval Print Loop）機能と呼ばれる対話的な機能を用いてScalaプログラムを試していきますが、それは常に<code>sbt console</code>コマンドを経由して行います。</p>
+<p>sbt consoleを起動するには、WindowsでもMacでも</p>
 <pre><code>$ sbt console
-</code></pre><p>&#x3068;&#x5165;&#x529B;&#x3059;&#x308C;&#x3070;OK&#x3067;&#x3059;&#x3002;&#x6210;&#x529F;&#x3059;&#x308C;&#x3070;&#x3001;</p>
+</code></pre><p>と入力すればOKです。成功すれば、</p>
 <pre><code>[info] Loading global plugins from /Users/.../.sbt/1.0/plugins
 [info] Set current project to sandbox (in build file:/Users/.../sandbox/)
 [info] Updating {file:/Users/.../sandbox/}sandbox...
@@ -492,26 +491,26 @@ Type in expressions to have them evaluated.
 Type :help for more information.
 
 scala&gt;
-</code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;sbt console&#x3092;&#x7D42;&#x4E86;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;</p>
+</code></pre><p>のように表示されます。sbt consoleを終了したい場合は、</p>
 <pre><code>scala&gt; :quit
-</code></pre><p>&#x3068;&#x5165;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x3001;sbt console&#x3092;&#x7ACB;&#x3061;&#x4E0A;&#x3052;&#x308B;&#x7B87;&#x6240;&#x306B;&#x306F;&#x4EEE;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x6398;&#x3063;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;&#x3092;&#x304A;&#x52E7;&#x3081;&#x3057;&#x307E;&#x3059;&#x3002;sbt&#x306F;&#x30AB;&#x30EC;&#x30F3;&#x30C8;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;&#x4E0B;&#x306B;<em>target</em>&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x7A7A;&#x9593;&#x3092;&#x6C5A;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x3061;&#x306A;&#x307F;&#x306B;&#x3001;&#x3053;&#x306E;&#x3068;&#x304D;&#x8D77;&#x52D5;&#x3055;&#x308C;&#x308B;Scala&#x306E;REPL&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306F;&#x73FE;&#x5728;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;sbt&#x306E;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x3001;&#x3053;&#x3061;&#x3089;&#x304C;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306E;Scala&#x3067;REPL&#x3092;&#x8D77;&#x52D5;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x540C;&#x3058;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;
-<em>build.sbt</em>&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;</p>
+</code></pre><p>と入力します。なお、sbt consoleを立ち上げる箇所には仮のディレクトリを掘っておくことをお勧めします。sbtはカレントディレクトリの下に<em>target</em>ディレクトリを生成してディレクトリ空間を汚してしまうからです。</p>
+<p>ちなみに、このとき起動されるScalaのREPLのバージョンは現在使っているsbtのデフォルトのバージョンになってしまうので、こちらが指定したバージョンのScalaでREPLを起動したい場合は、同じディレクトリに
+<em>build.sbt</em>というファイルを作成し、</p>
 <pre><code class="lang-scala">scalaVersion := <span class="hljs-string">&quot;2.13.2&quot;</span>
 </code></pre>
-<p>&#x3068;&#x3057;&#x3066;&#x3084;&#x308B;&#x3068;&#x826F;&#x3044;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;<em>*.sbt</em>&#x304C;sbt&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x5B9A;&#x7FA9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x306F;REPL&#x306B;&#x6163;&#x308C;&#x3066;&#x3082;&#x3089;&#x3046;&#x6BB5;&#x968E;&#x306A;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;<em>.sbt</em>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x7D30;&#x304B;&#x3044;&#x66F8;&#x304D;&#x65B9;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x8AAC;&#x660E;&#x306F;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;"><a name="sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;" class="plugin-anchor" href="#sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;"><i class="fa fa-link" aria-hidden="true"></i></a>sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;</h2>
-<p>&#x3053;&#x306E;&#x201C;sbt&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#x201D;&#x306F;&#x3001;&#x6700;&#x65B0;&#x7248;&#x3092;&#x6B63;&#x5E38;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3067;&#x304D;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x8AAD;&#x307F;&#x98DB;&#x3070;&#x3057;&#x3066;&#x3044;&#x305F;&#x3060;&#x3044;&#x3066;&#x69CB;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;</p>
-<p>sbt&#x306F;<code>sbt --version</code>&#x3082;&#x3057;&#x304F;&#x306F;<code>sbt --launcher-version</code>&#x3068;&#x3059;&#x308B;&#x3068;version&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;<sup><a href="#fn_2" id="reffn_2">2</a></sup>&#x3002;&#x3053;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3067;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;sbt 1.x<sup><a href="#fn_3" id="reffn_3">3</a></sup>&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x524D;&#x63D0;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;
-1.x&#x7CFB;&#x3067;&#x3042;&#x308C;&#x3070;&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;&#x554F;&#x984C;&#x306A;&#x3044;&#x306F;&#x305A;&#x3067;&#x3059;&#x304C;&#x3001;&#x7121;&#x7528;&#x306A;&#x30C8;&#x30E9;&#x30D6;&#x30EB;&#x3092;&#x907F;&#x3051;&#x308B;&#x305F;&#x3081;&#x3001;&#x3082;&#x3057;&#x904E;&#x53BB;&#x306B;&#x5C11;&#x3057;&#x53E4;&#x3044;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306E;sbt&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x305F;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x3067;&#x304D;&#x308B;&#x3060;&#x3051;&#x6700;&#x65B0;&#x7248;&#x3092;&#x5165;&#x308C;&#x3066;&#x304A;&#x3044;&#x305F;&#x307B;&#x3046;&#x304C;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305F;&#x3001;&#x3082;&#x3057;0.13&#x7CFB;&#x4EE5;&#x524D;&#x306E;version&#xFF08;0.13.16&#x306A;&#x3069;&#xFF09;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x8272;&#x3005;&#x3068;&#x52D5;&#x4F5C;&#x304C;&#x7570;&#x306A;&#x308A;&#x4E0D;&#x90FD;&#x5408;&#x304C;&#x751F;&#x3058;&#x308B;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x5834;&#x5408;&#x306F;&#x5FC5;&#x305A;1.x&#x7CFB;&#x306E;&#x6700;&#x65B0;&#x7248;&#x3092;&#x5165;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>としてやると良いです。この<em>*.sbt</em>がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう段階なので、この<em>.sbt</em>ファイルの細かい書き方についての説明は省略します。</p>
+<h2 id="sbtのバージョンについて"><a name="sbtのバージョンについて" class="plugin-anchor" href="#sbtのバージョンについて"><i class="fa fa-link" aria-hidden="true"></i></a>sbtのバージョンについて</h2>
+<p>この“sbtのバージョンについて”は、最新版を正常にインストールできた場合は、読み飛ばしていただいて構いません。</p>
+<p>sbtは<code>sbt --version</code>もしくは<code>sbt --launcher-version</code>とするとversionが表示されます<sup><a href="#fn_2" id="reffn_2">2</a></sup>。このテキストでは基本的にsbt 1.x<sup><a href="#fn_3" id="reffn_3">3</a></sup>がインストールされている前提で説明していきます。
+1.x系であれば基本的には問題ないはずですが、無用なトラブルを避けるため、もし過去に少し古いバージョンのsbtをインストールしたことがある場合は、できるだけ最新版を入れておいたほうがいいでしょう。また、もし0.13系以前のversion（0.13.16など）が入っている場合は、色々と動作が異なり不都合が生じるので、その場合は必ず1.x系の最新版を入れるようにしてください。</p>
 <blockquote id="fn_1">
-<sup>1</sup>. &#x3053;&#x3053;&#x3067;&#x8A00;&#x3046;&quot;&#x624B;&#x52D5;&#x3067;&quot;&#x3068;&#x306F;&#x3001;<code>scalac</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3059;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+<sup>1</sup>. ここで言う&quot;手動で&quot;とは、<code>scalac</code>コマンドを直接呼び出すという意味です<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
 <blockquote id="fn_2">
-<sup>2</sup>. &#x30CF;&#x30A4;&#x30D5;&#x30F3;&#x306F;1&#x3064;&#x3067;&#x306F;&#x306A;&#x304F;2&#x3064;&#x306A;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x3002;version&#x306E;&#x8A73;&#x7D30;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308A;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x3053;&#x3061;&#x3089;&#x3082;&#x53C2;&#x7167;&#x3002; <a href="https://github.com/scala-text/scala_text/issues/122" target="_blank">https://github.com/scala-text/scala_text/issues/122</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
+<sup>2</sup>. ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 <a href="https://github.com/scala-text/scala_text/issues/122" target="_blank">https://github.com/scala-text/scala_text/issues/122</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> ↩</a>
 </blockquote>
 <blockquote id="fn_3">
-<sup>3</sup>. &#x5177;&#x4F53;&#x7684;&#x306B;&#x306F;&#x3053;&#x308C;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x308B;2020&#x5E74;11&#x6708;&#x6642;&#x70B9;&#x306E;&#x6700;&#x65B0;&#x7248;&#x3067;&#x3042;&#x308B;1.4.4&#x3002;<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#x21A9;</a>
+<sup>3</sup>. 具体的にはこれを書いている2020年11月時点の最新版である1.4.4。<a href="#reffn_3" title="Jump back to footnote [3] in the text."> ↩</a>
 </blockquote>
 </body></html>
                                 
@@ -556,12 +555,56 @@ scala&gt;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sbtをインストールする","level":"1.3","depth":1,"next":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"previous":{"title":"Scalaとは","level":"1.2","depth":1,"path":"introduction-to-scala.md","ref":"introduction-to-scala.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-install.md","mtime":"2020-12-12T01:13:18.194Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-12T01:13:43.058Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sbtをインストールする","level":"1.3","depth":1,"next":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"previous":{"title":"Scalaとは","level":"1.2","depth":1,"path":"introduction-to-scala.md","ref":"introduction-to-scala.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-install.md","mtime":"2020-12-14T05:53:37.851Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2020-12-14T05:53:42.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
     
@@ -583,10 +626,6 @@ scala&gt;
     
         
         <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

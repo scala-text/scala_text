@@ -3,11 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>FutureとPromise · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="HonKit 3.6.15">
         
         
         
@@ -76,7 +75,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -417,8 +416,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -456,20 +455,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="futurepromise&#x306B;&#x3064;&#x3044;&#x3066;"><a name="futurepromise&#x306B;&#x3064;&#x3044;&#x3066;" class="plugin-anchor" href="#futurepromise&#x306B;&#x3064;&#x3044;&#x3066;"><i class="fa fa-link" aria-hidden="true"></i></a>Future/Promise&#x306B;&#x3064;&#x3044;&#x3066;</h1>
-<p>Future&#x3068;Promise&#x306F;&#x975E;&#x540C;&#x671F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x308F;&#x304B;&#x3089;&#x306A;&#x3044;&#x51E6;&#x7406;&#x7D50;&#x679C;&#x3092;&#x62BD;&#x8C61;&#x5316;&#x3057;&#x305F;&#x578B;&#x3067;&#x3059;&#x3002;Future&#x306F;&#x672A;&#x6765;&#x306E;&#x7D50;&#x679C;&#x3092;&#x8868;&#x3059;&#x578B;&#x3067;&#x3059;&#x3002;Promise&#x306F;&#x4E00;&#x5EA6;&#x3060;&#x3051;&#x3001;&#x6210;&#x529F;&#x3042;&#x308B;&#x3044;&#x306F;&#x5931;&#x6557;&#x3092;&#x8868;&#x3059;&#x3001;&#x51E6;&#x7406;&#x307E;&#x305F;&#x306F;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;Future&#x306B;&#x5909;&#x63DB;&#x3067;&#x304D;&#x308B;&#x578B;&#x3067;&#x3059;&#x3002;</p>
-<p>JVM&#x7CFB;&#x306E;&#x8A00;&#x8A9E;&#x3067;&#x306F;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x4E26;&#x884C;&#x51E6;&#x7406;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3005;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x7121;&#x8AD6;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x4E0A;&#x306E;JavaScript&#x306E;&#x3088;&#x3046;&#x306A;&#x30B7;&#x30F3;&#x30B0;&#x30EB;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x884C;&#x3046;&#x3088;&#x3046;&#x306A;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x884C;&#x3046;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x51E6;&#x7406;&#x7FA4;&#x304C;&#x968F;&#x6642;&#x884C;&#x308F;&#x308C;&#x308B;&#x306E;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x306E;&#x30DE;&#x30B7;&#x30F3;&#x306A;&#x3089;&#x3070;&#x5927;&#x62B5;&#x306E;&#x5834;&#x5408;&#x3001;&#x8907;&#x6570;&#x306E;CPU&#x3067;&#x5225;&#x3005;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x5177;&#x4F53;&#x7684;&#x306B;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x304C;&#x884C;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;UI&#x306B;&#x304A;&#x3051;&#x308B;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30B2;&#x30FC;&#x30BF;&#x30FC;&#x306A;&#x3069;&#x304C;&#x3042;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;&#x306E;&#x30A4;&#x30F3;&#x30B8;&#x30B2;&#x30FC;&#x30BF;&#x30FC;&#x304C;&#x30A2;&#x30CB;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308B;&#x9593;&#x3082;&#x3001;&#x30C0;&#x30A4;&#x30A2;&#x30ED;&#x30B0;&#x3092;&#x9589;&#x3058;&#x305F;&#x308A;&#x3001;&#x5225;&#x306A;&#x64CD;&#x4F5C;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x306F;&#x3001;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x51E6;&#x7406;&#x304C;&#x975E;&#x540C;&#x671F;&#x3067;&#x304A;&#x3053;&#x306A;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x306A;&#x304A;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x7279;&#x5B9A;&#x306E;&#x30DE;&#x30B7;&#x30F3;&#x306E;&#x9650;&#x3089;&#x308C;&#x305F;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x4E2D;&#x3067;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3084;&#x30DE;&#x30EB;&#x30C1;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306B;&#x3088;&#x3063;&#x3066;&#x9806;&#x4E0D;&#x540C;&#x3082;&#x3057;&#x304F;&#x306F;&#x540C;&#x6642;&#x306B;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x3092;&#x3001;&#x4E26;&#x884C;&#xFF08;Concurrent&#xFF09;&#x51E6;&#x7406;&#x3068;&#x3044;&#x3044;&#x307E;&#x3059;&#x3002;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x5834;&#x5408;&#x306F;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3068;&#x30E1;&#x30E2;&#x30EA;&#x7A7A;&#x9593;&#x3068;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30CF;&#x30F3;&#x30C9;&#x30E9;&#x3092;&#x8907;&#x6570;&#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x5171;&#x6709;&#x3057;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;&#x5834;&#x5408;&#x306F;&#x30E1;&#x30E2;&#x30EA;&#x7BA1;&#x7406;&#x306F;&#x5225;&#x3067;&#x3059;&#x304C;CPU&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x8907;&#x6570;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3067;&#x5171;&#x6709;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#xFF08;&#x6CE8;&#x3001;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304A;&#x3088;&#x3073;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;&#x3088;&#x3046;&#x306A;&#x6982;&#x5FF5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x77E5;&#x3063;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x307F;&#x306A;&#x3057;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x306E;&#x3067;&#x3054;&#x4E86;&#x627F;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF09;</p>
-<p>&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x304C;&#x5171;&#x6709;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x306B;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;&#x3001;&#x5B8C;&#x5168;&#x306B;&#x540C;&#x6642;&#x306B;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3063;&#x3066;&#x3044;&#x304F;&#x3053;&#x3068;&#x3092;&#x3001;&#x4E26;&#x5217;&#xFF08;Parallel&#xFF09;&#x51E6;&#x7406;&#x3068;&#x3044;&#x3044;&#x307E;&#x3059;&#x3002;&#x5927;&#x62B5;&#x306E;&#x5834;&#x5408;&#x3001;&#x8907;&#x6570;&#x306E;&#x30DE;&#x30B7;&#x30F3;&#x3067;&#x5206;&#x6563;&#x5B9F;&#x884C;&#x3055;&#x305B;&#x308B;&#x3088;&#x3046;&#x306A;&#x5206;&#x6563;&#x7CFB;&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x51E6;&#x7406;&#x3092;&#x4E26;&#x5217;&#x51E6;&#x7406;&#x7CFB;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x305F;&#x3073;&#x306F;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x4E26;&#x884C;&#x51E6;&#x7406;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x3001;&#x3068;&#x3066;&#x3082;&#x4FBF;&#x5229;&#x306A;Future&#x3068;Promise&#x3068;&#x3044;&#x3046;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x6A5F;&#x80FD;&#x3068;&#x4F7F;&#x3044;&#x65B9;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3092;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="future&#x3068;&#x306F;"><a name="future&#x3068;&#x306F;" class="plugin-anchor" href="#future&#x3068;&#x306F;"><i class="fa fa-link" aria-hidden="true"></i></a>Future&#x3068;&#x306F;</h2>
-<p><a href="https://www.scala-lang.org/api/current/scala/concurrent/Future.html" target="_blank">Future</a>&#x3068;&#x306F;&#x3001;&#x975E;&#x540C;&#x671F;&#x306B;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;&#x7D50;&#x679C;&#x304C;&#x5165;&#x3063;&#x305F;Option&#x578B;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;
-map&#x3084;flatMap&#x3084;filter&#x3001;for&#x5F0F;&#x306E;&#x9069;&#x7528;&#x3068;&#x3044;&#x3063;&#x305F;&#x3088;&#x3046;&#x306A;Option&#x3084;List&#x3067;&#x3082;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x6027;&#x8CEA;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3084;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;&#x306E;&#x51E6;&#x7406;&#x304C;&#x975E;&#x540C;&#x671F;&#x4E3B;&#x4F53;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;&#x3053;&#x306E;Future&#x306F;&#x57FA;&#x672C;&#x7684;&#x3067;&#x91CD;&#x8981;&#x306A;&#x5F79;&#x5272;&#x3092;&#x679C;&#x305F;&#x3059;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x306A;&#x304A;Java&#x306B;&#x3082;<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/Future.html" target="_blank">Future</a>&#x3068;&#x3044;&#x3046;&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x3061;&#x3089;&#x306B;&#x306F;&#x95A2;&#x6570;&#x3092;&#x4E0E;&#x3048;&#x305F;&#x308A;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x3001;Option&#x306E;&#x6301;&#x3064;&#x7279;&#x6027;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x307E;&#x305F;&#x3001;ECMAScript 6&#x306B;&#x3042;&#x308B;<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a>
-&#x3068;&#x3044;&#x3046;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x3061;&#x3089;&#x306E;&#x65B9;&#x304C;Scala&#x306E;Future&#x306E;&#x6A5F;&#x80FD;&#x306B;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;ECMAScript 6&#x306E;Promise&#x3068;Scala&#x306E;Promise&#x306F;&#x3001;&#x5168;&#x304F;&#x7570;&#x306A;&#x308B;&#x6A5F;&#x80FD;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x6CE8;&#x610F;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x5B9F;&#x969B;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+                                <html><head></head><body><h1 id="futurepromiseについて"><a name="futurepromiseについて" class="plugin-anchor" href="#futurepromiseについて"><i class="fa fa-link" aria-hidden="true"></i></a>Future/Promiseについて</h1>
+<p>FutureとPromiseは非同期プログラミングにおいて、終了しているかどうかわからない処理結果を抽象化した型です。Futureは未来の結果を表す型です。Promiseは一度だけ、成功あるいは失敗を表す、処理または値を設定することでFutureに変換できる型です。</p>
+<p>JVM系の言語では、マルチスレッドで並行処理を使った非同期処理を行うことが多々あります。無論ブラウザ上のJavaScriptのようなシングルスレッドで行うような非同期処理もありますが、マルチスレッドで行う非同期処理は定義した処理群が随時行われるのではなく、マルチコアのマシンならば大抵の場合、複数のCPUで別々に実行されることとなります。</p>
+<p>具体的に非同期処理が行われている例としては、UIにおける読み込み中のインジゲーターなどがあげられます。読み込み中のインジゲーターがアニメーションしている間も、ダイアログを閉じたり、別な操作をすることができるのは、読み込み処理が非同期でおこなわれているからです。</p>
+<p>なお、このような特定のマシンの限られたリソースの中で、マルチスレッドやマルチプロセスによって順不同もしくは同時に処理を行うことを、並行（Concurrent）処理といいます。マルチスレッドの場合はプロセスとメモリ空間とファイルハンドラを複数のスレッドで共有し、マルチプロセスの場合はメモリ管理は別ですがCPUリソースを複数のプロセスで共有しています。（注、スレッドおよびプロセスのような概念については知っているものとみなして説明していますのでご了承ください）</p>
+<p>リソースが共有されているかどうかにかかわらず、完全に同時に処理を行っていくことを、並列（Parallel）処理といいます。大抵の場合、複数のマシンで分散実行させるような分散系を利用したスケールするような処理を並列処理系と呼びます。</p>
+<p>このたびはこのような並行処理を使った非同期処理を行った場合に、とても便利なFutureとPromiseというそれぞれのクラスの機能と使い方について説明を行います。</p>
+<h2 id="futureとは"><a name="futureとは" class="plugin-anchor" href="#futureとは"><i class="fa fa-link" aria-hidden="true"></i></a>Futureとは</h2>
+<p><a href="https://www.scala-lang.org/api/current/scala/concurrent/Future.html" target="_blank">Future</a>とは、非同期に処理される結果が入ったOption型のようなものです。
+mapやflatMapやfilter、for式の適用といったようなOptionやListでも利用できる性質を持っています。</p>
+<p>ライブラリやフレームワークの処理が非同期主体となっている場合、このFutureは基本的で重要な役割を果たすクラスとなります。</p>
+<p>なおJavaにも<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/Future.html" target="_blank">Future</a>というクラスがありますが、こちらには関数を与えたり<sup><a href="#fn_1" id="reffn_1">1</a></sup>、Optionの持つ特性はありません。また、ECMAScript 6にある<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a>
+という機能がありますが、そちらの方がScalaのFutureの機能に似ています。このECMAScript 6のPromiseとScalaのPromiseは、全く異なる機能であるため注意が必要です。</p>
+<p>実際のコード例を見てみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Future</span>
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 
@@ -493,7 +492,7 @@ map&#x3084;flatMap&#x3084;filter&#x3001;for&#x5F0F;&#x306E;&#x9069;&#x7528;&#x30
 
   <span class="hljs-keyword">val</span> f2: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
     <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;&#x308F;&#x3056;&#x3068;&#x5931;&#x6557;&quot;</span>)
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;わざと失敗&quot;</span>)
   }
 
   f2.failed.foreach { <span class="hljs-keyword">case</span> e: <span class="hljs-type">Throwable</span> =&gt;
@@ -502,29 +501,29 @@ map&#x3084;flatMap&#x3084;filter&#x3001;for&#x5F0F;&#x306E;&#x9069;&#x7528;&#x30
 
   println(f2.isCompleted) <span class="hljs-comment">// false</span>
 
-  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// &#x308F;&#x3056;&#x3068;&#x5931;&#x6557;</span>
+  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// わざと失敗</span>
 
   println(f2.isCompleted) <span class="hljs-comment">// true</span>
 }
 </code></pre>
-<p>&#x51FA;&#x529B;&#x7D50;&#x679C;&#x306F;&#x3001;</p>
+<p>出力結果は、</p>
 <pre><code>false
 Hello future!
 true
 false
-&#x308F;&#x3056;&#x3068;&#x5931;&#x6557;
+わざと失敗
 true
-</code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x306F;Future&#x81EA;&#x4F53;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x3059;&#x3002;&#x975E;&#x540C;&#x671F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306F;&#x3001;sbt console&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x306E;&#x304C;&#x96E3;&#x3057;&#x3044;&#x306E;&#x3067;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x66F8;&#x304B;&#x305B;&#x3066;&#x3082;&#x3089;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;
-Future&#x30B7;&#x30F3;&#x30B0;&#x30EB;&#x30C8;&#x30F3;&#x306F;&#x95A2;&#x6570;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x3068;&#x305D;&#x306E;&#x95A2;&#x6570;&#x3092;&#x975E;&#x540C;&#x671F;&#x306B;&#x4E0E;&#x3048;&#x308B;<code>Future[+T]</code>&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;&#x4E0A;&#x8A18;&#x306E;&#x5B9F;&#x88C5;&#x4F8B;&#x3067;&#x306F;&#x307E;&#x305A;&#x3001;1000&#x30DF;&#x30EA;&#x79D2;&#x5F85;&#x6A5F;&#x3057;&#x3066;&#x3001;<code>&quot;Hello&quot;</code>&#x3068;<code>&quot; future!&quot;</code>&#x3092;&#x6587;&#x5B57;&#x5217;&#x7D50;&#x5408;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x51E6;&#x7406;&#x3092;&#x975E;&#x540C;&#x671F;&#x306B;&#x51E6;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x6210;&#x529F;&#x6642;&#x306E;&#x51E6;&#x7406;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x5F8C;future&#x304C;&#x51E6;&#x7406;&#x304C;&#x7D42;&#x308F;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3001;
-future&#x306E;&#x7D50;&#x679C;&#x53D6;&#x5F97;&#x3092;5000&#x30DF;&#x30EA;&#x79D2;&#x9593;&#x5F85;&#x3064;&#x3068;&#x3044;&#x3046;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3063;&#x305F;&#x5F8C;&#x3001;&#x305D;&#x306E;&#x7D50;&#x679C;&#x304C;&#x3069;&#x3046;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3092;&#x30B3;&#x30F3;&#x30BD;&#x30FC;&#x30EB;&#x306B;&#x51FA;&#x529B;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x51E6;&#x7406;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x306A;&#x304A;&#x4EE5;&#x4E0A;&#x306E;&#x3088;&#x3046;&#x306B;5000&#x30DF;&#x30EA;&#x79D2;&#x5F85;&#x3064;&#x3068;&#x3044;&#x3046;&#x4ED6;&#x306B;&#x3001;&#x305D;&#x306E;Future&#x81EA;&#x4F53;&#x306E;&#x51E6;&#x7406;&#x3092;&#x5F85;&#x3064;&#x3068;&#x3044;&#x3046;&#x66F8;&#x304D;&#x65B9;&#x3082;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
-<code>Thread.sleep(5000)</code>&#x3092;<code>Await.ready(f, 5000.millisecond)</code>&#x3068;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;
-Future&#x304C;&#x7D42;&#x308F;&#x308B;&#x307E;&#x3067;&#x6700;&#x5927;5000&#x30DF;&#x30EA;&#x79D2;&#x3092;&#x5F85;&#x3064;&#x3068;&#x3044;&#x3046;&#x66F8;&#x304D;&#x65B9;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x3053;&#x306E;&#x66F8;&#x304D;&#x65B9;&#x3092;&#x3059;&#x308B;&#x524D;&#x306B;&#x3001;</p>
+</code></pre><p>のようになります。</p>
+<p>以上はFuture自体の機能を理解するためのサンプルコードです。非同期プログラミングは、sbt consoleで実装するのが難しいのでファイルに書かせてもらいました。
+Futureシングルトンは関数を与えるとその関数を非同期に与える<code>Future[+T]</code>を返します。上記の実装例ではまず、1000ミリ秒待機して、<code>&quot;Hello&quot;</code>と<code>&quot; future!&quot;</code>を文字列結合するという処理を非同期に処理します。そして成功時の処理を定義した後futureが処理が終わっているかを確認し、
+futureの結果取得を5000ミリ秒間待つという処理を行った後、その結果がどうなっているのかをコンソールに出力するという処理をします。</p>
+<p>なお以上のように5000ミリ秒待つという他に、そのFuture自体の処理を待つという書き方もすることができます。
+<code>Thread.sleep(5000)</code>を<code>Await.ready(f, 5000.millisecond)</code>とすることで、
+Futureが終わるまで最大5000ミリ秒を待つという書き方となります。ただし、この書き方をする前に、</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Await</span>
 <span class="hljs-keyword">import</span> scala.concurrent.duration._
 </code></pre>
-<p>&#x4EE5;&#x4E0A;&#x3092;import&#x6587;&#x306B;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3055;&#x3089;&#x306B;&#x3053;&#x308C;&#x3089;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x52D5;&#x3044;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3092;&#x3001;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x89B3;&#x70B9;&#x304B;&#x3089;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<p>以上をimport文に追加する必要があります。さらにこれらがどのように動いているのかを、スレッドの観点から見てみましょう。以下のようにコードを書いてみます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Await</span>, <span class="hljs-type">Future</span>}
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.duration._
@@ -551,19 +550,19 @@ Future&#x304C;&#x7D42;&#x308F;&#x308B;&#x307E;&#x3067;&#x6700;&#x5927;5000&#x30D
   println(f.isCompleted) <span class="hljs-comment">// true</span>
 }
 </code></pre>
-<p>&#x3053;&#x306E;&#x5B9F;&#x884C;&#x7D50;&#x679C;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;</p>
+<p>この実行結果については、</p>
 <pre><code>false
 [ThreadName] In Future: ForkJoinPool-1-worker-5
 [ThreadName] In App: main
 true
 [ThreadName] In Success: ForkJoinPool-1-worker-5
 Hello future!
-</code></pre><p>&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EE5;&#x4E0A;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x306F;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x540D;&#x3092;&#x5404;&#x7B87;&#x6240;&#x306B;&#x3064;&#x3044;&#x3066;&#x51FA;&#x529B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x305F;&#x3002;&#x975E;&#x5E38;&#x306B;&#x8208;&#x5473;&#x6DF1;&#x3044;&#x7D50;&#x679C;&#x3067;&#x3059;&#x306D;&#x3002;<code>Future</code>&#x3068;<code>foreach</code>&#x306B;&#x6E21;&#x3057;&#x305F;&#x95A2;&#x6570;&#x306B;&#x95A2;&#x3057;&#x3066;&#x306F;&#x3001;
-<code>ForkJoinPool-1-worker-5</code>&#x3068;&#x3044;&#x3046;main&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3068;&#x306F;&#x7570;&#x306A;&#x308B;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x3064;&#x307E;&#x308A;Future&#x3092;&#x7528;&#x3044;&#x308B;&#x3053;&#x3068;&#x3067;&#x77E5;&#x3089;&#x305A;&#x77E5;&#x3089;&#x305A;&#x306E;&#x3046;&#x3061;&#x306E;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;&#x3044;&#x305F;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;<code>Await.ready(f, 5000.millisecond)</code>&#x3067;&#x51E6;&#x7406;&#x3092;&#x66F8;&#x3044;&#x305F;&#x3053;&#x3068;&#x3067;&#x3001;<code>isCompleted</code>&#x306E;&#x78BA;&#x8A8D;&#x51E6;&#x7406;&#x306E;&#x307B;&#x3046;&#x304C;&#x3001;
-<code>&quot;Hello future!&quot;</code>&#x306E;&#x6587;&#x5B57;&#x5217;&#x7D50;&#x5408;&#x3088;&#x308A;&#x3082;&#x5148;&#x306B;&#x51FA;&#x529B;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x6587;&#x5B57;&#x5217;&#x7D50;&#x5408;&#x306E;&#x65B9;&#x304C;&#x5024;&#x53C2;&#x7167;&#x3088;&#x308A;&#x3082;&#x30B3;&#x30B9;&#x30C8;&#x304C;&#x9AD8;&#x3044;&#x305F;&#x3081;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>ForkJoinPool&#x306B;&#x95A2;&#x3057;&#x3066;&#x306F;&#x3001;Java&#x306E;&#x4E26;&#x884C;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;<code>ExecutorService</code>&#x3068;&#x3044;&#x3046;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3092;&#x88AB;&#x3063;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x5185;&#x90E8;&#x7684;&#x306B;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x30D7;&#x30FC;&#x30EB;&#x3092;&#x6301;&#x3063;&#x3066;&#x304A;&#x308A;&#x3001;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x308F;&#x3059;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x30B3;&#x30B9;&#x30C8;&#x3092;&#x4F4E;&#x6E1B;&#x3057;&#x9AD8;&#x901F;&#x5316;&#x3092;&#x56F3;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>Future&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x52D5;&#x304D;&#x304C;&#x308F;&#x304B;&#x3063;&#x305F;&#x6240;&#x3067;&#x3001;Future&#x304C;Option&#x306E;&#x3088;&#x3046;&#x306B;&#x6271;&#x3048;&#x308B;&#x3053;&#x3068;&#x3082;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</code></pre><p>となります。以上のコードではそれぞれのスレッド名を各箇所について出力してみました。非常に興味深い結果ですね。<code>Future</code>と<code>foreach</code>に渡した関数に関しては、
+<code>ForkJoinPool-1-worker-5</code>というmainスレッドとは異なるスレッドで実行されています。</p>
+<p>つまりFutureを用いることで知らず知らずのうちのマルチスレッドのプログラミングが実行されていたということになります。また、<code>Await.ready(f, 5000.millisecond)</code>で処理を書いたことで、<code>isCompleted</code>の確認処理のほうが、
+<code>&quot;Hello future!&quot;</code>の文字列結合よりも先に出力されていることがわかります。これは文字列結合の方が値参照よりもコストが高いためこのようになります。</p>
+<p>ForkJoinPoolに関しては、Javaの並行プログラミングをサポートする<code>ExecutorService</code>というインタフェースを被ったクラスとなります。内部的にスレッドプールを持っており、スレッドを使いまわすことによって、スレッドを作成するコストを低減し高速化を図っています。</p>
+<p>Futureについての動きがわかった所で、FutureがOptionのように扱えることも説明します。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Future</span>
 <span class="hljs-keyword">import</span> scala.util.{<span class="hljs-type">Failure</span>, <span class="hljs-type">Random</span>, <span class="hljs-type">Success</span>}
@@ -589,19 +588,19 @@ Hello future!
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">3000</span>)
 }
 </code></pre>
-<p>&#x51FA;&#x529B;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;<code>Success! 1.538 sec</code>&#x3084;<code>Failure: waitMilliSec is 971</code>&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x51E6;&#x7406;&#x3067;&#x306F;&#x3001;3000&#x30DF;&#x30EA;&#x79D2;&#x3092;&#x4E0A;&#x9650;&#x3068;&#x3057;&#x305F;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x6642;&#x9593;&#x3092;&#x5F85;&#x3063;&#x3066;&#x305D;&#x306E;&#x5F85;&#x3063;&#x305F;&#x30DF;&#x30EA;&#x79D2;&#x3092;&#x8FD4;&#x3059;Future&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;1000&#x30DF;&#x30EA;&#x79D2;&#x672A;&#x6E80;&#x3057;&#x304B;&#x5F85;&#x305F;&#x306A;&#x3044;&#x5834;&#x5408;&#x306B;&#x306F;&#x5931;&#x6557;&#x3068;&#x307F;&#x306A;&#x3057;&#x4F8B;&#x5916;&#x3092;&#x6295;&#x3052;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x6700;&#x521D;&#x306B;&#x3048;&#x3089;&#x308C;&#x308B;Future&#x3092;<code>futureMilliSec</code>&#x3068;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x5F8C;&#x3001;<code>map</code>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;<code>Int</code>&#x306E;&#x30DF;&#x30EA;&#x79D2;&#x3092;<code>Doubule</code>&#x306E;&#x79D2;&#x306B;&#x5909;&#x63DB;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x306A;&#x304A;&#x5148;&#x307B;&#x3069;&#x3068;&#x9055;&#x3063;&#x3066;&#x3053;&#x306E;&#x5EA6;&#x306F;&#x3001;<code>foreach</code>&#x3067;&#x306F;&#x306A;&#x304F;<code>onComplete</code>&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x6210;&#x529F;&#x3068;&#x5931;&#x6557;&#x306E;&#x4E21;&#x65B9;&#x306E;&#x51E6;&#x7406;&#x3092;&#x8A18;&#x8FF0;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x306E;&#x5B9F;&#x88C5;&#x306E;&#x3088;&#x3046;&#x306B;Future&#x306F;&#x7D50;&#x679C;&#x3092;Option&#x306E;&#x3088;&#x3046;&#x306B;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;&#x7121;&#x8AD6;map&#x3082;&#x4F7F;&#x3048;&#x307E;&#x3059;&#x304C;Option&#x304C;&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306B;flatMap&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x306E;&#x3068;&#x540C;&#x69D8;&#x306B;&#x3001;
-flatMap&#x3082;Future&#x306B;&#x5BFE;&#x3057;&#x3066;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;map&#x306E;&#x4E2D;&#x3067;&#x306E;&#x5B9F;&#x884C;&#x95A2;&#x6570;&#x304C;&#x3055;&#x3089;&#x306B;Future&#x3092;&#x8FD4;&#x3059;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x3082;&#x554F;&#x984C;&#x306A;&#x304F;Future&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x3051;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;
-<code>val futureSec: Future[Double] = futureMilliSec.map(i =&gt; i.toDouble / 1000)</code>&#x3092;&#x4E0A;&#x8A18;&#x306E;&#x30DF;&#x30EA;&#x79D2;&#x3092;&#x79D2;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x90E8;&#x5206;&#x3092;100&#x30DF;&#x30EA;&#x79D2;&#x306F;&#x304B;&#x304B;&#x308B;&#x975E;&#x540C;&#x671F;&#x306E;Future&#x306B;&#x3057;&#x3066;&#x307F;&#x305F;&#x4F8B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3068;&#x304A;&#x308A;&#x3067;&#x3059;&#x3002;</p>
+<p>出力例としては、<code>Success! 1.538 sec</code>や<code>Failure: waitMilliSec is 971</code>というものになります。この処理では、3000ミリ秒を上限としたランダムな時間を待ってその待ったミリ秒を返すFutureを定義しています。ただし、1000ミリ秒未満しか待たない場合には失敗とみなし例外を投げます。この最初にえられるFutureを<code>futureMilliSec</code>としていますが、その後、<code>map</code>メソッドを利用して<code>Int</code>のミリ秒を<code>Doubule</code>の秒に変換しています。なお先ほどと違ってこの度は、<code>foreach</code>ではなく<code>onComplete</code>を利用して成功と失敗の両方の処理を記述しました。</p>
+<p>以上の実装のようにFutureは結果をOptionのように扱うことができるわけです。無論mapも使えますがOptionがネストしている場合にflatMapを利用できるのと同様に、
+flatMapもFutureに対して利用することもできます。つまりmapの中での実行関数がさらにFutureを返すような場合も問題なくFutureを利用していけるのです。
+<code>val futureSec: Future[Double] = futureMilliSec.map(i =&gt; i.toDouble / 1000)</code>を上記のミリ秒を秒に変換する部分を100ミリ秒はかかる非同期のFutureにしてみた例は以下のとおりです。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> futureSec: <span class="hljs-type">Future</span>[<span class="hljs-type">Double</span>] = futureMilliSec.flatMap(i =&gt; <span class="hljs-type">Future</span> {
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">100</span>)
   i.toDouble / <span class="hljs-number">1000</span>
 })
 </code></pre>
-<p>map&#x3067;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x3067;Option&#x304C;&#x3068;&#x308C;&#x3066;&#x304D;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3092;flatten&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x66F8;&#x304D;&#x65B9;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x3001;
-Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#x3067;&#x3055;&#x3089;&#x306B;Future&#x304C;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x3067;&#x306F;&#x3001;flatMap&#x304C;&#x9069;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x66F8;&#x304D;&#x65B9;&#x306E;&#x304A;&#x9670;&#x3067;&#x975E;&#x5E38;&#x306B;&#x8907;&#x96D1;&#x306A;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x3001;&#x6BD4;&#x8F03;&#x7684;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x8868;&#x73FE;&#x3057;&#x3066;&#x3084;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="future&#x3092;&#x4F7F;&#x3063;&#x3066;&#x975E;&#x540C;&#x671F;&#x306B;&#x53D6;&#x308C;&#x3066;&#x304F;&#x308B;&#x8907;&#x6570;&#x306E;&#x7D50;&#x679C;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x7D50;&#x679C;&#x3092;&#x4F5C;&#x308B;"><a name="future&#x3092;&#x4F7F;&#x3063;&#x3066;&#x975E;&#x540C;&#x671F;&#x306B;&#x53D6;&#x308C;&#x3066;&#x304F;&#x308B;&#x8907;&#x6570;&#x306E;&#x7D50;&#x679C;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x7D50;&#x679C;&#x3092;&#x4F5C;&#x308B;" class="plugin-anchor" href="#future&#x3092;&#x4F7F;&#x3063;&#x3066;&#x975E;&#x540C;&#x671F;&#x306B;&#x53D6;&#x308C;&#x3066;&#x304F;&#x308B;&#x8907;&#x6570;&#x306E;&#x7D50;&#x679C;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x7D50;&#x679C;&#x3092;&#x4F5C;&#x308B;"><i class="fa fa-link" aria-hidden="true"></i></a>Future&#x3092;&#x4F7F;&#x3063;&#x3066;&#x975E;&#x540C;&#x671F;&#x306B;&#x53D6;&#x308C;&#x3066;&#x304F;&#x308B;&#x8907;&#x6570;&#x306E;&#x7D50;&#x679C;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x7D50;&#x679C;&#x3092;&#x4F5C;&#x308B;</h3>
-<p>&#x3055;&#x3066;&#x3001;flatMap&#x304C;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x3001;for&#x5F0F;&#x3082;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306F;&#x3088;&#x304F;&#x8907;&#x6570;&#x306E;Future&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x65B0;&#x3057;&#x3044;Future&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x306E;&#x306B;&#x7528;&#x3044;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x5B9F;&#x88C5;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>mapで適用する関数でOptionがとれてきてしまうのをflattenできるという書き方と同じように、
+Futureに適用する関数の中でさらにFutureが取得できるような場合では、flatMapが適用できます。この書き方のお陰で非常に複雑な非同期処理を、比較的シンプルなコードで表現してやることができるようになります。</p>
+<h3 id="futureを使って非同期に取れてくる複数の結果を利用して結果を作る"><a name="futureを使って非同期に取れてくる複数の結果を利用して結果を作る" class="plugin-anchor" href="#futureを使って非同期に取れてくる複数の結果を利用して結果を作る"><i class="fa fa-link" aria-hidden="true"></i></a>Futureを使って非同期に取れてくる複数の結果を利用して結果を作る</h3>
+<p>さて、flatMapが利用できるということは、for式も利用できます。これらはよく複数のFutureを組み合わせて新しいFutureを作成するのに用いられます。実際に実装例を見てみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Future</span>
 <span class="hljs-keyword">import</span> scala.util.{<span class="hljs-type">Failure</span>, <span class="hljs-type">Success</span>, <span class="hljs-type">Random</span>}
@@ -633,14 +632,14 @@ Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#
   <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
 }
 </code></pre>
-<p>&#x5148;&#x307B;&#x3069;&#x7D39;&#x4ECB;&#x3057;&#x305F;&#x4F8B;&#x306B;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x3067;&#x751F;&#x6210;&#x3057;&#x305F;&#x6700;&#x5927;3&#x79D2;&#x9593;&#x5F85;&#x3064;&#x95A2;&#x6570;&#x3092;&#x7528;&#x610F;&#x3057;&#x3001;500&#x30DF;&#x30EA;&#x79D2;&#x672A;&#x6E80;&#x3057;&#x304B;&#x5F85;&#x305F;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x5931;&#x6557;&#x3068;&#x307F;&#x306A;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x95A2;&#x6570;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x95A2;&#x6570;&#x3092;Future&#x3068;&#x3057;&#x3066;2&#x3064;&#x7528;&#x610F;&#x3057;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;for&#x5F0F;&#x3067;&#x7573;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x65B0;&#x3057;&#x3044;Future&#x3092;&#x4F5C;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x6700;&#x7D42;&#x7684;&#x306B;&#x65B0;&#x3057;&#x3044;Future&#x306B;&#x5BFE;&#x3057;&#x3066;&#x6210;&#x529F;&#x3057;&#x305F;&#x5834;&#x5408;&#x3068;&#x5931;&#x6557;&#x3057;&#x305F;&#x5834;&#x5408;&#x3092;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x51FA;&#x529B;&#x7D50;&#x679C;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;<code>Success! first:1782 second:1227</code>&#x3084;<code>Failure: first waitMilliSec is 412</code>&#x3084;
-<code>Failure: second waitMilliSec is 133</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x3082;&#x306E;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x306A;&#x304A;Future&#x306B;&#x306F;filter&#x306E;&#x4ED6;&#x3001;&#x69D8;&#x3005;&#x306A;&#x4E26;&#x5217;&#x5B9F;&#x884C;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B58;&#x5728;&#x3057;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;
-<a href="https://www.scala-lang.org/api/current/scala/concurrent/Future.html" target="_blank">API&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;</a>&#x3092;&#x898B;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x307E;&#x305F;&#x8907;&#x6570;&#x306E;Future&#x751F;&#x6210;&#x3084;<a href="https://qiita.com/mtoyoshi/items/297f6acdfe610440c719" target="_blank">&#x4E26;&#x5217;&#x5B9F;&#x884C;&#x306B;&#x95A2;&#x3057;&#x3066;&#x306E;&#x307E;&#x3068;&#x3081;&#x3089;&#x308C;&#x305F;&#x65E5;&#x672C;&#x8A9E;&#x306E;&#x8A18;&#x4E8B;</a>&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x8907;&#x96D1;&#x306A;&#x64CD;&#x4F5C;&#x3092;&#x8A66;&#x3057;&#x3066;&#x307F;&#x305F;&#x3044;&#x969B;&#x306B;&#x306F;&#x305C;&#x3072;&#x53C2;&#x8003;&#x306B;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h2 id="promise&#x3068;&#x306F;"><a name="promise&#x3068;&#x306F;" class="plugin-anchor" href="#promise&#x3068;&#x306F;"><i class="fa fa-link" aria-hidden="true"></i></a>Promise&#x3068;&#x306F;</h2>
-<p><a href="https://www.scala-lang.org/api/current/scala/concurrent/Promise.html" target="_blank">Promise</a>&#x3068;&#x306F;&#x3001;</p>
-<p>&#x6210;&#x529F;&#x3042;&#x308B;&#x3044;&#x306F;&#x5931;&#x6557;&#x3092;&#x8868;&#x3059;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;Future&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x3053;&#x3068;&#x306E;&#x3067;&#x304D;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002; &#x5B9F;&#x969B;&#x306B;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>先ほど紹介した例に似ていますが、ランダムで生成した最大3秒間待つ関数を用意し、500ミリ秒未満しか待たなかった場合は失敗とみなします。その関数を実行する関数をFutureとして2つ用意し、それらをfor式で畳み込んで新しいFutureを作っています。そして最終的に新しいFutureに対して成功した場合と失敗した場合を出力します。</p>
+<p>出力結果としては、<code>Success! first:1782 second:1227</code>や<code>Failure: first waitMilliSec is 412</code>や
+<code>Failure: second waitMilliSec is 133</code>といったものとなります。</p>
+<p>なおFutureにはfilterの他、様々な並列実行に対するメソッドが存在しますので、
+<a href="https://www.scala-lang.org/api/current/scala/concurrent/Future.html" target="_blank">APIドキュメント</a>を見てみてください。また複数のFuture生成や<a href="https://qiita.com/mtoyoshi/items/297f6acdfe610440c719" target="_blank">並列実行に関してのまとめられた日本語の記事</a>もありますので、複雑な操作を試してみたい際にはぜひ参考にしてみてください。</p>
+<h2 id="promiseとは"><a name="promiseとは" class="plugin-anchor" href="#promiseとは"><i class="fa fa-link" aria-hidden="true"></i></a>Promiseとは</h2>
+<p><a href="https://www.scala-lang.org/api/current/scala/concurrent/Promise.html" target="_blank">Promise</a>とは、</p>
+<p>成功あるいは失敗を表す値を設定することによってFutureに変換することのできるクラスです。 実際にサンプルコードを示します。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Await</span>, <span class="hljs-type">Promise</span>, <span class="hljs-type">Future</span>}
 <span class="hljs-keyword">import</span> scala.concurrent.duration._
@@ -648,14 +647,14 @@ Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#
 
 <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">PromiseSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
   <span class="hljs-keyword">val</span> promiseGetInt: <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]
-  <span class="hljs-keyword">val</span> futureByPromise: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = promiseGetInt.future <span class="hljs-comment">// Promise&#x304B;&#x3089;Future&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x308B;</span>
+  <span class="hljs-keyword">val</span> futureByPromise: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = promiseGetInt.future <span class="hljs-comment">// PromiseからFutureを作ることが出来る</span>
 
-  <span class="hljs-comment">// Promise&#x304C;&#x89E3;&#x6C7A;&#x3055;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x51E6;&#x7406;&#x3092;Future&#x3092;&#x4F7F;&#x3063;&#x3066;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x308B;</span>
+  <span class="hljs-comment">// Promiseが解決されたときに実行される処理をFutureを使って書くことが出来る</span>
   <span class="hljs-keyword">val</span> mappedFuture = futureByPromise.map { i =&gt;
     println(<span class="hljs-string">s&quot;Success! i: <span class="hljs-subst">${i}</span>&quot;</span>)
   }
 
-  <span class="hljs-comment">// &#x5225;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x4F55;&#x304B;&#x91CD;&#x3044;&#x51E6;&#x7406;&#x3092;&#x3057;&#x3066;&#x3001;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;Promise&#x306B;&#x5024;&#x3092;&#x6E21;&#x3059;</span>
+  <span class="hljs-comment">// 別スレッドで何か重い処理をして、終わったらPromiseに値を渡す</span>
   <span class="hljs-type">Future</span> {
     <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">300</span>)
     promiseGetInt.success(<span class="hljs-number">1</span>)
@@ -664,9 +663,9 @@ Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#
   <span class="hljs-type">Await</span>.ready(mappedFuture, <span class="hljs-number">5000.</span>millisecond)
 }
 </code></pre>
-<p>&#x3053;&#x306E;&#x51E6;&#x7406;&#x306F;&#x5FC5;&#x305A;<code>Success! i: 1</code>&#x3068;&#x3044;&#x3046;&#x5024;&#x3092;&#x8868;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;Promise&#x306B;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x3067;&#xFF08;Promise&#x304B;&#x3089;&#x751F;&#x6210;&#x3057;&#x305F;&#xFF09;Future&#x3092;&#x5B8C;&#x4E86;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4E0A;&#x306E;&#x4F8B;&#x306F;Promise&#x81EA;&#x4F53;&#x306E;&#x52D5;&#x4F5C;&#x8AAC;&#x660E;&#x306E;&#x305F;&#x3081;&#x306B;Future&#x5185;&#x3067;Promise&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x901A;&#x5E38;&#x306F;Future&#x306E;&#x8FD4;&#x308A;&#x5024;&#x3092;&#x5229;&#x7528;&#x3059;&#x308C;&#x3070;&#x3088;&#x3044;&#x305F;&#x3081;&#x3001;&#x4ECA;&#x306E;&#x4F7F;&#x3044;&#x65B9;&#x3067;&#x306F;&#x3042;&#x307E;&#x308A;&#x30E1;&#x30EA;&#x30C3;&#x30C8;&#x304C;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x3053;&#x3067;&#x4ECA;&#x5EA6;&#x306F;Promise&#x306E;&#x3088;&#x304F;&#x3042;&#x308B;&#x4F7F;&#x3044;&#x65B9;&#x306E;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x3001;callback&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x30BF;&#x30A4;&#x30D7;&#x306E;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x30E9;&#x30C3;&#x30D7;&#x3057;&#x3066;Future&#x3092;&#x8FD4;&#x3059;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4E0B;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;CallBackSomething&#x3092;&#x30E9;&#x30C3;&#x30D7;&#x3057;&#x305F;FutureSomething&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002; <code>doSomething</code> &#x306E;&#x4E2D;&#x3067;Promise&#x304C;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>この処理は必ず<code>Success! i: 1</code>という値を表示します。このようにPromiseに値を渡すことで（Promiseから生成した）Futureを完了させることができます。</p>
+<p>上の例はPromise自体の動作説明のためにFuture内でPromiseを使っています。通常はFutureの返り値を利用すればよいため、今の使い方ではあまりメリットがありません。そこで今度はPromiseのよくある使い方の例として、callbackを指定するタイプの非同期処理をラップしてFutureを返すパターンを紹介します。</p>
+<p>下記の例では、CallBackSomethingをラップしたFutureSomethingを定義しています。 <code>doSomething</code> の中でPromiseが使われていることに注目してください。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Await</span>, <span class="hljs-type">Future</span>, <span class="hljs-type">Promise</span>}
 <span class="hljs-keyword">import</span> scala.concurrent.duration._
@@ -706,14 +705,14 @@ Future&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#
   println(result)
 }
 </code></pre>
-<p>&#x300C;Promise&#x306B;&#x306F;&#x6210;&#x529F;/&#x5931;&#x6557;&#x3057;&#x305F;&#x6642;&#x306E;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x300D;&#x300C;Promise&#x304B;&#x3089;Future&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x308B;&#x300D;&#x3068;&#x3044;&#x3046;2&#x3064;&#x306E;&#x6027;&#x8CEA;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;
-callback&#x3092;Future&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;</p>
-<p>callback&#x3092;&#x4F7F;&#x3063;&#x305F;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x4ECA;&#x56DE;&#x306E;&#x3088;&#x3046;&#x306A;&#x4F8B;&#x306B;&#x9650;&#x3089;&#x305A;&#x3001;Http&#x30AF;&#x30E9;&#x30A4;&#x30A2;&#x30F3;&#x30C8;&#x3067;&#x975E;&#x540C;&#x671F;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x884C;&#x3046;&#x5834;&#x5408;&#x306A;&#x3069;&#x3067;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x67D4;&#x8EDF;&#x306A;&#x30A8;&#x30E9;&#x30FC;&#x51E6;&#x7406;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x5408;&#x3001;callback&#x3088;&#x308A;Future&#x306E;&#x65B9;&#x304C;&#x6709;&#x5229;&#x306A;&#x5834;&#x9762;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;Promise&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5909;&#x63DB;&#x53EF;&#x80FD;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x899A;&#x3048;&#x3066;&#x304A;&#x304F;&#x3068;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h3 id="&#x6F14;&#x7FD2;&#xFF1A;-&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x30C0;&#x30A6;&#x30F3;&#x30E9;&#x30C3;&#x30C1;"><a name="&#x6F14;&#x7FD2;&#xFF1A;-&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x30C0;&#x30A6;&#x30F3;&#x30E9;&#x30C3;&#x30C1;" class="plugin-anchor" href="#&#x6F14;&#x7FD2;&#xFF1A;-&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x30C0;&#x30A6;&#x30F3;&#x30E9;&#x30C3;&#x30C1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6F14;&#x7FD2;&#xFF1A; &#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x30C0;&#x30A6;&#x30F3;&#x30E9;&#x30C3;&#x30C1;</h3>
-<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x6F14;&#x7FD2;&#x3092;&#x3084;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
-Future&#x3084;Promise&#x306E;&#x4FBF;&#x5229;&#x306A;&#x7279;&#x6027;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3001;0&#x301C;1000&#x30DF;&#x30EA;&#x79D2;&#x9593;&#x306E;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x6642;&#x9593;&#x3092;&#x5F85;&#x3064;8&#x500B;&#x306E;Future&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001;&#x305D;&#x306E;&#x3046;&#x3061;&#x306E;3&#x3064;&#x304C;&#x7D42;&#x308F;&#x308A;&#x6B21;&#x7B2C;&#x3059;&#x3050;&#x306B;&#x305D;&#x306E;3&#x3064;&#x306E;&#x5F85;&#x3061;&#x6642;&#x9593;&#x3092;&#x5168;&#x3066;&#x51FA;&#x529B;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x5B9F;&#x88C5;&#x3092;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x306A;&#x304A;&#x3001;&#x3053;&#x306E;&#x52D5;&#x304D;&#x306F;&#x3001;Java&#x306E;&#x4E26;&#x884C;&#x51E6;&#x7406;&#x306E;&#x305F;&#x3081;&#x306E;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;&#x3067;&#x3042;&#x308B;&#x3001;
-<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank">CountDownLatch</a>&#x3068;&#x3044;&#x3046;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x52D5;&#x304D;&#x306E;&#x4E00;&#x90E8;&#x3092;&#x6A21;&#x3057;&#x305F;&#x3082;&#x306E;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">&#x89E3;&#x7B54;&#x4F8B;&#x3092;&#x96A0;&#x3059;</button></div><div id="answer_ex1" style="display:none">
+<p>「Promiseには成功/失敗した時の値を設定できる」「PromiseからFutureを作ることが出来る」という2つの性質を利用して、
+callbackをFutureにすることができました。</p>
+<p>callbackを使った非同期処理は今回のような例に限らず、Httpクライアントで非同期リクエストを行う場合などで必要になることがあります。柔軟なエラー処理が必要な場合、callbackよりFutureの方が有利な場面があるため、Promiseを使って変換可能であることを覚えておくとよいでしょう。</p>
+<h3 id="演習：-カウントダウンラッチ"><a name="演習：-カウントダウンラッチ" class="plugin-anchor" href="#演習：-カウントダウンラッチ"><i class="fa fa-link" aria-hidden="true"></i></a>演習： カウントダウンラッチ</h3>
+<p>それでは、演習をやってみましょう。
+FutureやPromiseの便利な特性を利用して、0〜1000ミリ秒間のランダムな時間を待つ8個のFutureを定義し、そのうちの3つが終わり次第すぐにその3つの待ち時間を全て出力するという実装をしてみましょう。なお、この動きは、Javaの並行処理のためのユーティリティである、
+<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank">CountDownLatch</a>というクラスの動きの一部を模したものとなります。</p>
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> java.util.concurrent.atomic.<span class="hljs-type">AtomicInteger</span>
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Promise</span>, <span class="hljs-type">Future</span>}
@@ -739,18 +738,18 @@ Future&#x3084;Promise&#x306E;&#x4FBF;&#x5229;&#x306A;&#x7279;&#x6027;&#x3092;&#x
 }
 </code></pre>
 </div>
-<p>&#x4E0A;&#x8A18;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x7C21;&#x5358;&#x306B;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x3068;&#x3001;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;Future&#x306E;&#x914D;&#x5217;&#x3092;&#x7528;&#x610F;&#x3057;&#x3001;&#x305D;&#x308C;&#x3089;&#x304C;&#x305D;&#x308C;&#x305E;&#x308C;&#x6210;&#x529F;&#x3057;&#x305F;&#x6642;&#x306B;
-AtomicInteger&#x3067;&#x78BA;&#x4FDD;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;index&#x3092;&#x30A2;&#x30C8;&#x30DF;&#x30C3;&#x30AF;&#x306B;&#x30A4;&#x30F3;&#x30AF;&#x30EA;&#x30E1;&#x30F3;&#x30C8;&#x3055;&#x305B;&#x306A;&#x304C;&#x3089;&#x3001;
-Promise&#x306E;&#x914D;&#x5217;&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x306B;&#x6210;&#x529F;&#x7D50;&#x679C;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x6700;&#x5F8C;&#x306B;Promise&#x306E;&#x914D;&#x5217;&#x304B;&#x3089;&#x4F5C;&#x308A;&#x51FA;&#x3057;&#x305F;&#x5168;&#x3066;&#x306E;Future&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30F3;&#x30BD;&#x30FC;&#x30EB;&#x306B;&#x51FA;&#x529B;&#x3092;&#x3055;&#x305B;&#x308B;&#x51E6;&#x7406;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;&#x57FA;&#x672C;&#x7684;&#x306A;Future&#x3068;Promise&#x3092;&#x4F7F;&#x3063;&#x305F;&#x51E6;&#x7406;&#x3067;&#x8868;&#x73FE;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x3072;&#x3068;&#x3064;&#x6C17;&#x3092;&#x3064;&#x3051;&#x306A;&#x304F;&#x3066;&#x306F;&#x3044;&#x3051;&#x306A;&#x3044;&#x306E;&#x306F;AtomicInteger&#x306E;&#x90E8;&#x5206;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;Future&#x306B;&#x6E21;&#x3057;&#x305F;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#x3067;&#x306F;&#x3001;&#x540C;&#x3058;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304C;&#x5229;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x306F;&#x9650;&#x3089;&#x306A;&#x3044;&#x305F;&#x3081;&#x306B;&#x5FC5;&#x8981;&#x3068;&#x306A;&#x308B;&#x90E8;&#x5206;&#x3067;&#x3059;&#x3002;&#x5225;&#x306A;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304B;&#x3089;&#x5909;&#x66F4;&#x3055;&#x308C;&#x308B;&#x5024;&#x306B;&#x95A2;&#x3057;&#x3066;&#x306F;&#x3001;&#x5024;&#x3092;&#x539F;&#x5B50;&#x7684;&#x306B;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304B;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306A;&#x5024;&#x306B;&#x95A2;&#x3057;&#x3066;&#x539F;&#x5B50;&#x7684;&#x306A;&#x64CD;&#x4F5C;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x306E;&#x304C;
-<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html" target="_blank">AtomicInteger</a>&#x3068;&#x3044;&#x3046;Java&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<sup><a href="#fn_2" id="reffn_2">2</a></sup>
-&#x4EE5;&#x4E0A;&#x304C;&#x89E3;&#x7B54;&#x4F8B;&#x3067;&#x3057;&#x305F;&#x3002;</p>
-<p>&#x3061;&#x306A;&#x307F;&#x306B;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x8907;&#x96D1;&#x306A;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x51E6;&#x7406;&#x306F;&#x65E2;&#x306B;Java&#x306E;<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html" target="_blank">concurrent&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;</a>&#x306B;&#x3044;&#x304F;&#x3064;&#x304B;&#x5B9F;&#x88C5;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x5B9F;&#x969B;&#x306E;&#x5229;&#x7528;&#x3067;&#x306F;&#x305D;&#x308C;&#x3089;&#x3092;&#x7528;&#x3044;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3082;&#x3063;&#x3068;&#x8907;&#x96D1;&#x306A;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x306E;&#x6642;&#x9593;&#x6BCE;&#x306E;&#x7D5E;&#x8FBC;&#x307F;&#x3084;&#x5408;&#x6210;&#x3001;&#x5206;&#x5C90;&#x306A;&#x3069;&#x3092;&#x3059;&#x308B;&#x969B;&#x306B;&#x306F;
-<a href="http://reactivex.io/rxscala/" target="_blank">RxScala</a>&#x3068;&#x3044;&#x3046;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x3092;&#x5C02;&#x9580;&#x306B;&#x53D6;&#x308A;&#x6271;&#x3046;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;Rx&#x306F;&#x5143;&#x3005;&#x306F;C#&#x3067;&#x751F;&#x307E;&#x308C;&#x305F;Reactive Extensions&#x3068;&#x3044;&#x3046;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x3001;&#x73FE;&#x5728;&#x3067;&#x306F;<a href="https://github.com/ReactiveX" target="_blank">&#x69D8;&#x3005;&#x306A;&#x8A00;&#x8A9E;&#x306B;&#x30DD;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;</a>&#x304C;&#x884C;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>上記のコードを簡単に説明すると、指定された処理を行うFutureの配列を用意し、それらがそれぞれ成功した時に
+AtomicIntegerで確保されているindexをアトミックにインクリメントさせながら、
+Promiseの配列のそれぞれに成功結果を定義しています。そして、最後にPromiseの配列から作り出した全てのFutureに対して、コンソールに出力をさせる処理を定義します。基本的なFutureとPromiseを使った処理で表現されていますが、ひとつ気をつけなくてはいけないのはAtomicIntegerの部分です。これはFutureに渡した関数の中では、同じスレッドが利用されているとは限らないために必要となる部分です。別なスレッドから変更される値に関しては、値を原子的に更新するようにコードを書かなければなりません。プリミティブな値に関して原子的な操作を提供するのが
+<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html" target="_blank">AtomicInteger</a>というJavaのクラスとなります。<sup><a href="#fn_2" id="reffn_2">2</a></sup>
+以上が解答例でした。</p>
+<p>ちなみに、このような複雑なイベント処理は既にJavaの<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html" target="_blank">concurrentパッケージ</a>にいくつか実装があるので実際の利用ではそれらを用いることもできます。またもっと複雑なイベントの時間毎の絞込みや合成、分岐などをする際には
+<a href="http://reactivex.io/rxscala/" target="_blank">RxScala</a>というイベントストリームを専門に取り扱うライブラリを利用することができます。このRxは元々はC#で生まれたReactive Extensionsというライブラリで、現在では<a href="https://github.com/ReactiveX" target="_blank">様々な言語にポーティング</a>が行われています。</p>
 <blockquote id="fn_1">
-<sup>1</sup>. &#x305F;&#x3060;&#x3057;&#x3001;Java 8&#x304B;&#x3089;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x305F;java.util.concurrent.Future&#x306E;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3042;&#x308B;<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CompletableFuture.html" target="_blank">CompletableFuture</a>&#x306B;&#x306F;&#x3001;&#x95A2;&#x6570;&#x3092;&#x5F15;&#x6570;&#x306B;&#x3068;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+<sup>1</sup>. ただし、Java 8から追加されたjava.util.concurrent.Futureのサブクラスである<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CompletableFuture.html" target="_blank">CompletableFuture</a>には、関数を引数にとるメソッドがあります。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
 <blockquote id="fn_2">
-<sup>2</sup>. &#x5024;&#x306E;&#x539F;&#x5B50;&#x7684;&#x306A;&#x66F4;&#x65B0;&#x3084;&#x540C;&#x671F;&#x306E;&#x5FC5;&#x8981;&#x6027;&#x306A;&#x3069;&#x306E;&#x4E26;&#x884C;&#x51E6;&#x7406;&#x306B;&#x95A2;&#x3059;&#x308B;&#x69D8;&#x3005;&#x306A;&#x8A71;&#x984C;&#x306E;&#x8A73;&#x7D30;&#x306A;&#x89E3;&#x8AAC;&#x306F;&#x672C;&#x66F8;&#x306E;&#x7BC4;&#x56F2;&#x3092;&#x3053;&#x3048;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x5272;&#x611B;&#x3057;&#x307E;&#x3059;&#x3002;&#x300C;Java Concurrency in Practice&#x300D;&#x306A;&#x3044;&#x3057;&#x305D;&#x306E;&#x548C;&#x8A33;&#x300C;Java&#x4E26;&#x884C;&#x51E6;&#x7406;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0; &#x30FC; &#x305D;&#x306E;&#x300C;&#x57FA;&#x76E4;&#x300D;&#x3068;&#x300C;&#x6700;&#x65B0;API&#x300D;&#x3092;&#x7A76;&#x3081;&#x308B;&#x300D;&#x3084;&#x300C;Effective Java&#x300D;&#x3068;&#x3044;&#x3063;&#x305F;&#x672C;&#x3067;&#x3053;&#x308C;&#x3089;&#x306E;&#x8A71;&#x984C;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3076;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
+<sup>2</sup>. 値の原子的な更新や同期の必要性などの並行処理に関する様々な話題の詳細な解説は本書の範囲をこえてしまうため割愛します。「Java Concurrency in Practice」ないしその和訳「Java並行処理プログラミング ー その「基盤」と「最新API」を究める」や「Effective Java」といった本でこれらの話題について学ぶことが出来ます。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> ↩</a>
 </blockquote>
 </body></html>
                                 
@@ -795,12 +794,56 @@ Promise&#x306E;&#x914D;&#x5217;&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x306B;&
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FutureとPromise","level":"1.19","depth":1,"next":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./gitbook","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"future-and-promise.md","mtime":"2020-12-12T01:13:15.818Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-12T01:13:43.058Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FutureとPromise","level":"1.19","depth":1,"next":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"future-and-promise.md","mtime":"2020-12-14T05:53:35.295Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2020-12-14T05:53:42.446Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
     
@@ -822,10 +865,6 @@ Promise&#x306E;&#x914D;&#x5217;&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x306B;&
     
         
         <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         
