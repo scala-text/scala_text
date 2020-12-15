@@ -7,7 +7,7 @@ ThisBuild / onChangedBuildSource := ReloadOnSourceChanges
 
 name := "textbook"
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.4"
 
 enablePlugins(MdocPlugin)
 

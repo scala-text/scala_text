@@ -1,4 +1,4 @@
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.4"
 
 libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc" % "3.5.0",
