@@ -22,7 +22,7 @@
 プロジェクトに携わる際は、どういった定義でテストを分類しているか確認しておきましょう。
 参考までに、いくつかの分類例を示します。
 
-- [実践テスト駆動開発](http://www.shoeisha.co.jp/book/detail/9784798124582)での定義
+- [実践テスト駆動開発](https://www.shoeisha.co.jp/book/detail/9784798124582)での定義
   - ユニットテスト
     - オブジェクトは正しく振る舞っているか、またオブジェクトが扱いやすいかどうかをテストします。
   - インテグレーションテスト
@@ -104,7 +104,7 @@
 Scalaで広く利用されているテスティングフレームワークとして紹介されるのは以下の2つです。
 
 - [Specs2](https://etorreborre.github.io/specs2/)
-- [ScalaTest](http://www.scalatest.org/)
+- [ScalaTest](https://www.scalatest.org/)
 
 今回は、マクロを用いて実装されているpower assertという便利な機能を使いたいため、ScalaTestを利用します[^power-assert]。
 
@@ -389,8 +389,8 @@ BDDでテストを書くことによってテストによってどのような�
 モックとは、テストをする際に必要となるオブジェクトを偽装して用意できる機能です。
 以下の様なモックライブラリが存在しています。
 
-- [ScalaMock](http://scalamock.org/)
-- [EasyMock](http://easymock.org/)
+- [ScalaMock](https://scalamock.org/)
+- [EasyMock](https://easymock.org/)
 - [JMock](http://jmock.org/)
 - [Mockito](https://github.com/mockito/mockito)
 
