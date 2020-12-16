@@ -20,7 +20,7 @@ Scalaの初学者で、少なくとも1つのプログラミング言語に触�
 
 ## 執筆スタイル
 
-Markdownで記述し、GitBookで静的サイトにしてGitHub Pages上に公開。原稿ファイルは `src/` 以下に配置。
+Markdownで記述し、[HonKit](https://github.com/honkit/honkit)で静的サイトにしてGitHub Pages上に公開。原稿ファイルは `src/` 以下に配置。
 
 ### 執筆への参加
 
@@ -116,7 +116,7 @@ textlintでルールを設定し原則としてこれに従う。
 
 ## EPUBファイルの作成
 
-GitBookではEPUB形式にもビルドすることが出来る。
+[HonKit](https://github.com/honkit/honkit)ではEPUB形式にもビルドすることが出来る。
 依存ライブラリとして[Calibre](https://calibre-ebook.com/)が必要なのでインストールする必要がある。
 またcalibreの中の`ebook-convert`やnpmライブラリである`svgexport`にPATHが通っている必要があるので注意。
 
