@@ -59,6 +59,17 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
+    - uses: actions/github-script@v3.1.0
+      if: ${{ github.event_name == 'pull_request' && !github.event.repository.fork }}
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'https://scala-text.github.io/scala_text_previews/refs/heads/${{github.head_ref}}'
+          })  
   push_pdf:
     needs: test
     runs-on: ubuntu-latest
