@@ -11,6 +11,17 @@ jobs:
     runs-on: ubuntu-18.04
     timeout-minutes: 40
     steps:
+    - uses: actions/github-script@0.3.0
+      if: ${{ github.event_name == 'pull_request' && !github.event.repository.fork }}
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'https://scala-text.github.io/scala_text_previews/${{github.head_ref}}'
+          })
     - uses: actions/checkout@v2.3.4
     - uses: olafurpg/setup-scala@v10
       with:
@@ -51,10 +62,10 @@ jobs:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
     - name: push to scala_text_previews
       uses: JamesIves/github-pages-deploy-action@3.7.1
-      if: ${{ !github.event.repository.fork && github.ref != 'refs/heads/master' && github.event_name == 'push' }}
+      if: ${{ !github.event.repository.fork && github.head_ref != 'master' && github.event_name == 'push' }}
       with:
         SSH: true
-        TARGET_FOLDER: ${{ github.ref }}
+        TARGET_FOLDER: ${{ github.head_ref }}
         REPOSITORY_NAME: scala-text/scala_text_previews
         BRANCH: gh-pages
         FOLDER: honkit/_book/
