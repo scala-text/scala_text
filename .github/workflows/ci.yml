@@ -49,12 +49,17 @@ jobs:
       if: ${{ !github.event.repository.fork && github.event_name == 'push' }}
       with:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
+    - uses: xom9ikk/split@v1
+      id: get_branch_name
+      with:
+        string: ${{ github.ref }}
+        separator: '/'
     - name: push to scala_text_previews
       uses: JamesIves/github-pages-deploy-action@3.7.1
       if: ${{ !github.event.repository.fork && github.ref != 'refs/heads/master' && github.event_name == 'push' }}
       with:
         SSH: true
-        TARGET_FOLDER: ${{ github.ref }}
+        TARGET_FOLDER: ${{ steps.get_branch_name.outputs._2 }}
         REPOSITORY_NAME: scala-text/scala_text_previews
         BRANCH: gh-pages
         FOLDER: honkit/_book/
@@ -68,7 +73,7 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: 'https://scala-text.github.io/scala_text_previews/refs/heads/${{github.head_ref}}'
+            body: 'https://scala-text.github.io/scala_text_previews/${{github.head_ref}}/'
           })  
   push_pdf:
     needs: test
