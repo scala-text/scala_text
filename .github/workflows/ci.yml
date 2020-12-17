@@ -80,13 +80,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-    - uses: webfactory/ssh-agent@v0.4.1
-      if: ${{ !github.event.repository.fork && github.event_name == 'push' }}
+    - id: generate_token
+      if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/master' && github.event_name == 'push'}}
+      uses: tibdex/github-app-token@v1
       with:
-        ssh-private-key: ${{ secrets.SCALA_TEXT_PDF_KEY }}
+        app_id: 89662
+        private_key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
     - if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
       run: |
-        git clone git@github.com:scala-text/scala_text_pdf.git
+        git clone https://github.com/scala-text/scala_text_pdf.git
         cd scala_text_pdf
         git submodule update --init
         cd scala_text
@@ -99,5 +101,5 @@ jobs:
         if [[ $(git log origin/master..master) == "" ]] ; then
           echo "originと比較して差分が存在しないのでpushしません"
         else
-          git push origin master
+          git push https://x-access-token:${{steps.generate_token.outputs.token}}@github.com/scala-text/scala_text_pdf master:master
         fi
