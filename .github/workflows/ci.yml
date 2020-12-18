@@ -49,17 +49,18 @@ jobs:
       if: ${{ !github.event.repository.fork && github.event_name == 'push' }}
       with:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
-    - uses: xom9ikk/split@v1
+    - uses: frabert/replace-string-action@v1.2
       id: get_branch_name
       with:
         string: ${{ github.ref }}
-        separator: '/'
+        pattern: 'refs/heads/(.*)'
+        replace-with: '$1'
     - name: push to scala_text_previews
       uses: JamesIves/github-pages-deploy-action@3.7.1
       if: ${{ !github.event.repository.fork && github.ref != 'refs/heads/master' && github.event_name == 'push' }}
       with:
         SSH: true
-        TARGET_FOLDER: ${{ steps.get_branch_name.outputs._2 }}
+        TARGET_FOLDER: ${{ steps.get_branch_name.outputs.replaced }}
         REPOSITORY_NAME: scala-text/scala_text_previews
         BRANCH: gh-pages
         FOLDER: honkit/_book/
