@@ -288,7 +288,7 @@ import scala.concurrent.duration._
 import scala.util.{Success, Failure}
 
 object PromiseSample extends App {
-  val promiseGetInt: Promise[Int] = Promise[Int]
+  val promiseGetInt: Promise[Int] = Promise[Int]()
   val futureByPromise: Future[Int] = promiseGetInt.future // PromiseからFutureを作ることが出来る
 
   // Promiseが解決されたときに実行される処理をFutureを使って書くことが出来る
@@ -333,7 +333,7 @@ class FutureSomething {
   val callbackSomething = new CallbackSomething
 
   def doSomething(): Future[Int] = {
-    val promise = Promise[Int]
+    val promise = Promise[Int]()
     callbackSomething.doSomething(i => promise.success(i), t => promise.failure(t))
     promise.future
   }
