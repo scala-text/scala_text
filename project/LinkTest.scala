@@ -9,7 +9,7 @@ object LinkTest extends NpmCliBase {
   lazy val textLinkTest = taskKey[Unit]("verify links")
 
   val settings = Seq(
-    textEslint := printRun(Process(s"$eslintBin ${srcDir.listFiles("*.js")} ${testDir.listFiles("*.js")}")),
+    textEslint := printRun(Process(s"$eslintBin ${srcDir.listFiles("*.js").mkString(" ")} ${testDir.listFiles("*.js").mkString(" ")}")),
     textLinkTest := printRun(Process(s"$mochaBin"))
   )
 }
