@@ -75,7 +75,7 @@ list.add("World")
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```scala mdoc:nest
+```scala
 System.out.println("Hello, World!")
 ```
 
