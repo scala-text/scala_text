@@ -500,30 +500,21 @@ list.add(<span class="hljs-string">&quot;World&quot;</span>)
 <h4 id="練習問題"><a name="練習問題" class="plugin-anchor" href="#練習問題"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題</h4>
 <p><code>java.lang.System</code> クラスのフィールド <code>out</code> のインスタンスメソッド <code>println</code> を引数 <code>&quot;Hello, World!&quot;</code> として呼びだしてみましょう。</p>
 <div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
-<p>```scala mdoc:nest
-System.out.println(&quot;Hello, World!&quot;)</p>
-<pre><code>
-&lt;!-- end answer --&gt;
-
-#### staticメソッドの呼び出し
-
-staticメソッドの呼び出しもJavaの場合とほとんど同様にできますが、1つ注意点があります。それは、Scalaではstaticメソッドは継承されない（というよりstaticメソッドという概念がない）ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに対してB.foo()とすることはできず、A.foo()としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。
-
-現在時刻をミリ秒単位で取得する[`System.currentTimeMillis()`](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--)をScalaから呼び出してみましょう。
-</code></pre><p>scala&gt; System.currentTimeMillis()
-res0: Long = 1416357548906</p>
-<pre><code>
-表示される値はみなさんのマシンにおける時刻に合わせて変わりますが、問題なく呼び出せているはずです。
-
-##### 練習問題
-
-`java.lang.System`クラスのstaticメソッド`exit()`を引数 `0`  として呼びだしてみましょう。どのような結果になるでしょうか。
-
-&lt;!-- begin answer id=&quot;answer_ex3&quot; style=&quot;display:none&quot; --&gt;
-
-```scala
-System.exit(0)
-</code></pre><p>実行中のScalaプログラム（プロセス）が終了する。</p>
+<pre><code class="lang-scala"><span class="hljs-type">System</span>.out.println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
+</code></pre>
+</div>
+<h4 id="staticメソッドの呼び出し"><a name="staticメソッドの呼び出し" class="plugin-anchor" href="#staticメソッドの呼び出し"><i class="fa fa-link" aria-hidden="true"></i></a>staticメソッドの呼び出し</h4>
+<p>staticメソッドの呼び出しもJavaの場合とほとんど同様にできますが、1つ注意点があります。それは、Scalaではstaticメソッドは継承されない（というよりstaticメソッドという概念がない）ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに対してB.foo()とすることはできず、A.foo()としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。</p>
+<p>現在時刻をミリ秒単位で取得する<a href="https://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--" target="_blank"><code>System.currentTimeMillis()</code></a>をScalaから呼び出してみましょう。</p>
+<pre><code>scala&gt; System.currentTimeMillis()
+res0: Long = 1416357548906
+</code></pre><p>表示される値はみなさんのマシンにおける時刻に合わせて変わりますが、問題なく呼び出せているはずです。</p>
+<h5 id="練習問題"><a name="練習問題" class="plugin-anchor" href="#練習問題"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題</h5>
+<p><code>java.lang.System</code>クラスのstaticメソッド<code>exit()</code>を引数 <code>0</code>  として呼びだしてみましょう。どのような結果になるでしょうか。</p>
+<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
+<pre><code class="lang-scala"><span class="hljs-type">System</span>.exit(<span class="hljs-number">0</span>)
+</code></pre>
+<p>実行中のScalaプログラム（プロセス）が終了する。</p>
 </div>
 <h4 id="staticフィールドの参照"><a name="staticフィールドの参照" class="plugin-anchor" href="#staticフィールドの参照"><i class="fa fa-link" aria-hidden="true"></i></a>staticフィールドの参照</h4>
 <p>staticフィールドの参照もJavaの場合と基本的に同じですが、staticメソッドの場合と同じ注意点が当てはまります。つまり、staticフィールドは継承されない、ということです。たとえば、Javaでは <a href="https://docs.oracle.com/javase/jp/8/docs/api/javax/swing/JFrame.html#EXIT_ON_CLOSE" target="_blank"><code>JFrame.EXIT_ON_CLOSE</code></a> が継承されることを利用して、</p>
@@ -699,7 +690,7 @@ Comparator&lt;? <span class="hljs-keyword">super</span> String&gt; cmp = <span c
     o1.hashCode() - o2.hashCode()
   }
 }
-<span class="hljs-comment">// cmp: Comparator[_] = repl.MdocSession$App$$anon$1@95e9ae1</span>
+<span class="hljs-comment">// cmp: Comparator[_] = repl.MdocSession$App$$anon$1@2178a76b</span>
 </code></pre>
 <p>より一般的には、<code>G&lt;? extends T&gt;</code> は <code>G[_ &lt;: T]</code>に、<code>G&lt;? super T&gt;</code>は <code>G[_ &gt;: T]</code> に置き換えることができます。Scalaのプログラム開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変位指定、つまりdeclaration-site varianceを使うべきであって、Javaと関係ない部分においてこの機能を使うのはプログラムをわかりにくくするため、避けるべきです。</p>
 <h4 id="sam変換"><a name="sam変換" class="plugin-anchor" href="#sam変換"><i class="fa fa-link" aria-hidden="true"></i></a>SAM変換</h4>
@@ -781,7 +772,7 @@ Java 8におけるラムダ式とは、関数型インタフェースと呼ば�
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Javaとの相互運用","level":"1.21","depth":1,"next":{"title":"S99の案内","level":"1.22","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"previous":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"java-interop.md","mtime":"2021-01-22T09:22:03.997Z","type":"markdown"},"gitbook":{"version":"3.6.16","time":"2021-01-22T09:22:08.613Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Javaとの相互運用","level":"1.21","depth":1,"next":{"title":"S99の案内","level":"1.22","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"previous":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"java-interop.md","mtime":"2021-01-24T10:05:52.221Z","type":"markdown"},"gitbook":{"version":"3.6.16","time":"2021-01-24T10:05:57.160Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
