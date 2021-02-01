@@ -9,7 +9,7 @@
     "babel-preset-es2015": "6.24.1",
     "babel-preset-power-assert": "1.0.0",
     "cheerio": "1.0.0-rc.5",
-    "eslint": "^7.18.0",
+    "eslint": "^7.19.0",
     "eslint-config-eslint": "4.0.0",
     "gitbook-plugin-anchors": "0.7.1",
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
