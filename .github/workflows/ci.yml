@@ -22,7 +22,7 @@ jobs:
     - run: sudo apt-get install g++-4.8
     - uses: actions/setup-node@v2.1.4
       with:
-        node-version: '14.15.1'
+        node-version: '14.15.5'
     - run: npm install -g npm
     - run: npm ci
     - run: npm install svgexport -g
