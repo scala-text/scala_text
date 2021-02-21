@@ -31,7 +31,7 @@ LinkTest.settings
 
 textLintAll := Def.sequential(LinkTest.textEslint, TextLint.textLint.toTask("")).value
 
-textTestAll := Def.sequential(compile in Test, LinkTest.textLinkTest).value
+textTestAll := Def.sequential(Test / compile, LinkTest.textLinkTest).value
 
 aggregateProjects(
   RootProject(file("src/example_projects/trait-example")),
