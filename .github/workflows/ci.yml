@@ -20,7 +20,7 @@ jobs:
     - run: sudo apt-get install -y build-essential
     - run: sudo apt-get install gcc-4.8
     - run: sudo apt-get install g++-4.8
-    - uses: actions/setup-node@v2.1.4
+    - uses: actions/setup-node@v2.1.5
       with:
         node-version: '14.15.5'
     - run: npm install -g npm
