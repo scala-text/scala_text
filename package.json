@@ -25,7 +25,7 @@
     "power-assert": "1.6.1",
     "q-io": "1.13.4",
     "sleep": "6.3.0",
-    "svgexport": "0.4.1",
+    "svgexport": "0.4.2",
     "textlint": "11.9.0",
     "textlint-rule-incremental-headers": "0.2.0",
     "textlint-rule-preset-japanese": "6.0.1",
