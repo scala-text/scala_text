@@ -4,6 +4,7 @@
 *.asta.bak
 *~
 .DS_Store
+*.log
 
 ### honkit ###
 /honkit
@@ -19,6 +20,7 @@ src_managed/
 project/boot/
 .history
 .cache
+.bsp
 
 ### IntelliJ ###
 *.iml
