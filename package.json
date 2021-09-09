@@ -6,7 +6,7 @@
   "scripts": {},
   "devDependencies": {
     "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
     "@babel/register": "^7.15.3",
     "babel-preset-power-assert": "3.0.0",
     "cheerio": "1.0.0-rc.10",
