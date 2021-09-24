@@ -23,4 +23,3 @@ jobs:
         github-token: ${{ steps.generate_token.outputs.token }}
         author-email: "74845010+scala-text-bot[bot]@users.noreply.github.com"
         author-name: scala-text-bot[bot]
-        scala-steward-version: 0.10.0
