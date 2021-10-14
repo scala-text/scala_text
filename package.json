@@ -10,7 +10,7 @@
     "@babel/register": "^7.15.3",
     "babel-preset-power-assert": "3.0.0",
     "cheerio": "1.0.0-rc.10",
-    "eslint": "^8.0.0",
+    "eslint": "^8.0.1",
     "eslint-config-eslint": "4.0.0",
     "gitbook-plugin-anchors": "0.7.1",
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
