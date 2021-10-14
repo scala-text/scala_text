@@ -522,7 +522,7 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 そんな作業を、限られたリソースですべてのパッチに対して行うのは不可能に近いので、プロジェクトによってはテストコードのないパッチはレビュー対象から外すことが多いです。
 パッチを送る場合は相手側が自信を持ってパッチを取り込めるよう、テストを含めておきましょう。
 
-[^jstqb]: http://www.jstqb.jp/dl/JSTQB-glossary.V2.3.J02.pdf
+[^jstqb]: http://jstqb.jp/dl/JSTQB-glossary-introduction.V3.2.J01.pdf
 [^power-assert]: 渡された条件式の実行過程をダイアグラムで表示する`assert`は、一般に“power assert”と呼ばれています
 [^predef-assert]: Scalaには`Predef`にも`assert`が存在しますが、基本的に使うことはありません
 [^xutp]: モック以外の仕組みについては[xUnit Test Patterns](http://xunitpatterns.com/)を参照してください
