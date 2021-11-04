@@ -11,16 +11,17 @@ jobs:
     runs-on: ubuntu-18.04
     timeout-minutes: 40
     steps:
-    - uses: actions/checkout@v2.3.4
-    - uses: olafurpg/setup-scala@v10
+    - uses: actions/checkout@v2.4.0
+    - uses: actions/setup-java@v2
       with:
-        java-version: "adopt@1.8"
+        java-version: 8
+        distribution: temurin
     - uses: coursier/cache-action@v5
     - run: sudo apt-get update
     - run: sudo apt-get install -y build-essential
     - run: sudo apt-get install gcc-4.8
     - run: sudo apt-get install g++-4.8
-    - uses: actions/setup-node@v2.1.5
+    - uses: actions/setup-node@v2.4.1
       with:
         node-version: '14.15.5'
     - run: npm install -g npm
@@ -45,11 +46,11 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
-    - uses: webfactory/ssh-agent@v0.5.2
+    - uses: webfactory/ssh-agent@v0.5.3
       if: ${{ !github.event.repository.fork && !github.event.pull_request.head.repo.fork && github.event_name == 'push' }}
       with:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
-    - uses: frabert/replace-string-action@v1.2
+    - uses: frabert/replace-string-action@v2.0
       id: get_branch_name
       with:
         string: ${{ github.ref }}
@@ -65,7 +66,7 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
-    - uses: actions/github-script@v3.1.0
+    - uses: actions/github-script@v5.0.0
       if: ${{ github.event_name == 'pull_request' && !github.event.repository.fork && !github.event.pull_request.head.repo.fork }}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
