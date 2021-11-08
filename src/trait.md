@@ -411,4 +411,4 @@ class C extends {
 この事前定義の機能は実際のコードではあまり見ることはないかもしれません。
 
 
-[^trait-param-dotty]: 次世代Scalaコンパイラである[Dotty](http://dotty.epfl.ch/)では、[トレイトがパラメータを取る](https://docs.scala-lang.org/sips/trait-parameters.html)ことができます。
+[^trait-param-dotty]: Scala 3では、[トレイトがパラメータを取る](https://docs.scala-lang.org/scala3/reference/other-new-features/trait-parameters.html)ことができます。
