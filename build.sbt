@@ -18,7 +18,7 @@ mdocOut := compiledSrcDir
 libraryDependencies ++= Seq(
   // TODO sbtがScala 2.13対応したら再び有効化
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
-  "org.mockito" % "mockito-core" % "4.0.0",
+  "org.mockito" % "mockito-core" % "4.1.0",
   "org.scalacheck" %% "scalacheck" % "1.15.4",
   "org.scalatest" %% "scalatest" % "3.2.10" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
