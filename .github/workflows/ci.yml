@@ -46,7 +46,7 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
-    - uses: webfactory/ssh-agent@v0.5.3
+    - uses: webfactory/ssh-agent@v0.5.4
       if: ${{ !github.event.repository.fork && !github.event.pull_request.head.repo.fork && github.event_name == 'push' }}
       with:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
