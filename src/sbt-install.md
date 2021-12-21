@@ -1,7 +1,7 @@
 # sbtをインストールする
 
 現実のScalaアプリケーションでは、Scalaプログラムを手動でコンパイル[^scalac]することは非常に稀で、
-標準的なビルドツールである[sbt](https://www.scala-sbt.org/release/docs/ja/Setup.html)というツールを用いることになり
+標準的なビルドツールである[sbt](https://www.scala-sbt.org)というツールを用いることになり
 ます。ここでは、sbtのインストールについて説明します。
 
 ## Javaのインストール
