@@ -657,11 +657,11 @@ def count[T](list: List[T])(f: T => Boolean): Int  = {
 宣言は[ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)参照すると、
 
 ```scala
-final def flatMap[B](f: (A) ⇒ GenTraversableOnce[B]): List[B]
+final def flatMap[B](f: (A) => IterableOnce[B]): List[B]
 ```
 
-となります。ここで、`GenTraversableOnce[B]`という変わった型が出てきていますが、ここではあらゆるコレクション（要素の型はB型である）を入れることが
-できる型程度に考えてください。さて、flatMapの引数fの型は`(A) => GenTraversableOnce[B]`です。`flatMap`はこれを使って、各
+となります。ここで、`IterableOnce[B]`という変わった型が出てきていますが、ここではあらゆるコレクション（要素の型はB型である）を入れることが
+できる型程度に考えてください。さて、flatMapの引数fの型は`(A) => IterableOnce[B]`です。`flatMap`はこれを使って、各
 要素にfを適用して、結果の要素からなるコレクションを分解してListの要素にします。これについては、実際に見た方が早いでしょう。
 
 ```scala mdoc:nest
