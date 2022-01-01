@@ -56,7 +56,7 @@ object FutureSample {
       s + " future!"
     }
 
-    f.foreach { case s: String =>
+    f.foreach { s =>
       println(s)
     }
 
@@ -71,7 +71,7 @@ object FutureSample {
       throw new RuntimeException("わざと失敗")
     }
 
-    f2.failed.foreach { case e: Throwable =>
+    f2.failed.foreach { e =>
       println(e.getMessage)
     }
 
@@ -133,7 +133,7 @@ object FutureSample {
       s + " future!"
     }
 
-    f.foreach { case s: String =>
+    f.foreach { s =>
       println(s"[ThreadName] In Success: ${Thread.currentThread.getName}")
       println(s)
     }
