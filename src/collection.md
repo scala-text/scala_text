@@ -272,7 +272,7 @@ joinByComma(1, 10)
 `foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)から引用すると、
 
 ```scala
-def foldLeft[B](z: B)(f: (B, A) ⇒ B): B
+def foldLeft[B](z: B)(f: (B, A) => B): B
 ```
 
 となります。`z`が`foldLeft`の結果の初期値で、リストを左からたどりながら`f`を適用していきます。`foldLeft`について
@@ -379,7 +379,7 @@ test(arbitrary[List[Int]]){ list =>
 [ScalaのAPIドキュメントから](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)参照すると、
 
 ```scala
-def foldRight[B](z: B)(op: (A, B) ⇒ B): B
+def foldRight[B](z: B)(op: (A, B) => B): B
 ```
 
 となります。`foldRight`に与える関数である`op`の引数の順序が`foldLeft`の場合と逆になっている事に注意してください。

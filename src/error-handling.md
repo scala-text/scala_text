@@ -280,7 +280,7 @@ mapでは、値がSomeの場合は中身に関数を適用しますが、Noneの
 このように、Noneの場合に実行し、値を返す関数を定義できるのが`fold`です。
 `fold`の宣言を[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/scala/Option.html)から引用すると、
 ```scala
-fold[B](ifEmpty: ⇒ B)(f: (A) ⇒ B): B
+fold[B](ifEmpty: => B)(f: (A) => B): B
 ```
 となります。
 
