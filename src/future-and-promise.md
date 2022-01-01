@@ -427,11 +427,6 @@ Promiseの配列のそれぞれに成功結果を定義しています。
 
 ちなみに、このような複雑なイベント処理は既にJavaの[concurrentパッケージ](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/package-summary.html)に
 いくつか実装があるので実際の利用ではそれらを用いることもできます。
-またもっと複雑なイベントの時間毎の絞込みや合成、分岐などをする際には
-[RxScala](http://reactivex.io/rxscala/)というイベントストリームを専門に
-取り扱うライブラリを利用することができます。
-このRxは元々はC#で生まれたReactive Extensionsというライブラリで、
-現在では[様々な言語にポーティング](https://github.com/ReactiveX)が行われています。
 
 [^CompletableFuture]: ただし、Java 8から追加されたjava.util.concurrent.Futureのサブクラスである[CompletableFuture](https://docs.oracle.com/javase/jp/8/docs/api/java/util/concurrent/CompletableFuture.html)には、関数を引数にとるメソッドがあります。
 [^concurrent]: 値の原子的な更新や同期の必要性などの並行処理に関する様々な話題の詳細な解説は本書の範囲をこえてしまうため割愛します。「Java Concurrency in Practice」ないしその和訳「Java並行処理プログラミング ー その「基盤」と「最新API」を究める」や「Effective Java」といった本でこれらの話題について学ぶことが出来ます。
