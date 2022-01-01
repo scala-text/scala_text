@@ -481,7 +481,7 @@ mapやflatMapやfilter、for式の適用といったようなOptionやListでも
       s + <span class="hljs-string">&quot; future!&quot;</span>
     }
 
-    f.foreach { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
+    f.foreach { s =&gt;
       println(s)
     }
 
@@ -496,7 +496,7 @@ mapやflatMapやfilter、for式の適用といったようなOptionやListでも
       <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;わざと失敗&quot;</span>)
     }
 
-    f2.failed.foreach { <span class="hljs-keyword">case</span> e: <span class="hljs-type">Throwable</span> =&gt;
+    f2.failed.foreach { e =&gt;
       println(e.getMessage)
     }
 
@@ -540,7 +540,7 @@ Futureが終わるまで最大5000ミリ秒を待つという書き方となり�
       s + <span class="hljs-string">&quot; future!&quot;</span>
     }
 
-    f.foreach { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
+    f.foreach { s =&gt;
       println(<span class="hljs-string">s&quot;[ThreadName] In Success: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
       println(s)
     }
@@ -808,7 +808,7 @@ Promiseの配列のそれぞれに成功結果を定義しています。そし�
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FutureとPromise","level":"1.19","depth":1,"next":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"future-and-promise.md","mtime":"2022-01-01T04:02:29.515Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2022-01-01T04:02:38.021Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FutureとPromise","level":"1.19","depth":1,"next":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"future-and-promise.md","mtime":"2022-01-01T22:54:32.021Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2022-01-01T22:54:39.967Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
