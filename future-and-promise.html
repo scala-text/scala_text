@@ -472,38 +472,40 @@ mapやflatMapやfilter、for式の適用といったようなOptionやListでも
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Future</span>
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FutureSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FutureSample</span> </span>{
 
-  <span class="hljs-keyword">val</span> s = <span class="hljs-string">&quot;Hello&quot;</span>
-  <span class="hljs-keyword">val</span> f: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
-    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
-    s + <span class="hljs-string">&quot; future!&quot;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> s = <span class="hljs-string">&quot;Hello&quot;</span>
+    <span class="hljs-keyword">val</span> f: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
+      <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
+      s + <span class="hljs-string">&quot; future!&quot;</span>
+    }
+
+    f.foreach { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
+      println(s)
+    }
+
+    println(f.isCompleted) <span class="hljs-comment">// false</span>
+
+    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// Hello future!</span>
+
+    println(f.isCompleted) <span class="hljs-comment">// true</span>
+
+    <span class="hljs-keyword">val</span> f2: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
+      <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;わざと失敗&quot;</span>)
+    }
+
+    f2.failed.foreach { <span class="hljs-keyword">case</span> e: <span class="hljs-type">Throwable</span> =&gt;
+      println(e.getMessage)
+    }
+
+    println(f2.isCompleted) <span class="hljs-comment">// false</span>
+
+    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// わざと失敗</span>
+
+    println(f2.isCompleted) <span class="hljs-comment">// true</span>
   }
-
-  f.foreach { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
-    println(s)
-  }
-
-  println(f.isCompleted) <span class="hljs-comment">// false</span>
-
-  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// Hello future!</span>
-
-  println(f.isCompleted) <span class="hljs-comment">// true</span>
-
-  <span class="hljs-keyword">val</span> f2: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
-    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;わざと失敗&quot;</span>)
-  }
-
-  f2.failed.foreach { <span class="hljs-keyword">case</span> e: <span class="hljs-type">Throwable</span> =&gt;
-    println(e.getMessage)
-  }
-
-  println(f2.isCompleted) <span class="hljs-comment">// false</span>
-
-  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>) <span class="hljs-comment">// わざと失敗</span>
-
-  println(f2.isCompleted) <span class="hljs-comment">// true</span>
 }
 </code></pre>
 <p>出力結果は、</p>
@@ -528,26 +530,28 @@ Futureが終わるまで最大5000ミリ秒を待つという書き方となり�
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 <span class="hljs-keyword">import</span> scala.concurrent.duration._
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FutureSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FutureSample</span> </span>{
 
-  <span class="hljs-keyword">val</span> s = <span class="hljs-string">&quot;Hello&quot;</span>
-  <span class="hljs-keyword">val</span> f: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
-    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
-    println(<span class="hljs-string">s&quot;[ThreadName] In Future: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
-    s + <span class="hljs-string">&quot; future!&quot;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> s = <span class="hljs-string">&quot;Hello&quot;</span>
+    <span class="hljs-keyword">val</span> f: <span class="hljs-type">Future</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Future</span> {
+      <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">1000</span>)
+      println(<span class="hljs-string">s&quot;[ThreadName] In Future: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
+      s + <span class="hljs-string">&quot; future!&quot;</span>
+    }
+
+    f.foreach { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
+      println(<span class="hljs-string">s&quot;[ThreadName] In Success: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
+      println(s)
+    }
+
+    println(f.isCompleted) <span class="hljs-comment">// false</span>
+
+    <span class="hljs-type">Await</span>.ready(f, <span class="hljs-number">5000.</span>millisecond) <span class="hljs-comment">// Hello future!</span>
+
+    println(<span class="hljs-string">s&quot;[ThreadName] In App: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
+    println(f.isCompleted) <span class="hljs-comment">// true</span>
   }
-
-  f.foreach { <span class="hljs-keyword">case</span> s: <span class="hljs-type">String</span> =&gt;
-    println(<span class="hljs-string">s&quot;[ThreadName] In Success: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
-    println(s)
-  }
-
-  println(f.isCompleted) <span class="hljs-comment">// false</span>
-
-  <span class="hljs-type">Await</span>.ready(f, <span class="hljs-number">5000.</span>millisecond) <span class="hljs-comment">// Hello future!</span>
-
-  println(<span class="hljs-string">s&quot;[ThreadName] In App: <span class="hljs-subst">${Thread.currentThread.getName}</span>&quot;</span>)
-  println(f.isCompleted) <span class="hljs-comment">// true</span>
 }
 </code></pre>
 <p>この実行結果については、</p>
@@ -567,25 +571,27 @@ Hello future!
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Future</span>
 <span class="hljs-keyword">import</span> scala.util.{<span class="hljs-type">Failure</span>, <span class="hljs-type">Random</span>, <span class="hljs-type">Success</span>}
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FutureOptionUsageSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FutureOptionUsageSample</span> </span>{
   <span class="hljs-keyword">val</span> random = <span class="hljs-keyword">new</span> <span class="hljs-type">Random</span>()
   <span class="hljs-keyword">val</span> waitMaxMilliSec = <span class="hljs-number">3000</span>
 
-  <span class="hljs-keyword">val</span> futureMilliSec: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Future</span> {
-    <span class="hljs-keyword">val</span> waitMilliSec = random.nextInt(waitMaxMilliSec)
-    <span class="hljs-keyword">if</span>(waitMilliSec &lt; <span class="hljs-number">1000</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">s&quot;waitMilliSec is <span class="hljs-subst">${waitMilliSec}</span>&quot;</span> )
-    <span class="hljs-type">Thread</span>.sleep(waitMilliSec)
-    waitMilliSec
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> futureMilliSec: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Future</span> {
+      <span class="hljs-keyword">val</span> waitMilliSec = random.nextInt(waitMaxMilliSec)
+      <span class="hljs-keyword">if</span>(waitMilliSec &lt; <span class="hljs-number">1000</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">s&quot;waitMilliSec is <span class="hljs-subst">${waitMilliSec}</span>&quot;</span> )
+      <span class="hljs-type">Thread</span>.sleep(waitMilliSec)
+      waitMilliSec
+    }
+
+    <span class="hljs-keyword">val</span> futureSec: <span class="hljs-type">Future</span>[<span class="hljs-type">Double</span>] = futureMilliSec.map(i =&gt; i.toDouble / <span class="hljs-number">1000</span>)
+
+    futureSec onComplete {
+      <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(waitSec) =&gt; println(<span class="hljs-string">s&quot;Success! <span class="hljs-subst">${waitSec}</span> sec&quot;</span>)
+      <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(<span class="hljs-string">s&quot;Failure: <span class="hljs-subst">${t.getMessage}</span>&quot;</span>)
+    }
+
+    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">3000</span>)
   }
-
-  <span class="hljs-keyword">val</span> futureSec: <span class="hljs-type">Future</span>[<span class="hljs-type">Double</span>] = futureMilliSec.map(i =&gt; i.toDouble / <span class="hljs-number">1000</span>)
-
-  futureSec onComplete {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(waitSec) =&gt; println(<span class="hljs-string">s&quot;Success! <span class="hljs-subst">${waitSec}</span> sec&quot;</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(<span class="hljs-string">s&quot;Failure: <span class="hljs-subst">${t.getMessage}</span>&quot;</span>)
-  }
-
-  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">3000</span>)
 }
 </code></pre>
 <p>出力例としては、<code>Success! 1.538 sec</code>や<code>Failure: waitMilliSec is 971</code>というものになります。この処理では、3000ミリ秒を上限としたランダムな時間を待ってその待ったミリ秒を返すFutureを定義しています。ただし、1000ミリ秒未満しか待たない場合には失敗とみなし例外を投げます。この最初にえられるFutureを<code>futureMilliSec</code>としていますが、その後、<code>map</code>メソッドを利用して<code>Int</code>のミリ秒を<code>Doubule</code>の秒に変換しています。なお先ほどと違ってこの度は、<code>foreach</code>ではなく<code>onComplete</code>を利用して成功と失敗の両方の処理を記述しました。</p>
@@ -605,31 +611,33 @@ Futureに適用する関数の中でさらにFutureが取得できるような�
 <span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">Future</span>
 <span class="hljs-keyword">import</span> scala.util.{<span class="hljs-type">Failure</span>, <span class="hljs-type">Success</span>, <span class="hljs-type">Random</span>}
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CompositeFutureSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CompositeFutureSample</span> </span>{
   <span class="hljs-keyword">val</span> random = <span class="hljs-keyword">new</span> <span class="hljs-type">Random</span>()
   <span class="hljs-keyword">val</span> waitMaxMilliSec = <span class="hljs-number">3000</span>
 
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">waitRandom</span></span>(futureName: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
-    <span class="hljs-keyword">val</span> waitMilliSec = random.nextInt(waitMaxMilliSec)
-    <span class="hljs-keyword">if</span>(waitMilliSec &lt; <span class="hljs-number">500</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">s&quot;<span class="hljs-subst">${futureName}</span> waitMilliSec is <span class="hljs-subst">${waitMilliSec}</span>&quot;</span> )
-    <span class="hljs-type">Thread</span>.sleep(waitMilliSec)
-    waitMilliSec
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">waitRandom</span></span>(futureName: <span class="hljs-type">String</span>): <span class="hljs-type">Int</span> = {
+      <span class="hljs-keyword">val</span> waitMilliSec = random.nextInt(waitMaxMilliSec)
+      <span class="hljs-keyword">if</span>(waitMilliSec &lt; <span class="hljs-number">500</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">s&quot;<span class="hljs-subst">${futureName}</span> waitMilliSec is <span class="hljs-subst">${waitMilliSec}</span>&quot;</span> )
+      <span class="hljs-type">Thread</span>.sleep(waitMilliSec)
+      waitMilliSec
+    }
+
+    <span class="hljs-keyword">val</span> futureFirst: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Future</span> { waitRandom(<span class="hljs-string">&quot;first&quot;</span>) }
+    <span class="hljs-keyword">val</span> futureSecond: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Future</span> { waitRandom(<span class="hljs-string">&quot;second&quot;</span>) }
+
+    <span class="hljs-keyword">val</span> compositeFuture: <span class="hljs-type">Future</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)] = <span class="hljs-keyword">for</span> {
+      first &lt;- futureFirst
+      second &lt;- futureSecond
+    } <span class="hljs-keyword">yield</span> (first, second)
+
+    compositeFuture onComplete  {
+      <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>((first, second)) =&gt; println(<span class="hljs-string">s&quot;Success! first:<span class="hljs-subst">${first}</span> second:<span class="hljs-subst">${second}</span>&quot;</span>)
+      <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(<span class="hljs-string">s&quot;Failure: <span class="hljs-subst">${t.getMessage}</span>&quot;</span>)
+    }
+
+    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
   }
-
-  <span class="hljs-keyword">val</span> futureFirst: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Future</span> { waitRandom(<span class="hljs-string">&quot;first&quot;</span>) }
-  <span class="hljs-keyword">val</span> futureSecond: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Future</span> { waitRandom(<span class="hljs-string">&quot;second&quot;</span>) }
-
-  <span class="hljs-keyword">val</span> compositeFuture: <span class="hljs-type">Future</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)] = <span class="hljs-keyword">for</span> {
-    first &lt;- futureFirst
-    second &lt;- futureSecond
-  } <span class="hljs-keyword">yield</span> (first, second)
-
-  compositeFuture onComplete  {
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>((first, second)) =&gt; println(<span class="hljs-string">s&quot;Success! first:<span class="hljs-subst">${first}</span> second:<span class="hljs-subst">${second}</span>&quot;</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(t) =&gt; println(<span class="hljs-string">s&quot;Failure: <span class="hljs-subst">${t.getMessage}</span>&quot;</span>)
-  }
-
-  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
 }
 </code></pre>
 <p>先ほど紹介した例に似ていますが、ランダムで生成した最大3秒間待つ関数を用意し、500ミリ秒未満しか待たなかった場合は失敗とみなします。その関数を実行する関数をFutureとして2つ用意し、それらをfor式で畳み込んで新しいFutureを作っています。そして最終的に新しいFutureに対して成功した場合と失敗した場合を出力します。</p>
@@ -645,22 +653,24 @@ Futureに適用する関数の中でさらにFutureが取得できるような�
 <span class="hljs-keyword">import</span> scala.concurrent.duration._
 <span class="hljs-keyword">import</span> scala.util.{<span class="hljs-type">Success</span>, <span class="hljs-type">Failure</span>}
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">PromiseSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
-  <span class="hljs-keyword">val</span> promiseGetInt: <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]()
-  <span class="hljs-keyword">val</span> futureByPromise: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = promiseGetInt.future <span class="hljs-comment">// PromiseからFutureを作ることが出来る</span>
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">PromiseSample</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> promiseGetInt: <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]()
+    <span class="hljs-keyword">val</span> futureByPromise: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = promiseGetInt.future <span class="hljs-comment">// PromiseからFutureを作ることが出来る</span>
 
-  <span class="hljs-comment">// Promiseが解決されたときに実行される処理をFutureを使って書くことが出来る</span>
-  <span class="hljs-keyword">val</span> mappedFuture = futureByPromise.map { i =&gt;
-    println(<span class="hljs-string">s&quot;Success! i: <span class="hljs-subst">${i}</span>&quot;</span>)
+    <span class="hljs-comment">// Promiseが解決されたときに実行される処理をFutureを使って書くことが出来る</span>
+    <span class="hljs-keyword">val</span> mappedFuture = futureByPromise.map { i =&gt;
+      println(<span class="hljs-string">s&quot;Success! i: <span class="hljs-subst">${i}</span>&quot;</span>)
+    }
+
+    <span class="hljs-comment">// 別スレッドで何か重い処理をして、終わったらPromiseに値を渡す</span>
+    <span class="hljs-type">Future</span> {
+      <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">300</span>)
+      promiseGetInt.success(<span class="hljs-number">1</span>)
+    }
+
+    <span class="hljs-type">Await</span>.ready(mappedFuture, <span class="hljs-number">5000.</span>millisecond)
   }
-
-  <span class="hljs-comment">// 別スレッドで何か重い処理をして、終わったらPromiseに値を渡す</span>
-  <span class="hljs-type">Future</span> {
-    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">300</span>)
-    promiseGetInt.success(<span class="hljs-number">1</span>)
-  }
-
-  <span class="hljs-type">Await</span>.ready(mappedFuture, <span class="hljs-number">5000.</span>millisecond)
 }
 </code></pre>
 <p>この処理は必ず<code>Success! i: 1</code>という値を表示します。このようにPromiseに値を渡すことで（Promiseから生成した）Futureを完了させることができます。</p>
@@ -690,19 +700,21 @@ Futureに適用する関数の中でさらにFutureが取得できるような�
   }
 }
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CallbackFuture</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
-  <span class="hljs-keyword">val</span> futureSomething = <span class="hljs-keyword">new</span> <span class="hljs-type">FutureSomething</span>
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CallbackFuture</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> futureSomething = <span class="hljs-keyword">new</span> <span class="hljs-type">FutureSomething</span>
 
-  <span class="hljs-keyword">val</span> iFuture = futureSomething.doSomething()
-  <span class="hljs-keyword">val</span> jFuture = futureSomething.doSomething()
+    <span class="hljs-keyword">val</span> iFuture = futureSomething.doSomething()
+    <span class="hljs-keyword">val</span> jFuture = futureSomething.doSomething()
 
-  <span class="hljs-keyword">val</span> iplusj = <span class="hljs-keyword">for</span> {
-    i &lt;- iFuture
-    j &lt;- jFuture
-  } <span class="hljs-keyword">yield</span> i + j
+    <span class="hljs-keyword">val</span> iplusj = <span class="hljs-keyword">for</span> {
+      i &lt;- iFuture
+      j &lt;- jFuture
+    } <span class="hljs-keyword">yield</span> i + j
 
-  <span class="hljs-keyword">val</span> result = <span class="hljs-type">Await</span>.result(iplusj, <span class="hljs-type">Duration</span>.<span class="hljs-type">Inf</span>)
-  println(result)
+    <span class="hljs-keyword">val</span> result = <span class="hljs-type">Await</span>.result(iplusj, <span class="hljs-type">Duration</span>.<span class="hljs-type">Inf</span>)
+    println(result)
+  }
 }
 </code></pre>
 <p>「Promiseには成功/失敗した時の値を設定できる」「PromiseからFutureを作ることが出来る」という2つの性質を利用して、
@@ -718,23 +730,25 @@ FutureやPromiseの便利な特性を利用して、0〜1000ミリ秒間のラ�
 <span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Promise</span>, <span class="hljs-type">Future</span>}
 <span class="hljs-keyword">import</span> scala.util.<span class="hljs-type">Random</span>
 
-<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CountDownLatchSample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">App</span> </span>{
-  <span class="hljs-keyword">val</span> indexHolder = <span class="hljs-keyword">new</span> <span class="hljs-type">AtomicInteger</span>(<span class="hljs-number">0</span>)
-  <span class="hljs-keyword">val</span> random = <span class="hljs-keyword">new</span> <span class="hljs-type">Random</span>()
-  <span class="hljs-keyword">val</span> promises: <span class="hljs-type">Seq</span>[<span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-keyword">for</span> {i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span>} <span class="hljs-keyword">yield</span> <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]
-  <span class="hljs-keyword">val</span> futures: <span class="hljs-type">Seq</span>[<span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-keyword">for</span> {i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">8</span>} <span class="hljs-keyword">yield</span> <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] {
-    <span class="hljs-keyword">val</span> waitMilliSec = random.nextInt(<span class="hljs-number">1001</span>)
-    <span class="hljs-type">Thread</span>.sleep(waitMilliSec)
-    waitMilliSec
-  }
-  futures.foreach { f =&gt; f.foreach {<span class="hljs-keyword">case</span> waitMilliSec =&gt;
-    <span class="hljs-keyword">val</span> index = indexHolder.getAndIncrement
-    <span class="hljs-keyword">if</span>(index &lt; promises.length) {
-      promises(index).success(waitMilliSec)
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CountDownLatchSample</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
+    <span class="hljs-keyword">val</span> indexHolder = <span class="hljs-keyword">new</span> <span class="hljs-type">AtomicInteger</span>(<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">val</span> random = <span class="hljs-keyword">new</span> <span class="hljs-type">Random</span>()
+    <span class="hljs-keyword">val</span> promises: <span class="hljs-type">Seq</span>[<span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-keyword">for</span> {i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span>} <span class="hljs-keyword">yield</span> <span class="hljs-type">Promise</span>[<span class="hljs-type">Int</span>]
+    <span class="hljs-keyword">val</span> futures: <span class="hljs-type">Seq</span>[<span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-keyword">for</span> {i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">8</span>} <span class="hljs-keyword">yield</span> <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] {
+      <span class="hljs-keyword">val</span> waitMilliSec = random.nextInt(<span class="hljs-number">1001</span>)
+      <span class="hljs-type">Thread</span>.sleep(waitMilliSec)
+      waitMilliSec
     }
-  }}
-  promises.foreach { p =&gt; p.future.foreach { <span class="hljs-keyword">case</span> waitMilliSec =&gt; println(waitMilliSec)}}
-  <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
+    futures.foreach { f =&gt; f.foreach {<span class="hljs-keyword">case</span> waitMilliSec =&gt;
+      <span class="hljs-keyword">val</span> index = indexHolder.getAndIncrement
+      <span class="hljs-keyword">if</span>(index &lt; promises.length) {
+        promises(index).success(waitMilliSec)
+      }
+    }}
+    promises.foreach { p =&gt; p.future.foreach { <span class="hljs-keyword">case</span> waitMilliSec =&gt; println(waitMilliSec)}}
+    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">5000</span>)
+  }
 }
 </code></pre>
 </div>
@@ -794,7 +808,7 @@ Promiseの配列のそれぞれに成功結果を定義しています。そし�
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FutureとPromise","level":"1.19","depth":1,"next":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"future-and-promise.md","mtime":"2022-01-01T02:51:25.817Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2022-01-01T02:51:32.184Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FutureとPromise","level":"1.19","depth":1,"next":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"future-and-promise.md","mtime":"2022-01-01T04:02:29.515Z","type":"markdown"},"gitbook":{"version":"3.6.23","time":"2022-01-01T04:02:38.021Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
