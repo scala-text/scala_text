@@ -8,17 +8,16 @@ jobs:
   scala-steward:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    if: ${{ github.repository_owner == 'scala-text' }}
     steps:
     - name: Generate token
       id: generate_token
-      if: ${{ !github.event.repository.fork }}
       uses: tibdex/github-app-token@v1
       with:
         app_id: 89662
         private_key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
     - name: Launch Scala Steward
-      if: ${{ !github.event.repository.fork }}
-      uses: scala-steward-org/scala-steward-action@v2.14.0
+      uses: scala-steward-org/scala-steward-action@v2
       with:
         github-token: ${{ steps.generate_token.outputs.token }}
         author-email: "74845010+scala-text-bot[bot]@users.noreply.github.com"
