@@ -556,7 +556,7 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// i = 9</span>
 <span class="hljs-comment">// i = 10</span>
 </code></pre>
-<p>Javaで <code>while</code> 文を使った場合と同様です。 <code>do while</code> 式もありますが、Javaと同様なので説明は省略します。なお、Javaの <code>break</code> 文や <code>continue</code> 文に相当する言語機能はありません。しかし、後ほど説明する高階関数を適切に利用すれば、ほとんどの場合、 <code>break</code> や <code>continue</code> は必要ありません。</p>
+<p>Javaで <code>while</code> 文を使った場合と同様です。 <code>do while</code> 式もありますが、Javaと同様、かつScala 3からは無くなったので説明は省略します。なお、Javaの <code>break</code> 文や <code>continue</code> 文に相当する言語機能はありません。しかし、後ほど説明する高階関数を適切に利用すれば、ほとんどの場合、 <code>break</code> や <code>continue</code> は必要ありません。</p>
 <h3 id="control_syntax_ex2"><a name="control_syntax_ex2" class="plugin-anchor" href="#control_syntax_ex2"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <p><code>do while</code>を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド<code>loopFrom0To9</code>を書いてみましょう。<code>loopFrom0To9</code>は次のような形になります。<code>???</code>の部分を埋めてください。</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loopFrom0To9</span></span>(): <span class="hljs-type">Unit</span> = {
@@ -576,16 +576,6 @@ age = <span class="hljs-number">18</span>
 }
 </code></pre>
 <pre><code class="lang-scala">loopFrom0To9()
-<span class="hljs-comment">// 0</span>
-<span class="hljs-comment">// 1</span>
-<span class="hljs-comment">// 2</span>
-<span class="hljs-comment">// 3</span>
-<span class="hljs-comment">// 4</span>
-<span class="hljs-comment">// 5</span>
-<span class="hljs-comment">// 6</span>
-<span class="hljs-comment">// 7</span>
-<span class="hljs-comment">// 8</span>
-<span class="hljs-comment">// 9</span>
 </code></pre>
 </div>
 <h2 id="return式"><a name="return式" class="plugin-anchor" href="#return式"><i class="fa fa-link" aria-hidden="true"></i></a>return式</h2>
@@ -684,7 +674,7 @@ age = <span class="hljs-number">18</span>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) <span class="hljs-keyword">yield</span> {
   <span class="hljs-string">&quot;Pre&quot;</span> + e
 }
-<span class="hljs-comment">// res10: List[String] = List(&quot;PreA&quot;, &quot;PreB&quot;, &quot;PreC&quot;, &quot;PreD&quot;, &quot;PreE&quot;)</span>
+<span class="hljs-comment">// res9: List[String] = List(&quot;PreA&quot;, &quot;PreB&quot;, &quot;PreC&quot;, &quot;PreD&quot;, &quot;PreE&quot;)</span>
 </code></pre>
 <p>ここでポイントとなるのは、<code>yield</code>というキーワードです。実は、<code>for</code>構文は<code>yield</code>キーワードを使うことで、コレクションの要素を加工して返すという全く異なる用途に使うことができます。特に<code>yield</code>キーワードを使った<code>for</code>式を特別に
 for-comprehensionと呼ぶことがあります。</p>
@@ -713,7 +703,7 @@ taro <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Jiro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
   <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Hanako&quot;</span> =&gt; <span class="hljs-string">&quot;Female&quot;</span>
 }
-<span class="hljs-comment">// res11: String = &quot;Male&quot;</span>
+<span class="hljs-comment">// res10: String = &quot;Male&quot;</span>
 </code></pre>
 <p>のようにして使うことができます。ここで、<code>taro</code>には文字列<code>&quot;Taro&quot;</code>が入っており、これは<code>case &quot;Taro&quot;</code>にマッチするため、<code>&quot;Male&quot;</code>が返されます。なお、ここで気づいた人もいるかと思いますが、<code>match</code>式も値を返します。<code>match</code>式の値は、マッチしたパターンの<code>=&gt;</code>の右辺の式を評価したものになります。</p>
 <p>パターンは文字列だけでなく数値など多様な値を扱うことができます。</p>
@@ -725,7 +715,7 @@ one <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">&quot;two&quot;</span>
   <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">&quot;other&quot;</span>
 }
-<span class="hljs-comment">// res12: String = &quot;one&quot;</span>
+<span class="hljs-comment">// res11: String = &quot;one&quot;</span>
 </code></pre>
 <p>ここで、パターンの箇所に<code>_</code>が出てきましたが、これはswitch-caseのdefaultに相当するもので、あらゆるものにマッチするパターンです。このパターンを<strong>ワイルドカードパターン</strong>と呼びます。 <code>match</code> 式を使うときは、漏れがないようにするために、ワイルドカードパターンを使うことが多いです。</p>
 <h3 id="パターンをまとめる"><a name="パターンをまとめる" class="plugin-anchor" href="#パターンをまとめる"><i class="fa fa-link" aria-hidden="true"></i></a>パターンをまとめる</h3>
@@ -921,7 +911,7 @@ obj <span class="hljs-keyword">match</span> {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2022-01-21T04:10:46.470Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-01-21T04:10:57.914Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2022-01-21T04:28:10.240Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-01-21T04:28:22.356Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
