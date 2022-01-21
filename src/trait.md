@@ -384,8 +384,9 @@ class C extends B {
 
 トレイトの`val`の初期化順序を回避するもう1つの方法としては事前定義（Early Definitions）を使う方法もあります。
 事前定義というのはフィールドの初期化をスーパークラスより先におこなう方法です。
+ただし、この機能はScala 3では無くなりました。
 
-```scala mdoc:nest:silent
+```scala
 trait A {
   val foo: String
 }

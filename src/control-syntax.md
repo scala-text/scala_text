@@ -140,13 +140,13 @@ while(i <= 10) {
 }
 ```
 
-Javaで `while` 文を使った場合と同様です。 `do while` 式もありますが、Javaと同様なので説明は省略します。なお、Javaの `break` 文や `continue` 文に相当する言語機能はありません。しかし、後ほど説明する高階関数を適切に利用すれば、ほとんどの場合、 `break` や `continue` は必要ありません。
+Javaで `while` 文を使った場合と同様です。 `do while` 式もありますが、Javaと同様、かつScala 3からは無くなったので説明は省略します。なお、Javaの `break` 文や `continue` 文に相当する言語機能はありません。しかし、後ほど説明する高階関数を適切に利用すれば、ほとんどの場合、 `break` や `continue` は必要ありません。
 
 ### 練習問題 {#control_syntax_ex2}
 
 `do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`loopFrom0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。
 
-```scala mdoc:nest:silent
+```scala
 def loopFrom0To9(): Unit = {
   var i = ???
   do {
@@ -157,7 +157,7 @@ def loopFrom0To9(): Unit = {
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
-```scala mdoc:nest:silent
+```scala
 def loopFrom0To9(): Unit = {
   var i = 0
   do {
@@ -167,7 +167,7 @@ def loopFrom0To9(): Unit = {
 }
 ```
 
-```scala mdoc:nest
+```scala
 loopFrom0To9()
 ```
 
