@@ -346,7 +346,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
   }
 
   it should "1000万以下の値の素数判定を一秒以内で処理できる" in {
-    failAfter(1000 millis) {
+    failAfter(1000.millis) {
       assert(calc.isPrime(9999991))
     }
   }
