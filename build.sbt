@@ -15,6 +15,8 @@ mdocIn := srcDir
 
 mdocOut := compiledSrcDir
 
+cleanFiles += compiledSrcDir
+
 libraryDependencies ++= Seq(
   // TODO sbtがScala 2.13対応したら再び有効化
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
