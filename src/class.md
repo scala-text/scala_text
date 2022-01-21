@@ -192,9 +192,9 @@ class BPrinter() extends APrinter {
   }
 }
 
-new APrinter().print
+new APrinter().print()
 
-new BPrinter().print
+new BPrinter().print()
 ```
 
 
