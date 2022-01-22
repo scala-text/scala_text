@@ -100,7 +100,7 @@ jobs:
         git add scala_text
         git config --global user.email "74845010+scala-text-bot[bot]@users.noreply.github.com"
         git config --global user.name "scala-text-bot[bot]"
-        git commit -a -m "auto commit on GitHub Actions ${{ github.run_id }} ${{ github.sha }}"
+        git diff-index --quiet HEAD || git commit -a -m "auto commit on GitHub Actions ${{ github.run_id }} ${{ github.sha }}"
         if [[ $(git log origin/master..master) == "" ]] ; then
           echo "originと比較して差分が存在しないのでpushしません"
         else
