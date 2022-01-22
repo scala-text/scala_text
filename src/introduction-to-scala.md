@@ -81,7 +81,7 @@ Scalaでは非同期の計算を表現する[Future](https://www.scala-lang.org/
 Akkaにはアクターというスレッドより小さい単位の実行コンポーネントがあり、このアクター間の通信により並行・分散プログラミングをおこないます。
 Akkaでは大量のアクターを管理することにより、スケーラビリティや耐障害性を実現しています。
 
-[^not_only_jvm]: http://www.scala-native.org や https://www.scala-js.org/ といった、JVM以外の環境で動くものも存在します
+[^not_only_jvm]: https://www.scala-native.org や https://www.scala-js.org/ といった、JVM以外の環境で動くものも存在します
 
 [^first_class]: この特徴を関数が「第一級（first-class）」であると言います。
 
