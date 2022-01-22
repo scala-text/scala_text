@@ -37,8 +37,6 @@ def identity[A](a: A): A = a
 例として、Option型でFunctor型クラスのインスタンスを定義し、前述の規則を満たすかどうか調べてみましょう。
 
 ```scala mdoc:nest
-import scala.language.higherKinds
-
 trait Functor[F[_]] {
   def map[A, B](fa: F[A])(f: A => B): F[B]
 }
