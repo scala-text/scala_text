@@ -400,13 +400,13 @@ object CountDownLatchSample {
       Thread.sleep(waitMilliSec)
       waitMilliSec
     }
-    futures.foreach { f => f.foreach {case waitMilliSec =>
+    futures.foreach { f => f.foreach { waitMilliSec =>
       val index = indexHolder.getAndIncrement
       if(index < promises.length) {
         promises(index).success(waitMilliSec)
       }
     }}
-    promises.foreach { p => p.future.foreach { case waitMilliSec => println(waitMilliSec)}}
+    promises.foreach { p => p.future.foreach { waitMilliSec => println(waitMilliSec)}}
     Thread.sleep(5000)
   }
 }
