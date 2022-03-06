@@ -39,6 +39,24 @@ Windows/Mac OSの場合で、シェル環境でsbtと入力するとバイナリ
 通っていないだけですので追加しましょう。Windowsでの環境変数編集ツールとしては、
 [Rapid Environment Editor](http://www.rapidee.com/en/about)が非常に便利です。
 
+## Linuxの場合
+
+[sdkman!](https://sdkman.io/) を利用するのが楽で使い勝手がいいでしょう。[sbtのドキュメント](https://www.scala-sbt.org/1.x/docs/ja/Installing-sbt-on-Linux.html)
+でも利用を薦められています。
+
+```shell
+$ curl -s "https://get.sdkman.io" | bash
+```
+
+とすればLinuxにsdkman!がインストールされます。
+続いてインストールしたsdkman!を利用してsbtをインストールしていきます。
+
+```shell
+$ sdk install sbt
+```
+
+とすればLinuxにsbtがインストールされます。
+
 
 ## REPLとsbt
 
