@@ -45,14 +45,17 @@ Windows/Mac OSの場合で、シェル環境でsbtと入力するとバイナリ
 でも利用を薦められています。
 
 ```shell
-$ curl -s "https://get.sdkman.io" | bash
+$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
+$ sdk version                                 # パスが通っているかの確認
 ```
 
 とすればLinuxにsdkman!がインストールされます。
 続いてインストールしたsdkman!を利用してsbtをインストールしていきます。
 
 ```shell
-$ sdk install sbt
+$ sdk install sbt # sbtのインストール
+$ which sbt       # sbtがインストールされているかの確認
 ```
 
 とすればLinuxにsbtがインストールされます。
