@@ -1,4 +1,6 @@
+
 # ScalaText
+[![Discord](https://img.shields.io/badge/chat-on%20disord-darkslateblue.svg?logo=discord)](https://discord.gg/KHjnS5kQ8M)
 
 このテキストは、Scala初学者がScalaを学ぶためのテキストである。ドワンゴの新入社員Scala研修のために作成されたものが、日本のScalaコミュニティに寄贈されたものとなる。
 
