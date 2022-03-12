@@ -1,9 +1,7 @@
 # IDE (Integrated Development Environment)
 
 Scalaで本格的にコーディングする際は、エディタ（Emacs, Vim, Sublime Text）を使っても構いませんが、
-IDEを使うとより開発が楽になります。Scalaで開発する際のIDEとしてはIntelliJ IDEA + Scala Pluginと
-Scala IDE for Eclipseの2種類がありますが、IntelliJ IDEAの方がIDEとして高機能であり、安定性も高い
-ため、ここではIntelliJ IDEA + Scala Pluginのインストール方法と基本的な操作について説明します。
+IDEを使うとより開発が楽になります。ここではIntelliJ IDEA + Scala Pluginのインストール方法と基本的な操作について説明します。
 
 補足：なお、本節でIDEをインストール後も説明は**REPLを使って行います**が、IDEベースで学習したい場合は
 適宜コードをIDEのエディタに貼り付けて実行するなどしてください。
