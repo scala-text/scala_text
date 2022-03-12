@@ -59,6 +59,27 @@ Windowsキーとrキーを同時に押して`C:\Windows\System32\systempropertie
 
 環境変数に`PATH`が存在する場合は、`PATH`を編集してsbtのインストール先（例えば`C:\sbt\bin`）を追加します。環境変数に`PATH`が存在しない場合は新しく`PATH`環境変数を追加して同じくsbtのインストール先を指定します。
 
+## Linuxの場合
+
+[sdkman!](https://sdkman.io/) を利用するのが楽で使い勝手がいいでしょう。[sbtのドキュメント](https://www.scala-sbt.org/1.x/docs/ja/Installing-sbt-on-Linux.html)
+でも利用を薦められています。
+
+```shell
+$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
+$ sdk version                                 # パスが通っているかの確認
+```
+
+とすればLinuxにsdkman!がインストールされます。
+続いてインストールしたsdkman!を利用してsbtをインストールしていきます。
+
+```shell
+$ sdk install sbt # sbtのインストール
+$ which sbt       # sbtがインストールされているかの確認
+```
+
+とすればLinuxにsbtがインストールされます。
+
 
 ## REPLとsbt
 
