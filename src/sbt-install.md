@@ -24,7 +24,17 @@ $ brew install sbt
 
 ## Windowsの場合
 
-[chocolatey](https://chocolatey.org/)を用いるのが楽です。
+Windows 公式の winget コマンド、あるいは [chocolatey](https://chocolatey.org/) コマンドを使ってインストールすると楽です。
+
+`winget` を使う場合は Windows Powershell を開いてください。 `winget search` コマンドで最新のバージョンを確認できます。 
+
+```
+winget search sbt
+sbt  sbt.sbt 1.6.2      winget
+```
+
+あとは `winget install sbt -v <version>` コマンドで指定したバージョンの sbt をインストールできます。
+
 chocolateyはWindows用のパッケージ マネージャで活発に開発が行われてます。chocolatey
 のパッケージにはsbtのものもあるので、
 
@@ -36,8 +46,18 @@ chocolateyはWindows用のパッケージ マネージャで活発に開発が�
 
 Windows/Mac OSの場合で、シェル環境でsbtと入力するとバイナリのダウンロードが
 始まればインストールの成功です。sbtがないと言われる場合、環境変数へsbtへのPATHが
-通っていないだけですので追加しましょう。Windowsでの環境変数編集ツールとしては、
-[Rapid Environment Editor](http://www.rapidee.com/en/about)が非常に便利です。
+通っていないだけですので追加しましょう。Windows の環境変数は「システムのプロパティ」から編集できます。
+
+Windows キーと r キーを同時に押して `C:\Windows\System32\systempropertiesadvanced.exe` を入力します。
+
+<img width="282" alt="image" src="https://user-images.githubusercontent.com/39330037/158003906-7d0a969c-e4ee-4563-9d92-64755fdb7988.png">
+
+
+これが上手くいかない場合は、Windows キーと r キーを同時に押して `sysdm.cpl` を入力して「システムのプロパティ」画面を開きます。
+
+「システムのプロパティ」の「詳細設定」のタブを開き、ウィンドウの下の方にある「環境変数」ボタンを押して環境変数の設定画面を開きます。
+
+環境変数に `PATH` が存在する場合は、`PATH` を編集して sbt のインストール先（例えば `C:\sbt\bin`）を追加します。 環境変数に `PATH` が存在しない場合は新しく `PATH` 環境変数を追加して同じく sbt のインストール先を指定します。
 
 
 ## REPLとsbt
