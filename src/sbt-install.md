@@ -19,7 +19,7 @@ Mac OSの場合のsbtのインストール方法として主に
 * [sdkman!](https://sdkman.io/) を利用する方法
 * [Homebrew](https://brew.sh/index_ja.html) を利用する方法
 
-の2つがありますが、sdkman!の方がおすすめです。
+の2つありますが、sdkman!の方がおすすめです。
 
 ### sdkman!を利用する方法
 
