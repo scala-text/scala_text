@@ -14,13 +14,41 @@ https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 
 ## Mac OSの場合
 
-Mac OSの場合、[Homebrew](https://brew.sh/index_ja.html)を用いて、
+Mac OSの場合のsbtのインストール方法として主に
+
+* [sdkman!](https://sdkman.io/) を利用する方法
+* [Homebrew](https://brew.sh/index_ja.html) を利用する方法
+
+の2つがありますが、sdkman!の方がおすすめです。
+
+### sdkman!を利用する方法
+
+まずはsdkman!をインストールします。
+
+```shell
+$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
+$ sdk version                                 # パスが通っているかの確認
+```
+
+インストールしたsdkman!を利用してsbtをインストールします。
+
+```shell
+$ sdk install sbt # sbtのインストール
+$ which sbt       # sbtがインストールされているかの確認
+```
+
+とすれば、Mac OSにsbtがインストールできます。
+
+### Homebrewを利用する方法
+
+[Homebrew](https://brew.sh/index_ja.html)を用いる方法でも可能です。
 
 ```
 $ brew install sbt
 ```
 
-でインストールするのが楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 https://github.com/scala-text/scala_text/issues/566
+でインストールでき、楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 https://github.com/scala-text/scala_text/issues/566
 
 ## Windowsの場合
 
