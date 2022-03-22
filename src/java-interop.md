@@ -13,14 +13,12 @@ Javaのライブラリをimportするためには、Scalaでほとんど同様�
 import java.util.*;
 import java.util.ArrayList;
 ```
-は 
+ワイルドカードインポートはScala 2では`_`を、Scala 3では`*`を使います。
 
 ```scala mdoc:nest:silent
 import java.util._
 import java.util.ArrayList
 ```
-
-と同じ意味になります。注意するべきは、Javaでのワイルドカードインポートが、`*`ではなく`_`になった程度です。
 
 ### インスタンスの生成
 
