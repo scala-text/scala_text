@@ -144,14 +144,14 @@ Javaで `while` 文を使った場合と同様です。 `do while` 式もあり�
 
 ### 練習問題 {#control_syntax_ex2}
 
-`do while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`loopFrom0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。
+`while`を利用して、0から数え上げて9まで出力して10になったらループを終了するメソッド`loopFrom0To9`を書いてみましょう。`loopFrom0To9`は次のような形になります。`???`の部分を埋めてください。
 
 ```scala
 def loopFrom0To9(): Unit = {
   var i = ???
-  do {
+  while(???){
     ???
-  } while(???)
+  }
 }
 ```
 
@@ -160,10 +160,10 @@ def loopFrom0To9(): Unit = {
 ```scala
 def loopFrom0To9(): Unit = {
   var i = 0
-  do {
+  while(i < 10){
     println(i)
     i += 1
-  } while(i < 10)
+  }
 }
 ```
 

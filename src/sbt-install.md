@@ -14,17 +14,55 @@ https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 
 ## Mac OSの場合
 
-Mac OSの場合、[Homebrew](https://brew.sh/index_ja.html)を用いて、
+Mac OSの場合のsbtのインストール方法として主に
+
+* [sdkman!](https://sdkman.io/) を利用する方法
+* [Homebrew](https://brew.sh/index_ja.html) を利用する方法
+
+の2つありますが、sdkman!の方がおすすめです。
+
+### sdkman!を利用する方法
+
+まずはsdkman!をインストールします。
+
+```shell
+$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
+$ sdk version                                 # パスが通っているかの確認
+```
+
+インストールしたsdkman!を利用してsbtをインストールします。
+
+```shell
+$ sdk install sbt # sbtのインストール
+$ which sbt       # sbtがインストールされているかの確認
+```
+
+とすれば、Mac OSにsbtがインストールできます。
+
+### Homebrewを利用する方法
+
+[Homebrew](https://brew.sh/index_ja.html)を用いる方法でも可能です。
 
 ```
 $ brew install sbt
 ```
 
-でインストールするのが楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 https://github.com/scala-text/scala_text/issues/566
+でインストールでき、楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 https://github.com/scala-text/scala_text/issues/566
 
 ## Windowsの場合
 
-[chocolatey](https://chocolatey.org/)を用いるのが楽です。
+Windows公式のwingetコマンド、あるいは[chocolatey](https://chocolatey.org/)コマンドを使ってインストールすると楽です。
+
+`winget`を使う場合はWindows Powershellを開いてください。`winget search`コマンドで最新のバージョンを確認できます。 
+
+```
+winget search sbt
+sbt  sbt.sbt <latest version>      winget
+```
+
+あとは`winget install sbt -v <version>`コマンドで指定したバージョンのsbtをインストールできます。
+
 chocolateyはWindows用のパッケージ マネージャで活発に開発が行われてます。chocolatey
 のパッケージにはsbtのものもあるので、
 
@@ -36,8 +74,39 @@ chocolateyはWindows用のパッケージ マネージャで活発に開発が�
 
 Windows/Mac OSの場合で、シェル環境でsbtと入力するとバイナリのダウンロードが
 始まればインストールの成功です。sbtがないと言われる場合、環境変数へsbtへのPATHが
-通っていないだけですので追加しましょう。Windowsでの環境変数編集ツールとしては、
-[Rapid Environment Editor](http://www.rapidee.com/en/about)が非常に便利です。
+通っていないだけですので追加しましょう。Windowsの環境変数は「システムのプロパティ」から編集できます。
+
+Windowsキーとrキーを同時に押して`C:\Windows\System32\systempropertiesadvanced.exe`を入力します。
+
+![環境変数の設定ショートカット](img/sysprops.jpg)
+
+
+これが上手くいかない場合は、Windowsキーとrキーを同時に押し、`sysdm.cpl`を入力して「システムのプロパティ」画面を開きます。
+
+「システムのプロパティ」の「詳細設定」のタブを開き、ウィンドウの下の方にある「環境変数」ボタンを押して環境変数の設定画面を開きます。
+
+環境変数に`PATH`が存在する場合は、`PATH`を編集してsbtのインストール先（例えば`C:\sbt\bin`）を追加します。環境変数に`PATH`が存在しない場合は新しく`PATH`環境変数を追加して同じくsbtのインストール先を指定します。
+
+## Linuxの場合
+
+[sdkman!](https://sdkman.io/) を利用するのが楽で使い勝手がいいでしょう。[sbtのドキュメント](https://www.scala-sbt.org/1.x/docs/ja/Installing-sbt-on-Linux.html)
+でも利用を薦められています。
+
+```shell
+$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
+$ sdk version                                 # パスが通っているかの確認
+```
+
+とすればLinuxにsdkman!がインストールされます。
+続いてインストールしたsdkman!を利用してsbtをインストールしていきます。
+
+```shell
+$ sdk install sbt # sbtのインストール
+$ which sbt       # sbtがインストールされているかの確認
+```
+
+とすればLinuxにsbtがインストールされます。
 
 
 ## REPLとsbt
