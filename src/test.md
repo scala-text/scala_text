@@ -474,36 +474,80 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 リグレッションを検出するためにつかわれます。
 その際に、CIの一環として一緒に行われることが多いのがコードスタイルチェックです。
 
-ここでは、[ScalaStyle](http://www.scalastyle.org/sbt.html)を利用します。
-
-使い方は、`project/plugins.sbt` に以下のコードを記述します。
+コードスタイルチェックにおいて、インデントの数や定義の前後のスペースなどコードのフォーマットをチェックするにはフォーマッタを、
+静的解析で推奨されるScalaコードの書き方になっているかをチェックするにはリンターを使います。
+例えば、次のメソッド定義はProcedure Syntaxと呼ばれ、比較的新しいバージョンのScalaでは非推奨になっています。リンターはこのような望ましくないコードを検知して報告します。
 
 ```scala
-addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
+object Example {
+  def myProcedure {}
+}
 ```
 
-その後、`sbt scalastyleGenerateConfig`を一度だけ実施後、`sbt scalastyle`を実行します。
+2022年現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafixはScala 3に対応しています。wartremoverもScala 3対応が入る予定です。
+scalafmt、scalafixのどちらもコードスタイルチェックに加えて自動修正機能があります。
 
-実行すると、下記のように警告が表示されます。
 
-```
-[info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
-[info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] scalastyle using config /Users/dwango/workspace/scalatest_study/scalastyle-config.xml
-[warn] /Users/dwango/workspace/scalatest_study/src/main/scala/Calc.scala:1: Header does not match expected text
-[info] Processed 1 file(s)
-[info] Found 0 errors
-[info] Found 1 warnings
-[info] Found 0 infos
-[info] Finished in 12 ms
-[success] created output: /Users/dwango/workspace/scalatest_study/target
-[success] Total time: 1 s, completed 2015/04/09 22:17:40
+scalafmt、scalafixはCLIでもsbt pluginでも使えますがここではsbt pluginを利用する前提で話をすすめます。
+
+`project/plugins.sbt` に以下のコードを記述します。
+
+```scala
+addSbtPlugin("org.scalameta" %% "scalafmt" % "<latest>")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "<latest>")
 ```
 
-これはヘッダに特定のテキストが入っていないというルールに対して警告を出してくれているもので、
-`scalastyle-config.xml`でルール変更を行うことができます。
-なおデフォルトの設定では、Apacheライセンスの記述を入れなくては警告を出す設定になっています。
-これらもテスティングフレームワークやカバレッジ測定と同時に導入、設定してしまいましょう。
+### scalafmt
+
+まずはscalafmtを試してみましょう。sbtシェルを開いて次のコマンドを実行してください。もしソースにフォーマットに問題があるコードが含まれているなら警告が表示されます。
+
+```sh
+scalafmtCheckAll
+```
+
+次のコマンドを実行するとフォーマットを自動的に修正します。
+```sh
+scalafmtAll
+```
+
+また、`build.sbt`などのビルドにつかうScalaファイルのフォーマットは`scalafmtSbt`で修正できます。
+
+フォーマットは`.scalafmt.conf`ファイルで設定できます。詳しくは公式ドキュメントにひととおり目を通してみるといいでしょう。
+https://scalameta.org/scalafmt/docs/configuration.html
+
+### scalafix
+さて、次はscalafixを試してみましょう。
+sbtシェルで次のコマンドを実行してください。
+
+```sh
+scalafix --check --rules ProcedureSyntax
+```
+下記のように警告が表示されます。
+
+```
+[info] Running scalafix on 1 Scala sources
+[error] --- /path/to/problematic/File.scala
+[error] +++ <expected fix>
+...省略...
+[error] -  def myProcedure {}
+[error] +  def myProcedure: Unit = {}
+[error]  
+...省略...
+[error] 
+ScalafixFailed: TestError
+```
+
+問題のあるコードを自動的に書き換えるには`--check`オプションを外して`scalafix ProcedureSyntax`コマンドを実行します。
+先ほどの`myProcedure`は次のように修正されます。
+
+```scala
+object Example {
+  def myProcedure: Unit = {}
+}
+```
+
+Procedure Syntaxの警告と修正はscalafixにデフォルトで用意されていますが、ライブラリとして公開されているscalafixのルールを使うことでリンターのルールを追加できます。公開されているルールは[scalafixのドキュメント](https://scalacenter.github.io/scalafix/docs/rules/community-rules.html)に書いてあります。
+
 
 ## テストを書こう
 
