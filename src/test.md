@@ -493,8 +493,8 @@ scalafmt、scalafixはCLIでもsbt pluginでも使えますがここではsbt pl
 `project/plugins.sbt` に以下のコードを記述します。
 
 ```scala
-addSbtPlugin("org.scalameta" %% "scalafmt" % "2.4.6")
-addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.34")
+addSbtPlugin("org.scalameta" %% "scalafmt" % "<latest>")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "<latest>")
 ```
 
 ### scalafmt
