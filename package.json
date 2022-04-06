@@ -5,7 +5,7 @@
   "description": "Scala初学者がScalaを学ぶためのテキスト",
   "scripts": {},
   "devDependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.7",
     "babel-preset-power-assert": "3.0.0",
