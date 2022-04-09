@@ -21,7 +21,7 @@ libraryDependencies ++= Seq(
   // TODO sbtがScala 2.13対応したら再び有効化
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
   "org.mockito" % "mockito-core" % "4.4.0",
-  "org.scalacheck" %% "scalacheck" % "1.15.4",
+  "org.scalacheck" %% "scalacheck" % "1.16.0",
   "org.scalatest" %% "scalatest" % "3.2.11" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
 
