@@ -484,7 +484,7 @@ object Example {
 }
 ```
 
-2022年現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafixはScala 3に対応しています。wartremoverもScala 3対応が入る予定です。
+2022年現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafix、wartremoverはScala 3に対応しています。
 scalafmt、scalafixのどちらもコードスタイルチェックに加えて自動修正機能があります。
 
 
