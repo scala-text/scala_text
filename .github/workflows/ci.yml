@@ -82,6 +82,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
     - id: generate_token
       if: ${{ !github.event.repository.fork && !github.event.pull_request.head.repo.fork && github.ref == 'refs/heads/master' && github.event_name == 'push'}}
