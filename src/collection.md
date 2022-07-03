@@ -678,7 +678,7 @@ List(1, 2, 3).flatMap{e => List(4, 5).map(g => e * g)}
 for-comprehension
 
 ```scala
-for(x <- col1; y <- col2;) yield z
+for(x <- col1; y <- col2) yield z
 ```
 
 は
