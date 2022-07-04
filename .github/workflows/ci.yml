@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-18.04
     timeout-minutes: 40
     steps:
-    - uses: actions/checkout@v2.4.0
-    - uses: actions/setup-java@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
       with:
         java-version: 8
         distribution: temurin
-    - uses: coursier/cache-action@v5
+    - uses: coursier/cache-action@v6
     - run: sudo apt-get update
     - run: sudo apt-get install -y build-essential
     - run: sudo apt-get install gcc-4.8
@@ -27,7 +27,7 @@ jobs:
     - run: npm install -g npm
     - run: npm ci
     - run: npm install svgexport -g
-    - run: sbt -v '++ 3.1.1!' mdoc clean
+    - run: sbt -v '++ 3.1.3!' mdoc clean
     - run: sbt -v textLintAll textTestAll textBuildHtml test
     - run: |
         wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/614d94496efdcf960871429e1c090c56d2018f68/setup/linux-installer.py |
@@ -67,7 +67,7 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
-    - uses: actions/github-script@v5.0.0
+    - uses: actions/github-script@v6
       if: ${{ github.event_name == 'pull_request' && !github.event.repository.fork && !github.event.pull_request.head.repo.fork }}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -82,6 +82,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
     - id: generate_token
       if: ${{ !github.event.repository.fork && !github.event.pull_request.head.repo.fork && github.ref == 'refs/heads/master' && github.event_name == 'push'}}

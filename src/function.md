@@ -1,7 +1,7 @@
 # Scalaの関数
 
 Scalaの関数は、他の言語の関数と扱いが異なります。Scalaの関数は単に
-[`Function0`](https://github.com/scala/scala/blob/v2.13.4/src/library/scala/Function0.scala) 〜 [`Function22`](https://github.com/scala/scala/blob/v2.13.4/src/library/scala/Function22.scala) までのトレイトの無名サブクラスのインスタンスなのです。
+[`Function0`](https://github.com/scala/scala/blob/v2.13.8/src/library/scala/Function0.scala) 〜 [`Function22`](https://github.com/scala/scala/blob/v2.13.8/src/library/scala/Function22.scala) までのトレイトの無名サブクラスのインスタンスなのです。
 
 たとえば、2つの整数を取って加算した値を返す`add`関数は次のようにして定義することができます：
 
@@ -44,8 +44,9 @@ val add = (x: Int, y: Int) => x + y
 ```
 
 n1からnnまでが仮引数の定義でN1からNNまでが仮引数の型です。`B`は無名関数の本体です。無名関数の返り値の型は通常は
-`B`の型から推論されます。先ほど述べたように、Scalaの関数は`Function0`〜`Function22`までのトレイトの無名サブクラスの
+`B`の型から推論されます。先ほど述べたように、Scala 2における関数は`Function0`〜`Function22`までのトレイトの無名サブクラスの
 インスタンスですから、引数の最大個数は22個になります。
+Scala 3からはその制約が撤廃されて、23以上の関数も作成可能になっています。
 
 ## 関数の型
 

@@ -285,9 +285,10 @@ implicit object StringSerializer extends Serializer[String] {
 いけないのですから、単純に以下のようにしてもだめです。
 
 ```scala
-implicit def ListSerializer[A]: Serializer[List[A]] = {
-  def serialize(obj: List[A]): String = ???
-}
+implicit def ListSerializer[A]: Serializer[List[A]] =
+  new Serializer[List[A]] {
+    def serialize(obj: List[A]): String = ???
+  }
 ```
 
 この定義では `A` にどのような操作が可能なのかわからないため、中身を単純に `toString` するくらいしか
@@ -295,12 +296,13 @@ implicit def ListSerializer[A]: Serializer[List[A]] = {
 これを解決するには、 `ListSerializer` がimplicit parameterを取るようにします。
 
 ```scala
-implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = {
-  def serialize(obj: List[A]): String = {
-    val serializedList = obj.map{o => serializer.serialize(o)}
-    serializedList.mkString("[",",","]")
+implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] =
+  new Serializer[List[A]] {
+    def serialize(obj: List[A]): String = {
+      val serializedList = obj.map{o => serializer.serialize(o)}
+      serializedList.mkString("[",",","]")
+    }
   }
-}
 ```
 
 このように定義したとき、コンパイラは、要素型 `A` がシリアライズ可能でない場合（あらかじめimplicit def/objectで

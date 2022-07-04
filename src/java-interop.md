@@ -13,14 +13,12 @@ Javaのライブラリをimportするためには、Scalaでほとんど同様�
 import java.util.*;
 import java.util.ArrayList;
 ```
-は 
+ワイルドカードインポートはScala 2では`_`を、Scala 3では`*`を使います。
 
 ```scala mdoc:nest:silent
 import java.util._
 import java.util.ArrayList
 ```
-
-と同じ意味になります。注意するべきは、Javaでのワイルドカードインポートが、`*`ではなく`_`になった程度です。
 
 ### インスタンスの生成
 
@@ -265,7 +263,7 @@ val scalaList = list.asScala
 ```
 
 BufferはScalaの変更可能なリストのスーパークラスですが、ともあれ、asScalaメソッドによってJavaのコレクションをScalaのそれに変換することができている
-ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/scala.jdk.CollectionConverters$.html)を参照してください。
+ことがわかります。そのほかのコレクションについても同様に変換できますが、詳しくは[APIドキュメント](https://www.scala-lang.org/api/current/scala/jdk/CollectionConverters$.html)を参照してください。
 
 また、`scala.jdk`パッケージには、コレクションの変換以外の機能も提供されています。
 

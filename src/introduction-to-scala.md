@@ -71,7 +71,7 @@ ScalaはJavaとの互換性を第一に考えられた言語です。Scalaの型
 
 ## 非同期プログラミング、並行・分散プログラミング
 
-Scalaでは非同期の計算を表現する[Future](https://www.scala-lang.org/api/current/#scala.concurrent.Future)が標準ライブラリに含まれており、様々なライブラリで使われています。
+Scalaでは非同期の計算を表現する[Future](https://www.scala-lang.org/api/current/scala/concurrent/Future.html)が標準ライブラリに含まれており、様々なライブラリで使われています。
 非同期プログラミングにより、スレッド数を超えるようなクライアントの大量同時のアクセスに対応することができます。
 
 また、他のシステムに問い合わせなければならない場合などにも、スレッドを占有することなく他のシステムの返答を待つことができます。
