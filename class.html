@@ -456,9 +456,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <html><head></head><body><h1 id="クラス"><a name="クラス" class="plugin-anchor" href="#クラス"><i class="fa fa-link" aria-hidden="true"></i></a>クラス</h1>
-<p>これからScalaにおけるクラス定義に関して説明します。Javaのクラスがわかっている事を前提にしますが、ご了承ください。</p>
+<p>これからScalaにおけるクラス定義に関して説明します。他のオブジェクト指向言語のクラスをある程度知っていることを前提としていますが、ご了承ください。</p>
 <h2 id="クラス定義"><a name="クラス定義" class="plugin-anchor" href="#クラス定義"><i class="fa fa-link" aria-hidden="true"></i></a>クラス定義</h2>
-<p>Scalaにおけるクラスは、記法を除けばJava言語のクラスと大して変わりません。Scalaのクラス定義は次のような形を取ります。</p>
+<p>Scalaのクラス定義は次のような形を取ります。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">&lt;クラス名&gt;</span> &apos;(<span class="hljs-params">&apos; (&lt;引数名1&gt; : &lt;引数型1&gt;, &lt;引数名2&gt;: &lt;引数型2&gt; ...</span>)<span class="hljs-title">?</span> &apos;)&apos; </span>{
   (&lt;フィールド定義&gt; | &lt;メソッド定義&gt; )*
 }
@@ -476,7 +476,7 @@
 <li>クラス名の直後にコンストラクタ引数の定義がある</li>
 <li>val/varによって、コンストラクタ引数をフィールドとして公開することができる</li>
 </ul>
-<p>点に注目してください。まず、最初の点ですが、Scalaでは1クラスに付き、基本的には1つのコンストラクタしか使いません。このコンストラクタを、Scalaでは<em>プライマリコンストラクタ</em>として特別に扱っています。文法上は複数のコンストラクタを定義できるようになっていますが、実際に使うことはほとんどありません。複数のオブジェクトの生成方法を提供したい場合、objectの <code>apply</code> メソッドとして定義することが多いです。</p>
+<p>点に注目してください。最初の点ですが、Scalaでは1クラスに付き、基本的には1つのコンストラクタしか使いません。このコンストラクタを、Scalaでは<em>プライマリコンストラクタ</em>として特別に扱っています。文法上は複数のコンストラクタを定義できるようになっていますが、実際に使うことはほとんどありません。複数のオブジェクトの生成方法を提供したい場合、objectの <code>apply</code> メソッドとして定義することが多いです。</p>
 <p>2番目の点ですが、プライマリコンストラクタの引数にval/varをつけるとそのフィールドは公開され、外部からアクセスできるようになります。なお、プライマリコンストラクタの引数のスコープはクラス定義全体におよびます。そのため、以下のようにメソッド定義の中から直接コンストラクタ引数を参照できます。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span>, val y: <span class="hljs-type">Int</span></span>) </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span></span>(p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
@@ -531,7 +531,7 @@ p1 + p2
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$App$Adder$1@2df6fbbf</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$App$Adder$1@22b1ee40</span>
 
 adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res1: Int = 5</span>
@@ -548,7 +548,7 @@ fun(<span class="hljs-number">3</span>)
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$App$Adder$2@27e151e1</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$App$Adder$2@2bf25189</span>
 
 adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-comment">// res3: Int = 5</span>
@@ -704,7 +704,7 @@ println(shape.area)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2022-07-06T23:10:45.807Z","type":"markdown"},"gitbook":{"version":"3.7.4","time":"2022-07-06T23:11:00.256Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2022-07-07T14:33:39.438Z","type":"markdown"},"gitbook":{"version":"3.7.4","time":"2022-07-07T14:33:54.923Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
