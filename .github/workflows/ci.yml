@@ -15,10 +15,6 @@ jobs:
         java-version: 8
         distribution: temurin
     - uses: coursier/cache-action@v6
-    - run: sudo apt-get update
-    - run: sudo apt-get install -y build-essential
-    - run: sudo apt-get install gcc
-    - run: sudo apt-get install g++
     - uses: actions/setup-node@v2.4.1
       with:
         node-version: '14.15.5'
