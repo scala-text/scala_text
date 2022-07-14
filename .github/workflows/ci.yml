@@ -4,11 +4,9 @@ on:
   push:
   schedule:
   - cron: '0 3 * * *'
-env:
-  CXX: "g++-4.8"
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
     - uses: actions/checkout@v3
@@ -17,10 +15,6 @@ jobs:
         java-version: 8
         distribution: temurin
     - uses: coursier/cache-action@v6
-    - run: sudo apt-get update
-    - run: sudo apt-get install -y build-essential
-    - run: sudo apt-get install gcc-4.8
-    - run: sudo apt-get install g++-4.8
     - uses: actions/setup-node@v2.4.1
       with:
         node-version: '14.15.5'
