@@ -24,7 +24,7 @@ ScalaとJavaのそれぞれのバージョンの互換性に関しては、以�
 
 https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 
-ここでは方法の一つとして、先ほどインストールしたSDKMAN!を利用した方法を紹介します。
+ここでは、先ほどインストールしたSDKMAN!を利用する方法を紹介します。
 
 ```shell
 $ sdk list java                 # インストールできるJavaの一覧を確認
@@ -56,7 +56,7 @@ $ brew install sbt
 
 ## Windowsの場合（WSL以外）
 
-Windowsで、WSLを利用しない場合は以下の方法でsbtをインストールすることができます。
+WindowsでWSLを利用しない場合は、以下の方法でsbtをインストールすることができます。
 
 Windows公式のwingetコマンド、あるいは[chocolatey](https://chocolatey.org/)コマンドを使ってインストールすると楽です。
 
