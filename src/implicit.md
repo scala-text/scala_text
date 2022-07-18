@@ -152,7 +152,7 @@ def useDatabase3(....)(implicit conn: Connection)
 implicit val connection: Connection = connectDatabase(....)
 ```
 
-このようにすることで、最後の引数リストに暗黙に`Connection`オブジェクトを渡してくれるのです。このようなimplicit parameterの使い方はPlay 2 FrameworkやScalaの各種O/Rマッパーで頻出します。
+このようにすることで、最後の引数リストに暗黙に`Connection`オブジェクトを渡してくれるのです。このようなimplicit parameterの使い方はPlay FrameworkやScalaの各種O/Rマッパーで頻出します。
 
 implicit parameterのもう1つの使い方は、少々変わっています。まず、`List`の全ての要素の値を加算した結果を返す`sum`メソッドを定義したいとします。
 このメソッドはどのような定義になるでしょうか。ポイントは、「何の」`List`か全くわかっていないことで、整数の`+`メソッドをそのまま使ったりという
