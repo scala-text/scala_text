@@ -15,7 +15,7 @@ $ source "$HOME/.sdkman/bin/sdkman-init.sh"   # SDKMAN!の初期化（shellの�
 $ sdk version                                 # パスが通っているかの確認
 ```
 
-Windowsの場合も[WSL](https://docs.microsoft.com/en-us/windows/wsl/install)から同様インストールすることが可能です。
+Windowsの場合も[WSL](https://docs.microsoft.com/en-us/windows/wsl/install)から同様の方法でインストールすることが可能です。
 
 ## Javaのインストール
 
