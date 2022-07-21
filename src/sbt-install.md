@@ -6,7 +6,7 @@
 
 ## SDKMAN!のインストール
 
-ここでは、sbtとJavaのいづれも[SDKMAN!](https://sdkman.io/)を利用したインストール方法を紹介します。
+ここでは、sbtとJavaのいずれも[SDKMAN!](https://sdkman.io/)を利用したインストール方法を紹介します。
 Mac OSやLinuxの場合、SDKMAN!は以下のコマンドでインストールできます。
 
 ```shell
