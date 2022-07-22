@@ -4,53 +4,59 @@
 標準的なビルドツールである[sbt](https://www.scala-sbt.org)というツールを用いることになり
 ます。ここでは、sbtのインストールについて説明します。
 
+## SDKMAN!のインストール
+
+ここでは、sbtとJavaのいずれも[SDKMAN!](https://sdkman.io/)を利用したインストール方法を紹介します。
+Mac OSやLinuxの場合、SDKMAN!は以下のコマンドでインストールできます。
+
+```shell
+$ curl -s "https://get.sdkman.io" | bash      # SDKMAN!のインストール
+$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # SDKMAN!の初期化（shellの再起動でも可）
+$ sdk version                                 # パスが通っているかの確認
+```
+
+Windowsの場合も[WSL](https://docs.microsoft.com/en-us/windows/wsl/install)から同様の方法でインストールすることが可能です。
+
 ## Javaのインストール
 
 Scala 2.12や2.13ではJava 8以降が必須なので、もしJavaがインストールされていなければ、まずJavaをインストールしましょう。
-Javaのインストール方法の詳細はここでは省略します。
 ScalaとJavaのそれぞれのバージョンの互換性に関しては、以下のScala公式サイトのページを見てください。
 
 https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 
-## Mac OSの場合
-
-Mac OSの場合のsbtのインストール方法として主に
-
-* [sdkman!](https://sdkman.io/) を利用する方法
-* [Homebrew](https://brew.sh/index_ja.html) を利用する方法
-
-の2つありますが、sdkman!の方がおすすめです。
-
-### sdkman!を利用する方法
-
-まずはsdkman!をインストールします。
+ここでは、先ほどインストールしたSDKMAN!を利用する方法を紹介します。
 
 ```shell
-$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
-$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
-$ sdk version                                 # パスが通っているかの確認
+$ sdk list java                 # インストールできるJavaの一覧を確認
+# sdk install java <Identifier> # <Identifier> の部分は上記のコマンドで確認した中からインストールしたいものを入れる
+$ sdk install java 11.0.15-tem  # 例
+$ java --version                # Javaがインストールされているかの確認
 ```
 
-インストールしたsdkman!を利用してsbtをインストールします。
+## Mac OS, Linux, WSL（Windows） の場合
+
+最初にインストールしたSDKMAN!を利用してsbtをインストールします。
 
 ```shell
 $ sdk install sbt # sbtのインストール
 $ which sbt       # sbtがインストールされているかの確認
 ```
 
-とすれば、Mac OSにsbtがインストールできます。
+とすれば、sbtがインストールできます。
 
-### Homebrewを利用する方法
+### Homebrewを利用する方法（Mac OS）
 
 [Homebrew](https://brew.sh/index_ja.html)を用いる方法でも可能です。
 
-```
+```shell
 $ brew install sbt
 ```
 
 でインストールでき、楽ですが、新しすぎるJDKがインストールされてしまうという問題があります。 https://github.com/scala-text/scala_text/issues/566
 
-## Windowsの場合
+## Windowsの場合（WSL以外）
+
+WindowsでWSLを利用しない場合は、以下の方法でsbtをインストールすることができます。
 
 Windows公式のwingetコマンド、あるいは[chocolatey](https://chocolatey.org/)コマンドを使ってインストールすると楽です。
 
@@ -86,28 +92,6 @@ Windowsキーとrキーを同時に押して`C:\Windows\System32\systempropertie
 「システムのプロパティ」の「詳細設定」のタブを開き、ウィンドウの下の方にある「環境変数」ボタンを押して環境変数の設定画面を開きます。
 
 環境変数に`PATH`が存在する場合は、`PATH`を編集してsbtのインストール先（例えば`C:\sbt\bin`）を追加します。環境変数に`PATH`が存在しない場合は新しく`PATH`環境変数を追加して同じくsbtのインストール先を指定します。
-
-## Linuxの場合
-
-[sdkman!](https://sdkman.io/) を利用するのが楽で使い勝手がいいでしょう。[sbtのドキュメント](https://www.scala-sbt.org/1.x/docs/ja/Installing-sbt-on-Linux.html)
-でも利用を薦められています。
-
-```shell
-$ curl -s "https://get.sdkman.io" | bash      # sdkmanのインストール
-$ source "$HOME/.sdkman/bin/sdkman-init.sh"   # sdkmanの初期化（shellの再起動でも可）
-$ sdk version                                 # パスが通っているかの確認
-```
-
-とすればLinuxにsdkman!がインストールされます。
-続いてインストールしたsdkman!を利用してsbtをインストールしていきます。
-
-```shell
-$ sdk install sbt # sbtのインストール
-$ which sbt       # sbtがインストールされているかの確認
-```
-
-とすればLinuxにsbtがインストールされます。
-
 
 ## REPLとsbt
 
