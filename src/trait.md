@@ -382,34 +382,5 @@ class C extends B {
 `val`のかわりに`def`を使うと毎回値を計算してしまうという問題があります。
 しかし、両方とも大きな問題にならない場合が多いので、特に`val`の値を使って`val`の値を作り出すような場合は`lazy val`か`def`を使うことを検討しましょう。
 
-トレイトの`val`の初期化順序を回避するもう1つの方法としては事前定義（Early Definitions）を使う方法もあります。
-事前定義というのはフィールドの初期化をスーパークラスより先におこなう方法です。
-ただし、この機能はScala 3では無くなりました。
-
-```scala
-trait A {
-  val foo: String
-}
-
-trait B extends A {
-  val bar = foo + "World" // valのままでよい
-}
-
-class C extends {
-  val foo = "Hello" // スーパークラスの初期化の前に呼び出される
-} with B {
-  def printBar(): Unit = println(bar)
-}
-```
-
-上記の`C`の`printBar`を呼び出しても正しく`HelloWorld`と表示されます。
-
-この事前定義は利用側からの回避方法ですが、
-この例の場合はトレイト`B`のほうに問題がある（普通に使うと初期化の問題が発生してしまう）ので、
-トレイト`B`のほうを修正したほうがいいかもしれません。
-
-トレイトの初期化問題は継承されるトレイト側で解決したほうが良いことが多いので、
-この事前定義の機能は実際のコードではあまり見ることはないかもしれません。
-
 
 [^trait-param-dotty]: Scala 3では、[トレイトがパラメータを取る](https://docs.scala-lang.org/scala3/reference/other-new-features/trait-parameters.html)ことができます。
