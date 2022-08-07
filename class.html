@@ -531,7 +531,7 @@ p1 + p2
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@56de67e5</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@535ceded</span>
 
 adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res1: Int = 5</span>
@@ -548,7 +548,7 @@ fun(<span class="hljs-number">3</span>)
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@9b2617e</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@d0c18c</span>
 
 adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-comment">// res3: Int = 5</span>
@@ -579,13 +579,16 @@ fun(<span class="hljs-number">3</span>)
 }
 </code></pre>
 <h2 id="継承"><a name="継承" class="plugin-anchor" href="#継承"><i class="fa fa-link" aria-hidden="true"></i></a>継承</h2>
-<p>Scalaのクラスは、Javaのクラスと同様、継承することができます。継承には2つの目的があります。1つは継承によりスーパークラスの実装をサブクラスでも使うことで実装を再利用することです。もう1つは複数のサブクラスが共通のスーパークラスのインタフェースを継承することで処理を共通化することです<sup><a href="#fn_1" id="reffn_1">1</a></sup>。実装の継承には複数の継承によりメソッドやフィールドの名前が衝突する場合の振舞いなどに問題があることが知られており、Javaでは実装継承が1つだけに限定されています。Java 8ではインタフェースにデフォルトの実装を持たせられるようになりましたが、変数は持たせられないという制約があります。Scalaではトレイトという仕組みで複数の実装の継承を実現していますが、トレイトについては別の節で説明します。</p>
+<p>Scalaのクラスは、他の多くのオブジェクト指向言語と同様に、継承することができます。継承には2つの目的があります。
+1つは継承によりスーパークラスの実装をサブクラスでも使うことで実装を再利用することです。もう1つは複数のサブクラスが共通のスーパークラスのインタフェースを継承することで処理を共通化することです<sup><a href="#fn_1" id="reffn_1">1</a></sup>。実装の継承には複数の継承によりメソッドやフィールドの名前が衝突する場合の振舞いなどに問題があることが知られており、例えば、Javaでは実装継承が1つだけに限定されています。
+Scalaではトレイトという仕組みで複数の実装の継承を実現していますが、トレイトについては別の節で説明します。</p>
 <p>ここでは通常のScalaのクラスの継承について説明します。Scalaでのクラスの継承は次のような構文になります。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">&lt;クラス名&gt;</span> <span class="hljs-title">&lt;クラス引数&gt;</span> (<span class="hljs-params">extends &lt;スーパークラス&gt;</span>)<span class="hljs-title">?</span> (<span class="hljs-params">with &lt;トレイト名&gt;</span>)<span class="hljs-title">*</span> </span>{
   (&lt;フィールド定義&gt; | &lt;メソッド定義&gt;)*
 }
 </code></pre>
-<p>トレイト名はここでは使われませんが、後で出てくるトレイトの節で説明を行います。継承のはたらきはJavaのクラスと同様ですが、既存のメソッドをオーバーライドするときは<code>override</code>キーワードを使わなければならない点が異なります。 たとえば、次のようにすることができます。</p>
+<p>※「トレイト名」はここでは使われませんが、後で出てくるトレイトの節で説明を行います。</p>
+<p>Scalaでは、既に実装があるメソッドをオーバーライドするときは<code>override</code>キーワードを使わなければなりません。たとえば、次のように書くことは可能ですが</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
     println(<span class="hljs-string">&quot;A&quot;</span>)
@@ -604,14 +607,15 @@ fun(<span class="hljs-number">3</span>)
 <span class="hljs-keyword">new</span> <span class="hljs-type">BPrinter</span>().print()
 <span class="hljs-comment">// B</span>
 </code></pre>
-<p>ここで<code>override</code>キーワードをはずすと、次のようにメッセージを出力して、<strong>コンパイルエラー</strong>になります。 </p>
+<p>ここで<code>BPrinter#print()</code>の<code>override</code>キーワードをはずすと、次のようにメッセージを出力して、<strong>コンパイルエラー</strong>になります。 </p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
     println(<span class="hljs-string">&quot;B&quot;</span>)
   }
 }
 </code></pre>
-<p>Javaではしばしば、気付かずに既存のメソッドをオーバーライドするつもりで新しいメソッドを定義してしまうというミスがありますが、Scalaでは<code>override</code>キーワードを使って言語レベルでこの問題に対処しているのです。</p>
+<p>このような仕組みのない言語ではしばしば、気付かずに既存のメソッドをオーバーライドするつもりで新しいメソッドを定義してしまうというミスがありますが、
+Scalaでは<code>override</code>キーワードを使って言語レベルでこの問題に対処しているのです。</p>
 <h3 id="class_ex1"><a name="class_ex1" class="plugin-anchor" href="#class_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <p>全てが <code>Int</code> 型の <code>x</code> 、 <code>y</code> 、 <code>z</code> という名前を持った、3次元座標を表す <code>Point3D</code> クラスを定義してください。 <code>Point3D</code> クラスは次のようにして使うことができなければいけません。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> p = <span class="hljs-keyword">new</span> <span class="hljs-type">Point3D</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>)
@@ -704,7 +708,7 @@ println(shape.area)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2022-08-04T15:27:34.435Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2022-08-04T15:27:48.766Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2022-08-07T10:56:25.710Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2022-08-07T10:56:40.585Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
