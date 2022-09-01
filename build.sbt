@@ -9,6 +9,8 @@ name := "textbook"
 
 scalaVersion := "2.13.8"
 
+crossScalaVersions += "3.2.0"
+
 enablePlugins(MdocPlugin)
 
 mdocIn := srcDir
