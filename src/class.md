@@ -220,6 +220,14 @@ class BPrinter() extends APrinter {
 }
 ```
 
+```
+[error] .../Printer.scala:8:7: `override` modifier required to override concrete member:
+[error] def print(): Unit (defined in class APrinter)
+[error]   def print(): Unit = {
+[error]       ^
+[error] one error found
+```
+
 このような仕組みのない言語ではしばしば、気付かずに既存のメソッドをオーバーライドするつもりで新しいメソッドを定義してしまうというミスがありますが、
 Scalaでは`override`キーワードを使って言語レベルでこの問題に対処しているのです。
 
