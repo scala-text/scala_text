@@ -24,7 +24,7 @@ ScalaとJavaのそれぞれのバージョンの互換性に関しては、以�
 
 https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 
-ここでは、先ほどインストールしたSDKMAN!を利用する方法を紹介します。
+ここでは、先ほどインストールしたSDKMAN!を利用する方法を紹介します。[^m1mac-jdk]
 
 ```shell
 $ sdk list java                 # インストールできるJavaの一覧を確認
@@ -157,6 +157,8 @@ sbtは`sbt --version`もしくは`sbt --launcher-version`とするとversionが�
 
 
 [^scalac]: ここで言う"手動で"とは、`scalac`コマンドを直接呼び出すという意味です
+
+[^m1mac-jdk]: 例では、Temrin（Eclipse）を利用していますが、もしあなたの環境がM1 MacかつJava11以前を利用している場合、 M1対応されているZulu（Microsoft）を利用した方が多少速いかもしれません。
 
 [^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/scala-text/scala_text/issues/122
 
