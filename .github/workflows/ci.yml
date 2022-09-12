@@ -21,7 +21,7 @@ jobs:
     - run: npm install -g npm
     - run: npm ci
     - run: npm install svgexport -g
-    - run: sbt -v '++ 3.1.3!' mdoc clean
+    - run: sbt -v '++ 3.x' mdoc clean
     - run: sbt -v textLintAll textTestAll textBuildHtml test
     - run: |
         wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/614d94496efdcf960871429e1c090c56d2018f68/setup/linux-installer.py |

@@ -9,6 +9,8 @@ name := "textbook"
 
 scalaVersion := "2.13.8"
 
+crossScalaVersions += "3.2.0"
+
 enablePlugins(MdocPlugin)
 
 mdocIn := srcDir
@@ -20,7 +22,7 @@ cleanFiles += compiledSrcDir
 libraryDependencies ++= Seq(
   // TODO sbtがScala 2.13対応したら再び有効化
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
-  "org.mockito" % "mockito-core" % "4.7.0",
+  "org.mockito" % "mockito-core" % "4.8.0",
   "org.scalacheck" %% "scalacheck" % "1.16.0",
   "org.scalatest" %% "scalatest" % "3.2.13" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
