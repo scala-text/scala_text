@@ -44,8 +44,8 @@ lazy val lib = project.in(file("."))
   )
 ```
 
-sbt コンソールから `++2.13.8 <sbt command>` とすることで Scala のバージョンを指定して sbt のコマンドを実行したり、
-`++<sbt command>` とすることで crossScalaVersions に指定したすべての Scala バージョンでコマンドを実行したりすることができます.
+sbt シェルから `++2.13.8 <sbt command>` とすることで Scala のバージョンを指定して sbt のコマンドを実行したり、
+`+<sbt command>` とすることで crossScalaVersions に指定したすべての Scala バージョンでコマンドを実行したりすることができます.
 
 
 ### コンパイラオプションの設定
@@ -162,7 +162,7 @@ sbt ではプラグインを利用してさまざまなタスクを自動化で�
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 ```
 
-これで ターミナル または sbt コンソールから scalafmt, scalafmtSbt, scalafmtCheck, scalafmtAll などのコマンドが使えるようになります.
+これで ターミナル または sbt シェルから scalafmt, scalafmtSbt, scalafmtCheck, scalafmtAll などのコマンドが使えるようになります.
 
 ```scala
 sbt scalafmt
