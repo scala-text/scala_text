@@ -10,7 +10,6 @@
 
 - HTML版：https://scala-text.github.io/scala_text/
 - PDF版：https://scala-text.github.io/scala_text_pdf/scala_text.pdf
-- EPUB版：https://scala-text.github.io/scala_text/scala_text.epub
 
 ## 目的
 
