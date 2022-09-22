@@ -88,7 +88,7 @@ lazy val app = project.in(file("."))
   )
 ```
 
-上の例では Scala 3 向けにビルドされた cats というライブラリのバージョン 2.7.0 を追加しています.
+上の例では Scala 3 向けにビルドされた cats というライブラリのバージョン 2.8.0 を追加しています.
 
 このように書けば `src/main/scala` 以下にある Scala ファイルから下のようにライブラリをインポートして利用できます.
 
@@ -106,7 +106,7 @@ lazy val app = project.in(file("."))
   .settings(
     scalaVersion := "3.2.0",
     libraryDependencies ++= Seq(
-        "log4j" % "log4j" % "1.2.17"
+      "log4j" % "log4j" % "1.2.17"
     )
   )
 ```
