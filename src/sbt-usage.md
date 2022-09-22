@@ -56,7 +56,7 @@ sbt からは Java や Scala のオプションを設定できます.
 
 ```scala
 scalacOptions ++= Seq(    
-"-deprecation",
+  "-deprecation",
 )
 ```
 
@@ -83,7 +83,7 @@ lazy val app = project.in(file("."))
   .settings(
     scalaVersion := "3.2.0",
     libraryDependencies ++= Seq(
-        "com.typelevel" %% "cats-core" % "2.7.0"
+      "com.typelevel" %% "cats-core" % "2.8.0"
     )
   )
 ```
@@ -93,9 +93,7 @@ lazy val app = project.in(file("."))
 このように書けば `src/main/scala` 以下にある Scala ファイルから下のようにライブラリをインポートして利用できます.
 
 ```scala
-import cats._
-import cats.syntax._
-import cats.implicits._
+import cats.syntax.all._
 ```
 
 ### Java ライブラリを追加する
@@ -124,12 +122,20 @@ Scala アプリケーションを JVM 向けだけでなく Scala.js や　Scala
 このように書くことで Scala.js 向けにビルドする際は Scala.js 用のライブラリを Scala Native 向けにビルドする際は Scala Native 向けの
 ライブラリを解決してくれます.
 
+project/plugins.sbt にプラグインを追加します.
+
+```scala
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.11.0")
+```
+
+build.sbt を次のように書きます.
+
 ```scala
 lazy val app = project.in(file("."))
   .enablePlugins(ScalaJSPlugin)
   .settings(
     libraryDependencies ++= Seq(
-        "com.typelevel" %%% "cats-core" % "2.7.0"
+      "com.typelevel" %%% "cats-core" % "2.7.0"
     )
   )
 ```
