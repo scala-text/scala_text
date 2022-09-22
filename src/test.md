@@ -437,17 +437,10 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 コードカバレッジを計測するという方法があります。
 ここでは、[scoverage](https://github.com/scoverage/scalac-scoverage-plugin)を利用します。
 
-**scoverageは現在最新のScalaで動かない問題があります<https://github.com/scala-text/scala_text/issues/553>。**
-
-過去、[SCCT](http://mtkopone.github.io/scct/)というプロダクトがあったのですが紆余曲折あり、
-今はあまりメンテンナンスされていません。
-
 `project/plugins.sbt` に以下のコードを記述します。
 
 ```scala
-resolvers += Classpaths.sbtPluginReleases
-
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.0.3")
 ```
 
 その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-2.13/scoverage-report/index.html`にレポートが出力されます。

@@ -28,9 +28,10 @@ jobs:
         python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null
     - run: |
         export PATH="~/calibre-bin/calibre/:$HOME/calibre-bin/calibre/:$PATH"
-        sbt textBuildEpub
+        # TODO 再度有効化 https://github.com/scala-text/scala_text/issues/1018
+        # sbt textBuildEpub
     - run: git diff --exit-code
-    - run: mv honkit/scala_text.epub honkit/_book/
+    # - run: mv honkit/scala_text.epub honkit/_book/
     - run: find . -name "*.class" | xargs rm -rf
     - run: find . -name target | xargs rm -rf
     - name: push to gh-pages
