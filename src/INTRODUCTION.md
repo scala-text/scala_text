@@ -29,6 +29,7 @@
 
 * HTML版：https://scala-text.github.io/scala_text/
 * PDF版：https://scala-text.github.io/scala_text_pdf/scala_text.pdf
+* EPUB版：https://scala-text.github.io/scala_text/scala_text.epub
 
 ## フィードバック
 * 誤字・脱字の指摘や修正、および明確な技術的誤りの指摘や修正：
