@@ -18,20 +18,22 @@ jobs:
     - uses: actions/setup-node@v2.4.1
       with:
         node-version: '14.15.5'
+    - run: sudo apt-get update
+    - run: sudo apt-get install libegl1
+    - run: sudo apt-get install libopengl0
     - run: npm install -g npm
     - run: npm ci
     - run: npm install svgexport -g
     - run: sbt -v '++ 3.x' mdoc clean
     - run: sbt -v textLintAll textTestAll textBuildHtml test
     - run: |
-        wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/614d94496efdcf960871429e1c090c56d2018f68/setup/linux-installer.py |
+        wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/8466f81072b82aaa7e8374652d46a911cc0d4cdd/setup/linux-installer.py |
         python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null
     - run: |
         export PATH="~/calibre-bin/calibre/:$HOME/calibre-bin/calibre/:$PATH"
-        # TODO 再度有効化 https://github.com/scala-text/scala_text/issues/1018
-        # sbt textBuildEpub
+        sbt textBuildEpub
     - run: git diff --exit-code
-    # - run: mv honkit/scala_text.epub honkit/_book/
+    - run: mv honkit/scala_text.epub honkit/_book/
     - run: find . -name "*.class" | xargs rm -rf
     - run: find . -name target | xargs rm -rf
     - name: push to gh-pages
