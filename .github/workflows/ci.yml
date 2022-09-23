@@ -18,6 +18,9 @@ jobs:
     - uses: actions/setup-node@v2.4.1
       with:
         node-version: '14.15.5'
+    - run: sudo apt-get update
+    - run: sudo apt-get install libegl1
+    - run: sudo apt-get install libopengl0
     - run: npm install -g npm
     - run: npm ci
     - run: npm install svgexport -g
