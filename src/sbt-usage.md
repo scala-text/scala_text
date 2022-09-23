@@ -24,10 +24,7 @@ Scalaのアプリケーションを書く場合、例えばウェブサーバー
 
 
 ```scala
-lazy val app = project.in(file("."))
-  .settings(
-    scalaVersion := "3.2.0"
-  )
+scalaVersion := "3.2.0"
 ```
 
 ### 複数の Scala バージョンを管理する場合
