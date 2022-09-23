@@ -151,7 +151,7 @@ lazy val app = project.in(file("."))
 lazy val app = project.in(file("."))
   .settings(
     libraryDependencies ++= Seq(
-        "com.typelevel" %% "cats-core" % "2.7.0",
+        "com.typelevel" %% "cats-core" % "2.8.0",
         "org.scalameta" %% "munit" % "1.0.0-M6" % Test,
     )
   )
