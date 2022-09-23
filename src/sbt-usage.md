@@ -134,7 +134,7 @@ lazy val app = project.in(file("."))
   .enablePlugins(ScalaJSPlugin)
   .settings(
     libraryDependencies ++= Seq(
-      "com.typelevel" %%% "cats-core" % "2.7.0"
+      "com.typelevel" %%% "cats-core" % "2.8.0"
     )
   )
 ```
