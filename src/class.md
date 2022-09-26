@@ -7,7 +7,7 @@
 
 Scalaのクラス定義は次のような形を取ります。
 
-```scala
+```scala mdoc
 class <クラス名> '(' (<引数名1> : <引数型1>, <引数名2>: <引数型2> ...)? ')' {
   (<フィールド定義> | <メソッド定義> )*
 }
@@ -52,7 +52,7 @@ class Point(val x: Int, val y: Int) {
 
 先ほど既にメソッド定義の例として`+`メソッドの定義が出てきましたが、一般的には、次のような形をとります。
 
-```scala
+```scala mdoc
 (private([this | <パッケージ名>])? | protected([<パッケージ名>])?)? def <メソッド名> '('
   (<引数名> : 引数型 (, 引数名 : <引数型>)*)?
 ')': <返り値型> = <本体>
@@ -60,7 +60,7 @@ class Point(val x: Int, val y: Int) {
 
 実際にはブロック式を使った以下の形式を取ることが多いでしょう。
 
-```scala
+```scala mdoc
 (private([this | <パッケージ名>])? | protected([<パッケージ名>])?)? def <メソッド名> '('
   (<引数名> : 引数型 (, 引数名 : <引数型>)*)?
 ')': <返り値型> = {
@@ -93,7 +93,7 @@ p1 + p2
 
 メソッドは以下のように複数の引数リストを持つように定義することができます。
 
-```scala
+```scala mdoc
 (private([this | <パッケージ名>])? | protected([<パッケージ名>])?)? def <メソッド名> '('
   (<引数名> : 引数型 (, 引数名 : <引数型>)*)?
 ')'( '('
@@ -137,7 +137,7 @@ fun(3)
 
 フィールド定義は
 
-```scala
+```scala mdoc
 (private([this | <パッケージ名>])? | protected([<パッケージ名>])?)? (val | var) <フィールド名>: <フィールド型> = <初期化式>
 ```
 
@@ -147,7 +147,7 @@ fun(3)
 
 その時点では実装を書くことができず、後述する継承の際に、メソッドやフィールドの実装を与えたいということがあります。このような場合に対応するため、Scalaでは抽象メンバーを定義することができます。抽象メンバーは、メソッドの場合とフィールドの場合があり、メソッドの場合は次のようになります。
 
-```scala
+```scala mdoc
 (private([this | <パッケージ名>])? | protected([<パッケージ名>])?)? def <メソッド名> '('
   (<引数名> : 引数型 (, 引数名 : <引数型>)*)?
 ')': <返り値型>
@@ -155,7 +155,7 @@ fun(3)
 
 フィールドの定義は次のようになります。
 
-```scala
+```scala mdoc
 (private([this | <パッケージ名>])? | protected([<パッケージ名>])?)? (val | var) <フィールド名>: <フィールド型>
 ```
 
@@ -180,7 +180,7 @@ Scalaではトレイトという仕組みで複数の実装の継承を実現し
 
 ここでは通常のScalaのクラスの継承について説明します。Scalaでのクラスの継承は次のような構文になります。
 
-```scala
+```scala mdoc
 class <クラス名> <クラス引数> (extends <スーパークラス>)? (with <トレイト名>)* {
   (<フィールド定義> | <メソッド定義>)*
 }
@@ -212,20 +212,12 @@ new BPrinter().print()
 
 ここで`BPrinter#print()`の`override`キーワードをはずすと、次のようにメッセージを出力して、**コンパイルエラー**になります。 
 
-```scala
+```scala mdoc:nest:fail
 class BPrinter() extends APrinter {
   def print(): Unit = {
     println("B")
   }
 }
-```
-
-```
-[error] .../Printer.scala:8:7: `override` modifier required to override concrete member:
-[error] def print(): Unit (defined in class APrinter)
-[error]   def print(): Unit = {
-[error]       ^
-[error] one error found
 ```
 
 このような仕組みのない言語ではしばしば、気付かずに既存のメソッドをオーバーライドするつもりで新しいメソッドを定義してしまうというミスがありますが、
