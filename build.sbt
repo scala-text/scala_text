@@ -7,7 +7,7 @@ ThisBuild / onChangedBuildSource := ReloadOnSourceChanges
 
 name := "textbook"
 
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.9"
 
 crossScalaVersions += "3.2.0"
 
