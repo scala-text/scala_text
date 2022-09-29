@@ -24,7 +24,7 @@ libraryDependencies ++= Seq(
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
   "org.mockito" % "mockito-core" % "4.8.0",
   "org.scalacheck" %% "scalacheck" % "1.17.0",
-  "org.scalatest" %% "scalatest" % "3.2.13" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
+  "org.scalatest" %% "scalatest" % "3.2.14" // mdocで使うので、テストライブラリだが、わざとcompileスコープ
 )
 
 Honkit.settings
