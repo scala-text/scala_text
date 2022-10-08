@@ -326,12 +326,12 @@ println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 
 型クラス：
 
-* [Numeric[T]](https://www.scala-lang.org/api/2.13.9/scala/math/Numeric.html)
+* [Numeric[T]](https://www.scala-lang.org/api/2.13.10/scala/math/Numeric.html)
 
 型クラスのインスタンス：
 
-* [IntIsIntegral](https://www.scala-lang.org/api/2.13.9/scala/math/Numeric$$IntIsIntegral$.html)
-* [DoubleIsFractional](https://www.scala-lang.org/api/2.13.9/scala/math/Numeric$$DoubleIsFractional$.html)
+* [IntIsIntegral](https://www.scala-lang.org/api/2.13.10/scala/math/Numeric$$IntIsIntegral$.html)
+* [DoubleIsFractional](https://www.scala-lang.org/api/2.13.10/scala/math/Numeric$$DoubleIsFractional$.html)
 
 <!-- end answer -->
 
