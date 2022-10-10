@@ -162,7 +162,7 @@ val firstNames = readRecordsFromTable("first_name", "people")
 この呼出しは次のように変換されます。
 
 ```scala
-val firstNaemes = readRecordsFromTable("first_name", "people")(aConnection)
+val firstNames = readRecordsFromTable("first_name", "people")(aConnection)
 ```
 
 このように、implicit parameterを文脈を引き渡すための使い方はPlay FrameworkやScalaの各種O/Rマッパーで頻出します。
