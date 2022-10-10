@@ -65,6 +65,11 @@ def foo(): String = {
 if '('<条件式>')' <then式> (else <else式>)?
 ```
 
+Scala 3では`then`キーワードを使用して以下のように書くこともできます。
+```scala
+if <条件式> then <then式> (else <else式>)?
+```
+
 `条件式` は`Boolean`型である必要があります。`else <else式>`は省略することができます。`then式` は `条件式` が `true`のときに評価される式で、`else式`は `条件式` が`false`のときに評価される式です。
 
 早速`if`式を使ってみましょう。
