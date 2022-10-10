@@ -1,12 +1,12 @@
 # implicitキーワード
 
-Scalaには他の言語にはあまり見られない、implicitというキーワードで表現される機能があります。仕様上はimplicitという単一の機能によって複数の用途を賄うようになっていますが、一つのキーワードで色々な用途を表現できることがユーザーにとってわかりにくかったという反省もあり、Scala 3では用途別に異なるキーワードや構文を使う形になっています。
+Scalaには他の言語には見られないimplicitというキーワードで表現される機能があります。仕様上はimplicitという単一の機能によって複数の用途を賄うようになっていますが、一つのキーワードで色々な用途を表現できることがユーザーにとってわかりにくかったという反省もあり、Scala 3では用途別に異なるキーワードや構文を使う形になっています。
 
-この章では、Scala 2でのimplicitキーワードの4つの使い方について説明します。
+この章ではScala 2でのimplicitキーワードの4つの使い方について説明します。
 
 ## Implicit conversion
 
-implicit conversionは暗黙の型変換をユーザが定義できるようにする機能です。Scalaが普及し始めた時はこの機能が多用されたのですが、一方でimplicit conversionを多用するとプログラムが読みづらくなるということがわかったため、現在のScalaコミュニティではあまり積極的に使うことは推奨されていません。とはいえ、固定長整数から多倍長整数への変換など、ライブラリで使われているケースもままあるので知っておいて損はありません。
+implicit conversionは暗黙の型変換をユーザが定義できる機能です。Scalaが普及し始めた時はこの機能が多用されたのですが、一方でimplicit conversionを多用するとプログラムが読みづらくなるということがわかったため、現在のScalaコミュニティでは積極的に使うことは推奨されていません。とはいえ、固定長整数から多倍長整数への変換など、ライブラリで使われているケースもあるので知っておいて損はありません。
 
 implicit conversionは次のような形で定義します。 
 
@@ -14,7 +14,7 @@ implicit conversionは次のような形で定義します。
   implicit def メソッド名(引数名: 引数の型): 返り値の型 = 本体
 ```
 
-`implicit`というキーワードがついていることと引数が1つしかない[^implicit-arity]ことを除けば通常のメソッド定義同様です。さて、implicit conversionでは引数の型と返り値の型に重要な意味があります。何故なら、引数の型の式が現れたときに返り値の型を暗黙の型変換候補として登録することになるからです。
+`implicit`というキーワードがついていることと引数が1つしかない[^implicit-arity]ことを除けば通常のメソッド定義同様です。さて、implicit conversionでは引数の型と返り値の型に重要な意味があります。何故なら、**引数の型**の式が現れたときに**返り値の型**を暗黙の型変換候補として登録することになるからです。
 
 implicit conversionは例えば次のようにして定義することができます。この例では、`Int`型から`Boolean`型への暗黙の型変換を定義しています。
 
@@ -26,25 +26,32 @@ if(1) {
 }
 ```
 
-`if`の条件式には本来`Boolean`しか渡せないはずですが、Int`を渡すことができています。ただし、このような使い方はあまり良いものではありません。上の例をみればわかる通り、本来はif式の条件式には`Boolean`型の式しか渡せないようになっているのは間違いを防止するためであり、そのチェックを通り抜けてしまえるのです。
+コンパイラは `if(1)` を見た時点で、本来`Boolean`が要求されているのに`Int`型の式である1が書かれていることがわかります。多くの静的型付き言語ではここで型エラーになります。しかし、Scalaコンパイラ
+は引数が`Int`で返り値が`Boolean`である暗黙の型変換が定義されていないか探索し、結果として`intToBoolean`という暗黙の型変換を発見します。そして、以下のように`intToBoolean(1)`を挿入するのです。
 
-`BigInt`や`BigDecimal`など一部のライブラリではScala標準の`Int`や`Double`と相互に変換するためにimplicit conversionを定義している例がありますが、普通のユーザーが定義する必要があることは稀です。利用を正当化できる適切な理由を思いつかない限りは使わないようにしましょう。
+```scala mdoc:nest
+if(intToBoolean(1)) {
+  println("1は真なり")
+}
+```
 
-ちなみにScala 3では、`scala.Conversion`クラスのインスタンスを型クラス（後述）のインスタンスとして定義することで、implicit conversionを実現していますが、Scala 2の場合と同様に利用するときは慎重になるべきです。
+こうして、`if`の条件式にInt`を渡すことができるようになるのです。ただし、暗黙の型変換のこのような使い方はあまり良いものではありません。上の例をみればわかる通り、if式の条件式に`Boolean`型の式しか渡せないようになっているのは間違いを防止するためなのに、そのチェックを通り抜けてしまえるのです。
+
+`BigInt`や`BigDecimal`など一部のライブラリではScala標準の`Int`や`Double`と相互に変換するためにimplicit conversionを定義していますが、普通のユーザーが定義する必要があることは稀です。利用を正当化できる適切な理由を思いつかない限りは使わないようにしましょう。
+
+Scala 3では`scala.Conversion`クラスのインスタンスを型クラス（後述）のインスタンスとして定義することで、implicit conversionを実現しています。しかし、Scala 2の場合と同様に利用するときは慎重になるべきです。
 
 ## Enrich my library
 
-また、別の使い方として、enrich my libraryパターンがあります。これは最近の言語によくある拡張メソッドと同等のもので、既存のクラスにメソッドを追加したようにみせかける使い方です。
+別の使い方として、enrich my libraryパターンと呼ばれるものがあります。最近の言語にある拡張メソッドと同等のもので、既存のクラスにメソッドを追加したようにみせかけることができます。Scala標準ライブラリの中にも大量の使用例がありますし、サードパーティのライブラリでも非常によく見かけます。
 
-Scala標準ライブラリの中にも大量の使用例がありますし、サードパーティのライブラリでも非常によく見かけるパターンです。 
+たとえば、これまでみたプログラムの中には`(1 to 5)`という式がありましたが、本来`Int`型は`to`というメソッドを持っていません。
 
-たとえば、これまでみたプログラムの中に`(1 to 5)`という式がありましたが、本来Int型は`to`というメソッドを持っていません。
+`to`メソッドはenrich my libraryパターンの使用例の典型的なものです。コンパイラは、`Int`に対して`to`メソッドが定義されていないことを検出すると、implicit conversionで定義された返り値の型に`to`メソッドの定義がないか検索して、メソッドが見つかった場合に適切なimplicit conversionを挿入するのです。
 
-`to`メソッドはenrich my libraryパターンの使用例の最たるものです。コンパイラは、ある型に対するメソッド呼び出しが見つからないときに、implicit conversionで定義された返り値の型に当該のメソッドがないか検索して、メソッドが見つかった場合にimplicit conversionを挿入するのです。
+この使い方では変換先の型は純粋にメソッドを追加するためだけに存在しているため、既存の型同士を変換するときのような混乱はあまり起こりません。Scala 3ではこのような定義の仕方が遠回り過ぎると判断されたのか、拡張メソッドを定義するための専用構文が用意されました。
 
-この使い方では基本的に変換先の型は純粋にメソッドを追加するためだけに存在しているため、既存の型同士を変換するときのような混乱は起こりにくいと言えます。また、Scala 3ではそのものずばり、拡張メソッドを定義するための専用構文が用意されました。
-
-ともあれ、Scala 3が実用で利用できるのはまだ先です。試しに、`String`の末尾に`":-)"`という文字列を追加して返すようにenrich my libraryパターンを使ってみましょう。
+しかし、Scala 3が実用で利用できるのはまだ先です。当面はenrich my libraryパターンを使うと考えておきましょう。試しに、`String`の末尾に`":-)"`という文字列を追加して返すようにenrich my libraryパターンを使ってみましょう。
 
 ```scala mdoc:nest
 class RichString(val src: String) {
@@ -56,9 +63,13 @@ implicit def enrichString(arg: String): RichString = new RichString(arg)
 "Hi, ".smile
 ```
 
-ちゃんと文字列の末尾に`":-)"`を追加する`smile`メソッドが定義できています。ここでひょっとしたら気がついた方もいるかもしれませんが、拡張メソッドのためにimplicit conversionをわざわざ定義するのは冗長です。Scala 2.10以降ではclassにimplicitキーワードをつけることで同じようなことができるようになりました。
+ちゃんと文字列の末尾に`":-)"`を追加する`smile`メソッドが定義できています。このとき、Scalaコンパイラは以下のように`enrichString("Hi, ")`の呼び出しを適切に挿入してくれます。
 
-上の定義はScala 2.10以降では、
+```scala mdoc:nest
+enrichString("Hi, ").smile
+```
+
+しかし、拡張メソッドのためにimplicit conversionを毎回定義するのは冗長です。Scala 2.10以降ではclassにimplicitキーワードをつけることで同じようなことができるようになりました。上の定義はScala 2.10以降では、
 
 ```scala mdoc:reset
 implicit class RichString(val src: String) {
@@ -68,9 +79,9 @@ implicit class RichString(val src: String) {
 "Hi, ".smile
 ```
 
-という形で書きなおすことができます。implicit classはenrich my libraryパターン専用の機能なので、より意図を適切に表現できます。現在のScalaでenrich my libraryパターンを使うときは基本的にimplicit classを使うべきです。
+という形で書きなおすことができます。implicit classはenrich my libraryパターン専用の機能なので、拡張メソッドを定義するという意図を適切に表現できます。現在のScalaでenrich my libraryパターンが必要なときは原則的にimplicit classを使うべきです。
 
-ただし、サードパーティのライブラリや標準ライブラリでは時々、前者の形式になっていることがあるので、そのようなコードも読めるようにしておきましょう。
+しかし、サードパーティのライブラリや標準ライブラリではimplicit classが使われていないこともあるので、そのようなコードも読めるようにしておくのが良いのでしょう。
 
 ### 練習問題 {#implicit_ex1}
 
@@ -78,7 +89,7 @@ implicit class RichString(val src: String) {
 
 ### 練習問題 {#implicit_ex2}
 
-既存のクラスの利用を便利にするような形で、enrich my libraryパターンを適用してみましょう。それはどのような場面で役に立つでしょうか？
+既存のクラスの利用を便利にするような形で、enrich my libraryパターンを適用してみましょう。どのような場面で役に立つでしょうか？
 
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
@@ -112,41 +123,53 @@ Taps.main(Array())
 
 ## Implicit parameter（文脈引き渡し）
 
-implicit parameterは主として2つの目的で使われます。1つの目的は、あちこちのメソッドに共通で引き渡されるオブジェクト（たとえば、ソケットやデータベースのコネクションなど）を明示的に引き渡すのを省略するために使うものです。例で説明すると非常に簡単にわかると思います。
+implicit parameterは主に2つの目的で使われます。1つ目の目的は、あちこちのメソッドに共通で引き渡されるオブジェクト（たとえば、ソケットやデータベースのコネクションなど）を明示的に引き渡すのを省略することです。
 
-まず、データベースとのコネクションを表す`Connection`型があるとします。データベースと接続するメソッドは全てこのConnection型を引き渡さなければなりません。
+たとえば、データベースとのコネクションを表す`Connection`型があるとします。データベースと接続するメソッドには全てこのConnection型を引き渡さなければなりません。
 
 ```
-def useDatabase1(...., conn: Connection)
-def useDatabase2(...., conn: Connection)
-def useDatabase3(...., conn: Connection)
+def readRecordsFromTable(columnName: String, tableName: String, connection: Connection): List[Record]
+def writeRecordsToTable(record: List[Record], tableName: String, connection: Connection): Unit
+def readAllFromTable(tableName: String, connection: Connection): List[Row]
 ```
 
-この3つのメソッドは共通して`Connection`型を引数に取るのに、呼びだす度に明示的に`Connection`オブジェクトを渡さなければならず面倒で仕方ありません。ここでimplicit parameterの出番です。上のメソッド定義を
+3つのメソッドは全て`Connection`型を引数に取るのに、呼びだす度に明示的に`Connection`オブジェクトを渡さなけれいけません。ここでimplicit parameterの出番です。上のメソッド定義を
 
 ```scala
-def useDatabase1(....)(implicit conn: Connection)
-def useDatabase2(....)(implicit conn: Connection)
-def useDatabase3(....)(implicit conn: Connection)
+def readRecordsFromTable(columnName: String, tableName: String)(implicit connection: Connection): List[Record]
+def writeRecordsToTable(records: List[Record], tableName: String)(implicit connection: Connection): Unit
+def readAllFromTable(tableName: String, connection: Connection)(implicit connection: Connection): List[Record]
 ```
 
-のように書き換えます。implicit修飾子は引数の先頭の要素に付けなければならないという制約があり、implicit parameterを使うには複数の引数リストを持ったメソッド定義が必要になります。最後の引数リストが
+と書き換えます。implicit修飾子は最後の引数リストに付けなければならないという制約があります。つまり、以下のようになっているのがポイントです。
 
 ```scala
-(implicit conn: Connection)
+(....)(implicit conn: Connection)
 ```
 
-となっているのがポイントです。Scalaコンパイラは、このようにして定義されたメソッドが呼び出されると、現在のスコープからたどって直近のimplicitとマークされた値を暗黙にメソッドに引き渡します。たとえば次のようにして、値をimplicitとしてマークします：
+Scalaコンパイラは、このように定義されたメソッドが呼び出されると、現在の呼び出しスコープからたどって直近のimplicitとマークされた値を暗黙にメソッドに引き渡します。たとえば次のようにして、値をimplicitとしてマークします：
 
 ```scala
-implicit val connection: Connection = connectDatabase(....)
+implicit val aConnection: Connection = connectDatabase(....)
 ```
 
-こうすれば、最後の引数リストに暗黙に`Connection`オブジェクトを渡してくれるのです。このように、implicit parameterを文脈を引き渡すための使い方はPlay FrameworkやScalaの各種O/Rマッパーで頻出します。
+こうすれば、最後の引数リストに暗黙に`Connection`オブジェクトを渡してくれるのです。たとえば、次のような呼び出しがあったとします。
+
+```scala
+val firstNames = readRecordsFromTable("first_name", "people")
+```
+
+この呼出しは次のように変換されます。
+
+```scala
+val firstNaemes = readRecordsFromTable("first_name", "people")(aConnection)
+```
+
+このように、implicit parameterを文脈を引き渡すための使い方はPlay FrameworkやScalaの各種O/Rマッパーで頻出します。
 
 ## Implicit parameter（型クラス）
 
-implicit parameterのもう1つの使い方は、少々風変わりです。Haskellなどの型クラスがある言語をご存知の人であれば、それそのものであると言う説明がわかりやすいかもしれませんが、多くの読者は型クラスについては知らないと思いますので、ここでは一から説明します。
+implicit parameterのもう1つの使い方は少し風変わりです。Haskellなどの型クラスがある言語をご存知の人なら、型クラスそのものであると言う説明がわかりやすいかもしれません。ただし、多くの読者は型クラスについては知らないと思いますから、ここでは一から説明します。
 
 まず、`List`の全ての要素の値を加算した結果を返す`sum`メソッドを定義したいとします。このような要求は頻繁にあるもので、定義できれば嬉しいことは間違いありません。問題は素直にはそのようなメソッドが定義できない点にあります。
 
