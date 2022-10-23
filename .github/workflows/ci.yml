@@ -4,6 +4,9 @@ on:
   push:
   schedule:
   - cron: '0 3 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ startsWith(github.ref, 'refs/pull/') || github.run_number }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 jobs:
   test:
     runs-on: ubuntu-latest
