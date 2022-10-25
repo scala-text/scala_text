@@ -18,7 +18,7 @@ jobs:
         java-version: 8
         distribution: temurin
     - uses: coursier/cache-action@v6
-    - uses: actions/setup-node@v2.4.1
+    - uses: actions/setup-node@v3
       with:
         node-version: '14.20.0'
     - run: sudo apt-get update
@@ -47,11 +47,11 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
-    - uses: webfactory/ssh-agent@v0.5.4
+    - uses: webfactory/ssh-agent@v0.7.0
       if: ${{ !github.event.repository.fork && !github.event.pull_request.head.repo.fork && github.event_name == 'push' }}
       with:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
-    - uses: frabert/replace-string-action@v2.0
+    - uses: frabert/replace-string-action@v2.2
       id: get_branch_name
       with:
         string: ${{ github.ref }}
