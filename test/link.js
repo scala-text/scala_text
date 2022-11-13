@@ -266,7 +266,7 @@ describe("Check links", () => {
 
     // 同時に同じドメインにアクセスするのを防ぐために
     // ドメインがばらけた配列を作る(先頭7文字が一致していたら同一ドメインとみなす)
-    // 7文字 = akka.io/以下を同一ドメインとして認識できて、社内と社外gitubが区別できる文字数
+    // 7文字 = akka.io/以下を同一ドメインとして認識できる、などの理由
     // 例:
     // 元の配列 [github/, github/, github/, twitter/ twitter/ facebeook/]
     // 結果    [[github/, twitter/ facebeook/],[github/, twitter/],[github/]]
