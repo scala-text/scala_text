@@ -298,7 +298,7 @@ m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) // 結合則
 
 条件を満たす型`T`と単位元`zero`、演算`plus`を探し出し、`Additive[T]`を定義しましょう。また、条件が満たされていることを確認してみましょう。定義した`Additive[T]`を`implicit`にして、`T`の合計値を先ほどの`sum`で計算できることも確かめてみましょう。
 
-ヒント：条件を満たす型は無数にありますが、たとえば`x`座標と`y`座標からなる点を表すクラス`Point`を考えてみると良いでしょう。
+ヒント：条件を満たす型は無数にありますが、たとえば`x`座標と`y`座標からなる点を表すクラス`Point`とそれに対応する`implicit object PointAdditive`を考えてみると良いでしょう。
 
 <!-- begin answer id="answer_ex2" style="display:none" -->
 
@@ -355,17 +355,16 @@ println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 
 ### implicitの探索範囲
 
-implicit conversionやimplicit parameterの値が探索される範囲には、
+implicit conversionやimplicit parameterの値が探索される範囲には次のようなものがあります。
 
-- ローカルで定義されたもの
-- importで指定されたもの
+- メソッドローカルに定義されたもの
+- importされたobject内に定義されたもの
 - スーパークラスで定義されたもの
-- コンパニオンオブジェクトで定義されたもの
+- コンパニオンオブジェクト内に定義されたもの
 
-などがあります。
-この中で注目していただきたいのが、コンパニオンオブジェクトでimplicitの値を定義するパターンです。
+この中で注目していただきたいのが、コンパニオンオブジェクトの中でimplicitな値を定義するパターンです。何故ならば、コンパニオンオブジェクトにimplicitな値を定義しておくことでScalaコンパイラが自動的に探索してくれるからです。
 
-たとえば新しく`Rational`（有理数）型を定義したとして、コンパニオンオブジェクトに先ほど使った`Additive`型クラスのインスタンスを定義しておきます。
+新しく`Rational`（有理数）型を定義したとして、コンパニオンオブジェクトに先ほど使った`Additive`型クラスのインスタンスを定義しておきます。
 
 ```scala
 case class Rational(num: Int, den: Int)
@@ -386,13 +385,13 @@ object Rational {
 }
 ```
 
-すると、importをしていないのに、このAdditive型クラスのインスタンスを使うことができます。
+このとき、importをしていないのに、このAdditive型クラスのインスタンスを使うことができます。
 
 ```scala
 scala> sum(List(Rational(1, 1), Rational(2, 2)))
 res0: Rational = Rational(4,2)
 ```
 
-新しくデータ型を定義し、型クラスインスタンスも一緒に定義したい場合によく出てくるパターンなので覚えておくとよいでしょう。
+このように、コンパニオンオブジェクトにimplicit objectを定義しておくことで、新しいデータ型を定義すると同時に型クラスのインスタンスも定義することができます。よく出てくるパターンなので覚えておくとよいでしょう。
 
 [^implicit-arity]: 引数が2つ以上あるimplicit defの定義も可能です。「implicit defのパラメーターにimplicitが含まれる」という型クラス的な使い方をする場合は実際にimplicit defに2つ以上のパラメーターが出現することがあります。ただしそういった定義は通常implicit conversionとは呼ばれません
