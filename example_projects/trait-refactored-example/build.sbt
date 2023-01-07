@@ -5,5 +5,5 @@ crossScalaVersions += "3.2.1"
 libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc" % "4.0.0",
   "org.mindrot"     %  "jbcrypt"     % "0.4",
-  "org.scalatest"   %% "scalatest"   % "3.2.14" % "test"
+  "org.scalatest"   %% "scalatest"   % "3.2.15" % "test"
 )
