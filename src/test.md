@@ -131,7 +131,7 @@ version := "1.0"
 
 scalaVersion := "2.13.10"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.14" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % "test"
 
 ```
 
