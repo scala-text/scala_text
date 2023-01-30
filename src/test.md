@@ -401,6 +401,8 @@ BDDでテストを書くことによってテストによってどのような�
 libraryDependencies += "org.mockito" % "mockito-core" % "5.1.0" % "test"
 ```
 
+なお、mockitoのversion 5以降はJava 11以上が必要です。8を使用している場合はmockitoのversion 4を使ってください。
+
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
 ```scala mdoc:nest:silent
