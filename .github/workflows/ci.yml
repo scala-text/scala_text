@@ -68,7 +68,7 @@ jobs:
         FOLDER: honkit/_book/
         CLEAN: true
     - uses: actions/github-script@v6
-      if: ${{ github.event_name == 'pull_request' && github.repository_owner == 'scala-text' && github.actor != 'dependabot[bot]'}}
+      if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request' && github.repository_owner == 'scala-text' && github.actor != 'dependabot[bot]'}}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |

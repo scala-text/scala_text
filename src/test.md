@@ -398,8 +398,10 @@ BDDでテストを書くことによってテストによってどのような�
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```scala
-libraryDependencies += "org.mockito" % "mockito-core" % "4.11.0" % "test"
+libraryDependencies += "org.mockito" % "mockito-core" % "5.1.0" % "test"
 ```
+
+なお、mockitoのversion 5以降はJava 11以上が必要です。8を使用している場合はmockitoのversion 4を使ってください。
 
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
