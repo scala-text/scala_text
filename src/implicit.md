@@ -168,7 +168,7 @@ val firstNaemes = readRecordsFromTable("first_name", "people")(aConnection)
 
 ## Implicit parameter（型クラス）
 
-implicit parameterのもう1つの使い方は風変わりです。Haskellなどの型クラスがある言語をご存知の人なら、型クラスそのものであると言う説明がわかりやすいかもしれません。、多くの読者は型クラスについては知らないと思いますから、ここでは一から説明します。
+implicit parameterのもう1つの使い方は風変わりです。Haskellなどの型クラスがある言語をご存知の人なら、型クラスそのものであると言う説明がわかりやすいかもしれません。多くの読者は型クラスについては知らないと思いますから、ここでは一から説明します。
 
 `List`の全ての要素の値を加算した結果を返す`sum`メソッドを定義したいとします。このような要求は頻繁にあるので、定義できれば嬉しいことは間違いありません。問題はそのようなメソッドを素直に定義できない点にあります。
 
@@ -193,7 +193,7 @@ trait Additive[A] {
 次に`Additive`型を使って、`List`の全ての要素を合計するメソッドを定義します：
 
 ```scala mdoc:nest:silent
-def sum[A](lst: List[A])(m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
+def sum[A](lst: List[A])(a: Additive[A]) = lst.foldLeft(a.zero)((x, y) => a.plus(x, y))
 ```
 
 最後に、型に応じた`zero`と`plus()`の定義を持ったobjectを定義します。ここでは`String`と`Int`について、`Additive[Int]`と`Additive[String]`を定義します。
@@ -228,7 +228,7 @@ object IntAdditive extends Additive[Int] {
   def zero: Int = 0
 }
 
-def sum[A](lst: List[A])(m: Additive[A]) = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
+def sum[A](lst: List[A])(a: Additive[A]) = lst.foldLeft(a.zero)((x, y) => a.plus(x, y))
 ```
 
 `List[Int]`型と`List[String]`型のどちらでも、要素の合計を計算できる汎用的な`sum`メソッドができました。
