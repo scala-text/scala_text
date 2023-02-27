@@ -455,15 +455,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="implicit-conversion（暗黙の型変換）とimplicit-parameter（暗黙のパラメータ）"><a name="implicit-conversion（暗黙の型変換）とimplicit-parameter（暗黙のパラメータ）" class="plugin-anchor" href="#implicit-conversion（暗黙の型変換）とimplicit-parameter（暗黙のパラメータ）"><i class="fa fa-link" aria-hidden="true"></i></a>implicit conversion（暗黙の型変換）とimplicit parameter（暗黙のパラメータ）</h1>
-<p>Scalaには、他の言語にはあまり見られない、implicit conversionとimplicit parameterという機能があります。この2つの機能を上手く使いこなすことができれば、Scalaでのプログラミングの生産性は劇的に向上するでしょう。なお、本当は、implicit conversionとimplicit parameterは相互に関係がある2つの機能なのですが、今回学習する範囲では意識する必要がないと思われるので、2つの独立した機能として学びます。</p>
-<h2 id="implicit-conversion"><a name="implicit-conversion" class="plugin-anchor" href="#implicit-conversion"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit Conversion</h2>
-<p>implicit conversionは暗黙の型変換機能をユーザが定義できるようにする機能です。</p>
-<p>implicit conversionは</p>
+                                <html><head></head><body><h1 id="implicitキーワード"><a name="implicitキーワード" class="plugin-anchor" href="#implicitキーワード"><i class="fa fa-link" aria-hidden="true"></i></a>implicitキーワード</h1>
+<p>Scalaには他の言語には見られないimplicitというキーワードで表現される機能があります。Scala 2ではimplicitという単一の機能によって複数の用途を賄うようになっていますが、1つの機能で色々な用途を表現できることがユーザーにとってわかりにくかったという反省もあり、Scala 3では用途別に異なるキーワードや構文を使う形になっています。</p>
+<p>この章ではScala 2でのimplicitキーワードの4つの使い方を説明します。</p>
+<h2 id="implicit-conversion"><a name="implicit-conversion" class="plugin-anchor" href="#implicit-conversion"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit conversion</h2>
+<p>implicit conversionは暗黙の型変換をユーザが定義できる機能です。Scalaが普及し始めた時はこの機能が多用されたのですが、implicit conversionを多用するとプログラムが読みづらくなるということがわかったため、現在は積極的に使うことは推奨されていません。とはいえ、固定長整数から多倍長整数への変換など、標準ライブラリやサードパーティのライブラリで使われているケースもあるので知っておいて方が良いのは確かです。</p>
+<p>implicit conversionは次のような形で定義します。 </p>
 <pre><code class="lang-scala">  <span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">メソッド名</span></span>(引数名: 引数の型): 返り値の型 = 本体
 </code></pre>
-<p>という形で定義します。<code>implicit</code>というキーワードがついていることと引数が1つしかない<sup><a href="#fn_1" id="reffn_1">1</a></sup>ことを除けば通常のメソッド定義と同様ですね。さて、implicit conversionでは、引数の型と返り値の型に重要な意味があります。それは、これが、引数の型の式が現れたときに返り値の型を暗黙の変換候補として登録することになるからです。</p>
-<p>定義したimplicit conversionは大きく分けて二通りの使われ方をします。1つは、新しく定義したユーザ定義の型などを既存の型に当てはめたい場合です。たとえば、</p>
+<p><code>implicit</code>というキーワードがついていることと引数が1つしかない<sup><a href="#fn_1" id="reffn_1">1</a></sup>ことを除けば通常のメソッド定義同様です。implicit conversionでは引数の型と返り値の型に重要な意味があります。<strong>引数の型</strong>の式が現れたときに<strong>返り値の型</strong>を暗黙の型変換候補として登録することになるからです。</p>
+<p>implicit conversionは次のようにして定義することができます。この例では、<code>Int</code>型から<code>Boolean</code>型への暗黙の型変換を定義しています。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">intToBoolean</span></span>(arg: <span class="hljs-type">Int</span>): <span class="hljs-type">Boolean</span> = arg != <span class="hljs-number">0</span>
 
 <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span>) {
@@ -471,14 +472,21 @@
 }
 <span class="hljs-comment">// 1は真なり</span>
 </code></pre>
-<p>といった形で、本来<code>Boolean</code>しか渡せないはずのif式に<code>Int</code>を渡すことができています。ただし、この使い方はあまり良いものではありません。上の例をみればわかる通り、implicit conversionを定義することで、コンパイラにより、本来はif式の条件式には<code>Boolean</code>型の式しか渡せないようにチェックしているのを通りぬけることができてしまうからです。一部のライブラリではそのライブラリ内のデータ型とScala標準のデータ型を相互に変換するために、そのようなimplicit conversionを定義している例がありますが、本当にそのような変換が必要かよく考える必要があるでしょう。</p>
-<h3 id="enrich-my-library"><a name="enrich-my-library" class="plugin-anchor" href="#enrich-my-library"><i class="fa fa-link" aria-hidden="true"></i></a>enrich my library</h3>
-<p>もう1つの使い方は、enrich my libraryパターンと呼ばれ、既存のクラスにメソッドを追加して拡張する（ようにみせかける）使い方です。
-Scala標準ライブラリの中にも大量の使用例があり、こちらが本来の使い方と言って良いでしょう。たとえば、これまでみたプログラムの中に<code>(1 to 5)</code>という式がありましたが、本来Int型は<code>to</code>というメソッドを持っていません。
-<code>to</code>メソッドはenrich my libraryパターンの使用例の最たるものです。コンパイラは、ある型に対するメソッド呼び出しを見つけたとき、そのメソッドを定義した型がimplicit conversionの返り値の型にないか探索し、型が合ったらimplicit conversion
-の呼び出しを挿入するのです。この使い方の場合、implicit conversionの返り値の型が他で使われるものでなければ安全に
-implicit conversionを利用することができます。</p>
-<p>試しに、<code>String</code>の末尾に<code>&quot;:-)&quot;</code>という文字列を追加して返すimplicit conversionを定義してみましょう。</p>
+<p>コンパイラは <code>if(1)</code> を見た時点で、本来<code>Boolean</code>が要求されているのに<code>Int</code>型の式である<code>1</code>が書かれていることがわかります。多くの静的型付き言語ではここで型エラーになります。しかし、Scalaでは引数が<code>Int</code>で返り値が<code>Boolean</code>である暗黙の型変換が定義されていないかを探索し、<code>intToBoolean</code>という暗黙の型変換を発見します。そして、以下のように<code>intToBoolean(1)</code>を挿入するのです。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span>(intToBoolean(<span class="hljs-number">1</span>)) {
+  println(<span class="hljs-string">&quot;1は真なり&quot;</span>)
+}
+<span class="hljs-comment">// 1は真なり</span>
+</code></pre>
+<p>このようにして、<code>if</code>の条件式に<code>Int</code>を渡すことができるようになるわけです。ただし、暗黙の型変換のこのような使い方はあまり良いものではありません。if式の条件式に<code>Boolean</code>型の式しか渡せないようになっているのは間違いを防止するためなのに、そのチェックを通り抜けてしまえるわけですから。</p>
+<p><code>BigInt</code>や<code>BigDecimal</code>など一部のライブラリではScala標準の<code>Int</code>や<code>Double</code>と相互に変換するためにimplicit conversionを定義していますが、普通のユーザーが定義する必要があることは稀です。正当な理由を思いつかない限りは使わないようにしましょう。</p>
+<p>Scala 3では<code>scala.Conversion</code>クラスのインスタンスを型クラス（後述）のインスタンスとして定義することで、implicit conversionを実現しています。しかし、Scala 2の場合と同様に利用するときは慎重になるべきです。</p>
+<h2 id="enrich-my-library"><a name="enrich-my-library" class="plugin-anchor" href="#enrich-my-library"><i class="fa fa-link" aria-hidden="true"></i></a>Enrich my library</h2>
+<p>Enrich my libraryパターンと呼ばれるものがあります。C#やKotlinなどにある拡張メソッドと同等のもので、既存のクラスにメソッドを追加したようにみせかけることができます。Scala標準ライブラリの中にも利用例がありますし、サードパーティのライブラリでもよく見かけます。</p>
+<p>たとえば、これまでみたプログラムの中には<code>(1 to 5)</code>という式がありましたが、本来<code>Int</code>型は<code>to</code>というメソッドを持っていません。</p>
+<p><code>to</code>メソッドはenrich my libraryパターンの典型的な利用例です。<code>Int</code>に対して<code>to</code>メソッドが定義されていないことがわかると、既存のimplicit conversionで定義されたメソッドの返り値型に<code>to</code>メソッドの定義がないか検索して、メソッドが見つかった場合に適切なimplicit conversionを挿入するのです。</p>
+<p>この使い方では変換先の型は純粋にメソッドを追加するためだけに存在しているため、既存の型同士を変換するときのような混乱は起こりません。さらに、Scala 3では拡張メソッドを定義するための専用構文が用意されました。</p>
+<p>Scala 3が実用で利用できるのはまだ先ですから、当面はenrich my libraryパターンを使うと考えておきましょう。試しに、<code>String</code>の末尾に<code>&quot;:-)&quot;</code>という文字列を追加して返すようにenrich my libraryパターンを使って</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(<span class="hljs-params">val src: <span class="hljs-type">String</span></span>) </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span></span>: <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
 }
@@ -486,26 +494,26 @@ implicit conversionを利用することができます。</p>
 <span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enrichString</span></span>(arg: <span class="hljs-type">String</span>): <span class="hljs-type">RichString</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">RichString</span>(arg)
 
 <span class="hljs-string">&quot;Hi, &quot;</span>.smile
-<span class="hljs-comment">// res1: String = &quot;Hi, :-)&quot;</span>
+<span class="hljs-comment">// res2: String = &quot;Hi, :-)&quot;</span>
 </code></pre>
-<p>ちゃんと文字列の末尾に<code>&quot;:-)&quot;</code>を追加する<code>smile</code>メソッドが定義できています。さて、ここでひょっとしたら気がついた方もいるかもしれませんが、implicit conversionはそのままでは、既存のクラスへのメソッド追加のために使用するには冗長であるということです。Scala 2.10からは、classにimplicit
-というキーワードをつけることで同じようなことができるようになりました。</p>
-<h3 id="implicit-class"><a name="implicit-class" class="plugin-anchor" href="#implicit-class"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit Class</h3>
-<p>上の定義は、Scala 2.10以降では、</p>
+<p>文字列の末尾に<code>&quot;:-)&quot;</code>を追加する<code>smile</code>メソッドが定義できています。このとき、Scalaコンパイラは<code>enrichString(&quot;Hi, &quot;)</code>の呼び出しを適切に挿入してくれます。</p>
+<pre><code class="lang-scala">enrichString(<span class="hljs-string">&quot;Hi, &quot;</span>).smile
+<span class="hljs-comment">// res3: String = &quot;Hi, :-)&quot;</span>
+</code></pre>
+<p>しかし、拡張メソッドのためにimplicit conversionを毎回定義するのは冗長です。Scala 2.10以降ではclassにimplicitキーワードをつけることで簡潔な記述が可能になりました。上の定義は</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RichString</span>(<span class="hljs-params">val src: <span class="hljs-type">String</span></span>) </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">smile</span></span>: <span class="hljs-type">String</span> = src + <span class="hljs-string">&quot;:-)&quot;</span>
 }
 
 <span class="hljs-string">&quot;Hi, &quot;</span>.smile
-<span class="hljs-comment">// res3: String = &quot;Hi, :-)&quot;</span>
+<span class="hljs-comment">// res5: String = &quot;Hi, :-)&quot;</span>
 </code></pre>
-<p>という形で書きなおすことができます。
-implicit classはenrich my libraryパターン専用の機能であり、implicit defで既存型への変換した場合などによる混乱がないため、Scala 2.10以降でenrich my libraryパターンを使うときは基本的に後者の形式にすべきです。しかし、サードパーティのライブラリや標準ライブラリでも前者の形式になっていることがあるので、そのようなコードも読めるようにしておきましょう。</p>
+<p>という形で書きなおすことができます。implicit classはenrich my libraryパターン専用の機能なので、拡張メソッドを定義する意図を適切に表現できます。enrich my libraryパターンが必要なときは原則的にimplicit classを使うべきです。</p>
+<p>しかし、サードパーティのライブラリや標準ライブラリではimplicit classが使われていないこともあるので、そのようなコードも読めるようにしておくのが良いでしょう。</p>
 <h3 id="implicit_ex1"><a name="implicit_ex1" class="plugin-anchor" href="#implicit_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
-<p><code>Int</code>から<code>Boolean</code>へのimplicit conversionのように利用者を混乱させるようなものを考えて、定義してみてください。また、そのimplicit
-conversionにはどのような危険があるかを考えてください。</p>
+<p><code>Int</code>から<code>BigInt</code>へのimplicit conversionのように、利用者にとって便利になるimplicit conversionを考えて定義してみてください。そのimplicit conversionにはどのような利点と欠点があるかを答えてください。</p>
 <h3 id="implicit_ex2"><a name="implicit_ex2" class="plugin-anchor" href="#implicit_ex2"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
-<p>enrich my libraryパターンで、既存のクラスの利用を便利にするようなimplicit conversionを1つ定義してみてください。それはどのような場面で役に立つでしょうか？</p>
+<p>既存のクラスの利用を便利にするような形で、enrich my libraryパターンを適用してみましょう。どのような場面で役に立つでしょうか？</p>
 <div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Taps</span> </span>{
   <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tap</span>[<span class="hljs-type">T</span>](<span class="hljs-params">self: <span class="hljs-type">T</span></span>) </span>{
@@ -525,46 +533,54 @@ conversionにはどのような危険があるかを考えてください。</p>
 <span class="hljs-comment">// Hello, World</span>
 <span class="hljs-comment">// dlroW ,olleH</span>
 </code></pre>
-<p>メソッドチェインの中でデバッグプリントをはさみたいときに役に立ちます。</p>
+<p>定義した<code>tap()</code>メソッドはRubyなどの言語にありますが、メソッドチェインの中でデバッグプリントをはさみたいときに役に立ちます。</p>
 </div>
 <h4 id="implicit_ex3"><a name="implicit_ex3" class="plugin-anchor" href="#implicit_ex3"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h4>
-<p><a href="https://www.scala-lang.org/api/current/index.html" target="_blank">Scala標準ライブラリ</a>の中からenrich my libraryが使われている例を（先ほど挙げたものを除いて）1つ以上見つけてください。</p>
-<h2 id="implicit-parameter"><a name="implicit-parameter" class="plugin-anchor" href="#implicit-parameter"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit Parameter</h2>
-<p>implicit parameterは主として2つの目的で使われます。1つの目的は、あちこちのメソッドに共通で引き渡されるオブジェクト（たとえば、ソケットやデータベースのコネクションなど）を明示的に引き渡すのを省略するために使うものです。これは例で説明すると非常に簡単にわかると思います。</p>
-<p>まず、データベースとのコネクションを表す<code>Connection</code>型があるとします。データベースと接続するメソッドは全てこのConnection型を引き渡さなければなりません。</p>
-<pre><code>def useDatabase1(...., conn: Connection)
-def useDatabase2(...., conn: Connection)
-def useDatabase3(...., conn: Connection)
-</code></pre><p>この3つのメソッドは共通して<code>Connection</code>型を引数に取るのに、呼びだす度に明示的に<code>Connection</code>オブジェクトを渡さなければならず面倒で仕方ありません。ここでimplicit parameterの出番です。上のメソッド定義を</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">useDatabase1</span></span>(....)(<span class="hljs-keyword">implicit</span> conn: <span class="hljs-type">Connection</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">useDatabase2</span></span>(....)(<span class="hljs-keyword">implicit</span> conn: <span class="hljs-type">Connection</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">useDatabase3</span></span>(....)(<span class="hljs-keyword">implicit</span> conn: <span class="hljs-type">Connection</span>)
+<p><a href="https://www.scala-lang.org/api/current/index.html" target="_blank">Scala標準ライブラリ</a>の中からenrich my libraryが使われている例を1つ以上見つけてください。どのような時に便利でしょうか？</p>
+<h2 id="implicit-parameter（文脈引き渡し）"><a name="implicit-parameter（文脈引き渡し）" class="plugin-anchor" href="#implicit-parameter（文脈引き渡し）"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit parameter（文脈引き渡し）</h2>
+<p>implicit parameterは主に2つの目的で使われます。1つ目の目的は、あちこちのメソッドに共通で渡されるオブジェクト（たとえば、ソケットやデータベースのコネクション）を明示的に引き渡すのを省略することです。</p>
+<p>データベースとのコネクションを表す<code>Connection</code>型があるとします。データベースと接続するメソッドには全て<code>Connection</code>型を渡さなければなりません。</p>
+<pre><code>def readRecordsFromTable(columnName: String, tableName: String, connection: Connection): List[Record]
+def writeRecordsToTable(record: List[Record], tableName: String, connection: Connection): Unit
+def readAllFromTable(tableName: String, connection: Connection): List[Row]
+</code></pre><p>3つのメソッドは全て<code>Connection</code>型を引数に取るのに、呼びだす度に明示的に<code>Connection</code>オブジェクトを渡さなければいけません。ここでimplicit parameterの出番です。上のメソッド定義を</p>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readRecordsFromTable</span></span>(columnName: <span class="hljs-type">String</span>, tableName: <span class="hljs-type">String</span>)(<span class="hljs-keyword">implicit</span> connection: <span class="hljs-type">Connection</span>): <span class="hljs-type">List</span>[<span class="hljs-type">Record</span>]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">writeRecordsToTable</span></span>(records: <span class="hljs-type">List</span>[<span class="hljs-type">Record</span>], tableName: <span class="hljs-type">String</span>)(<span class="hljs-keyword">implicit</span> connection: <span class="hljs-type">Connection</span>): <span class="hljs-type">Unit</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readAllFromTable</span></span>(tableName: <span class="hljs-type">String</span>, connection: <span class="hljs-type">Connection</span>)(<span class="hljs-keyword">implicit</span> connection: <span class="hljs-type">Connection</span>): <span class="hljs-type">List</span>[<span class="hljs-type">Record</span>]
 </code></pre>
-<p>のように書き換えます。implicit修飾子は引数の先頭の要素に付けなければならないという制約があり、implicit parameterを使うにはカリー化されたメソッド定義が必要になります。最後の引数リストが</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">implicit</span> conn: <span class="hljs-type">Connection</span>)
+<p>と書き換えます。implicit修飾子は最後の引数リストに付けなければならないという制約があります。つまり、以下のようになっているのがポイントです。</p>
+<pre><code class="lang-scala">(....)(<span class="hljs-keyword">implicit</span> conn: <span class="hljs-type">Connection</span>)
 </code></pre>
-<p>とあるのがポイントです。Scalaコンパイラは、このようにして定義されたメソッドが呼び出されると、現在のスコープからたどって直近のimplicitとマークされた値を暗黙にメソッドに引き渡します。値をimplicitとしてマークするとは、たとえば次のようにして行います：</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> connection: <span class="hljs-type">Connection</span> = connectDatabase(....)
+<p>Scalaコンパイラは、このように定義されたメソッドが呼び出されると、現在の呼び出しスコープからたどって直近のimplicitとマークされた値を暗黙にメソッドに引き渡します。たとえば次のようにして、値をimplicitとしてマークします：</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> aConnection: <span class="hljs-type">Connection</span> = connectDatabase(....)
 </code></pre>
-<p>このようにすることで、最後の引数リストに暗黙に<code>Connection</code>オブジェクトを渡してくれるのです。このようなimplicit parameterの使い方はPlay FrameworkやScalaの各種O/Rマッパーで頻出します。</p>
-<p>implicit parameterのもう1つの使い方は、少々変わっています。まず、<code>List</code>の全ての要素の値を加算した結果を返す<code>sum</code>メソッドを定義したいとします。このメソッドはどのような定義になるでしょうか。ポイントは、「何の」<code>List</code>か全くわかっていないことで、整数の<code>+</code>メソッドをそのまま使ったりということはそのままではできないということです。このような場合、2つの手順を踏みます。</p>
-<p>まず、2つの同じ型を足す（0の場合はそれに相当する値を返す）方法を知っている型を定義します。ここではその型を<code>Additive</code>とします。
-<code>Additive</code>の定義は次のようになります：</p>
+<p>こうすれば、最後の引数リストに暗黙に<code>Connection</code>オブジェクトを渡してくれるのです。のような呼び出しがあったとします。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> firstNames = readRecordsFromTable(<span class="hljs-string">&quot;first_name&quot;</span>, <span class="hljs-string">&quot;people&quot;</span>)
+</code></pre>
+<p>この呼出しは次のように変換されます。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> firstNaemes = readRecordsFromTable(<span class="hljs-string">&quot;first_name&quot;</span>, <span class="hljs-string">&quot;people&quot;</span>)(aConnection)
+</code></pre>
+<p>このような文脈を引き渡すためのimplicit parameterはPlay FrameworkやO/Rマッパーなどで出てきます。</p>
+<h2 id="implicit-parameter（型クラス）"><a name="implicit-parameter（型クラス）" class="plugin-anchor" href="#implicit-parameter（型クラス）"><i class="fa fa-link" aria-hidden="true"></i></a>Implicit parameter（型クラス）</h2>
+<p>implicit parameterのもう1つの使い方は風変わりです。Haskellなどの型クラスがある言語をご存知の人なら、型クラスそのものであると言う説明がわかりやすいかもしれません。多くの読者は型クラスについては知らないと思いますから、ここでは一から説明します。</p>
+<p><code>List</code>の全ての要素の値を加算した結果を返す<code>sum</code>メソッドを定義したいとします。このような要求は頻繁にあるので、定義できれば嬉しいことは間違いありません。問題はそのようなメソッドを素直に定義できない点にあります。</p>
+<p>ポイントは「何の」<code>List</code>か全くわかっていないことです。何のリストかわからないということは、整数や浮動小数点数の<code>+</code>メソッドをそのまま使うことはできないということです。このような時にimplicit parameterの出番です。</p>
+<p>2つの同じ型を足す（0の場合はそれに相当する値を返す）方法を知っている型を定義します。ここではその型を<code>Additive</code>とします。<code>Additive</code>の定義は次のようになります：</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">A</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
 }
 </code></pre>
-<p>ここで、<code>Additive</code>の型パラメータ<code>A</code>は加算される<code>List</code>の要素の型を表しています。また、</p>
+<p><code>Additive</code>の型パラメータ<code>A</code>は加算される<code>List</code>の要素型を表しています。また、</p>
 <ul>
-<li><code>zero</code>: 型パラメータAの<strong>0</strong>に相当する値を返す</li>
-<li><code>plus</code>: 型パラメータAを持つ2つの値を<strong>加算して</strong>返す</li>
+<li><code>zero</code>: 型パラメータ<code>A</code>の<strong>0</strong>に相当する値を返す</li>
+<li><code>plus()</code>: 型パラメータ<code>A</code>を持つ2つの値を<strong>加算して</strong>返す</li>
 </ul>
 <p>です。</p>
-<p>次に、この<code>Additive</code>型を使って、<code>List</code>の全ての要素を合計するメソッドを定義します：</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
+<p>次に<code>Additive</code>型を使って、<code>List</code>の全ての要素を合計するメソッドを定義します：</p>
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(a: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(a.zero)((x, y) =&gt; a.plus(x, y))
 </code></pre>
-<p>後は、それぞれの型に応じた加算と0の定義を持ったobjectを定義します。ここでは<code>String</code>と<code>Int</code>について定義をします。</p>
+<p>最後に、型に応じた<code>zero</code>と<code>plus()</code>の定義を持ったobjectを定義します。ここでは<code>String</code>と<code>Int</code>について、<code>Additive[Int]</code>と<code>Additive[String]</code>を定義します。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">StringAdditive</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">String</span>] </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">String</span>, b: <span class="hljs-type">String</span>): <span class="hljs-type">String</span> = a + b
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">String</span> = <span class="hljs-string">&quot;&quot;</span>
@@ -591,16 +607,18 @@ def useDatabase3(...., conn: Connection)
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">Int</span> = <span class="hljs-number">0</span>
 }
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(a: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(a.zero)((x, y) =&gt; a.plus(x, y))
 </code></pre>
-<p>これで、<code>Int</code>型の<code>List</code>も<code>String</code>型の<code>List</code>のどちらの要素の合計も計算できる汎用的な<code>sum</code>メソッドができました。実際に呼び出したいときには、</p>
+<p><code>List[Int]</code>型と<code>List[String]</code>型のどちらでも、要素の合計を計算できる汎用的な<code>sum</code>メソッドができました。</p>
+<p>実際に呼び出したいときには、</p>
 <pre><code class="lang-scala">sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))(<span class="hljs-type">IntAdditive</span>)
-<span class="hljs-comment">// res5: Int = 6</span>
+<span class="hljs-comment">// res7: Int = 6</span>
 sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))(<span class="hljs-type">StringAdditive</span>)
-<span class="hljs-comment">// res6: String = &quot;ABC&quot;</span>
+<span class="hljs-comment">// res8: String = &quot;ABC&quot;</span>
 </code></pre>
-<p>とすれば良いだけです。さて、これで目的は果たすことはできましたが、何の<code>List</code>の要素を合計するかは型チェックする時点ではわかっているのだからいちいち<code>IntAdditive</code>, <code>StringAdditive</code>を明示的に渡さずとも賢く推論してほしいものです。そして、まさにそれをimplicit
-parameterで実現することができます。方法は簡単で、<code>StringAdditive</code>と<code>IntAdditive</code>の定義の前にimplicitと付けることと、<code>sum</code>の最後の引数リストの<code>m</code>にimplicitを付けるだけです。implicit parameterを使った最終形は次のようになります。</p>
+<p>とすれば良いだけです。</p>
+<p>これで目的は果たすことはできますが、何の<code>List</code>の要素を合計するかは型チェックする時点ではわかっているのだから<code>IntAdditive</code>, <code>StringAdditive</code>を明示的に渡さずとも賢く推論してほしいものです。実は、まさにそれをimplicit parameterで実現することができるのです。</p>
+<p>方法は簡単。<code>StringAdditive</code>と<code>IntAdditive</code>の定義の前にimplicitと付けることと、<code>sum</code>の最後の引数リストである<code>m</code>にimplicitを付けるだけです。implicit parameterを使った最終形は次のようになります。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(a: <span class="hljs-type">A</span>, b: <span class="hljs-type">A</span>): <span class="hljs-type">A</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zero</span></span>: <span class="hljs-type">A</span>
@@ -619,31 +637,32 @@ parameterで実現することができます。方法は簡単で、<code>Strin
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>[<span class="hljs-type">A</span>](lst: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>])(<span class="hljs-keyword">implicit</span> m: <span class="hljs-type">Additive</span>[<span class="hljs-type">A</span>]) = lst.foldLeft(m.zero)((x, y) =&gt; m.plus(x, y))
 
 sum(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
-<span class="hljs-comment">// res7: Int = 6</span>
+<span class="hljs-comment">// res9: Int = 6</span>
 
 sum(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
-<span class="hljs-comment">// res8: String = &quot;ABC&quot;</span>
+<span class="hljs-comment">// res10: String = &quot;ABC&quot;</span>
 </code></pre>
-<p>任意のListの要素の合計値を求めるsumメソッドを自然な形（<code>sum(List(1, 2, 3))</code>）で呼びだすことができています。実は、implicit parameterのこのような使い方はプログラミング言語Haskellから借りてきたもので、型クラス（を使った計算）と言われます。Haskellの用語だと、<code>Additive</code>を型クラス、<code>StringAdditive</code>と<code>IntAdditive</code>を<code>Additive</code>型クラスのインスタンスと呼びます。</p>
-<p>このimplicit parameterの用法は標準ライブラリにもあって、たとえば、</p>
+<p>任意のListの要素の合計値を求めるsumメソッドを自然な形で呼びだすことができています。</p>
+<p>implicit parameterのこのような使い方はプログラミング言語Haskellから借りてきたもので、Haskellでは型クラスと呼ばれます。そのため、Scalaでも型クラスと呼ばれることも多々あります。Haskellの用語だと、<code>Additive</code>に相当する宣言を型クラスの宣言、<code>StringAdditive</code>と<code>IntAdditive</code>を<code>Additive</code>型クラスのインスタンスの定義と呼びます。</p>
+<p>implicit parameterの型クラス的な用法は標準ライブラリにもあります。たとえば、</p>
 <pre><code class="lang-scala"><span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]().sum
-<span class="hljs-comment">// res9: Int = 0</span>
+<span class="hljs-comment">// res11: Int = 0</span>
 
 <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>).sum
-<span class="hljs-comment">// res10: Int = 10</span>
+<span class="hljs-comment">// res12: Int = 10</span>
 
 <span class="hljs-type">List</span>(<span class="hljs-number">1.1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">1.4</span>).sum
-<span class="hljs-comment">// res11: Double = 5.0</span>
+<span class="hljs-comment">// res13: Double = 5.0</span>
 </code></pre>
-<p>のように整数や浮動小数点数の合計値を特に気にとめることなく計算することができています。Scalaにおいて型クラスを定義・使用する方法を覚えると、設計の幅がグンと広がります。</p>
+<p>のように整数や浮動小数点数の合計値を計算することができます。これは、implicit parameterのおかげです。Scalaで型クラスを定義・使用する方法を覚えると設計の幅がグンと広がります。</p>
 <h3 id="implicit_ex4"><a name="implicit_ex4" class="plugin-anchor" href="#implicit_ex4"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <p><code>m: Additive[T]</code>と値<code>t1: T, t2: T, t3: T</code>は、次の条件を満たす必要があります。</p>
 <pre><code class="lang-scala">m.plus(m.zero, t1) == t1  <span class="hljs-comment">// 単位元</span>
 m.plus(t1, m.zero) == t1  <span class="hljs-comment">// 単位元</span>
 m.plus(t1, m.plus(t2, t3)) == m.plus(m.plus(t1, t2), t3) <span class="hljs-comment">// 結合則</span>
 </code></pre>
-<p>このような条件を満たす型<code>T</code>と単位元<code>zero</code>、演算<code>plus</code>を探し出し、<code>Additive[T]</code>を定義しましょう。この際、条件が満たされていることをいくつかの入力に対して確認してみましょう。また、定義した<code>Additive[T]</code>を<code>implicit</code>にして、<code>T</code>の合計値を先ほどの<code>sum</code>で計算できることを確かめてみましょう。</p>
-<p>ヒント：このような条件を満たすものは無数にありますが、思いつかない人はたとえば<code>x</code>座標と<code>y</code>座標からなる点を表すクラス<code>Point</code>を考えてみると良いでしょう。</p>
+<p>条件を満たす型<code>T</code>と単位元<code>zero</code>、演算<code>plus</code>を探し出し、<code>Additive[T]</code>を定義しましょう。また、条件が満たされていることを確認してみましょう。定義した<code>Additive[T]</code>を<code>implicit</code>にして、<code>T</code>の合計値を先ほどの<code>sum</code>で計算できることも確かめてみましょう。</p>
+<p>ヒント：条件を満たす型は無数にありますが、たとえば<code>x</code>座標と<code>y</code>座標からなる点を表すクラス<code>Point</code>を考えてみると良いでしょう。</p>
 <div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala">
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Additive</span>[<span class="hljs-type">A</span>] </span>{
@@ -677,7 +696,7 @@ println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</s
 </code></pre>
 </div>
 <h3 id="implicit_ex5"><a name="implicit_ex5" class="plugin-anchor" href="#implicit_ex5"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
-<p><code>List[Int]</code> と <code>List[Double]</code> のsumを行うために、標準ライブラリでは何という型クラス（1つ）と型クラスのインスタンス（2つ）を定義しているかを、<a href="https://www.scala-lang.org/api/current/index.html" target="_blank">Scala標準ライブラリ</a>から探して挙げなさい。</p>
+<p><code>List[Int]</code> と <code>List[Double]</code> のsumを行うために、標準ライブラリでは何という型クラス（1つ）と型クラスのインスタンスを定義しているかを、<a href="https://www.scala-lang.org/api/current/index.html" target="_blank">Scala標準ライブラリ</a>から探して挙げなさい。</p>
 <div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
 <p>型クラス：</p>
 <ul>
@@ -690,7 +709,7 @@ println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</s
 </ul>
 </div>
 <h3 id="implicitの探索範囲"><a name="implicitの探索範囲" class="plugin-anchor" href="#implicitの探索範囲"><i class="fa fa-link" aria-hidden="true"></i></a>implicitの探索範囲</h3>
-<p>implicit defやimplicit parameterの値が探索される範囲には、</p>
+<p>implicit conversionやimplicit parameterの値が探索される範囲には、</p>
 <ul>
 <li>ローカルで定義されたもの</li>
 <li>importで指定されたもの</li>
@@ -716,7 +735,7 @@ println(sum(<span class="hljs-type">List</span>(<span class="hljs-type">Point</s
   }
 }
 </code></pre>
-<p>すると、importをしていないのに、このAdditive型クラスのインスタンスを使うことができます。</p>
+<p>importをしていないのに、Additive型クラスのインスタンスを使うことができます。</p>
 <pre><code class="lang-scala">scala&gt; sum(<span class="hljs-type">List</span>(<span class="hljs-type">Rational</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-type">Rational</span>(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
 res0: <span class="hljs-type">Rational</span> = <span class="hljs-type">Rational</span>(<span class="hljs-number">4</span>,<span class="hljs-number">2</span>)
 </code></pre>
@@ -767,7 +786,7 @@ res0: <span class="hljs-type">Rational</span> = <span class="hljs-type">Rational
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Implicit","level":"1.17","depth":1,"next":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"previous":{"title":"エラー処理","level":"1.16","depth":1,"path":"error-handling.md","ref":"error-handling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"implicit.md","mtime":"2023-02-22T22:58:16.451Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-22T22:58:21.574Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Implicit","level":"1.17","depth":1,"next":{"title":"型クラスへの誘い","level":"1.18","depth":1,"path":"introduction-to-typeclass.md","ref":"introduction-to-typeclass.md","articles":[]},"previous":{"title":"エラー処理","level":"1.16","depth":1,"path":"error-handling.md","ref":"error-handling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"implicit.md","mtime":"2023-02-27T12:52:32.418Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-27T12:52:38.671Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
