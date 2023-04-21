@@ -402,7 +402,7 @@ BDDでテストを書くことによってテストによってどのような�
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```scala
-libraryDependencies += "org.mockito" % "mockito-core" % "5.3.0" % "test"
+libraryDependencies += "org.mockito" % "mockito-core" % "5.3.1" % "test"
 ```
 
 なお、mockitoのversion 5以降はJava 11以上が必要です。8を使用している場合はmockitoのversion 4を使ってください。
