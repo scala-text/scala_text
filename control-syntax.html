@@ -6,7 +6,7 @@
         <title>Scalaの制御構文 · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.8">
+        <meta name="generator" content="HonKit 5.0.0">
         
         
         
@@ -487,10 +487,10 @@ Scalaでは文よりも式を多く利用する構文が採用されています
 <p>のような形でメソッド定義をすることが一般的ですが（後述します）、ここで<code>{}</code>は単に<code>{}</code>式であって、メソッド定義の構文に<code>{}</code>が含まれているわけではありません。ただし、クラス定義構文などにおける<code>{}</code>は構文の一部です。</p>
 <h2 id="if式"><a name="if式" class="plugin-anchor" href="#if式"><i class="fa fa-link" aria-hidden="true"></i></a>if式</h2>
 <p><code>if</code>式はJavaの<code>if</code>文とほとんど同じ使い方をします。<code>if</code>式の構文は次のようになります。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos;&lt;条件式&gt;&apos;)&apos; &lt;then式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos;&lt;条件式&gt;&apos;)&apos; &lt;<span class="hljs-keyword">then</span>式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
 </code></pre>
 <p>Scala 3では<code>then</code>キーワードを使用して以下のように書くこともできます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &lt;条件式&gt; then &lt;then式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &lt;条件式&gt; <span class="hljs-keyword">then</span> &lt;<span class="hljs-keyword">then</span>式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
 </code></pre>
 <p><code>条件式</code> は<code>Boolean</code>型である必要があります。<code>else &lt;else式&gt;</code>は省略することができます。<code>then式</code> は <code>条件式</code> が <code>true</code>のときに評価される式で、<code>else式</code>は <code>条件式</code> が<code>false</code>のときに評価される式です。</p>
 <p>早速<code>if</code>式を使ってみましょう。</p>
@@ -516,7 +516,7 @@ age = <span class="hljs-number">18</span>
 <p>変更可能な変数 <code>age</code> が18より小さいかどうかで別の文字列を<em>返す</em>ようにしています。</p>
 <p><code>if</code> 式に限らず、Scalaの制御構文は全て式です。つまり必ず何らかの値を返します。Javaなどの言語で三項演算子<code>?:</code>を見たことがある人もいるかもしれませんが、Scalaでは同じように値が必要な場面で <code>if</code> 式を使います。</p>
 <p>なお、<code>else</code>が省略可能だと書きましたが、その場合は、以下のように <code>Unit</code> 型の値 <code>()</code> が補われたのと同じ値が返ってきます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;then式&gt; <span class="hljs-keyword">else</span> ()
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;<span class="hljs-keyword">then</span>式&gt; <span class="hljs-keyword">else</span> ()
 </code></pre>
 <p>ただし、Unitが補われたのと同等になるのはScala 2までの仕様であって、Scala 3からは微妙に異なります。</p>
 <p><code>Unit</code>型はJavaでは<code>void</code>に相当するもので、返すべき値がないときに使われ、唯一の値<code>()</code>を持ちます。</p>
@@ -541,7 +541,7 @@ age = <span class="hljs-number">18</span>
 <pre><code class="lang-scala"><span class="hljs-keyword">while</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;本体式&gt;
 </code></pre>
 <p>Scala 3では<code>do</code>キーワードを使用して以下のように書くこともできます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">while</span> &lt;条件式&gt; do &lt;本体式&gt;
+<pre><code class="lang-scala"><span class="hljs-keyword">while</span> &lt;条件式&gt; <span class="hljs-keyword">do</span> &lt;本体式&gt;
 </code></pre>
 <p><code>条件式</code> は <code>Boolean</code> 型である必要があります。<code>while</code> 式は、 <code>条件式</code> が<code>true</code>の間、<code>本体式</code> を評価し続けます。なお、<code>while</code> 式も式なので値を返しますが、<code>while</code>式には適切な返すべき値がないので<code>Unit</code>型の値<code>()</code>を返します。</p>
 <p>さて、 <code>while</code> 式を使って1から10までの値を出力してみましょう。</p>
@@ -921,7 +921,7 @@ obj <span class="hljs-keyword">match</span> {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2023-07-15T21:06:29.000Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-07-15T21:06:38.502Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2023-07-17T22:55:11.562Z","type":"markdown"},"gitbook":{"version":"5.0.0","time":"2023-07-17T22:55:20.846Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

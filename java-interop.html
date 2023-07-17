@@ -6,7 +6,7 @@
         <title>Javaとの相互運用 · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.8">
+        <meta name="generator" content="HonKit 5.0.0">
         
         
         
@@ -469,7 +469,7 @@
 </code></pre>
 <h3 id="インスタンスの生成"><a name="インスタンスの生成" class="plugin-anchor" href="#インスタンスの生成"><i class="fa fa-link" aria-hidden="true"></i></a>インスタンスの生成</h3>
 <p>インスタンスの生成もJavaと同様にできます。Javaでの</p>
-<pre><code class="lang-java">ArrayList&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+<pre><code class="lang-java">ArrayList&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
 </code></pre>
 <p>というコードはScalaでは</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> list = <span class="hljs-keyword">new</span> <span class="hljs-type">ArrayList</span>[<span class="hljs-type">String</span>]()
@@ -519,8 +519,8 @@ res0: Long = 1416357548906
 <p>staticフィールドの参照もJavaの場合と基本的に同じですが、staticメソッドの場合と同じ注意点が当てはまります。つまり、staticフィールドは継承されない、ということです。たとえば、Javaでは <a href="https://docs.oracle.com/javase/jp/8/docs/api/javax/swing/JFrame.html#EXIT_ON_CLOSE" target="_blank"><code>JFrame.EXIT_ON_CLOSE</code></a> が継承されることを利用して、</p>
 <pre><code class="lang-java"><span class="hljs-keyword">import</span> javax.swing.JFrame;
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JFrame</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyFrame</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyFrame</span><span class="hljs-params">()</span> {
     setDefaultCloseOperation(EXIT_ON_CLOSE); <span class="hljs-comment">//JFrameを継承しているので、EXIT_ON_CLOSEだけでOK</span>
   }
 }
@@ -662,12 +662,12 @@ buffer += <span class="hljs-string">&quot;C&quot;</span>
 <p>Javaでは、</p>
 <pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.List;
 <span class="hljs-keyword">import</span> java.util.ArrayList;
-List&lt;? extends Object&gt; objects = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();
+List&lt;? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Object</span>&gt; objects = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;String&gt;();
 </code></pre>
 <p>のようにして、クラス宣言時には不変であった型パラメータを共変にしたり、</p>
 <pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.Comparator;
-Comparator&lt;? <span class="hljs-keyword">super</span> String&gt; cmp = <span class="hljs-keyword">new</span> Comparator&lt;Object&gt;() {
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Object o1, Object o2)</span> </span>{
+Comparator&lt;? <span class="hljs-built_in">super</span> String&gt; cmp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;Object&gt;() {
+  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(Object o1, Object o2)</span> {
     <span class="hljs-keyword">return</span> o1.hashCode() - o2.hashCode();
   }
 };
@@ -687,21 +687,21 @@ Comparator&lt;? <span class="hljs-keyword">super</span> String&gt; cmp = <span c
     o1.hashCode() - o2.hashCode()
   }
 }
-<span class="hljs-comment">// cmp: Comparator[_] = repl.MdocSession$MdocApp$$anon$1@79dbc299</span>
+<span class="hljs-comment">// cmp: Comparator[_] = repl.MdocSession$MdocApp$$anon$1@4c0aae8b</span>
 </code></pre>
 <p>より一般的には、<code>G&lt;? extends T&gt;</code> は <code>G[_ &lt;: T]</code>に、<code>G&lt;? super T&gt;</code>は <code>G[_ &gt;: T]</code> に置き換えることができます。Scalaのプログラム開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変位指定、つまりdeclaration-site varianceを使うべきであって、Javaと関係ない部分においてこの機能を使うのはプログラムをわかりにくくするため、避けるべきです。</p>
 <h4 id="sam変換"><a name="sam変換" class="plugin-anchor" href="#sam変換"><i class="fa fa-link" aria-hidden="true"></i></a>SAM変換</h4>
 <p>Scala 2.12ではSAM(Single Abstract Method)変換が導入され<sup><a href="#fn_1" id="reffn_1">1</a></sup>、Java 8のラムダ式を想定したライブラリを簡単に利用できるようになりました。
 Java 8におけるラムダ式とは、関数型インタフェースと呼ばれる、メソッドが1つしかないようなインタフェースに対して無名クラスを簡単に記述できる構文です<sup><a href="#fn_2" id="reffn_2">2</a></sup>。例えば、10の階乗を例にすると以下のように簡潔に書くことができます。</p>
 <pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.stream.IntStream;
-<span class="hljs-keyword">int</span> factorial10 = IntStream.rangeClosed(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>).reduce(<span class="hljs-number">1</span>, (i1, i2) -&gt; i1 * i2);
+<span class="hljs-type">int</span> <span class="hljs-variable">factorial10</span> <span class="hljs-operator">=</span> IntStream.rangeClosed(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>).reduce(<span class="hljs-number">1</span>, (i1, i2) -&gt; i1 * i2);
 </code></pre>
 <p>ちなみに、これをラムダ式を使わずに書くと、以下のようにとても大変です。</p>
 <pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.stream.IntStream;
 <span class="hljs-keyword">import</span> java.util.function.IntBinaryOperator;
-<span class="hljs-keyword">int</span> factorial10 = IntStream.rangeClosed(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>).reduce(<span class="hljs-number">1</span>,
-  <span class="hljs-keyword">new</span> IntBinaryOperator() {
-    <span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">applyAsInt</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>{
+<span class="hljs-type">int</span> <span class="hljs-variable">factorial10</span> <span class="hljs-operator">=</span> IntStream.rangeClosed(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>).reduce(<span class="hljs-number">1</span>,
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">IntBinaryOperator</span>() {
+    <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">applyAsInt</span><span class="hljs-params">(<span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> {
       <span class="hljs-keyword">return</span> left * right;
     }
   });
@@ -769,7 +769,7 @@ Java 8におけるラムダ式とは、関数型インタフェースと呼ば�
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Javaとの相互運用","level":"1.21","depth":1,"next":{"title":"S99の案内","level":"1.22","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"previous":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"java-interop.md","mtime":"2023-07-15T21:06:34.656Z","type":"markdown"},"gitbook":{"version":"4.0.8","time":"2023-07-15T21:06:38.502Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Javaとの相互運用","level":"1.21","depth":1,"next":{"title":"S99の案内","level":"1.22","depth":1,"path":"exercises.md","ref":"exercises.md","articles":[]},"previous":{"title":"テスト","level":"1.20","depth":1,"path":"test.md","ref":"test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"java-interop.md","mtime":"2023-07-17T22:55:17.030Z","type":"markdown"},"gitbook":{"version":"5.0.0","time":"2023-07-17T22:55:20.846Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
