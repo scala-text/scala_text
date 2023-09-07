@@ -47,7 +47,7 @@ $ which sbt       # sbtがインストールされているかの確認
 
 ### Homebrewを利用する方法（Mac OS）
 
-[Homebrew](https://brew.sh/index_ja.html)を用いる方法でも可能です。
+[Homebrew](https://brew.sh/ja/)を用いる方法でも可能です。
 
 ```shell
 $ brew install sbt
