@@ -21,7 +21,7 @@
     "honkit": "5.1.1",
     "kramed": "0.5.6",
     "mocha": "10.2.0",
-    "npm-check-updates": "^16.14.5",
+    "npm-check-updates": "^16.14.6",
     "npm-run-all": "4.1.5",
     "power-assert": "1.6.1",
     "q-io": "1.13.4",
