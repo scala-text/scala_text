@@ -102,7 +102,7 @@
         "newline-before-return": "off",
         "newline-per-chained-call": "off",
         "no-alert": "error",
-        "no-array-constructor": "error",
+        "no-array-constructor": "off",
         "no-bitwise": "error",
         "no-caller": "error",
         "no-catch-shadow": "error",
