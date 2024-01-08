@@ -906,7 +906,7 @@ assert(
 <span class="hljs-comment">// res37: List[Int] = List(1, 2, 3, 4)</span>
 
 <span class="hljs-number">5</span> :: <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">// Listの先頭のセルに新しいをくっつける</span>
-<span class="hljs-comment">// res38: List[Int] = List(5, 1, 2, 3, 4) // Listの先頭のセルに新しいをくっつける</span>
+<span class="hljs-comment">// res38: List[Int] = List(5, 1, 2, 3, 4)</span>
 
 <span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>) :+ <span class="hljs-number">5</span> <span class="hljs-comment">// 注意！末尾への追加は、Listの要素数分かかる</span>
 <span class="hljs-comment">// res39: List[Int] = List(1, 2, 3, 4, 5)</span>
@@ -916,7 +916,7 @@ assert(
 <h3 id="vector"><a name="vector" class="plugin-anchor" href="#vector"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala/blob/v2.13.12/src/library/scala/collection/immutable/Vector.scala" target="_blank">Vector</a></h3>
 <p><code>Vector</code>は少々変わったデータ構造です。<code>Vector</code>は一度データ構造を構築したら変更できないimmutableなデータ構造です。要素へのランダムアクセスや長さの取得、データの挿入や削除、いずれの操作も十分に高速にできる比較的万能なデータ構造です。immutableなデータ構造を使う場合は、まず<code>Vector</code>を検討すると良いでしょう。</p>
 <pre><code class="lang-scala"><span class="hljs-type">Vector</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>) <span class="hljs-comment">//どの操作も「ほぼ」一定の時間で終わる</span>
-<span class="hljs-comment">// res40: Vector[Int] = Vector(1, 2, 3, 4, 5) //どの操作も「ほぼ」一定の時間で終わる</span>
+<span class="hljs-comment">// res40: Vector[Int] = Vector(1, 2, 3, 4, 5)</span>
 
 <span class="hljs-number">6</span> +: <span class="hljs-type">Vector</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
 <span class="hljs-comment">// res41: Vector[Int] = Vector(6, 1, 2, 3, 4, 5)</span>
@@ -937,7 +937,7 @@ Scalaでは<code>Map</code>として一度作成したら変更できないimmut
 <span class="hljs-comment">// m: Map[String, Int] = Map(&quot;A&quot; -&gt; 1, &quot;B&quot; -&gt; 2, &quot;C&quot; -&gt; 3)</span>
 
 m.updated(<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">//一見元のMapを変更したように見えても</span>
-<span class="hljs-comment">// res44: Map[String, Int] = Map(&quot;A&quot; -&gt; 1, &quot;B&quot; -&gt; 4, &quot;C&quot; -&gt; 3) //一見元のMapを変更したように見えても</span>
+<span class="hljs-comment">// res44: Map[String, Int] = Map(&quot;A&quot; -&gt; 1, &quot;B&quot; -&gt; 4, &quot;C&quot; -&gt; 3)</span>
 
 m <span class="hljs-comment">// 元のMapはそのまま</span>
 <span class="hljs-comment">// res45: Map[String, Int] = Map(&quot;A&quot; -&gt; 1, &quot;B&quot; -&gt; 2, &quot;C&quot; -&gt; 3)</span>
@@ -951,7 +951,7 @@ m <span class="hljs-comment">// 元のMapはそのまま</span>
 <span class="hljs-keyword">val</span> m = mutable.<span class="hljs-type">Map</span>(<span class="hljs-string">&quot;A&quot;</span> -&gt; <span class="hljs-number">1</span>, <span class="hljs-string">&quot;B&quot;</span> -&gt; <span class="hljs-number">2</span>, <span class="hljs-string">&quot;C&quot;</span> -&gt; <span class="hljs-number">3</span>)
 <span class="hljs-comment">// m: mutable.Map[String, Int] = HashMap(&quot;A&quot; -&gt; 1, &quot;B&quot; -&gt; 5, &quot;C&quot; -&gt; 3)</span>
 
-m(<span class="hljs-string">&quot;B&quot;</span>) = <span class="hljs-number">5</span> <span class="hljs-comment">// B -&gt; 5 のマッピングに置き換える // B -&gt; 5 のマッピングに置き換える</span>
+m(<span class="hljs-string">&quot;B&quot;</span>) = <span class="hljs-number">5</span> <span class="hljs-comment">// B -&gt; 5 のマッピングに置き換える</span>
 
 m <span class="hljs-comment">// 変更が反映されている</span>
 <span class="hljs-comment">// res47: mutable.Map[String, Int] = HashMap(&quot;A&quot; -&gt; 1, &quot;B&quot; -&gt; 5, &quot;C&quot; -&gt; 3)</span>
@@ -969,7 +969,7 @@ m <span class="hljs-comment">// 変更が反映されている</span>
 <span class="hljs-comment">// s: Set[Int] = HashSet(5, 1, 2, 3, 4)</span>
 
 s - <span class="hljs-number">5</span> <span class="hljs-comment">// 5を削除した後も</span>
-<span class="hljs-comment">// res49: Set[Int] = HashSet(1, 2, 3, 4) // 5を削除した後も</span>
+<span class="hljs-comment">// res49: Set[Int] = HashSet(1, 2, 3, 4)</span>
 
 s <span class="hljs-comment">// 元のSetはそのまま</span>
 <span class="hljs-comment">// res50: Set[Int] = HashSet(5, 1, 2, 3, 4)</span>
@@ -983,7 +983,7 @@ s <span class="hljs-comment">// 元のSetはそのまま</span>
 <span class="hljs-comment">// s: mutable.Set[Int] = HashSet(1, 2, 3, 4)</span>
 
 s -= <span class="hljs-number">5</span> <span class="hljs-comment">// 5 を削除したら</span>
-<span class="hljs-comment">// res51: mutable.Set[Int] = HashSet(1, 2, 3, 4) // 5 を削除したら</span>
+<span class="hljs-comment">// res51: mutable.Set[Int] = HashSet(1, 2, 3, 4)</span>
 
 s <span class="hljs-comment">// 変更が反映される</span>
 <span class="hljs-comment">// res52: mutable.Set[Int] = HashSet(1, 2, 3, 4)</span>
@@ -1037,7 +1037,7 @@ s <span class="hljs-comment">// 変更が反映される</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"コレクションライブラリ","level":"1.14","depth":1,"next":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"previous":{"title":"関数","level":"1.13","depth":1,"path":"function.md","ref":"function.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"collection.md","mtime":"2024-01-08T02:38:41.423Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-01-08T02:38:50.815Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"コレクションライブラリ","level":"1.14","depth":1,"next":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"previous":{"title":"関数","level":"1.13","depth":1,"path":"function.md","ref":"function.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"collection.md","mtime":"2024-01-08T02:42:44.173Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-01-08T02:42:53.760Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
