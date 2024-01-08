@@ -316,20 +316,20 @@ Comparator<? super String> cmp = new Comparator<Object>() {
 ```scala mdoc:nest
 import java.util.{List => JList, ArrayList => JArrayList}
 
-val objects: JList[_ <: Object] = new JArrayList[String]()
+val objects: JList[? <: Object] = new JArrayList[String]()
 ```
 
 ```scala mdoc:nest
 import java.util.{Comparator => JComparator}
 
-val cmp: JComparator[_ >: String] = new JComparator[Any] {
+val cmp: JComparator[? >: String] = new JComparator[Any] {
   override def compare(o1: Any, o2: Any): Int = {
     o1.hashCode() - o2.hashCode()
   }
 }
 ```
 
-より一般的には、`G<? extends T>` は `G[_ <: T]`に、`G<? super T>`は `G[_ >: T]` に置き換えることができます。Scalaのプログラム
+より一般的には、`G<? extends T>` は `G[? <: T]`に、`G<? super T>`は `G[? >: T]` に置き換えることができます。Scalaのプログラム
 開発において、Javaのワイルドカードを含んだ型を扱いたい場合は、この機能を使いましょう。一方で、Scalaプログラムでは定義側の変位指定、
 つまりdeclaration-site varianceを使うべきであって、Javaと関係ない部分においてこの機能を使うのはプログラムをわかりにくくするため、
 避けるべきです。
