@@ -47,7 +47,7 @@ $ which sbt       # sbtがインストールされているかの確認
 
 ### Homebrewを利用する方法（Mac OS）
 
-[Homebrew](https://brew.sh/index_ja.html)を用いる方法でも可能です。
+[Homebrew](https://brew.sh/ja/)を用いる方法でも可能です。
 
 ```shell
 $ brew install sbt
@@ -115,7 +115,7 @@ $ sbt console
 [info] Done updating.
 [info] Starting scala interpreter...
 [info] 
-Welcome to Scala version 2.13.10 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
+Welcome to Scala version 2.13.12 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
 Type in expressions to have them evaluated.
 Type :help for more information.
 
@@ -138,7 +138,7 @@ scala> :quit
 _build.sbt_というファイルを作成し、
 
 ```scala
-scalaVersion := "2.13.10"
+scalaVersion := "2.13.12"
 ```
 
 としてやると良いです。この_*.sbt_がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう
@@ -162,4 +162,4 @@ sbtは`sbt --version`もしくは`sbt --launcher-version`とするとversionが�
 
 [^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/scala-text/scala_text/issues/122
 
-[^latest]: 具体的にはこれを書いている2023年1月時点の最新版であるsbt 1.8.2。
+[^latest]: 具体的にはこれを書いている2023年12月時点の最新版であるsbt 1.9.8。

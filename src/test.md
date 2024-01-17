@@ -129,11 +129,11 @@ name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "2.13.10"
+scalaVersion := "2.13.12"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest-flatspec" % "3.2.15" % "test",
-  "org.scalatest" %% "scalatest-diagrams" % "3.2.15" % "test",
+  "org.scalatest" %% "scalatest-flatspec" % "3.2.17" % "test",
+  "org.scalatest" %% "scalatest-diagrams" % "3.2.17" % "test",
 )
 ```
 
@@ -143,10 +143,10 @@ libraryDependencies ++= Seq(
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_2.13/3.2.15/scalatest-flatspec_2.13-3.2.15.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_2.13;3.2.15!scalatest-flatspec_2.13.jar(bundle) (5456ms)
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_2.13/3.2.15/scalatest-diagrams_2.13-3.2.15.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_2.13;3.2.15!scalatest-diagrams_2.13.jar(bundle) (5199ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_2.13/3.2.17/scalatest-flatspec_2.13-3.2.17.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_2.13;3.2.17!scalatest-flatspec_2.13.jar(bundle) (5456ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_2.13/3.2.17/scalatest-diagrams_2.13-3.2.17.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_2.13;3.2.17!scalatest-diagrams_2.13.jar(bundle) (5199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2023/02/09 16:48:42
 ```
@@ -402,7 +402,7 @@ BDDでテストを書くことによってテストによってどのような�
 `build.sbt`に以下を追記することで利用可能になります。
 
 ```scala
-libraryDependencies += "org.mockito" % "mockito-core" % "5.3.1" % "test"
+libraryDependencies += "org.mockito" % "mockito-core" % "5.9.0" % "test"
 ```
 
 なお、mockitoのversion 5以降はJava 11以上が必要です。8を使用している場合はmockitoのversion 4を使ってください。

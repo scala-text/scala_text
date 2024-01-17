@@ -1,7 +1,7 @@
 # Scalaの関数
 
 Scalaの関数は、他の言語の関数と扱いが異なります。Scalaの関数は単に
-[`Function0`](https://github.com/scala/scala/blob/v2.13.10/src/library/scala/Function0.scala) 〜 [`Function22`](https://github.com/scala/scala/blob/v2.13.10/src/library/scala/Function22.scala) までのトレイトの無名サブクラスのインスタンスなのです。
+[`Function0`](https://github.com/scala/scala/blob/v2.13.12/src/library/scala/Function0.scala) 〜 [`Function22`](https://github.com/scala/scala/blob/v2.13.12/src/library/scala/Function22.scala) までのトレイトの無名サブクラスのインスタンスなのです。
 
 たとえば、2つの整数を取って加算した値を返す`add`関数は次のようにして定義することができます：
 
@@ -233,4 +233,4 @@ def printFile(filename: String): Unit = {
 ここでは高階関数の利用例を簡単に紹介しました。
 後のコレクションの節を読むことで、高階関数のメリットをさらに理解できるようになるでしょう。
 
-[^scala212]: Scala 2.12からは、[SAM Typeと互換性がある](https://scala-lang.org/files/archive/spec/2.12/06-expressions.html#sam-conversion)場合には対応するSAM Typeのコードが生成されるので、純粋なシンタックスシュガーとは呼べなくなりましたが、それ以外のケースについては従来と変わりありません。
+[^scala212]: Scala 2.12からは、[SAM Typeと互換性がある](https://scala-lang.org/files/archive/spec/2.13/06-expressions.html#sam-conversion)場合には対応するSAM Typeのコードが生成されるので、純粋なシンタックスシュガーとは呼べなくなりましたが、それ以外のケースについては従来と変わりありません。

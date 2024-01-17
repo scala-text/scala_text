@@ -509,7 +509,7 @@ obj match {
 
 ```scala mdoc:nest:silent
 obj match {
-  case v: List[_] => println("List[_]")
+  case v: List[?] => println("List[?]")
 }
 ```
 
