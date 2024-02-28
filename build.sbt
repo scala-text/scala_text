@@ -22,10 +22,10 @@ cleanFiles += compiledSrcDir
 libraryDependencies ++= Seq(
   // TODO sbtがScala 2.13対応したら再び有効化
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
-  "org.mockito" % "mockito-core" % "5.9.0",
+  "org.mockito" % "mockito-core" % "5.10.0",
   "org.scalacheck" %% "scalacheck" % "1.17.0",
-  "org.scalatest" %% "scalatest-flatspec" % "3.2.17", // mdocで使うので、テストライブラリだが、わざとcompileスコープ
-  "org.scalatest" %% "scalatest-diagrams" % "3.2.17"
+  "org.scalatest" %% "scalatest-flatspec" % "3.2.18", // mdocで使うので、テストライブラリだが、わざとcompileスコープ
+  "org.scalatest" %% "scalatest-diagrams" % "3.2.18"
 )
 
 Honkit.settings
