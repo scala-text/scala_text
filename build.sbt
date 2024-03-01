@@ -9,7 +9,7 @@ name := "textbook"
 
 scalaVersion := "2.13.13"
 
-crossScalaVersions += "3.3.1"
+crossScalaVersions += "3.3.3"
 
 enablePlugins(MdocPlugin)
 
