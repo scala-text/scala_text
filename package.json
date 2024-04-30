@@ -11,7 +11,7 @@
     "babel-preset-power-assert": "3.0.0",
     "cheerio": "1.0.0-rc.12",
     "eslint": "^8.57.0",
-    "eslint-config-eslint": "9.0.0",
+    "eslint-config-eslint": "10.0.0",
     "gitbook-plugin-anchors": "0.7.1",
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
     "gitbook-plugin-forkmegithub": "^2.2.0",
