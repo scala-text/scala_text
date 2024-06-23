@@ -132,8 +132,8 @@ version := "1.0"
 scalaVersion := "2.13.14"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest-flatspec" % "3.2.18" % "test",
-  "org.scalatest" %% "scalatest-diagrams" % "3.2.18" % "test",
+  "org.scalatest" %% "scalatest-flatspec" % "3.2.19" % "test",
+  "org.scalatest" %% "scalatest-diagrams" % "3.2.19" % "test",
 )
 ```
 
