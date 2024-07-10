@@ -153,6 +153,16 @@ sbt textBuildEpub
 
 ![CC-BY-NC-SA](https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png)
 
-の元で配布されています。ただし、直接の利益を得ることを目的としない研修などに利用することは可能とします。
-直接の利益というのは、研修自体を実費以上の金額で提供する行為を指します。社内でのScala研修などは一般的に
-直接の利益を得ることを目的としないので、断りなく使っていただいて構いません。
+の元で配布されています。ただし、CC-BY-NC-SAの「非営利」は[こちら](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en#s3:~:text=NonCommercial%20provided%20there%20is%20no%20payment%20of%20monetary%20compensation%20in%20connection%20with%20the%20exchange.)にかかれている通り、
+
+> NonCommercial means not primarily intended for or directed towards commercial advantage or monetary compensation. For purposes of this Public License, the exchange of the Licensed Material for other material subject to Copyright and Similar Rights by digital file-sharing or similar means is NonCommercial provided there is no payment of monetary compensation in connection with the exchange.
+
+直接的な金銭のやり取りが発生するものであり、たとえば、社内の研修や社内での開発で利用する場合は営利に該当しません。
+
+また、本資料を改変した場合の公開義務についても[こちら](https://wiki.creativecommons.org/wiki/ShareAlike_interpretation#:~:text=The%20ShareAlike%20condition%20only%20applies%20when%20a%20work%20is%20publicly%20shared)
+
+> The ShareAlike condition only applies when a work is publicly shared. You are not obligated to share things you make from SA works--you may create remixes and adaptations that you do not publish. If you are using ShareAlike materials privately and not sharing them with others, you do not have to comply with the license conditions. For example, if you translate a ShareAlike work for internal use within your office, you do not have to license your translation under an SA or compatible license unless you plan to share it with others.
+
+にある通りです。たとえば本資料を改変して社内のドキュメントのために使ったとしても、一般に公開しない限り（社内のみで利用するなど）改変部分について本ライセンスを継承する必要はなく自由に利用可能です。
+
+これらの点について複数の問い合わせがあったため明記することにしました。
