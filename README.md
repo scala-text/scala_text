@@ -149,7 +149,7 @@ sbt textBuildEpub
 
 ## ライセンス
 
-本文書は、[CC BY-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.ja)
+本文書は、[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.ja)
 
 ![CC-BY-SA](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
 
