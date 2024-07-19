@@ -41,13 +41,9 @@
 
 ## ライセンス
 
-本文書は、[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.ja)
+本文書は、[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.ja)の元で配布されています。
 
 ![CC-BY-SA](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
-
-の元で配布されています。ただし、直接の利益を得ることを目的としない研修などに利用することは可能とします。
-直接の利益というのは、研修自体を実費以上の金額で提供する行為を指します。社内でのScala研修などは一般的に
-直接の利益を得ることを目的としないので、断りなく使っていただいて構いません。
 
 [^scalaz]: 関数型プログラミングを行うための純粋なデータ構造や、ファンクターやモナドといった型クラスとそのインスタンスを提供するライブラリのこと。
 
