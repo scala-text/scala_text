@@ -229,7 +229,7 @@ describe("Check links", () => {
   let [urls, files] = partition(links, isUrl);
 
   // 重複削除
-  let urls = [...new Set(urls)];
+  urls = [...new Set(urls)];
 
   // #から始まるリンクはページ内リンク（脚注）なので除外
   //
