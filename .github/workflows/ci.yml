@@ -47,10 +47,6 @@ jobs:
         BRANCH: gh-pages
         FOLDER: honkit/_book/
         CLEAN: true
-    - uses: webfactory/ssh-agent@v0.9.0
-      if: ${{ github.repository_owner == 'scala-text' && github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
-      with:
-        ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
     - uses: frabert/replace-string-action@v2.5
       id: get_branch_name
       with:
@@ -58,15 +54,15 @@ jobs:
         pattern: 'refs/heads/(.*)'
         replace-with: '$1'
     - name: push to scala_text_previews
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@v4.6.8
       if: ${{ github.repository_owner == 'scala-text' && github.ref != 'refs/heads/master' && github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
       with:
-        SSH: true
-        TARGET_FOLDER: ${{ steps.get_branch_name.outputs.replaced }}
-        REPOSITORY_NAME: scala-text/scala_text_previews
-        BRANCH: gh-pages
-        FOLDER: honkit/_book/
-        CLEAN: true
+        ssh-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
+        target-folder: ${{ steps.get_branch_name.outputs.replaced }}
+        repository-name: scala-text/scala_text_previews
+        branch: gh-pages
+        folder: honkit/_book/
+        clean: true
     - uses: actions/github-script@v6
       if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request' && github.repository_owner == 'scala-text' && github.actor != 'dependabot[bot]'}}
       with:
