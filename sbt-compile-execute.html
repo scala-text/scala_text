@@ -6,7 +6,7 @@
         <title>sbtでプログラムをコンパイル・実行する · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -461,11 +461,11 @@
 </code></pre><p>Scala 2.10までは<code>exit</code>、Scala 2.11以降は<code>sys.exit</code>で終了することができますが、これらはREPL専用のコマンドではなく、今のプロセス自体を終了させる汎用的なメソッドなのでREPLを終了させる時には使用しないようにしましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">HelloWorld</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = {
-    println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
+    println(<span class="hljs-string">"Hello, World!"</span>)
   }
 }
 </code></pre>
-<p><code>object</code>や<code>def</code>といった新しいキーワードが出てきましたね。これらの詳しい意味はあとで説明するので、ここでは、<code>scalac</code>でコンパイルするプログラムはこのような形で定義するものと思ってください。<code>{}</code>で囲まれている部分はREPLの場合と同じ、<code>println(&quot;Hello, World!&quot;)</code> ですね。 これを<em>HelloWorld.scala</em>という名前のファイルに保存します。</p>
+<p><code>object</code>や<code>def</code>といった新しいキーワードが出てきましたね。これらの詳しい意味はあとで説明するので、ここでは、<code>scalac</code>でコンパイルするプログラムはこのような形で定義するものと思ってください。<code>{}</code>で囲まれている部分はREPLの場合と同じ、<code>println("Hello, World!")</code> ですね。 これを<em>HelloWorld.scala</em>という名前のファイルに保存します。</p>
 <p>上記のプログラムはsbtでコンパイルし、実行することができます。ここでは<em>sandbox</em>というディレクトリを作成し、そこにプログラムを置くことにしましょう。</p>
 <pre><code>sandbox
 ├── HelloWorld.scala
@@ -473,9 +473,9 @@
 </code></pre><p>以上のようにファイルを置きます。</p>
 <p>今回の<em>build.sbt</em>にはScalaのバージョンと一緒に<code>scalac</code>の警告オプションも有効にしてみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-comment">// build.sbt</span>
-scalaVersion := <span class="hljs-string">&quot;2.13.15&quot;</span>
+scalaVersion := <span class="hljs-string">"2.13.15"</span>
 
-scalacOptions ++= <span class="hljs-type">Seq</span>(<span class="hljs-string">&quot;-deprecation&quot;</span>, <span class="hljs-string">&quot;-feature&quot;</span>, <span class="hljs-string">&quot;-unchecked&quot;</span>, <span class="hljs-string">&quot;-Xlint&quot;</span>)
+scalacOptions ++= <span class="hljs-type">Seq</span>(<span class="hljs-string">"-deprecation"</span>, <span class="hljs-string">"-feature"</span>, <span class="hljs-string">"-unchecked"</span>, <span class="hljs-string">"-Xlint"</span>)
 </code></pre>
 <p>この記述を加えることで<code>scalac</code>が</p>
 <ul>
@@ -502,7 +502,7 @@ scalacOptions ++= <span class="hljs-type">Seq</span>(<span class="hljs-string">&
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>(<span class="hljs-params">val name: <span class="hljs-type">String</span>, val age: <span class="hljs-type">Int</span></span>)</span>
 
 <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">User</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printUser</span></span>(user: <span class="hljs-type">User</span>) = println(user.name + <span class="hljs-string">&quot; &quot;</span> + user.age)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printUser</span></span>(user: <span class="hljs-type">User</span>) = println(user.name + <span class="hljs-string">" "</span> + user.age)
 }
 </code></pre>
 <p>この<em>User.scala</em>には<code>User</code>クラスと<code>User</code>オブジェクトがあり、<code>User</code>オブジェクトには<code>User</code>の情報を表示する<code>printUser</code>メソッドがあります（クラスやオブジェクトの詳細についてはこの後の節で説明します）。</p>
@@ -511,7 +511,7 @@ scalacOptions ++= <span class="hljs-type">Seq</span>(<span class="hljs-string">&
 ├── User.scala
 └── build.sbt
 </code></pre><p>この状態で<code>sbt console</code>でREPLを起動すると、REPLで<code>User</code>クラスや<code>User</code>オブジェクトを利用することができます。</p>
-<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> u = <span class="hljs-keyword">new</span> <span class="hljs-type">User</span>(<span class="hljs-string">&quot;dwango&quot;</span>, <span class="hljs-number">13</span>)
+<pre><code class="lang-scala">scala&gt; <span class="hljs-keyword">val</span> u = <span class="hljs-keyword">new</span> <span class="hljs-type">User</span>(<span class="hljs-string">"dwango"</span>, <span class="hljs-number">13</span>)
 u: <span class="hljs-type">User</span> = <span class="hljs-type">User</span>@<span class="hljs-number">20</span>daebd4
 
 scala&gt; <span class="hljs-type">User</span>.printUser(u)
@@ -564,7 +564,7 @@ dwango <span class="hljs-number">13</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"next":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"previous":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-compile-execute.md","mtime":"2024-10-03T09:03:14.766Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"next":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"previous":{"title":"Scalaの基本","level":"1.4","depth":1,"path":"basic.md","ref":"basic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"sbt-compile-execute.md","mtime":"2024-10-03T21:16:04.033Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

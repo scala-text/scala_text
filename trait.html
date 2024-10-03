@@ -6,7 +6,7 @@
         <title>トレイト · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -532,10 +532,10 @@
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span>(<span class="hljs-params">val name: <span class="hljs-type">String</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span></span>
 
 <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ObjectA</span> </span>{
-  <span class="hljs-keyword">val</span> a = <span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>(<span class="hljs-string">&quot;dwango&quot;</span>)
+  <span class="hljs-keyword">val</span> a = <span class="hljs-keyword">new</span> <span class="hljs-type">ClassA</span>(<span class="hljs-string">"dwango"</span>)
 
   <span class="hljs-comment">// name を上書きするような実装を与えてもよい</span>
-  <span class="hljs-keyword">val</span> a2 = <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span> { <span class="hljs-keyword">val</span> name = <span class="hljs-string">&quot;kadokawa&quot;</span> }
+  <span class="hljs-keyword">val</span> a2 = <span class="hljs-keyword">new</span> <span class="hljs-type">TraitA</span> { <span class="hljs-keyword">val</span> name = <span class="hljs-string">"kadokawa"</span> }
 }
 </code></pre>
 <p>以上のようにトレイトの制限は実用上ほとんど問題にならないようなものであり、その他の点ではクラスと同じように使うことができます。つまり実質的に多重継承と同じようなことができるわけです。そしてトレイトのミックスインはモジュラリティに大きな恩恵をもたらします。是非使いこなせるようになりましょう。</p>
@@ -554,11 +554,11 @@
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"Good morning!"</span>)
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"Good evening!"</span>)
 }
 </code></pre>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
@@ -577,7 +577,7 @@
 <p>Scalaではoverride指定なしの場合メソッド定義の衝突はエラーになります。</p>
 <p>この場合の1つの解法は、コンパイルエラーに「Note: this can be resolved by declaring an override in class ClassA.」とあるように<code>ClassA</code>で<code>greet</code>をoverrideすることです。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span> </span>{
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;How are you?&quot;</span>)
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"How are you?"</span>)
 }
 </code></pre>
 <p>このとき<code>ClassA</code>で<code>super</code>に型を指定してメソッドを呼びだすことで、<code>TraitB</code>や<code>TraitC</code>のメソッドを指定して使うこともできます。</p>
@@ -611,11 +611,11 @@
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good morning!&quot;</span>)
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"Good morning!"</span>)
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Good evening!&quot;</span>)
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"Good evening!"</span>)
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">with</span> <span class="hljs-title">TraitC</span></span>
@@ -632,20 +632,20 @@
 Good morning!
 </code></pre><p><code>super</code>を使うことで線形化された親トレイトを使うこともできます</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitA</span> </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;Hello!&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"Hello!"</span>)
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
-    println(<span class="hljs-string">&quot;My name is Terebi-chan.&quot;</span>)
+    println(<span class="hljs-string">"My name is Terebi-chan."</span>)
   }
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">TraitC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TraitA</span> </span>{
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span></span>(): <span class="hljs-type">Unit</span> = {
     <span class="hljs-keyword">super</span>.greet()
-    println(<span class="hljs-string">&quot;I like niconico.&quot;</span>)
+    println(<span class="hljs-string">"I like niconico."</span>)
   }
 }
 
@@ -672,11 +672,11 @@ Good morning!
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span> </span>{
-  <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">&quot;World&quot;</span>
+  <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">"World"</span>
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> </span>{
-  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">&quot;Hello&quot;</span>
+  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">"Hello"</span>
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span></span>(): <span class="hljs-type">Unit</span> = println(bar)
 }
@@ -685,7 +685,7 @@ Good morning!
 <pre><code class="lang-scala">(<span class="hljs-keyword">new</span> <span class="hljs-type">C</span>).printBar()
 <span class="hljs-comment">// nullWorld</span>
 </code></pre>
-<p><code>nullWorld</code>と表示されてしまいました。クラス<code>C</code>で<code>foo</code>に代入した値が反映されていないようです。どうしてこのようなことが起きるかというと、Scalaのクラスおよびトレイトはスーパークラスから順番に初期化されるからです。この例で言えば、クラス<code>C</code>はトレイト<code>B</code>を継承し、トレイト<code>B</code>はトレイト<code>A</code>を継承しています。つまり初期化はトレイト<code>A</code>が一番先におこなわれ、変数<code>foo</code>が宣言され、中身は何も代入されていないので、nullになります。次にトレイト<code>B</code>で変数<code>bar</code>が宣言され<code>null</code>である<code>foo</code>と&quot;World&quot;という文字列から<code>&quot;nullWorld&quot;</code>という文字列が作られ、変数<code>bar</code>に代入されます。先ほど表示された文字列はこれになります。</p>
+<p><code>nullWorld</code>と表示されてしまいました。クラス<code>C</code>で<code>foo</code>に代入した値が反映されていないようです。どうしてこのようなことが起きるかというと、Scalaのクラスおよびトレイトはスーパークラスから順番に初期化されるからです。この例で言えば、クラス<code>C</code>はトレイト<code>B</code>を継承し、トレイト<code>B</code>はトレイト<code>A</code>を継承しています。つまり初期化はトレイト<code>A</code>が一番先におこなわれ、変数<code>foo</code>が宣言され、中身は何も代入されていないので、nullになります。次にトレイト<code>B</code>で変数<code>bar</code>が宣言され<code>null</code>である<code>foo</code>と"World"という文字列から<code>"nullWorld"</code>という文字列が作られ、変数<code>bar</code>に代入されます。先ほど表示された文字列はこれになります。</p>
 <h3 id="トレイトのvalの初期化順序の回避方法"><a name="トレイトのvalの初期化順序の回避方法" class="plugin-anchor" href="#トレイトのvalの初期化順序の回避方法"><i class="fa fa-link" aria-hidden="true"></i></a>トレイトの<code>val</code>の初期化順序の回避方法</h3>
 <p>では、この罠はどうやれば回避できるのでしょうか。上記の例で言えば、使う前にちゃんと<code>foo</code>が初期化されるように、<code>bar</code>の初期化を遅延させることです。処理を遅延させるには<code>lazy val</code>か<code>def</code>を使います。</p>
 <p>具体的なコードを見てみましょう。</p>
@@ -694,11 +694,11 @@ Good morning!
 }
 
 <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span> </span>{
-  <span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">&quot;World&quot;</span> <span class="hljs-comment">// もしくは def bar でもよい</span>
+  <span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> bar = foo + <span class="hljs-string">"World"</span> <span class="hljs-comment">// もしくは def bar でもよい</span>
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">B</span> </span>{
-  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">&quot;Hello&quot;</span>
+  <span class="hljs-keyword">val</span> foo = <span class="hljs-string">"Hello"</span>
 
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printBar</span></span>(): <span class="hljs-type">Unit</span> = println(bar)
 }
@@ -756,7 +756,7 @@ Good morning!
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"トレイト","level":"1.11","depth":1,"next":{"title":"型パラメータと変位指定","level":"1.12","depth":1,"path":"type-parameter.md","ref":"type-parameter.md","articles":[]},"previous":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"trait.md","mtime":"2024-10-03T09:03:15.616Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"トレイト","level":"1.11","depth":1,"next":{"title":"型パラメータと変位指定","level":"1.12","depth":1,"path":"type-parameter.md","ref":"type-parameter.md","articles":[]},"previous":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"trait.md","mtime":"2024-10-03T21:16:04.845Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

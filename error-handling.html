@@ -6,7 +6,7 @@
         <title>エラー処理 · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -545,11 +545,11 @@ Option型には具体的には</p>
 <p>以上2つの具体的な値が存在します。<code>Some</code>は何かしらの値が格納されている時の<code>Option</code>の型、
 <code>None</code>は値が何も格納されていない時の<code>Option</code>の型です。</p>
 <p>具体的な動きを見てみましょう。<code>Option</code>に具体的な値が入った場合は以下の様な動きをします。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> o: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Option</span>(<span class="hljs-string">&quot;hoge&quot;</span>)
-<span class="hljs-comment">// o: Option[String] = Some(value = &quot;hoge&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> o: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Option</span>(<span class="hljs-string">"hoge"</span>)
+<span class="hljs-comment">// o: Option[String] = Some(value = "hoge")</span>
 
 o.get
-<span class="hljs-comment">// res0: String = &quot;hoge&quot;</span>
+<span class="hljs-comment">// res0: String = "hoge"</span>
 
 o.isEmpty
 <span class="hljs-comment">// res1: Boolean = false</span>
@@ -571,23 +571,23 @@ o.isDefined
 </code></pre>
 <p>Optionのコンパニオンオブジェクトのapplyには引数がnullであるかどうかのチェックが入っており、引数がnullの場合、値がNoneになります。
 <code>get</code>メソッドを叩いた時に、<code>java.util.NoSuchElementException</code>という例外が起こっているので、これがNPEと同じだと思うかもしれません。しかしOptionには以下の様な便利メソッドがあり、それらを回避することができます。</p>
-<pre><code class="lang-scala">o.getOrElse(<span class="hljs-string">&quot;&quot;</span>)
-<span class="hljs-comment">// res5: String = &quot;&quot;</span>
+<pre><code class="lang-scala">o.getOrElse(<span class="hljs-string">""</span>)
+<span class="hljs-comment">// res5: String = ""</span>
 </code></pre>
 <p>以上は<code>Option[String]</code>の中身が<code>None</code>だった場合に、空文字を返すというコードになります。値以外にも処理を書くこともできます。</p>
-<pre><code class="lang-scala">o.getOrElse(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;nullは受け入れられません&quot;</span>))
+<pre><code class="lang-scala">o.getOrElse(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">"nullは受け入れられません"</span>))
 </code></pre>
 <p>このように書くこともできるのです。</p>
 <h4 id="optionのパターンマッチ"><a name="optionのパターンマッチ" class="plugin-anchor" href="#optionのパターンマッチ"><i class="fa fa-link" aria-hidden="true"></i></a>Optionのパターンマッチ</h4>
 <p>上記では、手続き的にOptionを処理しましたが、型を持っているためパターンマッチを使って処理することもできます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> s: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(<span class="hljs-string">&quot;hoge&quot;</span>)
-<span class="hljs-comment">// s: Option[String] = Some(value = &quot;hoge&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> s: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(<span class="hljs-string">"hoge"</span>)
+<span class="hljs-comment">// s: Option[String] = Some(value = "hoge")</span>
 
 <span class="hljs-keyword">val</span> result = s <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(str) =&gt; str
-  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-string">&quot;not matched&quot;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-string">"not matched"</span>
 }
-<span class="hljs-comment">// result: String = &quot;hoge&quot;</span>
+<span class="hljs-comment">// result: String = "hoge"</span>
 </code></pre>
 <p>上記のようにSomeかNoneにパターンマッチを行い、Someにパターンマッチする場合には、その中身の値で<code>str</code>という別の変数を束縛することもできます。</p>
 <p>中身を取りだすのではなく、中身で変数を束縛するというテクニックは、<code>List</code>のパターンマッチでも行うことができますが、全く同様のことがOptionでもできます。</p>
@@ -658,7 +658,7 @@ v1.map(i1 =&gt; v2.map(i2 =&gt; i1 * i2)).flatten
 <h4 id="error_handling_ex1"><a name="error_handling_ex1" class="plugin-anchor" href="#error_handling_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h4>
 <p><code>map</code>と<code>flatten</code>を利用して、
 <code>Some(2)</code>と<code>Some(3)</code>と<code>Some(5)</code>と<code>Some(7)</code>と<code>Some(11)</code>の値をかけて、<code>Some(2310)</code>を求めてみましょう。</p>
-<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex1').style.display='block'; document.getElementById('answer_ex1_show_answer_button').style.display='none'; document.getElementById('answer_ex1_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex1').style.display='none'; document.getElementById('answer_ex1_show_answer_button').style.display='block'; document.getElementById('answer_ex1_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
@@ -713,7 +713,7 @@ v1.flatMap(i1 =&gt; v2.flatMap(i2 =&gt; v3.map(i3 =&gt; i1 * i2 * i3)))
 <h4 id="error_handling_ex2"><a name="error_handling_ex2" class="plugin-anchor" href="#error_handling_ex2"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h4>
 <p><code>flatMap</code>と<code>map</code>を利用して、
 <code>Some(2)</code>と<code>Some(3)</code>と<code>Some(5)</code>と<code>Some(7)</code>と<code>Some(11)</code>の値をかけて、<code>Some(2310)</code>を求めてみましょう。</p>
-<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
+<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex2').style.display='block'; document.getElementById('answer_ex2_show_answer_button').style.display='none'; document.getElementById('answer_ex2_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex2').style.display='none'; document.getElementById('answer_ex2_show_answer_button').style.display='block'; document.getElementById('answer_ex2_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
@@ -755,7 +755,7 @@ for式は実際には<code>flatMap</code>と<code>map</code>展開されて実�
 <h4 id="error_handling_ex3"><a name="error_handling_ex3" class="plugin-anchor" href="#error_handling_ex3"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h4>
 <p><code>for</code>を利用して、
 <code>Some(2)</code>と<code>Some(3)</code>と<code>Some(5)</code>と<code>Some(7)</code>と<code>Some(11)</code>の値をかけて、<code>Some(2310)</code>を求めてみましょう。</p>
-<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
+<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex3').style.display='block'; document.getElementById('answer_ex3_show_answer_button').style.display='none'; document.getElementById('answer_ex3_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex3').style.display='none'; document.getElementById('answer_ex3_show_answer_button').style.display='block'; document.getElementById('answer_ex3_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
@@ -776,8 +776,8 @@ Optionが正常な値と何もない値のどちらかを表現するデータ�
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">123</span>)
 <span class="hljs-comment">// v1: Either[String, Int] = Right(value = 123)</span>
 
-<span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">&quot;abc&quot;</span>)
-<span class="hljs-comment">// v2: Either[String, Int] = Left(value = &quot;abc&quot;)</span>
+<span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">"abc"</span>)
+<span class="hljs-comment">// v2: Either[String, Int] = Left(value = "abc")</span>
 </code></pre>
 <p>パターンマッチで値を取得できるのもOptionと同じです。</p>
 <pre><code class="lang-scala">v1 <span class="hljs-keyword">match</span> {
@@ -787,7 +787,7 @@ Optionが正常な値と何もない値のどちらかを表現するデータ�
 <span class="hljs-comment">// 123</span>
 </code></pre>
 <h4 id="eitherでエラー値を表現する"><a name="eitherでエラー値を表現する" class="plugin-anchor" href="#eitherでエラー値を表現する"><i class="fa fa-link" aria-hidden="true"></i></a>Eitherでエラー値を表現する</h4>
-<p>一般的にEitherを使う場合、Left値をエラー値、Right値を正常な値とみなすことが多いです。英語の&quot;right&quot;が正しいという意味なので、それにかけているという説があります。そしてLeftに用いるエラー値ですが、これは代数的データ型（sealed traitまたはsealed abstract classとcase classで構成される一連のデータと型のこと）で定義するとよいでしょう。パターンマッチの節で解説したように代数的データ型を用いることでエラーの処理が漏れているかどうかをコンパイラが検知してくれるようになります。単に<code>Throwable</code>型をエラー型に使うのなら後述のTryで十分です。</p>
+<p>一般的にEitherを使う場合、Left値をエラー値、Right値を正常な値とみなすことが多いです。英語の"right"が正しいという意味なので、それにかけているという説があります。そしてLeftに用いるエラー値ですが、これは代数的データ型（sealed traitまたはsealed abstract classとcase classで構成される一連のデータと型のこと）で定義するとよいでしょう。パターンマッチの節で解説したように代数的データ型を用いることでエラーの処理が漏れているかどうかをコンパイラが検知してくれるようになります。単に<code>Throwable</code>型をエラー型に使うのなら後述のTryで十分です。</p>
 <p>例としてEitherを使ってログインのエラーを表現してみましょう。
 Leftの値となる<code>LoginError</code>を定義します。
 <code>sealed</code>を使って代数的データ型として定義するのがポイントです。</p>
@@ -808,9 +808,9 @@ Leftの値となる<code>LoginError</code>を定義します。
 </code></pre>
 <p><code>login</code>メソッドはユーザー名とパスワードをチェックして正しい組み合わせの場合は<code>User</code>オブジェクトをEitherのRightの値で返し、エラーが起きた場合は<code>LoginError</code>をEitherのLeftの値で返します。</p>
 <p>それでは、この<code>login</code>メソッドを使ってみましょう。</p>
-<pre><code class="lang-scala"><span class="hljs-type">LoginService</span>.login(name = <span class="hljs-string">&quot;dwango&quot;</span>, password = <span class="hljs-string">&quot;password&quot;</span>) <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-type">Right</span>(user) =&gt; println(<span class="hljs-string">s&quot;id: <span class="hljs-subst">${user.id}</span>&quot;</span>)
-  <span class="hljs-keyword">case</span> <span class="hljs-type">Left</span>(<span class="hljs-type">InvalidPassword</span>) =&gt; println(<span class="hljs-string">s&quot;Invalid Password!&quot;</span>)
+<pre><code class="lang-scala"><span class="hljs-type">LoginService</span>.login(name = <span class="hljs-string">"dwango"</span>, password = <span class="hljs-string">"password"</span>) <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Right</span>(user) =&gt; println(<span class="hljs-string">s"id: <span class="hljs-subst">${user.id}</span>"</span>)
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Left</span>(<span class="hljs-type">InvalidPassword</span>) =&gt; println(<span class="hljs-string">s"Invalid Password!"</span>)
 }
 </code></pre>
 <p>とりあえず呼び出して、<code>println</code>を使って中身を表示しているだけです。ここで注目していただきたいのが、Leftの値のパターンマッチです。
@@ -818,7 +818,7 @@ Leftの値となる<code>LoginError</code>を定義します。
 <p>試しに上のコードをコンパイルしてみると、</p>
 <pre><code class="lang-scala">&lt;console&gt;:<span class="hljs-number">11</span>: warning: <span class="hljs-keyword">match</span> may not be exhaustive.
 <span class="hljs-type">It</span> would fail on the following inputs: <span class="hljs-type">Left</span>(<span class="hljs-type">PasswordLocked</span>), <span class="hljs-type">Left</span>(<span class="hljs-type">UserNotFound</span>)
-              <span class="hljs-type">LoginService</span>.login(name = <span class="hljs-string">&quot;dwango&quot;</span>, password = <span class="hljs-string">&quot;password&quot;</span>) <span class="hljs-keyword">match</span> {
+              <span class="hljs-type">LoginService</span>.login(name = <span class="hljs-string">"dwango"</span>, password = <span class="hljs-string">"password"</span>) <span class="hljs-keyword">match</span> {
                                 ^
 </code></pre>
 <p>のようにコンパイラが<code>Left(PasswordLocked)</code>と<code>Left(UserNotFound)</code>の処理が漏れていることをwarningで教えてくれます。
@@ -834,18 +834,18 @@ EitherにはRight, Leftの2つの値がありますが、ScalaのEitherではRig
 v.map(_ * <span class="hljs-number">2</span>)
 <span class="hljs-comment">// res20: Either[String, Int] = Right(value = 246)</span>
 
-<span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">&quot;a&quot;</span>)
-<span class="hljs-comment">// v2: Either[String, Int] = Left(value = &quot;a&quot;)</span>
+<span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">"a"</span>)
+<span class="hljs-comment">// v2: Either[String, Int] = Left(value = "a")</span>
 v2.map(_ * <span class="hljs-number">2</span>) <span class="hljs-comment">// v2がLeftなので実行されない</span>
-<span class="hljs-comment">// res21: Either[String, Int] = Left(value = &quot;a&quot;)</span>
+<span class="hljs-comment">// res21: Either[String, Int] = Left(value = "a")</span>
 </code></pre>
 <p>これでmapを使って値を二倍にする関数をRightに適用できました。
 EitherがLeftの場合は何の処理もおこなわれません。これはOptionでNoneに対してmapを使った場合に何の処理もおこなわれないという動作に似ていますね。</p>
 <h3 id="名前渡しパラメータ"><a name="名前渡しパラメータ" class="plugin-anchor" href="#名前渡しパラメータ"><i class="fa fa-link" aria-hidden="true"></i></a>名前渡しパラメータ</h3>
 <p>少し寄り道をして、名前渡しパラメータ（by-name parameter）というScalaの機能を紹介します。これから紹介する<code>Try</code>型の実装などで使われている機能だからです。</p>
 <p>Scalaにおいては、メソッド実行前にはまず引数が評価され、次いでメソッド本体のコードが実行されます。次の例からも分かります。</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>(x: <span class="hljs-type">Any</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;f&quot;</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;g&quot;</span>)
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>(x: <span class="hljs-type">Any</span>): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"f"</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"g"</span>)
 f(g())
 <span class="hljs-comment">// g</span>
 <span class="hljs-comment">// f</span>
@@ -853,18 +853,18 @@ f(g())
 <p>ごく普通の挙動だと思います。Scalaに限らず、他の多くのプログラミング言語でも同様の実行順序となります。この評価順序のことを先行評価（eager evaluation）あるいは正格評価（strict evaluation）と呼びます。</p>
 <p>さて、時折この挙動を変更したい場合があります。名前渡しパラメータを使うと、
 <strong>変数が実際に使用される箇所まで評価を遅延させる</strong> ことができます。メソッド本体のそれが使われる箇所で引数の式が計算されるということです。次のようなコードを見ると分かりやすいと思います。</p>
-<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">&quot;g&quot;</span>)
+<pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span></span>(): <span class="hljs-type">Unit</span> = println(<span class="hljs-string">"g"</span>)
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>(g: =&gt; <span class="hljs-type">Unit</span>): <span class="hljs-type">Unit</span> = {
-  println(<span class="hljs-string">&quot;prologue f&quot;</span>)
+  println(<span class="hljs-string">"prologue f"</span>)
   g
-  println(<span class="hljs-string">&quot;epilogue f&quot;</span>)
+  println(<span class="hljs-string">"epilogue f"</span>)
 }
 f(g())
 <span class="hljs-comment">// prologue f</span>
 <span class="hljs-comment">// g</span>
 <span class="hljs-comment">// epilogue f</span>
 </code></pre>
-<p><code>&quot;g&quot;</code>の出力が関数の内側になっていることがわかると思います。メソッド<code>f</code>の引数の型に注目すると、型<code>Unit</code>の手前に<code>=&gt;</code>が付いています。これが名前渡しパラメータの指定を表します。</p>
+<p><code>"g"</code>の出力が関数の内側になっていることがわかると思います。メソッド<code>f</code>の引数の型に注目すると、型<code>Unit</code>の手前に<code>=&gt;</code>が付いています。これが名前渡しパラメータの指定を表します。</p>
 <p>名前渡しパラメータは次のような場合に使われます。</p>
 <ul>
 <li>引数の式が例外を投げるかもしれないので、<code>try-finally</code>構文の中で引数を評価したい</li>
@@ -881,7 +881,7 @@ Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowab
 <p>ここでSuccessは型変数を取り、任意の値を入れることができますが、FailureはThrowableしか入れることができません。そしてTryには、コンパニオンオブジェクトのapplyで生成する際に、例外をcatchし、Failureにする機能があります。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.util.<span class="hljs-type">Try</span>
 
-<span class="hljs-keyword">val</span> v: <span class="hljs-type">Try</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Try</span>(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">&quot;to be caught&quot;</span>))
+<span class="hljs-keyword">val</span> v: <span class="hljs-type">Try</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Try</span>(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">"to be caught"</span>))
 <span class="hljs-comment">// v: Try[Int] = Failure(exception = java.lang.RuntimeException: to be caught)</span>
 </code></pre>
 <p>この機能を使って、例外が起こりそうな箇所を<code>Try</code>で包み、Failureにして値として扱えるようにするのがTryの特徴です。</p>
@@ -942,14 +942,14 @@ Eitherと例外を併用するのもアリだと思います。</p>
   <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>(<span class="hljs-params">id: <span class="hljs-type">Int</span>, name: <span class="hljs-type">String</span>, addressId: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]</span>)</span>
 
   <span class="hljs-keyword">val</span> userDatabase: <span class="hljs-type">Map</span>[<span class="hljs-type">Int</span>, <span class="hljs-type">User</span>] = <span class="hljs-type">Map</span> (
-    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;太郎&quot;</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)),
-    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;二郎&quot;</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)),
-    <span class="hljs-number">3</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;プー太郎&quot;</span>, <span class="hljs-type">None</span>)
+    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">1</span>, <span class="hljs-string">"太郎"</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)),
+    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">2</span>, <span class="hljs-string">"二郎"</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)),
+    <span class="hljs-number">3</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">3</span>, <span class="hljs-string">"プー太郎"</span>, <span class="hljs-type">None</span>)
   )
 
   <span class="hljs-keyword">val</span> addressDatabase: <span class="hljs-type">Map</span>[<span class="hljs-type">Int</span>, <span class="hljs-type">Address</span>] = <span class="hljs-type">Map</span> (
-    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;渋谷&quot;</span>, <span class="hljs-type">Some</span>(<span class="hljs-string">&quot;150-0002&quot;</span>)),
-    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;国際宇宙ステーション&quot;</span>, <span class="hljs-type">None</span>)
+    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">1</span>, <span class="hljs-string">"渋谷"</span>, <span class="hljs-type">Some</span>(<span class="hljs-string">"150-0002"</span>)),
+    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">2</span>, <span class="hljs-string">"国際宇宙ステーション"</span>, <span class="hljs-type">None</span>)
   )
 
   <span class="hljs-keyword">sealed</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostalCodeResult</span></span>
@@ -1006,14 +1006,14 @@ Eitherと例外を併用するのもアリだと思います。</p>
   <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>(<span class="hljs-params">id: <span class="hljs-type">Int</span>, name: <span class="hljs-type">String</span>, addressId: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]</span>)</span>
 
   <span class="hljs-keyword">val</span> userDatabase: <span class="hljs-type">Map</span>[<span class="hljs-type">Int</span>, <span class="hljs-type">User</span>] = <span class="hljs-type">Map</span> (
-    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;太郎&quot;</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)),
-    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;二郎&quot;</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)),
-    <span class="hljs-number">3</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;プー太郎&quot;</span>, <span class="hljs-type">None</span>)
+    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">1</span>, <span class="hljs-string">"太郎"</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">1</span>)),
+    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">2</span>, <span class="hljs-string">"二郎"</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>)),
+    <span class="hljs-number">3</span> -&gt; <span class="hljs-type">User</span>(<span class="hljs-number">3</span>, <span class="hljs-string">"プー太郎"</span>, <span class="hljs-type">None</span>)
   )
 
   <span class="hljs-keyword">val</span> addressDatabase: <span class="hljs-type">Map</span>[<span class="hljs-type">Int</span>, <span class="hljs-type">Address</span>] = <span class="hljs-type">Map</span> (
-    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;渋谷&quot;</span>, <span class="hljs-type">Some</span>(<span class="hljs-string">&quot;150-0002&quot;</span>)),
-    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;国際宇宙ステーション&quot;</span>, <span class="hljs-type">None</span>)
+    <span class="hljs-number">1</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">1</span>, <span class="hljs-string">"渋谷"</span>, <span class="hljs-type">Some</span>(<span class="hljs-string">"150-0002"</span>)),
+    <span class="hljs-number">2</span> -&gt; <span class="hljs-type">Address</span>(<span class="hljs-number">2</span>, <span class="hljs-string">"国際宇宙ステーション"</span>, <span class="hljs-type">None</span>)
   )
 
   <span class="hljs-keyword">sealed</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostalCodeResult</span></span>
@@ -1113,7 +1113,7 @@ for式で値を取得した後、mergeメソッドにより中身を畳み込ん
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2024-10-03T09:03:11.965Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2024-10-03T21:16:01.315Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

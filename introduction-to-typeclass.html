@@ -6,7 +6,7 @@
         <title>型クラスへの誘い · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -605,12 +605,12 @@ assert(<span class="hljs-number">3</span> == median(<span class="hljs-type">List
 string(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) <span class="hljs-comment">// [1,2,3]</span>
 string(<span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>),<span class="hljs-type">List</span>(<span class="hljs-number">2</span>),<span class="hljs-type">List</span>(<span class="hljs-number">3</span>)) <span class="hljs-comment">// [[1],[2],[3]]</span>
 string(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span>
-string(<span class="hljs-string">&quot;Foo&quot;</span>) <span class="hljs-comment">// Foo</span>
+string(<span class="hljs-string">"Foo"</span>) <span class="hljs-comment">// Foo</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span></span>)</span>
 string(<span class="hljs-keyword">new</span> <span class="hljs-type">MyClass</span>(<span class="hljs-number">1</span>)) <span class="hljs-comment">// Compile Error!</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyKlass</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span></span>)</span>
 <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MyKlassSerializer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Serializer</span>[<span class="hljs-type">MyKlass</span>] </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span></span>(klass: <span class="hljs-type">MyKlass</span>): <span class="hljs-type">String</span> = <span class="hljs-string">s&quot;MyKlass(<span class="hljs-subst">${klass.x}</span>)&quot;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span></span>(klass: <span class="hljs-type">MyKlass</span>): <span class="hljs-type">String</span> = <span class="hljs-string">s"MyKlass(<span class="hljs-subst">${klass.x}</span>)"</span>
 }
 string(<span class="hljs-keyword">new</span> <span class="hljs-type">MyKlass</span>(<span class="hljs-number">1</span>)) <span class="hljs-comment">// OK</span>
 </code></pre>
@@ -667,7 +667,7 @@ implicit parameterを必要としているはずです。また、引数は <cod
   <span class="hljs-keyword">new</span> <span class="hljs-type">Serializer</span>[<span class="hljs-type">List</span>[<span class="hljs-type">A</span>]] {
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span></span>(obj: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">String</span> = {
       <span class="hljs-keyword">val</span> serializedList = obj.map{o =&gt; serializer.serialize(o)}
-      serializedList.mkString(<span class="hljs-string">&quot;[&quot;</span>,<span class="hljs-string">&quot;,&quot;</span>,<span class="hljs-string">&quot;]&quot;</span>)
+      serializedList.mkString(<span class="hljs-string">"["</span>,<span class="hljs-string">","</span>,<span class="hljs-string">"]"</span>)
     }
   }
 </code></pre>
@@ -689,27 +689,27 @@ implicit parameterを必要としているはずです。また、引数は <cod
   <span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ListSerializer</span></span>[<span class="hljs-type">A</span>](<span class="hljs-keyword">implicit</span> serializer: <span class="hljs-type">Serializer</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">Serializer</span>[<span class="hljs-type">List</span>[<span class="hljs-type">A</span>]] = <span class="hljs-keyword">new</span> <span class="hljs-type">Serializer</span>[<span class="hljs-type">List</span>[<span class="hljs-type">A</span>]]{
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span></span>(obj: <span class="hljs-type">List</span>[<span class="hljs-type">A</span>]): <span class="hljs-type">String</span> = {
       <span class="hljs-keyword">val</span> serializedList = obj.map{o =&gt; serializer.serialize(o)}
-      serializedList.mkString(<span class="hljs-string">&quot;[&quot;</span>,<span class="hljs-string">&quot;,&quot;</span>,<span class="hljs-string">&quot;]&quot;</span>)
+      serializedList.mkString(<span class="hljs-string">"["</span>,<span class="hljs-string">","</span>,<span class="hljs-string">"]"</span>)
     }
   }
 }
 <span class="hljs-keyword">import</span> <span class="hljs-type">Serializers</span>._
 string(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) <span class="hljs-comment">// [1,2,3]</span>
-<span class="hljs-comment">// res7: String = &quot;[1,2,3]&quot;</span>
+<span class="hljs-comment">// res7: String = "[1,2,3]"</span>
 string(<span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-number">1</span>),<span class="hljs-type">List</span>(<span class="hljs-number">2</span>),<span class="hljs-type">List</span>(<span class="hljs-number">3</span>))) <span class="hljs-comment">// [[1],[2],[3]]</span>
-<span class="hljs-comment">// res8: String = &quot;[[1],[2],[3]]&quot;</span>
+<span class="hljs-comment">// res8: String = "[[1],[2],[3]]"</span>
 string(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span>
-<span class="hljs-comment">// res9: String = &quot;1&quot;</span>
-string(<span class="hljs-string">&quot;Foo&quot;</span>) <span class="hljs-comment">// Foo</span>
-<span class="hljs-comment">// res10: String = &quot;Foo&quot;</span>
+<span class="hljs-comment">// res9: String = "1"</span>
+string(<span class="hljs-string">"Foo"</span>) <span class="hljs-comment">// Foo</span>
+<span class="hljs-comment">// res10: String = "Foo"</span>
 <span class="hljs-comment">// class MyClass(val x: Int)</span>
 <span class="hljs-comment">// string(new MyClass(1)) // Compile Error!</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyKlass</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span></span>)</span>
 <span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MyKlassSerializer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Serializer</span>[<span class="hljs-type">MyKlass</span>] </span>{
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span></span>(klass: <span class="hljs-type">MyKlass</span>): <span class="hljs-type">String</span> = <span class="hljs-string">s&quot;MyKlass(<span class="hljs-subst">${klass.x}</span>)&quot;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span></span>(klass: <span class="hljs-type">MyKlass</span>): <span class="hljs-type">String</span> = <span class="hljs-string">s"MyKlass(<span class="hljs-subst">${klass.x}</span>)"</span>
 }
 string(<span class="hljs-keyword">new</span> <span class="hljs-type">MyKlass</span>(<span class="hljs-number">1</span>)) <span class="hljs-comment">// OK</span>
-<span class="hljs-comment">// res11: String = &quot;MyKlass(1)&quot;</span>
+<span class="hljs-comment">// res11: String = "MyKlass(1)"</span>
 </code></pre>
 <p>行コメントに書いた想定通りの動作をしていることがわかります。ここで重要なのは、 <code>MyClass</code> に対しては <code>Serializer</code> を定義していないので、コンパイルエラーになる点です。多くの言語のシリアライズライブラリでは、リフレクションを駆使してシリアライズしようとするため、実行時になって初めてエラーがわかることが多いです。特に、静的型付き言語では、そのような場合、型によって安全を保証できないのはデメリットです。一方、今回用いた手法では、後付けでシリアライズする型を追加でき、かつコンパイル時にその正当性を検査できるのです。</p>
 <h2 id="まとめ"><a name="まとめ" class="plugin-anchor" href="#まとめ"><i class="fa fa-link" aria-hidden="true"></i></a>まとめ</h2>
@@ -763,7 +763,7 @@ string(<span class="hljs-keyword">new</span> <span class="hljs-type">MyKlass</sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"型クラスへの誘い","level":"1.18","depth":1,"next":{"title":"FutureとPromise","level":"1.19","depth":1,"path":"future-and-promise.md","ref":"future-and-promise.md","articles":[]},"previous":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"introduction-to-typeclass.md","mtime":"2024-10-03T09:03:13.976Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"型クラスへの誘い","level":"1.18","depth":1,"next":{"title":"FutureとPromise","level":"1.19","depth":1,"path":"future-and-promise.md","ref":"future-and-promise.md","articles":[]},"previous":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"introduction-to-typeclass.md","mtime":"2024-10-03T21:16:03.359Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

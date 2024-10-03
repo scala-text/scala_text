@@ -6,7 +6,7 @@
         <title>IDE(IntelliJ IDEA) · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -462,22 +462,22 @@ IDEを使うとより開発が楽になります。ここではIntelliJ IDEA + S
 <p>IntelliJ IDEAは<a href="https://www.jetbrains.com/" target="_blank">JetBrains社</a>が開発しているIDEで、Java用
 IDEとして根強い人気を誇っています。有料ですが多機能のUltimate Editionやオープンソースで無料のCommunity Editionがあります。Community Editionでも、ScalaプラグインをインストールすることでScala開発をすることができるので、本稿ではCommunity Editionをインストールしてもらいます。</p>
 <p>まず、IntelliJ IDEAの<a href="https://www.jetbrains.com/idea/download/" target="_blank">Downloadページ</a>に移動します。Windows, Mac OS X, Linuxの3つのタブがあるので、それぞれのOSに応じたタブを選択して、「Download Community」ボタンをクリックしてください。以降、IDEAのスクリーンショットがでてきますが、都合上、Mac OS X上でのスクリーンショットであることをご承知ください。</p>
-<p><img src="img/IntelliJ_IDEA_Download.png" alt="IntelliJ IDEAのダウンロードページ"></p>
+<p><img src="img/IntelliJ_IDEA_Download.png" alt="IntelliJ IDEAのダウンロードページ"></img></p>
 <p>ボタンをクリックすると、<code>ideaIC-${version}.dmg</code>（<code>${version}</code>はその時点でのIDEAのバージョン）というファイルのダウンロードが始まるので（Windowsの場合、インストーラのexeファイル）、ダウンロードが終わるのを待ちます。ダウンロードが終了したら、ファイルをダブルクリックして、指示にしたがってインストールします。</p>
-<p><img src="img/IntelliJ_IDEA_Install.png" alt="IntelliJ IDEAのインストール"></p>
+<p><img src="img/IntelliJ_IDEA_Install.png" alt="IntelliJ IDEAのインストール"></img></p>
 <p>インストールが終わったら起動します。スプラッシュスクリーンが現れてしばらく待つと、</p>
-<p><img src="img/IntelliJ_IDEA_Startup.png" alt="IntelliJ IDEAの起動画面"></p>
+<p><img src="img/IntelliJ_IDEA_Startup.png" alt="IntelliJ IDEAの起動画面"></img></p>
 <p>のような画面が表示されるはずです。ここまでで、IDEAのインストールは完了です。次に、IDEAの
 Scalaプラグインをインストールする必要があります。起動画面の<code>Configure-&gt;Plugins</code>をクリックしてください。</p>
-<p><img src="img/IntelliJ_IDEA_Startup_Configure.png" alt="IntelliJ IDEAの起動画面のConfigure"></p>
+<p><img src="img/IntelliJ_IDEA_Startup_Configure.png" alt="IntelliJ IDEAの起動画面のConfigure"></img></p>
 <p>次のような画面が現れるので、その中の「Browse repositories」をクリックします。</p>
-<p><img src="img/IntelliJ_IDEA_Plugins.png" alt="IntelliJ IDEAのPluginsの画面"></p>
+<p><img src="img/IntelliJ_IDEA_Plugins.png" alt="IntelliJ IDEAのPluginsの画面"></img></p>
 <p>インストール可能なプラグインの一覧が現れるので、検索窓から<code>scala</code>で絞り込みをかけて、「Install」でインストールします（スクリーンショット参照）</p>
-<p><img src="img/IntelliJ_IDEA_Browse_Repositories.png" alt="IntelliJ IDEAのBrowse Repositoriesの画面"></p>
+<p><img src="img/IntelliJ_IDEA_Browse_Repositories.png" alt="IntelliJ IDEAのBrowse Repositoriesの画面"></img></p>
 <p>Scalaプラグインのダウンロード・インストールには若干時間がかかるのでしばらく待ちます。ダウンロード・インストールが完了したら、次のような画面が現れるので、「Restart IntelliJ IDEA」をクリックします。</p>
-<p><img src="img/IntelliJ_IDEA_Plugins_Changed.png" alt="IntelliJ IDEAの再起動"></p>
+<p><img src="img/IntelliJ_IDEA_Plugins_Changed.png" alt="IntelliJ IDEAの再起動"></img></p>
 <p>再起動後、起動画面で「Create New Project」をクリックし、次の画面のようになっていればインストールは成功です。</p>
-<p><img src="img/IntelliJ_IDEA_New_Project.png" alt="IntelliJ IDEAのCreate New Project"></p>
+<p><img src="img/IntelliJ_IDEA_New_Project.png" alt="IntelliJ IDEAのCreate New Project"></img></p>
 <h2 id="sbtプロジェクトのインポート"><a name="sbtプロジェクトのインポート" class="plugin-anchor" href="#sbtプロジェクトのインポート"><i class="fa fa-link" aria-hidden="true"></i></a>sbtプロジェクトのインポート</h2>
 <p>次に、単純なsbtプロジェクトをIntelliJ IDEAにインポートしてみます。今回は、あらかじめ用意しておいた<code>scala-sandbox</code>プロジェクトを使います。<code>scala-sandbox</code>プロジェクトは
 <a href="https://github.com/scala-text/scala-sandbox" target="_blank">ここ</a>から<code>git clone</code>でcloneします。
@@ -488,21 +488,21 @@ Scalaプラグインをインストールする必要があります。起動画
 └── build.sbt
 </code></pre><p>この<code>scala-sandbox</code>ディレクトリをプロジェクトとしてIntelliJ IDEAに取り込みます。</p>
 <p>まず、IntelliJ IDEAの起動画面から、「Import Project」を選択します。</p>
-<p><img src="img/IntelliJ_IDEA_Import_Project.png" alt="Import Project"></p>
+<p><img src="img/IntelliJ_IDEA_Import_Project.png" alt="Import Project"></img></p>
 <p>次に、以下のような画面が表示されるので、build.sbtをクリックして、OKします。</p>
-<p><img src="img/IntelliJ_IDEA_Select_File_Or_Directory_To_Import.png" alt="Select File or Directory to Import"></p>
+<p><img src="img/IntelliJ_IDEA_Select_File_Or_Directory_To_Import.png" alt="Select File or Directory to Import"></img></p>
 <p>すると、さらに次のような画面が表示されます。「Project JDK」が空の場合がありますが、その場合は、「New」を選択して自分で、JDKのホームディレクトリにあるJDKを指定します。</p>
-<p><img src="img/IntelliJ_IDEA_Import_Project_From_SBT.png" alt="Import Project From SBT.png"></p>
+<p><img src="img/IntelliJ_IDEA_Import_Project_From_SBT.png" alt="Import Project From SBT.png"></img></p>
 <p>最後に、OKします。最初は、sbt自体のソースを取得などするため時間がかかりますが、しばらく待つとプロジェクト画面が開きます。そこから、<em>HelloWorld.scala</em>を選んでダブルクリックして、以下のように表示されれば成功です。</p>
-<p><img src="img/IntelliJ_IDEA_Editor_Hello_World.png" alt="Hello World.png)"></p>
+<p><img src="img/IntelliJ_IDEA_Editor_Hello_World.png" alt="Hello World.png)"></img></p>
 <p>このように、IntelliJ IDEAでは、sbtのプロジェクトをインポートしてIDE内で編集することができます。</p>
 <h2 id="プログラムを実行する"><a name="プログラムを実行する" class="plugin-anchor" href="#プログラムを実行する"><i class="fa fa-link" aria-hidden="true"></i></a>プログラムを実行する</h2>
 <p>最後に、このHelloWorldプログラムを実行します。<em>HelloWorld.scala</em>をIDEのエディタで開いた状態でメニューから<code>Run -&gt; Run</code>と選択します。</p>
-<p><img src="img/IntelliJ_IDEA_Run_Menu.png" alt="Run Menu"></p>
+<p><img src="img/IntelliJ_IDEA_Run_Menu.png" alt="Run Menu"></img></p>
 <p>次のような画面が現れるので、<strong>Hello World</strong>を選択します。</p>
-<p><img src="img/IntelliJ_IDEA_Edit_Configuration_Hello_World.png" alt="Select Hello World"></p>
+<p><img src="img/IntelliJ_IDEA_Edit_Configuration_Hello_World.png" alt="Select Hello World"></img></p>
 <p>すると、Hello Worldプログラムの最初のコンパイルが始まるので少し待ちます。その後、次のような画面が表示されたら成功です。</p>
-<p><img src="img/IntelliJ_IDEA_Run_Hello_World.png" alt="Run Hello World"></p>
+<p><img src="img/IntelliJ_IDEA_Run_Hello_World.png" alt="Run Hello World"></img></p>
 </body></html>
                                 
                                 </section>
@@ -546,7 +546,7 @@ Scalaプラグインをインストールする必要があります。起動画
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"next":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"previous":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"path":"sbt-compile-execute.md","ref":"sbt-compile-execute.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"IDE.md","mtime":"2024-10-03T09:02:58.904Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"next":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"previous":{"title":"sbtでプログラムをコンパイル・実行する","level":"1.5","depth":1,"path":"sbt-compile-execute.md","ref":"sbt-compile-execute.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"IDE.md","mtime":"2024-10-03T21:15:48.693Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

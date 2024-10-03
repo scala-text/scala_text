@@ -6,7 +6,7 @@
         <title>クラス · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -459,7 +459,7 @@
 <p>これからScalaにおけるクラス定義に関して説明します。他のオブジェクト指向言語のクラスをある程度知っていることを前提としていますが、ご了承ください。</p>
 <h2 id="クラス定義"><a name="クラス定義" class="plugin-anchor" href="#クラス定義"><i class="fa fa-link" aria-hidden="true"></i></a>クラス定義</h2>
 <p>Scalaのクラス定義は次のような形を取ります。</p>
-<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">&lt;クラス名&gt;</span> &apos;(<span class="hljs-params">&apos; (&lt;引数名1&gt; : &lt;引数型1&gt;, &lt;引数名2&gt;: &lt;引数型2&gt; ...</span>)<span class="hljs-title">?</span> &apos;)&apos; </span>{
+<pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">&lt;クラス名&gt;</span> '(<span class="hljs-params">' (&lt;引数名1&gt; : &lt;引数型1&gt;, &lt;引数名2&gt;: &lt;引数型2&gt; ...</span>)<span class="hljs-title">?</span> ')' </span>{
   (&lt;フィールド定義&gt; | &lt;メソッド定義&gt; )*
 }
 </code></pre>
@@ -482,19 +482,19 @@
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span></span>(p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
     <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x + p.x, y + p.y)
   }
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>(): <span class="hljs-type">String</span> = <span class="hljs-string">&quot;(&quot;</span> + x + <span class="hljs-string">&quot;, &quot;</span> + y + <span class="hljs-string">&quot;)&quot;</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>(): <span class="hljs-type">String</span> = <span class="hljs-string">"("</span> + x + <span class="hljs-string">", "</span> + y + <span class="hljs-string">")"</span>
 }
 </code></pre>
 <h2 id="メソッド定義"><a name="メソッド定義" class="plugin-anchor" href="#メソッド定義"><i class="fa fa-link" aria-hidden="true"></i></a>メソッド定義</h2>
 <p>先ほど既にメソッド定義の例として<code>+</code>メソッドの定義が出てきましたが、一般的には、次のような形をとります。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> &apos;</span>(&apos;
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
-&apos;)&apos;: &lt;返り値型&gt; = &lt;本体&gt;
+')': &lt;返り値型&gt; = &lt;本体&gt;
 </code></pre>
 <p>実際にはブロック式を使った以下の形式を取ることが多いでしょう。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> &apos;</span>(&apos;
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
-&apos;)&apos;: &lt;返り値型&gt; = {
+')': &lt;返り値型&gt; = {
   (&lt;式&gt; (; | &lt;改行&gt;)?)*
 }
 </code></pre>
@@ -505,7 +505,7 @@
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span></span>(p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
     <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x + p.x, y + p.y)
   }
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>(): <span class="hljs-type">String</span> = <span class="hljs-string">&quot;(&quot;</span> + x + <span class="hljs-string">&quot;, &quot;</span> + y + <span class="hljs-string">&quot;)&quot;</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>(): <span class="hljs-type">String</span> = <span class="hljs-string">"("</span> + x + <span class="hljs-string">", "</span> + y + <span class="hljs-string">")"</span>
 }
 
 <span class="hljs-keyword">val</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
@@ -519,11 +519,11 @@ p1 + p2
 </code></pre>
 <h2 id="複数の引数リストを持つメソッド"><a name="複数の引数リストを持つメソッド" class="plugin-anchor" href="#複数の引数リストを持つメソッド"><i class="fa fa-link" aria-hidden="true"></i></a>複数の引数リストを持つメソッド</h2>
 <p>メソッドは以下のように複数の引数リストを持つように定義することができます。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> &apos;</span>(&apos;
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
-&apos;)&apos;( &apos;(&apos;
+')'( '('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
-&apos;)&apos; )* : &lt;返り値型&gt; = &lt;本体式&gt;
+')' )* : &lt;返り値型&gt; = &lt;本体式&gt;
 </code></pre>
 <p>複数の引数リストを持つメソッドには、Scalaの糖衣構文と組み合わせて流暢なAPIを作ったり、後述するimplicit parameterのために必要になったり、型推論を補助するために使われたりといった用途があります。複数の引数リストを持つ加算メソッドを定義してみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Adder</span> </span>{
@@ -531,7 +531,7 @@ p1 + p2
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@662a84d8</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@46fc2ff3</span>
 
 adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res1: Int = 5</span>
@@ -548,7 +548,7 @@ fun(<span class="hljs-number">3</span>)
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@42454481</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@249c7e8d</span>
 
 adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-comment">// res3: Int = 5</span>
@@ -565,9 +565,9 @@ fun(<span class="hljs-number">3</span>)
 <p>という形を取ります。<code>val</code>の場合は変更不能、<code>var</code>の場合は変更可能なフィールドになります。また、<code>private</code>を付けるとそのクラス内だけから、<code>protected</code>を付けるとそのクラスの派生クラスからのみアクセスできるフィールドになります。 <code>private[this]</code> を付加すると、同じオブジェクトからのみアクセス可能になります。さらに、<code>private[&lt;パッケージ名&gt;]</code>を付けると同一パッケージからのみ、 <code>protected[パッケージ名]</code> をつけると、派生クラスに加えて同じパッケージに所属しているもの全てからアクセスできるようになります。 <code>private</code>も<code>protected</code>も付けない場合、そのフィールドはpublicとみなされます。</p>
 <h2 id="抽象メンバー"><a name="抽象メンバー" class="plugin-anchor" href="#抽象メンバー"><i class="fa fa-link" aria-hidden="true"></i></a>抽象メンバー</h2>
 <p>その時点では実装を書くことができず、後述する継承の際に、メソッドやフィールドの実装を与えたいということがあります。このような場合に対応するため、Scalaでは抽象メンバーを定義することができます。抽象メンバーは、メソッドの場合とフィールドの場合があり、メソッドの場合は次のようになります。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> &apos;</span>(&apos;
+<pre><code class="lang-scala">(<span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
-&apos;)&apos;: &lt;返り値型&gt;
+')': &lt;返り値型&gt;
 </code></pre>
 <p>フィールドの定義は次のようになります。</p>
 <pre><code class="lang-scala">(<span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? (<span class="hljs-keyword">val</span> | <span class="hljs-keyword">var</span>) &lt;フィールド名&gt;: &lt;フィールド型&gt;
@@ -591,13 +591,13 @@ Scalaではトレイトという仕組みで複数の実装の継承を実現し
 <p>Scalaでは、既に実装があるメソッドをオーバーライドするときは<code>override</code>キーワードを使わなければなりません。たとえば、次のように書くことは可能ですが</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">APrinter</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-    println(<span class="hljs-string">&quot;A&quot;</span>)
+    println(<span class="hljs-string">"A"</span>)
   }
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-    println(<span class="hljs-string">&quot;B&quot;</span>)
+    println(<span class="hljs-string">"B"</span>)
   }
 }
 
@@ -610,7 +610,7 @@ Scalaではトレイトという仕組みで複数の実装の継承を実現し
 <p>ここで<code>BPrinter#print()</code>の<code>override</code>キーワードをはずすと、次のようにメッセージを出力して、<strong>コンパイルエラー</strong>になります。 </p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BPrinter</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">APrinter</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print</span></span>(): <span class="hljs-type">Unit</span> = {
-    println(<span class="hljs-string">&quot;B&quot;</span>)
+    println(<span class="hljs-string">"B"</span>)
   }
 }
 </code></pre>
@@ -628,7 +628,7 @@ println(p.x) <span class="hljs-comment">// 10</span>
 println(p.y) <span class="hljs-comment">// 20</span>
 println(p.z) <span class="hljs-comment">// 30</span>
 </code></pre>
-<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex1').style.display='block'; document.getElementById('answer_ex1_show_answer_button').style.display='none'; document.getElementById('answer_ex1_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex1').style.display='none'; document.getElementById('answer_ex1_show_answer_button').style.display='block'; document.getElementById('answer_ex1_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point3D</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span>, val y: <span class="hljs-type">Int</span>, val z: <span class="hljs-type">Int</span></span>)</span>
 </code></pre>
 <h4 id="解説"><a name="解説" class="plugin-anchor" href="#解説"><i class="fa fa-link" aria-hidden="true"></i></a>解説</h4>
@@ -653,7 +653,7 @@ println(shape.area)
 shape = <span class="hljs-keyword">new</span> <span class="hljs-type">Circle</span>(<span class="hljs-number">2.0</span>)
 println(shape.area)
 </code></pre>
-<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
+<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex2').style.display='block'; document.getElementById('answer_ex2_show_answer_button').style.display='none'; document.getElementById('answer_ex2_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex2').style.display='none'; document.getElementById('answer_ex2_show_answer_button').style.display='block'; document.getElementById('answer_ex2_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">area</span></span>: <span class="hljs-type">Double</span>
 }
@@ -713,7 +713,7 @@ println(shape.area)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2024-10-03T09:03:05.925Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2024-10-03T21:15:55.309Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

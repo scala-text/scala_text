@@ -6,7 +6,7 @@
         <title>Scalaの制御構文 · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -461,7 +461,7 @@
 <p>この節では「構文」と「式」と「文」という用語が入り乱れて使われて少々わかりづらいかもしれないので、先にこの3つの用語の解説をしたいと思います。</p>
 <p>まず「構文（Syntax）」は、そのプログラミング言語内でプログラムが構造を持つためのルールです。多くの場合、プログラミング言語内で特別扱いされるキーワード、たとえば<code>class</code>や<code>val</code>、<code>if</code>などが含まれ、そして正しいプログラムを構成するためのルールがあります。
 <code>class</code>の場合であれば、<code>class</code>の後にはクラス名が続き、クラスの中身は<code>{</code>と<code>}</code>で括られる、などです。この節はScalaの制御構文を説明するので、処理の流れを制御するようなプログラムを作るためのルールが説明されるわけです。</p>
-<p>次に「式（Expression）」は、プログラムを構成する部分のうち、評価が成功すると値になるものです。たとえば<code>1</code>や<code>1 + 2</code>、<code>&quot;hoge&quot;</code>などです。これらは評価することにより、数値や文字列の値になります。評価が成功、という表現を使いましたが、評価の結果として例外が投げられた場合等が、評価が失敗した場合に当たります。</p>
+<p>次に「式（Expression）」は、プログラムを構成する部分のうち、評価が成功すると値になるものです。たとえば<code>1</code>や<code>1 + 2</code>、<code>"hoge"</code>などです。これらは評価することにより、数値や文字列の値になります。評価が成功、という表現を使いましたが、評価の結果として例外が投げられた場合等が、評価が失敗した場合に当たります。</p>
 <p>最後に「文（Statement）」ですが、式とは対照的にプログラムを構成する部分のうち、評価しても値にならないものです。たとえば変数の定義である<code>val i = 1</code>は評価しても変数<code>i</code>が定義され、<code>i</code>の値が<code>1</code>になりますが、この定義全体としては値を持ちません。よって、これは文です。</p>
 <p>ScalaはCやJavaなどの手続き型の言語に比べて、文よりも式になる構文が多いです。
 Scalaでは文よりも式を多く利用する構文が採用されています。これにより変数などの状態を出来るだけ排除した分かりやすいコードが書きやすくなっています。</p>
@@ -473,7 +473,7 @@ Scalaでは文よりも式を多く利用する構文が採用されています
 </code></pre>
 <p>となります。<code>式</code> の並びは、順番に評価される個々の式を表します。式が改行で区切られていればセミコロンは省略できます。<code>{}</code> 式は<code>式1</code>, <code>式2</code> ... と式の並びを順番に評価し、 最後の <code>式</code> を評価した値を返します。</p>
 <p>次の式では</p>
-<pre><code class="lang-scala">{ println(<span class="hljs-string">&quot;A&quot;</span>); println(<span class="hljs-string">&quot;B&quot;</span>); <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; }
+<pre><code class="lang-scala">{ println(<span class="hljs-string">"A"</span>); println(<span class="hljs-string">"B"</span>); <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; }
 <span class="hljs-comment">// A</span>
 <span class="hljs-comment">// B</span>
 <span class="hljs-comment">// res0: Int = 3</span>
@@ -481,13 +481,13 @@ Scalaでは文よりも式を多く利用する構文が採用されています
 <p>AとBが出力され、最後の式である<code>1 + 2</code>の結果である<code>3</code>が<code>{}</code>式の値になっていることがわかります。</p>
 <p>このことは、後ほど記述するメソッド定義などにおいて重要になってきます。Scalaでは、</p>
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>(): <span class="hljs-type">String</span> = {
-  <span class="hljs-string">&quot;foo&quot;</span> + <span class="hljs-string">&quot;foo&quot;</span>
+  <span class="hljs-string">"foo"</span> + <span class="hljs-string">"foo"</span>
 }
 </code></pre>
 <p>のような形でメソッド定義をすることが一般的ですが（後述します）、ここで<code>{}</code>は単に<code>{}</code>式であって、メソッド定義の構文に<code>{}</code>が含まれているわけではありません。ただし、クラス定義構文などにおける<code>{}</code>は構文の一部です。</p>
 <h2 id="if式"><a name="if式" class="plugin-anchor" href="#if式"><i class="fa fa-link" aria-hidden="true"></i></a>if式</h2>
 <p><code>if</code>式はJavaの<code>if</code>文とほとんど同じ使い方をします。<code>if</code>式の構文は次のようになります。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos;&lt;条件式&gt;&apos;)&apos; &lt;<span class="hljs-keyword">then</span>式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> '('&lt;条件式&gt;')' &lt;<span class="hljs-keyword">then</span>式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
 </code></pre>
 <p>Scala 3では<code>then</code>キーワードを使用して以下のように書くこともできます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">if</span> &lt;条件式&gt; <span class="hljs-keyword">then</span> &lt;<span class="hljs-keyword">then</span>式&gt; (<span class="hljs-keyword">else</span> &lt;<span class="hljs-keyword">else</span>式&gt;)?
@@ -498,47 +498,47 @@ Scalaでは文よりも式を多く利用する構文が採用されています
 <span class="hljs-comment">// age: Int = 17</span>
 
 <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
-  <span class="hljs-string">&quot;18歳未満です&quot;</span>
+  <span class="hljs-string">"18歳未満です"</span>
 } <span class="hljs-keyword">else</span> {
-  <span class="hljs-string">&quot;18歳以上です&quot;</span>
+  <span class="hljs-string">"18歳以上です"</span>
 }
-<span class="hljs-comment">// res1: String = &quot;18歳未満です&quot;</span>
+<span class="hljs-comment">// res1: String = "18歳未満です"</span>
 
 age = <span class="hljs-number">18</span>
 
 <span class="hljs-keyword">if</span>(age &lt; <span class="hljs-number">18</span>) {
-  <span class="hljs-string">&quot;18歳未満です&quot;</span>
+  <span class="hljs-string">"18歳未満です"</span>
 } <span class="hljs-keyword">else</span> {
-  <span class="hljs-string">&quot;18歳以上です&quot;</span>
+  <span class="hljs-string">"18歳以上です"</span>
 }
-<span class="hljs-comment">// res3: String = &quot;18歳以上です&quot;</span>
+<span class="hljs-comment">// res3: String = "18歳以上です"</span>
 </code></pre>
 <p>変更可能な変数 <code>age</code> が18より小さいかどうかで別の文字列を<em>返す</em>ようにしています。</p>
 <p><code>if</code> 式に限らず、Scalaの制御構文は全て式です。つまり必ず何らかの値を返します。Javaなどの言語で三項演算子<code>?:</code>を見たことがある人もいるかもしれませんが、Scalaでは同じように値が必要な場面で <code>if</code> 式を使います。</p>
 <p>なお、<code>else</code>が省略可能だと書きましたが、その場合は、以下のように <code>Unit</code> 型の値 <code>()</code> が補われたのと同じ値が返ってきます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">if</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;<span class="hljs-keyword">then</span>式&gt; <span class="hljs-keyword">else</span> ()
+<pre><code class="lang-scala"><span class="hljs-keyword">if</span> '(' &lt;条件式&gt; ')' &lt;<span class="hljs-keyword">then</span>式&gt; <span class="hljs-keyword">else</span> ()
 </code></pre>
 <p>ただし、Unitが補われたのと同等になるのはScala 2までの仕様であって、Scala 3からは微妙に異なります。</p>
 <p><code>Unit</code>型はJavaでは<code>void</code>に相当するもので、返すべき値がないときに使われ、唯一の値<code>()</code>を持ちます。</p>
 <h3 id="control_syntax_ex1"><a name="control_syntax_ex1" class="plugin-anchor" href="#control_syntax_ex1"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <p><code>var age: Int = 5</code>という年齢を定義する変数と<code>var isSchoolStarted: Boolean = false</code>という就学を開始しているかどうかという変数を利用して、
 1歳から6歳までの就学以前の子どもの場合に“幼児です”と出力し、それ以外の場合は“幼児ではありません”と出力するコードを書いてみましょう。</p>
-<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex1&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex1_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex1_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
+<div><button type="button" id="answer_ex1_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex1').style.display='block'; document.getElementById('answer_ex1_show_answer_button').style.display='none'; document.getElementById('answer_ex1_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex1_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex1').style.display='none'; document.getElementById('answer_ex1_show_answer_button').style.display='block'; document.getElementById('answer_ex1_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex1" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> = <span class="hljs-number">5</span>
 <span class="hljs-comment">// age: Int = 5</span>
 <span class="hljs-keyword">var</span> isSchoolStarted: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>
 <span class="hljs-comment">// isSchoolStarted: Boolean = false</span>
 <span class="hljs-keyword">if</span>(<span class="hljs-number">1</span> &lt;= age &amp;&amp; age &lt;= <span class="hljs-number">6</span> &amp;&amp; !isSchoolStarted) {
-  println(<span class="hljs-string">&quot;幼児です&quot;</span>)
+  println(<span class="hljs-string">"幼児です"</span>)
 } <span class="hljs-keyword">else</span> {
-  println(<span class="hljs-string">&quot;幼児ではありません&quot;</span>)
+  println(<span class="hljs-string">"幼児ではありません"</span>)
 }
 <span class="hljs-comment">// 幼児です</span>
 </code></pre>
 </div>
 <h2 id="while式"><a name="while式" class="plugin-anchor" href="#while式"><i class="fa fa-link" aria-hidden="true"></i></a>while式</h2>
 <p><code>while</code>式の構文はJavaのものとほぼ同じです。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">while</span> &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;本体式&gt;
+<pre><code class="lang-scala"><span class="hljs-keyword">while</span> '(' &lt;条件式&gt; ')' &lt;本体式&gt;
 </code></pre>
 <p>Scala 3では<code>do</code>キーワードを使用して以下のように書くこともできます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">while</span> &lt;条件式&gt; <span class="hljs-keyword">do</span> &lt;本体式&gt;
@@ -549,7 +549,7 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// i: Int = 1</span>
 
 <span class="hljs-keyword">while</span>(i &lt;= <span class="hljs-number">10</span>) {
-  println(<span class="hljs-string">&quot;i = &quot;</span> + i)
+  println(<span class="hljs-string">"i = "</span> + i)
   i = i + <span class="hljs-number">1</span>
 }
 <span class="hljs-comment">// i = 1</span>
@@ -573,7 +573,7 @@ age = <span class="hljs-number">18</span>
   }
 }
 </code></pre>
-<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex2&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex2_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex2_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
+<div><button type="button" id="answer_ex2_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex2').style.display='block'; document.getElementById('answer_ex2_show_answer_button').style.display='none'; document.getElementById('answer_ex2_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex2_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex2').style.display='none'; document.getElementById('answer_ex2_show_answer_button').style.display='block'; document.getElementById('answer_ex2_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex2" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loopFrom0To9</span></span>(): <span class="hljs-type">Unit</span> = {
   <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>
   <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">10</span>){
@@ -618,7 +618,7 @@ age = <span class="hljs-number">18</span>
 <h2 id="for式"><a name="for式" class="plugin-anchor" href="#for式"><i class="fa fa-link" aria-hidden="true"></i></a>for式</h2>
 <p>Scalaには <code>for</code> 式という制御構文があります。これは、Javaの拡張 <code>for</code> 文と似た使い方ができるものの、ループ以外にも様々な応用範囲を持った制御構文です。 <code>for</code> 式の本当の力を理解するには、<code>flatMap</code>, <code>map</code>, <code>withFilter</code>, <code>foreach</code>というメソッドについて知る必要がありますが、ここでは基本的な <code>for</code> 式の使い方のみを説明します。</p>
 <p><code>for</code> 式の基本的な構文は次のようになります。</p>
-<pre><code>for &apos;(&apos; (&lt;ジェネレータ&gt;;)+ &apos;)&apos; &lt;本体式&gt;
+<pre><code>for '(' (&lt;ジェネレータ&gt;;)+ ')' &lt;本体式&gt;
 # &lt;ジェネレータ&gt; = x &lt;- &lt;式&gt; (if &lt;条件式&gt;)?
 </code></pre><p>Scala3では<code>do</code>キーワードを使用して以下のように書くこともできます。</p>
 <pre><code>for (&lt;ジェネレータ&gt;;)+ do &lt;本体式&gt;
@@ -626,7 +626,7 @@ age = <span class="hljs-number">18</span>
 </code></pre><p>各 <code>ジェネレータ</code> の変数 <code>x</code> に相当する部分は、好きな名前のループ変数を使うことができます。 <code>式</code> には色々な式が書けます。ただ、現状では全てを説明しきれないため、何かの数の範囲を表す式を使えると覚えておいてください。たとえば、<code>1 to 10</code> は1から10まで（10を含む）の範囲で、 <code>1 until 10</code> は1から10まで（10を含まない）の範囲です。</p>
 <p>それでは、早速 <code>for</code> 式を使ってみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span>){
-  println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
+  println(<span class="hljs-string">"x = "</span> + x + <span class="hljs-string">" y = "</span> + y)
 }
 <span class="hljs-comment">// x = 1 y = 1</span>
 <span class="hljs-comment">// x = 1 y = 2</span>
@@ -652,7 +652,7 @@ age = <span class="hljs-number">18</span>
 <p><code>x</code>を1から5までループして、<code>y</code>を1から4までループして<code>x</code>, <code>y</code>の値を出力しています。ここでは、ジェネレータを2つだけにしましたが、数を増やせば何重にもループを行うことができます。</p>
 <p><code>for</code>式の力はこれだけではありません。ループ変数の中から条件にあったものだけを絞り込むこともできます。<code>until</code>の後で<code>if x != y</code>と書いていますが、これは、<code>x</code>と<code>y</code>が異なる値の場合のみを抽出したものです。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(x &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">5</span>; y &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">5</span> <span class="hljs-keyword">if</span> x != y){
-  println(<span class="hljs-string">&quot;x = &quot;</span> + x + <span class="hljs-string">&quot; y = &quot;</span> + y)
+  println(<span class="hljs-string">"x = "</span> + x + <span class="hljs-string">" y = "</span> + y)
 }
 <span class="hljs-comment">// x = 1 y = 2</span>
 <span class="hljs-comment">// x = 1 y = 3</span>
@@ -671,9 +671,9 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// x = 5 y = 3</span>
 <span class="hljs-comment">// x = 5 y = 4</span>
 </code></pre>
-<p><code>for</code>式はコレクションの要素を1つ1つたどって何かの処理を行うことにも利用することができます。<code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
-<code>&quot;D&quot;</code>, <code>&quot;E&quot;</code>の5つの要素からなるリストをたどって全てを出力する処理を書いてみましょう。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) println(e)
+<p><code>for</code>式はコレクションの要素を1つ1つたどって何かの処理を行うことにも利用することができます。<code>"A"</code>, <code>"B"</code>, <code>"C"</code>,
+<code>"D"</code>, <code>"E"</code>の5つの要素からなるリストをたどって全てを出力する処理を書いてみましょう。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>, <span class="hljs-string">"D"</span>, <span class="hljs-string">"E"</span>)) println(e)
 <span class="hljs-comment">// A</span>
 <span class="hljs-comment">// B</span>
 <span class="hljs-comment">// C</span>
@@ -681,17 +681,17 @@ age = <span class="hljs-number">18</span>
 <span class="hljs-comment">// E</span>
 </code></pre>
 <p>さらに、<code>for</code>式はたどった要素を加工して新しいコレクションを作ることもできます。先ほどのリストの要素全てに<code>Pre</code>という文字列を付加してみましょう。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;E&quot;</span>)) <span class="hljs-keyword">yield</span> {
-  <span class="hljs-string">&quot;Pre&quot;</span> + e
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span>(e &lt;- <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>, <span class="hljs-string">"D"</span>, <span class="hljs-string">"E"</span>)) <span class="hljs-keyword">yield</span> {
+  <span class="hljs-string">"Pre"</span> + e
 }
-<span class="hljs-comment">// res9: List[String] = List(&quot;PreA&quot;, &quot;PreB&quot;, &quot;PreC&quot;, &quot;PreD&quot;, &quot;PreE&quot;)</span>
+<span class="hljs-comment">// res9: List[String] = List("PreA", "PreB", "PreC", "PreD", "PreE")</span>
 </code></pre>
 <p>ここでポイントとなるのは、<code>yield</code>というキーワードです。実は、<code>for</code>構文は<code>yield</code>キーワードを使うことで、コレクションの要素を加工して返すという全く異なる用途に使うことができます。特に<code>yield</code>キーワードを使った<code>for</code>式を特別に
 for-comprehensionと呼ぶことがあります。</p>
 <h3 id="control_syntax_ex3"><a name="control_syntax_ex3" class="plugin-anchor" href="#control_syntax_ex3"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <p>1から1000までの3つの整数a, b, cについて、三辺からなる三角形が直角三角形になるような
 <code>a</code>, <code>b</code>, <code>c</code>の組み合わせを全て出力してください。直角三角形の条件にはピタゴラスの定理を利用してください。 ピタゴラスの定理とは三平方の定理とも呼ばれ、<code>a ^ 2 == b ^ 2 + c ^ 2</code>を満たす、<code>a</code>, <code>b</code>, <code>c</code> の長さの三辺を持つ三角形は、直角三角形になるというものです。</p>
-<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex3&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex3_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex3_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
+<div><button type="button" id="answer_ex3_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex3').style.display='block'; document.getElementById('answer_ex3_show_answer_button').style.display='none'; document.getElementById('answer_ex3_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex3_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex3').style.display='none'; document.getElementById('answer_ex3_show_answer_button').style.display='block'; document.getElementById('answer_ex3_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex3" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(a &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>; b &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>; c &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span> <span class="hljs-keyword">if</span> a * a == b * b + c * c) {
   println((a, b, c))
 }
@@ -700,144 +700,144 @@ for-comprehensionと呼ぶことがあります。</p>
 <h2 id="match式"><a name="match式" class="plugin-anchor" href="#match式"><i class="fa fa-link" aria-hidden="true"></i></a>match式</h2>
 <p><code>match</code>式はJavaの<code>switch</code>のように、複数の分岐を表現できる制御構造ですが、<code>switch</code>より様々なことができます。<code>match</code>式の基本構文は</p>
 <pre><code>&lt;対象式&gt; match {
-  (case &lt;パターン&gt; (if &lt;ガード&gt;)? &apos;=&gt;&apos;
+  (case &lt;パターン&gt; (if &lt;ガード&gt;)? '=&gt;'
     (&lt;式&gt; (;|&lt;改行&gt;))*
   )+
 }
 </code></pre><p>のようになりますが、この「パターン」に書ける内容が非常に多岐に渡るためです。まず、Javaのswitch-caseのような使い方をしてみます。たとえば、</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> taro = <span class="hljs-string">&quot;Taro&quot;</span>
-<span class="hljs-comment">// taro: String = &quot;Taro&quot;</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> taro = <span class="hljs-string">"Taro"</span>
+<span class="hljs-comment">// taro: String = "Taro"</span>
 
 taro <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Taro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Jiro&quot;</span> =&gt; <span class="hljs-string">&quot;Male&quot;</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Hanako&quot;</span> =&gt; <span class="hljs-string">&quot;Female&quot;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"Taro"</span> =&gt; <span class="hljs-string">"Male"</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"Jiro"</span> =&gt; <span class="hljs-string">"Male"</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"Hanako"</span> =&gt; <span class="hljs-string">"Female"</span>
 }
-<span class="hljs-comment">// res10: String = &quot;Male&quot;</span>
+<span class="hljs-comment">// res10: String = "Male"</span>
 </code></pre>
-<p>のようにして使うことができます。ここで、<code>taro</code>には文字列<code>&quot;Taro&quot;</code>が入っており、これは<code>case &quot;Taro&quot;</code>にマッチするため、<code>&quot;Male&quot;</code>が返されます。なお、ここで気づいた人もいるかと思いますが、<code>match</code>式も値を返します。<code>match</code>式の値は、マッチしたパターンの<code>=&gt;</code>の右辺の式を評価したものになります。</p>
+<p>のようにして使うことができます。ここで、<code>taro</code>には文字列<code>"Taro"</code>が入っており、これは<code>case "Taro"</code>にマッチするため、<code>"Male"</code>が返されます。なお、ここで気づいた人もいるかと思いますが、<code>match</code>式も値を返します。<code>match</code>式の値は、マッチしたパターンの<code>=&gt;</code>の右辺の式を評価したものになります。</p>
 <p>パターンは文字列だけでなく数値など多様な値を扱うことができます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> one = <span class="hljs-number">1</span>
 <span class="hljs-comment">// one: Int = 1</span>
 
 one <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">&quot;one&quot;</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">&quot;two&quot;</span>
-  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">&quot;other&quot;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span> =&gt; <span class="hljs-string">"one"</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span> =&gt; <span class="hljs-string">"two"</span>
+  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">"other"</span>
 }
-<span class="hljs-comment">// res11: String = &quot;one&quot;</span>
+<span class="hljs-comment">// res11: String = "one"</span>
 </code></pre>
 <p>ここで、パターンの箇所に<code>_</code>が出てきましたが、これはswitch-caseのdefaultに相当するもので、あらゆるものにマッチするパターンです。このパターンを<strong>ワイルドカードパターン</strong>と呼びます。 <code>match</code> 式を使うときは、漏れがないようにするために、ワイルドカードパターンを使うことが多いです。</p>
 <h3 id="パターンをまとめる"><a name="パターンをまとめる" class="plugin-anchor" href="#パターンをまとめる"><i class="fa fa-link" aria-hidden="true"></i></a>パターンをまとめる</h3>
 <p>JavaやCなどの言語でswitch-case文を学んだ方には、Scalaのパターンマッチがいわゆるフォールスルー（fall through）の動作をしないことに違和感があるかもしれません。</p>
-<pre><code class="lang-scala"><span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> =&gt; println(<span class="hljs-string">&quot;first&quot;</span>)   <span class="hljs-comment">// ここで処理が終了</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;def&quot;</span> =&gt; println(<span class="hljs-string">&quot;second&quot;</span>) <span class="hljs-comment">// こっちは表示されない</span>
+<pre><code class="lang-scala"><span class="hljs-string">"abc"</span> <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"abc"</span> =&gt; println(<span class="hljs-string">"first"</span>)   <span class="hljs-comment">// ここで処理が終了</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"def"</span> =&gt; println(<span class="hljs-string">"second"</span>) <span class="hljs-comment">// こっちは表示されない</span>
 }
 </code></pre>
 <p>C言語のswitch-case文のフォールスルー動作は利点よりバグを生み出すことが多いということで有名なものでした。
 JavaがC言語のフォールスルー動作を引き継いだことはしばしば非難されます。それでScalaのパターンマッチにはフォールスルー動作がないわけですが、複数のパターンをまとめたいときのために<code>|</code>があります</p>
-<pre><code class="lang-scala"><span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;abc&quot;</span> | <span class="hljs-string">&quot;def&quot;</span> =&gt;
-    println(<span class="hljs-string">&quot;first&quot;</span>)
-    println(<span class="hljs-string">&quot;second&quot;</span>)
+<pre><code class="lang-scala"><span class="hljs-string">"abc"</span> <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"abc"</span> | <span class="hljs-string">"def"</span> =&gt;
+    println(<span class="hljs-string">"first"</span>)
+    println(<span class="hljs-string">"second"</span>)
 }
 </code></pre>
 <h3 id="パターンマッチによる値の取り出し"><a name="パターンマッチによる値の取り出し" class="plugin-anchor" href="#パターンマッチによる値の取り出し"><i class="fa fa-link" aria-hidden="true"></i></a>パターンマッチによる値の取り出し</h3>
 <p>switch-case以外の使い方としては、コレクションの要素の一部にマッチさせる使い方があります。次のプログラムを見てみましょう。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>)
+<span class="hljs-comment">// lst: List[String] = List("A", "B", "C")</span>
 
 lst <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) =&gt;
-    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, b, c) =&gt;
+    println(<span class="hljs-string">"b = "</span> + b)
+    println(<span class="hljs-string">"c = "</span> + c)
   <span class="hljs-keyword">case</span> _ =&gt;
-    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+    println(<span class="hljs-string">"nothing"</span>)
 }
 <span class="hljs-comment">// b = B</span>
 <span class="hljs-comment">// c = C</span>
 </code></pre>
-<p>ここでは、<code>List</code>の先頭要素が<code>&quot;A&quot;</code>で3要素のパターンにマッチすると、残りの<code>b</code>, <code>c</code>が<code>List</code>の2番目以降の要素に束縛されて、<code>=&gt;</code>の右辺の式が評価されることになります。 <code>match</code> 式では、特にコレクションの要素にマッチさせる使い方が頻出します。</p>
+<p>ここでは、<code>List</code>の先頭要素が<code>"A"</code>で3要素のパターンにマッチすると、残りの<code>b</code>, <code>c</code>が<code>List</code>の2番目以降の要素に束縛されて、<code>=&gt;</code>の右辺の式が評価されることになります。 <code>match</code> 式では、特にコレクションの要素にマッチさせる使い方が頻出します。</p>
 <p>パターンマッチではガード式を用いて、パターンにマッチして、かつ、ガード式（<code>Boolean</code>型でなければならない）にもマッチしなければ右辺の式が評価されないような使い方もできます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>)
+<span class="hljs-comment">// lst: List[String] = List("A", "B", "C")</span>
 
 lst <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) <span class="hljs-keyword">if</span> b != <span class="hljs-string">&quot;B&quot;</span> =&gt;
-    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, b, c) <span class="hljs-keyword">if</span> b != <span class="hljs-string">"B"</span> =&gt;
+    println(<span class="hljs-string">"b = "</span> + b)
+    println(<span class="hljs-string">"c = "</span> + c)
   <span class="hljs-keyword">case</span> _ =&gt;
-    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+    println(<span class="hljs-string">"nothing"</span>)
 }
 <span class="hljs-comment">// nothing</span>
 </code></pre>
-<p>ここでは、パターンマッチのガード条件に、<code>List</code>の2番目の要素が<code>&quot;B&quot;</code>でないこと、という条件を指定したため、最初の条件にマッチせず <code>_</code> にマッチしたのです。</p>
-<p>また、パターンマッチのパターンはネストが可能です。先ほどのプログラムを少し改変して、先頭が<code>List(&quot;A&quot;)</code>であるような<code>List</code>にマッチさせてみましょう。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>), <span class="hljs-type">List</span>(<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>))
-<span class="hljs-comment">// lst: List[List[String]] = List(List(&quot;A&quot;), List(&quot;B&quot;, &quot;C&quot;))</span>
+<p>ここでは、パターンマッチのガード条件に、<code>List</code>の2番目の要素が<code>"B"</code>でないこと、という条件を指定したため、最初の条件にマッチせず <code>_</code> にマッチしたのです。</p>
+<p>また、パターンマッチのパターンはネストが可能です。先ほどのプログラムを少し改変して、先頭が<code>List("A")</code>であるような<code>List</code>にマッチさせてみましょう。</p>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>), <span class="hljs-type">List</span>(<span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>))
+<span class="hljs-comment">// lst: List[List[String]] = List(List("A"), List("B", "C"))</span>
 
 lst <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a<span class="hljs-meta">@List</span>(<span class="hljs-string">&quot;A&quot;</span>), x) =&gt;
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a<span class="hljs-meta">@List</span>(<span class="hljs-string">"A"</span>), x) =&gt;
     println(a)
     println(x)
-  <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">&quot;nothing&quot;</span>)
+  <span class="hljs-keyword">case</span> _ =&gt; println(<span class="hljs-string">"nothing"</span>)
 }
 <span class="hljs-comment">// List(A)</span>
 <span class="hljs-comment">// List(B, C)</span>
 </code></pre>
-<p><code>lst</code>は<code>List(&quot;A&quot;)</code>と<code>List(&quot;B&quot;, &quot;C&quot;)</code>の2要素からなる<code>List</code>です。ここで、match式を使うことで、先頭が<code>List(&quot;A&quot;)</code>であるというネストしたパターンを記述できていることがわかります。また、パターンの前に<code>@</code>がついているのはasパターンと呼ばれるもので、<code>@</code>の後に続くパターンにマッチする式を <code>@</code> の前の変数（ここでは<code>a</code>）に束縛します。 <code>as</code> パターンはパターンが複雑なときにパターンの一部だけを切り取りたい時に便利です。ただし <code>|</code> を使ったパターンマッチの場合は値を取り出すことができない点に注意してください。下記のように<code>|</code>のパターンマッチで変数を使った場合はコンパイルエラーになります。</p>
-<pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
+<p><code>lst</code>は<code>List("A")</code>と<code>List("B", "C")</code>の2要素からなる<code>List</code>です。ここで、match式を使うことで、先頭が<code>List("A")</code>であるというネストしたパターンを記述できていることがわかります。また、パターンの前に<code>@</code>がついているのはasパターンと呼ばれるもので、<code>@</code>の後に続くパターンにマッチする式を <code>@</code> の前の変数（ここでは<code>a</code>）に束縛します。 <code>as</code> パターンはパターンが複雑なときにパターンの一部だけを切り取りたい時に便利です。ただし <code>|</code> を使ったパターンマッチの場合は値を取り出すことができない点に注意してください。下記のように<code>|</code>のパターンマッチで変数を使った場合はコンパイルエラーになります。</p>
+<pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">"a"</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a) | <span class="hljs-type">Some</span>(a) =&gt;
     println(a)
 }
 </code></pre>
 <p>値を取り出さないパターンマッチは可能です。</p>
-<pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
+<pre><code class="lang-scala">(<span class="hljs-type">List</span>(<span class="hljs-string">"a"</span>): <span class="hljs-type">Any</span>) <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(_) | <span class="hljs-type">Some</span>(_) =&gt;
-    println(<span class="hljs-string">&quot;ok&quot;</span>)
+    println(<span class="hljs-string">"ok"</span>)
 }
 </code></pre>
 <h3 id="中置パターンを使った値の取り出し"><a name="中置パターンを使った値の取り出し" class="plugin-anchor" href="#中置パターンを使った値の取り出し"><i class="fa fa-link" aria-hidden="true"></i></a>中置パターンを使った値の取り出し</h3>
 <p>先の節で書いたようなパターンマッチを別の記法で書くことができます。たとえば、</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>)
+<span class="hljs-comment">// lst: List[String] = List("A", "B", "C")</span>
 
 lst <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, b, c) =&gt;
-    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, b, c) =&gt;
+    println(<span class="hljs-string">"b = "</span> + b)
+    println(<span class="hljs-string">"c = "</span> + c)
   <span class="hljs-keyword">case</span> _ =&gt;
-    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+    println(<span class="hljs-string">"nothing"</span>)
 }
 <span class="hljs-comment">// b = B</span>
 <span class="hljs-comment">// c = C</span>
 </code></pre>
 <p>というコードは、以下のように書き換えることができます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-<span class="hljs-comment">// lst: List[String] = List(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> lst = <span class="hljs-type">List</span>(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>)
+<span class="hljs-comment">// lst: List[String] = List("A", "B", "C")</span>
 
 lst <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;A&quot;</span> :: b :: c :: _ =&gt;
-    println(<span class="hljs-string">&quot;b = &quot;</span> + b)
-    println(<span class="hljs-string">&quot;c = &quot;</span> + c)
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"A"</span> :: b :: c :: _ =&gt;
+    println(<span class="hljs-string">"b = "</span> + b)
+    println(<span class="hljs-string">"c = "</span> + c)
   <span class="hljs-keyword">case</span> _ =&gt;
-    println(<span class="hljs-string">&quot;nothing&quot;</span>)
+    println(<span class="hljs-string">"nothing"</span>)
 }
 <span class="hljs-comment">// b = B</span>
 <span class="hljs-comment">// c = C</span>
 </code></pre>
-<p>ここで、 <code>&quot;A&quot; :: b :: c :: _</code> のように、リストの要素の間にパターン名（<code>::</code>）が現れるようなものを中置パターンと呼びます。中置パターン（<code>::</code>）によってパターンマッチを行った場合、 <code>::</code> の前の要素がリストの最初の要素を、後ろの要素がリストの<strong>残り全て</strong>を指すことになります。リストの末尾を無視する場合、上記のようにパターンの最後に <code>_</code> を挿入するといったことが必要になります。リストの中置パターンはScalaプログラミングでは頻出するので、このような機能があるのだということは念頭に置いてください。</p>
+<p>ここで、 <code>"A" :: b :: c :: _</code> のように、リストの要素の間にパターン名（<code>::</code>）が現れるようなものを中置パターンと呼びます。中置パターン（<code>::</code>）によってパターンマッチを行った場合、 <code>::</code> の前の要素がリストの最初の要素を、後ろの要素がリストの<strong>残り全て</strong>を指すことになります。リストの末尾を無視する場合、上記のようにパターンの最後に <code>_</code> を挿入するといったことが必要になります。リストの中置パターンはScalaプログラミングでは頻出するので、このような機能があるのだということは念頭に置いてください。</p>
 <h3 id="型によるパターンマッチ"><a name="型によるパターンマッチ" class="plugin-anchor" href="#型によるパターンマッチ"><i class="fa fa-link" aria-hidden="true"></i></a>型によるパターンマッチ</h3>
 <p>パターンとしては値が特定の型に所属する場合にのみマッチするパターンも使うことができます。値が特定の型に所属する場合にのみマッチするパターンは、<code>名前:マッチする型</code>の形で使います。たとえば、以下のようにして使うことができます。なお、<code>AnyRef</code>型は、Javaの<code>Object</code>型に相当する型で、あらゆる参照型の値を<code>AnyRef</code>型の変数に格納することができます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> java.util.<span class="hljs-type">Locale</span>
 
-<span class="hljs-keyword">val</span> obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-string">&quot;String Literal&quot;</span>
-<span class="hljs-comment">// obj: AnyRef = &quot;String Literal&quot;</span>
+<span class="hljs-keyword">val</span> obj: <span class="hljs-type">AnyRef</span> = <span class="hljs-string">"String Literal"</span>
+<span class="hljs-comment">// obj: AnyRef = "String Literal"</span>
 
 obj <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> v:java.lang.<span class="hljs-type">Integer</span> =&gt;
-    println(<span class="hljs-string">&quot;Integer!&quot;</span>)
+    println(<span class="hljs-string">"Integer!"</span>)
   <span class="hljs-keyword">case</span> v:<span class="hljs-type">String</span> =&gt;
     println(v.toUpperCase(<span class="hljs-type">Locale</span>.<span class="hljs-type">ENGLISH</span>))
 }
@@ -848,11 +848,11 @@ obj <span class="hljs-keyword">match</span> {
 <h3 id="jvmの制約による型のパターンマッチの落とし穴"><a name="jvmの制約による型のパターンマッチの落とし穴" class="plugin-anchor" href="#jvmの制約による型のパターンマッチの落とし穴"><i class="fa fa-link" aria-hidden="true"></i></a>JVMの制約による型のパターンマッチの落とし穴</h3>
 <p>型のパターンマッチで注意しなければならないことが1つあります。Scalaを実行するJVMの制約により、型変数を使った場合、正しくパターンマッチがおこなわれません。</p>
 <p>たとえば、以下の様なパターンマッチをREPLで実行しようとすると、警告が出てしまいます。</p>
-<pre><code class="lang-scala"><span class="hljs-keyword">val</span> obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(<span class="hljs-string">&quot;a&quot;</span>)
-<span class="hljs-comment">// obj: Any = List(&quot;a&quot;)</span>
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> obj: <span class="hljs-type">Any</span> = <span class="hljs-type">List</span>(<span class="hljs-string">"a"</span>)
+<span class="hljs-comment">// obj: Any = List("a")</span>
 obj <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">&quot;List[Int]&quot;</span>)
-  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">&quot;List[String]&quot;</span>)
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]    =&gt; println(<span class="hljs-string">"List[Int]"</span>)
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>] =&gt; println(<span class="hljs-string">"List[String]"</span>)
 }
 <span class="hljs-comment">// List[Int]</span>
 </code></pre>
@@ -861,14 +861,14 @@ obj <span class="hljs-keyword">match</span> {
 <p>結果的に2つのパターンは区別できないものになり、パターンマッチは上から順番に実行されていくので、2番目のパターンは到達しないコードになります。3番目の警告はこれを意味しています。</p>
 <p>型変数を含む型のパターンマッチは、以下のようにワイルドカードパターンを使うと良いでしょう。</p>
 <pre><code class="lang-scala">obj <span class="hljs-keyword">match</span> {
-  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[?] =&gt; println(<span class="hljs-string">&quot;List[?]&quot;</span>)
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">List</span>[?] =&gt; println(<span class="hljs-string">"List[?]"</span>)
 }
 </code></pre>
 <h3 id="control_syntax_ex4"><a name="control_syntax_ex4" class="plugin-anchor" href="#control_syntax_ex4"><i class="fa fa-link" aria-hidden="true"></i></a>練習問題 </h3>
 <pre><code class="lang-scala"><span class="hljs-keyword">new</span> scala.util.<span class="hljs-type">Random</span>(<span class="hljs-keyword">new</span> java.security.<span class="hljs-type">SecureRandom</span>()).alphanumeric.take(<span class="hljs-number">5</span>).toList
 </code></pre>
 <p>以上のコードを利用して、 最初と最後の文字が同じ英数字であるランダムな5文字の文字列を1000回出力してください。 <code>new scala.util.Random(new java.security.SecureRandom()).alphanumeric.take(5).toList</code> という値は、呼びだす度にランダムな5個の文字（<code>Char</code>型）のリストを与えます。なお、以上のコードで生成されたリストの一部分を利用するだけでよく、最初と最後の文字が同じ英数字であるリストになるまで試行を続ける必要はありません。これは、<code>List(a, b, d, e, f)</code>が得られた場合に、<code>List(a, b, d, e, a)</code>のようにしても良いということです。 </p>
-<div><button type="button" id="answer_ex4_show_answer_button" style="display:block" onclick="document.getElementById(&apos;answer_ex4&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex4_show_answer_button&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex4_hide_answer_button&apos;).style.display=&apos;block&apos;; ">解答例を表示する</button><button type="button" id="answer_ex4_hide_answer_button" style="display:none" onclick="document.getElementById(&apos;answer_ex4&apos;).style.display=&apos;none&apos;; document.getElementById(&apos;answer_ex4_show_answer_button&apos;).style.display=&apos;block&apos;; document.getElementById(&apos;answer_ex4_hide_answer_button&apos;).style.display=&apos;none&apos;; ">解答例を隠す</button></div><div id="answer_ex4" style="display:none">
+<div><button type="button" id="answer_ex4_show_answer_button" style="display:block" onclick="document.getElementById('answer_ex4').style.display='block'; document.getElementById('answer_ex4_show_answer_button').style.display='none'; document.getElementById('answer_ex4_hide_answer_button').style.display='block'; ">解答例を表示する</button><button type="button" id="answer_ex4_hide_answer_button" style="display:none" onclick="document.getElementById('answer_ex4').style.display='none'; document.getElementById('answer_ex4_show_answer_button').style.display='block'; document.getElementById('answer_ex4_hide_answer_button').style.display='none'; ">解答例を隠す</button></div><div id="answer_ex4" style="display:none">
 <pre><code class="lang-scala"><span class="hljs-keyword">for</span>(i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>) {
   <span class="hljs-keyword">val</span> s = <span class="hljs-keyword">new</span> scala.util.<span class="hljs-type">Random</span>(<span class="hljs-keyword">new</span> java.security.<span class="hljs-type">SecureRandom</span>()).alphanumeric.take(<span class="hljs-number">5</span>).toList <span class="hljs-keyword">match</span> {
     <span class="hljs-keyword">case</span> <span class="hljs-type">List</span>(a,b,c,d,_) =&gt; <span class="hljs-type">List</span>(a,b,c,d,a).mkString
@@ -921,7 +921,7 @@ obj <span class="hljs-keyword">match</span> {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2024-10-03T09:03:09.799Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Scalaの制御構文","level":"1.8","depth":1,"next":{"title":"クラス","level":"1.9","depth":1,"path":"class.md","ref":"class.md","articles":[]},"previous":{"title":"記法","level":"1.7","depth":1,"path":"notation.md","ref":"notation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"control-syntax.md","mtime":"2024-10-03T21:15:59.163Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

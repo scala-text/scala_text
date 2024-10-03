@@ -6,7 +6,7 @@
         <title>テスト · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -568,15 +568,15 @@ BDDでは、テスト内にそのプログラムに与えられた機能的な�
 <p>では、実際にユニットテストを書いてみましょう。まずはプロジェクトを作成します。</p>
 <p>適当な作業フォルダにて以下を実行します。ここでは、<code>scalatest_study</code>を作り、さらに中に<code>src/main/scala</code>と<code>src/test/scala</code>の2つのフォルダを作りましょう。</p>
 <p><code>build.sbt</code>を用意して、以下を記述しておきます。</p>
-<pre><code class="lang-scala">name := <span class="hljs-string">&quot;scalatest_study&quot;</span>
+<pre><code class="lang-scala">name := <span class="hljs-string">"scalatest_study"</span>
 
-version := <span class="hljs-string">&quot;1.0&quot;</span>
+version := <span class="hljs-string">"1.0"</span>
 
-scalaVersion := <span class="hljs-string">&quot;2.13.15&quot;</span>
+scalaVersion := <span class="hljs-string">"2.13.15"</span>
 
 libraryDependencies ++= <span class="hljs-type">Seq</span>(
-  <span class="hljs-string">&quot;org.scalatest&quot;</span> %% <span class="hljs-string">&quot;scalatest-flatspec&quot;</span> % <span class="hljs-string">&quot;3.2.19&quot;</span> % <span class="hljs-string">&quot;test&quot;</span>,
-  <span class="hljs-string">&quot;org.scalatest&quot;</span> %% <span class="hljs-string">&quot;scalatest-diagrams&quot;</span> % <span class="hljs-string">&quot;3.2.19&quot;</span> % <span class="hljs-string">&quot;test&quot;</span>,
+  <span class="hljs-string">"org.scalatest"</span> %% <span class="hljs-string">"scalatest-flatspec"</span> % <span class="hljs-string">"3.2.19"</span> % <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"org.scalatest"</span> %% <span class="hljs-string">"scalatest-diagrams"</span> % <span class="hljs-string">"3.2.19"</span> % <span class="hljs-string">"test"</span>,
 )
 </code></pre>
 <p>その後、<code>scalatest_study</code>フォルダ内で、<code>sbt compile</code>を実行してみましょう。</p>
@@ -611,7 +611,7 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
     * 0で割ろうとした際には実行時例外が投げられる
     */</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">div</span></span>(numerator: <span class="hljs-type">Int</span>, denominator: <span class="hljs-type">Int</span>): <span class="hljs-type">Double</span> = {
-    <span class="hljs-keyword">if</span> (denominator == <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">ArithmeticException</span>(<span class="hljs-string">&quot;/ by zero&quot;</span>)
+    <span class="hljs-keyword">if</span> (denominator == <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">ArithmeticException</span>(<span class="hljs-string">"/ by zero"</span>)
     numerator.toDouble / denominator.toDouble
   }
 
@@ -657,14 +657,14 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
 
   <span class="hljs-keyword">val</span> calc = <span class="hljs-keyword">new</span> <span class="hljs-type">Calc</span>
 
-  <span class="hljs-string">&quot;sum関数&quot;</span> should <span class="hljs-string">&quot;整数の配列を取得し、それらを足し合わせた整数を返すことができる&quot;</span> in {
+  <span class="hljs-string">"sum関数"</span> should <span class="hljs-string">"整数の配列を取得し、それらを足し合わせた整数を返すことができる"</span> in {
     assert(calc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) === <span class="hljs-number">6</span>)
     assert(calc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">0</span>)) === <span class="hljs-number">0</span>)
     assert(calc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)) === <span class="hljs-number">0</span>)
     assert(calc.sum(<span class="hljs-type">Seq</span>()) === <span class="hljs-number">0</span>)
   }
 
-  it should <span class="hljs-string">&quot;Intの最大を上回った際にはオーバーフローする&quot;</span> in {
+  it should <span class="hljs-string">"Intの最大を上回った際にはオーバーフローする"</span> in {
     assert(calc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-type">Integer</span>.<span class="hljs-type">MAX_VALUE</span>, <span class="hljs-number">1</span>)) === <span class="hljs-type">Integer</span>.<span class="hljs-type">MIN_VALUE</span>)
   }
 }
@@ -721,12 +721,12 @@ div関数までテストの実装を進めます。</p>
 
   <span class="hljs-comment">// ...</span>
 
-  <span class="hljs-string">&quot;div関数&quot;</span> should <span class="hljs-string">&quot;整数を2つ受け取り、分子を分母で割った浮動小数点の値を返す&quot;</span> in {
+  <span class="hljs-string">"div関数"</span> should <span class="hljs-string">"整数を2つ受け取り、分子を分母で割った浮動小数点の値を返す"</span> in {
     assert(calc.div(<span class="hljs-number">6</span>, <span class="hljs-number">3</span>) === <span class="hljs-number">2.0</span>)
     assert(calc.div(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>) === <span class="hljs-number">0.3333333333333333</span>)
   }
 
-  it should <span class="hljs-string">&quot;0で割ろうとした際には実行時例外が投げられる&quot;</span> in {
+  it should <span class="hljs-string">"0で割ろうとした際には実行時例外が投げられる"</span> in {
     intercept[<span class="hljs-type">ArithmeticException</span>] {
       calc.div(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
     }
@@ -747,14 +747,14 @@ div関数までテストの実装を進めます。</p>
 
   <span class="hljs-comment">// ...</span>
 
-  <span class="hljs-string">&quot;isPrime関数&quot;</span> should <span class="hljs-string">&quot;その値が素数であるかどうかのブール値を返す&quot;</span> in {
+  <span class="hljs-string">"isPrime関数"</span> should <span class="hljs-string">"その値が素数であるかどうかのブール値を返す"</span> in {
     assert(calc.isPrime(<span class="hljs-number">0</span>) === <span class="hljs-literal">false</span>)
     assert(calc.isPrime(<span class="hljs-number">-1</span>) === <span class="hljs-literal">false</span>)
     assert(calc.isPrime(<span class="hljs-number">2</span>))
     assert(calc.isPrime(<span class="hljs-number">17</span>))
   }
 
-  it should <span class="hljs-string">&quot;1000万以下の値の素数判定を一秒以内で処理できる&quot;</span> in {
+  it should <span class="hljs-string">"1000万以下の値の素数判定を一秒以内で処理できる"</span> in {
     failAfter(<span class="hljs-number">1000.</span>millis) {
       assert(calc.isPrime(<span class="hljs-number">9999991</span>))
     }
@@ -794,7 +794,7 @@ BDDでテストを書くことによってテストによってどのような�
 </ul>
 <p>ここでは、よく使われているMockitoを利用してみましょう。
 <code>build.sbt</code>に以下を追記することで利用可能になります。</p>
-<pre><code class="lang-scala">libraryDependencies += <span class="hljs-string">&quot;org.mockito&quot;</span> % <span class="hljs-string">&quot;mockito-core&quot;</span> % <span class="hljs-string">&quot;5.14.1&quot;</span> % <span class="hljs-string">&quot;test&quot;</span>
+<pre><code class="lang-scala">libraryDependencies += <span class="hljs-string">"org.mockito"</span> % <span class="hljs-string">"mockito-core"</span> % <span class="hljs-string">"5.14.1"</span> % <span class="hljs-string">"test"</span>
 </code></pre>
 <p>なお、mockitoのversion 5以降はJava 11以上が必要です。8を使用している場合はmockitoのversion 4を使ってください。</p>
 <p>せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。</p>
@@ -808,7 +808,7 @@ BDDでテストを書くことによってテストによってどのような�
 
   <span class="hljs-comment">// ...</span>
 
-  <span class="hljs-string">&quot;Calcのモックオブジェクト&quot;</span> should <span class="hljs-string">&quot;振る舞いを偽装することができる&quot;</span> in {
+  <span class="hljs-string">"Calcのモックオブジェクト"</span> should <span class="hljs-string">"振る舞いを偽装することができる"</span> in {
     <span class="hljs-keyword">val</span> mockCalc = mock(classOf[<span class="hljs-type">Calc</span>])
     when(mockCalc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>))).thenReturn(<span class="hljs-number">12</span>)
     assert(mockCalc.sum(<span class="hljs-type">Seq</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)) === <span class="hljs-number">12</span>)
@@ -823,10 +823,10 @@ BDDでテストを書くことによってテストによってどのような�
 <h2 id="コードカバレッジの測定"><a name="コードカバレッジの測定" class="plugin-anchor" href="#コードカバレッジの測定"><i class="fa fa-link" aria-hidden="true"></i></a>コードカバレッジの測定</h2>
 <p>テストを行った際に、テストが機能のどれぐらいを網羅できているのかを知る方法として、コードカバレッジを計測するという方法があります。ここでは、<a href="https://github.com/scoverage/scalac-scoverage-plugin" target="_blank">scoverage</a>を利用します。</p>
 <p><code>project/plugins.sbt</code> に以下のコードを記述します。</p>
-<pre><code class="lang-scala">addSbtPlugin(<span class="hljs-string">&quot;org.scoverage&quot;</span> % <span class="hljs-string">&quot;sbt-scoverage&quot;</span> % <span class="hljs-string">&quot;2.0.3&quot;</span>)
+<pre><code class="lang-scala">addSbtPlugin(<span class="hljs-string">"org.scoverage"</span> % <span class="hljs-string">"sbt-scoverage"</span> % <span class="hljs-string">"2.0.3"</span>)
 </code></pre>
 <p>その後、<code>sbt clean coverage test coverageReport</code>を実行することで、<code>target/scala-2.13/scoverage-report/index.html</code>にレポートが出力されます。</p>
-<p><img src="img/scoverage_code_coverage.png" alt="Scoverage Code Coverage"></p>
+<p><img src="img/scoverage_code_coverage.png" alt="Scoverage Code Coverage"></img></p>
 <p>以上の出力から、今回のテストはカバレッジ100％であることがわかります。</p>
 <p>ここで、カバレッジを計測することについて注意点を述べておきます。</p>
 <p>得られたカバレッジはあくまで”そのカバレッジツールによって得られた数値”でしかありません。数値自体が絶対的な評価を表しているわけではなく、書かれたプロダクトコードに対して、テストコードがN％カバーしているという事実を示しているだけです。カバレッジはツールや測定手法によって結果が変動します。例えばJavaScript用のカバレッジツールであるistanbulは<a href="https://github.com/gotwarlost/istanbul/blob/v0.4.3/lib/object-utils.js#L93" target="_blank">totalが0件の場合100%と表示します</a>が、これは単にツールの実装がそうなっているというだけの話です。</p>
@@ -842,8 +842,8 @@ BDDでテストを書くことによってテストによってどのような�
 scalafmt、scalafixのどちらもコードスタイルチェックに加えて自動修正機能があります。</p>
 <p>scalafmt、scalafixはCLIでもsbt pluginでも使えますがここではsbt pluginを利用する前提で話をすすめます。</p>
 <p><code>project/plugins.sbt</code> に以下のコードを記述します。</p>
-<pre><code class="lang-scala">addSbtPlugin(<span class="hljs-string">&quot;org.scalameta&quot;</span> %% <span class="hljs-string">&quot;scalafmt&quot;</span> % <span class="hljs-string">&quot;&lt;latest&gt;&quot;</span>)
-addSbtPlugin(<span class="hljs-string">&quot;ch.epfl.scala&quot;</span> % <span class="hljs-string">&quot;sbt-scalafix&quot;</span> % <span class="hljs-string">&quot;&lt;latest&gt;&quot;</span>)
+<pre><code class="lang-scala">addSbtPlugin(<span class="hljs-string">"org.scalameta"</span> %% <span class="hljs-string">"scalafmt"</span> % <span class="hljs-string">"&lt;latest&gt;"</span>)
+addSbtPlugin(<span class="hljs-string">"ch.epfl.scala"</span> % <span class="hljs-string">"sbt-scalafix"</span> % <span class="hljs-string">"&lt;latest&gt;"</span>)
 </code></pre>
 <h3 id="scalafmt"><a name="scalafmt" class="plugin-anchor" href="#scalafmt"><i class="fa fa-link" aria-hidden="true"></i></a>scalafmt</h3>
 <p>まずはscalafmtを試してみましょう。sbtシェルを開いて次のコマンドを実行してください。もしソースにフォーマットに問題があるコードが含まれているなら警告が表示されます。</p>
@@ -941,7 +941,7 @@ ScalafixFailed: TestError
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"テスト","level":"1.20","depth":1,"next":{"title":"Javaとの相互運用","level":"1.21","depth":1,"path":"java-interop.md","ref":"java-interop.md","articles":[]},"previous":{"title":"FutureとPromise","level":"1.19","depth":1,"path":"future-and-promise.md","ref":"future-and-promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"test.md","mtime":"2024-10-03T09:03:15.237Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"テスト","level":"1.20","depth":1,"next":{"title":"Javaとの相互運用","level":"1.21","depth":1,"path":"java-interop.md","ref":"java-interop.md","articles":[]},"previous":{"title":"FutureとPromise","level":"1.19","depth":1,"path":"future-and-promise.md","ref":"future-and-promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"test.md","mtime":"2024-10-03T21:16:04.481Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

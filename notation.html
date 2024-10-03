@@ -6,7 +6,7 @@
         <title>記法 · Scala研修テキスト</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="generator" content="HonKit 6.0.0">
         
         
         
@@ -462,43 +462,43 @@
 <pre><code>if
 </code></pre><h2 id="アルファベットなどの並びをクォートで囲んだもの"><a name="アルファベットなどの並びをクォートで囲んだもの" class="plugin-anchor" href="#アルファベットなどの並びをクォートで囲んだもの"><i class="fa fa-link" aria-hidden="true"></i></a>アルファベットなどの並びをクォートで囲んだもの</h2>
 <p>次に、アルファベットや記号の並びをクオートで囲んだものも、同様に扱います。これは後述するように、一部の文字に特別な意味をもたせるため、それとの混同を避けるために使います。以下は、先程と同じ意味です。</p>
-<pre><code>&apos;if&apos;
+<pre><code>'if'
 </code></pre><h2 id="と--で囲まれた要素"><a name="と--で囲まれた要素" class="plugin-anchor" href="#と--で囲まれた要素"><i class="fa fa-link" aria-hidden="true"></i></a><code>(</code> と <code>)</code> で囲まれた要素</h2>
 <p>なんらかの要素で、 <code>()</code> で囲まれたものは、グルーピングを表現します。以下は、<code>(</code>で始まる何らかの文字列
 <em>ではなく</em>、 <code>if()</code> という文字の並びをひとまとめにしたものを表します。これは、後述する繰り返しの表現などをひとまとめにするために使います。</p>
-<pre><code>(&apos;if&apos; &apos;(&apos; &apos;)&apos;)
-</code></pre><p>明示的に <code>&apos;(&apos;</code> や <code>&apos;)&apos;</code> としない限り、グルーピングが優先されます。</p>
+<pre><code>('if' '(' ')')
+</code></pre><p>明示的に <code>'('</code> や <code>')'</code> としない限り、グルーピングが優先されます。</p>
 <h2 id="と--で囲まれた要素"><a name="と--で囲まれた要素" class="plugin-anchor" href="#と--で囲まれた要素"><i class="fa fa-link" aria-hidden="true"></i></a><code>&lt;</code> と <code>&gt;</code> で囲まれた要素</h2>
 <p><code>&lt;式&gt;</code> のように <code>&lt;</code> と <code>&gt;</code> で囲んで名前をつけたものは、何らかの構文要素を表します。
 <code>&lt;式&gt;</code> と書くことで、 <code>式</code> という概念を表現する何らかの構文要素であることを示します。以下では、Javaの
 <code>if</code> 文の構文の一部を表現しています。 <code>&lt;条件式&gt;</code> が何かについては触れていませんが、Javaの言語で
 <code>boolean</code> が返ってくる式を想定しています。</p>
-<pre><code>if &apos;(&apos; &lt;条件式&gt; &apos;)&apos;
+<pre><code>if '(' &lt;条件式&gt; ')'
 </code></pre><h2 id="何らかの要素のあとに--が付加されたもの"><a name="何らかの要素のあとに--が付加されたもの" class="plugin-anchor" href="#何らかの要素のあとに--が付加されたもの"><i class="fa fa-link" aria-hidden="true"></i></a>何らかの要素のあとに <code>*</code> が付加されたもの</h2>
 <p>何らかの要素に続いて、 <code>*</code> が付加されたものは、その要素が0回以上現れることを意味します。以下は、
 <code>&lt;式&gt;</code> のあとに <code>;</code> が来るような要素が0回以上現れることを意味します。</p>
 <pre><code>(&lt;式&gt; ;)*
-</code></pre><p>ここで、 <code>a*</code> は <code>a</code> のあとに <code>*</code> という文字が来るのか、 <code>a</code> の0回以上の繰り返しなのかが曖昧です。曖昧さを解決するために、明示的に <code>&apos;*&apos;</code> としない限り、繰り返しが優先されるものとします。</p>
+</code></pre><p>ここで、 <code>a*</code> は <code>a</code> のあとに <code>*</code> という文字が来るのか、 <code>a</code> の0回以上の繰り返しなのかが曖昧です。曖昧さを解決するために、明示的に <code>'*'</code> としない限り、繰り返しが優先されるものとします。</p>
 <h2 id="何らかの要素のあとに--が付加されたもの"><a name="何らかの要素のあとに--が付加されたもの" class="plugin-anchor" href="#何らかの要素のあとに--が付加されたもの"><i class="fa fa-link" aria-hidden="true"></i></a>何らかの要素のあとに <code>+</code> が付加されたもの</h2>
 <p>何らかの要素に続いて、 <code>+</code> が付加されたものは、その要素が1回以上現れることを意味します。以下は、
 <code>&lt;式&gt;</code> のあとに <code>;</code> が来るような要素が1回以上現れることを意味します。</p>
 <pre><code>(&lt;式&gt; ;)+
-</code></pre><p>ここで、 <code>a+</code> は <code>a</code> のあとに <code>+</code> という文字が来るのか、 <code>a</code> の1回以上の繰り返しなのかが曖昧です。曖昧さを解決するために、明示的に <code>&apos;+&apos;</code> としない限り、繰り返しが優先されるものとします。</p>
+</code></pre><p>ここで、 <code>a+</code> は <code>a</code> のあとに <code>+</code> という文字が来るのか、 <code>a</code> の1回以上の繰り返しなのかが曖昧です。曖昧さを解決するために、明示的に <code>'+'</code> としない限り、繰り返しが優先されるものとします。</p>
 <h2 id="何らかの要素のあとに--が付加されたもの"><a name="何らかの要素のあとに--が付加されたもの" class="plugin-anchor" href="#何らかの要素のあとに--が付加されたもの"><i class="fa fa-link" aria-hidden="true"></i></a>何らかの要素のあとに <code>?</code> が付加されたもの</h2>
 <p>何らかの要素に続いて、 <code>?</code> が付加されたものは、その要素が0回または1回現れることを意味します。言い換えると、その要素はオプショナルであるということになります。以下は、</p>
 <p><code>else</code> で始まり、その次に <code>&lt;式&gt;</code> が来るような要素が0回または1回現れることを意味します。</p>
 <pre><code>(else &lt;式&gt;)?
-</code></pre><p>ここで、 <code>a?</code> は <code>a</code> のあとに <code>?</code> という文字が来るのか、 <code>a</code> の0回または1回の出現なのかが曖昧です。曖昧さを解決するために、明示的に <code>&apos;?&apos;</code> としない限り、オプショナルが優先されるものとします。</p>
+</code></pre><p>ここで、 <code>a?</code> は <code>a</code> のあとに <code>?</code> という文字が来るのか、 <code>a</code> の0回または1回の出現なのかが曖昧です。曖昧さを解決するために、明示的に <code>'?'</code> としない限り、オプショナルが優先されるものとします。</p>
 <h2 id="2つの要素の間に--が付加されたもの"><a name="2つの要素の間に--が付加されたもの" class="plugin-anchor" href="#2つの要素の間に--が付加されたもの"><i class="fa fa-link" aria-hidden="true"></i></a>2つの要素の間に <code>|</code> が付加されたもの</h2>
 <p>何らかの2つの要素AとBの間に <code>|</code> が付加されたものは、 AとBのどちらでも良いということを意味します。以下は、 <code>val</code> または <code>var</code> のどちらでも良いことを意味します。</p>
-<pre><code>(&apos;val&apos;|&apos;var&apos;)
-</code></pre><p>ここで、 <code>a|b</code> は <code>a|b</code> という3文字なのか、 <code>a</code> または <code>b</code> なのかが曖昧です。曖昧さを解決するために、明示的に <code>&apos;|&apos;</code> としない限り、 <code>a</code> or <code>b</code> という解釈が優先されます。</p>
+<pre><code>('val'|'var')
+</code></pre><p>ここで、 <code>a|b</code> は <code>a|b</code> という3文字なのか、 <code>a</code> または <code>b</code> なのかが曖昧です。曖昧さを解決するために、明示的に <code>'|'</code> としない限り、 <code>a</code> or <code>b</code> という解釈が優先されます。</p>
 <h2 id="何らかの要素の後に--が続くもの"><a name="何らかの要素の後に--が続くもの" class="plugin-anchor" href="#何らかの要素の後に--が続くもの"><i class="fa fa-link" aria-hidden="true"></i></a>何らかの要素の後に <code>...</code> が続くもの</h2>
 <p>任意個の要素が来るときに、最初の数個を例示し、後は同じパターンで出現することを明示するために利用します。以下は、 <code>[</code> と <code>]</code> で囲まれ、式が任意個続くパターンを表しています。</p>
-<pre><code>&apos;[&apos; &lt;式1&gt;, &lt;式2&gt;, ... &apos;]&apos;
+<pre><code>'[' &lt;式1&gt;, &lt;式2&gt;, ... ']'
 </code></pre><h2 id="if式の構文"><a name="if式の構文" class="plugin-anchor" href="#if式の構文"><i class="fa fa-link" aria-hidden="true"></i></a>if式の構文</h2>
 <p>以上を踏まえて、Scalaの <code>if</code> 式の構文を表現すると、次のようになります。</p>
-<pre><code>if &apos;(&apos; &lt;条件式&gt; &apos;)&apos; &lt;式&gt; ( else &lt;式&gt; )?
+<pre><code>if '(' &lt;条件式&gt; ')' &lt;式&gt; ( else &lt;式&gt; )?
 </code></pre><p>Scalaの <code>if</code> 式については、あとで詳しく解説します。</p>
 </body></html>
                                 
@@ -543,7 +543,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"記法","level":"1.7","depth":1,"next":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"previous":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"notation.md","mtime":"2024-10-03T09:03:14.528Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-10-03T09:03:18.087Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"記法","level":"1.7","depth":1,"next":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"previous":{"title":"IDE(IntelliJ IDEA)","level":"1.6","depth":1,"path":"IDE.md","ref":"IDE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"notation.md","mtime":"2024-10-03T21:16:03.827Z","type":"markdown"},"gitbook":{"version":"6.0.0","time":"2024-10-03T21:16:07.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
