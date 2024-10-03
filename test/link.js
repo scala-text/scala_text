@@ -228,6 +228,9 @@ describe("Check links", () => {
   let links         = merge(hrefs, imgs);
   let [urls, files] = partition(links, isUrl);
 
+  // 重複削除
+  let urls = [...new Set(urls)];
+
   // #から始まるリンクはページ内リンク（脚注）なので除外
   //
   // Scalaコードの一部をリンクとして検出してしまうので、特定の拡張子以外は除外
