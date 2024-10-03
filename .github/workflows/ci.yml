@@ -51,7 +51,7 @@ jobs:
       if: ${{ github.repository_owner == 'scala-text' && github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
       with:
         ssh-private-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
-    - uses: frabert/replace-string-action@v2.3
+    - uses: frabert/replace-string-action@v2.5
       id: get_branch_name
       with:
         string: ${{ github.ref }}
