@@ -18,7 +18,7 @@
     "gitbook-plugin-include-codeblock": "3.2.3",
     "gitbook-plugin-japanese-support": "0.0.1",
     "gitbook-plugin-regexplace": "2.1.2",
-    "honkit": "5.1.4",
+    "honkit": "6.0.0",
     "kramed": "0.5.6",
     "mocha": "10.7.3",
     "npm-check-updates": "^17.1.3",
