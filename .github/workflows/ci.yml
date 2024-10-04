@@ -82,7 +82,7 @@ jobs:
     steps:
     - id: generate_token
       if: ${{ github.repository_owner == 'scala-text' && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-      uses: tibdex/github-app-token@v1
+      uses: tibdex/github-app-token@v2
       with:
         app_id: 89662
         private_key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
