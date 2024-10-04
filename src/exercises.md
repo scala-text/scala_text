@@ -4,7 +4,7 @@
 
 ## S-99: Ninety-Nine Scala Problems
 
-URL: http://aperiodic.net/phil/scala/s-99/
+URL: https://aperiodic.net/phil/scala/s-99/
 
 元々はProlog用のNinety-Nine Prolog ProblemsをScala版に移植した問題集です。
 

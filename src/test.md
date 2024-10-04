@@ -565,7 +565,7 @@ Procedure Syntaxの警告と修正はscalafixにデフォルトで用意され�
 そんな作業を、限られたリソースですべてのパッチに対して行うのは不可能に近いので、プロジェクトによってはテストコードのないパッチはレビュー対象から外すことが多いです。
 パッチを送る場合は相手側が自信を持ってパッチを取り込めるよう、テストを含めておきましょう。
 
-[^jstqb]: http://jstqb.jp/dl/JSTQB-glossary-introduction.V3.2.J01.pdf
+[^jstqb]: https://jstqb.jp/dl/JSTQB-glossary-introduction.V3.2.J01.pdf
 [^power-assert]: 渡された条件式の実行過程をダイアグラムで表示する`assert`は、一般に“power assert”と呼ばれています
 [^predef-assert]: Scalaには`Predef`にも`assert`が存在しますが、基本的に使うことはありません
 [^xutp]: モック以外の仕組みについては[xUnit Test Patterns](http://xunitpatterns.com/)を参照してください
