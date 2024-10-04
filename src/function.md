@@ -223,7 +223,7 @@ def printFile(filename: String): Unit = ???
 ```scala mdoc:nest:silent
 def printFile(filename: String): Unit = {
   withFile(filename) { file =>
-    file.getLines.foreach(println)
+    file.getLines().foreach(println)
   }
 }
 ```
