@@ -394,7 +394,6 @@ BDDでテストを書くことによってテストによってどのような�
 以下の様なモックライブラリが存在しています。
 
 - [ScalaMock](https://scalamock.org/)
-- [EasyMock](https://easymock.org/)
 - [JMock](http://jmock.org/)
 - [Mockito](https://github.com/mockito/mockito)
 
