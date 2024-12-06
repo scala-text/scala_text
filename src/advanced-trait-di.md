@@ -54,18 +54,18 @@ class UserService {
   val maxNameLength = 32
 
   // ストレージ機能
-  private[this] def insert(user: User): User = ???
+  private def insert(user: User): User = ???
 
-  private[this] def createUser(rs: WrappedResultSet): User = ???
+  private def createUser(rs: WrappedResultSet): User = ???
 
-  private[this] def find(name: String): Option[User] = ???
+  private def find(name: String): Option[User] = ???
 
-  private[this] def find(id: Long): Option[User] = ???
+  private def find(id: Long): Option[User] = ???
 
   // パスワード機能
-  private[this] def hashPassword(rawPassword: String): String = ???
+  private def hashPassword(rawPassword: String): String = ???
 
-  private[this] def checkPassword(rawPassword: String, hashedPassword: String): Boolean = ???
+  private def checkPassword(rawPassword: String, hashedPassword: String): Boolean = ???
 
   // ユーザー登録
   def register(name: String, rawPassword: String): User = ???
