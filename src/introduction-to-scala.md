@@ -76,7 +76,7 @@ Scalaでは非同期の計算を表現する[Future](https://www.scala-lang.org/
 また、他のシステムに問い合わせなければならない場合などにも、スレッドを占有することなく他のシステムの返答を待つことができます。
 内部に多数のシステムがあり、外からの大量アクセスが見込まれる場合、Scalaの非同期プログラミングのサポートは大きなプラスになります。
 
-[^not_only_jvm]: https://www.scala-native.org や https://www.scala-js.org/ といった、JVM以外の環境で動くものも存在します
+[^not_only_jvm]: https://scala-native.org/en/stable/ や https://www.scala-js.org/ といった、JVM以外の環境で動くものも存在します
 
 [^first_class]: この特徴を関数が「第一級（first-class）」であると言います。
 
