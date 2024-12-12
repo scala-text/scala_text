@@ -83,7 +83,7 @@ System.out.println("Hello, World!")
 
 staticメソッドの呼び出しもJavaの場合とほとんど同様にできますが、1つ注意点があります。それは、Scalaではstaticメソッドは継承されない
 （というよりstaticメソッドという概念がない）ということです。これは、クラスAがstaticメソッドfooを持っていたとして、Aを継承したBに
-対してB.foo()とすることはできず、A.foo()としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。
+対して`B.foo()`とすることはできず、`A.foo()`としなければならないという事を意味します。それ以外の点についてはJavaの場合とほぼ同じです。
 
 現在時刻をミリ秒単位で取得する[`System.currentTimeMillis()`](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/System.html#currentTimeMillis--)をScalaから呼び出してみましょう。
 
@@ -246,7 +246,7 @@ Scala 2.12以前は同様の機能は`scala.collection.JavaConverters`で提供�
 import scala.jdk.CollectionConverters._
 ```
 
-とするだけです。これで、JavaとScalaのコレクションのそれぞれにasJava()やasScala()といったメソッドが追加されるのでそのメソッドを以下のように
+とするだけです。これで、JavaとScalaのコレクションのそれぞれに`asJava()`や`asScala()`といったメソッドが追加されるのでそのメソッドを以下のように
 呼び出せば良いです。
 
 ```scala mdoc:nest
