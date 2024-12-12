@@ -30,7 +30,7 @@
     "textlint": "14.4.0",
     "textlint-rule-incremental-headers": "0.2.0",
     "textlint-rule-preset-japanese": "10.0.3",
-    "textlint-rule-preset-jtf-style": "2.3.14",
+    "textlint-rule-preset-jtf-style": "3.0.1",
     "textlint-rule-prh": "6.0.0"
   },
   "dependencies": {
