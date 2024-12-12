@@ -231,6 +231,9 @@ describe("Check links", () => {
   // 重複削除
   urls = [...new Set(urls)];
 
+  // github actions上だと何故かscala-nativeがアクセス出来ない?
+  urls = urls.filter((x) => !x.includes("scala-native.org"));
+
   // #から始まるリンクはページ内リンク（脚注）なので除外
   //
   // Scalaコードの一部をリンクとして検出してしまうので、特定の拡張子以外は除外
