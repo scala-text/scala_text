@@ -24,7 +24,7 @@ jobs:
     - run: sudo apt-get update
     - run: sudo apt-get install libegl1
     - run: sudo apt-get install libopengl0
-    - run: npm install npm@10.9.2
+    - run: npm install -g npm@10.9.2
     - run: npm ci
     - run: npm install svgexport -g
     - run: sbt -v '++ 3.x' mdoc clean
