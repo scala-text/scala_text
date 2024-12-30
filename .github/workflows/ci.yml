@@ -20,7 +20,7 @@ jobs:
     - uses: coursier/cache-action@v6
     - uses: actions/setup-node@v4
       with:
-        node-version: '18.20.4'
+        node-version: '18.20.5'
     - run: sudo apt-get update
     - run: sudo apt-get install libegl1
     - run: sudo apt-get install libopengl0
