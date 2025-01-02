@@ -29,7 +29,7 @@
     "svgexport": "0.4.2",
     "textlint": "14.4.2",
     "textlint-rule-incremental-headers": "0.2.0",
-    "textlint-rule-preset-japanese": "10.0.3",
+    "textlint-rule-preset-japanese": "10.0.4",
     "textlint-rule-preset-jtf-style": "3.0.1",
     "textlint-rule-prh": "6.0.0"
   }
