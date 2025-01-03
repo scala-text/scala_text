@@ -1,10 +1,16 @@
 package domain
 
 trait UserService {
-  self: PasswordService with UserRepository =>
 
   val maxNameLength = 32
 
+  def register(name: String, rawPassword: String): User
+
+  def login(name: String, rawPassword: String): User
+
+}
+
+class UserServiceImpl extends UserService { self: UserRepository with PasswordService =>
   def register(name: String, rawPassword: String): User = {
     if (name.length > maxNameLength) {
       throw new Exception("Too long name!")
@@ -26,5 +32,3 @@ trait UserService {
     }
   }
 }
-
-class UserServiceImpl extends UserService with PasswordServiceImpl with UserRepositoryImpl
