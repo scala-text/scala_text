@@ -30,7 +30,7 @@
 - この他のストレージ機能とパスワード機能のメソッドは内部的に使われるのみである
 
 上記のプログラムでは実際に動かすことができるように[ScalikeJDBC](https://github.com/scalikejdbc/scalikejdbc)というデータベース用のライブラリとjBCryptというパスワースのハッシュ値を計算するライブラリが使われていますが、実装の詳細を理解する必要はありません。
-既にメソッドの実装を説明したことがある場合は実装を省略し[`???`](https://github.com/scala/scala/blob/v2.13.15/src/library/scala/Predef.scala#L344)で書くことがあります。
+既にメソッドの実装を説明したことがある場合は実装を省略し[`???`](https://github.com/scala/scala/blob/v2.13.16/src/library/scala/Predef.scala#L344)で書くことがあります。
 
 ## リファクタリング：公開する機能を制限する
 

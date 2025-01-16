@@ -129,7 +129,7 @@ name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "2.13.15"
+scalaVersion := "2.13.16"
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-flatspec" % "3.2.19" % "test",
