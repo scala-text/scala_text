@@ -22,7 +22,7 @@ cleanFiles += compiledSrcDir
 libraryDependencies ++= Seq(
   // TODO sbtがScala 2.13対応したら再び有効化
   // "org.scala-sbt" % "sbt" % sbtVersion.value,
-  "org.mockito" % "mockito-core" % "5.16.1",
+  "org.mockito" % "mockito-core" % "5.17.0",
   "org.scalacheck" %% "scalacheck" % "1.18.1",
   "org.scalatest" %% "scalatest-flatspec" % "3.2.19", // mdocで使うので、テストライブラリだが、わざとcompileスコープ
   "org.scalatest" %% "scalatest-diagrams" % "3.2.19"
