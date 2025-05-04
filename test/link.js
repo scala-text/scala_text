@@ -228,11 +228,17 @@ describe("Check links", () => {
   let links         = merge(hrefs, imgs);
   let [urls, files] = partition(links, isUrl);
 
+  // # 以後の部分は考慮しない
+  urls = urls.map((a) => a.split("#")[0]);
+
   // 重複削除
   urls = [...new Set(urls)];
 
   // github actions上だと何故かscala-nativeがアクセス出来ない?
   urls = urls.filter((x) => !x.includes("scala-native.org"));
+
+  // 本来チェックしたいが、何度もアクセスして429返されてしまうので、一旦除外
+  urls = urls.filter((x) => !x.includes("github.com/scala/scala/blob"));
 
   // #から始まるリンクはページ内リンク（脚注）なので除外
   //
