@@ -6,7 +6,7 @@ import org.scalatest.wordspec.AnyWordSpec
 class UserServiceSpec extends AnyWordSpec {
   val user = User(1, "test_name", "test_password")
 
-  val sut = new UserService with PasswordServiceImpl with UserRepository {
+  val sut = new UserServiceImpl with PasswordServiceImpl with UserRepository {
     def find(id: Long): Option[domain.User] = Some(user)
     def find(name: String): Option[domain.User] = Some(user)
     def insert(user: domain.User): domain.User = user
