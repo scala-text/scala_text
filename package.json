@@ -9,7 +9,7 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/register": "^7.27.1",
     "babel-preset-power-assert": "3.0.0",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.1.0",
     "eslint": "^9.30.1",
     "eslint-config-eslint": "11.0.0",
     "gitbook-plugin-anchors": "0.7.1",
