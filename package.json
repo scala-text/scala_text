@@ -7,7 +7,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.27.2",
-    "@babel/register": "^7.27.1",
+    "@babel/register": "^7.28.3",
     "babel-preset-power-assert": "3.0.0",
     "cheerio": "1.0.0-rc.12",
     "eslint": "^9.33.0",
