@@ -48,9 +48,7 @@ Enrich my libraryパターンと呼ばれるものがあります。C#やKotlin�
 
 `to`メソッドはenrich my libraryパターンの典型的な利用例です。`Int`に対して`to`メソッドが定義されていないことがわかると、既存のimplicit conversionで定義されたメソッドの返り値型に`to`メソッドの定義がないか検索して、メソッドが見つかった場合に適切なimplicit conversionを挿入するのです。
 
-この使い方では変換先の型は純粋にメソッドを追加するためだけに存在しているため、既存の型同士を変換するときのような混乱は起こりません。さらに、Scala 3では拡張メソッドを定義するための専用構文が用意されました。
-
-Scala 3が実用で利用できるのはまだ先ですから、当面はenrich my libraryパターンを使うと考えておきましょう。試しに、`String`の末尾に`":-)"`という文字列を追加して返すようにenrich my libraryパターンを使って
+この使い方では変換先の型は純粋にメソッドを追加するためだけに存在しているため、既存の型同士を変換するときのような混乱は起こりません。試しに、`String`の末尾に`":-)"`という文字列を追加して返すようにenrich my libraryパターンを使って
 
 ```scala mdoc:nest
 class RichString(src: String) {
@@ -81,6 +79,14 @@ implicit class RichString(src: String) {
 という形で書きなおすことができます。implicit classはenrich my libraryパターン専用の機能なので、拡張メソッドを定義する意図を適切に表現できます。enrich my libraryパターンが必要なときは原則的にimplicit classを使うべきです。
 
 しかし、サードパーティのライブラリや標準ライブラリではimplicit classが使われていないこともあるので、そのようなコードも読めるようにしておくのが良いでしょう。
+
+さらに、Scala 3では以下のような拡張メソッドを定義するための専用構文が用意されました。
+
+```scala mdoc:reset
+extension (src: String) {
+  def smile: String = src + ":-)"
+}
+```
 
 ### 練習問題 {#implicit_ex1}
 
