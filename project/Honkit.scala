@@ -22,7 +22,7 @@ object Honkit extends NpmCliBase {
   lazy val textBuildHtml = inputKey[Unit]("build Honkit to html")
   lazy val textBuildEpub = inputKey[Unit]("build Honkit to epub")
 
-  private[this] val mdocTask = mdoc.toTask("")
+  private val mdocTask = mdoc.toTask("")
 
   val settings = Seq(
     textHelpHonkit := printRun(Process(s"$honkitBin help")),
