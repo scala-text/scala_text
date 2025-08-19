@@ -19,7 +19,7 @@ Windowsの場合も[WSL](https://docs.microsoft.com/en-us/windows/wsl/install)�
 
 ## Javaのインストール
 
-Scala 2.12や2.13ではJava 8以降が必須なので、もしJavaがインストールされていなければ、まずJavaをインストールしましょう。
+Scala 2.12以降はJava 8以降が必須なので、もしJavaがインストールされていなければ、まずJavaをインストールしましょう。
 ScalaとJavaのそれぞれのバージョンの互換性に関しては、以下のScala公式サイトのページを見てください。
 
 https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
@@ -115,9 +115,8 @@ $ sbt console
 [info] Done updating.
 [info] Starting scala interpreter...
 [info] 
-Welcome to Scala version 2.13.16 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
-Type in expressions to have them evaluated.
-Type :help for more information.
+Welcome to Scala 3.7.2 (21.0.8, Java OpenJDK 64-Bit Server VM).
+Type in expressions for evaluation. Or try :help.
 
 scala> 
 
@@ -138,7 +137,7 @@ scala> :quit
 _build.sbt_というファイルを作成し、
 
 ```scala
-scalaVersion := "2.13.16"
+scalaVersion := "3.7.2"
 ```
 
 としてやると良いです。この_*.sbt_がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう
