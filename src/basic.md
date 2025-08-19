@@ -20,9 +20,8 @@ $ sbt console
 とコマンドを打ってみましょう。
 
 ```
-Welcome to Scala version 2.13.16 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_45).
-Type in expressions to have them evaluated.
-Type :help for more information.
+Welcome to Scala 3.7.2 (21.0.8, Java OpenJDK 64-Bit Server VM).
+Type in expressions for evaluation. Or try :help.
 
 scala> 
 ```

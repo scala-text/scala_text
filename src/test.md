@@ -1,3 +1,9 @@
+```scala mdoc:invisible
+import sbt.*
+import sbt.given
+import sbt.Keys.*
+```
+
 # テスト
 
 ソフトウェアをテストすることは多くの開発者が必要なことだと認識していますが、テストという言葉の定義は各人で異なり話が噛み合わない、という状況が多々発生します。
@@ -124,12 +130,12 @@ BDDでは、テスト内にそのプログラムに与えられた機能的な�
 
 `build.sbt`を用意して、以下を記述しておきます。
 
-```scala
+```scala mdoc:nest:silent
 name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "2.13.16"
+scalaVersion := "3.7.2"
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-flatspec" % "3.2.19" % "test",
@@ -143,10 +149,10 @@ libraryDependencies ++= Seq(
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_2.13/3.2.17/scalatest-flatspec_2.13-3.2.17.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_2.13;3.2.17!scalatest-flatspec_2.13.jar(bundle) (5456ms)
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_2.13/3.2.17/scalatest-diagrams_2.13-3.2.17.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_2.13;3.2.17!scalatest-diagrams_2.13.jar(bundle) (5199ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_3/3.2.17/scalatest-flatspec_3-3.2.17.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_3;3.2.17!scalatest-flatspec_3.jar(bundle) (5456ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_3/3.2.17/scalatest-diagrams_3-3.2.17.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_3;3.2.17!scalatest-diagrams_3.jar(bundle) (5199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2023/02/09 16:48:42
 ```
@@ -252,8 +258,8 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/classes...
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.2/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.2/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -272,7 +278,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.2/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -365,7 +371,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-2.13/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.2/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -400,7 +406,7 @@ BDDでテストを書くことによってテストによってどのような�
 ここでは、よく使われているMockitoを利用してみましょう。
 `build.sbt`に以下を追記することで利用可能になります。
 
-```scala
+```scala mdoc:nest:silent
 libraryDependencies += "org.mockito" % "mockito-core" % "5.19.0" % "test"
 ```
 
@@ -444,11 +450,11 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
 `project/plugins.sbt` に以下のコードを記述します。
 
-```scala
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.0.3")
+```scala mdoc:nest:silent
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.3.1")
 ```
 
-その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-2.13/scoverage-report/index.html`にレポートが出力されます。
+その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-3.7.2/scoverage-report/index.html`にレポートが出力されます。
 
 ![Scoverage Code Coverage](img/scoverage_code_coverage.png)
 
@@ -490,7 +496,7 @@ scalafmt、scalafixはCLIでもsbt pluginでも使えますがここではsbt pl
 
 `project/plugins.sbt` に以下のコードを記述します。
 
-```scala
+```scala mdoc:nest:silent
 addSbtPlugin("org.scalameta" %% "scalafmt" % "<latest>")
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "<latest>")
 ```

@@ -36,9 +36,9 @@ sandbox
 
 ```scala
 // build.sbt
-scalaVersion := "2.13.16"
+scalaVersion := "3.7.2"
 
-scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Xlint")
+scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 ```
 
 この記述を加えることで`scalac`が
@@ -46,7 +46,6 @@ scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Xlint")
 - 今後廃止の予定のAPIを利用している（`-deprecation`）
 - 明示的に使用を宣言しないといけない実験的な機能や注意しなければならない機能を利用している（`-feature`）
 - 型消去などでパターンマッチが有効に機能しない場合（`-unchecked`）
-- その他、望ましい書き方や落とし穴についての情報（`-Xlint`）
 
 などの警告の情報を詳しく出してくれるようになります。
 コンパイラのメッセージが親切になるので付けるようにしましょう。
