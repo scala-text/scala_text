@@ -53,7 +53,7 @@ Enrich my libraryパターンと呼ばれるものがあります。C#やKotlin�
 Scala 3が実用で利用できるのはまだ先ですから、当面はenrich my libraryパターンを使うと考えておきましょう。試しに、`String`の末尾に`":-)"`という文字列を追加して返すようにenrich my libraryパターンを使って
 
 ```scala mdoc:nest
-class RichString(val src: String) {
+class RichString(src: String) {
   def smile: String = src + ":-)"
 }
 
@@ -71,7 +71,7 @@ enrichString("Hi, ").smile
 しかし、拡張メソッドのためにimplicit conversionを毎回定義するのは冗長です。Scala 2.10以降ではclassにimplicitキーワードをつけることで簡潔な記述が可能になりました。上の定義は
 
 ```scala mdoc:reset
-implicit class RichString(val src: String) {
+implicit class RichString(src: String) {
   def smile: String = src + ":-)"
 }
 
