@@ -18,6 +18,15 @@ case object Saturday extends DayOfWeek
 ```
 
 これは、一週間の曜日を表すデータ型です。CやJavaの`enum`に似ていますね。実際、同じように使うことができます。
+
+また、Scala 3からはenumという新しい機能が追加されたため、ほぼ同等のものを以下のように簡潔に書くことが可能です。
+
+```scala mdoc:nest:silent
+enum DayOfWeekScala3Enum {
+  case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+}
+```
+
 たとえば、以下のように`DayOfWeek`型の変数に`Sunday`を代入することができます。
 
 ```scala mdoc:nest:silent
