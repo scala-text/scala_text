@@ -112,7 +112,11 @@ val adder = new Adder()
 
 adder.add(2)(3)
 
-val fun = adder.add(2) _
+// 古いScalaではメソッドを部分適用して関数にするには _ が必要だったが、
+// 最新のScalaでは必要なく、むしろ _ を書くと警告になる
+val funOldSyntax: Int => Int = adder.add(2) _
+
+val fun: Int => Int = adder.add(2)
 fun(3)
 ```
 

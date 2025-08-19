@@ -1,7 +1,7 @@
 package domain
 
 trait UserService {
-  self: PasswordService with UserRepository =>
+  self: PasswordService & UserRepository =>
 
   val maxNameLength = 32
 
