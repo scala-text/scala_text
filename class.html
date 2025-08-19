@@ -487,19 +487,19 @@
 </code></pre>
 <h2 id="メソッド定義"><a name="メソッド定義" class="plugin-anchor" href="#メソッド定義"><i class="fa fa-link" aria-hidden="true"></i></a>メソッド定義</h2>
 <p>先ほど既にメソッド定義の例として<code>+</code>メソッドの定義が出てきましたが、一般的には、次のような形をとります。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([&lt;パッケージ名など&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名など&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
 ')': &lt;返り値型&gt; = &lt;本体&gt;
 </code></pre>
 <p>実際にはブロック式を使った以下の形式を取ることが多いでしょう。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([&lt;パッケージ名など&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名など&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
 ')': &lt;返り値型&gt; = {
   (&lt;式&gt; (; | &lt;改行&gt;)?)*
 }
 </code></pre>
 <p>単にメソッド本体がブロック式からなる場合にこうなるというだけであって、メソッド定義を <code>{}</code> で囲む専用の構文があるわけではありません。</p>
-<p>返り値型は省略しても特別な場合以外型推論してくれますが、読みやすさのために、返り値の型は明記する習慣を付けるようにしましょう。 <code>private</code> を付けるとそのクラス内だけから、 <code>protected</code> を付けると派生クラスからのみアクセスできるメソッドになります。  <code>private[this]</code> をつけると、同じオブジェクトからのみアクセス可能になります。また、 <code>private[パッケージ名]</code> を付けると同一パッケージに所属しているものからのみ、 <code>protected[パッケージ名]</code> をつけると、派生クラスに加えて追加で同じパッケージに所属しているもの全てからアクセスできるようになります。 <code>private</code> も <code>protected</code> も付けない場合、そのメソッドはpublicとみなされます。</p>
+<p>返り値型は省略しても特別な場合以外型推論してくれますが、読みやすさのために、返り値の型は明記する習慣を付けるようにしましょう。 <code>private</code> を付けるとそのクラス内だけから、 <code>protected</code> を付けると派生クラスからのみアクセスできるメソッドになります。  <code>private[this]</code> をつけると、同じオブジェクトからのみアクセス可能、という機能がScala 2にはありましたが、Scala 3からは <code>[this]</code> の記法は非推奨になりました。 <code>private[パッケージ名]</code> を付けると同一パッケージに所属しているものからのみ、 <code>protected[パッケージ名]</code> をつけると、派生クラスに加えて追加で同じパッケージに所属しているもの全てからアクセスできるようになります。 <code>private</code> も <code>protected</code> も付けない場合、そのメソッドはpublicとみなされます。</p>
 <p>先ほど定義した<code>Point</code>クラスをREPLから使ってみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">val x: <span class="hljs-type">Int</span>, val y: <span class="hljs-type">Int</span></span>) </span>{
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">+</span></span>(p: <span class="hljs-type">Point</span>): <span class="hljs-type">Point</span> = {
@@ -519,7 +519,7 @@ p1 + p2
 </code></pre>
 <h2 id="複数の引数リストを持つメソッド"><a name="複数の引数リストを持つメソッド" class="plugin-anchor" href="#複数の引数リストを持つメソッド"><i class="fa fa-link" aria-hidden="true"></i></a>複数の引数リストを持つメソッド</h2>
 <p>メソッドは以下のように複数の引数リストを持つように定義することができます。</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([&lt;パッケージ名など&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
 ')'( '('
   (&lt;引数名&gt; : 引数型 (, 引数名 : &lt;引数型&gt;)*)?
@@ -531,7 +531,7 @@ p1 + p2
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@20f27b1c</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@338dc414</span>
 
 adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res1: Int = 5</span>
@@ -539,10 +539,10 @@ adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>
 <span class="hljs-comment">// 古いScalaではメソッドを部分適用して関数にするには _ が必要だったが、</span>
 <span class="hljs-comment">// 最新のScalaでは必要なく、むしろ _ を書くと警告になる</span>
 <span class="hljs-keyword">val</span> funOldSyntax: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>) _
-<span class="hljs-comment">// funOldSyntax: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10394/0x0000000102bc2040@24bca75f</span>
+<span class="hljs-comment">// funOldSyntax: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10429/0x0000000102d03040@37c31b20</span>
 
 <span class="hljs-keyword">val</span> fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>)
-<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10395/0x0000000102bc3040@3b9afcaa</span>
+<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10430/0x0000000102d04040@2de720fd</span>
 fun(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res2: Int = 5</span>
 </code></pre>
@@ -553,21 +553,21 @@ fun(<span class="hljs-number">3</span>)
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@2509ace4</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@834d4ec</span>
 
 adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-comment">// res3: Int = 5</span>
 
 <span class="hljs-keyword">val</span> fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>, _)
-<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10396/0x0000000102bc7040@5717584</span>
+<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10431/0x0000000102d07040@6abb06ab</span>
 fun(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res4: Int = 5</span>
 </code></pre>
 <h2 id="フィールド定義"><a name="フィールド定義" class="plugin-anchor" href="#フィールド定義"><i class="fa fa-link" aria-hidden="true"></i></a>フィールド定義</h2>
 <p>フィールド定義は</p>
-<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([<span class="hljs-keyword">this</span> | &lt;パッケージ名&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? (<span class="hljs-keyword">val</span> | <span class="hljs-keyword">var</span>) &lt;フィールド名&gt;: &lt;フィールド型&gt; = &lt;初期化式&gt;
+<pre><code class="lang-scala">(<span class="hljs-keyword">private</span>([&lt;パッケージ名など&gt;])? | <span class="hljs-keyword">protected</span>([&lt;パッケージ名など&gt;])?)? (<span class="hljs-keyword">val</span> | <span class="hljs-keyword">var</span>) &lt;フィールド名&gt;: &lt;フィールド型&gt; = &lt;初期化式&gt;
 </code></pre>
-<p>という形を取ります。<code>val</code>の場合は変更不能、<code>var</code>の場合は変更可能なフィールドになります。また、<code>private</code>を付けるとそのクラス内だけから、<code>protected</code>を付けるとそのクラスの派生クラスからのみアクセスできるフィールドになります。 <code>private[this]</code> を付加すると、同じオブジェクトからのみアクセス可能になります。さらに、<code>private[&lt;パッケージ名&gt;]</code>を付けると同一パッケージからのみ、 <code>protected[パッケージ名]</code> をつけると、派生クラスに加えて同じパッケージに所属しているもの全てからアクセスできるようになります。 <code>private</code>も<code>protected</code>も付けない場合、そのフィールドはpublicとみなされます。</p>
+<p>という形を取ります。<code>val</code>の場合は変更不能、<code>var</code>の場合は変更可能なフィールドになります。また、<code>private</code>を付けるとそのクラス内だけから、<code>protected</code>を付けるとそのクラスの派生クラスからのみアクセスできるフィールドになります。 <code>private[this]</code> を付加すると、同じオブジェクトからのみアクセス可能になる機能がScala 2にはありましたが、Scala 3からはこの記法は非推奨になりました。さらに、<code>private[&lt;パッケージ名&gt;]</code>を付けると同一パッケージからのみ、 <code>protected[パッケージ名]</code> をつけると、派生クラスに加えて同じパッケージに所属しているもの全てからアクセスできるようになります。 <code>private</code>も<code>protected</code>も付けない場合、そのフィールドはpublicとみなされます。</p>
 <h2 id="抽象メンバー"><a name="抽象メンバー" class="plugin-anchor" href="#抽象メンバー"><i class="fa fa-link" aria-hidden="true"></i></a>抽象メンバー</h2>
 <p>その時点では実装を書くことができず、後述する継承の際に、メソッドやフィールドの実装を与えたいということがあります。このような場合に対応するため、Scalaでは抽象メンバーを定義することができます。抽象メンバーは、メソッドの場合とフィールドの場合があり、メソッドの場合は次のようになります。</p>
 <pre><code class="lang-scala">(<span class="hljs-keyword">protected</span>([&lt;パッケージ名&gt;])?)? <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">&lt;メソッド名&gt;</span> '</span>('
@@ -718,7 +718,7 @@ println(shape.area)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2025-08-19T08:10:34.112Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-08-19T08:11:34.280Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2025-08-19T08:16:57.812Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-08-19T08:17:55.086Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
