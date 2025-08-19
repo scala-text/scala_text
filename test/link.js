@@ -237,6 +237,9 @@ describe("Check links", () => {
   // github actions上だと何故かscala-nativeがアクセス出来ない?
   urls = urls.filter((x) => !x.includes("scala-native.org"));
 
+  // 調子悪いだけなのか、ブロックされたのか不明だが、失敗するので除外
+  urls = urls.filter((x) => !x.includes("en.wikipedia.org"));
+
   // 本来チェックしたいが、何度もアクセスして429返されてしまうので、一旦除外
   urls = urls.filter((x) => !x.includes("github.com/scala/scala/blob"));
 
