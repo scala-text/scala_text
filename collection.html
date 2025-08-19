@@ -527,7 +527,7 @@ arr
 <h3 id="range"><a name="range" class="plugin-anchor" href="#range"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala/blob/v2.13.16/src/library/scala/collection/immutable/Range.scala" target="_blank">Range</a></h3>
 <p><code>Range</code>は範囲を表すオブジェクトです。<code>Range</code>は直接名前を指定して生成するより、<code>to</code>メソッドと<code>until</code>メソッドを用いて呼びだすことが多いです。また、<code>toList</code>メソッドを用いて、その範囲の数値の列を後述する<code>List</code>に変換することができます。では、早速REPLで<code>Range</code>を使ってみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-number">1</span> to <span class="hljs-number">5</span>
-<span class="hljs-comment">// res8: Range.Inclusive = Range(1, 2, 3, 4, 5)</span>
+<span class="hljs-comment">// res8: Inclusive = Range(1, 2, 3, 4, 5)</span>
 
 (<span class="hljs-number">1</span> to <span class="hljs-number">5</span>).toList
 <span class="hljs-comment">// res9: List[Int] = List(1, 2, 3, 4, 5)</span>
@@ -949,12 +949,12 @@ m <span class="hljs-comment">// 元のMapはそのまま</span>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.collection.mutable
 
 <span class="hljs-keyword">val</span> m = mutable.<span class="hljs-type">Map</span>(<span class="hljs-string">"A"</span> -&gt; <span class="hljs-number">1</span>, <span class="hljs-string">"B"</span> -&gt; <span class="hljs-number">2</span>, <span class="hljs-string">"C"</span> -&gt; <span class="hljs-number">3</span>)
-<span class="hljs-comment">// m: mutable.Map[String, Int] = HashMap("A" -&gt; 1, "B" -&gt; 5, "C" -&gt; 3)</span>
+<span class="hljs-comment">// m: Map[String, Int] = HashMap("A" -&gt; 1, "B" -&gt; 5, "C" -&gt; 3)</span>
 
 m(<span class="hljs-string">"B"</span>) = <span class="hljs-number">5</span> <span class="hljs-comment">// B -&gt; 5 のマッピングに置き換える</span>
 
 m <span class="hljs-comment">// 変更が反映されている</span>
-<span class="hljs-comment">// res47: mutable.Map[String, Int] = HashMap("A" -&gt; 1, "B" -&gt; 5, "C" -&gt; 3)</span>
+<span class="hljs-comment">// res47: Map[String, Int] = HashMap("A" -&gt; 1, "B" -&gt; 5, "C" -&gt; 3)</span>
 </code></pre>
 <h2 id="set"><a name="set" class="plugin-anchor" href="#set"><i class="fa fa-link" aria-hidden="true"></i></a>Set</h2>
 <p><code>Set</code>は値の集合を提供するデータ構造です。<code>Set</code>の中では同じ値が2つ以上存在しません。たとえば、<code>Int</code>の<code>Set</code>の中には1が2つ以上含まれていてはいけません。REPLで<code>Set</code>を作成するための式を入力すると、</p>
@@ -980,13 +980,13 @@ s <span class="hljs-comment">// 元のSetはそのまま</span>
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.collection.mutable
 
 <span class="hljs-keyword">val</span> s = mutable.<span class="hljs-type">Set</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
-<span class="hljs-comment">// s: mutable.Set[Int] = HashSet(1, 2, 3, 4)</span>
+<span class="hljs-comment">// s: Set[Int] = HashSet(1, 2, 3, 4)</span>
 
 s -= <span class="hljs-number">5</span> <span class="hljs-comment">// 5 を削除したら</span>
-<span class="hljs-comment">// res51: mutable.Set[Int] = HashSet(1, 2, 3, 4)</span>
+<span class="hljs-comment">// res51: Set[Int] = HashSet(1, 2, 3, 4)</span>
 
 s <span class="hljs-comment">// 変更が反映される</span>
-<span class="hljs-comment">// res52: mutable.Set[Int] = HashSet(1, 2, 3, 4)</span>
+<span class="hljs-comment">// res52: Set[Int] = HashSet(1, 2, 3, 4)</span>
 </code></pre>
 <h3 id="その他資料"><a name="その他資料" class="plugin-anchor" href="#その他資料"><i class="fa fa-link" aria-hidden="true"></i></a>その他資料</h3>
 <p>さらにコレクションライブラリについて詳しく知りたい場合は、以下の公式のドキュメントなどを読みましょう
@@ -1037,7 +1037,7 @@ s <span class="hljs-comment">// 変更が反映される</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"コレクションライブラリ","level":"1.14","depth":1,"next":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"previous":{"title":"関数","level":"1.13","depth":1,"path":"function.md","ref":"function.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"collection.md","mtime":"2025-08-19T04:22:42.002Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-08-19T04:22:52.425Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"コレクションライブラリ","level":"1.14","depth":1,"next":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"previous":{"title":"関数","level":"1.13","depth":1,"path":"function.md","ref":"function.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"collection.md","mtime":"2025-08-19T04:27:58.242Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-08-19T04:28:25.048Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
