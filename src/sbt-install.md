@@ -159,4 +159,4 @@ sbtは`sbt --version`もしくは`sbt --launcher-version`とするとversionが�
 
 [^hyphen]: ハイフンは1つではなく2つなので注意。versionの詳細について知りたい場合は、こちらも参照。 https://github.com/scala-text/scala_text/issues/122
 
-[^latest]: 具体的にはこれを書いている2025年8月時点の最新版であるsbt 1.11.4。
+[^latest]: 具体的にはこれを書いている2025年8月時点の最新版であるsbt 1.11.5。
