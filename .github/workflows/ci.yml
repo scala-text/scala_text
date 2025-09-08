@@ -62,7 +62,7 @@ jobs:
         branch: gh-pages
         folder: honkit/_book/
         clean: true
-    - uses: actions/github-script@v7
+    - uses: actions/github-script@v8
       if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request' && github.repository_owner == 'scala-text' && github.actor != 'dependabot[bot]'}}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
