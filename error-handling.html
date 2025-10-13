@@ -546,7 +546,7 @@ Option型には具体的には</p>
 <code>None</code>は値が何も格納されていない時の<code>Option</code>の型です。</p>
 <p>具体的な動きを見てみましょう。<code>Option</code>に具体的な値が入った場合は以下の様な動きをします。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> o: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Option</span>(<span class="hljs-string">"hoge"</span>)
-<span class="hljs-comment">// o: Option[String] = Some(value = "hoge")</span>
+<span class="hljs-comment">// o: Option[String] = Some("hoge")</span>
 
 o.get
 <span class="hljs-comment">// res0: String = "hoge"</span>
@@ -581,7 +581,7 @@ o.isDefined
 <h4 id="optionのパターンマッチ"><a name="optionのパターンマッチ" class="plugin-anchor" href="#optionのパターンマッチ"><i class="fa fa-link" aria-hidden="true"></i></a>Optionのパターンマッチ</h4>
 <p>上記では、手続き的にOptionを処理しましたが、型を持っているためパターンマッチを使って処理することもできます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> s: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">Some</span>(<span class="hljs-string">"hoge"</span>)
-<span class="hljs-comment">// s: Option[String] = Some(value = "hoge")</span>
+<span class="hljs-comment">// s: Option[String] = Some("hoge")</span>
 
 <span class="hljs-keyword">val</span> result = s <span class="hljs-keyword">match</span> {
   <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(str) =&gt; str
@@ -594,7 +594,7 @@ o.isDefined
 <h4 id="optionに関数を適用する"><a name="optionに関数を適用する" class="plugin-anchor" href="#optionに関数を適用する"><i class="fa fa-link" aria-hidden="true"></i></a>Optionに関数を適用する</h4>
 <p>Optionには、コレクションの性質があると言いましたが、関数を内容の要素に適用できるという性質もそのまま持ち合わせています。</p>
 <pre><code class="lang-scala"><span class="hljs-type">Some</span>(<span class="hljs-number">3</span>).map(_ * <span class="hljs-number">3</span>)
-<span class="hljs-comment">// res6: Option[Int] = Some(value = 9)</span>
+<span class="hljs-comment">// res6: Option[Int] = Some(9)</span>
 </code></pre>
 <p>このように、<code>map</code>で関数を適用する事もできます。なお、値が<code>None</code>の場合にはどうなるでしょうか。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> n: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
@@ -631,22 +631,22 @@ mapでは、値がSomeの場合は中身に関数を適用しますが、Noneの
 <p>たとえばキャッシュから情報を取得する場合は、キャッシュヒットする場合と、キャッシュミスする場合があり、それらはScalaではよくOption型で表現されます。</p>
 <p>このようなキャッシュ取得が連続して繰り返された場合はどうなるでしょうか。例えば、1つ目と2つ目の整数の値がOptionで返ってきてそれをかけた値をもとめるような場合です。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
 
 v1.map(i1 =&gt; v2.map(i2 =&gt; i1 * i2))
-<span class="hljs-comment">// res9: Option[Option[Int]] = Some(value = Some(value = 15))</span>
+<span class="hljs-comment">// res9: Option[Option[Int]] = Some(Some(15))</span>
 </code></pre>
 <p>mapだけを使ってシンプルに実装するとこんな風になってしまいます。ウウッ…、悲しいことに<code>Option[Option[Int]]</code>のようにOptionが入れ子になってしまいます。</p>
 <p>このような入れ子のoptionを解消するために用意されているのが、<code>flatten</code>です。</p>
 <pre><code class="lang-scala">v1.map(i1 =&gt; v2.map(i2 =&gt; i1 * i2)).flatten
-<span class="hljs-comment">// res10: Option[Int] = Some(value = 15)</span>
+<span class="hljs-comment">// res10: Option[Int] = Some(15)</span>
 </code></pre>
 <p>最後に<code>flatten</code>を実行することで、Optionの入れ子を解消することができます。なお、v2がNoneである場合にも<code>flatten</code>は成立します。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
 <span class="hljs-comment">// v2: Option[Int] = None</span>
@@ -680,27 +680,27 @@ v1.map { i1 =&gt;
 <code>flatMap</code>というメソッドがOptionには用意されています。名前は<code>flatMap</code>なのですが、意味としてはOptionに<code>map</code>をかけて<code>flatten</code>を適用してくれます。</p>
 <p>実際に先ほどの、<code>Some(3)</code>と<code>Some(5)</code>をかける例で利用してみると以下のようになります。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
 
 v1.flatMap(i1 =&gt; v2.map(i2 =&gt; i1 * i2))
-<span class="hljs-comment">// res13: Option[Int] = Some(value = 15)</span>
+<span class="hljs-comment">// res13: Option[Int] = Some(15)</span>
 </code></pre>
 <p>ずいぶんシンプルに書くことができるようになります。</p>
 <p><code>Some(3)</code>と<code>Some(5)</code>と<code>Some(7)</code>をかける場合はどうなるでしょうか。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
 
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
-<span class="hljs-comment">// v3: Option[Int] = Some(value = 7)</span>
+<span class="hljs-comment">// v3: Option[Int] = Some(7)</span>
 
 v1.flatMap(i1 =&gt; v2.flatMap(i2 =&gt; v3.map(i3 =&gt; i1 * i2 * i3)))
-<span class="hljs-comment">// res14: Option[Int] = Some(value = 105)</span>
+<span class="hljs-comment">// res14: Option[Int] = Some(105)</span>
 </code></pre>
 <p>無論これは、 <code>v1</code>, <code>v2</code>, <code>v3</code> のいずれが <code>None</code> であった場合にも成立します。その場合には <code>flatten</code> の時と同様に <code>None</code> が最終的な答えになります。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">None</span>
@@ -737,18 +737,18 @@ for式は実際には<code>flatMap</code>と<code>map</code>展開されて実�
 <p>何をいっているのかわかりにくいと思いますので、先ほどの
 <code>Some(3)</code>と<code>Some(5)</code>と<code>Some(7)</code>をflatMapでかけるという処理をforで書いてみましょう。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Option[Int] = Some(value = 3)</span>
+<span class="hljs-comment">// v1: Option[Int] = Some(3)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Option[Int] = Some(value = 5)</span>
+<span class="hljs-comment">// v2: Option[Int] = Some(5)</span>
 
 <span class="hljs-keyword">val</span> v3: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Some</span>(<span class="hljs-number">7</span>)
-<span class="hljs-comment">// v3: Option[Int] = Some(value = 7)</span>
+<span class="hljs-comment">// v3: Option[Int] = Some(7)</span>
 
 <span class="hljs-keyword">for</span> { i1 &lt;- v1
       i2 &lt;- v2
       i3 &lt;- v3 } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-<span class="hljs-comment">// res17: Option[Int] = Some(value = 105)</span>
+<span class="hljs-comment">// res17: Option[Int] = Some(105)</span>
 </code></pre>
 <p>実はこのfor式は先ほどの<code>flatMap</code>と<code>map</code>で書かれたものとまったく同じ動作をします。
 <code>flatMap</code>と<code>map</code>を複数回使うような場合はfor式のほうがよりシンプルに書くことができていることがわかると思います。</p>
@@ -774,10 +774,10 @@ Noneの場合、値が取得できなかったことはわかりますが、エ�
 <p>そんなOptionと違い、エラー時にエラーの種類まで取得できるのがEitherです。
 Optionが正常な値と何もない値のどちらかを表現するデータ型だったのに対して、Eitherは2つの値のどちらかを表現するデータ型です。具体的には、Optionでは<code>Some</code>と<code>None</code>の2つの値を持ちましたが、Eitherは<code>Right</code>と<code>Left</code>の2つの値を持ちます。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">123</span>)
-<span class="hljs-comment">// v1: Either[String, Int] = Right(value = 123)</span>
+<span class="hljs-comment">// v1: Either[String, Int] = Right(123)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">"abc"</span>)
-<span class="hljs-comment">// v2: Either[String, Int] = Left(value = "abc")</span>
+<span class="hljs-comment">// v2: Either[String, Int] = Left("abc")</span>
 </code></pre>
 <p>パターンマッチで値を取得できるのもOptionと同じです。</p>
 <pre><code class="lang-scala">v1 <span class="hljs-keyword">match</span> {
@@ -829,15 +829,15 @@ Optionと同様にEitherもfor式を使って複数のEitherを組み合わせ�
 EitherにはRight, Leftの2つの値がありますが、ScalaのEitherではRightが正常な値になることが多いため、mapやflatMapではRightの値が利用されます。<sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
 <p>ためしに<code>Either</code>の<code>map</code>メソッドを使ってみましょう</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Right</span>(<span class="hljs-number">123</span>)
-<span class="hljs-comment">// v: Either[String, Int] = Right(value = 123)</span>
+<span class="hljs-comment">// v: Either[String, Int] = Right(123)</span>
 
 v.map(_ * <span class="hljs-number">2</span>)
-<span class="hljs-comment">// res20: Either[String, Int] = Right(value = 246)</span>
+<span class="hljs-comment">// res20: Either[String, Int] = Right(246)</span>
 
 <span class="hljs-keyword">val</span> v2: <span class="hljs-type">Either</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>] = <span class="hljs-type">Left</span>(<span class="hljs-string">"a"</span>)
-<span class="hljs-comment">// v2: Either[String, Int] = Left(value = "a")</span>
+<span class="hljs-comment">// v2: Either[String, Int] = Left("a")</span>
 v2.map(_ * <span class="hljs-number">2</span>) <span class="hljs-comment">// v2がLeftなので実行されない</span>
-<span class="hljs-comment">// res21: Either[String, Int] = Left(value = "a")</span>
+<span class="hljs-comment">// res21: Either[String, Int] = Left("a")</span>
 </code></pre>
 <p>これでmapを使って値を二倍にする関数をRightに適用できました。
 EitherがLeftの場合は何の処理もおこなわれません。これはOptionでNoneに対してmapを使った場合に何の処理もおこなわれないという動作に似ていますね。</p>
@@ -882,24 +882,24 @@ Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowab
 <pre><code class="lang-scala"><span class="hljs-keyword">import</span> scala.util.<span class="hljs-type">Try</span>
 
 <span class="hljs-keyword">val</span> v: <span class="hljs-type">Try</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Try</span>(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">"to be caught"</span>))
-<span class="hljs-comment">// v: Try[Int] = Failure(exception = java.lang.RuntimeException: to be caught)</span>
+<span class="hljs-comment">// v: Try[Int] = Failure(java.lang.RuntimeException: to be caught)</span>
 </code></pre>
 <p>この機能を使って、例外が起こりそうな箇所を<code>Try</code>で包み、Failureにして値として扱えるようにするのがTryの特徴です。</p>
 <pre><code class="lang-scala"><span class="hljs-keyword">val</span> v1 = <span class="hljs-type">Try</span>(<span class="hljs-number">3</span>)
-<span class="hljs-comment">// v1: Try[Int] = Success(value = 3)</span>
+<span class="hljs-comment">// v1: Try[Int] = Success(3)</span>
 
 <span class="hljs-keyword">val</span> v2 = <span class="hljs-type">Try</span>(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// v2: Try[Int] = Success(value = 5)</span>
+<span class="hljs-comment">// v2: Try[Int] = Success(5)</span>
 
 <span class="hljs-keyword">val</span> v3 = <span class="hljs-type">Try</span>(<span class="hljs-number">7</span>)
-<span class="hljs-comment">// v3: Try[Int] = Success(value = 7)</span>
+<span class="hljs-comment">// v3: Try[Int] = Success(7)</span>
 
 <span class="hljs-keyword">for</span> {
   i1 &lt;- v1
   i2 &lt;- v2
   i3 &lt;- v3
 } <span class="hljs-keyword">yield</span> i1 * i2 * i3
-<span class="hljs-comment">// res24: Try[Int] = Success(value = 105)</span>
+<span class="hljs-comment">// res24: Try[Int] = Success(105)</span>
 </code></pre>
 <h4 id="nonfatalの例外"><a name="nonfatalの例外" class="plugin-anchor" href="#nonfatalの例外"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala/blob/v2.13.16/src/library/scala/util/control/NonFatal.scala" target="_blank"><code>NonFatal</code></a>の例外</h4>
 <p><code>Try.apply</code>がcatchするのはすべての例外ではありません。
@@ -1113,7 +1113,7 @@ for式で値を取得した後、mergeメソッドにより中身を畳み込ん
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2025-10-13T22:01:09.188Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-10-13T22:01:22.316Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2025-10-13T22:20:28.294Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-10-13T22:20:41.378Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
