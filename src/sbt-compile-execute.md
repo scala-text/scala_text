@@ -36,7 +36,7 @@ sandbox
 
 ```scala
 // build.sbt
-scalaVersion := "3.7.3"
+scalaVersion := "3.7.4"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 ```
