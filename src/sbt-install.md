@@ -20,7 +20,8 @@ Windowsの場合も[WSL](https://docs.microsoft.com/en-us/windows/wsl/install)�
 ## Javaのインストール
 
 Scala 2.12以降はJava 8以降が必須なので、もしJavaがインストールされていなければ、まずJavaをインストールしましょう。
-ScalaとJavaのそれぞれのバージョンの互換性に関しては、以下のScala公式サイトのページを見てください。
+最新のScala 3ではJDK 17以降が必須になるので、古いversionのScalaを扱う予定がなければ、17以降のLTSが推奨です。
+ScalaとJavaのそれぞれのバージョンの互換性の詳細に関しては、以下のScala公式サイトのページを見てください。
 
 https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 
