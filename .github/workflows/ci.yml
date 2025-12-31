@@ -82,10 +82,10 @@ jobs:
     steps:
     - id: generate_token
       if: ${{ github.repository_owner == 'scala-text' && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-      uses: tibdex/github-app-token@v2
+      uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
       with:
-        app_id: 89662
-        private_key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
+        app-id: 89662
+        private-key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
     - if: ${{ github.repository_owner == 'scala-text' && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
       run: |
         git clone https://github.com/scala-text/scala_text_pdf.git
