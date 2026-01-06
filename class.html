@@ -531,7 +531,7 @@ p1 + p2
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@1b586a97</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$1@d07cfbd</span>
 
 adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res1: Int = 5</span>
@@ -539,10 +539,10 @@ adder.add(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>
 <span class="hljs-comment">// 古いScalaではメソッドを部分適用して関数にするには _ が必要だったが、</span>
 <span class="hljs-comment">// 最新のScalaでは必要なく、むしろ _ を書くと警告になる</span>
 <span class="hljs-keyword">val</span> funOldSyntax: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>) _
-<span class="hljs-comment">// funOldSyntax: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10609/0x0000000102cde040@1f16956e</span>
+<span class="hljs-comment">// funOldSyntax: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10518/0x0000000102cf7840@949b613</span>
 
 <span class="hljs-keyword">val</span> fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>)
-<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10610/0x0000000102cdf040@6061382b</span>
+<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10519/0x0000000102cf8840@5502cfe2</span>
 fun(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res2: Int = 5</span>
 </code></pre>
@@ -553,13 +553,13 @@ fun(<span class="hljs-number">3</span>)
 }
 
 <span class="hljs-keyword">val</span> adder = <span class="hljs-keyword">new</span> <span class="hljs-type">Adder</span>()
-<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@4118b923</span>
+<span class="hljs-comment">// adder: Adder = repl.MdocSession$MdocApp$Adder$2@38ca88a6</span>
 
 adder.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-comment">// res3: Int = 5</span>
 
 <span class="hljs-keyword">val</span> fun: <span class="hljs-type">Int</span> =&gt; <span class="hljs-type">Int</span> = adder.add(<span class="hljs-number">2</span>, _)
-<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10611/0x0000000102ce8040@663a5162</span>
+<span class="hljs-comment">// fun: Function1[Int, Int] = repl.MdocSession$MdocApp$$Lambda$10520/0x0000000102cff040@56ccfade</span>
 fun(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// res4: Int = 5</span>
 </code></pre>
@@ -718,7 +718,7 @@ println(shape.area)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2026-01-06T03:42:22.516Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-06T03:43:18.510Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クラス","level":"1.9","depth":1,"next":{"title":"オブジェクト","level":"1.10","depth":1,"path":"object.md","ref":"object.md","articles":[]},"previous":{"title":"Scalaの制御構文","level":"1.8","depth":1,"path":"control-syntax.md","ref":"control-syntax.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"class.md","mtime":"2026-01-06T22:27:06.269Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-06T22:28:04.277Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
