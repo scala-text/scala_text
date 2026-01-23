@@ -135,7 +135,7 @@ name := "scalatest_study"
 
 version := "1.0"
 
-scalaVersion := "3.7.4"
+scalaVersion := "3.8.1"
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-flatspec" % "3.2.19" % "test",
@@ -258,8 +258,8 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/classes...
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -278,7 +278,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -371,7 +371,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -454,7 +454,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "<latest>")
 ```
 
-その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-3.7.4/scoverage-report/index.html`にレポートが出力されます。
+その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-3.8.1/scoverage-report/index.html`にレポートが出力されます。
 
 ![Scoverage Code Coverage](img/scoverage_code_coverage.png)
 
