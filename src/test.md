@@ -258,8 +258,8 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/classes...
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
@@ -278,7 +278,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる *** FAILED ***
@@ -371,7 +371,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 ```
 [info] Loading project definition from /Users/dwango/workspace/scalatest_study/project
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/)
-[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.7.4/test-classes...
+[info] Compiling 1 Scala source to /Users/dwango/workspace/scalatest_study/target/scala-3.8.1/test-classes...
 [info] CalcSpec:
 [info] sum関数
 [info] - should 整数の配列を取得し、それらを足し合わせた整数を返すことができる
