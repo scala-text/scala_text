@@ -451,7 +451,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 `project/plugins.sbt` に以下のコードを記述します。
 
 ```scala mdoc:nest:silent
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.3.1")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "<latest>")
 ```
 
 その後、`sbt clean coverage test coverageReport`を実行することで、`target/scala-3.7.4/scoverage-report/index.html`にレポートが出力されます。
