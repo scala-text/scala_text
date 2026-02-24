@@ -1,7 +1,7 @@
 # Scalaの関数
 
 Scalaの関数は、他の言語の関数と扱いが異なります。Scalaの関数は単に
-[`Function0`](https://github.com/scala/scala3/blob/3.8.1/library/src/scala/Function0.scala) 〜 [`Function22`](https://github.com/scala/scala3/blob/3.8.1/library/src/scala/Function22.scala) までのトレイトの無名サブクラスのインスタンスなのです。
+[`Function0`](https://github.com/scala/scala3/blob/3.8.2/library/src/scala/Function0.scala) 〜 [`Function22`](https://github.com/scala/scala3/blob/3.8.2/library/src/scala/Function22.scala) までのトレイトの無名サブクラスのインスタンスなのです。
 
 たとえば、2つの整数を取って加算した値を返す`add`関数は次のようにして定義することができます：
 

@@ -20,7 +20,7 @@ object <オブジェクト名> extends <クラス名> (with <トレイト名>)* 
 }
 ```
 
-となります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala3/blob/3.8.1/library/src/scala/Predef.scala)が定義・インポートされており、これは最初の使い方に当てはまります。 `println("Hello")` となにげなく
+となります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala3/blob/3.8.2/library/src/scala/Predef.scala)が定義・インポートされており、これは最初の使い方に当てはまります。 `println("Hello")` となにげなく
 使っていたメソッドも実は` Predef` のメソッドなのです。 `extends` でクラスを継承、 `with` でトレイトをmix-in
 可能になっているのは、オブジェクト名を既存のクラスのサブクラス等として振る舞わせたい場合があるからです。Scala
 の標準ライブラリでは、 `Nil` という `object` がありますが、これは `List` の一種として振る舞わせたいため、
