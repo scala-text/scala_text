@@ -20,7 +20,7 @@ $ sbt console
 とコマンドを打ってみましょう。
 
 ```
-Welcome to Scala 3.8.1 (21.0.8, Java OpenJDK 64-Bit Server VM).
+Welcome to Scala 3.8.2 (21.0.8, Java OpenJDK 64-Bit Server VM).
 Type in expressions for evaluation. Or try :help.
 
 scala> 

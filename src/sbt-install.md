@@ -116,7 +116,7 @@ $ sbt console
 [info] Done updating.
 [info] Starting scala interpreter...
 [info] 
-Welcome to Scala 3.8.1 (21.0.8, Java OpenJDK 64-Bit Server VM).
+Welcome to Scala 3.8.2 (21.0.8, Java OpenJDK 64-Bit Server VM).
 Type in expressions for evaluation. Or try :help.
 
 scala> 
@@ -138,7 +138,7 @@ scala> :quit
 _build.sbt_というファイルを作成し、
 
 ```scala
-scalaVersion := "3.8.1"
+scalaVersion := "3.8.2"
 ```
 
 としてやると良いです。この_*.sbt_がsbtのビルド定義ファイルになるのですが、今はREPLに慣れてもらう
