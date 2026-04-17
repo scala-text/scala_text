@@ -5,7 +5,9 @@ object LinkTest extends NpmCliBase {
   val eslintBin = nodeBin / cmd("eslint")
   val mochaBin = nodeBin / cmd("mocha")
 
+  @transient
   lazy val textEslint = taskKey[Unit]("lint js")
+  @transient
   lazy val textLinkTest = taskKey[Unit]("verify links")
 
   val settings = Seq(
