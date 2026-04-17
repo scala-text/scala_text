@@ -31,7 +31,7 @@ trait NpmCliBase {
 
   // exit codeが0でなければ例外を投げる
   def printRun(p: ProcessBuilder) : Unit = {
-    p.lineStream foreach println
+    p.lazyLines foreach println
   }
 
   def cmd(name: String) =

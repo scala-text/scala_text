@@ -28,13 +28,13 @@ jobs:
     - run: npm install -g npm@11.0.0
     - run: npm ci
     - run: npm install svgexport -g
-    - run: sbt -v textLintAll textTestAll textBuildHtml test
+    - run: sbt -v --server textLintAll textTestAll textBuildHtml test
     - run: |
         wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/28c3422398e47e802b43dc026c27189ec9ef5050/setup/linux-installer.py |
         python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null
     - run: |
         export PATH="~/calibre-bin/calibre/:$HOME/calibre-bin/calibre/:$PATH"
-        sbt textBuildEpub
+        sbt --server textBuildEpub
     - run: git diff --exit-code
     - run: mv honkit/scala_text.epub honkit/_book/
     - run: find . -name "*.class" | xargs rm -rf

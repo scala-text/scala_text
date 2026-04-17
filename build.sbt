@@ -1,9 +1,9 @@
 import NpmCliBase._
 
+@transient
 val textLintAll = taskKey[Unit]("lint text, html")
+@transient
 val textTestAll = taskKey[Unit]("test scala, links")
-
-ThisBuild / onChangedBuildSource := ReloadOnSourceChanges
 
 name := "textbook"
 
@@ -26,7 +26,7 @@ libraryDependencySchemes ++= Seq(
 ).map("org.scala-sbt" % _ % "always")
 
 libraryDependencies ++= Seq(
-  "org.scala-sbt" % "sbt" % "2.0.0-RC12",
+  "org.scala-sbt" % "sbt" % sbtVersion.value,
   "org.mockito" % "mockito-core" % "5.23.0",
   "org.scalacheck" %% "scalacheck" % "1.19.0",
   "org.scalatest" %% "scalatest-flatspec" % "3.2.20", // mdocで使うので、テストライブラリだが、わざとcompileスコープ

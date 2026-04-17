@@ -18,6 +18,7 @@ object Honkit extends NpmCliBase {
     printRun(Process(s"$honkitBin ${format.command} $options"))
   }
 
+  @transient
   lazy val textHelpHonkit = taskKey[Unit]("help Honkit")
   lazy val textBuildHtml = inputKey[Unit]("build Honkit to html")
   lazy val textBuildEpub = inputKey[Unit]("build Honkit to epub")
