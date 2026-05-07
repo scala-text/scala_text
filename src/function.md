@@ -177,7 +177,7 @@ around(
 
 `around`に渡した関数が順番に呼ばれていることがわかります。ここで、`body`の部分で例外を発生させてみます。`throw`はJavaのそれと同じで例外を投げるための構文です。
 
-```scala
+```scala mdoc:nest:crash
 around(
   () => println("ファイルを開く"),
   () => throw new Exception("例外発生！"),
