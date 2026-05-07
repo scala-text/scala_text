@@ -158,7 +158,7 @@ Scalaコンパイラは、このように定義されたメソッドが呼び出
 implicit val aConnection: Connection = connectDatabase(....)
 ```
 
-こうすれば、最後の引数リストに暗黙に`Connection`オブジェクトを渡してくれるのです。のような呼び出しがあったとします。
+こうすれば、最後の引数リストに暗黙に`Connection`オブジェクトを渡してくれるのです。以下のような呼び出しがあったとします。
 
 ```scala
 val firstNames = readRecordsFromTable("first_name", "people")
@@ -167,7 +167,7 @@ val firstNames = readRecordsFromTable("first_name", "people")
 この呼出しは次のように変換されます。
 
 ```scala
-val firstNaemes = readRecordsFromTable("first_name", "people")(aConnection)
+val firstNames = readRecordsFromTable("first_name", "people")(aConnection)
 ```
 
 このような文脈を引き渡すためのimplicit parameterはPlay FrameworkやO/Rマッパーなどで出てきます。
