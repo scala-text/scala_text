@@ -568,6 +568,11 @@ o.isDefined
 <span class="hljs-comment">// res4: Boolean = false</span>
 </code></pre>
 <pre><code class="lang-scala">o.get
+
+<span class="hljs-comment">// java.util.NoSuchElementException: None.get</span>
+<span class="hljs-comment">//     at scala.None$.get(Option.scala:628)</span>
+<span class="hljs-comment">//     at scala.None$.get(Option.scala:628)</span>
+<span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$1(error-handling.md:48)</span>
 </code></pre>
 <p>Optionのコンパニオンオブジェクトのapplyには引数がnullであるかどうかのチェックが入っており、引数がnullの場合、値がNoneになります。
 <code>get</code>メソッドを叩いた時に、<code>java.util.NoSuchElementException</code>という例外が起こっているので、これがNPEと同じだと思うかもしれません。しかしOptionには以下の様な便利メソッドがあり、それらを回避することができます。</p>
@@ -576,6 +581,10 @@ o.isDefined
 </code></pre>
 <p>以上は<code>Option[String]</code>の中身が<code>None</code>だった場合に、空文字を返すというコードになります。値以外にも処理を書くこともできます。</p>
 <pre><code class="lang-scala">o.getOrElse(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">"nullは受け入れられません"</span>))
+<span class="hljs-comment">// java.lang.RuntimeException: nullは受け入れられません</span>
+<span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$2$$anonfun$1(error-handling.md:66)</span>
+<span class="hljs-comment">//     at scala.Option.getOrElse(Option.scala:203)</span>
+<span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$2(error-handling.md:66)</span>
 </code></pre>
 <p>このように書くこともできるのです。</p>
 <h4 id="optionのパターンマッチ"><a name="optionのパターンマッチ" class="plugin-anchor" href="#optionのパターンマッチ"><i class="fa fa-link" aria-hidden="true"></i></a>Optionのパターンマッチ</h4>
@@ -610,6 +619,8 @@ n.map(_ * <span class="hljs-number">3</span>)
 } <span class="hljs-keyword">else</span> {
   <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>
 }
+<span class="hljs-comment">// java.lang.RuntimeException</span>
+<span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$3(error-handling.md:113)</span>
 </code></pre>
 <p>きっと上記のように書くことになっていたでしょう。ただ、よくよく考えると上記のJava風に書いた例とmapの例は異なることに気が付きます。
 mapでは、値がSomeの場合は中身に関数を適用しますが、Noneの時には何も実行しません。上記の例では例外を投げています。そして、値もInt型の値を返していることも異なっています。</p>
@@ -620,6 +631,10 @@ mapでは、値がSomeの場合は中身に関数を適用しますが、Noneの
 <p>となります。</p>
 <p>そして関数を適用した値を最終的に取得できます。</p>
 <pre><code class="lang-scala">n.fold(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>)(_ * <span class="hljs-number">3</span>)
+<span class="hljs-comment">// java.lang.RuntimeException</span>
+<span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$4$$anonfun$1(error-handling.md:124)</span>
+<span class="hljs-comment">//     at scala.Option.fold(Option.scala:265)</span>
+<span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$4(error-handling.md:124)</span>
 </code></pre>
 <p>上記のように書くことで、Noneの際に実行する処理を定義し、かつ、関数を適用した中身の値を取得することができます。</p>
 <pre><code class="lang-scala"><span class="hljs-type">Some</span>(<span class="hljs-number">3</span>).fold(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>)(_ * <span class="hljs-number">3</span>)
@@ -1113,7 +1128,7 @@ for式で値を取得した後、mergeメソッドにより中身を畳み込ん
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2026-05-07T12:50:31.096Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-05-07T12:50:46.813Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"<!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"<div><button type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する</button><button type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す</button></div><div id=\"$1\" style=\"$2\">"},{"pattern":"<!-- end answer -->","flags":"g","substitute":"</div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2026-05-07T21:52:59.792Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-05-07T21:53:15.083Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
