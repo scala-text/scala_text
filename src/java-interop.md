@@ -125,11 +125,13 @@ public class MyFrame extends JFrame {
 
 のようなコードを書くことができますが、Scalaでは同じように書くことができず、
 
-```scala
-scala> import javax.swing.JFrame
+```scala mdoc
+import javax.swing.JFrame
 
 class MyFrame extends JFrame {
-  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) //JFrame.を明示しなければならない
+  // EXIT_ON_CLOSEはJFrameに定義されているわけではなく、
+  // その親のinterfaceに定義されているので
+  setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE)
 }
 ```
 
