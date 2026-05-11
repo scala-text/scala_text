@@ -210,7 +210,7 @@ function isBlackListedHost(url) {
     "127.0.0.1"
   ];
   let replaced = deleteProtocolFromUrl(url);
-  return BLACK_LIST.map((b) => replaced.startsWith(b)).any(identity);
+  return BLACK_LIST.map((b) => replaced.startsWith(b)).some(identity);
 }
 
 describe("Check links", () => {
