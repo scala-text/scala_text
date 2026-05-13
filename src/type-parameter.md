@@ -53,7 +53,7 @@ scala> cell.put("something")
 上記コードの
 
 ```scala mdoc:nest
-val cell = new Cell[Int](1)
+val cell = Cell[Int](1)
 ```
 
 の部分で、型パラメータとして`Int`型を与えて、その初期値として1を与えています。型パラメータに`Int`を与えて`Cell`をインスタンス化したため、REPLでは`String`を`put`しようとして、コンパイラにエラーとしてはじかれています。`Cell`は様々な型を与えてインスタンス化したいクラスであるため、クラス定義時には特定の型を与えることができません。そういった場合に、型パラメータは役に立ちます。
@@ -74,7 +74,7 @@ class Pair[A, B](val a: A, val b: B) {
 このクラス```Pair```の利用法としては、たとえば割り算の商と余りの両方を返すメソッド`divide`が挙げられます。`divide`の定義は次のようになります。
 
 ```scala mdoc:nest:silent
-def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
+def divide(m: Int, n: Int): Pair[Int, Int] = Pair[Int, Int](m / n, m % n)
 ```
 
 これらをREPLにまとめて流し込むと次のようになります。
@@ -84,19 +84,19 @@ class Pair[A, B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
 
-def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
+def divide(m: Int, n: Int): Pair[Int, Int] = Pair[Int, Int](m / n, m % n)
 
 divide(7, 3)
 ```
 
-7割る3の商と余りが`res0`に入っていることがわかります。なお、ここでは`new Pair[Int, Int](m / n, m % n)`としましたが、引数の型から型パラメータの型を推測できる場合、省略できます。この場合、`Pair`のコンストラクタに与える引数は`Int`と`Int`なので、`new Pair(m / n, m % n)`としても同じ意味になります。この`Pair`は2つの異なる型（同じ型でも良い）を返り値として返したい全ての場合に使うことができます。このように、どの型でも同じ処理を行う場合を抽象化できるのが型パラメータの利点です。
+7割る3の商と余りが`res0`に入っていることがわかります。なお、ここでは`Pair[Int, Int](m / n, m % n)`としましたが、引数の型から型パラメータの型を推測できる場合、省略できます。この場合、`Pair`のコンストラクタに与える引数は`Int`と`Int`なので、`Pair(m / n, m % n)`としても同じ意味になります。この`Pair`は2つの異なる型（同じ型でも良い）を返り値として返したい全ての場合に使うことができます。このように、どの型でも同じ処理を行う場合を抽象化できるのが型パラメータの利点です。
 
 ちなみに、この`Pair`のようなクラスはScalaではよく使われるため、`Tuple1`から`Tuple22`(`Tuple`の後の数字は要素数）があらかじめ用意されています。また、インスタンス化する際も、
 
 ```scala mdoc:nest
 val m = 7
 val n = 3
-new Tuple2(m / n, m % n)
+Tuple2(m / n, m % n)
 ```
 
 などとしなくても、
@@ -164,7 +164,7 @@ class Pair[+A, +B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
 
-val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
+val pair: Pair[AnyRef, AnyRef] = Pair[String, String]("foo", "bar")
 ```
 
 ここで、`Pair`は作成時に値を与えたら後は変更できず、したがって`ArrayStoreException`のような例外が発生する余地がないことがわかります。一般的には、一度作成したら変更できない（immutable）などの型パラメータは共変にしても多くの場合問題がありません。
@@ -189,7 +189,7 @@ class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extend
 }
 
 case object EmptyStack extends Stack[Nothing] {
-  def push[E >: Nothing](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def push[E >: Nothing](e: E): Stack[E] = NonEmptyStack[E](e, this)
   def top: Nothing = throw new IllegalArgumentException("empty stack")
   def pop: Nothing = throw new IllegalArgumentException("empty stack")
   def isEmpty: Boolean = true
@@ -212,7 +212,7 @@ val stringStack: Stack[String] = Stack()
 
 ```scala mdoc:nest:silent
 class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extends Stack[A] {
-  def push[E >: A](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def push[E >: A](e: E): Stack[E] = NonEmptyStack[E](e, this)
   def top: A = first
   def pop: Stack[A] = rest
   def isEmpty: Boolean = false
@@ -336,3 +336,9 @@ abstract class Stack[+A]{
 このようにすることによって、コンパイラは、`Stack`には`A`の任意のスーパータイプの値が入れられる可能性があることがわかるように
 なります。そして、型パラメータ`E`は共変ではないため、どこに出現しても構いません。このようにして、下限境界を利用して、型安全な
 `Stack`と共変性を両立することができます。
+
+## 補足：`Matchable` トレイト
+
+Scala 3では、型階層の最上位（`Any`）と、`match` 式の対象になり得る型（`Matchable`）が分離されています。`Any` を直接 `match` しようとするとコンパイル警告が出ることがあり、これは「`Any` には不変なオブジェクトや `equals` が定義されていない型まで含まれるため、安全にパターンマッチできない」というScala 3の型安全への配慮によるものです。
+
+通常のクラスやケースクラスは自動的に `Matchable` を継承していますので、本テキストで扱う範囲では `Matchable` を意識する必要はほとんどありません。型パラメータを使ったジェネリックな関数で「`A` 型の値を `match` したい」場合に `def f[A <: Matchable](a: A) = ...` のように上限境界を付けることで、より型安全な実装が書けます。

@@ -75,7 +75,7 @@ class Person(name: String, age: Int, private val weight: Int)
 
 object Hoge {
   def printWeight(): Unit = {
-    val taro = new Person("Taro", 20, 70)
+    val taro = Person("Taro", 20, 70)
     println(taro.weight)
   }
 }
@@ -89,7 +89,7 @@ class Person(name: String, age: Int, private val weight: Int)
 
 object Person {
   def printWeight(): Unit = {
-    val taro = new Person("Taro", 20, 70)
+    val taro = Person("Taro", 20, 70)
     println(taro.weight)
   }
 }
@@ -109,7 +109,7 @@ class Person(name: String, age: Int, private val weight: Int)
 
 object Person {
   def printWeight(): Unit = {
-    val taro = new Person("Taro", 20, 70)
+    val taro = Person("Taro", 20, 70)
     println(taro.weight)
   }
 }
@@ -125,3 +125,29 @@ defined object Person
 クラスを定義して、そのクラスのコンパニオンオブジェクトを定義してみましょう。コンパニオンオブジェクトが同名のクラスに対する
 特権的なアクセス権を持っていることを、クラスのフィールドを`private`にして、そのフィールドへアクセスできることを通じて確認して
 みましょう。
+
+## トップレベル定義と `@main` 関数
+
+Scala 2ではメソッドや値はクラスや`object`の中に置く必要があり、複数のオブジェクトに共通のユーティリティを集めたい場合は **package object** という特別な仕組みを使う必要がありました。Scala 3ではこの制約が緩和され、パッケージ直下に直接 `def` や `val` を書けるようになっています。
+
+```scala
+// utils.scala
+package example.util
+
+def square(x: Int): Int = x * x
+val Greeting: String = "Hello, Scala 3!"
+```
+
+これにより、ちょっとしたヘルパー関数のために `object Utils { ... }` で囲む必要がなくなりました。`object`は引き続き「シングルトンとして名前空間を作りたい」「コンパニオンオブジェクトとしてクラスに付随させたい」場面で使います。
+
+また、Scala 3ではプログラムのエントリーポイントを `@main` 注釈で簡潔に書けます。Scala 2風に `object Main { def main(args: Array[String]): Unit = ... }` と書く代わりに、
+
+```scala
+@main def hello(): Unit = {
+  println("Hello, Scala 3!")
+}
+```
+
+と書くだけで `hello` がプログラムの開始点になります。引数を取る形式（`@main def add(x: Int, y: Int): Unit = ...`）にも対応しています。
+
+トップレベル定義や `@main`、`export` 句などのScala 3で導入された機能のより詳しい紹介は、[Scala 3で追加された主な機能](./scala3-features.md) の章を参照してください。

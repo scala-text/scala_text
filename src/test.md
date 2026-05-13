@@ -340,7 +340,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.diagrams.Diagrams
 import org.scalatest.concurrent.TimeLimits
-import org.scalatest.time.SpanSugar._
+import org.scalatest.time.SpanSugar.*
 
 class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
@@ -415,11 +415,11 @@ libraryDependencies += "org.mockito" % "mockito-core" % "5.23.0" % "test"
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
 ```scala mdoc:nest:silent
-import org.scalatest.time.SpanSugar._
+import org.scalatest.time.SpanSugar.*
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.diagrams.Diagrams
 import org.scalatest.concurrent.TimeLimits
-import org.mockito.Mockito._
+import org.mockito.Mockito.*
 
 class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 

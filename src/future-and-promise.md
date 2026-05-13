@@ -112,7 +112,7 @@ Futureが終わるまで最大5000ミリ秒を待つという書き方となり�
 
 ```scala mdoc:nest:silent
 import scala.concurrent.Await
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 ```
 
 以上をimport文に追加する必要があります。さらにこれらがどのように動いているのかを、スレッドの観点から見てみましょう。
@@ -121,7 +121,7 @@ import scala.concurrent.duration._
 ```scala mdoc:nest:silent
 import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 object FutureSample {
 
@@ -292,7 +292,7 @@ object CompositeFutureSample {
 ```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Promise, Future}
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.util.{Success, Failure}
 
 object PromiseSample {
@@ -327,7 +327,7 @@ object PromiseSample {
 ```scala mdoc:nest:silent
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future, Promise}
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.util.{Failure, Random, Success}
 
 class CallbackSomething {

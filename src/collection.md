@@ -359,7 +359,7 @@ reverse(List(1, 2, 3, 4, 5))
 逆順のリストを作ることができています。
 
 ```scala mdoc:nest:invisible
-import org.scalacheck._, Arbitrary.arbitrary
+import org.scalacheck.*, Arbitrary.arbitrary
 
 def test[G] (g: Gen[G])(f: G  => Boolean) = {
   val result = Prop.forAll(g)(f).apply(Gen.Parameters.default)

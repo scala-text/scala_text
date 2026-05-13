@@ -1,12 +1,28 @@
-# ケースクラスとパターンマッチング
+# 列挙型、ケースクラスとパターンマッチング
 
 パターンマッチングは、Scalaをはじめとする関数型言語に一般的な機能です。CやJavaのswitch文に似ていますが、より
 強力な機能です。しかし、パターンマッチングの真価を発揮するには、標準ライブラリまたはユーザが定義したケース
 クラス（case class）によるデータ型の定義が必要になります。
 
-簡単なケースクラスによるデータ型を定義してみます。
+簡単な列挙型をScala 3の`enum`機能で定義してみます。
 
 ```scala mdoc:nest:silent
+enum DayOfWeek {
+  case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+}
+```
+
+これは、一週間の曜日を表すデータ型です。CやJavaの`enum`に近い使い心地で、各`case`は`DayOfWeek`型の値として直接利用できます。`enum`の`case`はコンパニオンオブジェクトの中に置かれるため、`Sunday`のように短く書きたい場合は`import`を使います。
+
+```scala mdoc:nest:silent
+import DayOfWeek.*
+
+val x: DayOfWeek = Sunday
+```
+
+なお、Scala 2では`enum`構文が存在せず、同じ意図のデータ型を次のように`sealed abstract class`と`case object`の組み合わせで表現していました。
+
+```scala
 sealed abstract class DayOfWeek
 case object Sunday extends DayOfWeek
 case object Monday extends DayOfWeek
@@ -17,24 +33,9 @@ case object Friday extends DayOfWeek
 case object Saturday extends DayOfWeek
 ```
 
-これは、一週間の曜日を表すデータ型です。CやJavaの`enum`に似ていますね。実際、同じように使うことができます。
+Scala 3でも`sealed`を使った定義は引き続き有効で、サブクラスが値を持つ場合や、より複雑な階層を組みたい場合には今でも使われます。一方、上記の`DayOfWeek`のように単純な列挙を表すなら`enum`の方が簡潔です。
 
-また、Scala 3からはenumという新しい機能が追加されたため、ほぼ同等のものを以下のように簡潔に書くことが可能です。
-
-```scala mdoc:nest:silent
-enum DayOfWeekScala3Enum {
-  case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-}
-```
-
-たとえば、以下のように`DayOfWeek`型の変数に`Sunday`を代入することができます。
-
-```scala mdoc:nest:silent
-val x: DayOfWeek = Sunday
-```
-
-`object`またはその他のデータ型は、パターンマッチングのパターンを使うことができます。この例では、この`DayOfWeek`型を継承した
-各`object`をパターンマッチングのパターンを使うことができます。パターンマッチングの構文は再度書くと、
+`enum`の`case`もパターンマッチングのパターンとして使えます。パターンマッチングの構文は再度書くと、
 
 ```scala
 <対象式> match {
@@ -47,6 +48,8 @@ val x: DayOfWeek = Sunday
 のようになります。`DayOfWeek`の場合、次のようにして使うことができます。
 
 ```scala mdoc:nest
+import DayOfWeek.*
+
 x match {
   case Sunday => 1
   case Monday => 2
@@ -61,10 +64,9 @@ x match {
 warning: match may not be exhaustive.
 It would fail on the following input: Saturday
 ```
-この警告は、`sealed`修飾子をスーパークラス/トレイトに付ける
-ことによって、その（直接の）サブクラス/トレイトは同じファイル内にしか定義できないという性質を利用して実現されています。
-この用途以外で`sealed`はめったに使われないので、ケースクラスのスーパークラス/トレイトには`sealed`を付けるものだと
-覚えておけば良いでしょう。
+この警告は、`enum`や`sealed`修飾子の付いたスーパークラス/トレイトでは、サブクラス/トレイトが（実質的に）固定されるという性質を利用して実現されています。
+`enum`は内部的にこの仕組みを使っており、わざわざ`sealed`を付けたり、ファイル内に`case object`を並べる手間がいらないのが利点です。
+Scala 2スタイルの`sealed`を使う場面はそれほど多くないので、新しく書くコードでは「単純な列挙なら`enum`」「複雑な階層なら`sealed trait`」と覚えておけば良いでしょう。
 
 これだけだと、CやJavaの列挙型とあまり変わらないように見えますが、それらと異なるのは各々の
 データは独立してパラメータを持つことができることです。また、パターンマッチの際はそのデータ型
@@ -73,22 +75,9 @@ It would fail on the following input: Saturday
 例として四則演算を表す構文木を考えてみます。各ノード`Exp`を継承し（つまり、全て
 のノードは式である）、二項演算を表すノードはそれぞれの子として`lhs`（左辺）、`rhs`（右辺）を持つこと
 とします。葉ノードとして整数リテラル（`Lit`）も入れます。これはIntの値を取るものとします。また、
-二項演算の結果として小数が現れた場合は小数部を切り捨てることとします。これを表すデータ型
-をScalaで定義すると次のようになります。
+二項演算の結果として小数が現れた場合は小数部を切り捨てることとします。
 
-```scala mdoc:nest:silent
-sealed abstract class Exp
-
-object Exp {
-  case class Add(lhs: Exp, rhs: Exp) extends Exp
-  case class Sub(lhs: Exp, rhs: Exp) extends Exp
-  case class Mul(lhs: Exp, rhs: Exp) extends Exp
-  case class Div(lhs: Exp, rhs: Exp) extends Exp
-  case class Lit(value: Int) extends Exp
-}
-```
-
-こちらもScala 3のenumを使うと以下のように簡潔に書くことが可能です。
+`enum`はこのような「いくつかのバリアントからなる代数的データ型（ADT）」を簡潔に書くのに向いています。先ほどの`DayOfWeek`のように値のないバリアントだけでなく、`case Add(lhs: Exp, rhs: Exp)`のようにパラメータを持つバリアントも同じ`enum`の中に並べられます。
 
 ```scala mdoc:nest:silent
 enum Exp {
@@ -100,8 +89,7 @@ enum Exp {
 }
 ```
 
-全てのデータ型に`case`修飾子がついているので、これらのデータ型はパターンマッチングのパターンとして使うことができます。
-この定義から、`1 + ((2 * 3) / 2)`という式を表すノードを構築します。
+`enum`の各`case`は自動的にケースクラスのように扱われ、パターンマッチのパターンとして使えます。この定義から、`1 + ((2 * 3) / 2)`という式を表すノードを構築してみましょう。`case`はコンパニオンオブジェクト内にあるので、`import Exp.*`しておくと`Add`や`Lit`のように短く書けます。
 
 ```scala mdoc:nest
 import Exp.*
@@ -113,6 +101,8 @@ val example = Add(Lit(1), Div(Mul(Lit(2), Lit(3)), Lit(2)))
 詳細は後ほど説明しますが、ここでは雰囲気だけをつかんでください。
 
 ```scala mdoc:nest
+import Exp.*
+
 def eval(exp: Exp): Int = exp match {
   case Add(l, r) => eval(l) + eval(r)
   case Sub(l, r) => eval(l) - eval(r)
@@ -247,6 +237,8 @@ def nextDayOfWeek(d: DayOfWeek): DayOfWeek = ???
 <!-- begin answer id="answer_ex1" style="display:none" -->
 
 ```scala mdoc:nest:silent
+import DayOfWeek.*
+
 def nextDayOfWeek(d: DayOfWeek): DayOfWeek = d match {
   case Sunday => Monday
   case Monday => Tuesday
@@ -259,6 +251,8 @@ def nextDayOfWeek(d: DayOfWeek): DayOfWeek = d match {
 ```
 
 ```scala mdoc:nest
+import DayOfWeek.*
+
 nextDayOfWeek(Sunday)
 nextDayOfWeek(Monday)
 nextDayOfWeek(Saturday)
@@ -268,17 +262,20 @@ nextDayOfWeek(Saturday)
 
 ## 練習問題
 
-二分木（子の数が最大で2つであるような木構造）を表す型`Tree`と`Branch`, `Empty`を考えます：
+二分木（子の数が最大で2つであるような木構造）を表す型`Tree`と`Branch`, `Empty`を考えます。値を持つバリアント`Branch`と、値を持たないバリアント`Empty`を1つの`enum`にまとめます。
 
 ```scala mdoc:nest:silent
-sealed abstract class Tree
-case class Branch(value: Int, left: Tree, right: Tree) extends Tree
-case object Empty extends Tree
+enum Tree {
+  case Branch(value: Int, left: Tree, right: Tree)
+  case Empty
+}
 ```
 
 子が2つで左の子の値が`2`、右の子の値が`3`、自分自身の値が`1`の木構造はたとえば次のようにして定義することができます。
 
 ```scala mdoc:nest
+import Tree.*
+
 val tree: Tree = Branch(1, Branch(2, Empty, Empty), Branch(3, Empty, Empty))
 ```
 
@@ -335,9 +332,11 @@ def sort(tree: Tree): Tree = ???
 
 ```scala mdoc:nest:silent
 object BinaryTree {
-  sealed abstract class Tree
-  case class Branch(value: Int, left: Tree, right: Tree) extends Tree
-  case object Empty extends Tree
+  enum Tree {
+    case Branch(value: Int, left: Tree, right: Tree)
+    case Empty
+  }
+  import Tree.*
 
   def max(t: Tree): Int = t match {
     case Branch(v, Empty, Empty) =>
@@ -385,7 +384,7 @@ object BinaryTree {
   def depth(t: Tree): Int = t match {
     case Empty => 0
     case Branch(_, l, r) =>
-      val ldepth = depth(l) 
+      val ldepth = depth(l)
       val rdepth = depth(r)
       (if(ldepth < rdepth) rdepth else ldepth) + 1
   }
@@ -403,7 +402,7 @@ object BinaryTree {
           if(value <= v) Branch(v, insert(value, l), r)
           else Branch(v, l, insert(value, r))
       }
-      list.foldLeft(Empty:Tree){ case (t, v) => insert(v, t) }
+      list.foldLeft(Empty: Tree){ case (t, v) => insert(v, t) }
     }
     fromList(toList(t))
   }
@@ -412,7 +411,8 @@ object BinaryTree {
 ```
 
 ```scala mdoc:nest:invisible
-import org.scalacheck._, Arbitrary.arbitrary
+import org.scalacheck.*, Arbitrary.arbitrary
+import BinaryTree.Tree.*
 
 def test[G] (g: Gen[G])(f: G  => Boolean) = {
   val result = Prop.forAll(g)(f).apply(Gen.Parameters.default)
@@ -425,12 +425,12 @@ val nonEmptyTreeGen: Gen[BinaryTree.Tree] = {
     x <- arbitrary[Int]
     l <- treeGen
     r <- treeGen
-  } yield BinaryTree.Branch(x, l, r)
+  } yield Branch(x, l, r)
 
   lazy val treeGen: Gen[BinaryTree.Tree] =
     Gen.oneOf(
       branchGen,
-      Gen.const(BinaryTree.Empty)
+      Gen.const(Empty)
     )
 
   branchGen

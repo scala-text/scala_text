@@ -27,4 +27,4 @@ trait UserService {
   }
 }
 
-class UserServiceImpl extends UserService with PasswordServiceImpl with UserRepositoryImpl
+class UserServiceImpl extends UserService, PasswordServiceImpl, UserRepositoryImpl

@@ -139,7 +139,7 @@ Javaのインタフェースと同じような使い方ですね。
 そして、先ほど作った`UserServiceImpl`に`PasswordServiceImpl`を継承して使うようにします。
 
 ```scala
-class UserServiceImpl extends UserService with PasswordServiceImpl {
+class UserServiceImpl extends UserService, PasswordServiceImpl {
   // メソッドの実装は同じなので???で代用しています
 
   // ストレージ機能
@@ -169,7 +169,7 @@ class UserServiceImpl extends UserService with PasswordServiceImpl {
 すると、UserServiceImplは以下のようになります。
 
 ```scala
-class UserServiceImpl extends UserService with PasswordServiceImpl with UserRepositoryImpl {
+class UserServiceImpl extends UserService, PasswordServiceImpl, UserRepositoryImpl {
   // メソッドの実装は同じなので???で代用しています
 
   // ユーザー登録
