@@ -25,7 +25,6 @@
     "mocha": "11.7.5",
     "power-assert": "1.6.1",
     "q-io": "1.13.6",
-    "sleep": "6.3.0",
     "textlint": "15.7.0",
     "textlint-rule-incremental-headers": "0.2.0",
     "textlint-rule-preset-japanese": "10.0.4",

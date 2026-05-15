@@ -2,7 +2,6 @@ import fs from "fs";
 import qfs from "q-io/fs";
 import qht from "q-io/http";
 import path from "path";
-import sleep from "sleep";
 import assert from "power-assert";
 import * as cheerio from "cheerio";
 
@@ -51,6 +50,10 @@ function range(from, to) {
 
 function repeatBlank(num) {
   return range(0, num - 1).map(() => []);
+}
+
+function sleep(seconds) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, seconds * 1000);
 }
 
 function groupBy(as, f) {
@@ -321,7 +324,7 @@ describe("Check links", () => {
       });
       return Promise.all(ps).then(() => {
         if (testUrlArrays.length > 0) {
-          sleep.sleep(1);
+          sleep(1);
           console.log("---");
           requestAsync(counter + requestUrls.length);
         } else {
