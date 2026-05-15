@@ -12,7 +12,7 @@
     "@eslint/js": "^10.0.1",
     "babel-preset-power-assert": "3.0.0",
     "cheerio": "1.2.0",
-    "eslint": "^10.3.0",
+    "eslint": "^10.4.0",
     "gitbook-plugin-anchors": "0.7.1",
     "gitbook-plugin-footnote-string-to-number": "0.0.2",
     "gitbook-plugin-forkmegithub": "^2.2.0",
