@@ -52,10 +52,6 @@ function repeatBlank(num) {
   return range(0, num - 1).map(() => []);
 }
 
-function sleep(seconds) {
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, seconds * 1000);
-}
-
 function groupBy(as, f) {
   let xs = {};
   for (let a of as) {
@@ -324,7 +320,6 @@ describe("Check links", () => {
       });
       return Promise.all(ps).then(() => {
         if (testUrlArrays.length > 0) {
-          sleep(1);
           console.log("---");
           requestAsync(counter + requestUrls.length);
         } else {
