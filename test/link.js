@@ -295,7 +295,7 @@ describe("Check links", () => {
     // （testUrlArrays.length = 4000程度でもスタックオーバーフローしなかった）
     let totalSize = testUrls.length;
     function requestAsync(counter) {
-      const MAX_CONNECTION = 35;
+      const MAX_CONNECTION = 20;
 
       // 今回処理する分を取得
       let requestUrls = testUrlArrays.shift();
