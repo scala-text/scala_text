@@ -2,7 +2,6 @@ import fs from "fs";
 import qfs from "q-io/fs";
 import qht from "q-io/http";
 import path from "path";
-import sleep from "sleep";
 import assert from "power-assert";
 import * as cheerio from "cheerio";
 
@@ -321,7 +320,6 @@ describe("Check links", () => {
       });
       return Promise.all(ps).then(() => {
         if (testUrlArrays.length > 0) {
-          sleep.sleep(1);
           console.log("---");
           requestAsync(counter + requestUrls.length);
         } else {
