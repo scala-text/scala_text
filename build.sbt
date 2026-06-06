@@ -7,7 +7,7 @@ val textTestAll = taskKey[Unit]("test scala, links")
 
 name := "textbook"
 
-scalaVersion := "3.8.3"
+scalaVersion := "3.8.4"
 
 enablePlugins(MdocPlugin)
 
