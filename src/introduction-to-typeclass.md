@@ -37,7 +37,7 @@ object Additive {
 ```scala
 def average[A](lst: List[A])(implicit m: Additive[A]): A = {
   val length: Int = lst.length
-  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y)) 
+  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
   sum / length
 }
 ```
@@ -53,7 +53,7 @@ object Nums {
     def plus(a: A, b: A): A
     def minus(a: A, b: A): A
     def multiply(a: A, b: A): A
-    def divide(a: A, b: A): A 
+    def divide(a: A, b: A): A
     def zero: A
   }
   object Num{
@@ -132,7 +132,7 @@ def average[A:Num:FromInt](lst: List[A]): A = {
 ```
 
 implicit parameterの名前 `a` と `b` が引数から見えなくなりましたが、 `implicitly[Type]` とすることで、
-`Type` 型のimplicit paramerterの値を取得することができます。
+`Type` 型のimplicit parameterの値を取得することができます。
 
 ## maxメソッドとminメソッド
 
@@ -221,9 +221,9 @@ string(new MyKlass(1)) // OK
 
 この `string` メソッドは、
 
-* 整数をシリアライズ可能
-* 文字列をシリアライズ可能
-* 要素がシリアライズ可能なリストをシリアライズ可能
+- 整数をシリアライズ可能
+- 文字列をシリアライズ可能
+- 要素がシリアライズ可能なリストをシリアライズ可能
 
 であり、自分で作成したクラスについては、次のトレイト `Serializer` を
 継承して `serialize` メソッドを実装するオブジェクトをimplicitにすることで、
@@ -263,8 +263,8 @@ object Serializers {
 
 `Serializers` という `object` を作っていますが、これをimportすることで：
 
-* `string` メソッドを使える
-* `Serializer` 型クラスが公開される
+- `string` メソッドを使える
+- `Serializer` 型クラスが公開される
 
 ようになります。
 
@@ -365,4 +365,5 @@ string(new MyKlass(1)) // OK
 できます。皆さんも、型クラスを使って、既存の問題をより簡潔に、拡張性が高く解決できないか考えてみてください。
 
 [^list-size]: ここで、`List`の`size`を計算するのは若干効率が悪いですが、その点については気にしないことにします。
+
 [^repl-companion]: つまり、単に `Nums` を削除して同一ファイルに両方の定義を置けば良いです

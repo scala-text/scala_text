@@ -91,7 +91,7 @@ function transpose(arrayOfArray) {
 //     [facebook, twitter, twilio, github, gitbook, gitter]
 // =>  [[facebook], [twitter, twilio], [github, gitbook, gitter]]
 // =>  [[facebook, twitter, github], [twilio, gitbook], [gitter]]
-function groupByAndTranpose(strs, f) {
+function groupByAndTranspose(strs, f) {
   let obj = groupBy(strs, f);
   let arr = Object.values(obj);
   return transpose(arr);
@@ -147,10 +147,10 @@ describe("test utils test", () => {
       [[1, 5, 8], [2, 6], [3, 7], [4]]
     );
   });
-  it("is groupByAndTranpose", () => {
+  it("is groupByAndTranspose", () => {
     let domains = ["facebook", "twitter", "twilio", "github", "gitbook", "gitter"];
     assert.deepEqual(
-      groupByAndTranpose(domains, (s) => s.substr(0, 1)),
+      groupByAndTranspose(domains, (s) => s.substr(0, 1)),
       [["facebook", "twitter", "github"], ["twilio", "gitbook"], ["gitter"]]
     );
   });
