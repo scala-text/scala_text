@@ -285,7 +285,7 @@ describe("Check links", () => {
     // 元の配列 [github/, github/, github/, twitter/ twitter/ facebeook/]
     // 結果    [[github/, twitter/ facebeook/],[github/, twitter/],[github/]]
     const DOMAIN_STR_NUM = 7;
-    let testUrlArrays = groupByAndTranpose(
+    let testUrlArrays = groupByAndTranspose(
       testUrls, (s) => deleteFirstKUSA(deleteProtocolFromUrl(s)).substr(0, DOMAIN_STR_NUM)
     );
 
