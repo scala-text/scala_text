@@ -216,20 +216,12 @@ new BPrinter().print()
 
 ここで`BPrinter#print()`の`override`キーワードをはずすと、次のようにメッセージを出力して、**コンパイルエラー**になります。 
 
-```scala
+```scala mdoc:nest:fail
 class BPrinter() extends APrinter {
   def print(): Unit = {
     println("B")
   }
 }
-```
-
-```
-[error] .../Printer.scala:8:7: `override` modifier required to override concrete member:
-[error] def print(): Unit (defined in class APrinter)
-[error]   def print(): Unit = {
-[error]       ^
-[error] one error found
 ```
 
 このような仕組みのない言語ではしばしば、気付かずに既存のメソッドをオーバーライドするつもりで新しいメソッドを定義してしまうというミスがありますが、
