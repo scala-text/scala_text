@@ -1,6 +1,6 @@
 import fs from "fs";
-import qfs from "q-io/fs";
-import qht from "q-io/http";
+import qfs from "q-io/fs.js";
+import qht from "q-io/http.js";
 import path from "path";
 import assert from "power-assert";
 import * as cheerio from "cheerio";
@@ -161,7 +161,7 @@ describe("test utils test", () => {
 // markdownをパースしてhtmlにしたあと
 // スクレイピングできるようcheerioオブジェクトにする
 function parseFile(filePath) {
-  let f = fs.readFileSync(path.join(__dirname, filePath), "utf8");
+  let f = fs.readFileSync(path.join("test", filePath), "utf8");
   return cheerio.load(kramed(f));
 }
 
