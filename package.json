@@ -6,7 +6,7 @@
   "scripts": {},
   "devDependencies": {
     "@babel/core": "^8.0.1",
-    "@babel/preset-env": "^8.0.0",
+    "@babel/preset-env": "^8.0.1",
     "@babel/register": "^8.0.1",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
