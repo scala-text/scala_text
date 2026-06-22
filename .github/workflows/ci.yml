@@ -15,7 +15,7 @@ jobs:
       JAVA_OPTS: "-Xmx6G -Xss8m"
       JVM_OPTS:  "-Xmx6G -Xss8m"
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - uses: actions/setup-java@v5
       with:
         java-version: 17
