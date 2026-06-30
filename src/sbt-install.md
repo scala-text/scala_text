@@ -30,7 +30,7 @@ https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
 ```shell
 $ sdk list java                 # インストールできるJavaの一覧を確認
 # sdk install java <Identifier> # <Identifier> の部分は上記のコマンドで確認した中からインストールしたいものを入れる
-$ sdk install java 11.0.15-tem  # 例
+$ sdk install java 17.0.19-tem  # 例
 $ java -version                 # Javaがインストールされているかの確認（Java8以前の場合）
 $ java --version                # Javaがインストールされているかの確認（Java11以降の場合）
 ```
