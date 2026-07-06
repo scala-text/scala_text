@@ -49,8 +49,8 @@ sbt textBuildHtml
 コマンドには全てtextというprefixが付いているので、どのようなコマンドがあるかは補完から知ることができる。
 
 ```
-# 日本語の校正
-sbt textLint src/introduction.md
+# 日本語の校正（ファイルを指定する場合はクォートで囲む。引数なしなら全ファイル）
+sbt "textLint src/basic.md"
 
 # リンク切れ確認
 sbt textLinkTest
@@ -58,8 +58,8 @@ sbt textLinkTest
 # mdocのビルド
 sbt textBuildHtml
 
-# 全ての検査を実行した後にビルド
-sbt textBuildAllWithCheck
+# 校正・テスト・ビルドをまとめて実行
+sbt ";textLintAll;textTestAll;textBuildAll"
 ```
 
 ### mdoc
@@ -157,4 +157,4 @@ sbt textBuildEpub
 
 ![CC-BY-SA](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
 
-の元で配布されています。
+のもとで配布されている。
