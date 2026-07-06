@@ -187,12 +187,12 @@ Scalaではトレイトという仕組みで複数の実装の継承を実現し
 ここでは通常のScalaのクラスの継承について説明します。Scalaでのクラスの継承は次のような構文になります。
 
 ```scala
-class <クラス名> <クラス引数> (extends <スーパークラス>)? (with <トレイト名>)* {
+class <クラス名> <クラス引数> (extends <スーパークラス> (, <トレイト名>)*)? {
   (<フィールド定義> | <メソッド定義>)*
 }
 ```
 
-※「トレイト名」はここでは使われませんが、後で出てくるトレイトの節で説明を行います。
+※「トレイト名」はここでは使われませんが、後で出てくるトレイトの節で説明を行います。なお、Scala 2ではトレイトのミックスインに`with`キーワードを使っていました（Scala 3でも使えます）。
 
 Scalaでは、既に実装があるメソッドをオーバーライドするときは`override`キーワードを使わなければなりません。
 たとえば、次のように書くことは可能ですが
@@ -227,11 +227,12 @@ class BPrinter() extends APrinter {
 ```
 
 ```
-[error] .../Printer.scala:8:7: `override` modifier required to override concrete member:
-[error] def print(): Unit (defined in class APrinter)
-[error]   def print(): Unit = {
-[error]       ^
-[error] one error found
+-- [E164] Declaration Error: .../Printer.scala:8:6
+8 |  def print(): Unit = {
+  |      ^
+  |      error overriding method print in class APrinter of type (): Unit;
+  |        method print of type (): Unit needs `override` modifier
+1 error found
 ```
 
 このような仕組みのない言語ではしばしば、気付かずに既存のメソッドをオーバーライドするつもりで新しいメソッドを定義してしまうというミスがありますが、

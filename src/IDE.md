@@ -13,9 +13,9 @@ IDEとして根強い人気を誇っています。有料ですが多機能のUl
 してもらいます。
 
 まず、IntelliJ IDEAの[Downloadページ](https://www.jetbrains.com/idea/download/)に
-移動します。Windows, Mac OS X, Linuxの3つのタブがあるので、それぞれのOSに応じた
+移動します。Windows, macOS, Linuxの3つのタブがあるので、それぞれのOSに応じた
 タブを選択して、「Download Community」ボタンをクリックしてください。以降、IDEAの
-スクリーンショットがでてきますが、都合上、Mac OS X上でのスクリーンショットである
+スクリーンショットがでてきますが、都合上、macOS上でのスクリーンショットである
 ことをご承知ください。
 
 ![IntelliJ IDEAのダウンロードページ](img/IntelliJ_IDEA_Download.png)
@@ -33,6 +33,8 @@ IDEとして根強い人気を誇っています。有料ですが多機能のUl
 のような画面が表示されるはずです。ここまでで、IDEAのインストールは完了です。次に、IDEAの
 Scalaプラグインをインストールする必要があります。起動画面の`Configure->Plugins`を
 クリックしてください。
+
+補足：IntelliJ IDEAのバージョンによって画面構成が異なります。最近のバージョンでは、ようこそ画面左側の「Plugins」タブ（またはメニューの`Settings->Plugins`）を開き、「Marketplace」タブで`scala`を検索してインストールしてください。以降のスクリーンショットは古いバージョンのものです。
 
 ![IntelliJ IDEAの起動画面のConfigure](img/IntelliJ_IDEA_Startup_Configure.png)
 
@@ -75,6 +77,8 @@ scala-sandbox
 
 まず、IntelliJ IDEAの起動画面から、「Import Project」を選択します。
 
+補足：最近のバージョンのIntelliJ IDEAには「Import Project」はなく、ようこそ画面の「Open」から`scala-sandbox`ディレクトリ（または`build.sbt`）を選択するとsbtプロジェクトとして自動的にインポートされます。JDKが未設定の場合は`File->Project Structure`から設定できます。
+
 ![Import Project](img/IntelliJ_IDEA_Import_Project.png)
 
 次に、以下のような画面が表示されるので、build.sbtをクリックして、OKします。
@@ -83,12 +87,12 @@ scala-sandbox
 
 すると、さらに次のような画面が表示されます。「Project JDK」が空の場合がありますが、その場合は、「New」を選択して自分で、JDKのホームディレクトリにあるJDKを指定します。
 
-![Import Project From SBT.png](img/IntelliJ_IDEA_Import_Project_From_SBT.png)
+![Import Project From SBT](img/IntelliJ_IDEA_Import_Project_From_SBT.png)
 
 最後に、OKします。最初は、sbt自体のソースを取得などするため時間がかかりますが、しばらく待つとプロジェクト画面が開きます。
 そこから、_HelloWorld.scala_を選んでダブルクリックして、以下のように表示されれば成功です。
 
-![Hello World.png)](img/IntelliJ_IDEA_Editor_Hello_World.png)
+![Hello World](img/IntelliJ_IDEA_Editor_Hello_World.png)
 
 このように、IntelliJ IDEAでは、sbtのプロジェクトをインポートしてIDE内で編集することができます。
 

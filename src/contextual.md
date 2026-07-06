@@ -10,7 +10,7 @@ Scalaには他の言語にはあまり見られない、暗黙的に値や変換
 | 型クラスのインスタンス | `implicit val/object` | `given X: T with ...` |
 | 暗黙値の取り出し | `implicitly[T]` | `summon[T]` |
 
-この章ではScala 3でのこれら4つの使い方を順に説明します。Scala 2の`implicit`を見たことがある読者には、本章末尾の「Scala 2の`implicit`との対応」節も合わせて参照してもらえると、Scala 2のコードを読むときに役に立つはずです。
+この章ではScala 3でのこれらの使い方を順に説明します。Scala 2の`implicit`を見たことがある読者には、本章末尾の「Scala 2の`implicit`との対応」節も合わせて参照してもらえると、Scala 2のコードを読むときに役に立つはずです。
 
 ## 暗黙の型変換（Conversion）
 
@@ -19,7 +19,7 @@ Scalaには他の言語にはあまり見られない、暗黙的に値や変換
 Scala 3で暗黙の型変換を定義するには、`scala.Conversion[A, B]`型の`given`インスタンスを定義します。
 
 ```scala
-  given メソッド名: Conversion[引数の型, 返り値の型] = 引数 => 本体
+  given インスタンス名: Conversion[引数の型, 返り値の型] = 引数 => 本体
 ```
 
 引数の型の式が現れたときに、コンパイラが暗黙のうちに返り値の型への変換を挿入してくれます。次の例では、`Int`型から`Boolean`型への暗黙の型変換を定義しています。
@@ -116,7 +116,7 @@ Taps.main(Array())
 
 <!-- end answer -->
 
-#### 練習問題 {#contextual_ex3}
+### 練習問題 {#contextual_ex3}
 
 [Scala標準ライブラリ](https://www.scala-lang.org/api/current/index.html)の中から拡張メソッド（`extension`または`implicit class`）が使われている例を1つ以上見つけてください。どのような時に便利でしょうか？
 
@@ -129,7 +129,7 @@ Taps.main(Array())
 ```
 def readRecordsFromTable(columnName: String, tableName: String, connection: Connection): List[Record]
 def writeRecordsToTable(record: List[Record], tableName: String, connection: Connection): Unit
-def readAllFromTable(tableName: String, connection: Connection): List[Row]
+def readAllFromTable(tableName: String, connection: Connection): List[Record]
 ```
 
 3つのメソッドは全て`Connection`型を引数に取るのに、呼び出すたびに明示的に`Connection`オブジェクトを渡さなければいけません。ここで`using`引数の出番です。上のメソッド定義を
@@ -140,7 +140,7 @@ def writeRecordsToTable(records: List[Record], tableName: String)(using connecti
 def readAllFromTable(tableName: String)(using connection: Connection): List[Record]
 ```
 
-と書き換えます。`using`修飾子は最後の引数リストに付けます。つまり、以下のようになっているのがポイントです。
+と書き換えます。Scala 3では`using`引数リストは複数書いたり途中の位置に置いたりできますが、通常は最後の引数リストとして書きます。つまり、以下のようになっているのがポイントです。
 
 ```scala
 (....)(using conn: Connection)
@@ -172,7 +172,7 @@ val firstNames = readRecordsFromTable("first_name", "people")(using aConnection)
 
 呼び出し側で明示的に`using`を書きたい場合は、`readRecordsFromTable("first_name", "people")(using aConnection)`のように指定できます。
 
-このような文脈を引き渡すための`using`引数は、Play FrameworkやO/Rマッパー、あるいは`ExecutionContext`（`Future`の章で詳述）のような実行コンテキストを必要とするライブラリでよく出てきます。
+このような文脈を引き渡すための`using`引数は、Play FrameworkやO/Rマッパー、あるいは`ExecutionContext`（[FutureとPromiseの章](./future-and-promise.md)で登場します）のような実行コンテキストを必要とするライブラリでよく出てきます。
 
 ## 型クラスとgiven/using/summon
 
@@ -252,7 +252,7 @@ sum(List("A", "B", "C"))(StringAdditive)
 
 これで目的を果たすことはできますが、何の`List`の要素を合計するかは型チェックする時点では分かっているのだから、`IntAdditive`や`StringAdditive`を明示的に渡さずとも賢く推論してほしいものです。実は、まさにそれを`using`引数と`given`定義で実現することができるのです。
 
-方法は簡単。`StringAdditive`と`IntAdditive`を`given`として定義することと、`sum`の最後の引数リストにある`m`を`using`引数にするだけです。`given`を使った最終形は次のようになります。
+方法は簡単。`StringAdditive`と`IntAdditive`を`given`として定義することと、`sum`の最後の引数リストを`using`引数にするだけです。`given`を使った最終形は次のようになります。
 
 ```scala mdoc:nest
 trait Additive[A] {
@@ -316,7 +316,7 @@ List(1, 2, 3, 4).sum
 List(1.1, 1.2, 1.3, 1.4).sum
 ```
 
-のように整数や浮動小数点数の合計値を計算することができます。これは、後述する`Numeric`型クラスのインスタンスが標準ライブラリに用意されているおかげです。Scalaで型クラスを定義・使用する方法を覚えると、設計の幅がグンと広がります。
+のように整数や浮動小数点数の合計値を計算することができます。これは、対応する型クラスのインスタンスが標準ライブラリに用意されているおかげです。Scalaで型クラスを定義・使用する方法を覚えると、設計の幅がグンと広がります。
 
 ### 練習問題 {#contextual_ex4}
 
@@ -376,12 +376,12 @@ println(sum(List(Point(1, 2), Point(3, 4), Point(5, 6)))) // Point(9, 12)
 
 型クラス：
 
-* [Numeric[T]](https://www.scala-lang.org/api/3.8.3/scala/math/Numeric.html)
+* [Numeric[T]](https://www.scala-lang.org/api/current/scala/math/Numeric.html)
 
 型クラスのインスタンス：
 
-* [IntIsIntegral](https://www.scala-lang.org/api/3.8.3/scala/math/Numeric$$IntIsIntegral$.html)
-* [DoubleIsFractional](https://www.scala-lang.org/api/3.8.3/scala/math/Numeric$$DoubleIsFractional$.html)
+* [IntIsIntegral](https://www.scala-lang.org/api/current/scala/math/Numeric$$IntIsIntegral$.html)
+* [DoubleIsFractional](https://www.scala-lang.org/api/current/scala/math/Numeric$$DoubleIsFractional$.html)
 
 <!-- end answer -->
 
@@ -405,9 +405,9 @@ case class Rational(num: Int, den: Int)
 object Rational {
   given RationalAdditive: Additive[Rational] with {
     def plus(a: Rational, b: Rational): Rational = {
-      if (a == zero) {
+      if a == zero then {
         b
-      } else if (b == zero) {
+      } else if b == zero then {
         a
       } else {
         Rational(a.num * b.den + b.num * a.den, a.den * b.den)
@@ -422,7 +422,7 @@ importをしていないのに、Additive型クラスのインスタンスを使
 
 ```scala
 scala> sum(List(Rational(1, 1), Rational(2, 2)))
-val res0: Rational = Rational(4, 2)
+val res0: Rational = Rational(4,2)
 ```
 
 新しくデータ型を定義し、型クラスインスタンスも一緒に定義したい場合によく出てくるパターンなので覚えておくとよいでしょう。
@@ -478,5 +478,3 @@ summon[Additive[Int]]
 ```
 
 Scala 3でも`implicit`キーワードは互換性のために引き続き利用できますが、新しく書くコードでは原則として`given`・`using`・`extension`を使うようにしましょう。
-
-[^implicit-arity]: 引数が2つ以上ある`Conversion`相当の定義も技術的には可能ですが、暗黙の型変換としては引数1つの形が基本です。

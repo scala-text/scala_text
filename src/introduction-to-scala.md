@@ -5,7 +5,7 @@ Scalaは2003年にスイス連邦工科大学ローザンヌ校（EPFL）のMart
 ただし、Scalaはただのbetter Javaではないので、Scalaで効率的にプログラミングするためにはScalaの作法を知る必要があります。この文書がその一助になれば
 幸いです。
 
-本テキストは **Scala 3 LTS** を前提として書かれています。Scala 3は、長年のScala 2の経験を踏まえて型システムと構文を整理した大型バージョンで、`enum`、`given`/`using`/`extension`、トップレベル定義、`@main`、`opaque type`、union/intersection型などの新機能が導入されています。本テキストの章タイトルやコード例はScala 3慣用句を基準にしていますので、過去のScala 2のコードを読み慣れている方は、必要に応じて<a href="./scala2/">Scala 2版（archived）</a>も参照してください。
+本テキストは **Scala 3 LTS** を前提として書かれています。Scala 3は、長年のScala 2の経験を踏まえて型システムと構文を整理した大型バージョンで、`enum`、`given`/`using`/`extension`、トップレベル定義、`@main`、`opaque type`、union/intersection型などの新機能が導入されています。本テキストの章タイトルやコード例はScala 3の慣用的な書き方を基準にしていますので、過去のScala 2のコードを読み慣れている方は、必要に応じて<a href="./scala2/">Scala 2版（archived）</a>も参照してください。
 
 ## なぜ開発言語としてScalaを選ぶのか
 
@@ -35,7 +35,7 @@ Scalaでは、関数をオブジェクトやメソッドと別の概念として
 - `given`/`using`による型クラス
 - `for`によるモナド構文
 - モナドの型クラスの定義などに不可欠な高カインド型
-- `opaque type`によるゼロコストのnewtype
+- `opaque type`による実行時コストゼロの新しい型の定義（いわゆるnewtype）
 - union types（`A | B`）とintersection types（`A & B`）
 
 以上のようにScalaでは単に関数が第一級であるだけに留まらず、本格的な関数型プログラミングをするための様々な機能があります。
@@ -59,7 +59,7 @@ Scalaが優れているのは関数型プログラミングの機能だけでは
 - `extension`による既存クラスの拡張
 - `export`による委譲の簡潔な記述
 - Javaのプリミティブ型がラップされて、全ての値がオブジェクトとして扱える
-- トップレベル定義（`package object`が要らない直接のメソッド・値定義）
+- トップレベル定義（クラスやオブジェクトの外に直接メソッドや値を定義できる機能）
 
 以上のようにScalaではより柔軟なオブジェクト指向プログラミングが可能になっています。
 Scalaのプログラミングでは特にtraitを使ったmixinによって、プログラムに高いモジュール性と、新しい設計の視点が得られるでしょう。
@@ -86,4 +86,4 @@ Scalaでは非同期の計算を表現する[Future](https://www.scala-lang.org/
 
 [^first_class]: この特徴を関数が「第一級（first-class）」であると言います。
 
-[^mutable_and_immutable]: https://docs.scala-lang.org/ja/overviews/collections/overview.html
+[^mutable_and_immutable]: https://docs.scala-lang.org/overviews/collections-2.13/overview.html を参照してください（英語。日本語版の解説は旧コレクションライブラリを対象としたものしかありません）。

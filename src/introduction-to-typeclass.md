@@ -115,9 +115,9 @@ average(List(1.5, 2.5, 3.5))
 
 このようにして、複数の型クラスを組み合わせることで、より大きな柔軟性を手に入れることができました。
 
-### context bounds
+### コンテキスト境界（context bounds）
 
-上記のコードは、context boundsというシンタックスシュガーを使うことで、次のように書き換えることもできます。
+上記のコードは、[Given/Using/Extensionの章](./contextual.md)でも紹介したコンテキスト境界（context bounds）というシンタックスシュガーを使うことで、次のように書き換えることもできます。
 
 ```scala mdoc:nest
 import Nums.*
@@ -160,7 +160,7 @@ def min[B >: A](using cmp: Ordering[B]): A
 
 `B >: A` の必要性についてはおいておくとして、ポイントは、 `Ordering[B]` 型の`using`引数を要求
 するところです。 `Ordering[B]` の`given`インスタンスがあれば、 `B` 型同士の大小関係を比較できるため、最大値
-と最小値を求めることができます。
+と最小値を求めることができます。なお、標準ライブラリ自体はScala 2の構文で書かれているため、APIドキュメント上は`using`の代わりに`implicit`と表示されますが、意味は同じです。
 
 ## medianメソッド
 
@@ -182,7 +182,7 @@ def median[A: Num : Ordering : FromInt](lst: List[A]): A = {
   val size = lst.size
   require(size > 0)
   val sorted = lst.sorted
-  if (size % 2 == 1) {
+  if size % 2 == 1 then {
     sorted(size / 2)
   } else {
     val fst = sorted((size / 2) - 1)
@@ -208,7 +208,7 @@ assert(3 == median(List(1, 3, 4, 5)))
 ```scala
 import Serializers.string
 string(List(1, 2, 3)) // [1,2,3]
-string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
+string(List(List(1),List(2),List(3))) // [[1],[2],[3]]
 string(1) // 1
 string("Foo") // Foo
 class MyClass(val x: Int)
@@ -238,7 +238,7 @@ trait Serializer[A] {
 
 これを仮に `Serializer` 型クラスと呼びます。
 
-この `string` メソッドのシグニチャをまず考えてみます。このメソッドは
+この `string` メソッドのシグネチャをまず考えてみます。このメソッドは
 `Serializer` 型クラスを必要としているので、 `Serializer[A]` のような
 `using`引数を必要としているはずです。また、引数は `A` 型の値
 で、返り値は `String` なので、結果として次のようになります。
@@ -286,17 +286,17 @@ given StringSerializer: Serializer[String] with {
 いけないのですから、単純に以下のようにしてもだめです。
 
 ```scala
-given listSerializer[A]: Serializer[List[A]] with {
+given ListSerializer[A]: Serializer[List[A]] with {
   def serialize(obj: List[A]): String = ???
 }
 ```
 
 この定義では `A` にどのような操作が可能なのかわからないため、中身を単純に `toString` するくらいしか
 実装しようがないですし、また、そのような実装では要素型の `Serializer` の実装と整合性が取れません。
-これを解決するには、`listSerializer`が`using`引数で要素型の`Serializer`を受け取るようにします。
+これを解決するには、`ListSerializer`が`using`引数で要素型の`Serializer`を受け取るようにします。
 
 ```scala
-given listSerializer[A](using serializer: Serializer[A]): Serializer[List[A]] with {
+given ListSerializer[A](using serializer: Serializer[A]): Serializer[List[A]] with {
   def serialize(obj: List[A]): String = {
     val serializedList = obj.map(o => serializer.serialize(o))
     serializedList.mkString("[", ",", "]")
@@ -325,7 +325,7 @@ object Serializers {
   given StringSerializer: Serializer[String] with {
     def serialize(obj: String): String = obj
   }
-  given listSerializer[A](using serializer: Serializer[A]): Serializer[List[A]] with {
+  given ListSerializer[A](using serializer: Serializer[A]): Serializer[List[A]] with {
     def serialize(obj: List[A]): String = {
       val serializedList = obj.map(o => serializer.serialize(o))
       serializedList.mkString("[", ",", "]")

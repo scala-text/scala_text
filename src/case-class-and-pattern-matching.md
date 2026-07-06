@@ -1,7 +1,7 @@
 # 列挙型、ケースクラスとパターンマッチング
 
 パターンマッチングは、Scalaをはじめとする関数型言語に一般的な機能です。CやJavaのswitch文に似ていますが、より
-強力な機能です。しかし、パターンマッチングの真価を発揮するには、標準ライブラリまたはユーザが定義したケース
+強力な機能です。しかし、パターンマッチングの真価を発揮するには、標準ライブラリまたはユーザが定義した`enum`やケース
 クラス（case class）によるデータ型の定義が必要になります。
 
 簡単な列挙型をScala 3の`enum`機能で定義してみます。
@@ -62,11 +62,12 @@ x match {
 これは、xが`Sunday`なら1を、`Monday`なら2を…返すパターンマッチです。`Saturday`に対する場合分けが記述されていませんが、パターンマッチの漏れはコンパイラが警告してくれます。
 ```
 warning: match may not be exhaustive.
-It would fail on the following input: Saturday
+
+It would fail on pattern case: Saturday
 ```
 この警告は、`enum`や`sealed`修飾子の付いたスーパークラス/トレイトでは、サブクラス/トレイトが（実質的に）固定されるという性質を利用して実現されています。
 `enum`は内部的にこの仕組みを使っており、わざわざ`sealed`を付けたり、ファイル内に`case object`を並べる手間がいらないのが利点です。
-Scala 2スタイルの`sealed`を使う場面はそれほど多くないので、新しく書くコードでは「単純な列挙なら`enum`」「複雑な階層なら`sealed trait`」と覚えておけば良いでしょう。
+新しく書くコードでは「単純な列挙なら`enum`」「複雑な階層なら`sealed trait`」と使い分けると覚えておけば良いでしょう。
 
 これだけだと、CやJavaの列挙型とあまり変わらないように見えますが、それらと異なるのは各々の
 データは独立してパラメータを持つことができることです。また、パターンマッチの際はそのデータ型
@@ -130,9 +131,10 @@ eval(example)
 `case Lit(v) => v`の行を書き忘れた場合、`DayOfWeek`の例と同じように、
 
 ```scala
-<console>:16: warning: match may not be exhaustive.
-It would fail on the following input: Lit(_)
-       def eval(exp: Exp): Int = exp match {
+warning: match may not be exhaustive.
+
+It would fail on pattern case: Exp.Lit(_)
+  def eval(exp: Exp): Int = exp match {
 ```
 
 記述漏れがあることを指摘してくれますから、ミスを防ぐこともできます。
@@ -171,19 +173,19 @@ REPLでの実行例を示します。
 
 ```scala
 scala> case class Point(x: Int, y: Int)
-defined class Point
+// defined case class Point
 
 scala> val p = Point(1, 2)
-p: Point = Point(1,2)
+val p: Point = Point(1,2)
 
-scala> println(p.x, p.y)
+scala> println((p.x, p.y))
 (1,2)
 
 scala> Point(1, 2) == Point(1, 2)
-res4: Boolean = true
+val res0: Boolean = true
 
 scala> Point(1, 2) == Point(3, 4)
-res5: Boolean = false
+val res1: Boolean = false
 ```
 
 本節で紹介しているケースクラスの機能は、あくまで便利さ簡潔さのためだけのものです。
@@ -343,17 +345,17 @@ object BinaryTree {
       v
     case Branch(v, Empty, r) =>
       val x = max(r)
-      if(v > x) v else x
+      if v > x then v else x
     case Branch(v, l, Empty) =>
       val x = max(l)
-      if(v > x) v else x
+      if v > x then v else x
     case Branch(v, l, r) =>
       val x = max(l)
       val y = max(r)
-      if(v > x) {
-        if(v > y) v else y
+      if v > x then {
+        if v > y then v else y
       } else {
-        if(x > y) x else y
+        if x > y then x else y
       }
     case Empty =>
       throw new RuntimeException
@@ -365,17 +367,17 @@ object BinaryTree {
       v
     case Branch(v, Empty, r) =>
       val x = min(r)
-      if(v < x) v else x
+      if v < x then v else x
     case Branch(v, l, Empty) =>
       val x = min(l)
-      if(v < x) v else x
+      if v < x then v else x
     case Branch(v, l, r) =>
       val x = min(l)
       val y = min(r)
-      if(v < x) {
-        if(v < y) v else y
+      if v < x then {
+        if v < y then v else y
       } else {
-        if(x < y) x else y
+        if x < y then x else y
       }
     case Empty =>
       throw new RuntimeException
@@ -386,7 +388,7 @@ object BinaryTree {
     case Branch(_, l, r) =>
       val ldepth = depth(l)
       val rdepth = depth(r)
-      (if(ldepth < rdepth) rdepth else ldepth) + 1
+      (if ldepth < rdepth then rdepth else ldepth) + 1
   }
 
   def toList(tree: Tree): List[Int] = tree match {
@@ -399,7 +401,7 @@ object BinaryTree {
       def insert(value: Int, t: Tree): Tree = t match {
         case Empty => Branch(value, Empty, Empty)
         case Branch(v, l, r) =>
-          if(value <= v) Branch(v, insert(value, l), r)
+          if value <= v then Branch(v, insert(value, l), r)
           else Branch(v, l, insert(value, r))
       }
       list.foldLeft(Empty: Tree){ case (t, v) => insert(v, t) }

@@ -1,7 +1,7 @@
 # コレクションライブラリ（immutableとmutable）
 
 Scalaには配列（`Array`）やリスト（`List`）、連想配列（`Map`）、集合（`Set`）を扱うための豊富なライブラリがあります。これを使いこなすことで、Scalaでの
-プログラミングは劇的に楽になります。注意しなければならないのは、Scalaでは一度作成したら変更できない（immutable）なコレクションと
+プログラミングは劇的に楽になります。注意しなければならないのは、Scalaでは一度作成したら変更できない（immutable）コレクションと
 変更できる通常のコレクション（mutable）があることです。皆さんはmutableなコレクションに馴染んでいるかと思いますが、Scalaで関数型プログラ
 ミングを行うためには、immutableなコレクションを活用する必要があります。
 
@@ -124,7 +124,7 @@ val lst = List(1, 2, 3, 4, 5)
 ```
 
 ```scala
-lst(0) = 7
+lst(0) = 7 // コンパイルエラー！
 ```
 
 見ればわかるように、`List`は一度作成したら値を更新することができません。しかし、`List`は値を更新することができませんが、
@@ -272,10 +272,10 @@ joinByComma(1, 10)
 `foldLeft`メソッドは`List`にとって非常に基本的なメソッドです。他の様々なメソッドを`foldLeft`を使って実装することができます。`foldLeft`の宣言を[ScalaのAPIドキュメント](https://www.scala-lang.org/api/current/scala/collection/immutable/List.html)から引用すると、
 
 ```scala
-def foldLeft[B](z: B)(f: (B, A) => B): B
+def foldLeft[B](z: B)(op: (B, A) => B): B
 ```
 
-となります。`z`が`foldLeft`の結果の初期値で、リストを左からたどりながら`f`を適用していきます。`foldLeft`について
+となります。`z`が`foldLeft`の結果の初期値で、リストを左からたどりながら`op`を適用していきます。`foldLeft`について
 はイメージが湧きにくいと思いますので、`List(1, 2, 3).foldLeft(0)((x, y) => x + y)`の結果を図示します。
 
 ```
@@ -296,7 +296,7 @@ def foldLeft[B](z: B)(f: (B, A) => B): B
  0   1
 ```
 
-は`+`に0と1を与えて適用するということを意味します。リストの要素を左から順にfを使って「畳み込む」（fold
+は`+`に0と1を与えて適用するということを意味します。リストの要素を左から順にopを使って「畳み込む」（fold
 は英語で畳み込むという意味を持ちます）状態がイメージできるでしょうか。`foldLeft`は汎用性の高いメソッドで、
 たとえば、`List`の要素の合計を求めたい場合は
 
@@ -316,30 +316,21 @@ List(1, 2, 3).foldLeft(1)((x, y) => x * y)
 少し恣意的ですが1つの例として、「リストのリスト」をリストに変換する（平らにする）処理というのを考えてみます。
 `List(List(1), List(2 ,3))`を`List(1, 2, 3)`に変換するのが目標です。安直に書くとこうなるでしょうか：
 
-```scala
-scala> List(List(1), List(2, 3), List(4)).foldLeft(Nil)(_ ++ _) 
-<console>:12: error: type mismatch;
- found   : List[Int]
- required: scala.collection.immutable.Nil.type
-       List(List(1), List(2, 3), List(4)).foldLeft(Nil)(_ ++ _)
-                                                          ^
-
+```scala mdoc:nest
+List(List(1), List(2, 3), List(4)).foldLeft(Nil)(_ ++ _)
 ```
 
-しかしコンパイルが通りません。
-エラーメッセージの意味としては、今回の`Nil`は`List[Int]`型と見なされてほしいわけですが、期待したように型推論できていないようです。
-`Nil`に明示的に型注釈を付けることで、コンパイルできるようになります。
+Scala 2ではこのコードは、`Nil`が`List[Int]`型と推論されずコンパイルエラーになっていました。Scala 3では型推論が改善されたため、このままコンパイルできます。とはいえ、複雑なコードでは型推論がうまく働かないこともあります。そのような場合は、次のように`Nil`へ明示的に型注釈を付けます。
 
 ```scala mdoc:nest
 List(List(1), List(2, 3), List(4)).foldLeft(Nil: List[Int])(_ ++ _)
 ```
 
-このように、`Nil`が混ざった処理はそのままだとうまくコンパイルが通ってくれないことがあります。
-そういう場合は型注釈を試すとよい、と頭の片隅に入れておいてください。
+このように、型推論がうまくいかないときは型注釈を試すとよい、と頭の片隅に入れておいてください。
 
 #### 練習問題
 
-`foldLeft`を用いて、`List`の要素を反転させる次のシグニチャを持ったメソッド`reverse`を実装してみましょう：
+`foldLeft`を用いて、`List`の要素を反転させる次のシグネチャを持ったメソッド`reverse`を実装してみましょう：
 
 ```scala mdoc:nest:silent
 def reverse[T](list: List[T]): List[T] = ???
@@ -424,7 +415,7 @@ sum(List(1, 2, 3, 4, 5))
 `List`の全ての要素を掛け合わせるメソッド`mul`を`foldRight`を用いて実装してみましょう。`mul`の宣言は次のようになります。
 なお、`List`が空のときは1を返してみましょう。
 
-```scala mdoc:nest
+```scala mdoc:nest:silent
 def mul(list: List[Int]): Int = ???
 ```
 
@@ -477,7 +468,7 @@ Scalaのコレクションのメソッドの中でも非常によく使われる
 
 #### 練習問題
 
-次のシグニチャを持つ`map`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
+次のシグネチャを持つ`map`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
 
 ```scala mdoc:nest:silent
 def map[T, U](list: List[T])(f: T => U): List[U] = ???
@@ -512,7 +503,7 @@ List(1, 2, 3, 4, 5).filter(x => x % 2 == 1)
 
 #### 練習問題
 
-次のシグニチャを持つ`filter`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
+次のシグネチャを持つ`filter`メソッドを`foldLeft`と`reverse`を使って実装してみましょう：
 
 ```scala mdoc:nest:silent
 def filter[T](list: List[T])(f: T => Boolean): List[T] = ???
@@ -530,7 +521,7 @@ assert(Nil == filter(List[Int]())(x => false))
 
 ```scala mdoc:nest:silent
 def filter[T](list: List[T])(f: T => Boolean): List[T] = {
-  list.foldLeft(Nil:List[T]){(x, y) => if(f(y)) y::x else x}.reverse
+  list.foldLeft(Nil: List[T]){(x, y) => if f(y) then y :: x else x}.reverse
 }
 ```
 
@@ -550,7 +541,7 @@ List(1, 2, 3, 4, 5).find(x => x % 2 == 1)
 
 #### 練習問題
 
-次のシグニチャを持つ`find`メソッドを`foldLeft`または再帰で実装してみましょう。`Option[T]` 型の`Some[T]` は `Some(1)` のように生成できます。また、要素がないことを表す`None`は`None`と表記できます。
+次のシグネチャを持つ`find`メソッドを`foldLeft`または再帰で実装してみましょう。`Option[T]` 型の`Some[T]` は `Some(1)` のように生成できます。また、要素がないことを表す`None`は`None`と表記できます。
 
 ```scala mdoc:nest:silent
 def find[T](list: List[T])(f: T => Boolean): Option[T] = ???
@@ -586,7 +577,7 @@ List(1, 2, 3, 4, 5).takeWhile(x => x != 5)
 
 #### 練習問題
 
-次のシグニチャを持つ`takeWhile`メソッドをループまたは再帰を使って実装してみましょう：
+次のシグネチャを持つ`takeWhile`メソッドをループまたは再帰を使って実装してみましょう：
 
 ```scala mdoc:nest:silent
 def takeWhile[T](list: List[T])(f: T => Boolean): List[T] = ???
@@ -626,7 +617,7 @@ List(1, 2, 3, 4, 5).count(x => x % 2 == 0)
 
 #### 練習問題
 
-次のシグニチャを持つ`count`メソッドを`foldLeft`を使って実装してみましょう：
+次のシグネチャを持つ`count`メソッドを`foldLeft`を使って実装してみましょう：
 
 ```scala mdoc:nest:silent
 def count[T](list: List[T])(f: T => Boolean): Int = ???
@@ -645,7 +636,7 @@ assert(0 == count(List(1, 2, 3, 3, 2, 2))(x => x == 5))
 
 ```scala mdoc:nest:silent
 def count[T](list: List[T])(f: T => Boolean): Int  = {
-  list.foldLeft(0){(x, y) => if(f(y)) x + 1 else x}
+  list.foldLeft(0){(x, y) => if f(y) then x + 1 else x}
 }
 ```
 
@@ -678,7 +669,7 @@ List(1, 2, 3).flatMap{e => List(4, 5).map(g => e * g)}
 for-comprehension
 
 ```scala
-for(x <- col1; y <- col2) yield z
+for x <- col1; y <- col2 yield z
 ```
 
 は
@@ -692,7 +683,7 @@ for構文の中で使うことができるのです。
 
 #### 練習問題
 
-次のシグニチャを持つ`flatMap`メソッドを再帰やループで実装してみましょう：
+次のシグネチャを持つ`flatMap`メソッドを再帰やループで実装してみましょう：
 
 ```scala mdoc:nest:silent
 def flatMap[T, U](list: List[T])(f: T => List[U]): List[U] = ???
@@ -733,7 +724,7 @@ def flatMap[T, U](list: List[T])(f: T => List[U]): List[U] = {
 ```scala mdoc:nest
 List(1, 2, 3, 4)
 
-5 :: List(1, 2, 3, 4) // Listの先頭のセルに新しいをくっつける
+5 :: List(1, 2, 3, 4) // Listの先頭のセルに新しい要素をくっつける
 
 List(1, 2, 3, 4) :+ 5 // 注意！末尾への追加は、Listの要素数分かかる
 ```
@@ -835,7 +826,7 @@ s // 変更が反映される
 
 ### その他資料
 
-さらにコレクションライブラリについて詳しく知りたい場合は、以下の公式のドキュメントなどを読みましょう
-<https://docs.scala-lang.org/ja/overviews/collections/introduction.html>
+さらにコレクションライブラリについて詳しく知りたい場合は、以下の公式のドキュメント（英語。Scala 2.13で刷新され、Scala 3でも使われているコレクションライブラリの解説です）などを読みましょう
+<https://docs.scala-lang.org/overviews/collections-2.13/introduction.html>
 
 [^fold-sum-product]: ただし、これはあくまでもfoldLeftの例であって、要素の和や積を求めたい場合に限って言えばもっと便利なメソッドが標準ライブラリに存在するので、実際にはこの例のような使い方はしません

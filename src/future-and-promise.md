@@ -99,11 +99,12 @@ true
 
 以上はFuture自体の機能を理解するためのサンプルコードです。
 非同期プログラミングは、sbt consoleで実装するのが難しいのでファイルに書かせてもらいました。
-Futureシングルトンは関数を与えるとその関数を非同期に与える`Future[+T]`を返します。
+Futureシングルトンは関数を与えるとその関数を非同期に実行する`Future[+T]`を返します。
 上記の実装例ではまず、1000ミリ秒待機して、`"Hello"`と`" future!"`を文字列結合するという処理を非同期に処理します。
 そして成功時の処理を定義した後futureが処理が終わっているかを確認し、
 futureの結果取得を5000ミリ秒間待つという処理を行った後、
 その結果がどうなっているのかをコンソールに出力するという処理をします。
+なお、冒頭でimportしている`scala.concurrent.ExecutionContext.Implicits.global`は、Futureの実行に使われるスレッドプール（`ExecutionContext`）を暗黙のパラメータとして供給するためのものです（詳しくは[Given/Using/Extension](contextual.md)の章を参照してください）。
 
 なお以上のように5000ミリ秒待つという他に、そのFuture自体の処理を待つという書き方もすることができます。
 `Thread.sleep(5000)`を`Await.ready(f, 5000.millisecond)`とすることで、
@@ -166,7 +167,7 @@ Hello future!
 つまりFutureを用いることで知らず知らずのうちのマルチスレッドのプログラミングが実行されていたということになります。
 また、`Await.ready(f, 5000.millisecond)`で処理を書いたことで、`isCompleted`の確認処理のほうが、
 `"Hello future!"`の文字列結合よりも先に出力されていることがわかります。
-これは文字列結合の方が値参照よりもコストが高いためこのようになります。
+これは、`foreach`に渡したコールバックがFutureの完了後に別スレッドで非同期に実行されるため、`Await.ready`から戻ったmainスレッド側の処理が先に進むことがあるからです。
 
 ForkJoinPoolに関しては、Javaの並行プログラミングをサポートする`ExecutorService`というインタフェースを被ったクラスとなります。
 内部的にスレッドプールを持っており、スレッドを使いまわすことによって、スレッドを作成するコストを低減し高速化を図っています。
@@ -185,14 +186,14 @@ object FutureOptionUsageSample {
   def main(args: Array[String]): Unit = {
     val futureMilliSec: Future[Int] = Future {
       val waitMilliSec = random.nextInt(waitMaxMilliSec)
-      if(waitMilliSec < 1000) throw new RuntimeException(s"waitMilliSec is ${waitMilliSec}" )
+      if waitMilliSec < 1000 then throw new RuntimeException(s"waitMilliSec is ${waitMilliSec}")
       Thread.sleep(waitMilliSec)
       waitMilliSec
     }
 
     val futureSec: Future[Double] = futureMilliSec.map(i => i.toDouble / 1000)
 
-    futureSec onComplete {
+    futureSec.onComplete {
       case Success(waitSec) => println(s"Success! ${waitSec} sec")
       case Failure(t) => println(s"Failure: ${t.getMessage}")
     }
@@ -247,7 +248,7 @@ object CompositeFutureSample {
   def main(args: Array[String]): Unit = {
     def waitRandom(futureName: String): Int = {
       val waitMilliSec = random.nextInt(waitMaxMilliSec)
-      if(waitMilliSec < 500) throw new RuntimeException(s"${futureName} waitMilliSec is ${waitMilliSec}" )
+      if waitMilliSec < 500 then throw new RuntimeException(s"${futureName} waitMilliSec is ${waitMilliSec}")
       Thread.sleep(waitMilliSec)
       waitMilliSec
     }
@@ -260,7 +261,7 @@ object CompositeFutureSample {
       second <- futureSecond
     } yield (first, second)
 
-    compositeFuture onComplete  {
+    compositeFuture.onComplete {
       case Success((first, second)) => println(s"Success! first:${first} second:${second}")
       case Failure(t) => println(s"Failure: ${t.getMessage}")
     }
@@ -279,7 +280,7 @@ object CompositeFutureSample {
 
 なおFutureにはfilterの他、様々な並列実行に対するメソッドが存在しますので、
 [APIドキュメント](https://www.scala-lang.org/api/current/scala/concurrent/Future.html)を見てみてください。
-また複数のFuture生成や[並列実行に関してのまとめられた日本語の記事](https://qiita.com/mtoyoshi/items/297f6acdfe610440c719)もありますので、
+また複数のFuture生成や[並列実行に関してのまとめられた日本語の記事](https://qiita.com/mtoyoshi/items/297f6acdfe610440c719)（Scala 2時代の記事ですが、Futureの考え方自体は共通です）もありますので、
 複雑な操作を試してみたい際にはぜひ参考にしてみてください。
 
 
@@ -335,7 +336,7 @@ class CallbackSomething {
 
   def doSomething(onSuccess: Int => Unit, onFailure: Throwable => Unit): Unit = {
     val i = random.nextInt(10)
-    if(i < 5) onSuccess(i) else onFailure(new RuntimeException(i.toString))
+    if i < 5 then onSuccess(i) else onFailure(new RuntimeException(i.toString))
   }
 }
 
@@ -402,7 +403,7 @@ object CountDownLatchSample {
     }
     futures.foreach { f => f.foreach { waitMilliSec =>
       val index = indexHolder.getAndIncrement
-      if(index < promises.length) {
+      if index < promises.length then {
         promises(index).success(waitMilliSec)
       }
     }}

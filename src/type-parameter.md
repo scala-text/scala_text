@@ -29,25 +29,28 @@ scala> class Cell[A](var value: A) {
      |   def put(newValue: A): Unit = {
      |     value = newValue
      |   }
-     |   
+     |
      |   def get(): A = value
      | }
-defined class Cell
+// defined class Cell
 
-scala> val cell = new Cell[Int](1)
-cell: Cell[Int] = Cell@192aaffb
+scala> val cell = Cell[Int](1)
+val cell: Cell[Int] = Cell@4b00d59
 
 scala> cell.put(2)
 
 scala> cell.get()
-res1: Int = 2
+val res0: Int = 2
 
 scala> cell.put("something")
-<console>:10: error: type mismatch;
- found   : String("something")
- required: Int
-              cell.put("something")
-                       ^
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |cell.put("something")
+  |         ^^^^^^^^^^^
+  |         Found:    ("something" : String)
+  |         Required: Int
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 ```
 
 上記コードの
@@ -151,9 +154,14 @@ objects[0] = 100;
 
 ```scala
 scala> val arr: Array[Any] = new Array[String](1)
-<console>:7: error: type mismatch;
- found   : Array[String]
- required: Array[Any]
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |val arr: Array[Any] = new Array[String](1)
+  |                      ^^^^^^^^^^^^^^^^^^^^
+  |                      Found:    Array[String]
+  |                      Required: Array[Any]
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 ```
 このような結果になるのは、Scalaでは配列は非変だからです。静的型付き言語の型安全性とは、コンパイル時により多くのプログラミングエラーを捕捉するものであるとするなら、配列の設計はScalaの方がJavaより型安全であると言えます。
 
@@ -256,15 +264,18 @@ x1(String型の値)
 実際にREPLで試してみましょう。
 
 ```scala
-scala> val x1: AnyRef => AnyRef = (x: String) => (x:AnyRef)
-<console>:7: error: type mismatch;
- found   : String => AnyRef
- required: AnyRef => AnyRef
-       val x1: AnyRef => AnyRef = (x: String) => (x:AnyRef)
-                                              ^
+scala> val x1: AnyRef => AnyRef = (x: String) => (x: AnyRef)
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |val x1: AnyRef => AnyRef = (x: String) => (x: AnyRef)
+  |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |                           Found:    String => AnyRef
+  |                           Required: AnyRef => AnyRef
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 
 scala> val x1: String => AnyRef = (x: AnyRef) => x
-x1: String => AnyRef = <function1>
+val x1: String => AnyRef = Lambda/0x00000000374b9420@47b494ce
 ```
 
 このように、先ほど述べたような結果になっています。
@@ -313,9 +324,11 @@ abstract class Stack[+A]{
 しかし、この定義は、以下のようなコンパイルエラーになります。
 
 ```
-error: covariant type A occurs in contravariant position in type A of value element
-         def push(element: A): Stack[A]
-                           ^
+-- Error: ----------------------------------------------------------------------
+2 |  def push(element: A): Stack[A]
+  |           ^^^^^^^^^^
+  |covariant type A occurs in contravariant position in type A of parameter element
+1 error found
 ```
 
 このコンパイルエラーは、共変な型パラメータ`A`が反変な位置（反変な型パラメータが出現できる箇所）に出現したということを

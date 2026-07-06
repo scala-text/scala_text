@@ -63,7 +63,7 @@ class ClassD extends ClassA, ClassB
 ```
 
 上記の例では`ClassA`と`TraitA`と`TraitB`を継承した`ClassC`を作ることはできますが`ClassA`と`ClassB`を継承した`ClassD`は作ることができません。
-「class ClassB needs to be a trait to be mixed in」というエラーメッセージが出ますが、これは「`ClassB`をミックスインさせるためにはトレイトにする必要がある」という意味です。複数のクラスを継承させたい場合はクラスをトレイトにしましょう。
+「class ClassB is not a trait」というエラーメッセージが出ますが、これは「`ClassB`はトレイトではない（のでミックスインできない）」という意味です。複数のクラスを継承させたい場合はクラスをトレイトにしましょう。
 
 ### 直接インスタンス化できない
 
@@ -114,7 +114,7 @@ class EnglishGreeter  extends Greeter("Kota")
 
 `trait Greeter(name: String)` のように書くと、`Greeter` を継承するクラスは引数を渡して初期化する必要があります。
 
-ただし、トレイトを直接インスタンス化することはできません（パラメータを取れるようになっても、インスタンス化禁止という制限は変わらないため）。`trait Greeter(name: String)` を継承する側は **クラス** か **オブジェクト** で、かつ **継承チェーンの先頭で1度だけ** パラメータを渡す必要があります。
+ただし、トレイトを直接インスタンス化することはできません（パラメータを取れるようになっても、インスタンス化禁止という制限は変わらないため）。また、`trait Greeter(name: String)` にパラメータを渡せるのは **クラス** か **オブジェクト** だけで、**継承チェーンの中で1度だけ** 渡します（トレイトは引数を渡さずに継承だけできます）。
 
 Scala 2では同じことを実現するために、トレイトに抽象メンバーを持たせて、サブクラス側で値を上書きする方法が使われていました。今でもこのパターンは有効です。
 
@@ -140,7 +140,7 @@ object ObjectA {
 
 ### 「トレイト」という用語について
 
-この節では、トレイトやミックスインなどオブジェクトの指向の用語が用いられますが、他の言語などで用いられる用語とは少し違う意味を持つかもしれないので、注意が必要です。
+この節では、トレイトやミックスインなどオブジェクト指向の用語が用いられますが、他の言語などで用いられる用語とは少し違う意味を持つかもしれないので、注意が必要です。
 
 トレイトはSchärliらによる2003年のECOOPに採択された論文『Traits: Composable Units of Behaviour』がオリジナルとされていますが、この論文中のトレイトの定義とScalaのトレイトの仕様は、合成時の動作や、状態変数の取り扱いなどについて、異なっているように見えます。
 
@@ -182,12 +182,15 @@ class ClassA extends TraitB, TraitC
 
 ```scala
 scala> class ClassA extends TraitB, TraitC
-<console>:13: error: class ClassA inherits conflicting members:
-  method greet in trait TraitB of type ()Unit  and
-  method greet in trait TraitC of type ()Unit
-(Note: this can be resolved by declaring an override in class ClassA.)
-       class ClassA extends TraitB, TraitC
-             ^
+-- [E164] Declaration Error: ---------------------------------------------------
+1 |class ClassA extends TraitB, TraitC
+  |      ^
+  |error overriding method greet in trait TraitB of type (): Unit;
+  |  method greet in trait TraitC of type (): Unit class ClassA inherits conflicting members:
+  |  method greet in trait TraitB of type (): Unit  and
+  |  method greet in trait TraitC of type (): Unit
+  |(Note: this can be resolved by declaring an override in class ClassA.)
+1 error found
 ```
 
 Scalaではoverride指定なしの場合メソッド定義の衝突はエラーになります。
@@ -208,7 +211,7 @@ class ClassB extends TraitB, TraitC {
 }
 ```
 
-実行結果は以下にようになります。
+実行結果は以下のようになります。
 
 ```scala mdoc:nest
 ClassA().greet()
@@ -274,11 +277,11 @@ class ClassB extends TraitC, TraitB
 すると`ClassB`の`greet`メソッドの呼び出しで、今度は`TraitB`の`greet`メソッドが実行されます。
 
 ```
-scala> (new ClassB).greet()
+scala> ClassB().greet()
 Good morning!
 ```
 
-`super`を使うことで線形化された親トレイトを使うこともできます
+`super`を使うことで線形化された親トレイトを使うこともできます。
 
 ```scala mdoc:nest:silent
 trait TraitA {

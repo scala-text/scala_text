@@ -6,10 +6,10 @@ trait UserService {
   val maxNameLength = 32
 
   def register(name: String, rawPassword: String): User = {
-    if (name.length > maxNameLength) {
+    if name.length > maxNameLength then {
       throw new Exception("Too long name!")
     }
-    if (find(name).isDefined) {
+    if find(name).isDefined then {
       throw new Exception("Already registered!")
     }
     insert(User(name, hashPassword(rawPassword)))
@@ -19,7 +19,7 @@ trait UserService {
     find(name) match {
       case None       => throw new Exception("User not found!")
       case Some(user) =>
-        if (!checkPassword(rawPassword, user.hashedPassword)) {
+        if !checkPassword(rawPassword, user.hashedPassword) then {
           throw new Exception("Invalid password!")
         }
         user

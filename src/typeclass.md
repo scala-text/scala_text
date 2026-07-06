@@ -5,11 +5,11 @@
 しかし、世の中に存在するScalaで実装されたライブラリやアプリケーションのいくつかでは、本章で紹介する型クラスなどを多用している場合があります。
 そのようなライブラリやアプリケーションに出会った際にも臆さずコードリーディングができるよう、最低限の知識をつけることが本章の目的です。
 
-本章で紹介する型クラスを絡めたScalaでのプログラミングについて詳しく知りたい場合は[Scala関数型デザイン＆プログラミング](https://book.impress.co.jp/books/1114101091)を読みましょう。
+本章で紹介する型クラスを絡めたScalaでのプログラミングについて詳しく知りたい場合は[Scala関数型デザイン&プログラミング](https://book.impress.co.jp/books/1114101091)を読みましょう。なお、同書のコード例はScala 2で書かれていますが、型クラスの考え方自体はScala 3でも変わりません。
 
 ## Functor
 
-前章に登場した`List`や`Option`には、`map`という関数が共通して定義されていました。
+[コレクションライブラリ](./collection.md)や[エラー処理](./error-handling.md)の章に登場した`List`や`Option`には、`map`という関数が共通して定義されていました。
 この`map`関数がある規則を満たす場合はFunctor型クラスとして抽象化できます[^hkind]。
 
 ```scala mdoc:nest:silent
@@ -25,7 +25,7 @@ def identityLaw[F[_], A](fa: F[A])(using F: Functor[F]): Boolean =
   F.map(fa)(identity) == fa
 
 def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(using F: Functor[F]): Boolean =
-  F.map(fa)(f2 compose f1) == F.map(F.map(fa)(f1))(f2)
+  F.map(fa)(f2.compose(f1)) == F.map(F.map(fa)(f1))(f2)
 ```
 
 なお、`identity`は次のように定義されます。
@@ -45,7 +45,7 @@ def identityLaw[F[_], A](fa: F[A])(using F: Functor[F]): Boolean =
   F.map(fa)(identity) == fa
 
 def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(using F: Functor[F]): Boolean =
-  F.map(fa)(f2 compose f1) == F.map(F.map(fa)(f1))(f2)
+  F.map(fa)(f2.compose(f1)) == F.map(F.map(fa)(f1))(f2)
 
 given OptionFunctor: Functor[Option] with {
   def map[A, B](fa: Option[A])(f: A => B): Option[B] = fa.map(f)
@@ -167,7 +167,7 @@ def ap[F[_], A, B](fa: F[A])(f: F[A => B])(using F: Monad[F]): F[B] =
   F.bind(f)((g: A => B) => F.bind(fa)((a: A) => F.point(g(a))))
 ```
 
-それでは、Option型が前述の規則をみたすかどうか確認してみましょう。
+それでは、Option型が前述の規則を満たすかどうか確認してみましょう。
 
 ```scala mdoc:nest
 trait Monad[F[_]] {
@@ -211,7 +211,7 @@ trait Monoid[F] {
 }
 ```
 
-前章で定義したAdditive型とよく似ていますが、Monoidは次の規則を満たす必要があります。
+[Given/Using/Extensionの章](./contextual.md)で定義した`Additive`型とよく似ていますが、Monoidは次の規則を満たす必要があります。
 
 ```scala mdoc:nest:silent
 def leftIdentityLaw[F](a: F)(using F: Monoid[F]): Boolean = a == F.append(F.zero, a)

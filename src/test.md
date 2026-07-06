@@ -149,10 +149,10 @@ libraryDependencies ++= Seq(
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_3/3.2.17/scalatest-flatspec_3-3.2.17.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_3;3.2.17!scalatest-flatspec_3.jar(bundle) (5456ms)
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_3/3.2.17/scalatest-diagrams_3-3.2.17.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_3;3.2.17!scalatest-diagrams_3.jar(bundle) (5199ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_3/3.2.20/scalatest-flatspec_3-3.2.20.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_3;3.2.20!scalatest-flatspec_3.jar(bundle) (5456ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_3/3.2.20/scalatest-diagrams_3-3.2.20.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_3;3.2.20!scalatest-diagrams_3.jar(bundle) (5199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2023/02/09 16:48:42
 ```
@@ -184,13 +184,13 @@ class Calc {
     * 0で割ろうとした際には実行時例外が投げられる
     */
   def div(numerator: Int, denominator: Int): Double = {
-    if (denominator == 0) throw new ArithmeticException("/ by zero")
+    if denominator == 0 then throw new ArithmeticException("/ by zero")
     numerator.toDouble / denominator.toDouble
   }
 
   /** 整数値を一つ受け取り、その値が素数であるかどうかのブール値を返す */
   def isPrime(n: Int): Boolean = {
-    if (n < 2) false else !((2 to Math.sqrt(n).toInt) exists (n % _ == 0))
+    if n < 2 then false else !((2 to Math.sqrt(n).toInt).exists(n % _ == 0))
   }
 }
 ```
@@ -434,7 +434,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 ```
 
 `val mockCalc = mock(classOf[Calc])`でモックオブジェクトを作成し、
-`when(mockCalc.sum(Seq(3, 4, 5)).thenReturn(12)`で振る舞いを作成しています。
+`when(mockCalc.sum(Seq(3, 4, 5))).thenReturn(12)`で振る舞いを作成しています。
 
 そして最後に、`assert(mockCalc.sum(Seq(3, 4, 5)) === 12)`でモックに仕込んだ偽装された振る舞いをテストしています。
 
@@ -480,7 +480,7 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "<latest>")
 
 コードスタイルチェックにおいて、インデントの数や定義の前後のスペースなどコードのフォーマットをチェックするにはフォーマッタを、
 静的解析で推奨されるScalaコードの書き方になっているかをチェックするにはリンターを使います。
-例えば、次のメソッド定義はProcedure Syntaxと呼ばれ、比較的新しいバージョンのScalaでは非推奨になっています。リンターはこのような望ましくないコードを検知して報告します。
+例えば、次のメソッド定義はProcedure Syntaxと呼ばれ、Scala 2.13で非推奨となり、Scala 3では構文自体が削除されているためコンパイルエラーになります。リンターはこのような望ましくないコードを検知して報告します。
 
 ```scala
 object Example {
@@ -488,7 +488,7 @@ object Example {
 }
 ```
 
-2022年現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafix、wartremoverはScala 3に対応しています。
+現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafix、wartremoverはScala 3に対応しています。
 scalafmt、scalafixのどちらもコードスタイルチェックに加えて自動修正機能があります。
 
 
@@ -497,7 +497,7 @@ scalafmt、scalafixはCLIでもsbt pluginでも使えますがここではsbt pl
 `project/plugins.sbt` に以下のコードを記述します。
 
 ```scala mdoc:nest:silent
-addSbtPlugin("org.scalameta" %% "scalafmt" % "<latest>")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "<latest>")
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "<latest>")
 ```
 
@@ -521,6 +521,7 @@ https://scalameta.org/scalafmt/docs/configuration.html
 
 ### scalafix
 さて、次はscalafixを試してみましょう。
+なお、Procedure SyntaxはScala 2の構文であるため、この例はScala 2のコードベースを対象としたものです。Scala 3プロジェクトでは別のルール（例えば公開されているコミュニティルール）を試してみてください。
 sbtシェルで次のコマンドを実行してください。
 
 ```sh
