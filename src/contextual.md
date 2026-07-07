@@ -279,7 +279,7 @@ sum(List("A", "B", "C"))
 
 任意のListの要素の合計値を求めるsumメソッドを自然な形で呼び出すことができています。
 
-`given X: T with { ... }`はScala 3で型クラスのインスタンスを定義する標準的な形です。`with`の後ろのブロックに、その型クラスが要求するメソッドを実装します。インスタンスに名前を付けたくない場合は、`given Additive[Int] with { ... }`のように匿名で書くこともできます。
+`given X: T with { ... }`は、Scala 3で型クラスのインスタンスを定義するときによく使われる形です。`with`の後ろのブロックに、その型クラスが要求するメソッドを実装します。インスタンスに名前を付けたくない場合は、`given Additive[Int] with { ... }`のように匿名で書くこともできます。なお、`given intAdditive: Additive[Int] = new Additive[Int] { ... }`のように`= new`で定義することもできます。`with`形式ではブロック内で定義したメンバーがすべて公開されるため、公開するメンバーを厳密に管理したいライブラリのコードなどでは`= new`形式が好まれることもあります。
 
 このような`using`引数と型クラスの組み合わせはプログラミング言語Haskellから借りてきたもので、Haskellでは型クラスと呼ばれます。そのため、Scalaでも型クラスと呼ばれることがよくあります。Haskellの用語だと、`Additive`に相当する宣言を **型クラスの宣言**、`StringAdditive`と`IntAdditive`を `Additive`型クラスの **インスタンスの定義** と呼びます。
 
@@ -292,7 +292,7 @@ def sum2[A](lst: List[A])(using Additive[A]): A = {
 }
 ```
 
-`summon[T]`はScala 2の`implicitly[T]`に対応するもので、現在のスコープから型`T`の`given`値を取り出します。
+`summon[T]`はScala 2の`implicitly[T]`に対応するもので、現在のスコープから型`T`の`given`値を取り出します。なお、`implicitly`はScala 3でも非推奨になったわけではなく引き続き使えますが、本テキストでは`summon`を使います。
 
 さらに、型パラメータの直後で`using`引数を要求する短縮記法として **コンテキスト境界（context bound）** があります。`def sum[A: Additive](lst: List[A]): A`と書けば、暗黙のうちに`Additive[A]`を要求する`using`引数が追加されたかのように扱われます。
 

@@ -480,11 +480,11 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "<latest>")
 
 コードスタイルチェックにおいて、インデントの数や定義の前後のスペースなどコードのフォーマットをチェックするにはフォーマッタを、
 静的解析で推奨されるScalaコードの書き方になっているかをチェックするにはリンターを使います。
-例えば、次のメソッド定義はProcedure Syntaxと呼ばれ、Scala 2.13で非推奨となり、Scala 3では構文自体が削除されているためコンパイルエラーになります。リンターはこのような望ましくないコードを検知して報告します。
+例えば、次のコードは変数の展開をしていないのに文字列補間子`s`を付けています。コンパイルは問題なく通りますが、この`s`は不要です。リンターはこのような冗長で望ましくないコードを検知して報告します。
 
 ```scala
 object Example {
-  def myProcedure {}
+  val greeting = s"Hello, World!"
 }
 ```
 
@@ -520,38 +520,35 @@ scalafmtAll
 https://scalameta.org/scalafmt/docs/configuration.html
 
 ### scalafix
-さて、次はscalafixを試してみましょう。
-なお、Procedure SyntaxはScala 2の構文であるため、この例はScala 2のコードベースを対象としたものです。Scala 3プロジェクトでは別のルール（例えば公開されているコミュニティルール）を試してみてください。
+さて、次はscalafixを試してみましょう。先ほどの冗長な`s`補間子を検知する`RedundantSyntax`ルールを使います。
 sbtシェルで次のコマンドを実行してください。
 
 ```sh
-scalafix --check --rules ProcedureSyntax
+scalafix --check --rules RedundantSyntax
 ```
 下記のように警告が表示されます。
 
 ```
-[info] Running scalafix on 1 Scala sources
-[error] --- /path/to/problematic/File.scala
+[error] --- /path/to/Example.scala
 [error] +++ <expected fix>
-...省略...
-[error] -  def myProcedure {}
-[error] +  def myProcedure: Unit = {}
-[error]  
-...省略...
-[error] 
-ScalafixFailed: TestError
+[error] @@ -1,3 +1,3 @@
+[error]  object Example {
+[error] -  val greeting = s"Hello, World!"
+[error] +  val greeting = "Hello, World!"
+[error]  }
+[error] (Compile / scalafix) scalafix.sbt.ScalafixFailed: TestError
 ```
 
-問題のあるコードを自動的に書き換えるには`--check`オプションを外して`scalafix ProcedureSyntax`コマンドを実行します。
-先ほどの`myProcedure`は次のように修正されます。
+問題のあるコードを自動的に書き換えるには`--check`オプションを外して`scalafix --rules RedundantSyntax`コマンドを実行します。
+先ほどの`greeting`は次のように修正されます。
 
 ```scala
 object Example {
-  def myProcedure: Unit = {}
+  val greeting = "Hello, World!"
 }
 ```
 
-Procedure Syntaxの警告と修正はscalafixにデフォルトで用意されていますが、ライブラリとして公開されているscalafixのルールを使うことでリンターのルールを追加できます。公開されているルールは[scalafixのドキュメント](https://scalacenter.github.io/scalafix/docs/rules/community-rules.html)に書いてあります。
+`RedundantSyntax`のようないくつかのルールはscalafixにデフォルトで用意されていますが、ライブラリとして公開されているscalafixのルールを使うことでリンターのルールを追加できます。公開されているルールは[scalafixのドキュメント](https://scalacenter.github.io/scalafix/docs/rules/community-rules.html)に書いてあります。
 
 
 ## テストを書こう

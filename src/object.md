@@ -21,7 +21,7 @@ object <オブジェクト名> extends <クラス名> (, <トレイト名>)* {
 ```
 
 となります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala3/blob/3.8.4/library/src/scala/Predef.scala)が定義・インポートされており、これは最初の使い方に当てはまります。 `println("Hello")` となにげなく
-使っていたメソッドも実は `Predef` のメソッドなのです。 `extends` でクラスを継承、カンマ区切り（Scala 2では`with`）でトレイトをmix-in
+使っていたメソッドも実は `Predef` のメソッドなのです。 `extends` でクラスを継承、カンマ区切り（従来どおり`with`も使えます）でトレイトをmix-in
 可能になっているのは、オブジェクト名を既存のクラスのサブクラス等として振る舞わせたい場合があるからです。Scala
 の標準ライブラリでは、 `Nil` という `object` がありますが、これは `List` の一種として振る舞わせたいため、
 `List` を継承しています。一方、 `object` がトレイトをmix-inする事はあまり多くありませんが、クラスやトレイト

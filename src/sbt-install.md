@@ -119,7 +119,7 @@ scala>
 
 ```
 
-のように表示されます。なお、上記のように`Scala 3.8.4`と表示されるのは、後述する_build.sbt_でScalaのversionを指定した場合です。指定がない場合はsbt自体が依存するScala 2系のREPLが起動してしまいます。sbt consoleを終了したい場合は、
+のように表示されます。なお、上記のように`Scala 3.8.4`と表示されるのは、後述する_build.sbt_でScalaのversionを指定した場合です。指定がない場合はsbt自体が内部で使っているversionのScalaのREPLが起動してしまいます。sbt consoleを終了したい場合は、
 
 ```
 scala> :quit
