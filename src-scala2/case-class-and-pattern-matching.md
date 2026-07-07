@@ -78,17 +78,34 @@ It would fail on the following input: Saturday
 
 ```scala mdoc:nest:silent
 sealed abstract class Exp
-case class Add(lhs: Exp, rhs: Exp) extends Exp
-case class Sub(lhs: Exp, rhs: Exp) extends Exp
-case class Mul(lhs: Exp, rhs: Exp) extends Exp
-case class Div(lhs: Exp, rhs: Exp) extends Exp
-case class Lit(value: Int) extends Exp
+
+object Exp {
+  case class Add(lhs: Exp, rhs: Exp) extends Exp
+  case class Sub(lhs: Exp, rhs: Exp) extends Exp
+  case class Mul(lhs: Exp, rhs: Exp) extends Exp
+  case class Div(lhs: Exp, rhs: Exp) extends Exp
+  case class Lit(value: Int) extends Exp
+}
+```
+
+こちらもScala 3のenumを使うと以下のように簡潔に書くことが可能です。
+
+```scala mdoc:nest:silent
+enum Exp {
+  case Add(lhs: Exp, rhs: Exp)
+  case Sub(lhs: Exp, rhs: Exp)
+  case Mul(lhs: Exp, rhs: Exp)
+  case Div(lhs: Exp, rhs: Exp)
+  case Lit(value: Int)
+}
 ```
 
 全てのデータ型に`case`修飾子がついているので、これらのデータ型はパターンマッチングのパターンとして使うことができます。
 この定義から、`1 + ((2 * 3) / 2)`という式を表すノードを構築します。
 
 ```scala mdoc:nest
+import Exp.*
+
 val example = Add(Lit(1), Div(Mul(Lit(2), Lit(3)), Lit(2)))
 ```
 

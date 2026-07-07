@@ -132,7 +132,7 @@ def average[A:Num:FromInt](lst: List[A]): A = {
 ```
 
 implicit parameterの名前 `a` と `b` が引数から見えなくなりましたが、 `implicitly[Type]` とすることで、
-`Type` 型のimplicit paramerterの値を取得することができます。
+`Type` 型のimplicit parameterの値を取得することができます。
 
 ## maxメソッドとminメソッド
 
