@@ -8,7 +8,7 @@
     "@babel/core": "^8.0.1",
     "@babel/preset-env": "^8.0.2",
     "@babel/register": "^8.0.1",
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.1",
     "babel-preset-power-assert": "3.0.0",
     "cheerio": "1.2.0",
