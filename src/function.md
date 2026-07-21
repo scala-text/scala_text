@@ -44,9 +44,7 @@ val add = (x: Int, y: Int) => x + y
 ```
 
 n1からnnまでが仮引数の定義でN1からNNまでが仮引数の型です。`B`は無名関数の本体です。無名関数の返り値の型は通常は
-`B`の型から推論されます。先ほど述べたように、Scala 2における関数は`Function0`〜`Function22`までのトレイトの無名サブクラスの
-インスタンスですから、引数の最大個数は22個になります。
-Scala 3からはその制約が撤廃されて、23以上の関数も作成可能になっています。
+`B`の型から推論されます。Scala 3でも引数が22個以下の関数は内部的には `Function0` 〜 `Function22` までのトレイトのインスタンスとして表現されますが、引数の数の上限はなくなっており、23個以上の引数を持つ関数も作成できます（Scala 2では22個までの制限がありました）。
 
 ## 関数の型
 
@@ -84,29 +82,28 @@ addCurried(100)(200)
 
 無名関数を定義する構文をネストさせて使っているだけで、何も特別なことはしていないことがわかります。
 
-また、Scalaではメソッドの引数リストを複数に分けた場合に、そのメソッドに対してスペースに続いて `_` 
-をつけることで引数リストそれぞれを新たな引数としたカリー化関数を得ることができます。
-このことをREPLを用いて確認してみましょう。
+また、Scalaではメソッドを「関数値」に変換することができ、メソッドの引数リストを複数に分けてあれば、その変換によってカリー化された関数値が得られます。Scala 3ではメソッド名をそのまま書くだけで自動的に関数値に **η展開（eta-expansion）** されます。REPLで確認してみましょう。
 
 ```scala
 scala> def add(x: Int, y: Int): Int = x + y
-add: (x: Int, y: Int)Int
+def add(x: Int, y: Int): Int
 
-scala> add _
-res0: (Int, Int) => Int = <function2>
+scala> add  // Scala 3 では _ 不要
+val res0: (Int, Int) => Int = ...
 
 scala> def addMultiParameterList(x: Int)(y: Int): Int = x + y
-addMultiParameterList: (x: Int)(y: Int)Int
+def addMultiParameterList(x: Int)(y: Int): Int
 
-scala> addMultiParameterList _
-res1: Int => (Int => Int) = <function1>
+scala> addMultiParameterList  // 同様に _ 不要
+val res1: Int => (Int => Int) = ...
 ```
 
-引数リストを2つに分けた`addMultiParameterList`（これはメソッドであって関数ではありません）から得られた関数は
+引数リストを2つに分けた`addMultiParameterList`（これはメソッドであって関数ではありません）から得られた関数値は
 1引数関数のチェイン（`res1`）になっていて、確かにカリー化されています。
 
-ただ、Scalaではカリー化のテクニックを使うことは、他の関数型言語に比べてあまり多くありません。
-また、この `_` を付与して関数を得る記法はScala 3では非推奨になっており、 `_` を付与しなくても関数に変換されるようになりました。
+なお、Scala 2ではメソッドを関数値に変換するためにメソッド名の後ろに `_` を付ける必要がありました（`add _` のように書く）。Scala 3ではこの `_` は不要で、付けると警告になります。
+
+ただ、Scalaではカリー化のテクニックを使うことは、他の関数型言語に比べてそれほど多くありません。
 
 ## メソッドと関数の違い
 
@@ -164,7 +161,7 @@ def around(init: () => Unit, body: () => Any, fin: () => Unit): Any = {
 }
 ```
 
-`try-finally` 構文は、後の例外処理の節でも出てきますが、大体Javaのそれと同じだと思ってください。この`around`関数は
+`try-finally` 構文は、後のエラー処理の章でも出てきますが、大体Javaのそれと同じだと思ってください。この`around`関数は
 次のようにして使うことができます。
 
 ```scala mdoc:nest
@@ -234,4 +231,4 @@ def printFile(filename: String): Unit = {
 ここでは高階関数の利用例を簡単に紹介しました。
 後のコレクションの節を読むことで、高階関数のメリットをさらに理解できるようになるでしょう。
 
-[^scala212]: Scala 2.12からは、[SAM Typeと互換性がある](https://scala-lang.org/files/archive/spec/2.13/06-expressions.html#sam-conversion)場合には対応するSAM Typeのコードが生成されるので、純粋なシンタックスシュガーとは呼べなくなりましたが、それ以外のケースについては従来と変わりありません。
+[^scala212]: 期待される型が[SAM Typeと互換性がある](https://scala-lang.org/files/archive/spec/3.4/06-expressions.html#sam-conversion)場合には対応するSAM Typeのコードが生成されるので、純粋なシンタックスシュガーとは呼べませんが（この挙動はScala 2.12で導入されました）、それ以外のケースについては本文の説明どおり`FunctionN`のインスタンスが生成されます。
