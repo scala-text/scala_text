@@ -29,31 +29,34 @@ scala> class Cell[A](var value: A) {
      |   def put(newValue: A): Unit = {
      |     value = newValue
      |   }
-     |   
+     |
      |   def get(): A = value
      | }
-defined class Cell
+// defined class Cell
 
-scala> val cell = new Cell[Int](1)
-cell: Cell[Int] = Cell@192aaffb
+scala> val cell = Cell[Int](1)
+val cell: Cell[Int] = Cell@4b00d59
 
 scala> cell.put(2)
 
 scala> cell.get()
-res1: Int = 2
+val res0: Int = 2
 
 scala> cell.put("something")
-<console>:10: error: type mismatch;
- found   : String("something")
- required: Int
-              cell.put("something")
-                       ^
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |cell.put("something")
+  |         ^^^^^^^^^^^
+  |         Found:    ("something" : String)
+  |         Required: Int
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 ```
 
 上記コードの
 
 ```scala mdoc:nest
-val cell = new Cell[Int](1)
+val cell = Cell[Int](1)
 ```
 
 の部分で、型パラメータとして`Int`型を与えて、その初期値として1を与えています。型パラメータに`Int`を与えて`Cell`をインスタンス化したため、REPLでは`String`を`put`しようとして、コンパイラにエラーとしてはじかれています。`Cell`は様々な型を与えてインスタンス化したいクラスであるため、クラス定義時には特定の型を与えることができません。そういった場合に、型パラメータは役に立ちます。
@@ -74,7 +77,7 @@ class Pair[A, B](val a: A, val b: B) {
 このクラス```Pair```の利用法としては、たとえば割り算の商と余りの両方を返すメソッド`divide`が挙げられます。`divide`の定義は次のようになります。
 
 ```scala mdoc:nest:silent
-def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
+def divide(m: Int, n: Int): Pair[Int, Int] = Pair[Int, Int](m / n, m % n)
 ```
 
 これらをREPLにまとめて流し込むと次のようになります。
@@ -84,19 +87,19 @@ class Pair[A, B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
 
-def divide(m: Int, n: Int): Pair[Int, Int] = new Pair[Int, Int](m / n, m % n)
+def divide(m: Int, n: Int): Pair[Int, Int] = Pair[Int, Int](m / n, m % n)
 
 divide(7, 3)
 ```
 
-7割る3の商と余りが`res0`に入っていることがわかります。なお、ここでは`new Pair[Int, Int](m / n, m % n)`としましたが、引数の型から型パラメータの型を推測できる場合、省略できます。この場合、`Pair`のコンストラクタに与える引数は`Int`と`Int`なので、`new Pair(m / n, m % n)`としても同じ意味になります。この`Pair`は2つの異なる型（同じ型でも良い）を返り値として返したい全ての場合に使うことができます。このように、どの型でも同じ処理を行う場合を抽象化できるのが型パラメータの利点です。
+7割る3の商と余りが`res0`に入っていることがわかります。なお、ここでは`Pair[Int, Int](m / n, m % n)`としましたが、引数の型から型パラメータの型を推測できる場合、省略できます。この場合、`Pair`のコンストラクタに与える引数は`Int`と`Int`なので、`Pair(m / n, m % n)`としても同じ意味になります。この`Pair`は2つの異なる型（同じ型でも良い）を返り値として返したい全ての場合に使うことができます。このように、どの型でも同じ処理を行う場合を抽象化できるのが型パラメータの利点です。
 
 ちなみに、この`Pair`のようなクラスはScalaではよく使われるため、`Tuple1`から`Tuple22`(`Tuple`の後の数字は要素数）があらかじめ用意されています。また、インスタンス化する際も、
 
 ```scala mdoc:nest
 val m = 7
 val n = 3
-new Tuple2(m / n, m % n)
+Tuple2(m / n, m % n)
 ```
 
 などとしなくても、
@@ -151,9 +154,14 @@ objects[0] = 100;
 
 ```scala
 scala> val arr: Array[Any] = new Array[String](1)
-<console>:7: error: type mismatch;
- found   : Array[String]
- required: Array[Any]
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |val arr: Array[Any] = new Array[String](1)
+  |                      ^^^^^^^^^^^^^^^^^^^^
+  |                      Found:    Array[String]
+  |                      Required: Array[Any]
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 ```
 このような結果になるのは、Scalaでは配列は非変だからです。静的型付き言語の型安全性とは、コンパイル時により多くのプログラミングエラーを捕捉するものであるとするなら、配列の設計はScalaの方がJavaより型安全であると言えます。
 
@@ -164,7 +172,7 @@ class Pair[+A, +B](val a: A, val b: B) {
   override def toString(): String = "(" + a + "," + b + ")"
 }
 
-val pair: Pair[AnyRef, AnyRef] = new Pair[String, String]("foo", "bar")
+val pair: Pair[AnyRef, AnyRef] = Pair[String, String]("foo", "bar")
 ```
 
 ここで、`Pair`は作成時に値を与えたら後は変更できず、したがって`ArrayStoreException`のような例外が発生する余地がないことがわかります。一般的には、一度作成したら変更できない（immutable）などの型パラメータは共変にしても多くの場合問題がありません。
@@ -189,7 +197,7 @@ class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extend
 }
 
 case object EmptyStack extends Stack[Nothing] {
-  def push[E >: Nothing](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def push[E >: Nothing](e: E): Stack[E] = NonEmptyStack[E](e, this)
   def top: Nothing = throw new IllegalArgumentException("empty stack")
   def pop: Nothing = throw new IllegalArgumentException("empty stack")
   def isEmpty: Boolean = true
@@ -212,7 +220,7 @@ val stringStack: Stack[String] = Stack()
 
 ```scala mdoc:nest:silent
 class NonEmptyStack[+A](private val first: A, private val rest: Stack[A]) extends Stack[A] {
-  def push[E >: A](e: E): Stack[E] = new NonEmptyStack[E](e, this)
+  def push[E >: A](e: E): Stack[E] = NonEmptyStack[E](e, this)
   def top: A = first
   def pop: Stack[A] = rest
   def isEmpty: Boolean = false
@@ -256,15 +264,18 @@ x1(String型の値)
 実際にREPLで試してみましょう。
 
 ```scala
-scala> val x1: AnyRef => AnyRef = (x: String) => (x:AnyRef)
-<console>:7: error: type mismatch;
- found   : String => AnyRef
- required: AnyRef => AnyRef
-       val x1: AnyRef => AnyRef = (x: String) => (x:AnyRef)
-                                              ^
+scala> val x1: AnyRef => AnyRef = (x: String) => (x: AnyRef)
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |val x1: AnyRef => AnyRef = (x: String) => (x: AnyRef)
+  |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |                           Found:    String => AnyRef
+  |                           Required: AnyRef => AnyRef
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 
 scala> val x1: String => AnyRef = (x: AnyRef) => x
-x1: String => AnyRef = <function1>
+val x1: String => AnyRef = Lambda/0x00000000374b9420@47b494ce
 ```
 
 このように、先ほど述べたような結果になっています。
@@ -313,9 +324,11 @@ abstract class Stack[+A]{
 しかし、この定義は、以下のようなコンパイルエラーになります。
 
 ```
-error: covariant type A occurs in contravariant position in type A of value element
-         def push(element: A): Stack[A]
-                           ^
+-- Error: ----------------------------------------------------------------------
+2 |  def push(element: A): Stack[A]
+  |           ^^^^^^^^^^
+  |covariant type A occurs in contravariant position in type A of parameter element
+1 error found
 ```
 
 このコンパイルエラーは、共変な型パラメータ`A`が反変な位置（反変な型パラメータが出現できる箇所）に出現したということを
@@ -336,3 +349,9 @@ abstract class Stack[+A]{
 このようにすることによって、コンパイラは、`Stack`には`A`の任意のスーパータイプの値が入れられる可能性があることがわかるように
 なります。そして、型パラメータ`E`は共変ではないため、どこに出現しても構いません。このようにして、下限境界を利用して、型安全な
 `Stack`と共変性を両立することができます。
+
+## 補足：`Matchable` トレイト
+
+Scala 3では、型階層の最上位（`Any`）とは別に、`match`式で調べてよい型を表す`Matchable`トレイトが導入されています。`Any`や型パラメータのような抽象的な型の値を直接`match`しようとするとコンパイル警告が出ることがあります。これは、たとえば`opaque type`のような「中身を隠して抽象化した型」の値でも、パターンマッチを使うと実行時の表現を覗けてしまい、抽象化が壊れてしまうからです。`Matchable`はそれを防ぐために導入された仕組みです。
+
+通常のクラスやケースクラスは自動的に `Matchable` を継承していますので、本テキストで扱う範囲では `Matchable` を意識する必要はほとんどありません。型パラメータを使ったジェネリックな関数で「`A` 型の値を `match` したい」場合に `def f[A <: Matchable](a: A) = ...` のように上限境界を付けることで、より型安全な実装が書けます。
