@@ -301,7 +301,7 @@ class ShowablePair[A <: Show, B <: Show](val a: A, val b: B) extends Show {
 
 まず、共変の練習問題であったような、イミュータブルな`Stack`クラスを定義します。この`Stack`は共変にしたいとします。
 
-```scala
+```scala mdoc:nest:fail
 abstract class Stack[+A]{
   def push(element: A): Stack[A]
   def top: A
@@ -310,13 +310,7 @@ abstract class Stack[+A]{
 }
 ```
 
-しかし、この定義は、以下のようなコンパイルエラーになります。
-
-```
-error: covariant type A occurs in contravariant position in type A of value element
-         def push(element: A): Stack[A]
-                           ^
-```
+しかし、この定義はコンパイルエラーになります。
 
 このコンパイルエラーは、共変な型パラメータ`A`が反変な位置（反変な型パラメータが出現できる箇所）に出現したということを
 言っています。一般に、引数の位置に共変型パラメータ`E`の値が来た場合、型安全性が壊れる可能性があるため、このようなエラーが
