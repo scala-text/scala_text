@@ -149,10 +149,10 @@ libraryDependencies ++= Seq(
 [info] Set current project to scalatest_study (in build file:/Users/dwango/workspace/scalatest_study/scalatest_study/)
 [info] Updating {file:/Users/dwango/workspace/scalatest_study/scalatest_study/}scalatest_study...
 [info] Resolving jline#jline;2.12.1 ...
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_3/3.2.17/scalatest-flatspec_3-3.2.17.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_3;3.2.17!scalatest-flatspec_3.jar(bundle) (5456ms)
-[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_3/3.2.17/scalatest-diagrams_3-3.2.17.jar ...
-[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_3;3.2.17!scalatest-diagrams_3.jar(bundle) (5199ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-flatspec_3/3.2.20/scalatest-flatspec_3-3.2.20.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-flatspec_3;3.2.20!scalatest-flatspec_3.jar(bundle) (5456ms)
+[info] downloading https://repo1.maven.org/maven2/org/scalatest/scalatest-diagrams_3/3.2.20/scalatest-diagrams_3-3.2.20.jar ...
+[info] 	[SUCCESSFUL ] org.scalatest#scalatest-diagrams_3;3.2.20!scalatest-diagrams_3.jar(bundle) (5199ms)
 [info] Done updating.
 [success] Total time: 11 s, completed 2023/02/09 16:48:42
 ```
@@ -184,13 +184,13 @@ class Calc {
     * 0で割ろうとした際には実行時例外が投げられる
     */
   def div(numerator: Int, denominator: Int): Double = {
-    if (denominator == 0) throw new ArithmeticException("/ by zero")
+    if denominator == 0 then throw new ArithmeticException("/ by zero")
     numerator.toDouble / denominator.toDouble
   }
 
   /** 整数値を一つ受け取り、その値が素数であるかどうかのブール値を返す */
   def isPrime(n: Int): Boolean = {
-    if (n < 2) false else !((2 to Math.sqrt(n).toInt) exists (n % _ == 0))
+    if n < 2 then false else !((2 to Math.sqrt(n).toInt).exists(n % _ == 0))
   }
 }
 ```
@@ -340,7 +340,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams {
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.diagrams.Diagrams
 import org.scalatest.concurrent.TimeLimits
-import org.scalatest.time.SpanSugar._
+import org.scalatest.time.SpanSugar.*
 
 class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
@@ -415,11 +415,11 @@ libraryDependencies += "org.mockito" % "mockito-core" % "5.23.0" % "test"
 せっかくなので、先ほど用意したCalcクラスのモックを用意して、モックにsumの振る舞いを仕込んで見ましょう。
 
 ```scala mdoc:nest:silent
-import org.scalatest.time.SpanSugar._
+import org.scalatest.time.SpanSugar.*
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.diagrams.Diagrams
 import org.scalatest.concurrent.TimeLimits
-import org.mockito.Mockito._
+import org.mockito.Mockito.*
 
 class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 
@@ -434,7 +434,7 @@ class CalcSpec extends AnyFlatSpec with Diagrams with TimeLimits {
 ```
 
 `val mockCalc = mock(classOf[Calc])`でモックオブジェクトを作成し、
-`when(mockCalc.sum(Seq(3, 4, 5)).thenReturn(12)`で振る舞いを作成しています。
+`when(mockCalc.sum(Seq(3, 4, 5))).thenReturn(12)`で振る舞いを作成しています。
 
 そして最後に、`assert(mockCalc.sum(Seq(3, 4, 5)) === 12)`でモックに仕込んだ偽装された振る舞いをテストしています。
 
@@ -480,15 +480,15 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "<latest>")
 
 コードスタイルチェックにおいて、インデントの数や定義の前後のスペースなどコードのフォーマットをチェックするにはフォーマッタを、
 静的解析で推奨されるScalaコードの書き方になっているかをチェックするにはリンターを使います。
-例えば、次のメソッド定義はProcedure Syntaxと呼ばれ、比較的新しいバージョンのScalaでは非推奨になっています。リンターはこのような望ましくないコードを検知して報告します。
+例えば、次のコードは変数の展開をしていないのに文字列補間子`s`を付けています。コンパイルは問題なく通りますが、この`s`は不要です。リンターはこのような冗長で望ましくないコードを検知して報告します。
 
 ```scala
 object Example {
-  def myProcedure {}
+  val greeting = s"Hello, World!"
 }
 ```
 
-2022年現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafix、wartremoverはScala 3に対応しています。
+現在では[scalafmt](https://scalameta.org/scalafmt/)がデファクトのフォーマッタとして、[scalafix](https://scalacenter.github.io/scalafix/)や[wartremover](https://github.com/wartremover/wartremover)がリンターとして使われています。scalafmt、scalafix、wartremoverはScala 3に対応しています。
 scalafmt、scalafixのどちらもコードスタイルチェックに加えて自動修正機能があります。
 
 
@@ -497,7 +497,7 @@ scalafmt、scalafixはCLIでもsbt pluginでも使えますがここではsbt pl
 `project/plugins.sbt` に以下のコードを記述します。
 
 ```scala mdoc:nest:silent
-addSbtPlugin("org.scalameta" %% "scalafmt" % "<latest>")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "<latest>")
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "<latest>")
 ```
 
@@ -520,37 +520,35 @@ scalafmtAll
 https://scalameta.org/scalafmt/docs/configuration.html
 
 ### scalafix
-さて、次はscalafixを試してみましょう。
+さて、次はscalafixを試してみましょう。先ほどの冗長な`s`補間子を検知する`RedundantSyntax`ルールを使います。
 sbtシェルで次のコマンドを実行してください。
 
 ```sh
-scalafix --check --rules ProcedureSyntax
+scalafix --check --rules RedundantSyntax
 ```
 下記のように警告が表示されます。
 
 ```
-[info] Running scalafix on 1 Scala sources
-[error] --- /path/to/problematic/File.scala
+[error] --- /path/to/Example.scala
 [error] +++ <expected fix>
-...省略...
-[error] -  def myProcedure {}
-[error] +  def myProcedure: Unit = {}
-[error]  
-...省略...
-[error] 
-ScalafixFailed: TestError
+[error] @@ -1,3 +1,3 @@
+[error]  object Example {
+[error] -  val greeting = s"Hello, World!"
+[error] +  val greeting = "Hello, World!"
+[error]  }
+[error] (Compile / scalafix) scalafix.sbt.ScalafixFailed: TestError
 ```
 
-問題のあるコードを自動的に書き換えるには`--check`オプションを外して`scalafix ProcedureSyntax`コマンドを実行します。
-先ほどの`myProcedure`は次のように修正されます。
+問題のあるコードを自動的に書き換えるには`--check`オプションを外して`scalafix --rules RedundantSyntax`コマンドを実行します。
+先ほどの`greeting`は次のように修正されます。
 
 ```scala
 object Example {
-  def myProcedure: Unit = {}
+  val greeting = "Hello, World!"
 }
 ```
 
-Procedure Syntaxの警告と修正はscalafixにデフォルトで用意されていますが、ライブラリとして公開されているscalafixのルールを使うことでリンターのルールを追加できます。公開されているルールは[scalafixのドキュメント](https://scalacenter.github.io/scalafix/docs/rules/community-rules.html)に書いてあります。
+`RedundantSyntax`のようないくつかのルールはscalafixにデフォルトで用意されていますが、ライブラリとして公開されているscalafixのルールを使うことでリンターのルールを追加できます。公開されているルールは[scalafixのドキュメント](https://scalacenter.github.io/scalafix/docs/rules/community-rules.html)に書いてあります。
 
 
 ## テストを書こう
