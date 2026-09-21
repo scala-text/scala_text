@@ -7,7 +7,7 @@
   "devDependencies": {
     "@babel/core": "^8.0.6",
     "@babel/preset-env": "^8.0.6",
-    "@babel/register": "^8.0.5",
+    "@babel/register": "^8.0.6",
     "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
     "babel-preset-power-assert": "3.0.0",
