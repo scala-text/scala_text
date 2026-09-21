@@ -3,8 +3,13 @@ package domain
 import org.mindrot.jbcrypt.BCrypt
 import scalikejdbc._
 
+import scala.collection.mutable
+
 class UserService {
   val maxNameLength = 32
+  private val maxLoginAttempts = 5
+  private val lockoutDurationMillis = 15 * 60 * 1000
+  private val failedAttempts = mutable.Map[String, (Int, Long)]()
 
   // ストレージ機能
   def insert(user: User): User = DB localTx { implicit s =>
@@ -46,12 +51,28 @@ class UserService {
 
   // ユーザー認証
   def login(name: String, rawPassword: String): User = {
+    val now = System.currentTimeMillis()
+    failedAttempts.get(name).foreach { case (count, lastAttemptAt) =>
+      if (count >= maxLoginAttempts && now - lastAttemptAt < lockoutDurationMillis) {
+        throw new Exception("Account locked due to too many failed login attempts. Please try again later!")
+      }
+    }
+
+    def recordFailure(): Unit = {
+      val count = failedAttempts.get(name).map(_._1).getOrElse(0) + 1
+      failedAttempts(name) = (count, now)
+    }
+
     find(name) match {
-      case None       => throw new Exception("User not found!")
+      case None =>
+        recordFailure()
+        throw new Exception("User not found!")
       case Some(user) =>
         if (!checkPassword(rawPassword, user.hashedPassword)) {
+          recordFailure()
           throw new Exception("Invalid password!")
         }
+        failedAttempts.remove(name)
         user
     }
   }
