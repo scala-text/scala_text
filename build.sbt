@@ -27,7 +27,7 @@ libraryDependencySchemes ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scala-sbt" % "sbt" % sbtVersion.value,
-  "org.mockito" % "mockito-core" % "5.23.0",
+  "org.mockito" % "mockito-core" % "5.24.0",
   "org.scalacheck" %% "scalacheck" % "1.20.0",
   "org.scalatest" %% "scalatest-flatspec" % "3.2.20", // mdocで使うので、テストライブラリだが、わざとcompileスコープ
   "org.scalatest" %% "scalatest-diagrams" % "3.2.20"
