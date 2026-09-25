@@ -4,6 +4,8 @@ import NpmCliBase._
 val textLintAll = taskKey[Unit]("lint text, html")
 @transient
 val textTestAll = taskKey[Unit]("test scala, links")
+@transient
+val textBuildAll = taskKey[Unit]("build html for both Scala 3 LTS and Scala 2 archived")
 
 name := "textbook"
 
@@ -42,6 +44,8 @@ LinkTest.settings
 textLintAll := Def.sequential(LinkTest.textEslint, TextLint.textLint.toTask("")).value
 
 textTestAll := Def.sequential(Test / compile, LinkTest.textLinkTest).value
+
+textBuildAll := Def.sequential(Honkit.textBuildHtml.toTask(""), Honkit.textBuildHtmlScala2.toTask("")).value
 
 aggregateProjects(
   RootProject(file("src/example_projects/trait-example")),

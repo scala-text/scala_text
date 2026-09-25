@@ -1,6 +1,6 @@
 package domain
 
-import org.scalatest._
+import org.scalatest.*
 import org.scalatest.wordspec.AnyWordSpec
 
 class UserServiceSpec extends AnyWordSpec {

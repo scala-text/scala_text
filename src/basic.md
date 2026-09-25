@@ -1,7 +1,7 @@
 # Scalaの基本
 
 この節ではScalaの基本について、REPLを使った対話形式から始めて順を追って説明していきます。
-ユーザはMac OS環境であることを前提に説明していきますが、Mac OS依存の部分はそれほど多くないのでWindows環境でもほとんどの場合同様に動作します。
+ユーザはmacOS環境であることを前提に説明していきますが、macOS依存の部分はそれほど多くないのでWindows環境でもほとんどの場合同様に動作します。
 
 ## Scalaのインストール
 
@@ -44,8 +44,8 @@ println("Hello, World!")
 "Hello, World!"
 ```
 
-`res1: String = Hello, World` と、先ほどとは違う表示がされましたね。これは、`"Hello, World"`という式の
-型が`String`であり、その値が`"Hello, World"`であることを示しています。これまで説明していませんでしたが、Scalaは
+`res1: String = "Hello, World!"` と、先ほどとは違う表示がされましたね。これは、`"Hello, World!"`という式の
+型が`String`であり、その値が`"Hello, World!"`であることを示しています。これまで説明していませんでしたが、Scalaは
 静的な型を持つ言語で、実行される前に型が合っていることがチェックされます。
 
 ### 練習問題
@@ -70,7 +70,7 @@ println("Hello, World!")
 
 ```
 scala> 1 + 2
-res1: Int = 3
+val res1: Int = 3
 ```
 
 3が表示され、その型が`Int`である事がわかりますね。なお、REPLの表示に出てくる`resN`というのは、REPLに何かの式（値を
@@ -79,7 +79,7 @@ res1: Int = 3
 
 ```
 scala> res1
-res2: Int = 3
+val res2: Int = 3
 ```
 
 この機能はREPLで少し長いプログラムを入力するときに便利ですので、活用していきましょう。Int型には他にも`+`,`-`,`*`,`/`といった
@@ -97,7 +97,7 @@ res2: Int = 3
 
 浮動小数点数の演算のためにも、ほぼ同じ演算子が用意されています。ただし、浮動小数点数には誤差があるためその点には注意が必要です。
 見ればわかるように、`Double`という`Int`と異なる型が用意されています。`dbl.asInstanceOf[Int]`のようにキャストして型を変換することが
-できますが、その場合、浮動小数点数の小数の部分が切り捨てられることに注意してください。
+できますが、その場合、浮動小数点数の小数の部分が切り捨てられることに注意してください。なお、実際のコードでは`dbl.toInt`のような変換メソッドを使う方が一般的です。
 
 ```scala mdoc:nest
 1.0 + 2.0
@@ -163,14 +163,17 @@ val x = 3 * 2
 
 ```
 scala> var x = 3 * 3
-x: Int = 9
+var x: Int = 9
 
 scala> x = "Hello, World!"
-<console>:8: error: type mismatch;
- found   : String("Hello, World!")
- required: Int
-       x = "Hello, World!"
-           ^
+-- [E007] Type Mismatch Error: -------------------------------------------------
+1 |x = "Hello, World!"
+  |    ^^^^^^^^^^^^^^^
+  |    Found:    ("Hello, World!" : String)
+  |    Required: Int
+  |
+  | longer explanation available when compiling with `-explain`
+1 error found
 
 scala> x = 3 * 4
 x: Int = 12
