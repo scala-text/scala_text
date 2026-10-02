@@ -4,11 +4,15 @@
 
 このテキストは、Scala初学者がScalaを学ぶためのテキストである。ドワンゴの新入社員Scala研修のために作成されたものが、日本のScalaコミュニティに寄贈されたものとなる。
 
+現在のテキストは **Scala 3 LTS** を前提として書かれている。原稿は `src/` 以下に配置されている。
+過去のScala 2版（archived）は凍結スナップショットとして `src-scala2/` 以下に残されており、ビルドすると `https://scala-text.github.io/scala_text/scala2/` で参照できる形で併存公開される。
+
 ## 成果物
 
 このテキストのコンパイル済み成果物は次の場所から入手可能である。
 
-- HTML版：https://scala-text.github.io/scala_text/
+- HTML版（Scala 3 LTS）：https://scala-text.github.io/scala_text/
+- HTML版（Scala 2 archived）：上記サイトの `/scala2/` 配下に併存公開（例：`https://scala-text.github.io/scala_text/` のトップから「Scala 2版（archived）」リンクで遷移）
 - PDF版：https://scala-text.github.io/scala_text_pdf/scala_text.pdf
 - EPUB版：https://scala-text.github.io/scala_text/scala_text.epub
 
@@ -45,8 +49,8 @@ sbt textBuildHtml
 コマンドには全てtextというprefixが付いているので、どのようなコマンドがあるかは補完から知ることができる。
 
 ```
-# 日本語の校正
-sbt textLint src/introduction.md
+# 日本語の校正（ファイルを指定する場合はクォートで囲む。引数なしなら全ファイル）
+sbt "textLint src/basic.md"
 
 # リンク切れ確認
 sbt textLinkTest
@@ -54,8 +58,8 @@ sbt textLinkTest
 # mdocのビルド
 sbt textBuildHtml
 
-# 全ての検査を実行した後にビルド
-sbt textBuildAllWithCheck
+# 校正・テスト・ビルドをまとめて実行
+sbt ";textLintAll;textTestAll;textBuildAll"
 ```
 
 ### mdoc
@@ -153,4 +157,4 @@ sbt textBuildEpub
 
 ![CC-BY-SA](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
 
-の元で配布されています。
+のもとで配布されている。

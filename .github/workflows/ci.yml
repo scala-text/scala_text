@@ -31,7 +31,7 @@ jobs:
     - run: npm install -g npm@11.13.0
     - run: npm ci
     - run: npm install svgexport -g
-    - run: sbt -v --server textLintAll textTestAll textBuildHtml test
+    - run: sbt -v --server textLintAll textTestAll textBuildAll test
     - run: |
         wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/28c3422398e47e802b43dc026c27189ec9ef5050/setup/linux-installer.py |
         python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null

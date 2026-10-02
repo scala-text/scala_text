@@ -15,20 +15,20 @@ Scalaでは、全ての値がオブジェクトです。また、全てのメソ
 objectの基本構文はクラスとおおむね同じで、
 
 ```
-object <オブジェクト名> extends <クラス名> (with <トレイト名>)* {
+object <オブジェクト名> extends <クラス名> (, <トレイト名>)* {
   (<フィールド定義> | <メソッド定義>)*
 }
 ```
 
 となります。Scalaでは標準で[`Predef`という`object`](https://github.com/scala/scala3/blob/3.8.4/library/src/scala/Predef.scala)が定義・インポートされており、これは最初の使い方に当てはまります。 `println("Hello")` となにげなく
-使っていたメソッドも実は` Predef` のメソッドなのです。 `extends` でクラスを継承、 `with` でトレイトをmix-in
+使っていたメソッドも実は `Predef` のメソッドなのです。 `extends` でクラスを継承、カンマ区切り（従来どおり`with`も使えます）でトレイトをmix-in
 可能になっているのは、オブジェクト名を既存のクラスのサブクラス等として振る舞わせたい場合があるからです。Scala
 の標準ライブラリでは、 `Nil` という `object` がありますが、これは `List` の一種として振る舞わせたいため、
 `List` を継承しています。一方、 `object` がトレイトをmix-inする事はあまり多くありませんが、クラスやトレイト
 との構文の互換性のためにそうなっていると思われます。
 
 一方、2番めの使い方について考えてみます。点を表す `Point` クラスのファクトリを
-`object`で作ろうとすると、次のようになります。` apply` という名前のメソッドはScala処理系に
+`object`で作ろうとすると、次のようになります。 `apply` という名前のメソッドはScala処理系に
 よって特別に扱われ、`Point(x)`のような記述があった場合で、`Point` `object`に`apply`という
 名前のメソッドが定義されていた場合、`Point.apply(x)`と解釈されます。これを利用してPoint objectの
 `apply`メソッドでオブジェクトを生成するようにすることで、`Point(3, 5)`のような記述でオブジェクトを
@@ -41,6 +41,8 @@ object Point {
   def apply(x: Int, y: Int): Point = new Point(x, y)
 }
 ```
+
+なお、Scala 3では明示的に`apply`メソッドを定義しなくても、具象クラスにはコンストラクタを呼び出す`apply`メソッドが自動的に生成されるため、最初から`new Point(3, 5)`の代わりに`Point(3, 5)`と書くことができます。自分で`apply`メソッドを定義するのは、次に述べるように生成処理を自分でコントロールしたい場合に意味があります。
 
 これは、new Point()で直接Pointオブジェクトを生成するのに比べて、
 
@@ -75,7 +77,7 @@ class Person(name: String, age: Int, private val weight: Int)
 
 object Hoge {
   def printWeight(): Unit = {
-    val taro = new Person("Taro", 20, 70)
+    val taro = Person("Taro", 20, 70)
     println(taro.weight)
   }
 }
@@ -89,7 +91,7 @@ class Person(name: String, age: Int, private val weight: Int)
 
 object Person {
   def printWeight(): Unit = {
-    val taro = new Person("Taro", 20, 70)
+    val taro = Person("Taro", 20, 70)
     println(taro.weight)
   }
 }
@@ -97,27 +99,22 @@ object Person {
 
 はOKです。`private`とした場合、コンパニオンオブジェクトからはアクセス可能です。
 
-上記のような、コンパニオンオブジェクトを使ったコードをREPLで試す場合は、REPLの`:paste`コマンドを使って、クラスとコンパニオン
-オブジェクトを一緒にペーストするようにしてください。クラスとコンパニオンオブジェクトは同一ファイル中に置かれていなければ
-ならないのですが、REPLで両者を別々に入力した場合、コンパニオン関係をREPLが正しく認識できないのです。
+上記のような、コンパニオンオブジェクトを使ったコードをREPLで試す場合は、クラスとコンパニオンオブジェクトをまとめて
+一度に（1回の入力として）貼り付けるようにしてください。クラスとコンパニオンオブジェクトは同一ファイル中に置かれていなければ
+ならないのですが、REPLで両者を別々に入力した場合、コンパニオン関係をREPLが正しく認識できないのです。なお、Scala 2の
+REPLにあった`:paste`コマンドはScala 3のREPLにはありませんが、複数行のコードをそのまま貼り付ければ1つの入力として扱われます。
 
 ```scala
-scala> :paste
-// Entering paste mode (ctrl-D to finish)
-
-class Person(name: String, age: Int, private val weight: Int)
-
-object Person {
-  def printWeight(): Unit = {
-    val taro = new Person("Taro", 20, 70)
-    println(taro.weight)
-  }
-}
-
-// Exiting paste mode, now interpreting.
-
-defined class Person
-defined object Person
+scala> class Person(name: String, age: Int, private val weight: Int)
+     |
+     | object Person {
+     |   def printWeight(): Unit = {
+     |     val taro = Person("Taro", 20, 70)
+     |     println(taro.weight)
+     |   }
+     | }
+// defined class Person
+// defined object Person
 ```
 
 ### 練習問題
@@ -125,3 +122,29 @@ defined object Person
 クラスを定義して、そのクラスのコンパニオンオブジェクトを定義してみましょう。コンパニオンオブジェクトが同名のクラスに対する
 特権的なアクセス権を持っていることを、クラスのフィールドを`private`にして、そのフィールドへアクセスできることを通じて確認して
 みましょう。
+
+## トップレベル定義と `@main` 関数
+
+Scala 2ではメソッドや値はクラスや`object`の中に置く必要があり、複数のオブジェクトに共通のユーティリティを集めたい場合は **package object** という特別な仕組みを使う必要がありました。Scala 3ではこの制約が緩和され、パッケージ直下に直接 `def` や `val` を書けるようになっています。
+
+```scala
+// utils.scala
+package example.util
+
+def square(x: Int): Int = x * x
+val Greeting: String = "Hello, Scala 3!"
+```
+
+これにより、ちょっとしたヘルパー関数のために `object Utils { ... }` で囲む必要がなくなりました。`object`は引き続き「シングルトンとして名前空間を作りたい」「コンパニオンオブジェクトとしてクラスに付随させたい」場面で使います。
+
+また、Scala 3ではプログラムのエントリーポイントを `@main` 注釈で簡潔に書けます。Scala 2風に `object Main { def main(args: Array[String]): Unit = ... }` と書く代わりに、
+
+```scala
+@main def hello(): Unit = {
+  println("Hello, Scala 3!")
+}
+```
+
+と書くだけで `hello` がプログラムの開始点になります。引数を取る形式（`@main def add(x: Int, y: Int): Unit = ...`）にも対応しています。
+
+トップレベル定義や `@main`、`export` 句などのScala 3で導入された機能のより詳しい紹介は、[Scala 3で追加された主な機能](./scala3-features.md) の章を参照してください。

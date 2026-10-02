@@ -1,15 +1,15 @@
 # 付録：様々な型クラスの紹介
 
-本章では[Implicitの章](./implicit.md)で説明した型クラスの具体例を紹介します。
+本章では[Given/Using/Extensionの章](./contextual.md)で説明した型クラスの具体例を紹介します。
 本章で紹介する型クラスは、必ずしもScalaでのプログラミングに必要というわけではありません。
 しかし、世の中に存在するScalaで実装されたライブラリやアプリケーションのいくつかでは、本章で紹介する型クラスなどを多用している場合があります。
 そのようなライブラリやアプリケーションに出会った際にも臆さずコードリーディングができるよう、最低限の知識をつけることが本章の目的です。
 
-本章で紹介する型クラスを絡めたScalaでのプログラミングについて詳しく知りたい場合は[Scala関数型デザイン＆プログラミング](https://book.impress.co.jp/books/1114101091)を読みましょう。
+本章で紹介する型クラスを絡めたScalaでのプログラミングについて詳しく知りたい場合は[Scala関数型デザイン＆プログラミング](https://book.impress.co.jp/books/1114101091)を読みましょう。なお、同書のコード例はScala 2で書かれていますが、型クラスの考え方自体はScala 3でも変わりません。
 
 ## Functor
 
-前章に登場した`List`や`Option`には、`map`という関数が共通して定義されていました。
+[コレクションライブラリ](./collection.md)や[エラー処理](./error-handling.md)の章に登場した`List`や`Option`には、`map`という関数が共通して定義されていました。
 この`map`関数がある規則を満たす場合はFunctor型クラスとして抽象化できます[^hkind]。
 
 ```scala mdoc:nest:silent
@@ -21,11 +21,11 @@ trait Functor[F[_]] {
 この型クラスが満たすべき規則は2つです。
 
 ```scala mdoc:nest:silent
-def identityLaw[F[_], A](fa: F[A])(implicit F: Functor[F]): Boolean =
+def identityLaw[F[_], A](fa: F[A])(using F: Functor[F]): Boolean =
   F.map(fa)(identity) == fa
 
-def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(implicit F: Functor[F]): Boolean =
-  F.map(fa)(f2 compose f1) == F.map(F.map(fa)(f1))(f2)
+def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(using F: Functor[F]): Boolean =
+  F.map(fa)(f2.compose(f1)) == F.map(F.map(fa)(f1))(f2)
 ```
 
 なお、`identity`は次のように定義されます。
@@ -41,13 +41,13 @@ trait Functor[F[_]] {
   def map[A, B](fa: F[A])(f: A => B): F[B]
 }
 
-def identityLaw[F[_], A](fa: F[A])(implicit F: Functor[F]): Boolean =
+def identityLaw[F[_], A](fa: F[A])(using F: Functor[F]): Boolean =
   F.map(fa)(identity) == fa
 
-def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(implicit F: Functor[F]): Boolean =
-  F.map(fa)(f2 compose f1) == F.map(F.map(fa)(f1))(f2)
+def compositeLaw[F[_], A, B, C](fa: F[A], f1: A => B, f2: B => C)(using F: Functor[F]): Boolean =
+  F.map(fa)(f2.compose(f1)) == F.map(F.map(fa)(f1))(f2)
 
-implicit object OptionFunctor extends Functor[Option] {
+given OptionFunctor: Functor[Option] with {
   def map[A, B](fa: Option[A])(f: A => B): Option[B] = fa.map(f)
 }
 
@@ -71,20 +71,20 @@ trait Applicative[F[_]] {
 Applicative FunctorはFunctorを特殊化したものなので、Applicative Functorが持つ関数から`map`関数を定義できます。
 
 ```scala mdoc:nest:silent
-def map[F[_], A, B](fa: F[A])(f: A => B)(implicit F: Applicative[F]): F[B] =
+def map[F[_], A, B](fa: F[A])(f: A => B)(using F: Applicative[F]): F[B] =
   F.ap(fa)(F.point(f))
 ```
 
 Applicative Functorが満たすべき規則は以下の通りです。
 
 ```scala mdoc:nest:silent
-def identityLaw[F[_], A](fa: F[A])(implicit F: Applicative[F]): Boolean =
+def identityLaw[F[_], A](fa: F[A])(using F: Applicative[F]): Boolean =
   F.ap(fa)(F.point((a: A) => a)) == fa
 
-def homomorphismLaw[F[_], A, B](f: A => B, a: A)(implicit F: Applicative[F]): Boolean =
+def homomorphismLaw[F[_], A, B](f: A => B, a: A)(using F: Applicative[F]): Boolean =
   F.ap(F.point(a))(F.point(f)) == F.point(f(a))
 
-def interchangeLaw[F[_], A, B](f: F[A => B], a: A)(implicit F: Applicative[F]): Boolean =
+def interchangeLaw[F[_], A, B](f: F[A => B], a: A)(using F: Applicative[F]): Boolean =
   F.ap(F.point(a))(f) == F.ap(f)(F.point((g: A => B) => g(a)))
 ```
 
@@ -99,16 +99,16 @@ trait Applicative[F[_]] {
   def map[A, B](fa: F[A])(f: A => B): F[B] = ap(fa)(point(f))
 }
 
-def identityLaw[F[_], A](fa: F[A])(implicit F: Applicative[F]): Boolean =
+def identityLaw[F[_], A](fa: F[A])(using F: Applicative[F]): Boolean =
   F.ap(fa)(F.point((a: A) => a)) == fa
 
-def homomorphismLaw[F[_], A, B](f: A => B, a: A)(implicit F: Applicative[F]): Boolean =
+def homomorphismLaw[F[_], A, B](f: A => B, a: A)(using F: Applicative[F]): Boolean =
   F.ap(F.point(a))(F.point(f)) == F.point(f(a))
 
-def interchangeLaw[F[_], A, B](f: F[A => B], a: A)(implicit F: Applicative[F]): Boolean =
+def interchangeLaw[F[_], A, B](f: F[A => B], a: A)(using F: Applicative[F]): Boolean =
   F.ap(F.point(a))(f) == F.ap(f)(F.point((g: A => B) => g(a)))
 
-implicit object OptionApplicative extends Applicative[Option] {
+given OptionApplicative: Applicative[Option] with {
   def point[A](a: A): Option[A] = Some(a)
   def ap[A, B](fa: Option[A])(f: Option[A => B]): Option[B] = f match {
     case Some(g) => fa match {
@@ -117,6 +117,10 @@ implicit object OptionApplicative extends Applicative[Option] {
     }
     case None => None
   }
+}
+
+given OptionFunctor: Functor[Option] with {
+  def map[A, B](fa: Option[A])(f: A => B): Option[B] = fa.map(f)
 }
 
 val a: Option[Int] = Some(1)
@@ -145,13 +149,13 @@ trait Monad[F[_]] {
 Monadは以下の規則を満たす必要があります。
 
 ```scala mdoc:nest:silent
-def rightIdentityLaw[F[_], A](a: F[A])(implicit F: Monad[F]): Boolean =
+def rightIdentityLaw[F[_], A](a: F[A])(using F: Monad[F]): Boolean =
   F.bind(a)(F.point(_)) == a
 
-def leftIdentityLaw[F[_], A, B](a: A, f: A => F[B])(implicit F: Monad[F]): Boolean =
+def leftIdentityLaw[F[_], A, B](a: A, f: A => F[B])(using F: Monad[F]): Boolean =
   F.bind(F.point(a))(f) == f(a)
 
-def associativeLaw[F[_], A, B, C](fa: F[A], f: A => F[B], g: B => F[C])(implicit F: Monad[F]): Boolean =
+def associativeLaw[F[_], A, B, C](fa: F[A], f: A => F[B], g: B => F[C])(using F: Monad[F]): Boolean =
   F.bind(F.bind(fa)(f))(g) == F.bind(fa)((a: A) => F.bind(f(a))(g))
 ```
 
@@ -159,11 +163,11 @@ MonadはApplicative Functorを特殊化したものなので、Monadが持つ関
 `point`に関しては同じシグネチャなので自明でしょう。
 
 ```scala mdoc:nest:silent
-def ap[F[_], A, B](fa: F[A])(f: F[A => B])(implicit F: Monad[F]): F[B] =
+def ap[F[_], A, B](fa: F[A])(f: F[A => B])(using F: Monad[F]): F[B] =
   F.bind(f)((g: A => B) => F.bind(fa)((a: A) => F.point(g(a))))
 ```
 
-それでは、Option型が前述の規則をみたすかどうか確認してみましょう。
+それでは、Option型が前述の規則を満たすかどうか確認してみましょう。
 
 ```scala mdoc:nest
 trait Monad[F[_]] {
@@ -171,16 +175,16 @@ trait Monad[F[_]] {
   def bind[A, B](fa: F[A])(f: A => F[B]): F[B]
 }
 
-def rightIdentityLaw[F[_], A](a: F[A])(implicit F: Monad[F]): Boolean =
+def rightIdentityLaw[F[_], A](a: F[A])(using F: Monad[F]): Boolean =
   F.bind(a)(F.point(_)) == a
 
-def leftIdentityLaw[F[_], A, B](a: A, f: A => F[B])(implicit F: Monad[F]): Boolean =
+def leftIdentityLaw[F[_], A, B](a: A, f: A => F[B])(using F: Monad[F]): Boolean =
   F.bind(F.point(a))(f) == f(a)
 
-def associativeLaw[F[_], A, B, C](fa: F[A], f: A => F[B], g: B => F[C])(implicit F: Monad[F]): Boolean =
+def associativeLaw[F[_], A, B, C](fa: F[A], f: A => F[B], g: B => F[C])(using F: Monad[F]): Boolean =
   F.bind(F.bind(fa)(f))(g) == F.bind(fa)((a: A) => F.bind(f(a))(g))
 
-implicit object OptionMonad extends Monad[Option] {
+given OptionMonad: Monad[Option] with {
   def point[A](a: A): Option[A] = Some(a)
   def bind[A, B](fa: Option[A])(f: A => Option[B]): Option[B] = fa match {
     case Some(a) => f(a)
@@ -207,12 +211,12 @@ trait Monoid[F] {
 }
 ```
 
-前章で定義したAdditive型とよく似ていますが、Monoidは次の規則を満たす必要があります。
+[Given/Using/Extensionの章](./contextual.md)で定義した`Additive`型とよく似ていますが、Monoidは次の規則を満たす必要があります。
 
 ```scala mdoc:nest:silent
-def leftIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
-def rightIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
-def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
+def leftIdentityLaw[F](a: F)(using F: Monoid[F]): Boolean = a == F.append(F.zero, a)
+def rightIdentityLaw[F](a: F)(using F: Monoid[F]): Boolean = a == F.append(a, F.zero)
+def associativeLaw[F](a: F, b: F, c: F)(using F: Monoid[F]): Boolean = {
   F.append(F.append(a, b), c) == F.append(a, F.append(b, c))
 }
 ```
@@ -225,13 +229,13 @@ trait Monoid[F] {
   def zero: F
 }
 
-def leftIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(F.zero, a)
-def rightIdentityLaw[F](a: F)(implicit F: Monoid[F]): Boolean = a == F.append(a, F.zero)
-def associativeLaw[F](a: F, b: F, c: F)(implicit F: Monoid[F]): Boolean = {
+def leftIdentityLaw[F](a: F)(using F: Monoid[F]): Boolean = a == F.append(F.zero, a)
+def rightIdentityLaw[F](a: F)(using F: Monoid[F]): Boolean = a == F.append(a, F.zero)
+def associativeLaw[F](a: F, b: F, c: F)(using F: Monoid[F]): Boolean = {
   F.append(F.append(a, b), c) == F.append(a, F.append(b, c))
 }
 
-implicit object OptionIntMonoid extends Monoid[Option[Int]] {
+given OptionIntMonoid: Monoid[Option[Int]] with {
   def append(a: Option[Int], b: Option[Int]): Option[Int] = (a, b) match {
     case (None, None) => None
     case (Some(v), None) => Some(v)

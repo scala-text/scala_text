@@ -9,6 +9,7 @@ object Honkit extends NpmCliBase {
   sealed trait Format {def command: String}
   object Format {
     case object Html extends Format { def command = s"build $bookJsonDir $bookDestDir/_book" }
+    case object HtmlScala2 extends Format { def command = s"build src-scala2 ${bookDestDir.getAbsoluteFile}/_book/scala2" }
     case object Epub extends Format { def command = s"epub  $bookJsonDir $bookDestDir/scala_text.epub" }
     case object Pdf extends Format { def command = s"pdf  $bookJsonDir $bookDestDir/scala_text.pdf" }
   }
@@ -21,6 +22,7 @@ object Honkit extends NpmCliBase {
   @transient
   lazy val textHelpHonkit = taskKey[Unit]("help Honkit")
   lazy val textBuildHtml = inputKey[Unit]("build Honkit to html")
+  lazy val textBuildHtmlScala2 = inputKey[Unit]("build Scala 2 archived html under honkit/_book/scala2")
   lazy val textBuildEpub = inputKey[Unit]("build Honkit to epub")
 
   private val mdocTask = mdoc.toTask("")
@@ -28,6 +30,7 @@ object Honkit extends NpmCliBase {
   val settings = Seq(
     textHelpHonkit := printRun(Process(s"$honkitBin help")),
     textBuildHtml := buildBook(Format.Html).dependsOn(mdocTask).evaluated,
+    textBuildHtmlScala2 := buildBook(Format.HtmlScala2).evaluated,
     textBuildEpub := buildBook(Format.Epub).dependsOn(mdocTask).evaluated
   )
 }
