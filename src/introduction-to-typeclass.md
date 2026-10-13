@@ -1,8 +1,8 @@
 # 型クラスへの誘い
 
-本章では[Implicitの章](./implicit.md)で、少しだけ触れた型クラスについて、より深く掘り下げます。
+本章では[Given/Using/Extensionの章](./contextual.md)で少しだけ触れた型クラスについて、より深く掘り下げます。
 
-Implicitの章では、`Additive`という型クラスを定義することで、任意のコレクション（`Additive`が存在するもの）に対して、
+前章では、`Additive`という型クラスを定義することで、任意のコレクション（`Additive`が存在するもの）に対して、
 要素の合計値を計算することができたのでした。本章では、このような仕組みを利用して、色々なアルゴリズムをライブラリ
 化できることを見ていきます。
 
@@ -23,11 +23,11 @@ trait Additive[A] {
   def zero: A
 }
 object Additive {
-  implicit object IntAdditive extends Additive[Int] {
+  given IntAdditive: Additive[Int] with {
     def plus(a: Int, b: Int): Int = a + b
     def zero: Int = 0
   }
-  implicit object DoubleAdditive extends Additive[Double] {
+  given DoubleAdditive: Additive[Double] with {
     def plus(a: Double, b: Double): Double = a + b
     def zero: Double = 0.0
   }
@@ -35,9 +35,9 @@ object Additive {
 ```
 
 ```scala
-def average[A](lst: List[A])(implicit m: Additive[A]): A = {
+def average[A](lst: List[A])(using m: Additive[A]): A = {
   val length: Int = lst.length
-  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y)) 
+  val sum: A = lst.foldLeft(m.zero)((x, y) => m.plus(x, y))
   sum / length
 }
 ```
@@ -53,18 +53,18 @@ object Nums {
     def plus(a: A, b: A): A
     def minus(a: A, b: A): A
     def multiply(a: A, b: A): A
-    def divide(a: A, b: A): A 
+    def divide(a: A, b: A): A
     def zero: A
   }
-  object Num{
-    implicit object IntNum extends Num[Int] {
+  object Num {
+    given IntNum: Num[Int] with {
       def plus(a: Int, b: Int): Int = a + b
       def minus(a: Int, b: Int): Int = a - b
       def multiply(a: Int, b: Int): Int = a * b
       def divide(a: Int, b: Int): Int = a / b
       def zero: Int = 0
     }
-    implicit object DoubleNum extends Num[Double] {
+    given DoubleNum: Num[Double] with {
       def plus(a: Double, b: Double): Double = a + b
       def minus(a: Double, b: Double): Double = a - b
       def multiply(a: Double, b: Double): Double = a * b
@@ -84,10 +84,10 @@ object FromInts {
     def to(from: Int): A
   }
   object FromInt {
-    implicit object FromIntToInt extends FromInt[Int] {
+    given FromIntToInt: FromInt[Int] with {
       def to(from: Int): Int = from
     }
-    implicit object FromIntToDouble extends FromInt[Double] {
+    given FromIntToDouble: FromInt[Double] with {
       def to(from: Int): Double = from
     }
   }
@@ -97,9 +97,9 @@ object FromInts {
 `Num` と `FromInt` を使うと、 `average` 関数は次のように書くことができます。
 
 ```scala mdoc:nest
-import Nums._
-import FromInts._
-def average[A](lst: List[A])(implicit a: Num[A], b: FromInt[A]): A = {
+import Nums.*
+import FromInts.*
+def average[A](lst: List[A])(using a: Num[A], b: FromInt[A]): A = {
   val length: Int = lst.length
   val sum: A  = lst.foldLeft(a.zero)((x, y) => a.plus(x, y))
   a.divide(sum, b.to(length))
@@ -113,26 +113,27 @@ average(List(1, 3, 5))
 average(List(1.5, 2.5, 3.5))
 ```
 
-このようにして、複数の型クラスを組み合わせることで、より大きな柔軟性を手に入れることができました。ちなみに、
+このようにして、複数の型クラスを組み合わせることで、より大きな柔軟性を手に入れることができました。
 
-### context bounds
+### コンテキスト境界（context bounds）
 
-上記のコードは、context boundsというシンタックスシュガーを使うことで、次のように書き換えることもできます。
+上記のコードは、[Given/Using/Extensionの章](./contextual.md)でも紹介したコンテキスト境界（context bounds）というシンタックスシュガーを使うことで、次のように書き換えることもできます。
 
 ```scala mdoc:nest
-import Nums._
-import FromInts._
-def average[A:Num:FromInt](lst: List[A]): A = {
-  val a = implicitly[Num[A]]
-  val b = implicitly[FromInt[A]]
+import Nums.*
+import FromInts.*
+def average[A: Num : FromInt](lst: List[A]): A = {
+  val a = summon[Num[A]]
+  val b = summon[FromInt[A]]
   val length = lst.length
   val sum: A  = lst.foldLeft(a.zero)((x, y) => a.plus(x, y))
   a.divide(sum, b.to(length))
 }
 ```
 
-implicit parameterの名前 `a` と `b` が引数から見えなくなりましたが、 `implicitly[Type]` とすることで、
-`Type` 型のimplicit parameterの値を取得することができます。
+`using`引数の名前 `a` と `b` が引数から見えなくなりましたが、 `summon[Type]` とすることで、
+`Type` 型の`given`インスタンスの値を取得することができます。`summon`はScala 2の`implicitly`に
+相当する組み込みメソッドです。
 
 ## maxメソッドとminメソッド
 
@@ -150,16 +151,16 @@ List(1, 3, 2, 4).min
 `max` と `min` のシグネチャは次のようになっています。
 
 ```scala
-def max[B >: A](implicit cmp: Ordering[B]): A
+def max[B >: A](using cmp: Ordering[B]): A
 ```
 
 ```scala
-def min[B >: A](implicit cmp: Ordering[B]): A
+def min[B >: A](using cmp: Ordering[B]): A
 ```
 
-`B >: A` の必要性についてはおいておくとして、ポイントは、 `Ordering[B]` 型のimplicit parameterを要求
-するところです。 `Ordering[B]` のimplicitなインスタンスがあれば、 `B` 型同士の大小関係を比較できるため、最大値
-と最小値を求めることができます。
+`B >: A` の必要性についてはおいておくとして、ポイントは、 `Ordering[B]` 型の`using`引数を要求
+するところです。 `Ordering[B]` の`given`インスタンスがあれば、 `B` 型同士の大小関係を比較できるため、最大値
+と最小値を求めることができます。なお、標準ライブラリ自体はScala 2の構文で書かれているため、APIドキュメント上は`using`の代わりに`implicit`と表示されますが、意味は同じです。
 
 ## medianメソッド
 
@@ -172,16 +173,16 @@ def min[B >: A](implicit cmp: Ordering[B]): A
 が見やすいようにしています。
 
 ```scala mdoc:nest
-import Nums._
-import FromInts._
-def median[A:Num:Ordering:FromInt](lst: List[A]): A = {
-  val num = implicitly[Num[A]]
-  val ord = implicitly[Ordering[A]]
-  val int = implicitly[FromInt[A]]
+import Nums.*
+import FromInts.*
+def median[A: Num : Ordering : FromInt](lst: List[A]): A = {
+  val num = summon[Num[A]]
+  val ord = summon[Ordering[A]]
+  val int = summon[FromInt[A]]
   val size = lst.size
   require(size > 0)
   val sorted = lst.sorted
-  if(size % 2 == 1) {
+  if size % 2 == 1 then {
     sorted(size / 2)
   } else {
     val fst = sorted((size / 2) - 1)
@@ -207,13 +208,13 @@ assert(3 == median(List(1, 3, 4, 5)))
 ```scala
 import Serializers.string
 string(List(1, 2, 3)) // [1,2,3]
-string(List(List(1),List(2),List(3)) // [[1],[2],[3]]
+string(List(List(1),List(2),List(3))) // [[1],[2],[3]]
 string(1) // 1
 string("Foo") // Foo
 class MyClass(val x: Int)
 string(new MyClass(1)) // Compile Error!
 class MyKlass(val x: Int)
-implicit object MyKlassSerializer extends Serializer[MyKlass] {
+given MyKlassSerializer: Serializer[MyKlass] with {
   def serialize(klass: MyKlass): String = s"MyKlass(${klass.x})"
 }
 string(new MyKlass(1)) // OK
@@ -226,7 +227,7 @@ string(new MyKlass(1)) // OK
 * 要素がシリアライズ可能なリストをシリアライズ可能
 
 であり、自分で作成したクラスについては、次のトレイト `Serializer` を
-継承して `serialize` メソッドを実装するオブジェクトをimplicitにすることで、
+継承して `serialize` メソッドを実装する`given`インスタンスを宣言することで、
 シリアライズ可能にできます。
 
 ```scala
@@ -237,13 +238,13 @@ trait Serializer[A] {
 
 これを仮に `Serializer` 型クラスと呼びます。
 
-この `string` メソッドのシグニチャをまず考えてみます。このメソッドは
+この `string` メソッドのシグネチャをまず考えてみます。このメソッドは
 `Serializer` 型クラスを必要としているので、 `Serializer[A]` のような
-implicit parameterを必要としているはずです。また、引数は `A` 型の値
+`using`引数を必要としているはずです。また、引数は `A` 型の値
 で、返り値は `String` なので、結果として次のようになります。
 
 ```scala
-def string[A:Serializer](obj: A): String = ???
+def string[A: Serializer](obj: A): String = ???
 ```
 
 次に実装ですが、 `Serializer` 型クラスを要求しているということは、
@@ -255,13 +256,13 @@ object Serializers {
   trait Serializer[A] {
     def serialize(obj: A): String
   }
-  def string[A:Serializer](obj: A): String = {
-    implicitly[Serializer[A]].serialize(obj)
+  def string[A: Serializer](obj: A): String = {
+    summon[Serializer[A]].serialize(obj)
   }
 }
 ```
 
-`Serializers` という `object` を作っていますが、これをimportすることで：
+`Serializers` という `object` を作っていますが、これをimportすることで、
 
 * `string` メソッドを使える
 * `Serializer` 型クラスが公開される
@@ -272,10 +273,10 @@ object Serializers {
 オブジェクトを `toString` するだけのものなのですが…。
 
 ```scala
-implicit object IntSerializer extends Serializer[Int] {
+given IntSerializer: Serializer[Int] with {
   def serialize(obj: Int): String = obj.toString
 }
-implicit object StringSerializer extends Serializer[String] {
+given StringSerializer: Serializer[String] with {
   def serialize(obj: String): String = obj
 }
 ```
@@ -285,27 +286,25 @@ implicit object StringSerializer extends Serializer[String] {
 いけないのですから、単純に以下のようにしてもだめです。
 
 ```scala
-implicit def ListSerializer[A]: Serializer[List[A]] =
-  new Serializer[List[A]] {
-    def serialize(obj: List[A]): String = ???
-  }
+given ListSerializer[A]: Serializer[List[A]] with {
+  def serialize(obj: List[A]): String = ???
+}
 ```
 
 この定義では `A` にどのような操作が可能なのかわからないため、中身を単純に `toString` するくらいしか
 実装しようがないですし、また、そのような実装では要素型の `Serializer` の実装と整合性が取れません。
-これを解決するには、 `ListSerializer` がimplicit parameterを取るようにします。
+これを解決するには、`ListSerializer`が`using`引数で要素型の`Serializer`を受け取るようにします。
 
 ```scala
-implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] =
-  new Serializer[List[A]] {
-    def serialize(obj: List[A]): String = {
-      val serializedList = obj.map{o => serializer.serialize(o)}
-      serializedList.mkString("[",",","]")
-    }
+given ListSerializer[A](using serializer: Serializer[A]): Serializer[List[A]] with {
+  def serialize(obj: List[A]): String = {
+    val serializedList = obj.map(o => serializer.serialize(o))
+    serializedList.mkString("[", ",", "]")
   }
+}
 ```
 
-このように定義したとき、コンパイラは、要素型 `A` がシリアライズ可能でない場合（あらかじめimplicit def/objectで
+このように定義したとき、コンパイラは、要素型 `A` がシリアライズ可能でない場合（あらかじめ`given`で
 そう定義されていない場合）コンパイルエラーにしてくれます。つまり、型安全にオブジェクトをシリアライズできるの
 です。
 
@@ -317,23 +316,23 @@ object Serializers {
   trait Serializer[A] {
     def serialize(obj: A): String
   }
-  def string[A:Serializer](obj: A): String = {
-    implicitly[Serializer[A]].serialize(obj)
+  def string[A: Serializer](obj: A): String = {
+    summon[Serializer[A]].serialize(obj)
   }
-  implicit object IntSerializer extends Serializer[Int] {
+  given IntSerializer: Serializer[Int] with {
     def serialize(obj: Int): String = obj.toString
   }
-  implicit object StringSerializer extends Serializer[String] {
+  given StringSerializer: Serializer[String] with {
     def serialize(obj: String): String = obj
   }
-  implicit def ListSerializer[A](implicit serializer: Serializer[A]): Serializer[List[A]] = new Serializer[List[A]]{
+  given ListSerializer[A](using serializer: Serializer[A]): Serializer[List[A]] with {
     def serialize(obj: List[A]): String = {
-      val serializedList = obj.map{o => serializer.serialize(o)}
-      serializedList.mkString("[",",","]")
+      val serializedList = obj.map(o => serializer.serialize(o))
+      serializedList.mkString("[", ",", "]")
     }
   }
 }
-import Serializers._
+import Serializers.*
 string(List(1, 2, 3)) // [1,2,3]
 string(List(List(1),List(2),List(3))) // [[1],[2],[3]]
 string(1) // 1
@@ -341,7 +340,7 @@ string("Foo") // Foo
 // class MyClass(val x: Int)
 // string(new MyClass(1)) // Compile Error!
 class MyKlass(val x: Int)
-implicit object MyKlassSerializer extends Serializer[MyKlass] {
+given MyKlassSerializer: Serializer[MyKlass] with {
   def serialize(klass: MyKlass): String = s"MyKlass(${klass.x})"
 }
 string(new MyKlass(1)) // OK
@@ -356,7 +355,7 @@ string(new MyKlass(1)) // OK
 
 ## まとめ
 
-型クラス（≒implicit parameter）は、うまく使うと、後付けのデータ型に対して
+型クラス（≒`given`/`using`）は、うまく使うと、後付けのデータ型に対して
 既存のアルゴリズムを型安全に適用するのに使うことができます。この特徴は、特にライブラリ設計のときに
 重要になってきます。ライブラリ設計時点で定義されていないデータ型に対していかにしてライブラリのアルゴリズム
 を適用するか、つまり、拡張性が高いように作るかというのは、なかなか難しい問題です。簡潔に書けることを重視すると、
