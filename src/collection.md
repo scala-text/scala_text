@@ -123,7 +123,7 @@ arr
 val lst = List(1, 2, 3, 4, 5)
 ```
 
-```scala
+```scala mdoc:nest:fail
 lst(0) = 7
 ```
 
@@ -203,7 +203,7 @@ List(1, 2, 3, 4, 5).mkString
 注意しなければならないのは、引数なしメソッドの`mkString`は`()`を付けて呼びだすことが**できない**
 という点です。たとえば、以下のコードは、若干分かりにくいエラーメッセージがでてコンパイルに失敗します。
 
-```scala
+```scala mdoc:nest:fail
 List(1, 2, 3, 4, 5).mkString()
 ```
 

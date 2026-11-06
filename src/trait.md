@@ -50,7 +50,7 @@ class ClassB
 class ClassC extends ClassA with TraitA with TraitB
 ```
 
-```scala
+```scala mdoc:nest:fail
 // コンパイルエラー！
 class ClassD extends ClassA with ClassB
 ```
@@ -66,7 +66,7 @@ Scalaのトレイトはクラスと違い、直接インスタンス化できま
 trait TraitA
 ```
 
-```scala
+```scala mdoc:nest:fail
 object ObjectA {
   // コンパイルエラー！
   val a = new TraitA
@@ -165,7 +165,7 @@ trait TraitC extends TraitA {
 }
 ```
 
-```scala
+```scala mdoc:nest:fail
 class ClassA extends TraitB with TraitC
 ```
 
@@ -173,17 +173,7 @@ class ClassA extends TraitB with TraitC
 `TraitB`の`greet`メソッドを実行すべきなのか、`TraitC`の`greet`メソッドを実行すべきなのか。
 多重継承をサポートする言語はどれもこのようなあいまいさの問題を抱えており、対処が求められます。
 
-ちなみに、上記の例をScalaでコンパイルすると以下のようなエラーが出ます。
-
-```scala
-scala> class ClassA extends TraitB with TraitC
-<console>:13: error: class ClassA inherits conflicting members:
-  method greet in trait TraitB of type ()Unit  and
-  method greet in trait TraitC of type ()Unit
-(Note: this can be resolved by declaring an override in class ClassA.)
-       class ClassA extends TraitB with TraitC
-             ^
-```
+ちなみに、上記の例をScalaでコンパイルするとエラーが出ます。
 
 Scalaではoverride指定なしの場合メソッド定義の衝突はエラーになります。
 
