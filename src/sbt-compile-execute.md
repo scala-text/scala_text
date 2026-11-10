@@ -5,10 +5,10 @@
 入力します[^repl-quit]。
 
 ```
->:quit
+scala> :quit
 ```
 
-Scala 2.10までは`exit`、Scala 2.11以降は`sys.exit`で終了することができますが、これらはREPL専用のコマンドではなく、今のプロセス自体を
+なお、`sys.exit`でも終了することができますが、これはREPL専用のコマンドではなく、今のプロセス自体を
 終了させる汎用的なメソッドなのでREPLを終了させる時には使用しないようにしましょう。
 
 ```scala mdoc:nest:silent
@@ -60,18 +60,19 @@ $ sbt
 今回はHelloWorldのプログラムを実行するために`run`コマンドを入力してみましょう。
 
 ```scala
-> run
-[info] Compiling 1 Scala source to ...
-[info] Running HelloWorld
+sbt:sandbox> run
+[info] compiling 1 Scala source to /Users/.../sandbox/target/scala-3.8.4/classes ...
+[info] done compiling
+[info] running HelloWorld
 Hello, World!
-[success] Total time: 1 s, completed 2015/02/09 15:44:44
+[success] Total time: 3 s, completed 2026/07/06 12:00:00
 ```
 
 HelloWorldプログラムがコンパイルされ、さらに実行されて`Hello, World!`と表示されました。
 `run`コマンドでは`main`メソッドを持っているオブジェクトを探して実行してくれます。
 
 またsbtの管理下のScalaプログラムは`console`コマンドでREPLから呼び出せるようになります。
-_HelloWorld.scala_と同じ場所に_User.scala_というファイルを作ってみましょう
+_HelloWorld.scala_と同じ場所に_User.scala_というファイルを作ってみましょう。
 
 ```scala mdoc:nest:silent
 // User.scala
@@ -94,8 +95,8 @@ sandbox
 この状態で`sbt console`でREPLを起動すると、REPLで`User`クラスや`User`オブジェクトを利用することができます。
 
 ```scala
-scala> val u = new User("dwango", 13)
-u: User = User@20daebd4
+scala> val u = User("dwango", 13)
+val u: User = User@20daebd4
 
 scala> User.printUser(u)
 dwango 13
