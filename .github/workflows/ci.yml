@@ -33,7 +33,7 @@ jobs:
     - run: npm install svgexport -g
     - run: sbt -v --server textLintAll textTestAll textBuildHtml test
     - run: |
-        wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/28c3422398e47e802b43dc026c27189ec9ef5050/setup/linux-installer.py |
+        wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/d54002a97eaec3fa558934bca730d0fe9abf8771/setup/linux-installer.py |
         python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('~/calibre-bin', True)" >/dev/null
     - run: |
         export PATH="~/calibre-bin/calibre/:$HOME/calibre-bin/calibre/:$PATH"
