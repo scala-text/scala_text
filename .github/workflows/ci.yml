@@ -15,14 +15,19 @@ jobs:
       JAVA_OPTS: "-Xmx6G -Xss8m"
       JVM_OPTS:  "-Xmx6G -Xss8m"
     steps:
-    - uses: actions/checkout@v7
-    - uses: actions/setup-java@v6
+    - uses: actions/checkout@v7.0.1
+    - run: |
+        gh extension install github/gh-actions-lock
+        gh actions-lock --verify
+      env:
+        GH_TOKEN: ${{ github.token }}
+    - uses: actions/setup-java@v6.3.0
       with:
         java-version: 17
         distribution: temurin
-    - uses: sbt/setup-sbt@v1
-    - uses: coursier/cache-action@v9
-    - uses: actions/setup-node@v7
+    - uses: sbt/setup-sbt@v1.5.15
+    - uses: coursier/cache-action@v9.0.1
+    - uses: actions/setup-node@v7.1.0
       with:
         node-version: '26.1.0'
     - run: sudo apt-get update
@@ -44,7 +49,7 @@ jobs:
     - run: find . -name "*.class" | xargs rm -rf
     - run: find . -name target | xargs rm -rf
     - name: push to gh-pages
-      uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
+      uses: JamesIves/github-pages-deploy-action@v4.9.0
       if: ${{ github.repository_owner == 'scala-text' && github.ref == 'refs/heads/master' && github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
       with:
         branch: gh-pages
@@ -57,7 +62,7 @@ jobs:
         pattern: 'refs/heads/(.*)'
         replace-with: '$1'
     - name: push to scala_text_previews
-      uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
+      uses: JamesIves/github-pages-deploy-action@v4.9.0
       if: ${{ github.repository_owner == 'scala-text' && github.ref != 'refs/heads/master' && github.event_name == 'push' && github.actor != 'dependabot[bot]' }}
       with:
         ssh-key: ${{ secrets.SCALA_TEXT_PREVIEWS_KEY }}
@@ -66,7 +71,7 @@ jobs:
         branch: gh-pages
         folder: honkit/_book/
         clean: true
-    - uses: actions/github-script@v9
+    - uses: actions/github-script@v9.0.0
       if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request' && github.repository_owner == 'scala-text' && github.actor != 'dependabot[bot]'}}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -86,7 +91,7 @@ jobs:
     steps:
     - id: generate_token
       if: ${{ github.repository_owner == 'scala-text' && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-      uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+      uses: actions/create-github-app-token@v3.3.0
       with:
         app-id: 89662
         private-key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
