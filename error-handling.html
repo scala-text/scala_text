@@ -528,7 +528,7 @@ Javaはプリミティブ型以外の参照型はすべてnullにすることが
 <h2 id="エラーを表現するデータ型を使った処理"><a name="エラーを表現するデータ型を使った処理" class="plugin-anchor" href="#エラーを表現するデータ型を使った処理"><i class="fa fa-link" aria-hidden="true"></i></a>エラーを表現するデータ型を使った処理</h2>
 <p>例外に問題があるとすれば、どのようにエラーを扱えばよいのでしょうか。その答えの1つはエラーを例外ではなく、メソッドの返り値で返せるような値にすることです。</p>
 <p>ここでは正常の値とエラー値のどちらかを表現できるデータ構造の紹介を通じて、Scalaの関数型のエラー処理の方法を見ていきます。</p>
-<h3 id="option"><a name="option" class="plugin-anchor" href="#option"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.8.4/library/src/scala/Option.scala" target="_blank">Option</a></h3>
+<h3 id="option"><a name="option" class="plugin-anchor" href="#option"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.9.0/library/src/scala/Option.scala" target="_blank">Option</a></h3>
 <p>OptionはScalaでもっとも多用されるデータ型の1つです。前述のとおりJavaのnullの代替として使われることが多いデータ型です。</p>
 <p>Option型は簡単に言うと、値を1つだけいれることのできるコンテナです。ただし、Optionのまま様々なデータ変換処理ができるように便利な機能を持ちあわせています。</p>
 <h4 id="optionの作り方と値の取得"><a name="optionの作り方と値の取得" class="plugin-anchor" href="#optionの作り方と値の取得"><i class="fa fa-link" aria-hidden="true"></i></a>Optionの作り方と値の取得</h4>
@@ -566,8 +566,8 @@ o.isDefined
 <pre><code class="lang-scala">o.get
 
 <span class="hljs-comment">// java.util.NoSuchElementException: None.get</span>
-<span class="hljs-comment">//     at scala.None$.get(Option.scala:628)</span>
-<span class="hljs-comment">//     at scala.None$.get(Option.scala:628)</span>
+<span class="hljs-comment">//     at scala.None$.get(Option.scala:700)</span>
+<span class="hljs-comment">//     at scala.None$.get(Option.scala:700)</span>
 <span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$1(error-handling.md:48)</span>
 </code></pre>
 <p>Optionのコンパニオンオブジェクトのapplyには引数がnullであるかどうかのチェックが入っており、引数がnullの場合、値がNoneになります。
@@ -579,7 +579,7 @@ o.isDefined
 <pre><code class="lang-scala">o.getOrElse(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(<span class="hljs-string">"nullは受け入れられません"</span>))
 <span class="hljs-comment">// java.lang.RuntimeException: nullは受け入れられません</span>
 <span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$2$$anonfun$1(error-handling.md:66)</span>
-<span class="hljs-comment">//     at scala.Option.getOrElse(Option.scala:203)</span>
+<span class="hljs-comment">//     at scala.Option.getOrElse(Option.scala:228)</span>
 <span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$2(error-handling.md:66)</span>
 </code></pre>
 <p>このように書くこともできるのです。</p>
@@ -629,7 +629,7 @@ mapでは、値がSomeの場合は中身に関数を適用しますが、Noneの
 <pre><code class="lang-scala">n.fold(<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>)(_ * <span class="hljs-number">3</span>)
 <span class="hljs-comment">// java.lang.RuntimeException</span>
 <span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$4$$anonfun$1(error-handling.md:124)</span>
-<span class="hljs-comment">//     at scala.Option.fold(Option.scala:265)</span>
+<span class="hljs-comment">//     at scala.Option.fold(Option.scala:302)</span>
 <span class="hljs-comment">//     at repl.MdocSession$MdocApp.$init$$$anonfun$4(error-handling.md:124)</span>
 </code></pre>
 <p>上記のように書くことで、Noneの際に実行する処理を定義し、かつ、関数を適用した中身の値を取得することができます。</p>
@@ -779,7 +779,7 @@ for式は実際には<code>flatMap</code>と<code>map</code>展開されて実�
       i5 &lt;- v5 } <span class="hljs-keyword">yield</span> i1 * i2 * i3 * i4 * i5
 </code></pre>
 </div>
-<h3 id="either"><a name="either" class="plugin-anchor" href="#either"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.8.4/library/src/scala/util/Either.scala" target="_blank">Either</a></h3>
+<h3 id="either"><a name="either" class="plugin-anchor" href="#either"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.9.0/library/src/scala/util/Either.scala" target="_blank">Either</a></h3>
 <p>Optionによりnullを使う必要はなくなりましたが、いっぽうでOptionでは処理が成功したかどうかしかわからないという問題があります。
 Noneの場合、値が取得できなかったことはわかりますが、エラーの状態は取得できないので、使用できるのはエラーの種類が問題にならないような場合のみです。</p>
 <p>そんなOptionと違い、エラー時にエラーの種類まで取得できるのがEitherです。
@@ -882,7 +882,7 @@ f(g())
 <li>引数の式がものすごく計算コストが高いかもしれないが、計算結果を本当に使うかわからない。使われる箇所で計算させたい</li>
 </ul>
 <p>似たような挙動は高階関数を使えば書けるのですが、名前渡しパラメータのほうが簡潔な記述ができるという点でより優れています。</p>
-<h3 id="try"><a name="try" class="plugin-anchor" href="#try"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.8.4/library/src/scala/util/Try.scala" target="_blank">Try</a></h3>
+<h3 id="try"><a name="try" class="plugin-anchor" href="#try"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.9.0/library/src/scala/util/Try.scala" target="_blank">Try</a></h3>
 <p>ScalaのTryはEitherと同じように正常な値とエラー値のどちらかを表現するデータ型です。
 Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowableに限定されており、型引数を1つしか取らないことです。具体的にはTryは以下の2つの値をとります。</p>
 <ul>
@@ -912,7 +912,7 @@ Eitherとの違いは、2つの型が平等ではなく、エラー値がThrowab
 } <span class="hljs-keyword">yield</span> i1 * i2 * i3
 <span class="hljs-comment">// res24: Try[Int] = Success(105)</span>
 </code></pre>
-<h4 id="nonfatalの例外"><a name="nonfatalの例外" class="plugin-anchor" href="#nonfatalの例外"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.8.4/library/src/scala/util/control/NonFatal.scala" target="_blank"><code>NonFatal</code></a>の例外</h4>
+<h4 id="nonfatalの例外"><a name="nonfatalの例外" class="plugin-anchor" href="#nonfatalの例外"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/scala/scala3/blob/3.9.0/library/src/scala/util/control/NonFatal.scala" target="_blank"><code>NonFatal</code></a>の例外</h4>
 <p><code>Try.apply</code>がcatchするのはすべての例外ではありません。
 NonFatalという種類の例外だけです。
 NonFatalではない例外はアプリケーション中で復旧が困難な非常に重度なものです。なので、NonFatalではない例外はcatchせずにアプリケーションを終了させて、外部から再起動などをしたほうがいいです。</p>
@@ -1122,7 +1122,7 @@ for式で値を取得した後、mergeメソッドにより中身を畳み込ん
     </div>
 
     
-    <script type="application/json" id="honkit-page-context">{"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"\u003c!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"\u003cdiv>\u003cbutton type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する\u003c/button>\u003cbutton type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す\u003c/button>\u003c/div>\u003cdiv id=\"$1\" style=\"$2\">"},{"pattern":"\u003c!-- end answer -->","flags":"g","substitute":"\u003c/div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2026-11-18T22:18:45.564Z","type":"markdown"},"gitbook":{"version":"7.0.0","time":"2026-11-18T22:19:02.093Z"},"basePath":".","book":{"language":""}}</script>
+    <script type="application/json" id="honkit-page-context">{"page":{"title":"エラー処理","level":"1.16","depth":1,"next":{"title":"Implicit","level":"1.17","depth":1,"path":"implicit.md","ref":"implicit.md","articles":[]},"previous":{"title":"ケースクラスとパターンマッチング","level":"1.15","depth":1,"path":"case-class-and-pattern-matching.md","ref":"case-class-and-pattern-matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","japanese-support","footnote-string-to-number","anchors","regexplace","forkmegithub"],"root":"./honkit","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"regexplace":{"substitutes":[{"pattern":"\u003c!-- begin answer id=\"(.*)\" style=\"(.*)\" -->","flags":"g","substitute":"\u003cdiv>\u003cbutton type=\"button\" id=\"$1_show_answer_button\" style=\"display:block\" onclick=\"document.getElementById('$1').style.display='block'; document.getElementById('$1_show_answer_button').style.display='none'; document.getElementById('$1_hide_answer_button').style.display='block'; \">解答例を表示する\u003c/button>\u003cbutton type=\"button\" id=\"$1_hide_answer_button\" style=\"display:none\" onclick=\"document.getElementById('$1').style.display='none'; document.getElementById('$1_show_answer_button').style.display='block'; document.getElementById('$1_hide_answer_button').style.display='none'; \">解答例を隠す\u003c/button>\u003c/div>\u003cdiv id=\"$1\" style=\"$2\">"},{"pattern":"\u003c!-- end answer -->","flags":"g","substitute":"\u003c/div>"}]},"search":{},"footnote-string-to-number":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"japanese-support":{},"highlight":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":false},"forkmegithub":{"color":"darkblue","url":"https://github.com/scala-text/scala_text"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"INTRODUCTION.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scala研修テキスト","gitbook":"*"},"file":{"path":"error-handling.md","mtime":"2026-11-18T22:59:26.128Z","type":"markdown"},"gitbook":{"version":"7.0.0","time":"2026-11-18T22:59:37.602Z"},"basePath":".","book":{"language":""}}</script>
 </div>
 
         
