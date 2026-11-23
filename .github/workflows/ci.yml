@@ -91,7 +91,7 @@ jobs:
     steps:
     - id: generate_token
       if: ${{ github.repository_owner == 'scala-text' && github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-      uses: actions/create-github-app-token@v3.3.0
+      uses: actions/create-github-app-token@v3.4.0
       with:
         app-id: 89662
         private-key: ${{ secrets.SCALA_TEXT_BOT_KEY }}
